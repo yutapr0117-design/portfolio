@@ -1,0 +1,730 @@
+Source: OSI license-discuss public archive, 2000-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 15 of 43 in "Wired Article on the GPL" (2000-03-29 to 2000-03-31)
+Senders: W. Yip, Chip Salzenberg, Ian Grigg, Ken Arromdee, John Cowan, Justin Wells, Richard Watts
+Position: Not addressed to us. Observed. Each message kept here is whole. Ian Grigg's message of 2000-03-29 quotes, in full, a message he had sent the same morning to another list (CYBERIA-L). Messages are in order of the time sent. The messages from the same months on public-domain liability and abandonment are in 2000-08-license-discuss-public-domain-liability-and-abandonment-observed.txt.
+
+----- begin verbatim -----
+From weng at yours.com  Wed Mar 29 23:11:20 2000
+From: weng at yours.com (W. Yip)
+Date: Thu, 30 Mar 2000 00:11:20 +0100
+Subject: Wired Article on the GPL
+In-Reply-To: <Pine.LNX.4.10.10003291003120.23330-100000@vodka.linuxkb.org>
+References: <Pine.LNX.4.10.10003291003120.23330-100000@vodka.linuxkb.org>
+Message-ID: <0325esg27mr18g07peohr6habis3vtmuon@4ax.com>
+
+On Wed, 29 Mar 2000 10:12:50 -0800 (PST), Aaron Turner
+<aturner at linuxkb.org> wrote:
+>
+>Wired has a rather interesting article on the GPL in relation to the suit
+>by Mattel re: cphack. [snip]
+
+Fellas, this seems to be the type of dispute we have been waiting for.
+
+Microsystems Software and Mattel, inc v. Scandinavia Online, Islandnet.com,
+E. Jannson and M. Skala
+
+hmmm... J and S own the copyright to a program "cphack". J and S release
+cphack under GPL. "cphack" is distributed to X, Y, Z under the GPL.
+
+Subsequently, J and S, who are sole proprietors of the copyright, assign it
+to M under a contract of transfer. M decides to assert its copyright
+ownership, possibly by revocation of te GPL, for purposes of stopping
+further re-distribution by parties X,Y, Z.
+
+(Are these the right facts?)
+
+IMHO, There are two primary issues:
+
+A. Is revocation by M possible?
+
+B. Are J + S in breach of contract? J + S sign contractual agreement with M
+to transfer 'all rights, if any' to M. This means exclusive copyright. But
+so long as the GPL perpetuates further redistribution, it is possible that
+M has not obtained 'all rights, if any'.
+
+C. Suppose M *succeeds* in revoking the GPL such that X, Y and Z are
+stopped from redistribution (perhaps under a court injunction). Would X, Y,
+Z be able to sue J + S for contractual breach, since the GPL would be a
+contract (between J + S and X,Y,Z) following UCITA?
+
+For my part, I do not understand how the question of assignment of rights
+to FSF fits into the picture. ( as reported in the wired.com article)
+Surely if J and S has assigned copyright to FSF, then it is impossible for
+them to contract with M at all? I wonder if M would have sought to buy the
+copyright from FSF in event there was such an assignment.
+
+
+
+From chip at valinux.com  Wed Mar 29 23:49:49 2000
+From: chip at valinux.com (Chip Salzenberg)
+Date: Wed, 29 Mar 2000 15:49:49 -0800
+Subject: Wired Article on the GPL
+In-Reply-To: <0325esg27mr18g07peohr6habis3vtmuon@4ax.com>; from weng@yours.com on Thu, Mar 30, 2000 at 12:11:20AM +0100
+References: <Pine.LNX.4.10.10003291003120.23330-100000@vodka.linuxkb.org> <0325esg27mr18g07peohr6habis3vtmuon@4ax.com>
+Message-ID: <20000329154949.P461@perlsupport.com>
+
+According to W . Yip:
+> So long as the GPL perpetuates further redistribution, it is
+> possible that M has not obtained 'all rights, if any'.
+
+[IANAL]
+
+By releasing under the GPL, the original authors surrendered their
+right to control GPL-compatible copying.  Having surrendered that
+right, the original authors are not able to transfer it.
+
+I seems to me that M has just paid money (a lot of money?  I dunno)
+for the IP equivalent of the Brooklyn Bridge. [1]  All they really
+purchased was the ability to create a prioprietary fork.
+
+[1] For non-USAians: The Brooklyn Bridge used to be "sold" to gullible
+    tourists through the semi-legal sale of 'any and all interest'
+    that the con man held in the Bridge.  Which was, of course, zero.
+-- 
+Chip Salzenberg              - a.k.a. -              <chip at valinux.com>
+"I wanted to play hopscotch with the impenetrable mystery of existence,
+    but he stepped in a wormhole and had to go in early."  // MST3K
+
+
+From iang at systemics.com  Wed Mar 29 23:52:15 2000
+From: iang at systemics.com (Ian Grigg)
+Date: Wed, 29 Mar 2000 19:52:15 -0400
+Subject: Wired Article on the GPL
+References: <Pine.LNX.4.10.10003291003120.23330-100000@vodka.linuxkb.org> <0325esg27mr18g07peohr6habis3vtmuon@4ax.com>
+Message-ID: <38E2972F.984A7C6F@systemics.com>
+
+"W. Yip" wrote:
+
+> A. Is revocation by M possible?
+
+Here's what I wrote on another list this morning:
+
+Subject:              open source licence non-revocability
+   Date:              Wed, 29 Mar 2000 08:55:29 -0400
+   From:              Ian Grigg <iang at SYSTEMICS.COM>
+     To:              CYBERIA-L at LISTSERV.AOL.COM
+
+John Noble wrote:
+> My understanding is that a license is presumptively revocable.
+
+Open source licences are customarily non-revocable.  This is
+an industry or community situation, rather than anything covered
+in law.
+
+I say customarily, in the sense of customary law, but my sense
+of this is quite limited, having read JKW's attack on Verisign
+(on her site somewhere: http://www.smu.edu/~jwinn/ ).  IANAL.
+
+In order to establish court precedent I suppose one could encourage
+the judge to look at the following facts (assertations):
+
+   1.  Open source licences have been in existance since the early
+       eighties, at least.
+
+   2.  The community as a whole, and professionals within that
+       community have a working belief that they are non-revocable.
+
+   3.  There have been many cases of "withdrawal" where new versions
+       have ceased to be issued under the original licence, but are
+       then issued under changed licences.  In all cases, AFAIK, the
+       old licences remain valid, and pre-published code continues
+       to remain available under the old licence.  But, over time,
+       the user base tends to follow the newer supported code, and
+       thus the revised licence.
+
+   4.  The Internet as a whole relies on the non-revocability of
+       these licences.  Last I saw, half the servers that run the
+       net are split between FreeBSD and Linux, both relying on
+       open source licences.  If, hypothetically, the licences
+       underlying these systems were to be revoced, then this list
+       would probably cease to exist (not so much the list server
+       but many of the intermediate nodes would be "invalid").
+
+I've not ever researched this issue, and am writing as a professional
+that was worked with these licences for many years.  I think to claim
+that an open source licence is revocable might be legally consistent,
+but, does not reflect the practice and understanding of the net
+community.
+
+OTOH, I don't know how far the concept of customary law takes us.
+
+iang
+
+
+From arromdee at rahul.net  Thu Mar 30 03:47:29 2000
+From: arromdee at rahul.net (Ken Arromdee)
+Date: Wed, 29 Mar 2000 19:47:29 -0800 (PST)
+Subject: Wired Article on the GPL
+In-Reply-To: <0325esg27mr18g07peohr6habis3vtmuon@4ax.com>
+Message-ID: <Pine.SUN.3.96.1000329193346.29873B-100000@waltz>
+
+On Thu, 30 Mar 2000, W.Yip wrote:
+> For my part, I do not understand how the question of assignment of rights
+> to FSF fits into the picture. ( as reported in the wired.com article)
+> Surely if J and S has assigned copyright to FSF, then it is impossible for
+> them to contract with M at all? I wonder if M would have sought to buy the
+> copyright from FSF in event there was such an assignment.
+
+I didn't understand it either.  It seemed like Wired had made the mistake of
+thinking that the GPL depends on copyright assignment to the FSF, and that if
+the copyright is not assigned to the FSF, the GPL is not valid.  That's clearly
+a bad argument.
+
+But it turns out that that's not what they meant.  The Wired article is just
+written poorly.  Someone on Slashdot quoted the actual law that they *were*
+referring to:
+-------------------
+USC 17 205 E
+
+(e) Priority Between Conflicting Transfer of Ownership and Nonexclusive
+License. - A nonexclusive license, whether recorded or not, prevails over a
+conflicting transfer of copyright ownership if the license is evidenced by a
+written instrument signed by the owner of the rights licensed or such owner's
+duly authorized agent, and if - 
+
+(1) the license was taken before execution of the transfer; or 
+
+(2) the license was taken in good faith before recordation of the transfer
+and without notice of it. 
+-------------------
+That *could* mean that if there is a signed contract, then the GPL takes
+priority--and conversely, if there wasn't a signed contract, then Mattel's
+ownership takes priority.
+
+It's still a little strained to interpret it that way.  It doesn't say outright
+what happens without a signed contract, so it might only mean that it doesn't
+*automatically* prevail without one, not that it can't prevail at all.  Also,
+if you interpret the law that way, you come up with the absurd conclusion that
+the initial copyright owner might be unable to revoke the license, but if he
+transfers the license to someone else that other party can do what he can't.
+
+
+
+From weng at yours.com  Thu Mar 30 12:43:12 2000
+From: weng at yours.com (W. Yip)
+Date: Thu, 30 Mar 2000 13:43:12 +0100
+Subject: Wired Article on the GPL
+In-Reply-To: <Pine.SUN.3.96.1000329193346.29873B-100000@waltz>
+References: <0325esg27mr18g07peohr6habis3vtmuon@4ax.com> <Pine.SUN.3.96.1000329193346.29873B-100000@waltz>
+Message-ID: <fch6esk3vd9tneph2uklm0ehvrjfs5mh0m@4ax.com>
+
+On Wed, 29 Mar 2000 19:47:29 -0800 (PST), Ken Arromdee <arromdee at rahul.net>
+wrote:
+>But it turns out that that's not what they meant.  The Wired article is just
+>written poorly.  Someone on Slashdot quoted the actual law that they *were*
+>referring to:
+
+Having gone through the following, I still fail to see how FSF fits into
+the picture. Was wired.com merely doing some publicity for FSF?
+
+>-------------------
+>USC 17 205 E
+>(e) Priority Between Conflicting Transfer of Ownership and Nonexclusive
+>License. - A nonexclusive license, whether recorded or not, prevails over a
+>conflicting transfer of copyright ownership if the license is evidenced by a
+>written instrument signed by the owner of the rights licensed or such owner's
+>duly authorized agent, and if - 
+>(1) the license was taken before execution of the transfer; or 
+>(2) the license was taken in good faith before recordation of the transfer
+>and without notice of it. 
+>-------------------
+>That *could* mean that if there is a signed contract, then the GPL takes
+>priority--and conversely, if there wasn't a signed contract, then Mattel's
+>ownership takes priority.
+
+The above makes sense. *Imagine* Microsoft being bought by XXX company
+tomorrow. You do not want to have your license to Windows being revoked
+would you (really) ?
+
+I would presume Mattel, being a big corp, will have the sense to get a
+signature when they buy something.
+
+>From what you have quoted, the USC 17 205 does *not* address the rub of the
+GPL situation, which is about a recurring 'chain of licenses'. It is this
+element involving unlimited distribution which Mattel aims to stop.
+
+The USC 17 205 only seems to address the single license, from one
+individual to another.
+
+>It's still a little strained to interpret it that way.  It doesn't say outright
+>what happens without a signed contract, so it might only mean that it doesn't
+>*automatically* prevail without one, not that it can't prevail at all.
+
+I think it safe to assume that in absence of a 'written instrument' a
+license is exhausted by the act of copyright transfer. This is because,
+without a 'written instrument' the license is almost certainly a bare
+license - ie. plain permission. One cannot claim permission to an article
+subsists even after ownership of the article has passed.
+
+Again, when we superimpose UCITA mandating that every license is a
+contract, then this becomes problemmatic, since a contractual license
+cannot be plain permission.
+
+I accept your point that the USC provision is silent on what happens in
+absence of a signed contract. However, the odds would certainly weigh
+against the GPL in such a case where Mattel is actively seeking to assert
+its exclusive rights of copyright ownership.
+
+>  Also,
+>if you interpret the law that way, you come up with the absurd conclusion that
+>the initial copyright owner might be unable to revoke the license, but if he
+>transfers the license to someone else that other party can do what he can't.
+
+This might not be absurb because the initial copyright owner would be the
+one who voluntarily chose this particular course of action (GPL), and so we
+can argue he ought not be allowed to renege from it. OTOH, a purchaser,
+particularly a bona fide one, may not know anything about the licenses
+attached to a copyright which he is purchasing, and thus deserves
+protection from copyright holders who may be dishonest.
+
+
+
+From chip at valinux.com  Thu Mar 30 18:16:05 2000
+From: chip at valinux.com (Chip Salzenberg)
+Date: Thu, 30 Mar 2000 10:16:05 -0800
+Subject: Wired Article on the GPL
+In-Reply-To: <qdf6esoqbcbr84aaqbtgjrhb8g5e51vs21@4ax.com>; from weng@yours.com on Thu, Mar 30, 2000 at 12:54:38PM +0100
+References: <Pine.LNX.4.10.10003291003120.23330-100000@vodka.linuxkb.org> <0325esg27mr18g07peohr6habis3vtmuon@4ax.com> <20000329154949.P461@perlsupport.com> <qdf6esoqbcbr84aaqbtgjrhb8g5e51vs21@4ax.com>
+Message-ID: <20000330101604.A594@perlsupport.com>
+
+According to W . Yip:
+> On Wed, 29 Mar 2000 15:49:49 -0800, Chip Salzenberg <chip at valinux.com> wrote:
+> >By releasing under the GPL, the original authors surrendered their
+> >right to control GPL-compatible copying.  Having surrendered that
+> >right, the original authors are not able to transfer it.
+> 
+> Mattel's lawyers would certainly disagree with you on this one. They
+> probably would stand by their contract and claim that copyright has been
+> assigned to them.
+
+Oh, I won't argue that point.  Mattel certainly owns the copyright.
+
+But I would consider it obvious that, once I have been granted me a
+license to copy, neither the original copyright holder nor his assigns
+have the authority to stop me.  In other words, the license adheres to
+the code, not the author.
+
+Frankly, I'm stunned that Mattel is even bringing this argument.
+They (or the department in question) must be in a full-blown panic.
+-- 
+Chip Salzenberg              - a.k.a. -              <chip at valinux.com>
+"I wanted to play hopscotch with the impenetrable mystery of existence,
+    but he stepped in a wormhole and had to go in early."  // MST3K
+
+
+From jcowan at reutershealth.com  Thu Mar 30 18:35:25 2000
+From: jcowan at reutershealth.com (John Cowan)
+Date: Thu, 30 Mar 2000 13:35:25 -0500
+Subject: Wired Article on the GPL
+References: <Pine.LNX.4.10.10003291003120.23330-100000@vodka.linuxkb.org> <0325esg27mr18g07peohr6habis3vtmuon@4ax.com> <20000329154949.P461@perlsupport.com> <qdf6esoqbcbr84aaqbtgjrhb8g5e51vs21@4ax.com> <20000330101604.A594@perlsupport.com>
+Message-ID: <38E39E6D.47C7A59B@reutershealth.com>
+
+Chip Salzenberg wrote:
+
+> But I would consider it obvious that, once I have been granted me a
+> license to copy, neither the original copyright holder nor his assigns
+> have the authority to stop me.  In other words, the license adheres to
+> the code, not the author.
+
+Not obvious, probably not true.  Licenses are personal, in general, 
+and a license that isn't a contract (a bare permission)
+can be freely revoked by the licensor, as in an invitation to enter onto
+land: if the landowner changes his mind, the licensee instantly becomes
+a trespasser.
+
+-- 
+
+Schlingt dreifach einen Kreis um dies! || John Cowan <jcowan at reutershealth.com>
+Schliesst euer Aug vor heiliger Schau,  || http://www.reutershealth.com
+Denn er genoss vom Honig-Tau,           || http://www.ccil.org/~cowan
+Und trank die Milch vom Paradies.            -- Coleridge (tr. Politzer)
+
+
+From arromdee at rahul.net  Thu Mar 30 21:23:33 2000
+From: arromdee at rahul.net (Ken Arromdee)
+Date: Thu, 30 Mar 2000 13:23:33 -0800 (PST)
+Subject: Wired Article on the GPL
+In-Reply-To: <20000330110655.J594@perlsupport.com>
+Message-ID: <Pine.SUN.3.96.1000330131742.20065A-100000@waltz>
+
+On Thu, 30 Mar 2000, Chip Salzenberg wrote:
+> > A license that isn't a contract (a bare permission) can be freely
+> > revoked by the licensor, as in an invitation to enter onto land: if
+> > the landowner changes his mind, the licensee instantly becomes a
+> > trespasser.
+> I never thought I'd say this, but:  'Only UCITA can save us now.'
+
+IANAL, but there's always the possibility of a court ruling that recipients of
+GPL software are providing consideration, so it's a contract.  If you
+distribute a binary, the consideration might be that you distribute the
+source.  Putting one's own code under GPL if linked with GPL might also be
+consideration--I don't think consideration has to directly benefit the
+original copyright owner to count as consideration.
+
+The FSF really should get involved in this, because the implications of this
+question are obviously pretty big.
+
+
+
+From jcowan at reutershealth.com  Thu Mar 30 21:39:10 2000
+From: jcowan at reutershealth.com (John Cowan)
+Date: Thu, 30 Mar 2000 16:39:10 -0500
+Subject: Wired Article on the GPL
+References: <200003302106.XAA09506@topaze.ecf.teradyne.com>
+Message-ID: <38E3C97E.96FC09FC@reutershealth.com>
+
+Nils Lohner wrote:
+
+> This does not make sense.  If I bought the software, and the license is
+> changed afterwards, I have to abide by a new license?  I would argue that I
+> should have to abide by the license under which I bought it as I have never
+> had a chance to acept or reject the other license.  Use your imagination to
+> add some fun clauses to new license :)  Somehow this does not seem logical,
+> reasonable, etc.
+
+Remember that we are talking about the GPL here, not some random proprietary
+license.  The GPL grants you permissions to take certain actions provided you
+meet certain conditions.  The actions are copying, distributing, and
+making derivative works.  You neither accept nor reject the GPL; it grants
+you permissions whether you want them or not.
+
+If the copyright owner revokes the permissions, you are probably out of luck.
+
+-- 
+
+Schlingt dreifach einen Kreis um dies! || John Cowan <jcowan at reutershealth.com>
+Schliesst euer Aug vor heiliger Schau,  || http://www.reutershealth.com
+Denn er genoss vom Honig-Tau,           || http://www.ccil.org/~cowan
+Und trank die Milch vom Paradies.            -- Coleridge (tr. Politzer)
+
+
+From jread at semiotek.com  Thu Mar 30 22:52:37 2000
+From: jread at semiotek.com (Justin Wells)
+Date: Thu, 30 Mar 2000 17:52:37 -0500
+Subject: Wired Article on the GPL
+In-Reply-To: <38E3C97E.96FC09FC@reutershealth.com>; from jcowan@reutershealth.com on Thu, Mar 30, 2000 at 04:39:10PM -0500
+References: <200003302106.XAA09506@topaze.ecf.teradyne.com> <38E3C97E.96FC09FC@reutershealth.com>
+Message-ID: <20000330175237.A22204@semiotek.com>
+
+On Thu, Mar 30, 2000 at 04:39:10PM -0500, John Cowan wrote:
+
+> Remember that we are talking about the GPL here, not some random proprietary
+> license.  The GPL grants you permissions to take certain actions provided you
+> meet certain conditions.  The actions are copying, distributing, and
+> making derivative works.  You neither accept nor reject the GPL; it grants
+> you permissions whether you want them or not.
+> 
+> If the copyright owner revokes the permissions, you are probably out of luck.
+
+If this is true, it's awful. That means that I can release some software
+for "free" under the GPL, wait until everyone is using it, and then 
+suddenly say "Hey guys, guess what? I feel like getting rich--please 
+all send me $5000 or stop using my software. I revoke the GPL." 
+
+That CAN'T be right. If it is right, we need a quick revision to the
+GPL to fix this problem.
+
+Justin
+
+
+
+From rrw1000 at cl.cam.ac.uk  Fri Mar 31 10:18:14 2000
+From: rrw1000 at cl.cam.ac.uk (Richard Watts)
+Date: Fri, 31 Mar 2000 11:18:14 +0100 (BST)
+Subject: Wired Article on the GPL
+In-Reply-To: <38E3D09F.D00D3003@reutershealth.com>
+References: <Pine.GSO.3.96L.1000330164518.1455E-100000@unixs1.cis.pitt.edu>
+	<38E3D09F.D00D3003@reutershealth.com>
+Message-ID: <14564.31590.579625.736051@rrw1000.sel.cam.ac.uk>
+
+On Thursday 30 March 2000, John Cowan
+<jcowan at reutershealth.com> wrote:
+
+>"Matthew C. Weigel" wrote:
+>
+>> Ummm... yes, you can accept or reject the GPL, if I understand it correctly.
+>> You either accept the terms of the license -- the restrictions placed on
+>> distribution, for instance -- or you don't, and if you don't, you have no
+>> legal recourse for distribution.
+>
+>You can "accept" the GPL by exercising your rights under the GPL in accordance
+>with its terms, or you can "reject" the GPL by not exercising your rights.
+>But this is not acceptance as understood in discussing contracts.  
+
+ .. unless the GPL is a contract. I got mail last night from someone
+whose name I'll publish if he wants me to (but since he didn't post to
+the list I think I ought to preserve his privacy), making an analogy
+which got me thinking (read: I changed my mind).
+
+ Suppose A gives me a piece of software, X, and agrees to licence it
+to me under the GPL. The GPL allows me to do a number of things, but,
+critically, section 3 requires me to distribute source code with my
+binaries - that's a consideration. It's clearly valuable.
+
+ Now, if I choose to distribute my binaries to the public, I must also
+choose to distribute them to the author of the software, since he is
+(presumably) a member of the public (jurisdiction warning
+.. :-()). In which case I must distribute my modified source code
+back to him. This is consideration - it goes beyond a plain licence
+to do something: not only _can_ I distribute the source, I _must_ -
+and it's valuable, and the fact that it's contingent is entirely
+irrelevant - people make contingent contracts all the time.
+
+ Of course, the author also gets vicarious benefits from the perceived
+greater reliability of the software he uses which is based on the
+software he's written, even if none of it was actually distributed to
+him (i.e. I write gcc, make it open-source, give it to X, who is
+forced to distribute source. Y takes X's bugfixes, modifies the
+compiler, and uses it to compile the software for my PDA, which then
+costs less: X has given me a vicarious consideration. Kind of.). But I
+don't think that will fly...
+
+ As to contractability, a contract exists wherever both parties
+intend to bind themselves. The author clearly intends to bind himself,
+or he wouldn't've offered the GPL. The recipient can avoid binding
+himself by rejecting the GPL, but if he accepts, must accept the
+conditions of section (3), and we therefore have a contract.
+
+ I have no idea whatever if this would fly, but it's an argument.
+
+[snip]
+>> If you choose to not accept the license, then you can't use the software.
+>
+>Definitely not true of GPLed software.
+
+ I guess this depends on whether you've decided if there's
+consideration or not. Either way, if you exercise the permission to
+make object files, then don't distribute the source code with them
+under section 3, you're arguably in breach of something, and if it
+isn't contract, it must be copyright.
+
+>  You may not copy, distribute, or
+>create derivative works except under the terms of the GPL.  But you can use
+>the software on one machine or many; you can study the software to determine
+>how it does what it does, etc. etc.
+
+ Surely  that depends on the legal scope of copying, which I don't think is
+quite settled yet ?
+
+[snip]
+
+
+
+Richard.
+
+
+From jcowan at reutershealth.com  Fri Mar 31 16:28:57 2000
+From: jcowan at reutershealth.com (John Cowan)
+Date: Fri, 31 Mar 2000 11:28:57 -0500
+Subject: Wired Article on the GPL
+References: <Pine.GSO.3.96L.1000330164518.1455E-100000@unixs1.cis.pitt.edu>
+		<38E3D09F.D00D3003@reutershealth.com> <14564.31590.579625.736051@rrw1000.sel.cam.ac.uk>
+Message-ID: <38E4D249.3BDEB185@reutershealth.com>
+
+Richard Watts wrote:
+
+>  Suppose A gives me a piece of software, X, and agrees to licence it
+> to me under the GPL. The GPL allows me to do a number of things, but,
+> critically, section 3 requires me to distribute source code with my
+> binaries - that's a consideration. It's clearly valuable.
+
+Shaky.  It requires you to distribute source code only if you distribute
+binaries.
+ 
+> In which case I must distribute my modified source code
+> back to him. This is consideration - it goes beyond a plain licence
+> to do something: not only _can_ I distribute the source, I _must_ -
+> and it's valuable, and the fact that it's contingent is entirely
+> irrelevant - people make contingent contracts all the time.
+
+But here the contingency is that the contractor do something else which
+he is free to do or not do.  IANAL, as I have often said before, but
+that smells funny to me.
+
+>  As to contractability, a contract exists wherever both parties
+> intend to bind themselves. The author clearly intends to bind himself,
+> or he wouldn't've offered the GPL.
+
+If the GPL really is an offer.  But if it is a bare license, then he is not
+binding himself, but simply stating his permission.  You can rely on that
+permission unless you know or should have known that it has been
+revoked.
+
+> The recipient can avoid binding
+> himself by rejecting the GPL, but if he accepts, must accept the
+> conditions of section (3), and we therefore have a contract.
+
+As I posted before, I think this talk of "accepting" or "rejecting"
+the GPL has no foundation.
+ 
+>  I guess this depends on whether you've decided if there's
+> consideration or not. Either way, if you exercise the permission to
+> make object files,
+
+To make *and distribute* object files.
+
+> then don't distribute the source code with them
+> under section 3, you're arguably in breach of something, and if it
+> isn't contract, it must be copyright.
+
+Indeed, it is infringement of copyright.  You are doing something that
+a) is a right reserved to the copyright owner by law, and b) is not
+covered by the permissions the owner has granted you.
+
+-- 
+
+Schlingt dreifach einen Kreis um dies! || John Cowan <jcowan at reutershealth.com>
+Schliesst euer Aug vor heiliger Schau,  || http://www.reutershealth.com
+Denn er genoss vom Honig-Tau,           || http://www.ccil.org/~cowan
+Und trank die Milch vom Paradies.            -- Coleridge (tr. Politzer)
+
+
+From chip at valinux.com  Fri Mar 31 21:51:06 2000
+From: chip at valinux.com (Chip Salzenberg)
+Date: Fri, 31 Mar 2000 13:51:06 -0800
+Subject: Wired Article on the GPL
+In-Reply-To: <14564.31590.579625.736051@rrw1000.sel.cam.ac.uk>; from rrw1000@cl.cam.ac.uk on Fri, Mar 31, 2000 at 11:18:14AM +0100
+References: <Pine.GSO.3.96L.1000330164518.1455E-100000@unixs1.cis.pitt.edu> <38E3D09F.D00D3003@reutershealth.com> <14564.31590.579625.736051@rrw1000.sel.cam.ac.uk>
+Message-ID: <20000331135106.D619@perlsupport.com>
+
+According to Richard Watts:
+>  Of course, the author also gets vicarious benefits from the
+> perceived greater reliability of the software he uses which is based
+> on the software he's written, even if none of it was actually
+> distributed to him [...]
+
+I've got a better argument there (though, of course, IANAL):
+
+What makes a consideration valuable to a person depends on his value
+system.  For example, most people like money, but some people care
+about other things more.  So if free software is important to the
+original author, I would call an addition to the body of free software
+a "valuable consideration".  And surely a test case would prominently
+feature the original author testifying to that effect.
+-- 
+Chip Salzenberg              - a.k.a. -              <chip at valinux.com>
+"I wanted to play hopscotch with the impenetrable mystery of existence,
+    but he stepped in a wormhole and had to go in early."  // MST3K
+
+
+From weng at yours.com  Fri Mar 31 22:37:50 2000
+From: weng at yours.com (W. Yip)
+Date: Fri, 31 Mar 2000 23:37:50 +0100
+Subject: Wired Article on the GPL
+In-Reply-To: <20000331135106.D619@perlsupport.com>
+References: <Pine.GSO.3.96L.1000330164518.1455E-100000@unixs1.cis.pitt.edu> <38E3D09F.D00D3003@reutershealth.com> <14564.31590.579625.736051@rrw1000.sel.cam.ac.uk> <20000331135106.D619@perlsupport.com>
+Message-ID: <nu8aes8s4v5ttes0i8iupp195jr69hoqt5@4ax.com>
+
+On Fri, 31 Mar 2000 13:51:06 -0800, Chip Salzenberg <chip at valinux.com>
+wrote:
+>According to Richard Watts:
+>>  Of course, the author also gets vicarious benefits from the
+>> perceived greater reliability of the software he uses which is based
+>> on the software he's written, even if none of it was actually
+>> distributed to him [...]
+>I've got a better argument there (though, of course, IANAL):
+>What makes a consideration valuable to a person depends on his value
+>system.  For example, most people like money, but some people care
+>about other things more.  So if free software is important to the
+>original author, I would call an addition to the body of free software
+>a "valuable consideration".  And surely a test case would prominently
+>feature the original author testifying to that effect.
+
+No. In UK law your analysis would not work because consideration is not
+subjective. It does not have to be considered adequate by the parties for
+existence of a contract. This means that a disparity in value between the
+articles or acts or omissions exchanged does not prevent a finding of
+consideration. It must be of *some* economic value, but acts or omissions
+of very small value can be consideration. 
+
+As for intangibles like promises and forbearance, it must be recognised as
+having economic value before it can take on the status of consideration.
+
+Extremely trivial objects have be regarded as consideration, ranging from
+chocolate wrappers to 'worthless' gaming chips
+
+In my first year as a law student in UK, a primary issue in the tutorial on
+consideration involved questioning whether this construct ought to be
+necessary at all. Indeed, there is considerable academic opinion that it
+should be abolished. Primarily this is because it is a very uncertain legal
+construct that inhibits business (we are now wasting time talking about it
+aren't we?), while it is always down to the (arbitrary) decision of the
+courts at the end of the day. 
+
+Apparently, in some jurisdictions consideration is not required for a
+contractual formation.
+
+IMHO, consideration is one of those moot points best left for discussion on
+the specific facts when a dispute arises, after which the best argument
+wins.
+
+see, for UK, pg. 79 Treitel, G.H.  "Law of Contract 9th Ed." Sweet and
+Maxwell.
+
+IANAL (yet)
+
+
+
+From jread at semiotek.com  Fri Mar 31 23:37:38 2000
+From: jread at semiotek.com (Justin Wells)
+Date: Fri, 31 Mar 2000 18:37:38 -0500
+Subject: Wired Article on the GPL
+In-Reply-To: <20000331135232.E619@perlsupport.com>; from chip@valinux.com on Fri, Mar 31, 2000 at 01:52:32PM -0800
+References: <Pine.GSO.3.96L.1000330164518.1455E-100000@unixs1.cis.pitt.edu> <38E3D09F.D00D3003@reutershealth.com> <14564.31590.579625.736051@rrw1000.sel.cam.ac.uk> <38E4D249.3BDEB185@reutershealth.com> <20000331135232.E619@perlsupport.com>
+Message-ID: <20000331183738.A35826@semiotek.com>
+
+On Fri, Mar 31, 2000 at 01:52:32PM -0800, Chip Salzenberg wrote:
+
+> Well, consider the possibility that we can get a court to agree that
+> the GPL is an enforceable contract if binaries are distributed.  Isn't
+> that really the situation we are most concerned about?
+
+Not only that, but I think it's easy to find consideration even when 
+someone even distributes the software verbatim.
+
+My client recently released some software I wrote under contract as 
+opensource software. I convinced my client to do this with economic
+arguments like this:
+
+  #1 We will receive some bug fixes and improvements for free on this
+     bit of infrastructure software, and that will be valuable to us,
+     by saving us development $$$.
+
+  #2 The kinds of people we are trying to hire will like that we have 
+     released some of our software as opensource, and so it will be a 
+     little easier to attract good programmers. This will be of value
+     to us as well, since better programmers produce more and better
+     code for fewer $$$. 
+
+Those are our goals. The software license we release under offers us 
+two types of valuable consideration:
+
+  -- By requiring that source code be shared, it helps us achieve 
+     goal #1. 
+
+  -- By requiring that we be credited on derivative works, it helps
+     us establish our reputation and achieve goal #2. 
+
+Actually in our case we didn't use the GPL and the license we did use
+does not include any requirement to share code--though we *still* 
+expect to receive code in return (and in fact, we have got some). 
+
+It ought not to be difficult for a judge to find that there is valuable
+consideration in most opensource software license. 
+
+For one thing, any license which requires crediting the original
+opensource author ensures that any distribution of their work
+amounts to free advertising of the authors expertise. That is 
+valuable consideration in my eyes.
+
+My other software that I released under an opensource license has 
+established my reputation and helped me find clients, win contracts, 
+and charge higher fees, all on the basis of the reputation established
+for me by my opensource software. Everyone who distributes my software,
+uses it, etc., is helping build my reputation.
+
+Justin
+
+
+

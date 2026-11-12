@@ -1,0 +1,209 @@
+Source: OSI license-discuss public archive, 2005-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 5 of 10 in the thread (2005-09-06 to 2005-09-09)
+Senders: Ben Tilly, Alex Bligh, Wilson, Andrew
+Position: Not addressed to us. Observed. Each message kept here is whole. The two messages from Brendan Scott (2005-09-08 and 2005-09-09) are not kept: the archive holds them only as scrubbed attachments, so their text is not in it.
+
+----- begin verbatim -----
+From btilly at gmail.com  Wed Sep  7 05:36:01 2005
+From: btilly at gmail.com (Ben Tilly)
+Date: Tue, 6 Sep 2005 22:36:01 -0700
+Subject: When can licenses be revoked? (was: License Proliferation)
+In-Reply-To: <acc274b305090614534155fe7d@mail.gmail.com>
+References: <090620052056.24279.431E0281000EFD9E00005ED72200748184CFCB039D0A9F9A9C@comcast.net>
+	 <acc274b305090614534155fe7d@mail.gmail.com>
+Message-ID: <acc274b305090622366fc2374c@mail.gmail.com>
+
+On 9/6/05, Ben Tilly <btilly at gmail.com> wrote:
+[...]
+> I wouldn't like to be relying on public domain code, only to have the
+> author of that code die and the inheritor decide that the public
+> domain grant wasn't valid, and as current copyright holder s/he wants
+> the copyright enforced.
+[...]
+
+Sanjoy Mahajan asked me an excellent question about this.  He asked
+why a normal copyright license cannot be revoked by an heir.  If it is
+a contract, that is fairly obvious.  But many popular licenses (eg
+GPL, BSD) are not contracts.
+
+I didn't know, but it was my impression that it couldn't happen. 
+However when I googled for the topic, I found nothing saying that it
+couldn't happen, and http://www.ilaw.com.au/public/licencearticle.html
+saying that it definitely could.
+
+Is this really true?  And if so, does anyone have any thoughts on why
+it isn't more often discussed?
+
+Thanks,
+Ben
+
+
+From alex at alex.org.uk  Wed Sep  7 06:06:42 2005
+From: alex at alex.org.uk (Alex Bligh)
+Date: Wed, 07 Sep 2005 07:06:42 +0100
+Subject: When can licenses be revoked? (was: License Proliferation)
+In-Reply-To: <acc274b305090622366fc2374c@mail.gmail.com>
+References: <090620052056.24279.431E0281000EFD9E00005ED72200748184CFCB039D0A9
+ F9A9C@comcast.net>	 <acc274b305090614534155fe7d@mail.gmail.com>
+ <acc274b305090622366fc2374c@mail.gmail.com>
+Message-ID: <023898AFD30EA4B420D3D9A6@[192.168.100.25]>
+
+
+
+--On 06 September 2005 22:36 -0700 Ben Tilly <btilly at gmail.com> wrote:
+
+> I didn't know, but it was my impression that it couldn't happen.
+> However when I googled for the topic, I found nothing saying that it
+> couldn't happen, and http://www.ilaw.com.au/public/licencearticle.html
+> saying that it definitely could.
+>
+> Is this really true?  And if so, does anyone have any thoughts on why
+> it isn't more often discussed?
+
+I thought only licenses given without consideration were revocable
+at will - most licenses open-source include obligations upon the licensee
+and are thus not without consideration, and so cannot be revoked at
+will (unless, of course, that is an explicit term in the license).
+
+Alex
+
+
+From andrew.wilson at intel.com  Thu Sep  8 01:13:55 2005
+From: andrew.wilson at intel.com (Wilson, Andrew)
+Date: Wed, 7 Sep 2005 18:13:55 -0700
+Subject: When can licenses be revoked? (was: License Proliferation)
+Message-ID: <1875059DEB0F8A478D34B1ADC29B3A0F0687F360@orsmsx409>
+
+Ben Tilly wrote: 
+
+> I didn't know, but it was my impression that it couldn't happen. 
+> However when I googled for the topic, I found nothing saying that it
+> couldn't happen, and http://www.ilaw.com.au/public/licencearticle.html
+> saying that it definitely could.
+
+> Is this really true?  And if so, does anyone have any thoughts on why
+> it isn't more often discussed?
+
+It may not be discussed more often because it may not be true.
+
+I think Mr. Malcolm, author of the article you cite,
+can find others who agree that contracts are, generally speaking,
+preferable to licenses (cue Larry Rosen).  He may have much more
+difficulty finding others who agree that open source licenses can
+simply be terminated by notifying licensees. I am not a lawyer; 
+the lawyers who frequent this list may want to comment. 
+
+You can certainly find
+historical cases of copyright holders who relicensed open source
+software under proprietary terms and then ceased distributing
+the open source version.  However, I'm not aware of any copyright
+holders who then took the extra, drastic step of informing licensees
+that
+their open source license had been revoked.  You would think that
+such a scenario would produce a big, public fight and that it would be
+well
+known if such a case had in fact ever occurred.
+
+Andy Wilson
+Intel Open Source Technology Center
+
+
+
+From btilly at gmail.com  Fri Sep  9 17:13:47 2005
+From: btilly at gmail.com (Ben Tilly)
+Date: Fri, 9 Sep 2005 10:13:47 -0700
+Subject: When can licenses be revoked? (was: License Proliferation)
+In-Reply-To: <61133FC2C325F68DD0ECA233@Satori.nominet.org.uk>
+References: <200509090036.j890aDcL032329@mail14.syd.optusnet.com.au>
+	 <61133FC2C325F68DD0ECA233@Satori.nominet.org.uk>
+Message-ID: <acc274b305090910135a9e6776@mail.gmail.com>
+
+On 9/9/05, Alex Bligh <alex at alex.org.uk> wrote:
+> 
+> 
+> --On 09 September 2005 10:36 +1000 Brendan Scott <lists at opensourcelaw.biz>
+> wrote:
+> 
+> > So I will further refine that last email to be AU specific
+> 
+> On AU law I cannot comment and I will thus bow to your knowledge.
+> 
+> > The question is whether the *mere presence* of a contract renders the
+> > licence irrevocable - which to me overstates the case.
+> 
+> I think (and this is from memory) it's the presence of consideration, rather
+> than contract per-se, that makes the license irrevocable in more recent
+> judgments, though saying that I haven't got my hand on case-law, nor
+> can I see anything but a technical difference between the two. I *think*
+> (and I am equally unqualified to comment on US law) USC makes similar
+> provisions for gratuitous licenses and that means "without consideration".
+[...]
+
+Out of curiousity, what happens someone revokes a license and that
+revocation is OK in their jurisdiction, but not the jurisdiction that
+a user of their software happens to be living in?  As a US resident
+this would be particularly interesting for me if the US courts think
+that copyright licenses are always unrevokable.
+
+Out of further curiousity, "the presence of consideration" is a term
+that I'd have trouble accurately interpreting.  For instance could
+there be consideration with the GPL because one has the potential of
+getting back improvements (even though there is obviously no
+guarantee)?
+
+Anyways, if I understand this conversation correctly, an open source
+copyright license, once given, might be revokable.  However when it
+may be revoked is fairly unclear, and is likely to vary by
+jurisdiction.  It also doesn't seem to be a well discussed topic.  Is
+that impression accurate?
+
+Thanks,
+Ben
+
+
+From alex at alex.org.uk  Fri Sep  9 17:35:08 2005
+From: alex at alex.org.uk (Alex Bligh)
+Date: Fri, 09 Sep 2005 18:35:08 +0100
+Subject: When can licenses be revoked? (was: License
+ Proliferation)
+In-Reply-To: <acc274b305090910135a9e6776@mail.gmail.com>
+References: <200509090036.j890aDcL032329@mail14.syd.optusnet.com.au>	
+ <61133FC2C325F68DD0ECA233@Satori.nominet.org.uk>
+ <acc274b305090910135a9e6776@mail.gmail.com>
+Message-ID: <A74AA1462770215CCEE653EA@[10.0.1.50]>
+
+
+
+--On 09 September 2005 10:13 -0700 Ben Tilly <btilly at gmail.com> wrote:
+
+> Out of curiousity, what happens someone revokes a license and that
+> revocation is OK in their jurisdiction, but not the jurisdiction that
+> a user of their software happens to be living in?  As a US resident
+> this would be particularly interesting for me if the US courts think
+> that copyright licenses are always unrevokable.
+
+It would depend solely on the governing law of the license, I would
+have thought. Which is a different can of worms.
+
+> Out of further curiousity, "the presence of consideration" is a term
+> that I'd have trouble accurately interpreting.  For instance could
+> there be consideration with the GPL because one has the potential of
+> getting back improvements (even though there is obviously no
+> guarantee)?
+
+I would have thought the normal rules of consideration apply - there would
+have to be an obligation upon the licensee. Any obligation on the licensee
+is thus likely to count, including the acceptance of liability limitation.
+
+> Anyways, if I understand this conversation correctly, an open source
+> copyright license, once given, might be revokable.  However when it
+> may be revoked is fairly unclear, and is likely to vary by
+> jurisdiction.  It also doesn't seem to be a well discussed topic.  Is
+> that impression accurate?
+
+You are correct that it is unclear :-)
+
+Alex
+
+

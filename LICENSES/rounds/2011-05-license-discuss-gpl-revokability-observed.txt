@@ -1,0 +1,175 @@
+Source: OSI license-discuss public archive, 2011-May.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 3 of 5 in the thread (2011-05-10)
+Senders: Ron Teitelbaum, Cinly Ooi, dtemeles at nvalaw.com
+Position: Not addressed to us. Observed. The message from dtemeles at nvalaw.com is cut where "Quoting Cinly Ooi" begins; each message kept here is otherwise whole. The sender's name is given in the archive only as the address.
+
+----- begin verbatim -----
+From ron at usmedrec.com  Tue May 10 12:01:38 2011
+From: ron at usmedrec.com (Ron Teitelbaum)
+Date: Tue, 10 May 2011 08:01:38 -0400
+Subject: GPL revokability
+Message-ID: <031701cc0f0a$0570a620$1051f260$@usmedrec.com>
+
+Hi all,
+
+ 
+
+I saw this: http://www.groklaw.net/article.php?story=2006062204552163
+
+And this: (see: Holy Cow it is legal)
+
+http://www.groklaw.net/comment.php?mode=display
+<http://www.groklaw.net/comment.php?mode=display&sid=2006062204552163&title=
+I+think+you%27re+wrong%2C+but+IANAL+and+we+really+need+one+for+this...+howev
+er%3A&type=article&order=&hideanonymous=0&pid=667899#c667903>
+&sid=2006062204552163&title=I+think+you%27re+wrong%2C+but+IANAL+and+we+reall
+y+need+one+for+this...+however%3A&type=article&order=&hideanonymous=0&pid=66
+7899#c667903 as an explanation as to why irrevocable was added to v3.
+
+ 
+
+I recently had a conversation with someone who said that you can apply GPL
+and then revoke it later.
+
+ 
+
+How settled is this question?  Is there anything new on this front that
+isn't already covered by the articles above (i.e. since 2006).
+
+ 
+
+Can you release something GPL and then revoke it such that people that
+already received the license cannot continue to use it.
+
+ 
+
+Thank you for your help!
+
+ 
+
+Ron  
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20110510/65fb4ed9/attachment.html>
+
+From cinly.ooi at gmail.com  Tue May 10 13:04:02 2011
+From: cinly.ooi at gmail.com (Cinly Ooi)
+Date: Tue, 10 May 2011 14:04:02 +0100
+Subject: GPL revokability
+In-Reply-To: <031701cc0f0a$0570a620$1051f260$@usmedrec.com>
+References: <031701cc0f0a$0570a620$1051f260$@usmedrec.com>
+Message-ID: <BANLkTikyZCf0vYvQ4Rgfviv_H0ZPub=ceA@mail.gmail.com>
+
+Dear Ron,
+
+Until someone really try it in court, the debate will not be settled.
+
+The practical guy in me, and most software community has this policy: If you
+do not want me to use your code, then I will take it out, regardless of what
+the license actually says. Most of the time, alternatives are available and
+(in the case of larger project), it would not even be a hassle to write out
+your code. But note that this is voluntary on the part of the recipients.
+
+If the recipient really want to hold on to the code, then the copyright
+holder has to sue. IANAL but I am sure the recipient is going to point out
+that your license to him specifically said you had said that in the license,
+you will not rescind the grant for him to use the copyrighted stuff under
+dispute. You will have to get around this. Finally, I hope the judge and the
+jury is likely to hold you to that.
+
+HTH
+Cinly
+
+
+On 10 May 2011 13:01, Ron Teitelbaum <ron at usmedrec.com> wrote:
+
+> Hi all,
+>
+>
+>
+> I saw this: http://www.groklaw.net/article.php?story=2006062204552163
+>
+> And this: (see: Holy Cow it is legal)
+>
+>
+> http://www.groklaw.net/comment.php?mode=display&sid=2006062204552163&title=I+think+you%27re+wrong%2C+but+IANAL+and+we+really+need+one+for+this...+however%3A&type=article&order=&hideanonymous=0&pid=667899#c667903as an explanation as to why irrevocable was added to v3.
+>
+>
+>
+> I recently had a conversation with someone who said that you can apply GPL
+> and then revoke it later.
+>
+>
+>
+> How settled is this question?  Is there anything new on this front that
+> isn't already covered by the articles above (i.e. since 2006).
+>
+>
+>
+> Can you release something GPL and then revoke it such that people that
+> already received the license cannot continue to use it.
+>
+>
+>
+> Thank you for your help!
+>
+>
+>
+> Ron
+>
+>
+>
+
+
+
+-- 
+Best Regards,
+Cinly
+
+*****
+Don't bother with footer please. I don't read them and will not be bounded
+by them.
+It cannot be enforced legally anyway. If it can, then remember this: This
+footer always triumph yours.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20110510/bdd0107b/attachment.html>
+
+From dtemeles at nvalaw.com  Tue May 10 17:24:31 2011
+From: dtemeles at nvalaw.com (dtemeles at nvalaw.com)
+Date: Tue, 10 May 2011 13:24:31 -0400
+Subject: GPL revokability
+In-Reply-To: <BANLkTikyZCf0vYvQ4Rgfviv_H0ZPub=ceA@mail.gmail.com>
+References: <031701cc0f0a$0570a620$1051f260$@usmedrec.com>
+ <BANLkTikyZCf0vYvQ4Rgfviv_H0ZPub=ceA@mail.gmail.com>
+Message-ID: <20110510132431.15282uql0hkdfo4k@webmail.nvalaw.com>
+
+Interesting question and comments.  I assume the precise question is  
+whether a party that licenses software under the GPL 2.0 or 1.0 may  
+revoke or terminate the license when the licensee in question is not  
+in breach of the license terms.  GPL v. 3.0 provides that it is  
+irrevocable during the term of the copyright so long as the licensee  
+is in compliance with the license.
+
+The answer re GPL v 2.0 and 1.0, as unsatisfying as it may seem, is it  
+depends upon the specific facts and the applicable jurisdiction's law.
+
+The GPL is a non-exclusive license subject to interpretation and  
+enforcement under contract law and the related equitable concepts just  
+like any other software license, whether proprietary or open source.  
+(My apologies to all of Moglen's "bare license" disciples out there).   
+Versions 1.0 and 2.0 of the GPL are largely silent on termination or  
+expiration of the license absent the licensee's breach.  Therefore,  
+the parties to the license must apply the applicable body of contract  
+law to the particular facts of their specific situation to determine  
+whether the agreement is terminable by the licensor in the absence of  
+a breach.  There simply is no definitive "one size fits all" answer  
+and the question must be approached on a case-by-case basis.
+
+
+IAALBNYL
+

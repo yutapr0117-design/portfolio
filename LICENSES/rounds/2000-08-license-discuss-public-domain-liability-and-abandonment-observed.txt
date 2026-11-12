@@ -1,0 +1,103 @@
+Source: OSI license-discuss public archive, 2000-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 3: 2 of 13 in "Public Domain and liability" (2000-08-07), 1 of 2 in "Abandonment" (2000-08-10)
+Senders: Blake Cretney, Brian Behlendorf, Rod Dixon, J.D., LL.M.
+Position: Not addressed to us. Observed. Rod Dixon's message of 2000-08-10 is cut where the quoted copy of John Cowan's hypotheticals begins; each message kept here is otherwise whole. The messages on revoking the GPL after cphack was assigned are in 2000-03-license-discuss-gpl-revocation-cphack-observed.txt.
+
+----- begin verbatim -----
+From bcretney at postmark.net  Mon Aug  7 20:01:07 2000
+From: bcretney at postmark.net (Blake Cretney)
+Date: Mon, 07 Aug 2000 13:01:07 PDT
+Subject: Public Domain and liability
+Message-ID: <E13Lt6b-0008F9-00@mail.islandnet.com>
+
+
+One reason people don't often release software to the public domain is
+fear of liability.  The concern is that even if you place a
+disclaimer on the software, someone could legally distribute your
+software without the disclaimer.  Then, if the software fails in some
+way, you could be sued as the manufacturer of defective software.
+
+Now, to me, this sounds crazy.  However, I'm not a lawyer, and often
+legal decisions leave me amazed.  Has anyone ever been sued,
+especially successfully, for a non-malicious public domain program? 
+Does anyone have any comment on whether this is likely to happen? 
+
+---
+Blake Cretney
+
+
+
+From brian at collab.net  Mon Aug  7 20:59:31 2000
+From: brian at collab.net (Brian Behlendorf)
+Date: Mon, 7 Aug 2000 13:59:31 -0700 (PDT)
+Subject: Public Domain and liability
+In-Reply-To: <E13Lt6b-0008F9-00@mail.islandnet.com>
+Message-ID: <Pine.BSF.4.21.0008071355450.21051-100000@yez.hyperreal.org>
+
+On Mon, 7 Aug 2000, Blake Cretney wrote:
+> The concern is that even if you place a disclaimer on the software,
+> someone could legally distribute your software without the disclaimer.
+
+Not if the license prevents that, as do the open source licenses I'm most
+familiar with (BSD, GPL, etc).  They specifically state "redistribution
+must include this license", with the disclaimer in the license.  There's
+been debate about the strength of that disclaimer, but based more on
+speculation that any particular event where a disclaimer was insufficient
+protection.
+
+> Has anyone ever been sued, especially successfully, for a
+> non-malicious public domain program?
+
+Not that I've heard of.
+
+	Brian
+
+
+
+
+
+From rod at cyberspaces.org  Fri Aug 11 02:29:58 2000
+From: rod at cyberspaces.org (Rod Dixon, J.D., LL.M.)
+Date: Thu, 10 Aug 2000 22:29:58 -0400
+Subject: Abandonment
+In-Reply-To: <39931ED2.A855C018@reutershealth.com>
+Message-ID: <LPBBJKHLDNNEDNIKKGGOOEFEDCAA.rod@cyberspaces.org>
+
+At the outset I think your hypos generally indicate exactly why  a system
+that characterizes works in the public domain only by operation of law is
+superior, in clarity and consistency, than systems that permit works to
+enter the public domain by general declarations or vague dedications.
+Generalized attempts to *push* works into the public domain by unrecorded
+dedications do not serve the public interest well.
+
+I think the public will not be inclined to freely use works that present
+hair-splitting questions regarding their public domain status.  Trying to
+*push* works into the public domain in this manner actually discourages use
+of such works rather than enhancing the public domain because it becomes
+unduly burdensome to determine whether a work has successfully entered the
+public domain. Your hypos sem to illustrate this point quite nicely. (Was
+that your intent?)  In this regard, open source licensing offers a better
+solution than the declarations presented in your hypos because the licenses
+do not confuse the status of the works.
+
+Hypo 3 looks like a typical copyright infringement claim. If Roe is a
+copyright holder, he has the exclusive rights to control his bundle of
+copyright interests. It is unclear whether you were attempting to show
+abandonment or forfeiture. Even so, the formailties of the 1909 Copyright
+Act no longer apply. As long as Roe has filed a registration with the
+Copyright Office, his suit will not be dismissed on the basis of the facts
+in hypo 3.  I agree with you in hypo 1.  Doe's copyright infringement suit
+probably gets tossed by the court. Doe cannot make a showing that he is the
+copyright holder, if the transfer was not recorded. If we have competing
+filings, then the court will look to see which one was filed first. I raise
+an eyebrow as to whether the "Copyright-Office registered affidavit" is a
+competing document i.e. probative of abandonment. As for hypo 2, it is not
+exactly clear who Doe is or on what basis he brings suit. Presumably, Roe
+transferred his exclusive interests to Doe after he ostensibly transferred
+those interests to the public domain (through a dedication)? Roe is clearly
+crazy. But, more to the point, once a work *enters* the public domain, it
+stays there. Hence, Doe's infringement suit would be dismissed, if a court
+could be convinced that a work could enter the public domain in the manner
+that Roe has attempted.
+
