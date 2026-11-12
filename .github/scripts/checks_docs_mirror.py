@@ -65,7 +65,17 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        実測 (2026-08-21): 対象 7 参照すべて解決 = 誤検出ゼロ。prose 全般 (#977 で「Check に
        しない」と判断済み・歴史的記述を壊す圧力になる) とは違い、**コードコメントの導線は
        常に「今そこにある doc」を指すべき** なので機械強制する。(BLOCKING)
+  105. check-repository-consistency-map.md ↔ implementation Check-number bijection: the map
+       documents EXACTLY the set of check numbers the implementation defines (section headers
+       1..N, alpha sub-checks like 73a normalized to 73). The cross-document counterpart of
+       Check 45 (docstring ↔ section bijection): it catches the "added a Check but forgot the
+       map row" drift class structurally, so the human-facing check inventory can never fall
+       silently behind the implementation. 2026-11-12 (監査 #12 / #13・本体から移した): 実装した
+       番号はどれも枝番でない `| N |` の行を持つこと (7b / 7c が 7 の行の代わりになっていた)、
+       各区間 `# ── N.` は自分の番号を名指す check 呼び出し (check / errors.append / warnings.append)
+       を AST 上に持つこと (見出しのコメントだけの区間も「実装」と数えていた)。(BLOCKING)
 """
+import ast
 import re
 import json
 
@@ -73,6 +83,52 @@ import json
 def run(ctx):
     ROOT = ctx.ROOT
     check = ctx.check
+
+    # ── 105. check-repository-consistency-map.md ↔ implementation bijection (BLOCKING) ─────
+    # 本体 (check_repository_consistency.py) から 2026-11-12 に移した。map の `| N |` / `| Na |` の行の番号と、
+    # 全 Check module の `# ── N.` の番号の集合が一致すること。加えて (監査 #12) 枝番の行だけでは足りず、実装した
+    # 番号はどれも枝番でない行を持つこと、(監査 #13) 各区間が自分の番号を名指す check 呼び出しを持つこと
+    _map105 = ROOT / "docs" / "architecture" / "check-repository-consistency-map.md"
+    _srcs105 = getattr(ctx, "CHECK_SOURCE_FILES", None)
+    if _map105.exists() and _srcs105:
+        _rows105 = re.findall(r"^\|\s*(\d+)([a-z]?)\s*\|", _map105.read_text(encoding="utf-8"), re.MULTILINE)
+        _map_nums105 = {int(n) for n, _a in _rows105}
+        _bare105 = {int(n) for n, a in _rows105 if not a}
+        _, _impl_sec105 = ctx.aggregate_check_numbers()
+        _impl_nums105 = set(_impl_sec105)
+        _nobare105 = sorted(_impl_nums105 - _bare105)
+        _hollow105 = []
+        for _f105 in _srcs105:
+            if not _f105.exists():
+                continue
+            _t105 = _f105.read_text(encoding="utf-8")
+            try:
+                _tree105 = ast.parse(_t105)
+            except SyntaxError:
+                continue          # 構文の誤りは Check 10 / 431 が受ける
+            _calls105 = [_c for _c in ast.walk(_tree105) if isinstance(_c, ast.Call) and (
+                (isinstance(_c.func, ast.Name) and _c.func.id == "check")
+                or (isinstance(_c.func, ast.Attribute) and _c.func.attr == "check")
+                or (isinstance(_c.func, ast.Attribute) and _c.func.attr == "append"
+                    and isinstance(_c.func.value, ast.Name) and _c.func.value.id in ("errors", "warnings")))]
+            _hs105 = [(_i + 1, int(_m.group(1))) for _i, _l in enumerate(_t105.split("\n"))
+                      for _m in [re.match(r"^\s*#\s*──\s*(\d+)\.", _l)] if _m]
+            for _k, (_ln, _n) in enumerate(_hs105):
+                _hi = _hs105[_k + 1][0] if _k + 1 < len(_hs105) else 10 ** 9
+                if not any(_ln < _c.lineno < _hi and re.search(r"Check %d(?!\d)" % _n, ast.get_source_segment(_t105, _c) or "")
+                           for _c in _calls105):
+                    _hollow105.append(f"{_f105.name}: Check {_n}")
+        check(
+            bool(_impl_nums105) and _map_nums105 == _impl_nums105 and not _nobare105 and not _hollow105,
+            f"Check 105: check-repository-consistency-map.md documents exactly the {len(_impl_nums105)} implemented checks "
+            "(map ↔ implementation bijection・どの番号も枝番でない行を持ち、どの区間も自分の番号を名指す check 呼び出しを持つ)",
+            f"Check 105: check-map and implementation have drifted — only in map: {sorted(_map_nums105 - _impl_nums105)}; "
+            f"missing a map row: {sorted(_impl_nums105 - _map_nums105)}; 枝番の行しか無い番号: {_nobare105}; "
+            f"自分の番号を名指す check 呼び出しの無い区間 (見出しだけの区間): {_hollow105}",
+            blocking=True,
+        )
+    else:
+        check(False, "", "Check 105: check-map か CHECK_SOURCE_FILES が無い —— 対応を検証できない", blocking=True)
 
     # ── 96. Phase 1 shipped-code 1-to-1 docs bijection (BLOCKING) ────────────────
     # Docs Phase 7 骨格: Phase 1 対象 shipped code (33 ファイル) が `docs/files/<path>.md`

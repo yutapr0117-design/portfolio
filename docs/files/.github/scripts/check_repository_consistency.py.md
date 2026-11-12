@@ -53,3 +53,5 @@ npm run check (= npm run verify の一部)
 
 ### For third parties (監査 / 採用 / 研究)
 - リポジトリ全体の invariant カタログ。99 Check は AI 実装に安全に委任するための governance 機構
+
+**Check 105 を `checks_docs_mirror.py` へ移した（2026-11-12）**: 本体が行の予算 950 ちょうどだったため。`_ctx.aggregate_check_numbers` と `_ctx.CHECK_SOURCE_FILES` を docs_mirror の run の前に渡す。

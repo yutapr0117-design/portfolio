@@ -34,12 +34,6 @@ authoritative inventory and is kept in sync with the implementation below):
       Check 45 が docstring inventory ↔ section header の bijection を見るのに対し、本 Check
       は「実装ファイル ↔ runbook §9」の cross-document 整合性を担う。新 Check 追加時に runbook
       を更新し忘れる drift を pre-commit で構造的に閉じる。(BLOCKING)
-  105. check-repository-consistency-map.md ↔ implementation Check-number bijection: the map
-       documents EXACTLY the set of check numbers the implementation defines (section headers
-       1..N, alpha sub-checks like 73a normalized to 73). The cross-document counterpart of
-       Check 45 (docstring ↔ section bijection): it catches the "added a Check but forgot the
-       map row" drift class structurally, so the human-facing check inventory can never fall
-       silently behind the implementation. (BLOCKING)
 """
 
 import ast
@@ -558,6 +552,7 @@ _checks_aio_derived.run(_ctx)
 #  Check 108 (full tracked-files bijection) は非連続ゆえ monolith 残置。元の実行位置 (95 の後・
 #  100 の前) を保持。CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。)
 import checks_docs_mirror as _checks_docs_mirror
+_ctx.aggregate_check_numbers, _ctx.CHECK_SOURCE_FILES = _aggregate_check_numbers, CHECK_SOURCE_FILES   # Check 105 が読む
 _checks_docs_mirror.run(_ctx)
 
 
@@ -568,33 +563,7 @@ _checks_docs_mirror.run(_ctx)
 import checks_canon_config as _checks_canon_config
 _checks_canon_config.run(_ctx)
 
-# ── 105. check-repository-consistency-map.md ↔ implementation bijection (BLOCKING) ─
-# check-repository-consistency-map.md is the human-facing inventory of every Check. It is
-# hand-maintained in parallel with the implementation, so it can silently fall behind when a
-# Check is added but the map row is forgotten (or vice-versa). Check 45 already guards the
-# docstring↔section bijection WITHIN this file; this is its cross-document counterpart. We
-# extract the integer check-numbers from the map's table rows (`| N |` / `| Na |`, alpha
-# sub-checks normalized to their integer) and from this file's `# ── N.` section headers,
-# and require the two sets to coincide exactly — so the inventory a reviewer reads can never
-# drift from what the script actually enforces.
-_map105 = ROOT / "docs" / "architecture" / "check-repository-consistency-map.md"
-if _map105.exists() and CHECK_SOURCE_FILES:
-    _mapsrc105 = _map105.read_text(encoding="utf-8")
-    _map_nums105 = {int(m) for m in re.findall(r"^\|\s*(\d+)[a-z]?\s*\|", _mapsrc105, re.MULTILINE)}
-    _, _impl_sec105 = _aggregate_check_numbers()
-    _impl_nums105 = set(_impl_sec105)
-    _only_map105 = sorted(_map_nums105 - _impl_nums105)
-    _only_impl105 = sorted(_impl_nums105 - _map_nums105)
-    check(
-        bool(_impl_nums105) and _map_nums105 == _impl_nums105,
-        f"Check 105: check-repository-consistency-map.md documents exactly the {len(_impl_nums105)} implemented checks (map ↔ implementation bijection)",
-        f"Check 105: check-map and implementation have drifted — only in map: {_only_map105}; "
-        f"missing a map row (implemented but undocumented): {_only_impl105}. "
-        "新 Check 追加時に map へ行を足し忘れる drift を防ぐ (Check 45 の docstring↔section bijection の cross-document 版)",
-        blocking=True,
-    )
-else:
-    check(False, "", "Check 105: check-map or implementation script not found — bijection を検証できない", blocking=True)
+# ── 105 (check-map ↔ 実装の対応) は checks_docs_mirror.py へ移した (2026-11-12) ──
 
 # ── 108/122. tracked-files mirror bijection + private-document guard → checks_tracked_files.py ──
 # (check.py split track・ctx-enrich _member_paths。108=docs/files mirror↔tracked-files FULL bijection /

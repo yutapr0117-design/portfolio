@@ -559,6 +559,23 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 105: map から Check 7 の行を消す (7b / 7c の枝番の行は残る) —— 旧版は枝番を整数に丸めて集合を作り、7 の行が"
+            "消えても集合が変わらず緑だった (2026-11-12・監査 #12)",
+    "file": ROOT / "docs" / "architecture" / "check-repository-consistency-map.md",
+    "find": "| 7 | index.html の CSP メタが inline suppressor スクリプトより前にある | BLOCKING |\n",
+    "replace": "",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 105: Check 99 の check 呼び出しを消して見出しのコメントだけの区間にする —— 旧版は `# ── N.` の見出しがあれば"
+            "実装と数え、Check 99 が何も検査しなくなっても 45 / 70 / 105 は 499 のまま緑だった (2026-11-12・監査 #13)",
+    "file": ROOT / ".github" / "scripts" / "checks_docs_mirror.py",
+    "find": "    check(\n        _inventory99.exists() and _template99.exists(),\n        \"Check 99: docs/files/README.md (inventory) と _template.md (5-軸 template) が両方存在\",\n        f\"Check 99: missing — README.md={_inventory99.exists()}, _template.md={_template99.exists()}\",\n    )\n",
+    "replace": "    pass\n",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
