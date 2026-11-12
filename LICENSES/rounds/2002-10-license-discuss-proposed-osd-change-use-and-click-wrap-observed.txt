@@ -1,0 +1,699 @@
+Source: OSI license-discuss public archive, 2002-October.txt and 2002-November.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 12 of 74 in "a proposed change to the OSD" (2002-10-25 to 2002-11-02)
+Senders: Russell Nelson, Lawrence E. Rosen, John Cowan, Rod Dixon, J.D., LL.M., Karen.Williams at sybase.com, Mahesh T Pai
+Position: Not addressed to us. Observed. Each message kept here is whole. Messages are in order of the time sent. Russell Nelson was the chair of the license committee at the time. Karen Williams writes from sybase.com about Sybase's own submission.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Fri Oct 25 21:43:39 2002
+From: nelson at crynwr.com (Russell Nelson)
+Date: Fri, 25 Oct 2002 17:43:39 -0400 (EDT)
+Subject: a proposed change to the OSD
+Message-ID: <15801.47307.35202.596229@desk.crynwr.com>
+
+I'm going to propose a change the Open Source Definition at our board
+meeting next Thursday.  It is simply this:
+
+0) A license may not restrict use or modification of a lawfully
+obtained copy of a work.
+
+Anybody have problems with this?  Does this have any problems?
+
+-- 
+-russ nelson              http://russnelson.com |
+Crynwr sells support for free software  | PGPok | businesses persuade
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | governments coerce
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From lrosen at rosenlaw.com  Sat Oct 26 16:27:47 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Sat, 26 Oct 2002 09:27:47 -0700
+Subject: a proposed change to the OSD
+In-Reply-To: <15802.43308.68406.231634@desk.crynwr.com>
+Message-ID: <00dd01c27d0c$9ea30ac0$927ba8c0@ROSENGARDEN>
+
+> Yes, BitKeeper's public license.  But there's also a pending license
+> (Sybase) which requires that users indicate their assent to 
+> the license through click-wrap or equivalent.  *Users*.
+
+Russ, if it was your intent to prevent click-wrap notices, then I'm
+definitely NOT in favor.  While many in the open source community are
+opposed to such notices, I will ALWAYS recommend to my clients that they
+use such notices for their software, and that they require their
+sublicensees to use such notices.  Members of the community may not like
+it, but the courts are clear about the importance of such notices for
+contract formation.  Whine and groan all you like, it's a legal
+necessity....  I'll change my mind about this only after you succeed in
+changing the law.
+
+/Larry Rosen
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From jcowan at reutershealth.com  Sat Oct 26 16:51:23 2002
+From: jcowan at reutershealth.com (John Cowan)
+Date: Sat, 26 Oct 2002 12:51:23 -0400 (EDT)
+Subject: a proposed change to the OSD
+In-Reply-To: <00dd01c27d0c$9ea30ac0$927ba8c0@ROSENGARDEN> from "Lawrence E. Rosen" at Oct 26, 2002 09:27:47 AM
+Message-ID: <200210261704.NAA02024@mail2.reutershealth.com>
+
+Lawrence E. Rosen scripsit:
+
+> Russ, if it was your intent to prevent click-wrap notices, then I'm
+> While many in the open source community are
+> opposed to such notices, I will ALWAYS recommend to my clients that they
+> use such notices for their software, and that they require their
+> sublicensees to use such notices.
+
+That could get old real fast, when the typical program requires the
+use of a dozen component libraries to function.  How many dialogue boxes
+are you willing to click on before the Gimp starts up?  Or should each
+user when logging on to the system for the first time be presented with
+about 700 of them to click on?
+
+This is the "annoying [old-]BSD notice requirement" in a new guise.
+
+> Members of the community may not like
+> it, but the courts are clear about the importance of such notices for
+> contract formation.  Whine and groan all you like, it's a legal
+> necessity....  I'll change my mind about this only after you succeed in
+> changing the law.
+
+I agree with what you say, but draw a different conclusion, viz. that
+contracts involving mere use (as opposed to a copyright-holder right
+such as modification) are a Very Bad Thing.
+
+-- 
+John Cowan  jcowan at reutershealth.com  www.reutershealth.com  ccil.org/~cowan
+Dievas dave dantis; Dievas duos duonos          --Lithuanian proverb
+Deus dedit dentes; deus dabit panem             --Latin version thereof
+Deity donated dentition;
+  deity'll donate doughnuts                     --English version by Muke Tever
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From nelson at crynwr.com  Sat Oct 26 17:01:15 2002
+From: nelson at crynwr.com (Russell Nelson)
+Date: Sat, 26 Oct 2002 13:01:15 -0400 (EDT)
+Subject: a proposed change to the OSD
+In-Reply-To: <00dd01c27d0c$9ea30ac0$927ba8c0@ROSENGARDEN>
+References: <15802.43308.68406.231634@desk.crynwr.com>
+	<00dd01c27d0c$9ea30ac0$927ba8c0@ROSENGARDEN>
+Message-ID: <15802.51162.444791.582597@desk.crynwr.com>
+
+Lawrence E. Rosen writes:
+ > the courts are clear about the importance of such notices for
+ > contract formation.
+
+What attributes of a license make a contract necessary?  I know that
+you need a contract to disclaim warranties, but I'm not sure that it's 
+necessary to disclaim a warranty on a gift.
+
+ > I'll change my mind about this only after you succeed in changing
+ > the law.
+
+That's what I'm trying to do.  I have mostly contempt for legislators,
+but judges and lawyers form law in a much wiser manner.  There isn't
+an awful lot of precedent in regards the distribution of free
+software, and what precedent exists is only on a District level.  I
+believe that, by codifying existing practice, we can change the law --
+or at least affect judge's decisions.
+
+At the end of the day, Larry, the community doesn't want to use
+software for which it has to contract to use.  Since it's our job as
+an industry advocacy group to encourage the production and use of open 
+source software, it's our responsibility to tell the producers of open 
+soruce that the users of open source aren't going to contract for its
+use.
+
+-- 
+-russ nelson              http://russnelson.com |
+Crynwr sells support for free software  | PGPok | businesses persuade
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | governments coerce
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rod at cyberspaces.org  Sat Oct 26 20:04:40 2002
+From: rod at cyberspaces.org (Rod Dixon, J.D., LL.M.)
+Date: Sat, 26 Oct 2002 16:04:40 -0400
+Subject: a proposed change to the OSD
+References: <15801.47307.35202.596229@desk.crynwr.com>
+Message-ID: <01cf01c27d2a$eb510890$0400a8c0@AIBO2>
+
+Despite the expressed sentiment of some OSI members, I doubt that any lawyer
+would advise support of this change to the OSD, if it pertains to the
+clickwrap issue.
+
+Rod
+
+Rod Dixon
+Visiting Assistant Professor of Law
+Rutgers University Law School - Camden
+rod at cyberspaces.org
+http://www.cyberspaces.org/dixon/
+My papers on the Social Science Research Network (SSRN) are available
+through the following url: http://papers.ssrn.com/author=240132
+
+> I'm going to propose a change the Open Source Definition at our board
+> meeting next Thursday.  It is simply this:
+>
+> 0) A license may not restrict use or modification of a lawfully
+> obtained copy of a work.
+>
+> Anybody have problems with this?  Does this have any problems?
+>
+> --
+> -russ nelson              http://russnelson.com |
+> Crynwr sells support for free software  | PGPok | businesses persuade
+> 521 Pleasant Valley Rd. | +1 315 268 1925 voice | governments coerce
+> Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |
+> --
+> license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rod at cyberspaces.org  Sat Oct 26 21:36:31 2002
+From: rod at cyberspaces.org (Rod Dixon, J.D., LL.M.)
+Date: Sat, 26 Oct 2002 17:36:31 -0400
+Subject: a proposed change to the OSD
+References: <15802.43308.68406.231634@desk.crynwr.com><00dd01c27d0c$9ea30ac0$927ba8c0@ROSENGARDEN> <15802.51162.444791.582597@desk.crynwr.com>
+Message-ID: <01f701c27d37$c02ad120$0400a8c0@AIBO2>
+
+Calling an open source license a gift is nice semantics, but I am unsure
+what else that description gets us...
+
+Try asking yourself what is the remedy for breach/violation of an open
+source license that the copyright holder/licensor can pursue? In answering
+the question, it is not enough to say that no one will violate the license;
+I am asking a "what if" question (and, truth be told, open source licenses
+occasionally are violated).
+
+Not to ask and answer my own question, but I suspect the answer will be that
+the open source licensor/copyright holder will seek the same remedy as
+anyone else; namely, the copyright holder will enforce his or her copyright
+license. If so, there are obvious questions that the court will have to
+answer, which may include the mutual assent issue, if litigation is the
+route to remedy.
+
+I understand the desire to develop of a habit and practice that might
+ultimately impact the resolution of legal rights in the somewhat-distant
+future, but I do not understand the persistent inclination to ignore how
+courts have viewed these issues in the past, and likely will do so for some
+time in the future.
+
+Rod
+Rod Dixon
+Visiting Assistant Professor of Law
+Rutgers University Law School - Camden
+rod at cyberspaces.org
+http://www.cyberspaces.org/dixon/
+My papers on the Social Science Research Network (SSRN) are available
+through the following url: http://papers.ssrn.com/author=240132
+
+----- Original Message -----
+From: "Russell Nelson" <nelson at crynwr.com>
+To: <license-discuss at opensource.org>
+Sent: Saturday, October 26, 2002 1:01 PM
+Subject: RE: a proposed change to the OSD
+
+
+> Lawrence E. Rosen writes:
+>  > the courts are clear about the importance of such notices for
+>  > contract formation.
+>
+> What attributes of a license make a contract necessary?  I know that
+> you need a contract to disclaim warranties, but I'm not sure that it's
+> necessary to disclaim a warranty on a gift.
+>
+>  > I'll change my mind about this only after you succeed in changing
+>  > the law.
+>
+> That's what I'm trying to do.  I have mostly contempt for legislators,
+> but judges and lawyers form law in a much wiser manner.  There isn't
+> an awful lot of precedent in regards the distribution of free
+> software, and what precedent exists is only on a District level.  I
+> believe that, by codifying existing practice, we can change the law --
+> or at least affect judge's decisions.
+>
+> At the end of the day, Larry, the community doesn't want to use
+> software for which it has to contract to use.  Since it's our job as
+> an industry advocacy group to encourage the production and use of open
+> source software, it's our responsibility to tell the producers of open
+> soruce that the users of open source aren't going to contract for its
+> use.
+>
+> --
+> -russ nelson              http://russnelson.com |
+> Crynwr sells support for free software  | PGPok | businesses persuade
+> 521 Pleasant Valley Rd. | +1 315 268 1925 voice | governments coerce
+> Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |
+> --
+> license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From jcowan at reutershealth.com  Sun Oct 27 05:38:33 2002
+From: jcowan at reutershealth.com (John Cowan)
+Date: Sun, 27 Oct 2002 01:38:33 -0400 (EDT)
+Subject: a proposed change to the OSD
+In-Reply-To: <15802.52146.578863.707266@desk.crynwr.com> from "Russell Nelson" at Oct 26, 2002 01:16:45 PM
+Message-ID: <200210270551.BAA04897@mail2.reutershealth.com>
+
+Russell Nelson scripsit:
+
+> How about this legal theory instead
+> of click-wrap: you got the software for free.  If you continue to use
+> it, it is because you agree with the terms under which the software is
+> offered.  If ever you disagree, you have simply to delete the
+> software.
+
+You could very well claim that you did not know the terms, because you had
+no notice of them.
+
+-- 
+John Cowan      http://www.ccil.org/~cowan      jcowan at reutershealth.com
+Be yourself.  Especially do not feign a working knowledge of RDF where
+no such knowledge exists.  Neither be cynical about RELAX NG; for in
+the face of all aridity and disenchantment in the world of markup,
+James Clark is as perennial as the grass.  --DeXiderata, Sean McGrath
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From Karen.Williams at sybase.com  Wed Oct 30 18:38:15 2002
+From: Karen.Williams at sybase.com (Karen.Williams at sybase.com)
+Date: Wed, 30 Oct 2002 10:38:15 -0800
+Subject: a proposed change to the OSD
+Message-ID: <OF4A5C2B48.3446A62F-ON88256C62.006459AE@Sybase.com>
+
+
+I've been following this discussion with interest.  Since some of it is
+generated at least in part by Sybase's submission of a license for OSI
+certification (which is based on the OSI-approved Apple Public License,
+with the addition of a click-wrap structure as a preferred alternative and
+a few other far less material changes), I wanted to respond/add to a few
+points.
+
+1.  Use Restrictions.  It is not Sybase's intent (by use of a clickwrap
+format or otherwise) to restrict the use of the software for any purpose.
+Our principal interest is in protecting ourselves and other Contributors
+from any liability arising out of any such use.
+
+Many of the existing OSI-approved license agreements, in addition to the
+Apple Public License that Sybase based it's license on, condition
+permission to use the software on agreement to the terms of the governing
+license.  For example:
+              * IBM Public License version 1.0 and Common Public License,
+opening recitals:  "ANY USE, REPRODUCTION OR DISTRIBUTION OF THE PROGRAM
+CONSTITUTES RECIPIENT'S ACCEPTANCE OF THIS AGREEMENT".  See also the
+license grants in these agreements (Section 2), as well as in other
+agreements,  that specify that the grants are "Subject to the terms of this
+Agreement".
+               *Nokia Open Source License (NOKOS License), Exhibit A and
+the Sun Public License, Exhibit A  - Both require a notice in the source
+code files that states: "The contents of this file are subject tot the
+[License] . . .; you may not use this file except in compliance with the
+License".
+
+We are not trying to accomplish anything different from what these other
+approved agreements are trying to accomplish.   These other agreements are
+clearly structured as contracts, not bare license grants,and use of the
+software is expressly conditioned on agreement to the terms provided.
+(This includes terms designed to protect the open source status of the
+software.)  The only material difference in the Sybase agreement is the
+addition of the clickwrap concept as a preferred structure.
+
+2.  Clickwrap Structure.   The key issue from our perspective, and the
+reason for incorporating a click-wrap concept as a preferred structure, is
+to make the disclaimers of warranty and liability, as well as other terms
+of the license, enforceable.  We don't care how anybody uses the software
+that is subject to the agreement, but we don't want any claims or potential
+liability from any such use.   Unless there is a structure that under
+current law gives some confidence that the disclaimers and limitations in
+particular will be enforced, there is a real disincentive for many entities
+to make software available on an open source basis.   In my opinion, the
+current legal reality is that because of recent case law , structures -
+widely used as they are - that provide some notice of license terms but do
+not require a clear, unambiguous, affirmative "manifestation of assent"
+after an adequate opportunity to review may not be enforced by many courts
+in many cases.
+
+                    The language in the Sybase agreement does not require a
+click-wrap structure in all cases.  It provides:  " Whenever reasonably
+feasible you should include the copy of this License in a click-wrap
+format, which requires affirmative acceptance by clicking on an "I accept"
+button or similar mechanism.  If a click-wrap format is not included, you
+must include a statement that any use (including without limitation
+reproduction, modification or distribution) of the Software, and any other
+affirmative act that you define, constitutes acceptance of this License,
+and instructing the user not to use the Covered Code in any manner if the
+user does not accept all of the terms and conditions of the License."   The
+alternative to click-wrap provided for is the same structure referred to
+above that is already in some OSI-approved license agreements, while adding
+the flexibility of allowing other affirmative acts to be defined.  The
+"reasonably feasible" qualifier should address situations where clickwrap
+presents a technical problem.  There may be better ways to provide the
+necessary flexibility, but the intent was to provide it.
+
+        The reason for preferring clickwrap is that such a structure has
+been recognized and enforced by several courts.  Other clear, unambiguous
+and affirmative "manifestations of assent" should be adequate, too - as
+noted in the article that Larry Rosen circulated, this is the key issue -
+so long as the user has an opportunity  to view immediately accessible
+terms and reject them if he/she doesn't agree with them.  But the courts
+haven't addressed all of these.
+
+                     Larry Rosen's suggestion of providing one single
+click-wrap notice to obtain affirmative assent to multiple licenses is
+intriguing.  I think it  works if the single click-wrap notice tells users
+that there are multiple agreements/licenses governing the software
+components (and these are provided with and easily accessible in the
+software), that they must review them before using the software (use of
+"please review" was expressly rejected by one court as being a "mere
+invitation", contributing to a finding that a license agreement referred to
+by a notice, with no requirement for any affirmative manifestation of
+assent, was not enforceable), and that they are bound by the terms of all
+of those agreements/licenses unless, after having reviewed them, they do
+not agree, in which case they must immediately discontinue any use of the
+software.  (Or something along these lines - I'm trying to focus on key
+points that some courts have picked up on, not dictate precise language.)
+
+
+
+
+
+                                                                                                                   
+                    "Lawrence E.                                                                                   
+                    Rosen"               To:     "'John Cowan'" <jcowan at reutershealth.com>,                        
+                    <lrosen at rosenl        <license-discuss at opensource.org>, "'Russell Nelson'" <nelson at crynwr.com> 
+                    aw.com>              cc:                                                                       
+                                         Subject:     RE: a proposed change to the OSD                             
+                    10/26/2002                                                                                     
+                    10:03 AM                                                                                       
+                    Please respond                                                                                 
+                    to lrosen                                                                                      
+                                                                                                                   
+                                                                                                                   
+
+
+
+I'm getting tired of repeating myself....
+
+I have proposed a click-wrap notice that would allow ONE single notice
+for all the programs in a distribution.  I believe that one notice is
+legally sufficient and indeed necessary to obtain affirmative assent to
+the licenses for the individual works comprising that distribution.
+
+Other lawyers may disagree, and every lawyer is free to give legal
+advice to his/her clients.  And if you don't like click-wrap notices,
+don't use them for your software.  Just to be clear, I will ALWAYS
+recommend one to my clients -- at least until the law changes.
+
+/Larry
+
+> -----Original Message-----
+> From: John Cowan [mailto:jcowan at reutershealth.com]
+> Sent: Saturday, October 26, 2002 9:51 AM
+> To: lrosen at rosenlaw.com
+> Cc: 'Russell Nelson'; license-discuss at opensource.org
+> Subject: Re: a proposed change to the OSD
+>
+>
+> Lawrence E. Rosen scripsit:
+>
+> > Russ, if it was your intent to prevent click-wrap notices, then I'm
+> > While many in the open source community are opposed to such
+> notices, I
+> > will ALWAYS recommend to my clients that they use such notices for
+> > their software, and that they require their sublicensees to
+> use such
+> > notices.
+>
+> That could get old real fast, when the typical program
+> requires the use of a dozen component libraries to function.
+> How many dialogue boxes are you willing to click on before
+> the Gimp starts up?  Or should each user when logging on to
+> the system for the first time be presented with about 700 of
+> them to click on?
+>
+> This is the "annoying [old-]BSD notice requirement" in a new guise.
+>
+> > Members of the community may not like
+> > it, but the courts are clear about the importance of such
+> notices for
+> > contract formation.  Whine and groan all you like, it's a legal
+> > necessity....  I'll change my mind about this only after
+> you succeed
+> > in changing the law.
+>
+> I agree with what you say, but draw a different conclusion,
+> viz. that contracts involving mere use (as opposed to a
+> copyright-holder right such as modification) are a Very Bad Thing.
+>
+> --
+> John Cowan  jcowan at reutershealth.com  www.reutershealth.com
+> ccil.org/~cowan
+> Dievas dave dantis; Dievas duos duonos          --Lithuanian proverb
+> Deus dedit dentes; deus dabit panem             --Latin
+> version thereof
+> Deity donated dentition;
+>   deity'll donate doughnuts                     --English
+> version by Muke Tever
+>
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+
+
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From nelson at crynwr.com  Wed Oct 30 19:24:41 2002
+From: nelson at crynwr.com (Russell Nelson)
+Date: Wed, 30 Oct 2002 14:24:41 -0500 (EST)
+Subject: a proposed change to the OSD
+In-Reply-To: <OF4A5C2B48.3446A62F-ON88256C62.006459AE@Sybase.com>
+References: <OF4A5C2B48.3446A62F-ON88256C62.006459AE@Sybase.com>
+Message-ID: <15808.10487.633576.637280@desk.crynwr.com>
+
+Karen.Williams at sybase.com writes:
+ > 1.  Use Restrictions.  It is not Sybase's intent (by use of a clickwrap
+ > format or otherwise) to restrict the use of the software for any purpose.
+
+Right.  That's a different but related issue.
+
+1) if there's no contract, there cannot possibly be any restrictions.
+
+2) However Larry, Rod, and you feel strongly that there are benefits
+that flow in both directions from having a contract with users.  And
+in any case, you're going to want to form a contract.
+
+3) But if there is definitely a contract, then we need to make sure
+that the contract allows all the usual things that people do and
+expect to be able to do, including use, modify, and redistribute.
+While the OSD talks a lot about redistribution, it doesn't say as much
+about modification and even less about use.  This makes sense given
+the history of the document as a listing of what will go into a
+distribution.
+
+4) So the OSD needs to say something about use.  However, existing
+licenses already put limits on what you can do with the code.  The GPL
+requires that interactive use announce a copyright.  If an author has
+has that in a program, you can't take it out.  The OSL puts even more
+limits on code.  If you make modified code available to other people,
+even if all they do is run it on your machine, you have to let them
+have the source.
+
+5) I still want to modify the OSD, but I have to withdraw my earlier
+simplistic use permissions.
+
+ > The only material difference in the Sybase agreement is the
+ > addition of the clickwrap concept as a preferred structure.
+
+Agreed.
+
+ > 2.  Clickwrap Structure.   The key issue from our perspective, and the
+ > reason for incorporating a click-wrap concept as a preferred structure, is
+ > to make the disclaimers of warranty and liability, as well as other terms
+ > of the license, enforceable.  We don't care how anybody uses the software
+ > that is subject to the agreement, but we don't want any claims or potential
+ > liability from any such use.   Unless there is a structure that under
+ > current law gives some confidence that the disclaimers and limitations in
+ > particular will be enforced, there is a real disincentive for many entities
+ > to make software available on an open source basis.   In my opinion, the
+ > current legal reality is that because of recent case law , structures -
+ > widely used as they are - that provide some notice of license terms but do
+ > not require a clear, unambiguous, affirmative "manifestation of assent"
+ > after an adequate opportunity to review may not be enforced by many courts
+ > in many cases.
+
+Continuing to use software after seeing that it is licensed seems like 
+a pretty clear and unambiguous and affirmative manifestation of
+assent.  The key seems to be more the clear and unambiguous
+presentation of the license.  If there is a barrier through which you
+can pass only after realizing that there is a license, then proceeding 
+through that barrier is assent.
+
+ > (use of "please review" was expressly rejected by one court as being
+ > a "mere invitation", contributing to a finding that a license
+ > agreement referred to by a notice, with no requirement for any
+ > affirmative manifestation of assent, was not enforceable),
+
+Excellent weed, but I wish he wouldn't bogart that joint!
+
+ > "reasonably feasible" qualifier should address situations where clickwrap
+ > presents a technical problem.  There may be better ways to provide the
+ > necessary flexibility, but the intent was to provide it.
+
+Good!  Without that term, I don't see how we could approve the
+license.  You say "click-wrap" in the presence of hackers, and you're
+lucky to escape with your life.
+
+My suggestion is for source code to be packaged in a precise manner so 
+that initially, the only visible file is one called "LICENSE", and the 
+source code itself is in a hidden directory called ".I-agree-to-LICENSE".
+It seems to me that a fully caffinated judge isn't going to let
+someone claim that they didn't see the license, or didn't agree to the
+license.
+
+I don't know how to deal with binaries.
+
+-- 
+-russ nelson              http://russnelson.com |
+Crynwr sells support for free software  | PGPok | businesses persuade
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | governments coerce
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From paivakil at vsnl.net  Fri Nov  1 15:29:50 2002
+From: paivakil at vsnl.net (Mahesh T Pai)
+Date: Fri, 01 Nov 2002 20:59:50 +0530
+Subject: a proposed change to the OSD
+In-Reply-To: <FHELIIHLFCGNIJGPHNNMGEMPCFAA.jharrell@copernicusllc.com>
+References: <FHELIIHLFCGNIJGPHNNMGEMPCFAA.jharrell@copernicusllc.com> <200210261306.40530.david@usermode.org>
+Message-ID: <3DC29DEE.8070107@vsnl.net>
+
+David Johnson wrote:
+
+> A) A requirement for user consent, in my opinion, is immoral, 
+> unethical, and just plain rude.
+
+Yes. I agree there.
+
+> I don't need to agree to a license in order to read a book. I don't
+> need to agree to a license in order to listen to music. I should
+> not have to agree to anything in order to use a copy of software
+> which I own.
+
+But then, music will not cost you a dime if it 'malfunctions'; and
+books do not corrupt your hard disks / data.
+
+
+> Copyright law is meant to be a compromise between the rights of the
+> author and the rights of the possessor. Requiring user consent 
+> places too much control in the hands of the author.
+
+But then, in copyleft sense, consent is for the product liability 
+clauses in the licenses, not the copyright grants.
+
+Regards,
+Mahesh T Pai.
+
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From jcowan at reutershealth.com  Sun Nov  3 02:47:32 2002
+From: jcowan at reutershealth.com (John Cowan)
+Date: Sat, 2 Nov 2002 21:47:32 -0500 (EST)
+Subject: a proposed change to the OSD
+In-Reply-To: <OE34JLTqbmYWHhQ8xlD00005c65@hotmail.com> from "Bruce Dodson" at Nov 02, 2002 10:28:12 PM
+Message-ID: <200211030301.WAA25007@mail2.reutershealth.com>
+
+Bruce Dodson scripsit:
+
+> Thanks John and Larry.  Now I am starting to see.  That's very frightening
+> to think about, but I still find it hard to believe.
+
+Well, software manufacturers have been trying to contract out of this
+situation for decades.  I don't know that there have been so many court
+cases that turn on warranty disclaimers even for commercial software.
+
+> Does all of this apply
+> equally to my situation, where I am making the software available purely as
+> a gift?  
+
+Some of us would like to see people who give away software relieved of
+all liability by law.  The trick is to get this to be true in all possible
+jurisdictions, which is an awful lot of them these days.
+
+-- 
+John Cowan  jcowan at reutershealth.com  www.ccil.org/~cowan  www.reutershealth.com
+"In computer science, we stand on each other's feet."
+        --Brian K. Reid
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From lrosen at rosenlaw.com  Sun Nov  3 06:20:38 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Sat, 2 Nov 2002 22:20:38 -0800
+Subject: a proposed change to the OSD
+In-Reply-To: <OE34JLTqbmYWHhQ8xlD00005c65@hotmail.com>
+Message-ID: <033801c28301$20a86cf0$927ba8c0@ROSENGARDEN>
+
+Bruce Dodson wrote:
+> Forget about privity for a second.  That's a red herring.  My 
+> cat just strolled in, so now I have other things on my mind:  
+> Someone gave this cat to me; she was "free to a good home".  
+> They said she was healthy, and it turned out they were right. 
+>  If I found that she had some health problem when I got her, 
+> could I have expected the original owners to pay the 
+> veterinary expenses based on some theory of implied warranty? 
+>  If I had decided to return her, could I have expected to be 
+> compensated some amount so I could buy a replacement cat from 
+> Pets R Us?
+> 
+> "Don't be stupid, Bruce, of course not," says my conscience.
+
+> Does the law disagree?  Also, does it give a different answer 
+> for software than for cats?
+
+I'm not sure about the cat situation.  I've not read any cases about the
+law of contracts as it applies to pets accepted by "good homes."  Hardly
+anyone goes to court about their cats.  (Check your local bar
+association for cat lawyers.)  But software is ubiquitous and it is big
+business.  Where money is at risk, courts and judges and lawyers and
+legislators and lobbyists are involved.  So there are cases that deal
+with software.  Those cases make it clear (at least to me) that we ought
+to use enforceable contracts when we license our software.  Someday,
+everyone will adopt cats and use only free software.  Perhaps by then
+the law will address both kinds of "products" in a similar fashion, and
+the phrase "free to good homes" will have broader meaning to open source
+advocates.  
+
+/Larry
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
