@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 481 subject lines. One thread appears under two subject spellings
+# Rows: 484 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -115,6 +115,7 @@
 2004-03-12	proposal: DotGNU Trademark License
 2004-05-24	For approval: wxWindows-to-wxWidgets license name change
 2004-06-07	For Approval: Educational Community License
+2004-06-28	testing kit conformance as a condition of distribution
 2004-07-22	Creative Commons 2.0 license suite
 2004-07-23	Help Selecting License
 2004-08-11	License for Massively Multiplayer Games?
@@ -141,6 +142,7 @@
 2005-03-08	An explanation of the difficulty of solving license proliferation in one sentence
 2005-03-09	An explanation of the difficulty of solving licenseproliferation in one sentence
 2005-03-21	Which license is recommended?
+2005-03-29	"De-approve" the Intel Open Source License
 2005-04-09	"Open Source Constitution"?
 2005-04-11	OSI's war on corporate licenses
 2005-04-11	Official License Anti-Proliferation policy?
@@ -448,6 +450,7 @@
 2019-08-08	For Discussion: Cryptographic Autonomy License (CAL) Beta 2
 2019-08-08	For Public Comment: The Libre Source License
 2019-08-19	Fact-gathering on OSI-approved licenses
+2019-09-11	Coherent Open Source - Getting underway next Friday
 2019-09-25	WordPress GPL software
 2019-12-26	Approval Status of MIT-0
 2020-01-02	AGPL timeline & why cautious processes with real-world testing are better
