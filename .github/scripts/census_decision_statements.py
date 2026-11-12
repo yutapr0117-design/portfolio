@@ -395,13 +395,23 @@ def threads(out):
         core = re.sub(r"\s+", " ", re.sub(r"\[[^\]]*\]", "", re.sub(r"^\s*(?:re|fwd?)\s*:\s*", "", r["title"], flags=re.I))).strip()
         acr = [a for a in re.findall(r"\(([A-Za-z0-9][A-Za-z0-9.\- ]{2,30})\)", r["title"])
                if re.search(r"[A-Z]", a) and re.search(r"[-0-9]", a)]
-        where = sorted({n for n, d in docs.items() if (len(core.split()) >= 3 and core.lower() in d.lower())
-                        or any(re.search(r"(?<![\w-])" + re.escape(a) + r"(?![\w-])", d) for a in acr)})
+        pats = ([re.escape(core)] if len(core.split()) >= 3 else []) + [r"(?<![\w-])" + re.escape(a) + r"(?![\w-])" for a in acr]
+        # 一致した文の前後 200 字に会話の始まりの年が在るか (portfolio-00 の依頼・2026-11-12): 一般的な件名は別の会話を
+        #   指す文に一致しうるので、年が近くに在る file に「年」の印を添える (印が無くても別の会話とは限らない)
+        where, near = [], set()
+        for name, d in docs.items():
+            ms = [m for p in pats for m in re.finditer(p, d, re.I)]
+            if ms:
+                where.append(name)
+                if any(r["start"][:4] in d[max(0, m.start() - 200):m.end() + 200] for m in ms):
+                    near.add(name)
         if where:
-            cited.append((r, where))
-    print(f"ドシエに件名か略称が現れる未読の会話 {len(cited)} 件 (読んだなら READ-THREADS に足す・一般的な件名は別の文の一致がある)")
-    for r, where in cited:
-        print(f"  名が在る・未読: {r['start']}\t{r['title']}  ({', '.join(where[:4])}{' ほか' if len(where) > 4 else ''})")
+            cited.append((r, sorted(where), near))
+    print(f"ドシエに件名か略称が現れる未読の会話 {len(cited)} 件 (読んだなら READ-THREADS に足す・一般的な件名は別の文の一致がある・"
+          "「年」は一致の前後 200 字に会話の始まりの年が在る file)")
+    for r, where, near in cited:
+        names = [f"{n}{' [年]' if n in near else ''}" for n in where]
+        print(f"  名が在る・未読: {r['start']}\t{r['title']}  ({', '.join(names[:4])}{' ほか' if len(names) > 4 else ''})")
     # AS-OF の「未読スレッドの残り」の行と同じ形 (Check 498 (h) が和を見る)
     print(f"AS-OF: 候補 {len(candidates)} 本のうち {len(candidates) - len(unread)} 本を読んだ。{len(unread)} 本は読んでいない")
 
