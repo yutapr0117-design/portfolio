@@ -1,0 +1,87 @@
+Source: OSI license-discuss public archive, 2011-April.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 2 of 6 in "Accidental Public License?" (2011-04-06)
+Senders: Allison Randal, Karl Fogel
+Position: Not addressed to us. Observed. Each message kept here is whole.
+
+----- begin verbatim -----
+From allison at perl.org  Wed Apr  6 20:56:24 2011
+From: allison at perl.org (Allison Randal)
+Date: Wed, 06 Apr 2011 13:56:24 -0700
+Subject: Accidental Public License?
+Message-ID: <4D9CD378.5060107@perl.org>
+
+I have accidentally given birth to a new copyleft license. I've received 
+a request for permission to use my "Simplified GPL" for an open source 
+project:
+
+http://radar.oreilly.com/2007/05/gplv3-clarity-and-simplicity.html
+
+I'm not asking for this license to be approved by the OSI, but I'm very 
+aware of the fact that it has only so far been examined in detail by me 
+and one intellectual property lawyer. I would appreciate any feedback, 
+especially highlighting any flaws that would make this a poor choice for 
+an open source project. (There are some details in that draft that I 
+would remove if I were writing a stand-alone copyleft license. I was 
+sticking slavishly to the GPLv3 terms for the sake of illustration.)
+
+I'm generally against license proliferation, but I also don't see a 
+clear alternative to suggest that accomplishes the same copyleft goals 
+as the GPL, without the archaic ambiguities of GPLv2 or the unnecessary 
+complexity of GPLv3.
+
+Allison
+
+
+From kfogel at red-bean.com  Wed Apr  6 23:42:31 2011
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Wed, 06 Apr 2011 19:42:31 -0400
+Subject: Accidental Public License?
+In-Reply-To: <4D9CD378.5060107@perl.org> (Allison Randal's message of "Wed, 06
+	Apr 2011 13:56:24 -0700")
+References: <4D9CD378.5060107@perl.org>
+Message-ID: <87ipur2bh4.fsf@red-bean.com>
+
+Allison Randal <allison at perl.org> writes:
+>I have accidentally given birth to a new copyleft license. I've
+>received a request for permission to use my "Simplified GPL" for an
+>open source project:
+>
+>http://radar.oreilly.com/2007/05/gplv3-clarity-and-simplicity.html
+>
+>I'm not asking for this license to be approved by the OSI, but I'm
+>very aware of the fact that it has only so far been examined in detail
+>by me and one intellectual property lawyer. I would appreciate any
+>feedback, especially highlighting any flaws that would make this a
+>poor choice for an open source project. (There are some details in
+>that draft that I would remove if I were writing a stand-alone
+>copyleft license. I was sticking slavishly to the GPLv3 terms for the
+>sake of illustration.)
+>
+>I'm generally against license proliferation, but I also don't see a
+>clear alternative to suggest that accomplishes the same copyleft goals
+>as the GPL, without the archaic ambiguities of GPLv2 or the
+>unnecessary complexity of GPLv3.
+
+One alternative: suggest to the person that they just use the GPLv3 but
+preface it with a non-binding "human-readable" explanation of what it
+means, much as Creative Commons does with all their licenses?
+
+The thing is, even if (say) the GPLv3 is complex in its own right, a
+given legal department only needs to learn that complexity once.  The
+GPLv3's *marginal* complexity then drops to... well, not to zero, but to
+something much less than any new, untested license anyway.
+
+So in the aggregate, any standard open source license is less complex
+than any rarely-used license, even if the latter is a marvel of
+simplicity in its own right.
+
+If you agree with this general line of reasoning, please feel free to
+forward this message to those who asked you about the Simplified GPL.
+I'm hoping they'll do the simple thing and go with GPLv3, once they
+think it all the way through.
+
+Best,
+-Karl
+
+
