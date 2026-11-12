@@ -167,6 +167,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | E76 | §16.4 | *"under any name that contains"*（+2 語・T44） | **反映済み**（2026-11-08）|
 | E77 | §16.4 | *"regardless of case"*（+3 語・T46） | **反映済み**（2026-11-09）|
 | E78 | §8.4 | 第 2 文 *"The grant is necessary because …"* を外す（−50 語・上の表の「§8.4（理由の文・T54）」行と同じ変更） | **反映済み**（2026-11-12）|
+| E79 | §2.8 | 第 2 文を *"A transferee takes subject to it to that extent, Section 6 included."* へ（+3 語・上の表の「§2.8（譲受人・T59）」行と同じ変更） | **反映済み**（2026-11-12）|
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
@@ -343,12 +344,12 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 > **If you read ACD-1.0 on `license-discuss`, this is what is different in the version submitted.**
 > The direction is unchanged: no condition is placed on You in respect of the Work (§10.1), the
 > surrender, the licence and the covenant stand side by side (§2.4, §4.4), and the patent grant
-> reaches models and outputs (§8.4). What changed is precision. Of the 78 defects recorded against
-> 1.0 in [`ACD-1.0.errata.md`](ACD-1.0.errata.md), 76 are closed: 36 in 1.1 to 1.3 (19, 13 and 4)
-> and 40 for the first time in 1.4. E10 is carried into finalisation and E6 is left as it is by
+> reaches models and outputs (§8.4). What changed is precision. Of the 79 defects recorded against
+> 1.0 in [`ACD-1.0.errata.md`](ACD-1.0.errata.md), 77 are closed: 36 in 1.1 to 1.3 (19, 13 and 4)
+> and 41 for the first time in 1.4. E10 is carried into finalisation and E6 is left as it is by
 > design. By the clause
 > each entry names first, most were in §8 (patents, 13), §16 (applying the text and its name, 12),
-> §2 (scope and effect, 10) and §1 (definitions, 8); seven name the preamble or several clauses at
+> §2 (scope and effect, 11) and §1 (definitions, 8); seven name the preamble or several clauses at
 > once. Further changes came from our own sweeps of the
 > later drafts and are listed, with their reasons, in each version's change list. The text is
 > longer: 5,552 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.

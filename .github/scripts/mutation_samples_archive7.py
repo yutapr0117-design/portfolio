@@ -79,10 +79,10 @@ MUTATIONS_ARCHIVE7 = [
     "replace": "(19, 13 and 5)",
 },
     {
-    "name": "Check 498: 「1.0 から何が変わったか」の下書きの §2 の件数を 11 にする —— 節ごとの件数は errata の表の 2 列目から導けるのに、照合していなかった",
+    "name": "Check 498: 「1.0 から何が変わったか」の下書きの §2 の件数を 12 にする —— 節ごとの件数は errata の表の 2 列目から導けるのに、照合していなかった",
     "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
-    "find": "§2 (scope and effect, 10)",
-    "replace": "§2 (scope and effect, 11)",
+    "find": "§2 (scope and effect, 11)",
+    "replace": "§2 (scope and effect, 12)",
 },
     {
     "name": "Check 478: 地図の 476 の行の「実装:」を分割前の module (checks_license_submission.py) にする —— 所在列しか読まず、説明の欄の「実装:」の形は照合していなかった (473 の行が実際にそうなっていた)",

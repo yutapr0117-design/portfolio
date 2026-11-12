@@ -61,7 +61,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       Sections already bind, with a different list of persons and a different
       limit. Section 2.8 now says that a transferee takes subject to it "to
       that extent", where it said so without the limit its first sentence
-      states. (-68 words.)
+      states (errata E79). (-68 words.)
     * Section 4.2 now names study, inspection, analysis, and reverse
       engineering among the acts the licence includes. (+5 words.)
     * Section 4.3 now names the size and revenue of the user, the scale of use,
