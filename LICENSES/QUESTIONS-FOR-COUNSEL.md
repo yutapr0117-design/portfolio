@@ -108,7 +108,10 @@ the owner of the rights licensed or the owner's agent, and was taken before the 
 or in good faith before the transfer was recorded and without notice of it (text read on 2026-11-12 at
 the Legal Information Institute; we have not read a case that applies it to a public licence). Nobody
 signs the Dedication for each recipient, and §2.8 says that it binds any person to whom a Covered Right
-is transferred *"to the fullest extent the law permits"*. In the United States, does a recipient's
+is transferred *"to the fullest extent the law permits"*. Its second sentence said, without that limit,
+that a transferee takes subject to it; since 2026-11-12 the 1.4 draft says *"A transferee takes subject
+to it to that extent, Section 6 included."*, so that the text claims no more than the statute may allow
+(`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.32, T59). In the United States, does a recipient's
 licence under §4 prevail over a later assignee of the copyright, and does it matter whether §3 has
 already taken effect, leaving nothing to transfer?
 
