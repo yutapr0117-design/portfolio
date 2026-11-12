@@ -13,7 +13,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約) / LICENSES/ACD-1.0
 
 ## Why
 
-受け入れを求めない形の免責が効くか（`ACD-1.0.against.md` #321）を、委員長（贈与の形を守る側）と list の弁護士・提出者の社内弁護士（契約を作る側）が正面から争った記録である。ACD は受け入れを求めない（§2.3）。読みは `ACD-1.0.review-readings.md` §1.180 の追記。
+受け入れを求めない形の免責が効くか（`ACD-1.0.against.md` #321）を、委員長（贈与の形を守る側）と、list の弁護士と提出した会社の側の人（契約を作る側）が正面から争った記録である。ACD は受け入れを求めない（§2.3）。読みは `ACD-1.0.review-readings.md` §1.180 の追記。
 
 ## How
 
