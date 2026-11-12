@@ -1,0 +1,334 @@
+Source: OSI license-review public archive, 2025-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 4 of 5 in "Request for License Review - BarrerSoftware License (BSL)v1.0" (2025-12-28 to 2025-12-30)
+Senders: Josh Berkus, Lukas Atkinson, Carlo Piana
+Position: Not addressed to us. Observed. Carlo Piana's message of 2025-12-30 is cut where the trailing quotation begins; each message kept here is otherwise whole. Josh Berkus signs the first message "OSI Board Member" and writes the second from his personal account. The one message not kept is Roland Turner's short +1 on the OSD 6 point.
+
+----- begin verbatim -----
+From josh.berkus at opensource.org  Mon Dec 29 01:40:21 2025
+From: josh.berkus at opensource.org (Josh Berkus)
+Date: Sun, 28 Dec 2025 17:40:21 -0800
+Subject: [License-review] Request for License Review - BarrerSoftware
+ License (BSL)v1.0
+In-Reply-To: <2ef30352-dd85-ea0a-7c0e-fd16d22329e2@barrersoftware.com>
+References: <2ef30352-dd85-ea0a-7c0e-fd16d22329e2@barrersoftware.com>
+Message-ID: <bf211e94-ee59-48cd-98f7-462e5f47abf4@opensource.org>
+
+Holiday greetings, Mr. Elliott
+
+> Currently, no OSI-approved license provides strong anti-commercialization
+> protections while maintaining all four essential freedoms (use, study, 
+> modify,
+> distribute).
+
+No OSI-approved license provides this, because no such license would be 
+considered Open Source.  This is precisely what clause 6 of the Open 
+Source Definition covers, unambiguously:
+
+---------------
+6. No Discrimination Against Fields of Endeavor
+
+The license must not restrict anyone from making use of the program in a 
+specific field of endeavor. For example, it may not restrict the program 
+from being used in a business, or from being used for genetic research.
+---------------
+
+As such, we are unable to approve your license, as there is no question 
+that it is not open source.  You are welcome to withdraw the submission, 
+or we can file a rejection for the record according to the terms of 
+License Review, if you wish.
+
+In addition, if you are going to publish an open-ish non-open source 
+license, let me suggest that you NOT use the acronym "BSL"?  That's 
+already widely used by the Business Source License (also BuSL), another 
+popular non-OSS license.
+
+-- 
+-- Josh Berkus
+OSI Board Member
+
+
+From josh at berkus.org  Mon Dec 29 22:09:49 2025
+From: josh at berkus.org (Josh Berkus)
+Date: Mon, 29 Dec 2025 14:09:49 -0800
+Subject: [License-review] Request for License Review - BarrerSoftware
+ License (BSL)v1.0
+In-Reply-To: <8458d56b-6f4a-5606-5805-56d861a31b4d@barrersoftware.com>
+References: <2ef30352-dd85-ea0a-7c0e-fd16d22329e2@barrersoftware.com>
+ <bf211e94-ee59-48cd-98f7-462e5f47abf4@opensource.org>
+ <8458d56b-6f4a-5606-5805-56d861a31b4d@barrersoftware.com>
+Message-ID: <c1e6b3f9-7891-49ca-a11e-2a3f6b36937f@berkus.org>
+
+(switching to my personal account, since this has become a discussion)
+
+> Thanks for writing back about this.
+> 
+> for Section 6, all we are saying with that part is that the software 
+> itself should be free and remain free. services around it and things 
+> like that is fine for commercialization but the software itself should 
+> be free itself. we are still giving the full modify, use, distribute and 
+> things like that, just that if a program or software made by a creator 
+> wanted to make the software to be truly free, then it should be free period.
+
+That's not what the text of your license says.  Your license has quite 
+an expansive definition of commercialization, both in the preface and in 
+the license text itself.  For example, your license currently prohibits 
+charging for hosting, or for distribution bandwidth (the latter would be 
+quite difficult to enforce).  It doesn't matter, though, because a 
+blanket prohibition on charging for software packages has been 
+consistently determined to be a violation of OSD6 by the OSI (as well as 
+the FSF).
+
+There is a long tradition of "no commercialization" licenses in 
+software; it's a popular model for obvious reasons.  Such licenses are 
+not, however, open source. This is why licenses like the GPL3 focus on 
+requiring distributors to release source instead.
+
+Given that we've had two submissions which have been confused on this 
+exact point this year, it's probably time for a blog post.
+
+> 
+> On the naming of the license, we searched for something with that same 
+> naming and didn't find that so now we are going to switch the name to 
+> Barrer Open Source License (BOSL) so it follows what it should be for.
+> 
+> Thanks for getting back with me with your comments and hopefully this 
+> can help you out better.
+> 
+> Daniel Elliott
+> 
+> Founder/Owner
+> 
+> Barrer Software
+> 
+> On Sunday, December 28, 2025 17:40 PST, Josh Berkus 
+> <josh.berkus at opensource.org> wrote:
+> 
+>> Holiday greetings, Mr. Elliott
+>>
+>> > Currently, no OSI-approved license provides strong anti- 
+>> commercialization
+>> > protections while maintaining all four essential freedoms (use, study,
+>> > modify,
+>> > distribute).
+>>
+>> No OSI-approved license provides this, because no such license would be
+>> considered Open Source. This is precisely what clause 6 of the Open
+>> Source Definition covers, unambiguously:
+>>
+>> ---------------
+>> 6. No Discrimination Against Fields of Endeavor
+>>
+>> The license must not restrict anyone from making use of the program in a
+>> specific field of endeavor. For example, it may not restrict the program
+>> from being used in a business, or from being used for genetic research.
+>> ---------------
+>>
+>> As such, we are unable to approve your license, as there is no question
+>> that it is not open source. You are welcome to withdraw the submission,
+>> or we can file a rejection for the record according to the terms of
+>> License Review, if you wish.
+>>
+>> In addition, if you are going to publish an open-ish non-open source
+>> license, let me suggest that you NOT use the acronym "BSL"? That's
+>> already widely used by the Business Source License (also BuSL), another
+>> popular non-OSS license.
+>>
+>> -- 
+>> -- Josh Berkus
+>> OSI Board Member
+>>
+> 
+> 
+> 
+
+-- 
+Josh Berkus
+
+
+From opensource at lukasatkinson.de  Tue Dec 30 01:25:02 2025
+From: opensource at lukasatkinson.de (Lukas Atkinson)
+Date: Tue, 30 Dec 2025 02:25:02 +0100
+Subject: [License-review] Request for License Review - BarrerSoftware
+ License (BSL)v1.0
+In-Reply-To: <2ef30352-dd85-ea0a-7c0e-fd16d22329e2@barrersoftware.com>
+References: <2ef30352-dd85-ea0a-7c0e-fd16d22329e2@barrersoftware.com>
+Message-ID: 
+ <CAJTYOd3z2LSgHUzX=AQPbwT3re-DQ=+V_SpGcn6uNa-6_v4riA@mail.gmail.com>
+
+Aside from the glaring OSD#6 issues already discussed, this license seems
+to be non-approvable for various other reasons.
+
+Concerns that the license does not meet the bar for OSI approval:
+
+* The license reads like it was drafted by AI tools. This alone should be
+grounds to stop reading the license, but for the sake of the argument let's
+continue.
+
+* The license is not reusable. The License-Review process (
+https://opensource.org/licenses/review-process) clearly requires that new
+licenses are reusable. However, the entire license is specific to the
+submitter's company, even mentioning various products in the middle of the
+text (e.g. see the “special provisions” section). Overall, there are 30
+separate occurrences of the company name.
+
+* The “educational use” and “government use” sections seem to restate
+permissions that have already been given, but could also be interpreted as
+limiting permissions in these fields of use.
+
+* The license says that “you may charge for services, not software”, but
+doesn't clearly define “service”. I remember a discussion about this term
+during the SSPL reviews, but the two licenses seem to use the term very
+differently. Concretely: is paid Software-as-a-Service allowed? Would it be
+possible to charge for hosting services?
+
+Concerns that the license is unclear:
+
+* The license has an inherently unclear structure. It consists of a brief
+summary with bullet points (legally binding), followed by what seems to be
+the main license (also legally binding), followed by an “appendix: legal
+formalities” that's supposed to define the formal license, but with the
+above sections having precedence. Many sections in the main(?) license do
+not contain license terms and are merely informative. E.g. they instruct
+recipients how to report license violations. They provide statements of
+intent for dealing with license violations. There's a lengthy “rationale”
+section in the middle of the license, and a “philosophy” section a bit
+later. This is not just confusing for people who are used to reading Open
+Source licenses, but probably also entirely confusing for folks who are
+not. Unless I go through the effort of creating a consolidated version that
+combines the three parts, I have no idea what the actual rights and
+conditions are.
+
+* The compatibility list is unclear. For example, it mentions the “GNU GPL
+v3.0 (with non-commercial addendum)”. This conflicts with Section 7 of the
+GPL-3.0, which governs “additional terms”. A “non-commercial addendum”
+would surely qualify as an “additional restriction” as far as the GPL is
+concerned and would be ineffective. While the intent here is clear, the
+actual effect is not, and approval of unclear licenses should be avoided.
+
+* The license compatibility list also claims that Apache-2.0 and
+BSD-family licenses are not compatible because those “allow
+commercialization”. This is clear evidence of an intent to violate OSD#6,
+regardless of what has been stated in the submission email.
+
+* The license compatibility mechanism may or may not allow for license
+version upgrades. There is no explicit provision for later versions, though
+there is a “version history” section suggesting an intent to evolve the
+license. On the other hand, the license defines “compatible license” as
+“any license that  includes substantially similar restrictions on
+commercial exploitation and requirements for perpetual free availability”,
+which could be viewed as an unusually broad upgrade clause. Having an
+upgrade mechanism has never been a precondition for OSI approval, but this
+point is illustrative of this license's general vagueness.
+
+* The license uses “BSL” as an abbreviation. Per SPDX this abbreviation
+refers to the (OSI-approved) Boost Software License, though it's also
+commonly used for the (non-Open) Business Source License. A different
+abbreviation might avoid confusion.
+
+Historical context to consider:
+
+* The SSPL has already been mentioned. During its review process there was
+intense debate about where to draw the line to prohibit the “wrong” kind of
+commercial exploitation. There is now clear consensus that the SSPL does
+not comply with the OSD. Similarly, this suggests that the present
+submission is far away from what can be considered OSD-compliant.
+
+* The Cryptographic Autonomy License was a successful (though
+controversial) example of pushing the boundaries of what can be considered
+OSD-compliant. However, its submission had a clear argument that its data
+migration provisions are *necessary* to ensure full Software Freedom. In
+contrast, the current submission lacks such a clear argument.
+
+* The SIL Open Font License is a fascinating specimen that forbids sale of
+the licensed software itself. On the face of it, this is an OSD#6
+violation. However, this is a relatively old license, and new submissions
+should be held to a higher standard. The SIL-OFL also doesn't prohibit all
+commercialization, and allows sales when bundled with other software –
+rendering the prohibition against direct sales effectively irrelevant. In
+contrast, this submission explicitly prohibits any monetization or bundling.
+
+I'd therefore ask the OSI board to reject this license submission.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20251230/282e1ed2/attachment.htm>
+
+From carlo at piana.eu  Tue Dec 30 13:28:27 2025
+From: carlo at piana.eu (Carlo Piana)
+Date: Tue, 30 Dec 2025 14:28:27 +0100 (CET)
+Subject: [License-review] Request for License Review - BarrerSoftware
+ License (BSL)v1.0
+In-Reply-To: <c1e6b3f9-7891-49ca-a11e-2a3f6b36937f@berkus.org>
+References: <2ef30352-dd85-ea0a-7c0e-fd16d22329e2@barrersoftware.com>
+ <bf211e94-ee59-48cd-98f7-462e5f47abf4@opensource.org>
+ <8458d56b-6f4a-5606-5805-56d861a31b4d@barrersoftware.com>
+ <c1e6b3f9-7891-49ca-a11e-2a3f6b36937f@berkus.org>
+Message-ID: <2024649365.23381135.1767101307729.JavaMail.zimbra@piana.eu>
+
+
+
+----- Messaggio originale -----
+> Da: "Josh Berkus" <josh at berkus.org>
+> A: "Barrer Software Legal" <legal at barrersoftware.com>
+> Cc: "License submissions for OSI review" <license-review at lists.opensource.org>
+> Inviato: Lunedì, 29 dicembre 2025 23:09:49
+> Oggetto: Re: [License-review] Request for License Review - BarrerSoftware License (BSL)v1.0
+
+> (switching to my personal account, since this has become a discussion)
+> 
+>> Thanks for writing back about this.
+>> 
+>> for Section 6, all we are saying with that part is that the software
+>> itself should be free and remain free. services around it and things
+>> like that is fine for commercialization but the software itself should
+>> be free itself. we are still giving the full modify, use, distribute and
+>> things like that, just that if a program or software made by a creator
+>> wanted to make the software to be truly free, then it should be free period.
+> 
+> That's not what the text of your license says.  Your license has quite
+> an expansive definition of commercialization, both in the preface and in
+> the license text itself.  For example, your license currently prohibits
+> charging for hosting, or for distribution bandwidth (the latter would be
+> quite difficult to enforce).  It doesn't matter, though, because a
+> blanket prohibition on charging for software packages has been
+> consistently determined to be a violation of OSD6 by the OSI (as well as
+> the FSF).
+> 
+> There is a long tradition of "no commercialization" licenses in
+> software; it's a popular model for obvious reasons.  Such licenses are
+> not, however, open source. This is why licenses like the GPL3 focus on
+> requiring distributors to release source instead.
+> 
+
+I agree with everything that has been said. Free Software does not mean that people cannot make money out of if, only you cannot (among other things) ask a return as a condition for the grant. In that sense, the software must remain [f|F]ree. The entire Section 1 is non-Open Source and this license deserves no further discussion if not for educational purposes.
+
+There are other evident shortcomings, including falsely stating that this license is compatible with GPLv3, as it clearly (and "apertis verbis") violates its section 7. Or the claim that the software shall be perpetually under the conditions of the license -- that's a false statement, as after the copyright protection expires, the software becomes public domain and no conditions can be imposed.
+
+
+> Given that we've had two submissions which have been confused on this
+> exact point this year, it's probably time for a blog post.
+
+
+Yes.
+
+Cheers
+
+Carlo /in his personal capacity.
+
+> 
+>> 
+>> On the naming of the license, we searched for something with that same
+>> naming and didn't find that so now we are going to switch the name to
+>> Barrer Open Source License (BOSL) so it follows what it should be for.
+>> 
+>> Thanks for getting back with me with your comments and hopefully this
+>> can help you out better.
+>> 
+>> Daniel Elliott
+>> 
+>> Founder/Owner
+>> 
+>> Barrer Software
+>> 
+>> On Sunday, December 28, 2025 17:40 PST, Josh Berkus
+
