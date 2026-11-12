@@ -659,3 +659,19 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 
 **この節が establish しないこと。** OSD 9 の語が後で直されたかは、このスレッドには無い。どちらの文も個人の見解で、委員会の判断ではない。
 
+## 1.200 在るか分からない権利を、ライセンスが在るものとして扱うこと —— CAL と API の著作権（2019）（2026-11-12）
+
+"Copyright on APIs"（`license-discuss` 2019-06〜07・72 通・決める側の通に絞って読んだ・`rounds/2019-06-license-discuss-api-copyright-claiming-rights-observed.txt` に 2 通）。Cryptographic Autonomy License（CAL）の審査から分かれた会話で、census の論点の順位（B1・B10・B15・B2・B7/B10）から読んだ。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"the failing of the CAL is not that it also covers API copyright, but that it claims such a right regardless of whether it actually exists in the relevant jurisdictions."* | Lukas Atkinson 氏 2019-06-29 | **有利な面。** ACD は保護が不確かな権利を「在るなら」の形で扱う。§7.1 は *"To the extent that a sui generis database right … subsists in the Work"*、§1.5 は権利を *"whether or not presently subsisting"* と書き、在ることを主張しない。しかも ACD はその権利を行使するのではなく、放棄し許諾する |
+| *"would that be an OSD 5 violation because it effectively gives different rights to licensees depending on their jurisdictions? … But isn't that the case with any license since local copyright laws might offer some copyright exception?"* | Atkinson 氏 2019-06-29 | 法域で権利の有無が違うことは、Atkinson 氏自身が「どのライセンスでもそうだ」と答えている。ACD の §7 は EU の sui generis 権のように法域で在り方が違う権利を扱うが、受領者に与えるものは増えるだけで、減る受領者はいない |
+| *"Pretty much every one of them attempts to assert copyright rights upon things that can not reliably be copyrighted under current US law."*、*"Eventually the question of hardware design copyright will get to a court, which will look at industry practice before making a decision that *extends copyright. *We should not be providing the examples which prompt the court to do that."* | Bruce Perens 氏 2019-06-29 | **不利な面（B15）。** ACD の本文は、学習済みモデルの重み、パラメータ、データベースなど、保護が確立していない対象を名指す。ライセンスが名指すこと自体が「業界の慣行」として、権利の拡張の根拠に使われうる、という懸念の形である |
+
+**読み。** 2019 年の 2 人の文は、保護が不確かな権利を扱うライセンスの 2 つの問いを分ける。権利の存在を主張するか（Atkinson 氏）と、名指すことが権利の拡張を後押しするか（Perens 氏）である。ACD は前者について「在るなら」の形を取り、主張しない。後者については、ACD が名指すのは権利ではなく対象（モデル、重み、出力）で、許諾と放棄の向きでだけ名指す。
+
+**逆側。** 「在るなら放棄する」と書くこと自体が、在りうると認める読みを生む。Perens 氏の懸念は、条件を付けて権利を行使するライセンスに向いていた（ハードウェアの設計の著作権で互恵を求める型）。ACD の放棄と許諾がこの懸念の外に在るかは、審査者が「名指すだけで慣行になる」と読むかで決まる。ACD は §6.5 などで、機械学習の許諾を明示する理由を「沈黙は曖昧と分かった」と説明している。この説明は、名指すことの費用を払う理由にもなる。
+
+**この節が establish しないこと。** CAL の審査の帰結（委員会は 2020-02 までに承認した・`review-outcomes.md` §1.126）は、この会話の後のことで、この節の 2 人の文がそれにどう効いたかは確かめていない。
+
