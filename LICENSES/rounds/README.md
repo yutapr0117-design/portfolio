@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-12 時点・401 ファイル）
+## いまの状態（2026-11-12 時点・402 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -120,6 +120,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2025-12 | `license-review` | **観測（BarrerSoftware License の審査から 4 通・OSD 6 で承認できない、本文が AI の道具で書かれたように読めることを読むのをやめる理由に挙げた審査者）** | `2025-12-license-review-barrersoftware-observed.txt` |
 | 2017-04・2019-08 | `license-review` / `license-discuss` | **観測（BSD+Patent の承認の告知と "Fact-gathering on OSI-approved licenses" から 5 通・分類は当面「特別な目的」、承認しない処分は却下に等しいと言え、CC0 の取り下げを「却下」と呼んだ委員）** | `2017-04-and-2019-08-license-lists-bsd-patent-approval-and-cc0-disposition-observed.txt` |
 | 2005-09 | `license-discuss` | **観測（OSL 3.0 / AFL 3.0 の提出から 3 通・改変版を許す第 16 条と steward、提出の件名の形）** | `2005-09-license-discuss-osl-afl-3-0-section-16-and-submission-form-observed.txt` |
+| 2011-04 | `license-discuss` | **観測（"Accidental Public License?" から 2 通・法務部門は既存の複雑さを一度学べばよい、新しく試されていないライセンスの限界費用）** | `2011-04-license-discuss-accidental-public-license-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
 | 2012〜2020 | `license-review` | **観測（特許を扱う新しい permissive の必要性と、増殖の分類の現状・4 通）** | `2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt` |
