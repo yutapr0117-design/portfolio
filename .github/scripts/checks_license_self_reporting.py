@@ -170,6 +170,23 @@ class _FaceTagged460(list):
         super().append(f"({_face}) {msg}" if _face and not str(msg).startswith(f"({_face})") else msg)
 
 
+def _json_clauses(path):
+    """記述子の `clause` の値を深さ優先で全部返す (face (i) と (n) が共有する・読めなければ None)。"""
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except ValueError:
+        return None
+    out, stack = [], [data]
+    while stack:
+        o = stack.pop()
+        if isinstance(o, dict):
+            out += [v for k, v in o.items() if k == "clause" and isinstance(v, str)]
+            stack += [v for k, v in o.items() if not (k == "clause" and isinstance(v, str))]
+        elif isinstance(o, list):
+            stack += o
+    return out
+
+
 def run(ctx):
     """Run the self-reporting Check against the repository described by `ctx`."""
     ROOT = ctx.ROOT
@@ -393,23 +410,14 @@ def run(ctx):
         _mir460 = ROOT / "docs" / "files" / "LICENSES"
         if _mir460.exists():
             _pat460h = re.compile(
-                r"[0-9]+\s*件の(?:不利な事実|errata)"
-                r"|不正確さ\s*[0-9]+\s*件"
-                r"|[0-9]+\s*件のうち"
-                r"|E1〜E[0-9]+"
-                r"|All\s+[0-9]+\s+adverse"
-                r"|[0-9]+\s+worked\s+entries"
-                r"|[0-9]+\s+imprecisions"
+                r"[0-9]+\s*件の(?:不利な事実|errata)|不正確さ\s*[0-9]+\s*件|[0-9]+\s*件のうち|E1〜E[0-9]+"
+                r"|All\s+[0-9]+\s+adverse|[0-9]+\s+worked\s+entries|[0-9]+\s+imprecisions"
                 # 2026-09-14 追加: 本 face は 7 綴りの whitelist で、mirror を機械走査すると whitelist の外で 4 件が stale
                 # だった（不利な事実の件数 / 既にある件数 / 草案の語数・条数 / 本文の節・項 —— 最後は書いた時点で誤り）。
                 # 綴りを足すのも whitelist の延長だが、blanket 禁止は実測 87 件の正当な記述を RED にするので採らない
                 # (#977 / #1212)。**穴が残ることは `AUDIT-LEDGER.md` に書いてある。**
-                r"|不利な事実[（(]?\s*[0-9]+\s*件"
-                r"|既にある\s*[0-9]+\s*件"
-                r"|[0-9][0-9,]*\s*語・[0-9]+\s*条"
-                r"|[0-9]+\s*節・[0-9]+\s*項"
-                r"|errata[（(]?\s*[0-9]+\s*件"
-                r"|[0-9]+\s*件の\s*worked"
+                r"|不利な事実[（(]?\s*[0-9]+\s*件|既にある\s*[0-9]+\s*件|[0-9][0-9,]*\s*語・[0-9]+\s*条"
+                r"|[0-9]+\s*節・[0-9]+\s*項|errata[（(]?\s*[0-9]+\s*件|[0-9]+\s*件の\s*worked"
                 r"|[0-9]+\s*件の\s*sha256|凍結対象\s*[0-9]+\s*件|[0-9]+\s*の\s*worked\s*entry")  # 2026-11-08: 3 件 stale
             # rounds/ の mirror も読む (2026-11-12・監査 #133): glob は最上段の 68 件だけで、同じ Check の face (k) が
             #   rglob で読む rounds/ の mirror 388 件を見ていなかった。rounds/ の mirror は外の記録の件数を述べるので、
@@ -438,31 +446,14 @@ def run(ctx):
                 _bad460.append(f"submission-reference.md §4c の不利な事実: 申告 {_mi1.group(1)}–{_mi1.group(2)} / "
                                f"実測 {_rows460}")
             _md_i = _L460 / "ACD-1.0.machine.json"
-            if _md_i.exists():
-                try:
-                    _dj = json.loads(_md_i.read_text(encoding="utf-8"))
-                except ValueError:
-                    _dj = None
-                if _dj is not None:
-                    _cnt = []
-
-                    def _walk_i(o):
-                        if isinstance(o, dict):
-                            if isinstance(o.get("clause"), str):
-                                _cnt.append(o["clause"])
-                            for _v in o.values():
-                                _walk_i(_v)
-                        elif isinstance(o, list):
-                            for _v in o:
-                                _walk_i(_v)
-
-                    _walk_i(_dj)
-                    _mi2 = re.search(r"\*\*(\d+) / (\d+)\*\*", _st)
-                    if not _mi2:
-                        _bad460.append("submission-reference.md §4c: clause pointer の件数申告が見つからない")
-                    elif int(_mi2.group(1)) != len(_cnt) or int(_mi2.group(2)) != len(_cnt):
-                        _bad460.append(f"submission-reference.md §4c の clause pointer: 申告 "
-                                       f"{_mi2.group(1)}/{_mi2.group(2)} / 実測 {len(_cnt)}/{len(_cnt)}")
+            _cnt = _json_clauses(_md_i) if _md_i.exists() else None
+            if _cnt is not None:
+                _mi2 = re.search(r"\*\*(\d+) / (\d+)\*\*", _st)
+                if not _mi2:
+                    _bad460.append("submission-reference.md §4c: clause pointer の件数申告が見つからない")
+                elif int(_mi2.group(1)) != len(_cnt) or int(_mi2.group(2)) != len(_cnt):
+                    _bad460.append(f"submission-reference.md §4c の clause pointer: 申告 "
+                                   f"{_mi2.group(1)}/{_mi2.group(2)} / 実測 {len(_cnt)}/{len(_cnt)}")
 
             # 定義語の最小使用回数。**「Contribution at 4」と書いてあり実測は 3（しかも
             # Machine-Generated Material と同値）だった** —— 本文は凍結されているので drift では
@@ -660,23 +651,10 @@ def run(ctx):
             _cl460n = len(re.findall(r"^  \d+\.\d+\s", _lic460, re.M))
             _sec460n = len(re.findall(r"^\d+\. [A-Z]", _lic460, re.M))
             _nonascii460 = sum(1 for _b in _txp460.read_bytes() if _b > 127)
-            _ptr460 = []
-
-            def _walk460(_o):
-                if isinstance(_o, dict):
-                    for _k, _v in _o.items():
-                        if _k == "clause" and isinstance(_v, str):
-                            _ptr460.append(_v)
-                        else:
-                            _walk460(_v)
-                elif isinstance(_o, list):
-                    for _v in _o:
-                        _walk460(_v)
-
-            try:
-                _walk460(json.loads(_mjp460.read_text(encoding="utf-8")))
-            except Exception as _e460n:
-                _bad460.append(f"§4c: machine.json を parse できない: {_e460n}")
+            _ptr460 = _json_clauses(_mjp460)
+            if _ptr460 is None:
+                _ptr460 = []
+                _bad460.append("§4c: machine.json を parse できない")
             for _pat460, _want460, _lab460 in (
                 (r"\| (\d+) terms, all in §1\.1", _terms460, "§4c 定義語数"),
                 (r"\| (\d+) sections, numbered 1", _sec460n, "§4c 節数"),
