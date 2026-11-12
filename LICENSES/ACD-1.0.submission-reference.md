@@ -84,7 +84,10 @@ answer none of them:
    Covered Rights, and it can be read as protecting the Dedicator rather than the recipient
    (errata E54); the ACD-1.4 draft says "Permission under the Covered Rights stands here on
    three footings", and this paragraph now uses the same words. Patents and moral rights
-   stand on two footings each, not three (errata E55).)*
+   stand on two footings each, not three (errata E55). Note, 2026-11-12: the 1.4 draft has
+   since removed that sentence from Section 8.6 (T20, 2026-11-07); in the 1.4 draft the
+   Preamble states the three footings, "three footings that stand side by side rather than in
+   a queue".)*
 
 3. **Machine-generated material.** It is unsettled whether copyright subsists in it at
    all. Section 9 makes the recipient's permissions independent of that question: the
