@@ -727,12 +727,10 @@ def run(ctx):
                                "行に T 番号か節の番号 (§N.M) を書き、結論 (変えない理由) を辿れるようにする")
 
         # ── 468z: CHANGELIST の「記述子の下書き」の表が引く §N.M と note の "Section N.M" が、草案に実在すること ─────
-        #   portfolio-aa の問い (2026-11-11)。凍結した版の記述子の note は 451f が本文と照合するが、確定の日まで記述子は
-        #   CHANGELIST の表の中の下書きで、照合の外だった (outOfScope[1] の note に Section 5.2(d) を置くと決めた日)。
-        #   条の番号は試作で動くので、下書きの番号が草案に無くなったら確定の日を待たずに RED にする
-        _v468z = _dr468.name.split("-")[1]
+        #   aa の問い (2026-11-11): 凍結版の記述子の note は 451f が照合するが、確定の日まで記述子は CHANGELIST の表の中の下書きで
+        #   照合の外だった。条の番号は試作で動くので、下書きの番号が草案に無くなったら確定の日を待たずに RED にする
         _cltxt468z = _dr468.with_name(_dr468.name.replace("-DRAFT.txt", "-CHANGELIST.md"))
-        _ms468z = re.search(r"^### " + re.escape(_v468z) + r" の記述子の下書き.*?(?=^#{1,3} |\Z)",
+        _ms468z = re.search(r"^### " + re.escape(_v468y) + r" の記述子の下書き.*?(?=^#{1,3} |\Z)",
                             _cltxt468z.read_text(encoding="utf-8") if _cltxt468z.exists() else "", re.S | re.M)
         _n468z, _u468z = None, set()   # 下書きの節が無い版では OK 行に「—」と出す (黙って 0 と書かない)
         if _ms468z:
@@ -747,8 +745,15 @@ def run(ctx):
                     _u468z.add(_c)
                     if _c not in (_cl468 if "." in _c else _secs468z):
                         _miss468z.append(_c)
+            # 表の逐語 (*"…"*) も草案に在る (11-12・aa: T22 より前の語が残っていた)。記述子自身の文 (note / $comment) と旧い文は除く
+            _d468z = " ".join(_t468.split())
+            for _mq in re.finditer(r'\*"(.+?)"\*', "\n".join(_x for _x in _ms468z.group(0).split("\n") if _x.startswith("|"))):
+                _q = " ".join(_mq.group(1).replace('\\"', '"').split()).strip(" .,;:")
+                if not re.search(r"note|\$comment|より前の|旧|訂正前", _mq.string[max(0, _mq.start() - 40):_mq.start()]) and not all(
+                        _p.strip(" .,;:") in _d468z for _p in re.split(r"…|\.\.\.", _q) if len(_p.strip()) > 3):
+                    _miss468z.append(f"逐語 {_q[:50]!r}")
             if _miss468z:
-                _bad468.append(f"468z: {_cltxt468z.name} の記述子の下書きが、草案に無い条を引く: {sorted(set(_miss468z))}")
+                _bad468.append(f"468z: {_cltxt468z.name} の記述子の下書きが、草案に無い条か語を引く: {sorted(set(_miss468z))}")
             elif not _n468z:
                 _bad468.append(f"468z: {_cltxt468z.name} の記述子の下書きから条の参照を 1 件も読めない (読めないまま黙らせない)")
 
@@ -814,7 +819,7 @@ def run(ctx):
         #   「を」のものを Before とし、** と \" を外して空白を正規化する。After は (1) いまの草案に在る、
         #   (2) 主表の後の行の Before が同じ文を引く (後で書き換えた記録が主表に在る)、(3) 同じ行に「再改」、
         #   のどれかを満たすこと。連鎖を主表の外 (試作の表) まで広げると「主表に書かずに草案を変えた」を見逃す
-        _cl468x = _dr468.with_name(_dr468.name.replace("-DRAFT.txt", "-CHANGELIST.md"))
+        _cl468x = _cltxt468z
         _rows468x = []
         if _cl468x.exists():
             _ls468x = _cl468x.read_text(encoding="utf-8").split("\n")
