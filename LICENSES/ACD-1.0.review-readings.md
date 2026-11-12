@@ -556,3 +556,19 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **逆側。** 提出者は Microsoft で、曖昧さは 1 つの条の 1 つの場面に限られ、提出者は意図を list に書いた。ACD の起草者は単独で、法律家の読みを持たず（B1）、§16.2 はすでにこの場面を語で扱っている。2007 年の扱いは、曖昧さが残っても通ったことを示すが、ACD の語の質が問われないことは示さない。
 
 **この節が establish しないこと。** 理事会がこの曖昧さを議論したかは、このスレッドには無い。提出者が曖昧さを認めたうえで本文を 1 語も変えなかったことについて、審査者が変えないことを許したのか、問題にしなかったのかは記録から決まらない（portfolio-aa の指摘）。2011 年に Russ Nelson 氏は、承認済みの語でも今は承認できないことがあると書いた（`against.md` #239 の追記）ので、この記録を今の審査の予測には使わない。API の `approved` 欄は MS-RL と MS-PL のどちらも false を返すが、承認日の欄は埋まっている。この食い違いの理由は確かめていない。2005-12 のスレッドは、Cowan 氏が Nelson 氏に *"I defer to your vast expertise."* と返して終わる。これを取り下げと読むかは、この 1 文からは決まらない。
+
+## 1.194 OSD 2 はライセンスでなく配られる物について述べる —— 2007 年の問いと答え（2026-11-12）
+
+"inconsistency in OSD- software (#2) v. licenses/rights (every other plank)"（`license-discuss` 2007-07〜08・6 通・`rounds/2007-07-license-discuss-osd-2-inconsistency-observed.txt` に 2 通）。portfolio-9b の「決める側の文書の形」の一覧から読んだ。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"section 2 of the OSD is inconsistent with the rest of the document, since it speaks of qualities of specific software, rather than rights or qualities of a generic license."* | Luis Villa 氏 2007-07-31 | ライセンスの審査で OSD 2 をどう当てるかの問い |
+| *"OSD #2 is more direct:  "Must be available in source form".  This is not inconsistency, though it is lack of parallelism."*、*"This prevents the claim that some opaque block of binary bits is Open Source because you have attached the BSD or similar permissive license to it."* | John Cowan 氏 2007-08-01 | **2 つの面。** 有利な面: ライセンスとしての ACD は OSD 2 を妨げない（`submission-osd.md` の OSD 2 の行。§4.2 は source の形での配布を許す）。不利な面: ACD を学習済みモデルの重みに付けて配っても、重みが「不透明なバイナリ」と読まれれば、ライセンスを付けただけでは open source にならない。これは ACD の本文の欠陥ではなく、配られる物の側の問いである（B15） |
+
+**読み。** OSD 2 は、ライセンスが source の配布を妨げないかと、配られる物が source の形で手に入るかの 2 つを含む。ACD の審査で問われるのは前者で、ACD は満たす。後者は ACD を何に付けるかで決まり、重みの preferred form が何かは OSI の Open Source AI Definition の側の論点である。
+
+**逆側。** 審査者が ACD の §6（学習と出力）を読んで、ライセンスが重みの配布を前提にしていると見れば、後者の問いをライセンスの審査に持ち込みうる。その場合の答えは、ACD は source の提供を求めも妨げもしない（§10.2 は *"make source available"* を求めないと書く）、というところまでで、重みが open source かは答えない。
+
+**この節が establish しないこと。** 2007 年の 2 人の文で、OSI の判断ではない。Villa 氏の改訂案が採られたかは、このスレッドには無い。
+
