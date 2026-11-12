@@ -6,6 +6,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
   SHA-256 in LICENSES/FROZEN.md and verified in CI; nothing here changes any
   of them.
 
+  Everything above the line below describes this file. It is not part of the
+  Dedication (Section 1.1), and a copy may leave it out.
+
   Status of this draft, stated plainly so that nobody has to infer it:
 
     * It has had no legal review, like 1.0, 1.1, 1.2 and 1.3.
