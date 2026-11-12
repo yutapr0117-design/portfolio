@@ -493,3 +493,12 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"Until someone really try it in court, the debate will not be settled."* | Cinly Ooi 氏 2011-05-10（IANAL と書いた） | 2000 年・2003 年・2005 年と同じ結び。11 年たっても、list の上で撤回の問いは裁判で試されていなかった |
 
 **この追記が establish しないこと。** 弁護士と名乗った人の名前と資格は確かめていない。Groklaw の記事は開いていない。GPL 3.0 の本文の該当の文は、リポジトリに写しが無いので、ここでは本文に当てずこの人の要約として置いた。
+
+**2026-11-12 の追記 —— 同じ週に「ライセンスは契約か」も答えが分かれていた。** "Licenses versus contracts"（`license-discuss` 2000-03・5 通・`rounds/2000-03-license-discuss-licenses-versus-contracts-observed.txt` に 3 通）。cphack の議論の前日に、David Johnson 氏がライセンスと契約の違いを尋ねた。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Simply stated, a license is a contract."*、*"A transfer and a license are both contracts, but they are very different."* | Rod Dixon 氏（J.D., LL.M.）2000-03-29 | ライセンスを契約とみる側。契約なら成り立つのに対価が要り、ACD は受領者の義務を対価として挙げられない（#324） |
+| *"Thus a copyright license such as "You have the right to make up to five verbatim copies of this message and send them to your friends" is a bare license which happens to be in writing.  It is not the subject matter of any contract."* | John Cowan 氏 2000-03-29 | 許可とみる側。W. Yip 氏も同じ日に、許可と契約は *"two distinct legal concepts, which regrettably are known to overlap"* と書いた。許可なら対価は要らないが、翌日の Cowan 氏の文のとおり撤回されうる（上の表）。どちらの見方でも、ACD が頼るのは対価ではなく §2.5 の信頼と §4.1 の語で、その効き方が開いていること（QFC 問 1 (i)）は変わらない |
+
+**この追記が establish しないこと。** 法律家の肩書きで書いたのは Dixon 氏だけで、Cowan 氏と Yip 氏の文は説明であって法の判断ではない。

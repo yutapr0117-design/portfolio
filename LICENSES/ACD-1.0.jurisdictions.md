@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.jurisdictions.md
 audience: ai, human (提出者), 監査人, 採用検討者, 学術研究者, 第三者全般
-last-updated: 2026-11-01
+last-updated: 2026-11-12
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (逐条リファレンス) / LICENSES/ACD-1.0.review-responses-clauses.md (§31 に日本法の論点)
 ---
 
@@ -344,6 +344,22 @@ and instead the Dedicator covenants not to exercise"* と述べており、**cov
 **covenant が裁判所で執行されることは同じではない。** ここは外部の法律意見が要る（register B1）。
 
 ---
+
+### 5d. list の法学の教員は 2000 年に、放棄の抗弁が 1976 年法の下で生きているかを疑った（2026-11-12 追加）
+
+`license-discuss` 2000 年 8 月の "The different between GPL and non-license"（8 通・`rounds/2000-08-license-discuss-gpl-and-non-license-observed.txt`）。上の **問い**（著作権法に放棄の手続が無いのに、public domain に置けるのか）を、法学の教員が list で直接扱った、読んだ中で最も古い記録である。Rod Dixon 氏は同じ年の通に *"Visiting Assistant Professor of Law"*（Rutgers University Law School - Camden）と署名している。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| 公有に置くかを著作権者は選べない（原文は *choice* を強調）—— *"as to whether to put/transfer/cede a work to the public domain."*、*"The public domain status of a work operates as a matter of law."* | Rod Dixon 氏 2000-08-10 | **不利な面。** 公有は法の作用で生じる状態で、著作権者が選んで置けるものではない、という立場。ACD の §3 はまさにその選択の宣言である |
+| *"The continued vitality of the defense of abandonment is in serious doubt except for, perhaps, copyright disputes occurring under the pre-1976 Copyright Act"*、訴えないことで権利を手放すことはできても（原文は *abandon* を強調）*"this is not the same as public domain."* | Dixon 氏 2000-08-10 | **不利な面。** 放棄が働くのは 1909 年法の下の争いぐらいで、いまの法の下では、訴えないことで放棄に近いことはできても公有にはならない、という見通し。§3 が合衆国で働かない読みの、法学の教員の言葉である |
+| *"There is nothing within the US copyright statute which prevents an author or copyrightholder from ceding rights to a work."* | Karsten M. Self 氏 2000-08-10 | 逆側。制定法に禁じる規定は無い、という反論。同氏は法律家でない（*"I claim no authority in this area"*） |
+| *"the U.S. Copyright office accepts and registers affidavits by the author of a work that the author has abandoned copyright. That suggests that the defense of abandonment is still possible."* | John Cowan 氏 2000-08-10 | 逆側。著作権局が放棄の宣誓書を受け付けて登録している、という事実からの推論。Dixon 氏はその後の通で、訴えを起こすこと自体が放棄の意思の主張を弱めると答えた |
+| *"I believe there are doctrines under contract law -- estoppal, possibly -- which act as a bar from granting broad rights to something at one point in time then reversing yourself later."* | Self 氏 2000-08-10 | ACD の §2.5 と同じ向きの手当て。同氏は自分に権威が無いと書いた |
+
+**読み。** Dixon 氏の見通しが正しければ、§3 は合衆国では働かず、受領者を支えるのは §4 の許諾と §5 の約束である。ACD が §3 と §4 を並べ、§4.4 で §4 を §3 から独立させているのはこのためで、B4 と B5 の答えはこの不利な読みを前提にしている。**ただしそれは §4 と §5 が働くことを示さない** —— §4 は合衆国では 203 条の終了権に服し（5a）、対価の無い許諾が撤回されうるか（`against.md` #324・`QUESTIONS-FOR-COUNSEL.md` 問 1 (i)）、署名の無い許諾が後の譲受人に優先するか（問 1 (j)）が残る。
+
+**この節が establish しないこと。** 2000 年の 1 人の法学の教員の見通しで、判例でも OSI の判断でもない。Dixon 氏が挙げた理由（1976 年法で公表と表示の方式が要らなくなったこと、訴えることが放棄の意思と矛盾すること）は、その後の判例に当てていない。Cowan 氏が挙げた CNI の 1994 年の投稿は開いていない。同じ月の "Abandonment" での同氏の文（公有に入った作品はそこに留まる）は、公有に入れば戻らないという別の点で、§3 が効くかどうかとは別である（`review-readings.md` §1.191）。
 
 ## 6. EU（TDM と DB 権）
 

@@ -1,0 +1,130 @@
+Source: OSI license-discuss public archive, 2000-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 3 of 5 in the thread (2000-03-28 to 2000-03-29)
+Senders: Rod Dixon, J.D., LL.M., W. Yip, John Cowan
+Position: Not addressed to us. Observed. Rod Dixon's message of 2000-03-29 is cut where the quoted copy ("-----Original Message-----") begins; each message kept here is otherwise whole. Messages are in order of the time sent.
+
+----- begin verbatim -----
+From rod at cyberspaces.org  Wed Mar 29 11:48:43 2000
+From: rod at cyberspaces.org (Rod Dixon, J.D., LL.M.)
+Date: Wed, 29 Mar 2000 06:48:43 -0500
+Subject: Licenses versus contracts
+In-Reply-To: <00032820430601.00173@weathertop>
+Message-ID: <LPBBJKHLDNNEDNIKKGGOCEADCHAA.rod@cyberspaces.org>
+
+Simply stated, a license is a contract. The confusion often arises because
+software licenses come in essentially two forms: a) traditional license
+(e.g., Microsoft used a traditional license with OEMs regarding the
+pre-install of its OS) and 2) a copyright license (like the GPL). Further
+complicating this issue is the fact that some people mistakenly call
+copyright transfers licenses. A transfer and a license are both contracts,
+but they are very different. Transfers are  contracts that MUST be written
+and SHOULD be recorded. For the purposes of our discussion, these
+distinctions have not relevant, although they may have contributed to the
+confusion.
+
+Rod Dixon, J.D., LL.M.
+www.cyberspaces.org
+rod at cyberspaces.org
+
+
+From weng at yours.com  Wed Mar 29 13:40:02 2000
+From: weng at yours.com (W. Yip)
+Date: Wed, 29 Mar 2000 14:40:02 +0100
+Subject: Licenses versus contracts
+In-Reply-To: <00032820430601.00173@weathertop>
+References: <00032820430601.00173@weathertop>
+Message-ID: <vk04eso63ar140rkg1hojpq00os1ol2d71@4ax.com>
+
+On Tue, 28 Mar 2000 20:34:34 -0800, David Johnson <david at usermode.org>
+wrote:
+>I'm starting to get confused. What exactly is the difference between a
+>license and a contract? Where does one draw the line? Is there some
+>legal concept here, or is this just some random and arbitrary ruling?
+
+The license and the contract are two distinct legal concepts, which
+regrettably are known to overlap.
+
+The following is a very general outline of both concepts for you to make a
+contrast. Please note that when both concepts are applied to software, the
+picture changes considerably.
+
+License: This is an abstract form of permission, granted to make lawful
+what would otherwise be unlawful. As such, it is a very broad concept. It
+is abstract because a license does not have to take any particular form.
+The license is often built upon a proprietary interest in property. Eg. A
+Bare License: You own land, and grant a license to someone to enter it.
+Supposing you ask him to leave at some point, you do not 'violate the
+license', because it only represents your permission. You revoke the
+permission, and he has to leave or else risk trespassing.
+
+However, because licenses do not have to take a particular form, they are
+NOT limited to bare and oral licenses which can be easily revoked. Instead,
+Licenses are common in contracts.
+
+Contract: This is comparatively more concrete in that it requires an
+offer-acceptance framework. There are other ingredients required which vary
+among jurisdictions, but mainly this comprises something along the lines of
+an 'intention to form a contractual relationship'. The fruit of the
+contract are the obligations of performance/omission as dictated by the
+agreement.
+
+Example of overlap; You own land. You build a cinema on it. You show movies
+in the cinema. You sell movie tickets. A person who buys the movie ticket
+has contractual license. He has entered into a contractual relationship. He
+has the obligation of letting you see the movie. You have the obligation of
+paying for the ticket. Concurrently, the movie ticket also gives you the
+license to enter his land, into his cinema to watch the movie. If  you
+(cinema owner) asks your customer to leave at some point, you may be liable
+in damages for contractual breach. As far as the license (permission) is
+concerned, you have revoked it, provided you have given adequate and
+reasonable notice.
+
+
+
+From jcowan at reutershealth.com  Wed Mar 29 14:59:29 2000
+From: jcowan at reutershealth.com (John Cowan)
+Date: Wed, 29 Mar 2000 09:59:29 -0500
+Subject: Licenses versus contracts
+References: <00032820430601.00173@weathertop> <vk04eso63ar140rkg1hojpq00os1ol2d71@4ax.com>
+Message-ID: <38E21A51.370D395F@reutershealth.com>
+
+"W. Yip" wrote:
+
+> License: This is an abstract form of permission, granted to make lawful
+> what would otherwise be unlawful [...].
+> Bare License: You own land, and grant a license to someone to enter it.
+
+Thanks for the definitions.
+
+Thus a copyright license such as "You have the right to make up to five
+verbatim copies of this message and send them to your friends" is a
+bare license which happens to be in writing.  It is not the subject matter
+of any contract.
+
+Now, what if the copyright license says, "You have the right to make
+up to five copies of this message and send them to your friends, provided
+you also include a disclaimer of your authorship".  Still a
+bare license, I think, even though conditional.  If you make and send
+the copies and omit the disclaimer, you are an infringer,
+sc. "you have violated the license", although there is no breach of
+contract because there is still no contract.
+
+IMHO the GNU GPL is of this type.
+
+> He has the obligation of letting you see the movie. You have the obligation of
+> paying for the ticket.
+
+I think your pronouns are swapped in these two sentences, and they should read:
+
+> You have the obligation of letting him see the movie.  He has the obligation
+> of paying for the ticket.
+
+-- 
+
+Schlingt dreifach einen Kreis um dies! || John Cowan <jcowan at reutershealth.com>
+Schliesst euer Aug vor heiliger Schau,  || http://www.reutershealth.com
+Denn er genoss vom Honig-Tau,           || http://www.ccil.org/~cowan
+Und trank die Milch vom Paradies.            -- Coleridge (tr. Politzer)
+
+

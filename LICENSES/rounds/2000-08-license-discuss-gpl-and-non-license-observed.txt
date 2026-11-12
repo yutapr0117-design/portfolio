@@ -1,0 +1,277 @@
+Source: OSI license-discuss public archive, 2000-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 7 of 8 in the thread (2000-08-07 to 2000-08-10)
+Senders: Kristiono Setyadi, kmself at ix.netcom.com, Rod Dixon, John Cowan
+Position: Not addressed to us. Observed. Rod Dixon's two messages of 2000-08-10 are cut where the quoted text ("On Thu, 10 Aug 2000 ... wrote:") begins; each message kept here is otherwise whole. Messages are in order of the time sent. Rod Dixon signs the message of 2000-08-07 "Visiting Assistant Professor of Law, Rutgers University Law School - Camden".
+
+----- begin verbatim -----
+From viaris at gamanet.ugm.ac.id  Mon Aug  7 05:37:29 2000
+From: viaris at gamanet.ugm.ac.id (Kristiono Setyadi)
+Date: Mon, 7 Aug 2000 12:37:29 +0700 (JAVT)
+Subject: The different between GPL and non-license
+Message-ID: <Pine.LNX.4.10.10008071234500.13188-100000@gamanet.ugm.ac.id>
+
+I want to ask about the different between GPL with non-license.
+I think that GPL and non-license is the same.
+Both of them are distribute to anyone.
+Is my opinion true or false?
+Thank you.
+
+
+
+------------------------------------------
+"La vraie definition de la science, c'est 
+qu'elle est l'etude de la beaute du monde"
+------------------------------------------
+
+
+
+From kmself at ix.netcom.com  Mon Aug  7 17:09:15 2000
+From: kmself at ix.netcom.com (kmself at ix.netcom.com)
+Date: Mon, 7 Aug 2000 10:09:15 -0700
+Subject: The different between GPL and non-license
+In-Reply-To: <Pine.LNX.4.10.10008071234500.13188-100000@gamanet.ugm.ac.id>; from viaris@gamanet.ugm.ac.id on Mon, Aug 07, 2000 at 12:37:29PM +0700
+References: <Pine.LNX.4.10.10008071234500.13188-100000@gamanet.ugm.ac.id>
+Message-ID: <20000807100914.A16330@ix.netcom.com>
+
+On Mon, Aug 07, 2000 at 12:37:29PM +0700, Kristiono Setyadi wrote:
+> I want to ask about the different between GPL with non-license.
+> I think that GPL and non-license is the same.
+> Both of them are distribute to anyone.
+> Is my opinion true or false?
+> Thank you.
+
+If you mean the distinction between the GNU GPL and public domain, no
+they aren't the same.
+
+Any license in which copyright is retained reserves rights to the
+author.  Placing a work in the public domain releases virtually all
+rights of authorship (excepting possibly "moral rights" depending on
+jurisdiction).
+
+The GPL allows broad lattitude in use of code, but imposes restrictions.
+There are few if any restrictions on use of public domain works.
+
+-- 
+Karsten M. Self <kmself at ix.netcom.com>     http://www.netcom.com/~kmself
+ Evangelist, Opensales, Inc.                    http://www.opensales.org
+  What part of "Gestalt" don't you understand?   Debian GNU/Linux rocks!
+   http://gestalt-system.sourceforge.net/    K5: http://www.kuro5hin.org
+GPG fingerprint: F932 8B25 5FDD 2528 D595 DC61 3847 889F 55F2 B9B0
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 232 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20000807/1200f03a/attachment.sig>
+
+From kmself at ix.netcom.com  Thu Aug 10 09:46:28 2000
+From: kmself at ix.netcom.com (kmself at ix.netcom.com)
+Date: Thu, 10 Aug 2000 02:46:28 -0700
+Subject: The different between GPL and non-license
+In-Reply-To: <BPEPLIBDKBNGKMADBJOCGEPGCAAA.chesterrr@att.net>; from chesterrr@att.net on Thu, Aug 10, 2000 at 04:27:48AM -0500
+References: <20000807100914.A16330@ix.netcom.com> <BPEPLIBDKBNGKMADBJOCGEPGCAAA.chesterrr@att.net>
+Message-ID: <20000810024628.D16244@ix.netcom.com>
+
+To the best of my knowledge, this is grossly incorrect.  There is
+nothing within the US copyright statute which prevents an author or
+copyrightholder from ceding rights to a work.  One of many corroborating
+references: http://www.benedict.com/basic/public/public.htm.  A Google
+or other online search will produce many others.
+
+Please provide a legal citation or reference supporting your claims.
+
+On Thu, Aug 10, 2000 at 04:27:48AM -0500, Nelson Rush wrote:
+> It is actually impossible for individuals to release anything to the public
+> domain themselves. Public Domain can only be invoked after a copyright has
+> expired. Releasing software to the public domain is a myth and only causes
+> legal confusion when attempted.
+> 
+> -----Original Message-----
+> From: kmself at ix.netcom.com [mailto:kmself at ix.netcom.com]
+> Sent: Monday, August 07, 2000 12:09 PM
+> To: Diskusi Lisensi
+> Subject: Re: The different between GPL and non-license
+> 
+> 
+> On Mon, Aug 07, 2000 at 12:37:29PM +0700, Kristiono Setyadi wrote:
+> > I want to ask about the different between GPL with non-license.
+> > I think that GPL and non-license is the same.
+> > Both of them are distribute to anyone.
+> > Is my opinion true or false?
+> > Thank you.
+> 
+> If you mean the distinction between the GNU GPL and public domain, no
+> they aren't the same.
+> 
+> Any license in which copyright is retained reserves rights to the
+> author.  Placing a work in the public domain releases virtually all
+> rights of authorship (excepting possibly "moral rights" depending on
+> jurisdiction).
+> 
+> The GPL allows broad lattitude in use of code, but imposes restrictions.
+> There are few if any restrictions on use of public domain works.
+
+-- 
+Karsten M. Self <kmself at ix.netcom.com>     http://www.netcom.com/~kmself
+ Evangelist, Opensales, Inc.                    http://www.opensales.org
+  What part of "Gestalt" don't you understand?   Debian GNU/Linux rocks!
+   http://gestalt-system.sourceforge.net/    K5: http://www.kuro5hin.org
+GPG fingerprint: F932 8B25 5FDD 2528 D595 DC61 3847 889F 55F2 B9B0
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 232 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20000810/3a309cdb/attachment.sig>
+
+From rodd at cyberspaces.org  Thu Aug 10 13:52:26 2000
+From: rodd at cyberspaces.org (Rod Dixon)
+Date: Thu, 10 Aug 2000 09:52:26 -0400 (EDT)
+Subject: The different between GPL and non-license
+In-Reply-To: <20000810024628.D16244@ix.netcom.com>
+Message-ID: <Pine.BSF.4.10.10008100939320.8914-100000@gamma.pair.com>
+
+The only way I know to accomplish what the website you cited claims can be
+done is to abstain from enforcing your copyrights. Doing so, however, is
+not the same as the public domain. The public domain status of a work
+operates as a matter of law. The copyright owner does not have a *choice*
+as to whether to put/transfer/cede a work to the public domain. Although
+the effect may be the same, it is quite a different transaction to donate
+a work to the Federal government and, thereby, achieve public domain
+status of the work. Under that scenario, the copyright owner actually
+transfers all exclusive rights to the Federal government (not the public
+domain). And, as a result, the operation of law, changes the status of the
+work from a work subject to copyright protection to one that is not. 
+
+We must be careful in how we characterize copyright transactions because
+the implications are wide-ranging and far-reaching as you can see in the
+DVD/DeCSS and Napster litigation.
+Rod
+
+From jcowan at reutershealth.com  Thu Aug 10 15:41:28 2000
+From: jcowan at reutershealth.com (John Cowan)
+Date: Thu, 10 Aug 2000 11:41:28 -0400
+Subject: The different between GPL and non-license
+References: <Pine.BSF.4.10.10008100939320.8914-100000@gamma.pair.com>
+Message-ID: <3992CD28.76E6AD09@reutershealth.com>
+
+Rod Dixon wrote:
+
+> The copyright owner does not have a *choice*
+> as to whether to put/transfer/cede a work to the public domain.
+
+However, the U.S. Copyright office accepts and registers affidavits
+by the author of a work that the author has abandoned copyright.
+That suggests that the defense of abandonment is still possible.
+
+See http://www.cni.org/Hforums/cni-copyright/1994-01/0204.html ,
+by Mary Brandt Jensen (professor at the U. of S. Dak. School of Law).
+
+-- 
+
+Schlingt dreifach einen Kreis um dies! || John Cowan <jcowan at reutershealth.com>
+Schliesst euer Aug vor heiliger Schau,  || http://www.reutershealth.com
+Denn er genoss vom Honig-Tau,           || http://www.ccil.org/~cowan
+Und trank die Milch vom Paradies.            -- Coleridge (tr. Politzer)
+
+
+From rodd at cyberspaces.org  Thu Aug 10 20:56:35 2000
+From: rodd at cyberspaces.org (Rod Dixon)
+Date: Thu, 10 Aug 2000 16:56:35 -0400 (EDT)
+Subject: The different between GPL and non-license
+In-Reply-To: <3992CD28.76E6AD09@reutershealth.com>
+Message-ID: <Pine.BSF.4.10.10008101637440.4541-100000@gamma.pair.com>
+
+The continued vitality of the defense of abandonment is in serious doubt
+except for, perhaps, copyright disputes occurring under the
+pre-1976 Copyright Act 
+(the Copyright Act of 1909).
+
+Of course, even if one were to believe that copyright ownership could
+still be abandoned under the current law, how would you raise the defense
+in a copyright infringement action today, where the formailities of
+publication and notice are no longer required? If a copyright owner were
+to bring a copyright infringement suit, the filing of the lawsuit would
+tend to diminish the plausibility or persuasiveness of the defense that
+the plaintiff intended to abandon her copyright (abandoment required
+intent). Under U.S. law, this seems to be a losing argument. Of course,
+one could *abandon* copyright interests by never suing, but this is not
+the same as public domain.
+Rod
+
+From kmself at ix.netcom.com  Thu Aug 10 21:17:26 2000
+From: kmself at ix.netcom.com (kmself at ix.netcom.com)
+Date: Thu, 10 Aug 2000 14:17:26 -0700
+Subject: The different between GPL and non-license
+In-Reply-To: <Pine.BSF.4.10.10008100939320.8914-100000@gamma.pair.com>; from rodd@cyberspaces.org on Thu, Aug 10, 2000 at 09:52:26AM -0400
+References: <20000810024628.D16244@ix.netcom.com> <Pine.BSF.4.10.10008100939320.8914-100000@gamma.pair.com>
+Message-ID: <20000810141726.F19892@ix.netcom.com>
+
+On Thu, Aug 10, 2000 at 09:52:26AM -0400, Rod Dixon wrote:
+> On Thu, 10 Aug 2000 kmself at ix.netcom.com wrote:
+> 
+> > To the best of my knowledge, this is grossly incorrect.  There is
+> > nothing within the US copyright statute which prevents an author or
+> > copyrightholder from ceding rights to a work.  One of many corroborating
+> > references: http://www.benedict.com/basic/public/public.htm.  A Google
+> > or other online search will produce many others.
+
+> The only way I know to accomplish what the website you cited claims
+> can be done is to abstain from enforcing your copyrights. Doing so,
+> however, is not the same as the public domain. The public domain
+> status of a work operates as a matter of law. The copyright owner does
+> not have a *choice* as to whether to put/transfer/cede a work to the
+> public domain. 
+
+I have a hard time believing this.  If all else fails, I believe there
+are doctrines under contract law -- estoppal, possibly -- which act as a
+bar from granting broad rights to something at one point in time then
+reversing yourself later.  I claim no authority in this area --
+contracts are a part of law I really haven't studied closely.  
+
+This has been raised several times WRT the question of the FSF
+arbitrarily proprietizing its copyrights or revising the GPL to the
+extent it would no longer meet the definition of a copyleft.  Because
+the FSF has represented these works as being freely available for all
+time, changing the terms would raise options for challenge under
+contract law.
+
+Granted, this moves the discussion from copyrights to contracts.  I
+don't believe this is even necessary, but it does present other avenues.
+
+> Although the effect may be the same, it is quite a different
+> transaction to donate a work to the Federal government and, thereby,
+> achieve public domain status of the work. Under that scenario, the
+> copyright owner actually transfers all exclusive rights to the Federal
+> government (not the public domain). And, as a result, the operation of
+> law, changes the status of the work from a work subject to copyright
+> protection to one that is not. 
+
+Though the US Federal Government cannot secure copyright in its *own*
+works, it can own copyright in works *transferred* to it.  The transfer
+you describe above would require the same act of "abandonment" you say
+is impossible in the private sector or state/local governments.
+
+> We must be careful in how we characterize copyright transactions
+> because the implications are wide-ranging and far-reaching as you can
+> see in the DVD/DeCSS and Napster litigation.  Rod
+
+Actually, no, I don't see.  What are you pointing at? 
+
+-- 
+Karsten M. Self <kmself at ix.netcom.com>     http://www.netcom.com/~kmself
+ Evangelist, Opensales, Inc.                    http://www.opensales.org
+  What part of "Gestalt" don't you understand?   Debian GNU/Linux rocks!
+   http://gestalt-system.sourceforge.net/    K5: http://www.kuro5hin.org
+GPG fingerprint: F932 8B25 5FDD 2528 D595 DC61 3847 889F 55F2 B9B0
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 232 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20000810/1b64defe/attachment.sig>
+
