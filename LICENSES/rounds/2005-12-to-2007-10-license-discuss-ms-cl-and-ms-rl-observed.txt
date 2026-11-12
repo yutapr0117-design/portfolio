@@ -1,0 +1,560 @@
+Source: license-discuss (opensource.org pipermail), 2005-December, 2007-August, 2007-October: "For Approval: Microsoft Community License" (2005 and 2007) and "For Approval: Microsoft Reciprocal License" (2007)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 13 of 35 (2005-12: 5 of 10; 2007-08: 5 of 16; 2007-10: 3 of 9)
+Senders: John Cowan, David Dillard, Brendan Scott, Russell Nelson, Jon Rosenberg, Lawrence Rosen, Matthew Flaschen, Mike Strobel
+Position: Not addressed to us. Observed. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From cowan at ccil.org  Fri Dec  9 20:29:56 2005
+From: cowan at ccil.org (John Cowan)
+Date: Fri, 9 Dec 2005 15:29:56 -0500
+Subject: For Approval: Microsoft Community License
+Message-ID: <20051209202955.GA30985@ccil.org>
+
+Microsoft is adding new licenses to its Shared Source Initiative which
+I believe qualify as open-source licenses.  The second of these is a
+simple permissive license called the Microsoft Community License (MS-CL).
+The HTML is online at
+http://www.microsoft.com/resources/sharedsource/licensingbasics/communitylicense.mspx
+I include the full text in plain form here for convenience in commenting.
+
+I believe that this license should be approved by OSI even though it is
+basically similar to more widely used weak-reciprocal licenses, because
+it is better to encourage Microsoft in particular to release under an
+OSI-approved license than not -- I think it very unlikely that they will
+go back and adopt some existing license.
+
+Microsoft Community License (Ms-CL)
+Published: October 18, 2005
+
+This license governs use of the accompanying software. If you use the
+software, you accept this license. If you do not accept the license,
+do not use the software.
+
+1. Definitions
+
+The terms "reproduce", "reproduction", and "distribution" have the same
+meaning here as under U.S. copyright law.
+
+"You" means the licensee of the software.
+
+"Licensed patents" means any Microsoft patent claims which read directly
+on the software as distributed by Microsoft under this license.
+
+2. Grant of Rights
+
+(A) Copyright Grant- Subject to the terms of this license, including the
+license conditions and limitations in section 3, Microsoft grants you a
+non-exclusive, worldwide, royalty-free copyright license to reproduce
+the software, prepare derivative works of the software and distribute
+the software or any derivative works that you create.
+
+(B) Patent Grant- Subject to the terms of this license, including the
+license conditions and limitations in section 3, Microsoft grants you
+a non-exclusive, worldwide, royalty-free patent license under licensed
+patents to make, have made, use, practice, sell, and offer for sale,
+and/or otherwise dispose of the software or derivative works of the
+software.
+
+3. Conditions and Limitations
+
+(A) Reciprocal Grants- Your rights to reproduce and distribute the
+software (or any part of the software), or to create and distribute
+derivative works of the software, are conditioned on your licensing the
+software or any larger work you create under the following terms:
+
+1.  If you distribute the larger work as a series of files, you must
+grant all recipients the copyright and patent licenses in sections 2(A)
+& 2(B) for any file that contains code from the software. You must also
+provide recipients the source code to any such files that contain code
+from the software along with a copy of this license. Any other files
+which are entirely your own work and which do not contain any code from
+the software may be licensed under any terms you choose.
+
+2.  If you distribute the larger work as a single file, then you must
+grant all recipients the rights set out in sections 2(A) & 2(B) for the
+entire larger work. You must also provide recipients the source code to
+the larger work along with a copy of this license.
+
+(B) No Trademark License- This license does not grant you any rights to
+use Microsoft's name, logo, or trademarks.
+
+(C) If you distribute the software in source code form you may do so
+only under this license (i.e., you must include a complete copy of this
+license with your distribution), and if you distribute the software solely
+in compiled or object code form you may only do so under a license that
+complies with this license.
+
+(D) If you begin patent litigation against Microsoft over patents that you
+think may apply to the software (including a cross-claim or counterclaim
+in a lawsuit), your license to the software ends automatically.
+
+(E) The software is licensed "as-is". You bear the risk of using
+it. Microsoft gives no express warranties, guarantees or conditions. You
+may have additional consumer rights under your local laws which this
+license cannot change. To the extent permitted under your local laws,
+Microsoft excludes the implied warranties of merchantability, fitness
+for a particular purpose and non-infringement.
+
+[Note:  The Microsoft Limited Permissive License and the Microsoft Limited
+Community License forbid usage on non-Windows systems and are obviously not
+open source.  The Microsoft Reference License forbids modification and is
+likewise obviously not open source.]
+
+-- 
+De plichten van een docent zijn divers,         John Cowan
+die van het gehoor ook.                         cowan at ccil.org
+      --Edsger Dijkstra                         http://www.ccil.org/~cowan
+
+
+From david_dillard at symantec.com  Fri Dec  9 20:42:12 2005
+From: david_dillard at symantec.com (David Dillard)
+Date: Fri, 9 Dec 2005 15:42:12 -0500
+Subject: For Approval: Microsoft Community License
+Message-ID: <AF5091E3B3184340A174CE1103579266B67B93@hroxchcln2.enterprise.veritas.com>
+
+Mr. Cowan,
+
+Are you doing this on Microsoft's behalf?
+
+If not, this presents an interesting question: should someone be able to
+submit a license created by another entity for approval as an open
+source license?  I can definitely see a logic to it.  But I'm just not
+sure it would be the right thing to do.
+
+
+--- David
+
+From brendan at opensourcelaw.biz  Sun Dec 11 04:46:05 2005
+From: brendan at opensourcelaw.biz (Brendan Scott)
+Date: Sun, 11 Dec 2005 15:46:05 +1100
+Subject: For Approval: Microsoft Community License
+In-Reply-To: <AF5091E3B3184340A174CE1103579266B67B93@hroxchcln2.enterprise.veritas.com>
+References: <AF5091E3B3184340A174CE1103579266B67B93@hroxchcln2.enterprise.veritas.com>
+Message-ID: <439BAF0D.8030407@opensourcelaw.biz>
+
+I make no comment on the license.  As to the process, I am not fussed by applications by proxy. I make these observations:
+
+
+The first is that the terms of the license are themselves the subject of copyright.  In order for the terms to be listed on the OSI website the copyright holder must necessarily be involved - preferably doing the submission.    
+
+
+The second issue, relating to the first, is that anyone using the license must themselves have the right to copy the license.  An application by proxy means that third parties do not have any assurance that they are permitted to reproduce the license terms. 
+ 
+
+The third is that OSI has plenty of applications for approval.  It should therefore give priority to those which are likely to be practically implemented.  In this respect, having a third party submit a license does not inspire confidence.  The copyright holder ought to be proposing the license for approval and stating an intention to use. 
+
+
+In short the process of approval is undermined unless the copyright holder of the license submits to the jurisdiction of the OSI.  Exactly who does it is not to the point, but there must be a clear chain of authority from the ultimate copyright holder.  I would repeat similar comments in relation to licenses which contain a trade mark as part of their name. 
+
+
+
+Brendan
+
+From nelson at crynwr.com  Sun Dec 11 21:43:28 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Sun, 11 Dec 2005 16:43:28 -0500
+Subject: For Approval: Microsoft Community License
+In-Reply-To: <20051209202955.GA30985@ccil.org>
+References: <20051209202955.GA30985@ccil.org>
+Message-ID: <17308.40320.724612.478265@desk.crynwr.com>
+
+John Cowan writes:
+ > Microsoft is adding new licenses to its Shared Source Initiative which
+ > I believe qualify as open-source licenses.
+
+Let's give Microsoft a chance to submit these licenses on its own.  I
+think that the general principle should be that authors have
+preference over third parties when it comes to submitting licenses.
+Microsoft has said neither that they will nor that they won't submit
+their two licenses.  They've said that they're not submitting them at
+this time.  Perhaps they have revisions to make?  If so, then
+approving draft licenses would be a serious wrongo.
+
+If you insist, we can take it to the next board meeting, but I'm
+reasonably confident that the board's decision will be to defer
+approval.
+
+-- 
+--my blog is at     blog.russnelson.com         | A computer without Python is
+Crynwr sells support for free software  | PGPok | like a CPU without memory:
+521 Pleasant Valley Rd. | +1 315-323-1241       | it runs, but you can't do
+Potsdam, NY 13676-3213  |     Sheepdog          | anything useful with it.
+
+
+From jcowan at reutershealth.com  Mon Dec 12 03:02:02 2005
+From: jcowan at reutershealth.com (John.Cowan)
+Date: Sun, 11 Dec 2005 22:02:02 -0500
+Subject: For Approval: Microsoft Community License
+In-Reply-To: <17308.40320.724612.478265@desk.crynwr.com>
+References: <20051209202955.GA30985@ccil.org> <17308.40320.724612.478265@desk.crynwr.com>
+Message-ID: <20051212030202.GB12160@NYCMJCOWA2>
+
+Russell Nelson scripsit:
+
+> John Cowan writes:
+>  > Microsoft is adding new licenses to its Shared Source Initiative which
+>  > I believe qualify as open-source licenses.
+> 
+> Let's give Microsoft a chance to submit these licenses on its own.  
+
+> > Microsoft is adding new licenses to its Shared Source Initiative which I
+> > believe qualify as open-source licenses.  The first of these is a simple
+> > permissive license called the Microsoft Permissive License (MS-PL).
+> 
+> For similar reasons to that given for the Microsoft Community License
+> we should defer consideration of this license.
+
+I defer to your vast expertise.
+
+-- 
+John Cowan  jcowan at reutershealth.com  www.reutershealth.com  www.ccil.org/~cowan
+Nobody expects the RESTifarian Inquisition!  Our chief weapon is
+surprise ... surprise and tedium  ... tedium and surprise ....  
+Our two weapons are tedium and surprise ... and ruthless disregard
+for unpleasant facts....  Our three weapons are tedium, surprise, and
+ruthless disregard ... and an almost fanatical devotion to Roy Fielding....
+
+
+From jonr at microsoft.com  Fri Aug 10 16:16:42 2007
+From: jonr at microsoft.com (Jon Rosenberg (PBM))
+Date: Fri, 10 Aug 2007 09:16:42 -0700
+Subject: For Approval: Microsoft Community License
+Message-ID: <178B4B74A9BEEE469978ACE974D383081D26A4E53F@NA-EXMSG-C111.redmond.corp.microsoft.com>
+
+Microsoft is pleased to submit the Microsoft Community License to the OSI for consideration as an OSI approved license.  Microsoft believes that this license provides unique value to the open source community by delivering simplicity, brevity, and clearly delineated reciprocal terms.
+The three sections below provide the information required for the discussion portion of the approval process.  We look forward to working with the OSI on this submission process and discussing this submission with the open source community.
+Jon Rosenberg
+Director, Source Program
+Microsoft Corporation
+
+----------------------------------
+
+Section  I:  Which OSI licenses are similar and why won't one of those do instead?
+
+Although one can assess similarity of license terms in numerous ways, the MS-CL has some similarities to the Mozilla Public License (V1.1).  However, we sought to draft a license that is simple, short, and easy-to-understand.  In particular, the Mozilla Public License's definitions of original code, covered code, and modifications can be difficult to apply in practice, given the many ways in which software can be distributed and linked together.  The MS-CL provides a clear objective test of whether or not a derivative work constitutes a modification of the original code.
+Section II: Compatibilities and incompatibilities with other OSI licenses:  Source code distribution breaks down into two areas: Relicensing of MS-CL code and redistribution of MS-CL code with other code that is licensed under a different license.
+
+*         Can MS-CL code be redistributed under a different license?
+ No.  The license states that "If you distribute any portion of the software in source code form, you may do so only under this license... "  This restriction is similar to the restriction in the Mozilla Public License that states "You may not offer or impose any terms on any Source Code version that alters or restricts the applicable version of this License or the recipients' rights hereunder."  The license explicitly prohibits relicensing of the original licensed code under a different license, in whole, in part or as part of a different piece of software.
+
+*         Can MS-CL code be redistributed in combination with other code that is licensed under a different license?
+As long as any files containing the original MS-CL licensed code are redistributed under the MS-CL license, then the MS-CL  places no restrictions on combining MS-CL code with other code that is licensed under  another license.  Any files containing any of the MS-CL licensed code must be distributed only under the MS-CL license and not under any other license.  Licenses that prohibit the distribution of code under any terms other than the terms of that license will not be compatible with the MS-CL.
+Section III: The License:  A copy of the license is included below and also provided as a .txt file attachment.
+Microsoft Community License (Ms-CL)
+
+This license governs use of the accompanying software. If you use the software, you accept this
+license. If you do not accept the license, do not use the software.
+
+1. Definitions
+The terms "reproduce," "reproduction," "derivative works," and "distribution" have the same meaning here
+as under U.S. copyright law.
+A "contribution" is the original software, or any additions or changes to the software.
+A "contributor" is any person that distributes its contribution under this license.
+ "Licensed patents" are a contributor's patent claims that read directly on its contribution.
+
+2. Grant of Rights
+(A) Copyright Grant- Subject to the terms of this license, including the license conditions and limitations in
+section 3, each contributor grants you a non-exclusive, worldwide, royalty-free copyright license to
+reproduce its contribution, prepare derivative works of its contribution, and distribute its contribution or any
+derivative works that you create.
+(B) Patent Grant- Subject to the terms of this license, including the license conditions and limitations in
+section 3, each contributor grants you a non-exclusive, worldwide, royalty-free license under its licensed
+patents to make, have made, use, sell, offer for sale, import, and/or otherwise dispose of its contribution in
+the software or derivative works of the contribution in the software.
+
+3. Conditions and Limitations
+(A) Reciprocal Grants- For any file you distribute that contains code from the software (in source code or
+binary format), you must provide recipients the source code to that file along with a copy of this license,
+which license will govern that file. You may license other files that are entirely your own work and do not
+contain code from the software under any terms you choose.
+(B) No Trademark License- This license does not grant you rights to use any contributors' name, logo, or
+trademarks.
+(C) If you bring a patent claim against any contributor over patents that you claim are infringed by the
+software, your patent license from such contributor to the software ends automatically.
+(D) If you distribute any portion of the software, you must retain all copyright, patent, trademark, and
+attribution notices that are present in the software.
+(E) If you distribute any portion of the software in source code form, you may do so only under this license
+by including a complete copy of this license with your distribution. If you distribute any portion of the
+software in compiled or object code form, you may only do so under a license that complies with this
+license.
+(F) The software is licensed "as-is." You bear the risk of using it. The contributors give no express
+warranties, guarantees or conditions. You may have additional consumer rights under your local laws which
+this license cannot change. To the extent permitted under your local laws, the contributors exclude the
+implied warranties of merchantability, fitness for a particular purpose and non-infringement.
+
+
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20070810/e62bb28d/attachment.html>
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: MS-CL in TXT.txt
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20070810/e62bb28d/attachment.txt>
+
+From lrosen at rosenlaw.com  Fri Aug 10 18:25:25 2007
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Fri, 10 Aug 2007 11:25:25 -0700
+Subject: For Approval: Microsoft Community License
+In-Reply-To: <178B4B74A9BEEE469978ACE974D383081D26A4E53F@NA-EXMSG-C111.redmond.corp.microsoft.com>
+References: <178B4B74A9BEEE469978ACE974D383081D26A4E53F@NA-EXMSG-C111.redmond.corp.microsoft.com>
+Message-ID: <01b201c7db7b$d24f2110$6401a8c0@LROSENTOSHIBA>
+
+Jon, I have a question about the following provision:
+
+ 
+
+(A) Reciprocal Grants- For any file you distribute that contains code from
+the software (in source code or 
+
+binary format), you must provide recipients the source code to that file
+along with a copy of this license, 
+
+which license will govern that file. You may license other files that are
+entirely your own work and do not 
+
+contain code from the software under any terms you choose.
+
+ 
+
+When software under multiple licenses is combined into one .zip or .tar
+file, must that entire file be under the MS-CL? File-based software licenses
+are subject to confusion on that point. Not that this would affect its
+compliance with OSD at all, it just possibly turns a reasonable reciprocity
+requirement into a very dangerous one. Other licenses deal with this in
+better ways, at least from the vantage point of distributors who do lots of
+combining of software into single-file downloads or distributions.
+
+ 
+
+Congratulations on submitting a license for approval. I am please to see
+Microsoft join this loud party. Take it from an experienced license
+submitter, you'll be bruised but the bruises heal. :-)
+
+ 
+
+/Larry
+
+ 
+
+Lawrence Rosen
+
+Rosenlaw & Einschlag, a technology law firm (www.rosenlaw.com)
+
+3001 King Ranch Road, Ukiah, CA 95482
+
+707-485-1242 * cell: 707-478-8932 * fax: 707-485-1243
+
+Skype: LawrenceRosen
+
+Author of "Open Source Licensing: Software Freedom and 
+
+                Intellectual Property Law" (Prentice Hall 2004)
+
+  _____  
+
+From matthew.flaschen at gatech.edu  Sat Aug 11 03:02:14 2007
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Fri, 10 Aug 2007 23:02:14 -0400
+Subject: For Approval: Microsoft Community License
+In-Reply-To: <01b201c7db7b$d24f2110$6401a8c0@LROSENTOSHIBA>
+References: <178B4B74A9BEEE469978ACE974D383081D26A4E53F@NA-EXMSG-C111.redmond.corp.microsoft.com> <01b201c7db7b$d24f2110$6401a8c0@LROSENTOSHIBA>
+Message-ID: <46BD26B6.3080205@gatech.edu>
+
+Lawrence Rosen wrote:
+
+> Other licenses deal with this in better ways, at least from the vantage point of distributors who do lots of
+> combining of software into single-file downloads or distributions.
+
+I agree.  I think MSCL is clearly OSD-compliant, but the file-based rule
+is over-simplistic, and can result in ambiguities like this.
+
+Matt Flaschen
+
+
+From jonr at microsoft.com  Sat Aug 11 06:11:00 2007
+From: jonr at microsoft.com (Jon Rosenberg (PBM))
+Date: Fri, 10 Aug 2007 23:11:00 -0700
+Subject: For Approval: Microsoft Community License
+In-Reply-To: <46BD26B6.3080205@gatech.edu>
+References: <178B4B74A9BEEE469978ACE974D383081D26A4E53F@NA-EXMSG-C111.redmond.corp.microsoft.com>
+ <01b201c7db7b$d24f2110$6401a8c0@LROSENTOSHIBA>,<46BD26B6.3080205@gatech.edu>
+Message-ID: <178B4B74A9BEEE469978ACE974D383081D267E5F10@NA-EXMSG-C111.redmond.corp.microsoft.com>
+
+Hi Larry and Matthew -  This has really been one of the more interesting days since I became involved with the drafting of these licenses over two years ago.  Thank you, and everyone else on the alias, for the thoughtful feedback.  In particular, thank you for bringing this issue concerning .zip files and similar file packages to our attention. We are looking into various ways that the ambiguity can be addressed, but please know that the intent of the language was not to cause one software program that is licensed under a particular license, to be subject to the terms of the MCL, merely because the two are both contained in the same .zip, or similar type of file.
+
+Thank you again for your feedback.  I'm going to be signing off for the night and look forward to continuing this discussion soon.
+
+Jon
+
+
+________________________________________
+From: Matthew Flaschen [matthew.flaschen at gatech.edu]
+Sent: Friday, August 10, 2007 8:02 PM
+To: License Discuss
+Subject: Re: For Approval: Microsoft Community License
+
+Lawrence Rosen wrote:
+
+> Other licenses deal with this in better ways, at least from the vantage point of distributors who do lots of
+> combining of software into single-file downloads or distributions.
+
+I agree.  I think MSCL is clearly OSD-compliant, but the file-based rule
+is over-simplistic, and can result in ambiguities like this.
+
+Matt Flaschen
+
+
+From cowan at ccil.org  Mon Aug 13 00:19:05 2007
+From: cowan at ccil.org (John Cowan)
+Date: Sun, 12 Aug 2007 20:19:05 -0400
+Subject: For Approval: Microsoft Community License
+In-Reply-To: <178B4B74A9BEEE469978ACE974D383081D26A4E53F@NA-EXMSG-C111.redmond.corp.microsoft.com>
+References: <178B4B74A9BEEE469978ACE974D383081D26A4E53F@NA-EXMSG-C111.redmond.corp.microsoft.com>
+Message-ID: <20070813001905.GC24171@mercury.ccil.org>
+
+Jon Rosenberg (PBM) scripsit:
+
+> Microsoft is pleased to submit the Microsoft Community License to the
+> OSI for consideration as an OSI approved license.  
+
+I welcome Microsoft to the OSD process, continue in my opinion that
+the MS-CL is an Open Source license, and urge its approval by the
+OSI with no reservations.
+
+-- 
+The experiences of the past show                John Cowan
+that there has always been a discrepancy        cowan at ccil.org
+between plans and performance.                  http://www.ccil.org/~cowan
+        --Emperor Hirohito, August 1945
+
+
+From jonr at microsoft.com  Wed Oct  3 03:35:48 2007
+From: jonr at microsoft.com (Jon Rosenberg (PBM))
+Date: Tue, 2 Oct 2007 20:35:48 -0700
+Subject: For Approval: Microsoft Reciprocal License
+Message-ID: <178B4B74A9BEEE469978ACE974D383081D299CEFB7@NA-EXMSG-C111.redmond.corp.microsoft.com>
+
+Microsoft is pleased to submit the Microsoft Reciprocal License to the OSI for consideration as an OSI approved license.  This license contains the same terms as the previously submitted Microsoft Community License, but has been renamed for greater clarity, and resubmitted in accordance with OSI guidelines.     Microsoft believes that this license provides unique value to the open source community by delivering simplicity, brevity, and clearly delineated reciprocal terms.
+The three sections below provide the information required for the discussion portion of the approval process.  We look forward to continuing to work with the OSI and the open source community on this submission process.
+Jon Rosenberg
+Director, Source Program
+Microsoft Corporation
+
+----------------------------------
+
+Section  I:  Which OSI licenses are similar and why won't one of those do instead?
+
+Although one can assess similarity of license terms in numerous ways, the MS-RL has some similarities to the Mozilla Public License (V1.1).  However, we sought to draft a license that is simple, short, and easy-to-understand.  In particular, the Mozilla Public License's definitions of original code, covered code, and modifications can be difficult to apply in practice, given the many ways in which software can be distributed and linked together.  The MS-RL provides a clear objective test of whether or not a derivative work constitutes a modification of the original code.
+Section II: Compatibilities and incompatibilities with other OSI licenses:  Source code distribution breaks down into two areas: Relicensing of MS-RL code and redistribution of MS-RL code with other code that is licensed under a different license.
+
+*         Can MS-RL code be redistributed under a different license?
+ No.  The license states that "If you distribute any portion of the software in source code form, you may do so only under this license... "  This restriction is similar to the restriction in the Mozilla Public License that states "You may not offer or impose any terms on any Source Code version that alters or restricts the applicable version of this License or the recipients' rights hereunder."  The license explicitly prohibits relicensing of the original licensed code under a different license, in whole, in part or as part of a different piece of software.
+
+*         Can MS-RL code be redistributed in combination with other code that is licensed under a different license?
+As long as any files containing the original MS-RL licensed code are redistributed under the MS-RL license, then the MS-RL  places no restrictions on combining MS-RL code with other code that is licensed under  another license.  Any files containing any of the MS-RL licensed code must be distributed only under the MS-RL license and not under any other license.  Licenses that prohibit the distribution of code under any terms other than the terms of that license will not be compatible with the MS-RL.
+Section III: The License:  A copy of the license is included below and also provided as a .txt file attachment.
+Microsoft Reciprocal License (MS-RL)
+
+This license governs use of the accompanying software. If you use the software, you accept this
+license. If you do not accept the license, do not use the software.
+
+1. Definitions
+The terms "reproduce," "reproduction," "derivative works," and "distribution" have the same meaning here
+as under U.S. copyright law.
+A "contribution" is the original software, or any additions or changes to the software.
+A "contributor" is any person that distributes its contribution under this license.
+ "Licensed patents" are a contributor's patent claims that read directly on its contribution.
+
+2. Grant of Rights
+(A) Copyright Grant- Subject to the terms of this license, including the license conditions and limitations in
+section 3, each contributor grants you a non-exclusive, worldwide, royalty-free copyright license to
+reproduce its contribution, prepare derivative works of its contribution, and distribute its contribution or any
+derivative works that you create.
+(B) Patent Grant- Subject to the terms of this license, including the license conditions and limitations in
+section 3, each contributor grants you a non-exclusive, worldwide, royalty-free license under its licensed
+patents to make, have made, use, sell, offer for sale, import, and/or otherwise dispose of its contribution in
+the software or derivative works of the contribution in the software.
+
+3. Conditions and Limitations
+(A) Reciprocal Grants- For any file you distribute that contains code from the software (in source code or
+binary format), you must provide recipients the source code to that file along with a copy of this license,
+which license will govern that file. You may license other files that are entirely your own work and do not
+contain code from the software under any terms you choose.
+(B) No Trademark License- This license does not grant you rights to use any contributors' name, logo, or
+trademarks.
+(C) If you bring a patent claim against any contributor over patents that you claim are infringed by the
+software, your patent license from such contributor to the software ends automatically.
+(D) If you distribute any portion of the software, you must retain all copyright, patent, trademark, and
+attribution notices that are present in the software.
+(E) If you distribute any portion of the software in source code form, you may do so only under this license
+by including a complete copy of this license with your distribution. If you distribute any portion of the
+software in compiled or object code form, you may only do so under a license that complies with this
+license.
+(F) The software is licensed "as-is." You bear the risk of using it. The contributors give no express
+warranties, guarantees or conditions. You may have additional consumer rights under your local laws which
+this license cannot change. To the extent permitted under your local laws, the contributors exclude the
+implied warranties of merchantability, fitness for a particular purpose and non-infringement.
+
+
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20071002/3450db84/attachment.html>
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: MS-RL in TXT.txt
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20071002/3450db84/attachment.txt>
+
+From matthew.flaschen at gatech.edu  Fri Oct  5 10:18:30 2007
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Fri, 05 Oct 2007 06:18:30 -0400
+Subject: For Approval: Microsoft Reciprocal License
+In-Reply-To: <178B4B74A9BEEE469978ACE974D383081D299CEFB7@NA-EXMSG-C111.redmond.corp.microsoft.com>
+References: <178B4B74A9BEEE469978ACE974D383081D299CEFB7@NA-EXMSG-C111.redmond.corp.microsoft.com>
+Message-ID: <47060F76.8040706@gatech.edu>
+
+Jon Rosenberg (PBM) wrote:
+> Microsoft is pleased to submit the Microsoft Reciprocal License to
+> the OSI for consideration as an OSI approved license.  This license
+> contains the same terms as the previously submitted Microsoft
+> Community License
+
+I still support approval of this license.
+
+Matt Flaschen
+
+
+From mike.strobel at gmail.com  Thu Oct 11 03:34:38 2007
+From: mike.strobel at gmail.com (Mike Strobel)
+Date: Wed, 10 Oct 2007 23:34:38 -0400
+Subject: For Approval: Microsoft Reciprocal License
+Message-ID: <fef8c7a40710102034w649c0520scf8f56c78a2d3f4@mail.gmail.com>
+
+Hi there,
+
+While I certainly approve of this license (and currently use the earlier
+Ms-CL version on my CodePlex project), I was under the impression that the
+Ms-RL abbreviation refers to the Microsoft Reference License <
+http://www.microsoft.com/resources/sharedsource/licensingbasics/referencelicense.mspx>.
+ The
+latter license allows for reference only ("look, but don't touch/take"), and
+is certainly not "open source".  I don't think it's a stretch to suggest
+that some people might get these licenses confused based on the current
+abbreviation scheme, and that could potentially cause problems for both
+Microsoft and open source developers.
+
+I'm don't know if this point is relevant to the license approval process or
+not, but I thought I'd throw it out there.
+
+Cheers,
+Mike Strobel
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20071010/682ccdaa/attachment.html>
+

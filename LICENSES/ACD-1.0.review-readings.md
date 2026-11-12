@@ -536,3 +536,23 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **読み。** 2008〜2010 年の報告は、2004 年と同じ線を保っている —— 門は OSD への適合で、短さや新しさの主張だけでは足りず、効かない条項は差し戻される。ACD に有利なのは、条件を放棄しても承認は外れないという委員長の案と、使用を制限する条件を持たないこと。不利なのは、法律家を入れるよう勧める文と、何でもしてよい式の類型の差し戻しである。
 
 **この節が establish しないこと。** 報告はどれも委員長の勧告で、2010 年の 2 本の理事会の議決はこのスレッドに無い。2008-11 の委員長の案が採られた記録は読んでいない。2012 年の発言は個人の評価である。
+
+## 1.193 弁護士に曖昧さを指摘され、提出者が認め、本文を変えずに承認された —— Microsoft Community License と Reciprocal License（2005・2007）（2026-11-12）
+
+`license-discuss` の 3 つのスレッド: 2005-12 の "For Approval: Microsoft Community License"（10 通・John Cowan 氏が出した。Microsoft 自身の提出ではない）、2007-08 の同名のスレッド（16 通・Microsoft の Jon Rosenberg 氏が出した）、2007-10 の "For Approval: Microsoft Reciprocal License"（9 通）。13 通を `rounds/2005-12-to-2007-10-license-discuss-ms-cl-and-ms-rl-observed.txt` に置いた。portfolio-9b の「決める側・未読」の一覧から読んだ。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"When software under multiple licenses is combined into one .zip or .tar file, must that entire file be under the MS-CL? File-based software licenses are subject to confusion on that point. Not that this would affect its compliance with OSD at all, it just possibly turns a reasonable reciprocity requirement into a very dangerous one."* | Lawrence Rosen 氏 2007-08-10 | 通知や条件がどの素材に及ぶかという問いは、ACD では §16.2 の *"the material it accompanies"* に当たる（`ACD-1.4-SECOND-CLARITY-TRIAL.md` T23・T26・T28）。Rosen 氏はそれを OSD の問いではなく、配る人にとっての危険の問いとして出した |
+| *"I think MSCL is clearly OSD-compliant, but the file-based rule is over-simplistic, and can result in ambiguities like this."* | Matthew Flaschen 氏 2007-08-10 | 同じ切り分け。適合と、語の質とを分けて述べている |
+| *"We are looking into various ways that the ambiguity can be addressed, but please know that the intent of the language was not to cause one software program that is licensed under a particular license, to be subject to the terms of the MCL, merely because the two are both contained in the same .zip, or similar type of file."* | Jon Rosenberg 氏（提出者）2007-08-10 | 提出者は曖昧さを認め、意図を list に書いた |
+| *"This license contains the same terms as the previously submitted Microsoft Community License, but has been renamed for greater clarity"* | Rosenberg 氏 2007-10-02 | **有利な向き。** 出し直した本文は、3(A)（*"For any file you distribute that contains code from the software …"*）を含め、8 月の本文と 1 語も変わっていない（2 つの提出文の *"This license governs use"* から末尾の免責までの 467 語を語ごとに比べた。題名は比べていない）。Flaschen 氏は *"I still support approval of this license."* と書き、OSI の一覧の API（`opensource.org_api_licenses.json`・2026-10-27 取得）は MS-RL の提出日を 20071003、承認日を 20071010 とする |
+| *"I was under the impression that the Ms-RL abbreviation refers to the Microsoft Reference License"* | Mike Strobel 氏 2007-10-10 | 略称が既存の別の文書と重なるという指摘。承認は止めなかった。ACD の名と識別子の問いは B6 |
+| *"Let's give Microsoft a chance to submit these licenses on its own.  I think that the general principle should be that authors have preference over third parties when it comes to submitting licenses."*、*"Perhaps they have revisions to make?  If so, then approving draft licenses would be a serious wrongo."* | Russell Nelson 氏 2005-12-11 | 2 つの面。起草者が出すのが原則という線は、ACD では起草者が出す側なので当たらない。改訂が控えている版を承認するのは誤りだという線は、1.0 を `license-discuss` に出したまま 1.4 を作っている ACD に当たる。出す版を申請の日に確定する最新版とした計画（`OSI-APPROVAL-PLAN.md` §4）はこの線と同じ向きである |
+| *"In order for the terms to be listed on the OSI website the copyright holder must necessarily be involved"*、*"anyone using the license must themselves have the right to copy the license."*、*"The copyright holder ought to be proposing the license for approval and stating an intention to use."* | Brendan Scott 氏 2005-12-11 | ACD は本文を写して配ることを誰にでも許す（§16.4）ので、2 つ目の問いには本文が答える。3 つ目の「使う意図」は B2 の側で、ACD の利用はこのリポジトリ 1 件である |
+
+**読み。** 1 つのライセンスについて、list の弁護士が曖昧さを指摘し、別の参加者が同じ点を「OSD に適合するが単純すぎる」と述べ、提出者が曖昧さを認めた。それでも本文は変わらず、2 か月後に承認された。2017 年の Rick Moen 氏が挙げた書かれていない理由の 1 つ（*"unjustifiably opaque or ambiguous in its wording"*・`against.md` #248）は、少なくともこの時点では、OSD に関わらない曖昧さに対して承認を止める形では働いていない。
+
+**逆側。** 提出者は Microsoft で、曖昧さは 1 つの条の 1 つの場面に限られ、提出者は意図を list に書いた。ACD の起草者は単独で、法律家の読みを持たず（B1）、§16.2 はすでにこの場面を語で扱っている。2007 年の扱いは、曖昧さが残っても通ったことを示すが、ACD の語の質が問われないことは示さない。
+
+**この節が establish しないこと。** 理事会がこの曖昧さを議論したかは、このスレッドには無い。API の `approved` 欄は MS-RL と MS-PL のどちらも false を返すが、承認日の欄は埋まっている。この食い違いの理由は確かめていない。2005-12 のスレッドは、Cowan 氏が Nelson 氏に *"I defer to your vast expertise."* と返して終わる。これを取り下げと読むかは、この 1 文からは決まらない。

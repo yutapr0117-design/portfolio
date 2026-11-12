@@ -1,0 +1,107 @@
+Source: OSI license-discuss public archive, 2007-November.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 3 of 54 in "Question on OSD #5" (2007-11-22 to 2007-11-30)
+Senders: John Cowan, Arnoud Engelfriet
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From cowan at ccil.org  Thu Nov 22 22:07:56 2007
+From: cowan at ccil.org (John Cowan)
+Date: Thu, 22 Nov 2007 17:07:56 -0500
+Subject: Question on OSD #5
+In-Reply-To: <20071122125543.GA38527@stack.nl>
+References: <ef745880711211939u1b67f15ej5552f41740247e38@mail.gmail.com> <AA78D806E90D1946A604A61827E7704804581D17@aplesnation.dom1.jhuapl.edu> <20071122125543.GA38527@stack.nl>
+Message-ID: <20071122220756.GD13281@mercury.ccil.org>
+
+Arnoud Engelfriet scripsit:
+
+> I would think that if you introduce GPL code on a classified network,
+> the physical security on that network would make it impossible to 
+> distribute the code to elsewhere. 
+
+Not impossible, just difficult.  At worst you copy down what the secure
+terminal shows onto paper and then type it in yourself.  In the U.S., at
+least, security is a personal obligation of people entrusted with secrets;
+with the partial exception of nuclear technology, anyone who has not
+been entrusted with a secret but has it anyway is free to publish it.
+The person who gave it to them is civilly and criminally liable, but
+not the recipient.  (IANAL, TI definitely NLA -- things may have changed
+under the current regime.)
+
+-- 
+And it was said that ever after, if any                 John Cowan
+man looked in that Stone, unless he had a               cowan at ccil.org
+great strength of will to turn it to other              http://ccil.org/~cowan
+purpose, he saw only two aged hands withering
+in flame.   --"The Pyre of Denethor"
+
+
+From arnoud at engelfriet.net  Sat Nov 24 09:09:28 2007
+From: arnoud at engelfriet.net (Arnoud Engelfriet)
+Date: Sat, 24 Nov 2007 10:09:28 +0100
+Subject: Question on OSD #5
+In-Reply-To: <47475E78.9090700@david-woolley.me.uk>
+References: <ef745880711211939u1b67f15ej5552f41740247e38@mail.gmail.com> <AA78D806E90D1946A604A61827E7704804581D17@aplesnation.dom1.jhuapl.edu> <20071122125543.GA38527@stack.nl> <47475E78.9090700@david-woolley.me.uk>
+Message-ID: <20071124090928.GA30301@stack.nl>
+
+David Woolley wrote:
+> Arnoud Engelfriet wrote:
+> >Tzeng, Nigel H. wrote:
+> >>With respect to OSD #5 do folks believe that releasing under an OSI
+> >>approved license but having to mark the software as FOUO (For Official Use
+> >>Only) or SECRET breaks OSD #5?
+> >
+> >Interesting. I think you would have to look at the actual license terms
+> >of the applicable OSI-certified licenses instead of just the OSD.
+> >For e.g. MIT-licensed material this should not be an issue.
+> 
+> Only because you can create works whose overall licence is OSD 
+> non-compliant.  I think that the proposed term would violate the fields 
+> of endeavour rule (although normally people would try it on the other 
+> way, i.e. restricting to non-military use).
+
+That would apply only if you made the FOUO restriction part of
+the software license. If you give me BSD software and additionally
+make me sign an NDA that says I won't redistribute it, the software
+still is BSD. I just can't distribute it. 
+
+The same goes for GPL software, although there the NDA also triggers
+the "no additional restrictions" clause.
+
+Arnoud
+
+-- 
+Arnoud Engelfriet, Dutch & European patent attorney - Speaking only for myself
+Patents, copyright and IPR explained for techies: http://www.iusmentis.com/
+              Arnoud blogt nu ook: http://blog.iusmentis.com/
+
+
+
+From cowan at ccil.org  Tue Nov 27 16:55:29 2007
+From: cowan at ccil.org (John Cowan)
+Date: Tue, 27 Nov 2007 11:55:29 -0500
+Subject: Question on OSD #5
+In-Reply-To: <20071127075828.GL28864@linuxmafia.com>
+References: <20071122125543.GA38527@stack.nl> <47475E78.9090700@david-woolley.me.uk> <20071124090928.GA30301@stack.nl> <f5cca7ed0711241101i6049c5bay27789aee4d23641e@mail.gmail.com> <4748D3F4.8020604@gatech.edu> <474954A2.9080209@david-woolley.me.uk> <474B8A06.3020003@gatech.edu> <f5cca7ed0711261912o26e4739er5236e70d76fdd376@mail.gmail.com> <474B94C9.90301@gatech.edu> <20071127075828.GL28864@linuxmafia.com>
+Message-ID: <20071127165529.GQ14240@mercury.ccil.org>
+
+Rick Moen scripsit:
+
+> As a brief digression and reminder:  Neither the Dissident Test nor the
+> Desert Island Test, nor the Tentacles of Evil Test, nor the "DFSG FAQ"
+> where they reside, _has any role whatsoever_ in Debian Project
+> governance.   
+
+Thanks.  To which can be added that since the GPLv2 nowhere says it
+is perpetual (nor can any U.S. copyright license be truly *perpetual*
+given the provisions in U.S. law for license recapture), it obviously
+violates the second test you mention, a fact conveniently ignored by
+those who tout it.
+
+-- 
+John Cowan  cowan at ccil.org  http://ccil.org/~cowan
+Female celebrity stalker, on a hot morning in Cairo:
+"Imagine, Colonel Lawrence, ninety-two already!"
+El Auruns's reply:  "Many happy returns of the day!"
+
+

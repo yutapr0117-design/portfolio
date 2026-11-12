@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 488 subject lines. One thread appears under two subject spellings
+# Rows: 492 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -176,6 +176,7 @@
 2005-11-14	Questions to OSI Board quorum
 2005-11-16	License in question
 2005-11-25	Open Source and Contributor Agreements
+2005-12-09	For Approval: Microsoft Community License
 2006-02-14	Help in choosing appropriate open-source license...
 2006-03-11	Looking for license stewards
 2006-04-24	Suggested addition to the open-source definition
@@ -215,10 +216,12 @@
 2007-07-31	GPLv3, LGPLv3 Review
 2007-07-31	what *is* the approval process?
 2007-08-01	GPLv3, again Re: what *is* the approval process?
+2007-08-10	For Approval: Microsoft Community License
 2007-09-04	License Committee Report for August 2007
 2007-09-11	RPL 1.5 discussion
 2007-09-15	For Approval: Boost Software License - Version 1.0 - August 17th, 2003
 2007-10-02	For Approval: Microsoft Public License
+2007-10-02	For Approval: Microsoft Reciprocal License
 2007-10-11	BSD-like licenses and the OSI approval process
 2007-10-18	Blogger claiming "shared source" is approved by OSI
 2007-10-18	Microsoft claiming "shared source" is approved by OSI
@@ -227,6 +230,7 @@
 2007-11-13	What should the License Result Communication Process be?
 2007-11-14	Improving the License Approval Proces
 2007-11-21	Open Source vs opensource
+2007-11-22	Question on OSD #5
 2007-11-28	Editorial Board
 2007-11-30	Editorial Board, Take 2 - vs. Trac Maintainers
 2007-11-30	Take 3: Editors and Trackers

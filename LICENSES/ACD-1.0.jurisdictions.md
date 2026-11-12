@@ -307,6 +307,8 @@ Tom Callaway 氏（当時 Fedora の法務窓口）は、Red Hat Legal との検
 **(3)** 2012 年の発言で、**§203 の 35 年は当時まだ誰にとっても将来の話だった**
 （1978 年以降の grant が最初に終了可能になるのは 2013 年以降）。
 
+**2026-11-12 の追記 —— 同じ点は 2007 年に、*perpetual* の語について述べられていた。** "Question on OSD #5"（`license-discuss` 2007-11・54 通・`rounds/2007-11-license-discuss-question-on-osd-5-perpetual-observed.txt` に 3 通）で、John Cowan 氏は Rick Moen 氏が挙げた 3 つの試験について *"since the GPLv2 nowhere says it is perpetual (nor can any U.S. copyright license be truly perpetual given the provisions in U.S. law for license recapture), it obviously violates the second test you mention"* と書いた（2007-11-27）。ACD の §4.1 と §8.1 は *"irrevocable, perpetual"* と書くので、この括弧の中の文は ACD の *perpetual* の語にそのまま当たる（*irrevocable* の側は 5a が扱う）。5a の読み（§4 は合衆国では §203 に服し、§15 が縮退を受ける）と同じで、新しい不利な事実ではない。**逆側**: Cowan 氏は同じスレッドで自分を法律家でないと書いており（*"IANAL"*・2007-11-22）、文は試験の当てはめについての傍論である。同じスレッドで Arnoud Engelfriet 氏（欧州の弁理士と署名）は、ライセンスの外の NDA について *"the software still is BSD. I just can't distribute it."* と書いた（2007-11-24）。ACD の外で受領者が結ぶ約束は ACD を変えない、という §10.1 の読みと同じ向きである。
+
 ### 5b. 人格権（17 U.S.C. §106A・VARA）—— §12.1 は米国では形式要件を満たさない。だから §12.2 がある
 
 **2026-09-19 に原典で確認した**（`https://www.law.cornell.edu/uscode/text/17/106A`）:
