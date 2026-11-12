@@ -1,0 +1,603 @@
+Source: OSI license-discuss public archive, 2004-February.txt, 2004-November.txt, 2004-December.txt and 2005-February.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 9: 4 of 14 in "License Committee report" (2004-02), 3 of 8 in "License Committee Report" (2004-11), the December report (2004-12-27), and 1 follow-up from the MirOS submitter (2005-02-06)
+Senders: Russell Nelson, Zooko O'Whielacronx, Ernest Prabhakar, Thorsten Glaser
+Position: Not addressed to us. Observed. Ernest Prabhakar's message of 2004-11-09 is cut where the trailing quotation begins; each message kept here is otherwise whole. Russell Nelson writes as chair of the license approval committee; the three reports are kept whole. The December report says that the November report was not submitted.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Wed Feb 18 01:20:49 2004
+From: nelson at crynwr.com (Russell Nelson)
+Date: Tue, 17 Feb 2004 20:20:49 -0500
+Subject: License Committee report
+Message-ID: <16434.48625.960597.184574@desk.crynwr.com>
+
+I'm the chair of the license approval committee.  This is my report
+for the current set of licenses under discussion.  If anybody
+disagrees with my assessment of the committee's conclusions, say so
+promptly.
+
+--
+
+We've sat on this license submission for far too long.  It's a clever
+and innovative license which we should approve.
+
+Title: EU DataGrid Software License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7072:200308:fcnekdmjcpiaemibokne
+License: http://eu-datagrid.web.cern.ch/eu-datagrid/license.html
+Comments:
+  John Cowan: http://crynwr.com/cgi-bin/ezmlm-cgi?3:msp:7262:eplnoepdlnfmkgagdbmp
+  Ernie Prabhakar: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7262:200309:eplnoepdlnfmkgagdbmp
+  Dave Presotto: http://crynwr.com/cgi-bin/ezmlm-cgi?3:msp:7337:eplnoepdlnfmkgagdbmp
+Recommend: approval.
+
+--
+
+Minor revisions to a license we have already approved.  Clarification
+of language and removal of excess parameterization.
+
+Title: Lucent Public License Version 1.02 
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7142:200309:onciffgepemojkpkiimk
+License: http://plan9.bell-labs.com/hidden/lpl102-template.html
+Comments:
+  Ben Reser: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7744:200402:onciffgepemojkpkiimk
+Recommend: approval.
+
+--
+
+This license, while seeming to comply with the OSD, isn't sufficiently
+different from the GPL or OSL.  It's shorter, but in spite of its
+length, the GPL is reasonably well understood, so the WSOSL's
+shortness is not an improvement.
+
+Title: The Wilhelm Svenselius Open Source License version 1.1 
+Submission:
+  Original: http://www.crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7080:200308:ekmofmlcjbbcddoaoahj
+  Revised: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7086:200309:pehonmokjnclhgnhddjo
+License: ttp://home.ws83.net/code/WSOSL.html
+Comments:
+  John Cowan: http://crynwr.com/cgi-bin/ezmlm-cgi?3:msp:7083:ekmofmlcjbbcddoaoahj
+Recommend: disapproval.
+
+--
+
+This license puts restrictions on the use of software, specifically
+modifications for private use.
+
+Title: Public Security Interrest "PSI" License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:msp:7098:bcgogjkdclpfihdgnoil
+License: 
+Comments:
+  John Cowan: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7098:bcgogjkdclpfihdgnoil
+Recommend: disapproval.
+
+--
+
+This license is EXTREMELY controversial.  It is a license which seems
+to comply with the OSD, yet whose purpose is explicitly to be
+incompatible with the GPL.  
+
+Title: Open Source Software Alliance License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7133:200309:ahoninpjbapbnmdbglmm
+License: http://people.FreeBSD.org/~seanc/ossal/ossal.html
+Comments: many, however the most cogent comment comes from Rick Moen at:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7259:ahoninpjbapbnmdbglmm
+Recommend: remanding back to the author for rewording.
+
+--
+
+MPL 1.1 with the name scratched off and replaced by CUA Office Public
+License.  Danese pointed out that the submittor might be trying to
+relicense code that could not be relicensed in this manner.  He
+replied that his code was all newly crafted.
+
+Title: CUA Office Public License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7486:hdlmlbkpenifmmkhppdd
+License: 
+Comments: 
+  Danese Cooper: http://crynwr.com/cgi-bin/ezmlm-cgi?3:msn:7486:hdlmlbkpenifmmkhppdd
+  Patranun Limudomporn: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7496:hdlmlbkpenifmmkhppdd
+Recommend: approval.
+
+--
+
+Rod Dixon made a couple of comments the day before Christmas Eve.  I
+think we should contact the Panda3D folks and ask them to respond to
+Rod's comments.  Otherwise I see no reason why we should not approve
+this license.
+
+Title: Panda3D Public License Version 1.0
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7499:ljampdokbpbinfhgnknf
+License: http://www.etc.cmu.edu/panda3d/docs/license/
+Comments:
+  John Cowan: http://crynwr.com/cgi-bin/ezmlm-cgi?3:msp:7501:ljampdokbpbinfhgnknf
+  Rod Dixon: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7501:200312:ljampdokbpbinfhgnknf
+Recommend: remanding.
+
+--
+
+While I agree with the goals of the license author, he's putting
+restrictions on the use of the software, and restrictions on use are
+not allowed.  He points to other licenses which restrict some
+modifications, but they do it at redistribution time, not at use time.
+Fundamentally, the author is trying to use licensing to substitute for
+trademark law.
+
+Title: Open Test License v1.1
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7537:200401:cldkhgfpmlhkdcokelpg
+Comments:
+  Larry Rosen: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7541:200401:cldkhgfpmlhkdcokelpg
+  Rod Dixon: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7545:200401:cldkhgfpmlhkdcokelpg
+Recommend: disapproval.
+
+--
+
+Not different enough from any existing license.  We should send it
+back to them suggesting that they use an existing license.  If they
+simply cannot, and must have this license, then we will approve it
+upon resubmission.
+
+Title: Linisys Open Source License v1.4
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:msp:7586:empnfghoonimjegkodeb
+Comments: no comments
+Recommend: remand for reconsideration
+
+--
+
+This must surely be the shortest open source license ever!  Still, we
+should send it back to the author because he uses the hated word
+"utilize".  Don't use utilize!  Utilize "use" instead.  Means the same
+thing and avoids a phony formality.
+
+Title: Fair License
+Submission: 
+  Original: http://crynwr.com/cgi-bin/ezmlm-cgi?3:msp:7623:hhkgifnkgiiejnigaakm
+  Revised: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7623:200401:hhkgifnkgiiejnigaakm
+Comments: none
+Recommend: remanding.
+
+--
+
+Revisions to the currently-approved apache license.  They tried
+introducing a defensive patent license clause, but too many people
+shot at that flag.
+
+Title: Apache License 2.0 
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7655:200402:jjibkpabgkibfkdpildd
+License: 
+Comments:
+  Brian Behlendorf: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7781:200402:jjibkpabgkibfkdpildd
+  John Cowan: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7797:200402:jjibkpabgkibfkdpildd
+Recommend: approval.
+
+--
+
+This license is intended to have the same legal effect as the MIT
+license, only be simpler to read.  Thanks, but that doesn't make it an
+improvement.  We will approve it if the author simply insists, but we
+officially discourage the proliferation of substantially similar licenses.
+
+Title: Simple Permissive License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7654:200402:ponaihiojnjdnagclgek
+License: http://zooko.com/simple_permissive_license.html
+Comments:
+  Ian Lance Taylor: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7656:200402:ponaihiojnjdnagclgek
+Recommend: disapproval.
+
+--
+
+There is much discussion spent deciding whether NASA can copyright
+software at all.  The license itself says that no copyright is claimed
+in the United States.
+
+The only serious concern that I can see is that the license requires
+the recipient to indemnify the Government of the United States against
+third party lawsuits.
+
+Title: NASA Open Source Agreement Version 1.1
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7698:200402:jfdgbalgdhgblndpmljm
+License: http://www.nas.nasa.gov/Research/Software/Open-Source/NASA_Open_Source_Agreement_1.1.txt
+Comments: ongoing as of this writing.
+Recommend: more discussion.
+
+-- 
+--My blog is at angry-economist.russnelson.com  | Coding in Python
+Crynwr sells support for free software  | PGPok |     is like
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | sucking on sugar.
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |     Sweet!
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From zooko at zooko.com  Wed Feb 18 01:43:08 2004
+From: zooko at zooko.com (Zooko O'Whielacronx)
+Date: 17 Feb 2004 20:43:08 -0500
+Subject: License Committee report 
+In-Reply-To: Message from Russell Nelson <nelson@crynwr.com> 
+   of "Tue, 17 Feb 2004 20:20:49 EST." <16434.48625.960597.184574@desk.crynwr.com> 
+References: <16434.48625.960597.184574@desk.crynwr.com> 
+Message-ID: <E1AtGk0-0003iV-00@localhost>
+
+
+> This must surely be the shortest open source license ever!  Still, we
+> should send it back to the author because he uses the hated word
+> "utilize".  Don't use utilize!  Utilize "use" instead.  Means the same
+> thing and avoids a phony formality.
+> 
+> Title: Fair License
+> Submission: 
+>   Original: http://crynwr.com/cgi-bin/ezmlm-cgi?3:msp:7623:hhkgifnkgiiejnigaakm
+>   Revised: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7623:200401:hhkgifnkgiiejnigaakm
+> Comments: none
+> Recommend: remanding.
+...
+> This license is intended to have the same legal effect as the MIT
+> license, only be simpler to read.  Thanks, but that doesn't make it an
+> improvement.  We will approve it if the author simply insists, but we
+> officially discourage the proliferation of substantially similar licenses.
+> 
+> Title: Simple Permissive License
+> Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7654:200402:ponaihiojnjdnagclgek
+> License: http://zooko.com/simple_permissive_license.html
+> Comments:
+>   Ian Lance Taylor: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:7656:200402:ponaihiojnjdnagclgek
+> Recommend: disapproval.
+
+
+So if I understand correctly, the Simple Permissive License and the (ideally 
+edited) Fair License both pass the litmus test of OSD.  In addition to approving 
+licenses which meet the OSD, the OSI also prefers to slow the proliferation of 
+substantially similar licenses, and is therefore loathe to approve the Simple 
+Permissive License.  Finally, it seems that brevity in a license is not valued, 
+or else that the value of brevity is outside the scope of the approval process.
+
+One thing I don't understand is if the Fair License would satisfy the goals of 
+the Simple Permissive License while being even shorter.  Personally, I'm a bit 
+uncertain about the Fair License, perhaps because I have no legal training and 
+I am already familiar with the MIT (-original) license.
+
+Does the Fair License require the software developer who uses such licensed 
+source code to inform his users (i.e. at runtime or in documentation) about the 
+existence of the Fair License?
+
+Another thing I don't understand is if the "let's not proliferate substantially 
+similar licenses" reasoning should not also apply to the approval of the Fair 
+License.
+
+I will not presume to "insist" that OSI approve the Simple Permissive License.
+
+Regards,
+
+Bryce "Zooko" Wilcox-O'Hearn
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From nelson at crynwr.com  Thu Feb 19 04:02:49 2004
+From: nelson at crynwr.com (Russell Nelson)
+Date: Wed, 18 Feb 2004 23:02:49 -0500
+Subject: License Committee report 
+In-Reply-To: <E1AtGk0-0003iV-00@localhost>
+References: <16434.48625.960597.184574@desk.crynwr.com>
+	<E1AtGk0-0003iV-00@localhost>
+Message-ID: <16436.13673.569335.432508@desk.crynwr.com>
+
+Zooko O'Whielacronx writes:
+
+ > So if I understand correctly, the Simple Permissive License and the
+ > (ideally edited) Fair License both pass the litmus test of OSD.  In
+ > addition to approving licenses which meet the OSD, the OSI also
+ > prefers to slow the proliferation of substantially similar
+ > licenses, and is therefore loathe to approve the Simple Permissive
+ > License.  Finally, it seems that brevity in a license is not
+ > valued, or else that the value of brevity is outside the scope of
+ > the approval process.
+
+Not in-and-of itself, particularly when you're talking about a license
+which is well understood like the MIT license.
+
+ > Another thing I don't understand is if the "let's not proliferate
+ > substantially similar licenses" reasoning should not also apply to
+ > the approval of the Fair License.
+
+What is it substantially similar to?
+
+-- 
+--My blog is at angry-economist.russnelson.com  | Coding in Python
+Crynwr sells support for free software  | PGPok |     is like
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | sucking on sugar.
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |     Sweet!
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From nelson at crynwr.com  Sun Feb 22 20:07:23 2004
+From: nelson at crynwr.com (Russell Nelson)
+Date: Sun, 22 Feb 2004 15:07:23 -0500
+Subject: License Committee report
+In-Reply-To: <16434.48625.960597.184574@desk.crynwr.com>
+References: <16434.48625.960597.184574@desk.crynwr.com>
+Message-ID: <16441.3067.856442.810447@desk.crynwr.com>
+
+nelson at crynwr.com writes:
+ > I'm the chair of the license approval committee.  This is my report
+ > for the current set of licenses under discussion.  If anybody
+ > disagrees with my assessment of the committee's conclusions, say so
+ > promptly.
+
+The board voted on Thursday afternoon to accept the committee's
+recommendations.  Thanks to everyone who commented on various
+licenses.  In particular, I want to single out (in no particular
+order) John Cowen, Ernie Prabhakar, Larry Rosen, Brian Behlendorf and
+Rod Dixon for extra thanks for their years of active participation.
+
+Hrm.  Can you really single out five people?  Wouldn't you have to
+pentuple them out?
+
+-- 
+--My blog is at angry-economist.russnelson.com  | Coding in Python
+Crynwr sells support for free software  | PGPok |     is like
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | sucking on sugar.
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |     Sweet!
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From nelson at crynwr.com  Mon Nov  8 19:35:28 2004
+From: nelson at crynwr.com (Russell Nelson)
+Date: Mon, 8 Nov 2004 14:35:28 -0500
+Subject: License Committee Report
+Message-ID: <16783.51840.929529.786759@desk.crynwr.com>
+
+I'm the chair of the license approval committee.  This is my report
+for the current set of licenses under discussion.  If anybody
+disagrees with my assessment of the committee's conclusions, say so
+promptly.
+
+--
+
+Title: mindmason license (MML)
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8573:chcedgdidbncghbgaaol
+License: in the submission.
+Comments:
+  There has been some discussion, but nothing conclusive.
+  The requirement to notify the Original Author is not acceptable
+  since it puts the onus on the licensee to effectively notify the
+  Original Author.  This process must be done in a way that spells out
+  exactly how that notification occurs, and if there is any failure in
+  the notification process, the default must be to allow distribution.
+Recommend: rejection.
+
+Title: Allegro giftware license
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8647:200409:ncnfkeknbbmhcknnelja
+Withdrawn: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8718:ncnfkeknbbmhcknnelja
+Recommend: no action needed.
+
+Title: Academic Citing License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8728:200409:mmpfkiadnfpihdobmdkc
+License: in the submission.
+Comments:  Stephen C. North, among others, agrees with me that the
+  requirement to cite the software is a restriction on use rather than
+  distribution.  Since we very much want to keep that camel's nose out
+  of the tent, we should reject this license, well-intentioned though
+  it is.
+Recommend: rejection.
+
+Title: Educational Community License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8241:200406:bhdlpklblgkoobnmifcc
+License: http://wheeler.kelley.indiana.edu/ecl1.htm 
+Comments: Ernie and Rod both agreed it was compliant.  I think that
+  it's just not that unique a license, however it's clear that they
+  have thought carefully about the terms although perhaps not so
+  carefully about license proliferation. 
+Recommend: approval.
+
+Title: TURKIX PUBLIC LICENSE
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8862:200410:ldicfnokcepogiogbmch
+Withdrawn: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8870:200410:ldicfnokcepogiogbmch
+
+Title: OZPLB Licence
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8849:200410:jneejnfcgpacdjcfbokf
+License: http://nicta.com.au/ozplb_licence.cfm
+Comments: no comments.
+Recommend: table.
+
+Title: MirOS Licence Template & OpenBSD License Template
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8907:200411:ifijhbodihcacgebbjkb
+License: 
+Comments: Sigh.  Both these licenses are obviously open source, they
+  are trivial changes from the BSD license, and yet the authors
+  insist on using them rather than the BSD license.
+Recommend: approval, reluctantly.
+
+-- 
+--My blog is at angry-economist.russnelson.com  | Violence never solves
+Crynwr sells support for free software  | PGPok | problems, it just changes
+521 Pleasant Valley Rd. | +1 212-202-2318 voice | them into more subtle
+Potsdam, NY 13676-3213  | FWD# 404529 via VOIP  | problems.
+
+
+From prabhaka at apple.com  Tue Nov  9 13:39:23 2004
+From: prabhaka at apple.com (Ernest Prabhakar)
+Date: Tue, 9 Nov 2004 08:39:23 -0500
+Subject: License Committee Report
+In-Reply-To: <11CAB676-31C8-11D9-AA28-000D932DC886@peopleware.be>
+References: <11CAB676-31C8-11D9-AA28-000D932DC886@peopleware.be>
+Message-ID: <C42BAAD0-3254-11D9-83AF-000A95AF09B0@apple.com>
+
+Hi Jan,
+
+I appreciate your perspective, but I side with Russell on this one.   
+It is one thing for software which *distributes* the code to include an 
+advertisement, but a different thing for people who *use* a product to 
+be required to acknowledge it.   If nothing else, it can become 
+arbitrarily difficult to determine if I've used an application which 
+might indirectly access the below-licensed product.
+
+That said, I agree its a subtle point which the OSI should consider 
+carefully, but I still believe we should recommend rejection.
+
+-- Ernie P.
+IANAL, TINLA, TINAA, etc.
+
+From nelson at crynwr.com  Tue Nov  9 22:31:48 2004
+From: nelson at crynwr.com (Russell Nelson)
+Date: Tue, 9 Nov 2004 17:31:48 -0500
+Subject: License Committee Report
+In-Reply-To: <Pine.BSO.4.61L.0411091451240.4892@odem.66h.42h.de>
+References: <16783.51840.929529.786759@desk.crynwr.com>
+	<20041109024228.GA26930@dali.cs.wm.edu>
+	<Pine.BSO.4.61L.0411091451240.4892@odem.66h.42h.de>
+Message-ID: <16785.17748.54456.74324@desk.crynwr.com>
+
+Thorsten Glaser writes:
+ > Is it safe to assume they are approved now, so I'll go on and
+ > prepare the two HTML versions?
+
+If you did that, you would be making an incorrect assumption.  The
+board has not yet voted on the licenses.
+
+-- 
+--My blog is at angry-economist.russnelson.com  | Violence never solves
+Crynwr sells support for free software  | PGPok | problems, it just changes
+521 Pleasant Valley Rd. | +1 212-202-2318 voice | them into more subtle
+Potsdam, NY 13676-3213  | FWD# 404529 via VOIP  | problems.
+
+
+From nelson at crynwr.com  Mon Dec 27 20:56:56 2004
+From: nelson at crynwr.com (Russell Nelson)
+Date: Mon, 27 Dec 2004 15:56:56 -0500
+Subject: License Committee Report for December 2004
+Message-ID: <16848.30488.394325.190784@desk.crynwr.com>
+
+I'm the chair of the license approval committee.  This is my report
+for the current set of licenses under discussion.  If anybody
+disagrees with my assessment of the committee's conclusions, say so
+promptly.  This report is slightly modified from the November report,
+which I did not submit.
+
+--
+
+Title: mindmason license (MML)
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8573:chcedgdidbncghbgaaol
+License: in the submission.
+Comments:
+  There has been some discussion, but nothing conclusive.
+  The requirement to notify the Original Author is not acceptable
+  since it puts the onus on the licensee to effectively notify the
+  Original Author.  This process must be done in a way that spells out
+  exactly how that notification occurs, and if there is any failure in
+  the notification process, the default must be to allow distribution.
+Recommend: rejection.
+
+Title: Allegro giftware license
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8647:200409:ncnfkeknbbmhcknnelja
+Withdrawn: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8718:ncnfkeknbbmhcknnelja
+Recommend: no action needed.
+
+Title: Academic Citing License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8728:200409:mmpfkiadnfpihdobmdkc
+License: in the submission.
+Comments:  Stephen C. North, among others, agrees with me that the
+  requirement to cite the software is a restriction on use rather than
+  distribution.  Since we very much want to keep that camel's nose out
+  of the tent, we should reject this license, well-intentioned though
+  it is.
+Recommend: rejection.
+
+Title: Educational Community License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8241:200406:bhdlpklblgkoobnmifcc
+License: http://wheeler.kelley.indiana.edu/ecl1.htm 
+Comments: Ernie and Rod both agreed it was compliant.  I think that
+  it's just not that unique a license, however it's clear that they
+  have thought carefully about the terms although perhaps not so
+  carefully about license proliferation. 
+Recommend: approval.
+
+Title: TURKIX PUBLIC LICENSE
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8862:200410:ldicfnokcepogiogbmch
+Withdrawn: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8870:200410:ldicfnokcepogiogbmch
+
+Title: OZPLB Licence
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8849:200410:jneejnfcgpacdjcfbokf
+License: http://nicta.com.au/ozplb_licence.cfm
+Comments: no comments.
+Recommend: approvable, but I expect they will hold it for
+  improvements.  For now, table it until we hear from them.
+
+Title: MirOS Licence Template & OpenBSD License Template
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8907:200411:ifijhbodihcacgebbjkb
+License: 
+Comments: Sigh.  Both these licenses are obviously open source, they
+  are trivial changes from the BSD license, and yet the authors
+  insist on using them rather than the BSD license.
+Recommend: rejection because not submitted in proper form.  If
+  submitted in the full form, then approval.
+
+Title: Common Development and Distribution License (CDDL)
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:9249:andlakjgknifadmkojmb
+License: http://www.sun.com/cddl/
+Comments: none on the resubmission, however everyone agrees that the license
+  is clearly open source given its genesis as changes to the MPL.
+Recommend: approval.
+
+Title:  Adaptive Public License
+Submission: http://www.crynwr.com/cgi-bin/ezmlm-cgi?3:mss:6913:200305:bogcdnbbhnfbgpdeahob
+Resubmission: http://www.crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8123:hdjnilkpapgpfpghjfmc
+License:  http://www.mamook.net/APL.html
+Comments: Rod Dixon suggests rejection:
+    http://www.crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8045:fhjijdochomcjklebdkl,
+    but his concerns were addressed by the submittor.
+  Carmen Leeming says that it is being used by an existing package.
+  John Cowan suggests rejection:
+    http://www.crynwr.com/cgi-bin/ezmlm-cgi?3:mss:8052:loibmlinjjjdfphlpgpj
+    because of section 3.2, which requires at-cost distribution of
+    executables.  Carmen addresses this point in the resubmission.
+Recommend: approval.
+
+-- 
+--My blog is at angry-economist.russnelson.com  | Violence never solves
+Crynwr sells support for free software  | PGPok | problems, it just changes
+521 Pleasant Valley Rd. | +1 212-202-2318 voice | them into more subtle
+Potsdam, NY 13676-3213  | FWD# 404529 via VOIP  | problems.
+
+
+
+From tg at 66h.42h.de  Sun Feb  6 18:49:53 2005
+From: tg at 66h.42h.de (Thorsten Glaser)
+Date: Sun, 6 Feb 2005 18:49:53 +0000
+Subject: Approval re: MirOS and ISC licence templates (was Re: License
+ Committee Report for December 2004)
+In-Reply-To: <Pine.BSO.4.61L.0501121833220.18231@odem.66h.42h.de>
+References: <16848.30488.394325.190784@desk.crynwr.com>
+ <Pine.BSO.4.61L.0501121833220.18231@odem.66h.42h.de>
+Message-ID: <Pine.BSO.4.61L.0502061848010.29606@odem.66h.42h.de>
+
+Dixi:
+
+>Russell Nelson dixit:
+>
+>>Title: MirOS Licence Template & OpenBSD License Template
+>
+>>Recommend: rejection because not submitted in proper form.  If
+>>  submitted in the full form, then approval.
+>
+>Since I haven't received any response *at all* on my previous
+>reply[...]
+
+Before this month's board meeting is over, I would like to ask
+whether the form I have submitted the licences in is okay or not,
+and if not, what parts are missing.
+
+I would really like to receive a reply at all, even if it's
+just an ACK, because, you know, talking to a wall is frustrating.
+
+//mirabile
+-- 
+> [...] Echtzeit hat weniger mit "Speed"[...] zu tun, sondern damit, da? der
+> richtige Proze? voraussagbar rechtzeitig sein Zeitscheibchen bekommt.
+Wir haben uns[...] geeinigt, dass das verwendete Echtzeit-Betriebssystem[...]
+weil selbst einfachste Operationen *echt* *Zeit* brauchen.	(aus d.a.s.r)
+
+
+

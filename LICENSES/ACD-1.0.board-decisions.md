@@ -692,6 +692,25 @@ B13（理解コスト = readability）は、偶然 3 つなのではない。** 
 **⚠ 逆側**: **棚に置かれること自体は費用**で、`submission-reference.md` §4b が
 「提出者専用ではない」を論証しているのは、**その棚を避けるためである。**
 
+### 8.11 2004 年の委員会報告 —— 似たライセンスは「改善でない」が「望めば承認する」、使う人への引用の要求は使用の制限（2026-11-12 に読んだ）
+
+`license-discuss` 2004-02-17、2004-11-08、2004-12-27 の委員会報告（`rounds/2004-license-discuss-committee-reports-observed.txt`）。委員長の Russell Nelson 氏が、審査中のライセンスごとに勧告と理由を 1〜3 文で書いた。2 月の報告について同氏は 2004-02-22 に *"The board voted on Thursday afternoon to accept the committee's recommendations."* と書いた。11 月の報告の時点では *"The board has not yet voted on the licenses."* で、12 月の報告で委員長は *"This report is slightly modified from the November report, which I did not submit."* と書いた —— 11 月の版は理事会に出されず、12 月の版が出された。12 月の版の議決はこのスレッドに無い。下の表の 11 月の行は、12 月の版で変わっていないもの（MirOS だけが変わった）である。
+
+| ライセンス | 勧告と理由（逐語） | ACD への当たり方 |
+|---|---|---|
+| Simple Permissive License（2004-02） | *"This license is intended to have the same legal effect as the MIT license, only be simpler to read.  Thanks, but that doesn't make it an improvement.  We will approve it if the author simply insists, but we officially discourage the proliferation of substantially similar licenses."* → disapproval | 両方の面。既存と同じ効果の新しいライセンスは改善とみなされず、増殖は公式に抑えられた。同じ文で、提出者が望めば承認する、とも書かれた —— 抑制は OSD の外の理由で、門ではなかった（8.10 と同じ）。提出者の Zooko 氏が *"it seems that brevity in a license is not valued"* と書くと、委員長は *"particularly when you're talking about a license which is well understood like the MIT license."* と答えた。ACD は MIT と同じ効果ではない（B10 の gap）が、その差が「改善」と読まれるかは審査者の判断である |
+| Wilhelm Svenselius Open Source License（2004-02） | *"This license, while seeming to comply with the OSD, isn't sufficiently different from the GPL or OSL.  It's shorter, but in spite of its length, the GPL is reasonably well understood, so the WSOSL's shortness is not an improvement."* → disapproval | 不利な面（B10）。よく理解された既存のライセンスが、短い新しいライセンスより重く見られた。長さについては両方に読める —— 短さは改善と数えられず、長さそのものは理由にされていない（B3） |
+| Linisys Open Source License（2004-02） | *"Not different enough from any existing license.  We should send it back to them suggesting that they use an existing license.  If they simply cannot, and must have this license, then we will approve it upon resubmission."* → remand | Simple Permissive License と同じ二面 |
+| EU DataGrid Software License（2004-02） | *"It's a clever and innovative license which we should approve."* → approval | 有利な向き。新しさが承認の理由として書かれた |
+| Apache License 2.0（2004-02） | *"They tried introducing a defensive patent license clause, but too many people shot at that flag."* → approval | 承認された 2.0 も、特許訴訟を起こした者への特許の許諾を終わらせる条を持つので、ここで退けられたのは提出の途中の広い防御条項である。ACD は終了を持たない（§10.4）ので、防御の条をめぐる反対には当たらないが、防御の条が無いことを欠けているとみる審査者はいうる |
+| Academic Citing License（2004-11） | *"the requirement to cite the software is a restriction on use rather than distribution.  Since we very much want to keep that camel's nose out of the tent, we should reject this license, well-intentioned though it is."* → rejection | 有利な向き。使う人に引用（帰属）を求めることは使用の制限として退けられた。ACD は帰属を求めない。Jan Dockx 氏は反対したが、Ernest Prabhakar 氏は、使う人に表示を求めると、間接に使ったかどうかの判断が限りなく難しくなりうる、と委員長の側に立った |
+| Educational Community License（2004-11） | *"I think that it's just not that unique a license, however it's clear that they have thought carefully about the terms although perhaps not so carefully about license proliferation."* → approval | 独自でなくても、条項を注意深く考えたことが承認に足りた |
+| MirOS Licence Template & OpenBSD License Template（2004-11） | *"Both these licenses are obviously open source, they are trivial changes from the BSD license, and yet the authors insist on using them rather than the BSD license."* → *"approval, reluctantly."* | 11 月の版は、2 月の「望めば承認する」を勧告として使った形だった。12 月の版では勧告が *"rejection because not submitted in proper form.  If submitted in the full form, then approval."* に変わった。提出者の Thorsten Glaser 氏は 2005-02-06 に、形の何が足りないのか返事が無いと書いた（*"talking to a wall is frustrating."*）。OSI の一覧の MirOS の承認日は 2008-09-10 である（`review-readings.md` §1.167） |
+
+**読み。** 2004 年の委員会は、OSD への適合を門にし、似たライセンスの増殖を公式に抑える理由として書きながら、提出者が望めば承認する、と同じ文に書いた。ACD にとって、門の側は OSD への適合（`submission-osd.md`）で、抑制の側に当たるかは、ACD が既存と「十分に違う」と読まれるかである（B10）。使う人への引用の要求を使用の制限として退けた 11 月の勧告は、ACD が帰属を求めないことと同じ向きである。
+
+**この節が establish しないこと。** どれも 2004 年の委員長の報告で、理事会が受け入れたと書かれているのは 2 月の分だけである。12 月の版の議決は読んでいない。いまの手続き（2019 年以降・2h 節）とは時代が違い、2004 年の「望めば承認する」がいまも使われるとは言えない。
+
 ## 7. この文書が establish しないこと
 
 - **公開分が不完全**なので、上の件数は「公開されている範囲で」に限られる。**母数は分からない。**

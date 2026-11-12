@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-12 時点・396 ファイル）
+## いまの状態（2026-11-12 時点・397 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -115,6 +115,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2000-03 | `license-discuss` | **観測（"Licenses versus contracts" から 3 通・ライセンスは契約か許可か）** | `2000-03-license-discuss-licenses-versus-contracts-observed.txt` |
 | 2000-08 | `license-discuss` | **観測（"The different between GPL and non-license" から 7 通・著作権者は自分で公有に置けるか、放棄の抗弁は 1976 年法の下で生きているか）** | `2000-08-license-discuss-gpl-and-non-license-observed.txt` |
 | 2002-10〜11 | `license-discuss` | **観測（"a proposed change to the OSD" から 12 通・委員長の「使用と改変を制限しない」案、受け入れの手順と免責をめぐる委員長と弁護士の対立）** | `2002-10-license-discuss-proposed-osd-change-use-and-click-wrap-observed.txt` |
+| 2004-02〜2005-02 | `license-discuss` | **観測（委員会報告 3 本と返信から 9 通・似たライセンスは「改善でない」が「望めば承認する」、使う人への引用の要求は使用の制限）** | `2004-license-discuss-committee-reports-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
 | 2012〜2020 | `license-review` | **観測（特許を扱う新しい permissive の必要性と、増殖の分類の現状・4 通）** | `2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt` |

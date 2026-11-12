@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 462 subject lines. One thread appears under two subject spellings
+# Rows: 465 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -109,6 +109,7 @@
 2004-01-14	IBM's open patent licensing policy
 2004-01-27	Public domain mistake?
 2004-02-12	For Approval: NASA Open Source Agreement Version 1.1
+2004-02-17	License Committee report
 2004-03-12	disclosure of known defects
 2004-03-12	Revisions to NASA Open Source Agreement (NOSA)
 2004-03-12	proposal: DotGNU Trademark License
@@ -119,10 +120,12 @@
 2004-08-11	License for Massively Multiplayer Games?
 2004-10-15	ISC copyright for BIND
 2004-11-05	License question: Open Software License 2.1
+2004-11-08	License Committee Report
 2004-11-15	Community certification complementary currency license (CCCCL)
 2004-12-02	Dual licensing with two copyleft licenses
 2004-12-05	Feedback on the OPPL
 2004-12-15	For Approval: CDDL - license stewardship
+2004-12-27	License Committee Report for December 2004
 2005-01-05	question about copying small amounts of code from BSD, MIT o r Apache 1.1 licensed open so
 2005-01-05	question about copying small amounts of code from BSD, MIT or Apache 1.1 licensed open sou
 2005-01-12	request feedback on a new licence profile
