@@ -104,9 +104,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       Work could also infringe, and says that no threshold of quantity is
       imposed because You could not determine whether one had been crossed
       (Section 6.5), and states its grant without the reasons it gave for it:
-      the sentence on why the grant is necessary, which errata E56 had
-      corrected, the unresolved state of the law, and why the proviso in
-      Section 8.1 is absent. (-91 words.)
+      the sentence on why the grant is necessary (errata E78), which errata
+      E56 had corrected, the unresolved state of the law, and why the proviso
+      in Section 8.1 is absent. (-91 words.)
     * Section 8.3 now says once that Sections 8.1 and 8.4 reach a patent claim
       only as to the acts they describe, where it spoke of any patent right of
       the Dedicator in respect of the Work. (+3 words.)
