@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 497 subject lines. One thread appears under two subject spellings
+# Rows: 500 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -82,6 +82,7 @@
 2001-07-27	"Perl Artistic License"
 2001-08-10	approval time
 2001-10-31	Response to comments on Intel's proposed BSD+Patent license
+2002-02-26	I don't mean to whine, but
 2002-06-09	Do I know what I'm talking about?
 2002-08-02	Legal soundness comes to open source distribution
 2002-08-11	click once, accept all licenses.
@@ -217,6 +218,7 @@
 2007-07-31	what *is* the approval process?
 2007-08-01	GPLv3, again Re: what *is* the approval process?
 2007-08-10	For Approval: Microsoft Community License
+2007-08-22	Groklaw's OSI item
 2007-09-04	License Committee Report for August 2007
 2007-09-11	RPL 1.5 discussion
 2007-09-15	For Approval: Boost Software License - Version 1.0 - August 17th, 2003
@@ -268,6 +270,7 @@
 2008-08-13	Strong Court Ruling Upholds the Artistic License (fwd)
 2008-09-02	KnowledgeHives Open Source License
 2008-09-07	License Committee Report for September 2008
+2008-10-29	question before attempting an update on AFL
 2008-11-05	For approval: SIL Open Font License 1.1
 2008-11-11	License Committee Report for November 2008
 2009-01-09	caGrid Open Source License For Legacy Approval
