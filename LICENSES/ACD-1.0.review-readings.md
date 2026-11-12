@@ -642,3 +642,20 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **読み。** 2005 年の委員長と理事は、承認の門を OSD だけに置くか、増殖への抵抗（逐語の再利用を求めることを含む）まで広げるかで分かれていた。ACD が新しく書いた語は、前者では問題にならず、後者では読む費用として数えられる。
 
 **この節が establish しないこと。** OVPL の帰結はこの節では追っていない（`review-readings.md` の 3 基準の節と `board-decisions.md` を参照）。Nelson 氏の逐語の再利用の要求は、下敷きのライセンスが在る提出（CDDL の派生）についての文で、下敷きを持たない ACD に同じ形で当たるとは限らない。
+
+## 1.199 OSD は別の時代のために書かれた、承認済みのライセンスは OSD が明示しないことを整えられる、ライセンスを読まなくても動かせる —— SSPL と OSD 9（2018）（2026-11-12）
+
+"OSD #9 would not make SSPL OSD-incompliant"（`license-review` 2018-10・31 通・決める側の通に絞って読んだ・`rounds/2018-10-license-review-osd9-written-for-another-time-observed.txt` に 3 通）。census の論点の順位（B1・B3・B4・B7/B10・B9 に当たる）から読んだ。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Since software-as-a-service software is not distributed, OSD #9 doesn't apply. Sorry. The document was written for another time and I could not predict today's conditions."* | Bruce Perens 氏（OSD の起草者）2018-10-23 | **有利な面（B10・B15）。** OSD は、配布の外の使い方（当時はネットワーク越しのサービス）を予見していなかったと、起草者自身が書いた。機械学習の学習と出力も、OSD が名指さない使い方である。ACD の §6 と §8.4 は、OSD が明示しないこの領域を本文で扱う |
+| *"OSI-approved licenses can clean up what's not explicit in the OSD and they can clarify the law-of-the-case."* | Lawrence Rosen 氏 2018-10-23 | **有利な面。** 承認済みのライセンスが、OSD の明示しないことを本文で整えた先例として、OSL 3.0 の *"communicate"* と *"External Deployment"* を挙げている。ACD が学習・TDM・出力を明示することは、同じ型の整え方として読める |
+| *"It's fundamental to Open Source that everyone can run the program for any purpose. And as we have discussed in the past, they shouldn't even have to read the license to do that."* | Perens 氏 2018-10-24 | **有利な面。** ACD は受け入れの行為を求めず（§2.3）、受領者に条件を課さない（§10.1）ので、読まずに使っても何も破らない。長さ（B3）の費用は、使う人ではなく読む人（審査者、法務）に掛かる |
+
+**読み。** 2018 年の 2 人の文は、OSD が新しい使い方を予見していないことと、承認済みのライセンスがその隙を本文で埋めてよいことを述べる。ACD の独自の価値（`review-readings.md` §1.195 の Randal 氏の「法の変化に応じる」）は、この線の上に置ける。
+
+**逆側。** Perens 氏の同じ会話の文脈は SSPL を退ける側で、OSD の隙を新しい条件で埋めることには反対している（*"we have sufficient reason to reject the SSPL not counting OSD #9"*）。ACD は条件を足すのではなく許諾を明示するので向きは逆だが、「OSD の隙を本文で埋める」ことが審査者に歓迎されるのは、許す側に埋める場合に限られると読むべきである。Rosen 氏の挙げた例も、許諾の語の明示である。
+
+**この節が establish しないこと。** OSD 9 の語が後で直されたかは、このスレッドには無い。どちらの文も個人の見解で、委員会の判断ではない。
+
