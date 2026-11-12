@@ -1,0 +1,262 @@
+Source: OSI license-discuss public archive, 2005-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 6 of 65 in "Change ot topic, back to OVPL" (2005-08-23 to 2005-08-31)
+Senders: Brian Behlendorf, Russell Nelson
+Position: Not addressed to us. Observed. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From brian at collab.net  Wed Aug 24 18:16:14 2005
+From: brian at collab.net (Brian Behlendorf)
+Date: Wed, 24 Aug 2005 11:16:14 -0700 (PDT)
+Subject: Change ot topic, back to OVPL
+In-Reply-To: <17164.33008.832533.469636@desk.crynwr.com>
+References: <430B4864.4090001@Golux.Com> <200508231733.NAA3941916@shell.TheWorld.com>
+ <17164.1234.659479.119831@desk.crynwr.com> <FB99BE00C9EC6B74AB92B408@[192.168.100.25]>
+ <17164.33008.832533.469636@desk.crynwr.com>
+Message-ID: <20050824110716.N65309@paz.hyperreal.org>
+
+On Wed, 24 Aug 2005, Russell Nelson wrote:
+> Do any license-discuss readers disagree with me?
+
+I disagree with requirements for certification that go beyond conformance 
+to the letter and spirit of OSD.  Alex is right - you didn't make Sun go 
+get the MPL fixed.  All this effort being poured into denying the OVPL 
+certification would be better invested elsewhere, such as in license 
+comparison documents, or the license selection wizards people have 
+proposed or prototyped, or in culling dead licenses.  IMHO.
+
+ 	Brian
+
+
+
+From brian at collab.net  Wed Aug 24 19:59:43 2005
+From: brian at collab.net (Brian Behlendorf)
+Date: Wed, 24 Aug 2005 12:59:43 -0700 (PDT)
+Subject: Change ot topic, back to OVPL
+In-Reply-To: <1875059DEB0F8A478D34B1ADC29B3A0F0659130B@orsmsx409>
+References: <1875059DEB0F8A478D34B1ADC29B3A0F0659130B@orsmsx409>
+Message-ID: <20050824125407.D65309@paz.hyperreal.org>
+
+On Wed, 24 Aug 2005, Wilson, Andrew wrote:
+> Agreed.  Brian and Russ, I don't know how much of the (quite lengthy) 
+> previous discussion of OVPL you followed, but there are those (such as 
+> myself) who question whether the mandatory, extensive license-back to 
+> the ID in OVPL falls within the letter and spirit of the OSD.  There are 
+> also those (such as myself and Larry Rosen) who question whether said 
+> license-back can be validly conveyed through a bare license, as opposed 
+> to a duly executed contributors agreement.  Should a license whose key 
+> feature -- the one feature which really distinguishes it from CDDL -- 
+> may be unenforceable get the OSI seal?
+
+I didn't follow it, but the Apache 2.0 license has something that goes in 
+the same direction but nowhere near as far:
+
+http://www.apache.org/licenses/LICENSE-2.0.txt
+
+    5. Submission of Contributions. Unless You explicitly state otherwise,
+       any Contribution intentionally submitted for inclusion in the Work
+       by You to the Licensor shall be under the terms and conditions of
+       this License, without any additional terms or conditions.
+       Notwithstanding the above, nothing herein shall supersede or modify
+       the terms of any separate license agreement you may have executed
+       with Licensor regarding such Contributions.
+
+The ASF still requires a signed Contributors Agreement before accepting 
+major works or before someone becomes a committer; the above is intended 
+to apply to minor contributions so we don't need a signed document from 
+every single person.
+
+Anyways, I don't think *enforceability* should determine whether it gets 
+certification, though that can certainly affect where it falls into the 
+recommended/dis-recommended lists.  The real question is whether an "all 
+my derivatives are belong to you" clause is in the spirit of OSI, and I've 
+not looked closely enough at the OVPL to judge.
+
+ 	Brian
+
+
+
+From nelson at crynwr.com  Mon Aug 29 14:11:23 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Mon, 29 Aug 2005 10:11:23 -0400
+Subject: Change ot topic, back to OVPL
+In-Reply-To: <20050824110716.N65309@paz.hyperreal.org>
+References: <430B4864.4090001@Golux.Com>
+	<200508231733.NAA3941916@shell.TheWorld.com>
+	<17164.1234.659479.119831@desk.crynwr.com>
+	<FB99BE00C9EC6B74AB92B408@[192.168.100.25]>
+	<17164.33008.832533.469636@desk.crynwr.com>
+	<20050824110716.N65309@paz.hyperreal.org>
+Message-ID: <17171.6027.601204.962659@desk.crynwr.com>
+
+Brian Behlendorf writes:
+ > On Wed, 24 Aug 2005, Russell Nelson wrote:
+ > > Do any license-discuss readers disagree with me?
+ > 
+ > I disagree with requirements for certification that go beyond conformance 
+ > to the letter and spirit of OSD.  Alex is right - you didn't make Sun go 
+ > get the MPL fixed.
+
+They told us that they had tried to engage the Mozilla Foundation to
+make changes.  The important part here is not that the changes are
+necessarily made, but instead that everyone understand the license
+proliferation problem.  A license is written once and read many
+times.  But a license is not read out of context.  If you're a company
+that takes copyright seriously, then you're going to have *somebody*
+(lawyer or not) read the licenses.  If you can read and understand a
+term in one license, and then see that the term is identically present
+in another license, that greatly reduces the cost of understanding
+that license.
+
+I'm asking for verbatim code reuse.
+Alex wants to renumber the code he's gotten so it looks "sensible".
+
+He would be excoriated for having done so by the next person who had
+to read his code.  Of course we don't have syntactically-significant
+line numbers anymore, but the idea has its modern expression: changing
+the indentation, renaming variables and functions, reformatting
+comments, etc.
+
+I see the principle you're trying to work with here: if it complies
+with the OSD, it *is* open source.  The trouble here is that applying
+no management creates a commons of "license understanding".  With
+every license (cow) added to the commons, the grass gets thinner and
+thinner.  Martin Fink (whom I pick on to personalize the debate, but
+his view is common) is afraid that when there are one hundred open
+source licenses, users will start to rebel.  Well, as a responsible
+organization which claims to represent the interests of open source
+users (and if you compile with gcc but have never compiled gcc, you
+are sometimes a user), we have taken steps to head that off.
+
+ > All this effort being poured into denying the OVPL 
+ > certification would be better invested elsewhere, such as in license 
+ > comparison documents, or the license selection wizards people have 
+ > proposed or prototyped, or in culling dead licenses.  IMHO.
+
+You're asking the right hand to ignore what the left hand is doing;
+worse than that, you're asking the right hand to build what the left
+hand is tearing down.
+
+-- 
+--my blog is at     blog.russnelson.com         | with some experience 
+Crynwr sells support for free software  | PGPok |     you know what to do.
+521 Pleasant Valley Rd. | +1 315-323-1241       | with more experience
+Potsdam, NY 13676-3213  |                       |     you know what not to do.
+
+
+From brian at collab.net  Tue Aug 30 00:11:57 2005
+From: brian at collab.net (Brian Behlendorf)
+Date: Mon, 29 Aug 2005 17:11:57 -0700 (PDT)
+Subject: Change ot topic, back to OVPL
+In-Reply-To: <17171.6027.601204.962659@desk.crynwr.com>
+References: <430B4864.4090001@Golux.Com> <200508231733.NAA3941916@shell.TheWorld.com>
+ <17164.1234.659479.119831@desk.crynwr.com> <FB99BE00C9EC6B74AB92B408@[192.168.100.25]>
+ <17164.33008.832533.469636@desk.crynwr.com> <20050824110716.N65309@paz.hyperreal.org>
+ <17171.6027.601204.962659@desk.crynwr.com>
+Message-ID: <20050829170053.G86246@paz.hyperreal.org>
+
+On Mon, 29 Aug 2005, Russell Nelson wrote:
+> I see the principle you're trying to work with here: if it complies
+> with the OSD, it *is* open source.
+
+Yes.  And failure to certify it based on OSD conformance will mean that 
+you'll have a bunch of people running around saying "this license really 
+is Open Source - it conforms to the OSD - but OSI failed to certify it 
+because <insert conspiracy theory here>".  Approve it and put it directly, 
+immediately on your "not recommended" list if OSI wants to pass judgement 
+on its quality.
+
+> > All this effort being poured into denying the OVPL
+> > certification would be better invested elsewhere, such as in license
+> > comparison documents, or the license selection wizards people have
+> > proposed or prototyped, or in culling dead licenses.  IMHO.
+>
+> You're asking the right hand to ignore what the left hand is doing;
+> worse than that, you're asking the right hand to build what the left
+> hand is tearing down.
+
+Not at all.  Assuming that the OVPL guys follow your requirements you'll 
+be adding it to the list of licenses anyways, perhaps then later putting 
+it on "not recommended".  The "stick" to use to limit the number of new 
+licenses should not be certification - it should be getting placed on "not 
+recommended".
+
+ 	Brian
+
+
+
+From nelson at crynwr.com  Tue Aug 30 04:30:19 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Tue, 30 Aug 2005 00:30:19 -0400
+Subject: Change ot topic, back to OVPL
+In-Reply-To: <20050829170053.G86246@paz.hyperreal.org>
+References: <430B4864.4090001@Golux.Com>
+	<200508231733.NAA3941916@shell.TheWorld.com>
+	<17164.1234.659479.119831@desk.crynwr.com>
+	<FB99BE00C9EC6B74AB92B408@[192.168.100.25]>
+	<17164.33008.832533.469636@desk.crynwr.com>
+	<20050824110716.N65309@paz.hyperreal.org>
+	<17171.6027.601204.962659@desk.crynwr.com>
+	<20050829170053.G86246@paz.hyperreal.org>
+Message-ID: <17171.57563.566878.661809@desk.crynwr.com>
+
+Brian Behlendorf writes:
+ > Yes.  And failure to certify it based on OSD conformance will mean that 
+ > you'll have a bunch of people running around saying "this license really 
+ > is Open Source - it conforms to the OSD - but OSI failed to certify it 
+ > because <insert conspiracy theory here>".
+
+That's the risk we take pushing back against license proliferation.
+We've been taking it for years -- at least as long as Danese has been
+on the board.  We didn't *start* license anti-proliferation efforts
+just because Martin Fink made it a part of his keynote back in March.
+
+ > Approve it and put it directly, immediately on your "not
+ > recommended" list if OSI wants to pass judgement on its quality.
+
+That's not the right thing to do.  The tiers are needed to deal with
+existing licenses.  Licenses we haven't yet approved can be changed to
+reduce their impact on open source users.
+
+ > Not at all.  Assuming that the OVPL guys follow your requirements you'll 
+ > be adding it to the list of licenses anyways, perhaps then later putting 
+ > it on "not recommended".  The "stick" to use to limit the number of new 
+ > licenses should not be certification - it should be getting placed on "not 
+ > recommended".
+
+I can't imagine any unproven new license entering on any tier other
+than "not recommended".  Not much of a stick to pound people with if
+they know they're going to get hit no matter what.
+
+-- 
+--my blog is at     blog.russnelson.com         | with some experience 
+Crynwr sells support for free software  | PGPok |     you know what to do.
+521 Pleasant Valley Rd. | +1 315-323-1241       | with more experience
+Potsdam, NY 13676-3213  |                       |     you know what not to do.
+
+
+From nelson at crynwr.com  Mon Aug 29 14:38:07 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Mon, 29 Aug 2005 10:38:07 -0400
+Subject: Change ot topic, back to OVPL
+In-Reply-To: <3CC418150E793973A6CD745B@[192.168.100.25]>
+References: <1875059DEB0F8A478D34B1ADC29B3A0F0659130B@orsmsx409>
+	<20050824125407.D65309@paz.hyperreal.org>
+	<3CC418150E793973A6CD745B@[192.168.100.25]>
+Message-ID: <17171.7631.504973.790065@desk.crynwr.com>
+
+Alex Bligh writes:
+ > Besides, if you want to pick on unenforceable poorly drafted licenses,
+ > there are rather a lot of currently approved licenses which are surely
+ > better targets than the OVPL (in some cases the license authors have
+ > admitted as much).
+
+Admission of past mistakes is no reason to make new ones.
+
+-- 
+--my blog is at     blog.russnelson.com         | with some experience 
+Crynwr sells support for free software  | PGPok |     you know what to do.
+521 Pleasant Valley Rd. | +1 315-323-1241       | with more experience
+Potsdam, NY 13676-3213  |                       |     you know what not to do.
+
+
