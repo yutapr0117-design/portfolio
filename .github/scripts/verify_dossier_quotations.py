@@ -26,6 +26,8 @@ CLAUDE.md §7 が *「自動監視は CI に入れない（外部フォーラム
     DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --record-entry
     # rounds の各通がアーカイブに逐語で在るか (切った通は、切った位置の直後のアーカイブを出す):
     DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --rounds [LICENSES/rounds/<file> ...]
+    # 逐語を含む通の差出人と年が、ドシエの同じ文の人名 (X 氏) と年に合うか (帰属の取り違えを拾う・人が読んで決める):
+    DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --attribution
     # 「要約」と書いた語句が、実は原文に逐語で在るか (在れば、引用の記法と出典を付けるべき):
     DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --summaries
     # OSI のサイトの取得物も照合先にする:
@@ -508,6 +510,66 @@ def rounds(root=".", files=()):
     return 1 if bad else 0
 
 
+def attribution(root="."):
+    """逐語を含む通の差出人と年を、ドシエの同じ文が帰属させている人名 (「X 氏」) と年に当てる (2026-11-12)。
+
+    存在の照合は「その逐語がどこかに在るか」しか見ない。いちばん傷の深い誤りは「在るが、別の人・別の年の文だった」で
+    (§1.141 の 4 月の返信の取り違え)、審査者が 1 件見つけるだけで全体の信用が落ちる (portfolio-00 の優先度)。
+    通は引用を除いた本文で探す (返信が引いた他人の文を、返信者の文と取り違えないため)。人名と年は、引用の前の同じ文
+    (。・表のセル・ —— ・；で区切る) から取り、年は引用の直後 40 字も見る。誤検出は残るので、一覧は人が読んで決める。
+    """
+    import email.header
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import census_decision_statements as cds
+
+    def who(raw):
+        try:
+            return str(email.header.make_header(email.header.decode_header(raw)))
+        except Exception:
+            return raw
+    msgs = [(who(cds.field(h, "From")), cds._when(cds.field(h, "Date")), norm(cds.own_text(b))) for _p, h, b in cds.messages()]
+    print(f"通 {len(msgs)} 件 (cache {CACHE})")
+    seen, tally, out = set(), collections.Counter(), []
+    for f in sorted(glob.glob(f"{root}/LICENSES/*.md")):
+        for n, line in enumerate(open(f, encoding="utf-8"), 1):
+            for raw in italic_quotes(line, 12):
+                q = re.sub(r"[*`]", "", raw)
+                if len(q.split()) < 4 or re.search(r"[ぁ-んァ-ヶ一-龠]", q):
+                    continue
+                i = line.find(raw[:30])
+                pre = re.split(r"。|\||——|；", line[:max(i, 0)])[-1]
+                names = re.findall(r"([A-Z][a-zA-Z'\-]+) 氏", pre)
+                # 年は人名の後ろから引用までの間に在るもの、無ければ引用の直後 30 字 (同じ文の読んだ日などを拾わない)
+                _after = pre[[m.end() for m in re.finditer(r"[A-Z][a-zA-Z'\-]+ 氏", pre)][-1]:] if names else ""
+                years = (re.findall(r"(?<!\d)((?:199|20[0-2])\d)(?!\d)", _after)
+                         or re.findall(r"(?<!\d)((?:199|20[0-2])\d)(?!\d)", line[i + len(raw):i + len(raw) + 30]))
+                if not names or (names[-1], norm(q)) in seen:
+                    continue
+                seen.add((names[-1], norm(q)))
+                segs = [x for x in (norm(y) for y in re.split(r"\.{3}|…", q)) if len(x.split()) >= 3] or [norm(q)]
+                hits = [(fr, d) for fr, d, t in msgs if all(x in t for x in segs)]
+                if not hits:
+                    tally["引用を除いた本文に無い"] += 1
+                    continue
+                name_ok = any(names[-1].lower() in fr.lower() for fr, _d in hits)
+                year_ok = not years or any(d and str(d.year) == years[-1] for fr, d in hits if names[-1].lower() in fr.lower())
+                if all("yuta.yokoi" in fr for fr, _d in hits):
+                    kind = "我々の投稿にだけ在る (ACD の本文など)"
+                elif not name_ok and not any(re.search(r"\(.*[A-Za-z].*\)", fr) for fr, _d in hits):
+                    kind = "差出人の名がラテン文字でない (人が見る)"
+                else:
+                    kind = "一致" if name_ok and year_ok else "人名が違う" if not name_ok else "年が違う (同じ文の別の年を拾いやすい)"
+                tally[kind] += 1
+                if kind != "一致" and not kind.startswith("我々の投稿"):
+                    got = sorted({f"{fr[:40]} {d.date() if d else '?'}" for fr, d in hits})[:3]
+                    out.append(f"[{kind}] {os.path.relpath(f, root)}:{n}  {names[-1]} 氏{' ' + years[-1] if years else ''} ← "
+                               f"{q[:70]!r}  / 通: {got}")
+    print("帰属の照合: " + " / ".join(f"{k} {v}" for k, v in tally.most_common()))
+    for o in out:
+        print("  " + o)
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--rounds", nargs="*", metavar="FILE",
@@ -517,7 +579,10 @@ def main():
     ap.add_argument("--record-entry", action="store_true", help="入口の引用を全 corpus に当てて manifest を更新する")
     ap.add_argument("--all-italics", action="store_true", help="人名の近傍に限らず、斜体の引用をすべて当てる")
     ap.add_argument("--summaries", action="store_true", help="「要約」と書いた語句が原文に逐語で在るかを当てる")
+    ap.add_argument("--attribution", action="store_true", help="逐語を含む通の差出人と年を、ドシエが帰属させた人名と年に当てる")
     args = ap.parse_args()
+    if args.attribution:
+        return attribution(args.root)
     if args.rounds is not None:
         return rounds(args.root, args.rounds)
     if args.summaries:
