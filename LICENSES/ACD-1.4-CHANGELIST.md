@@ -113,7 +113,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §16.5（Steward・T45） | *"and any person or entity to whom that role is assigned by"* を *"or, after an assignment, the person or entity to whom that role was last assigned by"* へ | *and any* は累積で、譲渡したあとも最初の公表者と譲受人の両方が Steward になり、1 つの名前が 1 つの本文を指す線が割れた。§15.5 により 1 回の譲渡で共同の Steward を置くことは妨げない（bb）。残る空白（譲渡せずに死亡・解散）は新旧どちらの形でも答えない（B12） | +4 | 反映済 |
 | §16.4（識別子の大小・T46） | *"any identifier that contains "ACD-" followed by a digit"* を *"… "ACD-", regardless of case, followed by a digit"* へ | 照合が大小を区別するので、改変した本文を小文字の *acd-1.5* で配ると制限を素通りした。Steward が後に ACD-1.5 を出すと、その版の §16.2 は大小を区別せずに照合するので、札がどちらの本文を指すかが割れる。T32 が大小を区別しない規則を §16.2 に限った理由（*LicenseRef-Abacd-3* の誤検出）は、§16.4 では縛るのが改変した本文の名前だけなので害が小さい。*in any case* は「いずれにせよ」と読めるので避けた（bb の反例 (a)〜(c) は立たない） | +3 | 反映済 |
 | §16.4（識別子の先取り・T47） | *"that no earlier text, other than a draft identified as such, has borne"* を *"that no earlier text the Steward has published, other than a draft identified as such, has borne"* へ（**次の行で再改**: T49 で *"the Steward or a former Steward"* になった）| *no earlier text* に限定が無く、違反して先に *ACD-1.5* で配った改変版も「その識別子を帯びた先の本文」に当たり、Steward が正規の 1.5 を出せない読みがあった（bb）。T46 で大小を区別しなくなると *acd-1.5* の先取りでも起きる。Steward 自身が同じ識別子で別本文を出せないことは変わらない。§16.5 の *published* にそろえた。468m の許す形と mutation の anchor 2 件を同じ commit で替えた | +4 | 反映済 |
-| §5.2（サービスの除外を §5 全体へ・T48） | 第 2 文 *"Paragraphs (a) and (b) do not reach a service through which the Dedicator runs the Work for others without providing a copy of it."* を消し、第 1 文の除外を *"or the terms or measures it applies to that material or to the use of a service through which it runs the Work for others without providing a copy of it"* へ | 第 2 文は (a)(b) だけを外すので、§5.1 第 2 文の約束が Dedicator 自身のサービスの条件（AUP・レート制限）の行使を塞ぎ、T31・T33 の判断と食い違った（T34〜T47 の読み合わせ・§14.22）。*the use of* は bb の反例から: 除外を「サービスに付けた条件」とすると、サービスの利用規約に書いた「どこで入手したかを問わず Work を〜に使わない」という Work 全体への条項まで §5 の外に出て、写しを別に持つ利用者を縛る道が開く。除外はサービスの利用に付ける条件と手段に限り、Work そのものへの条項は §5 の内に残す | −3 | 反映済 |
+| §5.2（サービスの除外を §5 全体へ・T48） | （**後の行で再改**: 「§5.2（末文の *it*・T60）」の行で *it* を名指しにした）第 2 文 *"Paragraphs (a) and (b) do not reach a service through which the Dedicator runs the Work for others without providing a copy of it."* を消し、第 1 文の除外を *"or the terms or measures it applies to that material or to the use of a service through which it runs the Work for others without providing a copy of it"* へ | 第 2 文は (a)(b) だけを外すので、§5.1 第 2 文の約束が Dedicator 自身のサービスの条件（AUP・レート制限）の行使を塞ぎ、T31・T33 の判断と食い違った（T34〜T47 の読み合わせ・§14.22）。*the use of* は bb の反例から: 除外を「サービスに付けた条件」とすると、サービスの利用規約に書いた「どこで入手したかを問わず Work を〜に使わない」という Work 全体への条項まで §5 の外に出て、写しを別に持つ利用者を縛る道が開く。除外はサービスの利用に付ける条件と手段に限り、Work そのものへの条項は §5 の内に残す | −3 | 反映済 |
 | §16.4（前の Steward・T49） | *"no earlier text the Steward has published"* を *"no earlier text the Steward or a former Steward has published"* へ | T45 で譲渡後の Steward は最後の譲受人だけになり、T47 で番号を塞ぐのは Steward が公表した本文だけになったので、組にすると、譲受人は前の Steward の公表した番号（ACD-1.4 など）で別の本文を出せた。*a former Steward* は役割を以前に持った者で、役割を持たずに改変版を出した違反者は含まない（bb）。468m の許す形を足した | +4 | 反映済 |
 | §16.4（名前の大小・T50） | 名前の肢にも *", regardless of case,"* を足す | T46 が大小の規則を識別子の肢だけに置いたので、同じ文の対比で名前の肢は大小を区別すると読めた。2 回の繰り返しが語数で最も安く、意味の上でも害が無い（bb） | +3 | 反映済 |
 | §16.2（opt-out だけの通知・T52） | 第 3 文に *"; a notice that is only a Reservation assigns nothing to other terms (Section 6.2)"* を足す | §16.2 の狭い通知（*"a narrower notice the Dedicator has placed assigns to other terms"*）と §6.2（*"no notice … is to be read as a Reservation, whatever its form and whoever placed it there"*）が、ディレクトリに TDM の opt-out だけを書いた通知でぶつかった。狭い通知と読めば、サイト全体の robots の AI 拒否まで §6 の約束を外す。用語の全出現の読みで残った 1 件（§14.24）。語は bb の形: 定義語 *Reservation* が §1.10 の 3 つの動詞（reserve・withhold・opt out）と形を覆い、*only* により「All rights reserved」や「TDM と再配布を禁じる」は従来どおり狭い通知として働く。逆側: opt-out だけで外せると思った Dedicator には撤回不能の献呈が起きる（緩和は FAQ の案内で、本文の語は増やさない） | +14 | 反映済 |
@@ -122,6 +122,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §16.4（Steward の例外・T57） | 第 3 文（89 語）を *"… except by the Steward (Section 16.5). That exception reaches only a new version under a version number and identifier …"* の 2 文に分ける | 1 文に 2 つの名前の肢・例外・例外の限り方・目的の句が入り、*"and by the Steward only as"* の *and* が括弧の参照の直後に来て、例外が 2 つ並ぶとも読めた（基準 4・長さの異議 #6）。最初の案 *"Such distribution by the Steward is permitted only as"* は、§16.6 が §16.4 を文書の規律と置くので Dedication から Steward への許可の源と読まれうる（portfolio-00 の反例）。*"That exception reaches only"* は制限の声を保ち、直前の *except by the Steward* に一意に向く。**逆側**: 文が 1 つ増える。例外の範囲は分ける前と同じ（旧い識別子の改変版は Steward も出せない）（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.32） | −2 | 反映済 |
 | §2.6（約束と拘束・T58） | 第 2 文のセミコロンを句点にし、*"This undertaking binds that Dedicator and imposes nothing upon You"* を別の文にする | 約束の範囲と性質が 77 語の 1 文にあった。*This undertaking* は直前の識別の約束を受け、先行詞は変わらない（portfolio-00 の反例で clean）。**逆側**: 作用の分岐は元から無く、直さなくても害は無い（§14.32） | 0 | 反映済 |
 | §2.8（譲受人・T59） | 第 2 文を *"A transferee takes subject to it to that extent, Section 6 included."* とする | 第 1 文は譲受人への拘束を *"to the fullest extent the law permits"* に限るが、第 2 文は限り無く断定し、17 U.S.C. §205(e)（`QUESTIONS-FOR-COUNSEL.md` 問 1 (j)）を読んだ審査者に制定法より強い主張と突かれる（portfolio-00 の候補）。最初の案 *"to the same extent"* は「Dedicator が拘束されるのと同じだけ」とも読め、外したい無限定の強さが戻る（portfolio-00 の反例）。*"to that extent"* は直前の限りに一意に向く。1.0 から在る文（*"takes subject to them"*）なので errata に記録する（portfolio-00）。**逆側**: 法律家の答えが出れば限り方の語が変わりうる。*Section 6 included* の明示は残す（§14.32） | +3 | 反映済 |
+| §5.2（末文の *it*・T60） | 末文の *"it applies"* と *"it runs"* を *"the Dedicator applies"* と *"the Dedicator runs"* へ、*"a copy of it"* を *"a copy of the Work"* へ | 文の主語は *Section 5* で、*it* は文法の既定では主語を指す。*a copy of it* は Section 5・*a service*・*the Work* の 3 通りに読め、サービスの写しと読むと除外は「Dedicator がサービスのソフトウェアを渡さない限り、その条件は §5 の外」と意図より広がる（portfolio-00）。T48（2026-11-09）が *"through which the Dedicator runs the Work"* を合流させたとき *it* にしていた。1.4 草案が持ち込んだので `ACD-1.1-SELF-AUDIT.md` §3z に記録した。*even where* の掛かりを保つため 2 文に分けない。**逆側**: 同じ文に *the Dedicator* と *the Work* が 3 回ずつ並ぶ。Dedicator がサービスと Work の写しを同じ使い手に渡せば、そのサービスの条件は §5 の内に入り §5.2(b) が働く（除外の趣旨と合う）（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.33） | +3 | 反映済 |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
@@ -171,18 +172,18 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
-1.3 の 5,443 語から 1.4 草案は +109 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
+1.3 の 5,443 語から 1.4 草案は +112 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
 
 | 束 | 増減 | 何のための語か |
 | :-- | --: | :-- |
 | 適用と通知（§1.9・§2.3・§2.6・§16.1〜§16.3）| +148 | タグや識別子だけの適用、通知が名指す素材、優先、大小の区別、寄与の宛先。採用者がファイル単位・パッケージ単位で使うときに、意図しない素材を撤回不能に出さないための語 |
-| 不行使と付随の約束（§5）| +115 | 商標と虚偽の表示、合意した支払い、特許の除外、Dedicator 自身のモデルとサービス。データだけを出す組織や、重みと API を両方出す組織が採用できるための語 |
+| 不行使と付随の約束（§5）| +118 | 商標と虚偽の表示、合意した支払い、特許の除外、Dedicator 自身のモデルとサービス。データだけを出す組織や、重みと API を両方出す組織が採用できるための語 |
 | 名前の保護（§16.4〜§16.6）| +47 | 1 つの名前と識別子が 1 つの本文を指すための語 |
 | その他の明瞭化 | +43 | 定義、承継（§2.8 の *to that extent*・T59）、§4、§9 などの語の付き先 |
 | 特許（§6.1・§8）| −4 | 行為を目的語にし、*reach* を 1 回で定め、三つの足場の説明と §8.6 の *alongside them*（T56）を外した |
 | 理由・説明の文を外したもの | −240 | §2.8・§11.4・§12.4・§8.4（T54）の理由の文と、§2.7・§8.5 の案内（Chestek 氏 *"I question whether they belong in the agreement at all."*・#295）|
 
-**読み方**: 増えた語の大半（+263）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 656 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
+**読み方**: 増えた語の大半（+263）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 659 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
 
 ## 外部資料・OSAID 1.0・opensource.org のページを当てた記録（2026-10-28）は別の file へ移した
 
@@ -333,7 +334,7 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 | 個別 | §16.4 の識別子の照合（T46）を引く文: `submission-osd.md` 149、`submission-reference.md` 667 が *"ACD-" followed by a digit* を条番号つきで引く | 1.4 では *"regardless of case"* が入る。提出の版の §16.4 を述べる文は替え、1.0〜1.3 の文として引く文は残す |
 | 個別 | `REVIEWERS.md` の新規ライセンスの基準の表の *"Every possible variation"* の行（*"only the form of the notice varies"*）| 1.0〜1.3 の文として正しい（通知が名指す素材の規則は 1.4 の §16.2 で入った）。提出の版を 1.4 にする日は、採用者は通知が名指す素材も選べ、適用された素材の terms は同じで、留保だけの通知は素材を割り当てない（§16.2・T52）と書き替える。`SUBMISSION-MATERIALS.md` §1c の基準 5 の行（2026-11-11）と同じ中身 |
 | 個別 | §8.4 の理由の文（T54 で外した）を引く文: `submission-reference.md` の *"would be read down"* と *"whether a trained model is"*、`review-responses-clauses.md` の *"would restore the exposure"* と「理由は §8.4 自身の本文に在る」の段 | 1.0〜1.3 の文としては正しい。提出の版を 1.4 にする日は、1.4 の §8.4 は理由を述べず、独立の許諾と §8.1 の限定が無いことだけを述べる、と書き替える。理由の説明は 1.4 の逐条リファレンスの §8.4 の行が持つ |
-| 個別 | `submission-reference.md` の長さの行（*"How long the text is"*・1.0 は GPLv3 より短い）| 1.0 の文として正しい。1.4 を提出の版にする日は、1.4 は GPL-3.0 より長いこと（2026-11-12 の T59 の後の測定で本文 5,211 語・GPL-3.0 は 4,617 語。題名からは 5,552 語で GPL-3.0 の 5,644 語より短い）を同じ行に書き、1.0 の比較は版を名乗って残す。数は当日に測り直す |
+| 個別 | `submission-reference.md` の長さの行（*"How long the text is"*・1.0 は GPLv3 より短い）| 1.0 の文として正しい。1.4 を提出の版にする日は、1.4 は GPL-3.0 より長いこと（2026-11-12 の T60 の後の測定で本文 5,214 語・GPL-3.0 は 4,617 語。題名からは 5,555 語で GPL-3.0 の 5,644 語より短い）を同じ行に書き、1.0 の比較は版を名乗って残す。数は当日に測り直す |
 | 個別 | `submission.md` §B.0 の本文の *ACD-1.0*（Check 472o）| 件名・冒頭・header・URL は 472f が見る。本文の 7 箇所のうち 6 箇所（OSD の宣言、gap、条件の段、§6.4 の段、§1.2 の段、*taken alone*）は版を替える。§1.2 の段は §1.3 へ替える。Provenance の *"The name ACD-1.0"* は履歴の文なので、版を替えず *"The name ACD"* とする |
 
 
@@ -352,7 +353,7 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 > §2 (scope and effect, 11) and §1 (definitions, 8); seven name the preamble or several clauses at
 > once. Further changes came from our own sweeps of the
 > later drafts and are listed, with their reasons, in each version's change list. The text is
-> longer: 5,552 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
+> longer: 5,555 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
 
 **⚠ 逆側**: 短い経路の語数が約 170 語増える（`REVIEWERS.md` の短い経路の表と Check 472m の値を同じ日に直す）。*"The direction is unchanged"* は、1.0 から変わらなかったものを 3 つだけ挙げる文で、ほかに変わらなかったものが無いとは言っていない。逆に、変わったものを errata の件数で数えるので、errata に載らない 1.4 生まれの変更（T34〜T52 の多く）は *"Further changes"* の 1 文にまとまる。数を当日に数え直すのは、草案が確定まで動くからである（2026-11-11 の時点でも 1.4 の閉鎖は 39 件で、まだ動きうる。**同日の訂正**: 最初の下書きは 1.3 で 5・1.4 で 38 と書いた。状態の列の版の語の最初の一致を数えていて、閉鎖の印でない語を拾っていた。portfolio-00 が印の正規表現で 4 と 39 を出し、同じ数え方で確かめた）。
 

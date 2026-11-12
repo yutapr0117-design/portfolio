@@ -817,7 +817,7 @@ After: It does not apply this Dedication to material that a narrower notice the 
 
 **採否（2026-11-12・3 つとも採った・反例の代案の形・+1 語）**: T57 は *"That exception reaches only a new version"*（−2 語）、T58 は句点（0 語）、T59 は *"to that extent"*（+3 語）。採った形で 25 が `--compare` を回し、5,053 → 5,054・重複 69 → 69・族 51・指示語 0 / 0、`--guard` は 468u 17/17・468r 0・468m の句は 1 行のまま。草案・冒頭の一覧（§2.6 は語数そのまま、§2.8 は −71 → −68、§16.4 は +43 → +41）・`This draft:`（5,551 → 5,552）・`ACD-1.4-CHANGELIST.md`（表の 3 行・内訳の名前の保護 +49 → +47・その他の明瞭化 +40 → +43・合計 +108 → +109・1.0 から 656 語・英文の語数・切り替えの日の長さの行）・逐条の 3 行・長さの数（`SUBMISSION-MATERIALS.md`・`ACD-OSI-BOTTLENECKS.md` B3）を同じ commit で直した。T59 の文は 1.0 から在るので、errata は portfolio-00 が足す。**⚠ 逆側**: (1) T57・T58 は作用の分岐を閉じる修正ではなく、読みやすさのための修正である（基準 4）。(2) 最初の案は 2 つとも反例で替わった —— 名指しの語（*Such distribution* / *the same extent*）も、指す先が 1 つに決まるかを当てる。
 
-### 14.33 T60: §5.2 末文の *it* 3 つを名指しへ（+3 語・試作・2026-11-12）
+### 14.33 T60: §5.2 末文の *it* 3 つを名指しへ（+3 語・採った・2026-11-12）
 
 **見つけた経緯**: §14.31 の代名詞のレンズで、§5.2 末文の *it* 3 つを「Dedicator と Work に決まる」と書いた。意味から決めた読みで、文法の既定（代名詞は文の主語を指しやすい）を当てていなかった。長い文を上から読む §14.32 の続きで、65 語のこの文を読み直して気づいた。
 
@@ -832,3 +832,9 @@ After: It does not apply this Dedication to material that a narrower notice the 
 **⚠ 逆側**: (1) +3 語で、同じ文に *the Dedicator* が 3 回、*the Work* が 3 回並ぶ。(2) 本文のほかの *it* も、主語が別の名詞の文で使われていれば同じ型になる —— 主語と違うものを指す *it* を全数で当てる読みは、この試作の後に回す。(3) この文を逐語で引く記録が 3 つある: errata E67 の *"1.4 draft now reads"*（採るなら *as adopted on* の形へ）、E68 の同じ引用への言及、`QUESTIONS-FOR-COUNSEL.md` の問の 3 つ目。mutation の anchor はこの句に無い（grep で確かめた）。
 
 **依頼**: portfolio-00 に反例（特に *a copy of the Work* —— サービスの写しと読む余地を消すことで、除外が広がったり狭まったりしないか）と errata の段取りを、portfolio-9b に `--compare / --guard` と、「主語と違うものを指す *it*」を機械で拾えるかを頼む。
+
+**portfolio-00 の反例（2026-11-12）**: 採ってよいと読む。*a copy of it* は Section 5・*a service*・*the Work* の 3 通りに読め、サービスの写しと読むと除外は「Dedicator がサービスのソフトウェアを渡さない限り、そのサービスの条件は §5 の外」と意図より広い。*a copy of the Work* で除外は「サービスの使い手に Work の写しを渡さない場合」に戻り、§5.2(b) と組んだ意図の形になる。狭まるのは意図していなかった読みの分だけ。境目: Dedicator が同じ使い手にサービスと Work の写しの両方を渡せば、そのサービスの条件は §5 の内に入り §5.2(b) が働く —— 除外の趣旨と合う。*to that material or to the use of a service* はどちらも *applies* に掛かり、置き換えで変わらない。
+
+**同じ型を数えた（2026-11-12）**: 25 の正規表現（文頭が *Section N* / *This Dedication* / *This Section* / *No permission*）では 6 文。portfolio-9b の `--it-subject`（PR 2972・主語の形を広く取る）では 14 件で、追加の §6.2 *"it states the Dedicator's own position"*（This Section）と *"on its own terms"*（Section 6.3）、§10.5・§11.3・§11.4 の *"unaffected by it"* と *"it is not a condition upon You"* は、主語か直前の節を指す。数え方で件数が変わるので、件数でなく読んだ範囲として書く。§10.4 と §15.1 の *it* / *its* は主語を指す（意図どおり）。§2.1 *every separable part of it*（Work）、§8.4 *the feature that infringes it*（claim）、§9.3 *answers it*（question）は直前の名詞と並びで 1 つに決まる。主語から遠い長い文に別のものを指す *it* が並ぶのは §5.2 だけだった。
+
+**採否（2026-11-12・採った・+3 語）**: `--compare` は 5,054 → 5,057・重複 69 → 69・族 51・指示語 0 / 0。`--guard` は、468u の目印 *"without providing a copy of it"*（`_lib_draft_markers.py`・2026-11-08 PR 2655）が欠けたので、目印を *"without providing a copy of the Work"* へ同じ commit で直し（portfolio-9b に知らせる）、17/17・468r 0。草案・冒頭の一覧（§5.2 の項 +78 → +81）・`This draft:`（5,552 → 5,555）・CHANGELIST（表の行・内訳の §5 の束 +115 → +118・合計 +109 → +112・1.0 から 659 語・英文の語数・切り替えの日の長さ）・逐条の §5.2 の行・errata E67 の 1.4 の欄（*as adopted on 2026-11-09* の形と T60 の 1 文）と E68 の言及・`QUESTIONS-FOR-COUNSEL.md` の引用・長さの数（材料・B3）・`ACD-1.1-SELF-AUDIT.md` §3z を同じ commit で直した。第 1 条からの `wc -w` は 5,214 → 5,217。**⚠ 逆側**: 同じ文に *the Dedicator* と *the Work* が 3 回ずつ並び、読む負担は少し増える。§14.31 で私はこの 3 つを「意味から決まる」と書いており、文法の既定を当てていなかった —— 先行詞の読みは、意味と文法の両方で当てる。
