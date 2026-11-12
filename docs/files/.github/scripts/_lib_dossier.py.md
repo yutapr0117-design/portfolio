@@ -52,3 +52,5 @@ rows = re.findall(r"^\| \d+ \|", against_text(ROOT / "LICENSES"), re.M)
 ### For third parties / auditors
 
 register の中身や判断には関わらない。どの file を register として読むかだけを決める。
+
+**草案の逐語の照合（2026-11-12）**: `errata_draft_quote_misses`（Check 468w・`checks_license_draft.py` から移した）と `dossier_draft_quote_misses`（Check 468a・ドシエが「N.M 草案 / draft」として引く逐語がいまの草案に在るか）を置く。どちらも "…" で切った断片を当てる。
