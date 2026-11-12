@@ -549,7 +549,9 @@ def attribution(root="."):
                 segs = [x for x in (norm(y) for y in re.split(r"\.{3}|…", q)) if len(x.split()) >= 3] or [norm(q)]
                 hits = [(fr, d) for fr, d, t in msgs if all(x in t for x in segs)]
                 if not hits:
+                    # 引用の中 (返信が引いた形) にしか無いか、cache に無い月の通。前者は帰属の確かめ先が返信の側に無い
                     tally["引用を除いた本文に無い"] += 1
+                    out.append(f"[引用を除いた本文に無い] {os.path.relpath(f, root)}:{n}  {names[-1]} 氏 ← {q[:70]!r}")
                     continue
                 name_ok = any(names[-1].lower() in fr.lower() for fr, _d in hits)
                 year_ok = not years or any(d and str(d.year) == years[-1] for fr, d in hits if names[-1].lower() in fr.lower())
