@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-12 時点・412 ファイル）
+## いまの状態（2026-11-12 時点・414 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -131,6 +131,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2008-01〜02 | `license-review` | **観測（GNU Affero GPLv3 の提出から 7 通・分類の基準をめぐる意見の違い）** | `2008-01-license-review-agpl-category-observed.txt` |
 | 2009-01〜02 | `license-review` | **観測（caGrid License の legacy approval の求めから 5 通・数百の配備は広い分類に足りない）** | `2009-01-license-review-cagrid-legacy-approval-observed.txt` |
 | 2011-05〜08 | `license-review` | **観測（Python のライセンスの改訂の承認の求めから 3 通・先例は参考であって拘束しない、古い版を非推奨にしても効かない）** | `2011-05-to-08-license-review-python-license-changes-observed.txt` |
+| 2008-10 | `license-review` | **観測（AFL に論文の引用の義務を足したいという問いから 5 通・承認済みに似た条が在ることは新しい条を正当化しない）** | `2008-10-license-review-afl-citation-and-old-mistakes-observed.txt` |
+| 2007-08 | `license-discuss` | **観測（"Groklaw's OSI item" から 2 通・OSI は認証を取り消したことがない、提出者の素性で差別も優遇もしない）** | `2007-08-license-discuss-groklaw-certification-not-pulled-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
 | 2012〜2020 | `license-review` | **観測（特許を扱う新しい permissive の必要性と、増殖の分類の現状・4 通）** | `2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt` |

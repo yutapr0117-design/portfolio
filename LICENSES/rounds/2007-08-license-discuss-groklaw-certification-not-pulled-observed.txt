@@ -1,0 +1,96 @@
+Source: OSI license-discuss public archive, 2007-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 2 of 69 in "Groklaw's OSI item" (2007-08-22 to 2007-08-29)
+Senders: Cinly Ooi, Brian Behlendorf
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From cinly.ooi at gmail.com  Wed Aug 22 19:36:46 2007
+From: cinly.ooi at gmail.com (Cinly Ooi)
+Date: Wed, 22 Aug 2007 20:36:46 +0100
+Subject: Groklaw's OSI item (was: When will CPAL actually be _used_?)
+In-Reply-To: <20070822185524.GT906@linuxmafia.com>
+References: <20070821200403.GA2489@linuxmafia.com>
+	 <cf976cd50708211618h68957d42t9a14f263c513ce00@mail.gmail.com>
+	 <20070822000133.GD2489@linuxmafia.com>
+	 <cf976cd50708211841g537fd164qe2e8df1ae7b018ae@mail.gmail.com>
+	 <20070822185524.GT906@linuxmafia.com>
+Message-ID: <95aa83610708221236r632df3e4vb243c8d6eef106b8@mail.gmail.com>
+
+My $0.02
+
+It is not going to be possible  to discuss the two license per se without
+pulling surrounding, non-license related issues nor is it desirable.
+
+Microsoft should not be discriminated simply because it is Microsoft, nor
+should it be given special treatment if it is Microsoft.
+
+My view is if the licenses satisfy OSI rules on Open Source and License
+Proliferation, it should by default be approved. Otherwise, OSI can and
+should be stand accused of anti-Microsoft.
+
+Microsoft, like any other submitters, should be cautioned that its
+certification will be pulled if it twist the truth or behave in any manner
+that is detriment to OSI's objective. OSI should adopt "innocent until
+proven guilty approach". If it does what it should not do, OSI will then
+exercise its right to pull the certification if deem necessary. If OSI find
+it necessary to exercise this right, it better make sure it makes its
+reasoning clear. What I want to see is OSI adopt the approach IEEE did when
+firing the chairperson of one of its committee, by giving strong, verifiable
+reasons, as oppose to the vague reasons Malaysian' SIRIM's chairman used to
+fire everyone in its document format committee.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20070822/208d0962/attachment.html>
+
+From brian at hyperreal.org  Wed Aug 22 20:25:02 2007
+From: brian at hyperreal.org (Brian Behlendorf)
+Date: Wed, 22 Aug 2007 13:25:02 -0700 (PDT)
+Subject: Groklaw's OSI item (was: When will CPAL actually be _used_?)
+In-Reply-To: <95aa83610708221236r632df3e4vb243c8d6eef106b8@mail.gmail.com>
+References: <20070821200403.GA2489@linuxmafia.com> 
+ <cf976cd50708211618h68957d42t9a14f263c513ce00@mail.gmail.com> 
+ <20070822000133.GD2489@linuxmafia.com>  <cf976cd50708211841g537fd164qe2e8df1ae7b018ae@mail.gmail.com>
+  <20070822185524.GT906@linuxmafia.com>
+ <95aa83610708221236r632df3e4vb243c8d6eef106b8@mail.gmail.com>
+Message-ID: <alpine.DEB.0.82.0708221313120.23155@pez2>
+
+On Wed, 22 Aug 2007, Cinly Ooi wrote:
+> Microsoft should not be discriminated simply because it is Microsoft, nor
+> should it be given special treatment if it is Microsoft.
+
+I agree with that.
+
+> My view is if the licenses satisfy OSI rules on Open Source and License
+> Proliferation, it should by default be approved. Otherwise, OSI can and
+> should be stand accused of anti-Microsoft.
+
+I agree.  I suppose my prior question about proliferation could be 
+answered by understanding specifically what the policy is - how much 
+substantive difference is required in order to justify a new license, etc. 
+I don't know if it's like the Supreme Court's definition of smut, "we know 
+it when we see it", or something that can be articulated, turned into a 
+term of the OSD, etc.
+
+> Microsoft, like any other submitters, should be cautioned that its
+> certification will be pulled if it twist the truth or behave in any manner
+> that is detriment to OSI's objective.
+
+I think that goes way too far.  AFAIK, OSI has never "pulled" the 
+certification of any license, even ones that in retrospect probably should 
+not have been approved, let alone one based on the actions of the license 
+steward.  Imagine the chaos it could cause for third parties who choose 
+to use that certified license and then are told, probably without much 
+warning, that it's no longer Open Source - purely due to actions beyond 
+their control, and not because the license itself fails some OSD test. 
+Imagine the burden it places on OSI of having to arbitrate not just 
+licensing policy but the "Open Source truthfulness" of any submitting 
+organization - for all time.  OSI's been a fine platform for airing issues 
+related to this - publishing the Halloween documents, for example - but I 
+don't think pulling a certification for bad behavior would be an 
+appropriate use of its power.  I've not even addressed whether such a 
+thing is legal for a certification body or mark, or a 501c3, either.
+
+ 	Brian
+
+

@@ -1,0 +1,244 @@
+Source: OSI license-review public archive, 2008-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 5 of 18 in "question before attempting an update on AFL" (2008-10-29 to 2008-10-31)
+Senders: Cengiz Gunay, Lawrence Rosen, Bruce Perens, Rick Moen, Matthew Flaschen
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From cgunay at emory.edu  Wed Oct 29 22:35:34 2008
+From: cgunay at emory.edu (Cengiz Gunay)
+Date: Wed, 29 Oct 2008 18:35:34 -0400 (EDT)
+Subject: question before attempting an update on AFL
+Message-ID: <Pine.LNX.4.64.0810291818420.31783@stg.biology.emory.edu>
+
+
+Hi,
+
+I am an open-source program developer working in Academia. I have been 
+using the Academic Free License 3.0 for an open source toolbox I authored. 
+But now I need something that AFAIK none of the existing OSI licenses 
+offer: an obligation to cite one of my scientific publications about the 
+toolbox in publications resulting from the use of my toolbox.
+
+This is a form of attribution, but so far all the attribution notices I 
+saw were either specific to opening a splash screen in a software or 
+keeping a attribution preamble within the source code. What I need, I 
+believe, is a completely separate concept than these. Therefore, I thought 
+I should add an optional clause to AFL 3.0 and post it here.
+
+My questions to you are: 
+
+1) Are you aware of an existing open-source license I could use rather 
+   than modifying AFL? Specifically, if the attribution clause of a 
+   license is vague enough, maybe I could specify my attribution terms in 
+   the copyright statement.
+
+2) Would you be willing to consider an update to AFL?
+
+3) If you're ok with an update, what would be the best way to implement 
+   this? To leave the license as simple as possible, for instance I could 
+   specify that there's an additional, optional "attribution condition"  
+   enclosed with the source code to which the licensee has to adhere. I 
+   guess first I need to legally define the works or publications 
+   resulting from the use of my software.
+
+Thanks for your attention,
+Cengiz Gunay
+--
+Postdoctoral Fellow
+Prinz Lab, Dept. of Biology, Emory University
+1510 Clifton Rd., Room 2172, Atlanta, GA 30322, U.S.A.
+cgunay at emory.edu  cengique at users.sf.net 	cengique at yahoo.com
+Lab: +1-404-727-9381	Home/Cell: +1-678-559-8694
+http://userwww.service.emory.edu/~cgunay
+ICQ# 21104923, cengique@{jabber.org,Skype}
+--
+
+
+From lrosen at rosenlaw.com  Wed Oct 29 23:17:46 2008
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Wed, 29 Oct 2008 16:17:46 -0700
+Subject: question before attempting an update on AFL
+In-Reply-To: <Pine.LNX.4.64.0810291818420.31783@stg.biology.emory.edu>
+References: <Pine.LNX.4.64.0810291818420.31783@stg.biology.emory.edu>
+Message-ID: <050101c93a1c$8de88150$6501a8c0@LROSENTOSHIBA>
+
+Comments below. /Larry Rosen
+
+Lawrence Rosen
+Rosenlaw & Einschlag, a technology law firm (www.rosenlaw.com)
+3001 King Ranch Road, Ukiah, CA 95482
+707-485-1242 * cell: 707-478-8932 * fax: 707-485-1243
+Skype: LawrenceRosen
+
+
+> -----Original Message-----
+> From: Cengiz Gunay [mailto:cgunay at emory.edu]
+> Sent: Wednesday, October 29, 2008 3:36 PM
+> To: license-review at opensource.org
+> Subject: question before attempting an update on AFL
+> 
+> 
+> Hi,
+> 
+> I am an open-source program developer working in Academia. I have been
+> using the Academic Free License 3.0 for an open source toolbox I authored.
+> But now I need something that AFAIK none of the existing OSI licenses
+> offer: an obligation to cite one of my scientific publications about the
+> toolbox in publications resulting from the use of my toolbox.
+
+[LR:] Such an "obligation" is contrary to open source principles. No open
+source license can require that. You can always request a citation, though;
+see below.
+
+
+> This is a form of attribution, but so far all the attribution notices I
+> saw were either specific to opening a splash screen in a software or
+> keeping a attribution preamble within the source code. What I need, I
+> believe, is a completely separate concept than these. Therefore, I thought
+> I should add an optional clause to AFL 3.0 and post it here.
+> 
+> My questions to you are:
+> 
+> 1) Are you aware of an existing open-source license I could use rather
+>    than modifying AFL? Specifically, if the attribution clause of a
+>    license is vague enough, maybe I could specify my attribution terms in
+>    the copyright statement.
+
+[LR:] Under AFL 3.0, you can insert something like the following in your
+source code and it will remain with your source code forever:
+
+   /* ATTRIBUTION NOTICE
+   I would appreciate your citing to one of my scientific publications
+   in publications resulting from the use of this toolbox. Here's the
+   citation:
+
+       XXXXXXXXXXXXXXXXXXXXX
+
+   END ATTRIBUTION NOTICE */
+
+> 2) Would you be willing to consider an update to AFL?
+
+[LR:] I don't know who you're asking, but as for me, no, not for this.
+
+ 
+> 3) If you're ok with an update, what would be the best way to implement
+>    this? To leave the license as simple as possible, for instance I could
+>    specify that there's an additional, optional "attribution condition"
+>    enclosed with the source code to which the licensee has to adhere. I
+>    guess first I need to legally define the works or publications
+>    resulting from the use of my software.
+
+[LR:] There's a lot to consider if you want to specify such things in your
+license. But then it won't be open source.
+
+/Larry Rosen
+
+
+
+
+> 
+> Thanks for your attention,
+> Cengiz Gunay
+> --
+> Postdoctoral Fellow
+> Prinz Lab, Dept. of Biology, Emory University
+> 1510 Clifton Rd., Room 2172, Atlanta, GA 30322, U.S.A.
+> cgunay at emory.edu  cengique at users.sf.net 	cengique at yahoo.com
+> Lab: +1-404-727-9381	Home/Cell: +1-678-559-8694
+> http://userwww.service.emory.edu/~cgunay
+> ICQ# 21104923, cengique@{jabber.org,Skype}
+> --
+
+
+
+From bruce at perens.com  Thu Oct 30 03:39:09 2008
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 29 Oct 2008 20:39:09 -0700
+Subject: question before attempting an update on AFL
+In-Reply-To: <20081030031930.GA5561@linuxmafia.com>
+References: <Pine.LNX.4.64.0810291818420.31783@stg.biology.emory.edu> <050101c93a1c$8de88150$6501a8c0@LROSENTOSHIBA> <Pine.BSM.4.64L.0810292346450.23113@herc.mirbsd.org> <20081030031930.GA5561@linuxmafia.com>
+Message-ID: <49092C5D.4090307@perens.com>
+
+
+> * 3. All advertising materials mentioning features or use of this software
+> *    must display the following acknowledgement:
+> *    This product includes software developed by the University of
+> *    California, Berkeley and its contributors.
+>
+> ...does not impair the _use_ of the program.  
+Russ has been pretty clear that the OSI board is not out to repeat old 
+mistakes with only the justification that they were approved before. The 
+BSD clause mentioned is in a deprecated version of the license.
+
+    Thanks
+
+    Bruce
+
+
+From rick at linuxmafia.com  Thu Oct 30 03:47:27 2008
+From: rick at linuxmafia.com (Rick Moen)
+Date: Wed, 29 Oct 2008 20:47:27 -0700
+Subject: question before attempting an update on AFL
+In-Reply-To: <49092C5D.4090307@perens.com>
+References: <Pine.LNX.4.64.0810291818420.31783@stg.biology.emory.edu> <050101c93a1c$8de88150$6501a8c0@LROSENTOSHIBA> <Pine.BSM.4.64L.0810292346450.23113@herc.mirbsd.org> <20081030031930.GA5561@linuxmafia.com> <49092C5D.4090307@perens.com>
+Message-ID: <20081030034727.GC5561@linuxmafia.com>
+
+Quoting Bruce Perens (bruce at perens.com):
+
+> Russ has been pretty clear that the OSI board is not out to repeat old 
+> mistakes with only the justification that they were approved before. The 
+> BSD clause mentioned is in a deprecated version of the license.
+
+Indeed, we've seen entirely too much of "I found $DUMB_IDEA implemented
+in an extant OSI-approved licence, so I'm {submitting|talking about}
+a new licence perpetuating that error in new areas" -- where $DUMB_IDEA
+is almost always some form of mandatory runtime advertising that is 
+then justified by calling it "attribution" and implying that such
+wording makes it automatically OK.  
+
+My larger point, though, is that the current question isn't even a
+licence submission, and is on the wrong mailing list.
+
+-- 
+Cheers,                "You do not examine legislation in light of the benefits 
+Rick Moen              it will convey if properly administered, but in light of 
+rick at linuxmafia.com    the wrongs it would do and the harms it would cause if 
+                       improperly administered."  -- LBJ
+
+
+From matthew.flaschen at gatech.edu  Thu Oct 30 18:27:02 2008
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Thu, 30 Oct 2008 14:27:02 -0400
+Subject: question before attempting an update on AFL
+In-Reply-To: <49092C5D.4090307@perens.com>
+References: <Pine.LNX.4.64.0810291818420.31783@stg.biology.emory.edu> <050101c93a1c$8de88150$6501a8c0@LROSENTOSHIBA> <Pine.BSM.4.64L.0810292346450.23113@herc.mirbsd.org> <20081030031930.GA5561@linuxmafia.com> <49092C5D.4090307@perens.com>
+Message-ID: <4909FC76.5000505@gatech.edu>
+
+Bruce Perens wrote:
+> 
+>> * 3. All advertising materials mentioning features or use of this
+>> software
+>> *    must display the following acknowledgement:
+>> *    This product includes software developed by the University of
+>> *    California, Berkeley and its contributors.
+>>
+>> ...does not impair the _use_ of the program.  
+> Russ has been pretty clear that the OSI board is not out to repeat old
+> mistakes with only the justification that they were approved before. The
+> BSD clause mentioned is in a deprecated version of the license.
+
+According to the current BSD page on opensource.org
+(http://opensource.org/licenses/bsd-license.php), "The four clause
+license has not been approved by OSI."  So using that as precedent (even
+if precedent counted here), would not cut it.
+
+In my opinion, though, the mandatory citation is worse than the BSD
+clause.  The advertising clause only applied to advertising distributed
+for a product containing the BSD code.  In other words, it only bound
+distributors, and only when there was already advertising.  The citation
+would bind all users unconditionally.
+
+Matt Flaschen
+
+
