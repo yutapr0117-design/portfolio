@@ -1,0 +1,234 @@
+Source: OSI license-review public archive, 2008-January.txt and 2008-February.txt; license-discuss 2008-February.txt (the same subject continued there)
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 7 of 9 in "For approval: GNU Affero General Public License" (2008-01-30 to 2008-02-01)
+Senders: Stefano Maffulli, John Cowan, Stormy Peters, Matthew Flaschen
+Position: Not addressed to us. Observed. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From maffulli at funambol.com  Wed Jan 30 16:50:07 2008
+From: maffulli at funambol.com (Stefano Maffulli)
+Date: Wed, 30 Jan 2008 17:50:07 +0100
+Subject: For approval: GNU Affero General Public License
+Message-ID: <2700FB39-F5C0-463F-8469-23CF9BAF6F51@funambol.com>
+
+Hi there,
+
+Funambol has adopted the GNU Affero GPLv3 license ("AGPLv3") and  
+wishes to submit the AGPLv3 to OSI for approval. The previous Affero  
+General Public License  ("AGPLv1") was never submitted to OSI for  
+approval but it was quite different from the AGPLv1 so its history is  
+irrelevant. The AGPLv3 is designed to close the "ASP loophole" by  
+ensuring that modifications of any program which is expressly designed  
+to accept user requests and send responses over a network, must be  
+made available to users of the network. For a discussion of AGPLv3  
+legal issues, please go to http://www.fsf.org/licensing/licenses/gpl-faq.html#AGPLv3InteractingRemotely 
+.
+
+The AGPLv3 is very similar to the GPLv3 which has already been  
+approved. The only major difference is the modification of Section 13  
+which requires that the obligations of the license such as providing  
+Corresponding Source and permitting modifications is extended to "all  
+users interacting with it remotely through a computer network".  
+Consequently, like the GPLv3, the AGPLv3 is consistant with the OSD.
+
+The license proliferation category is "Licenses that are popular and  
+widely used or with strong communities".
+
+I would have loved to include the full text of GNU AGPLv3 below, but  
+then the message goes beyond the 3k allowed by this ezmlm :( You can  
+read the full text online  at http://www.fsf.org/licensing/licenses/agpl-3.0.html
+
+I include the relevant difference with GNU GPLv3
+
+  13. Remote Network Interaction; Use with the GNU General Public  
+License.
+
+  Notwithstanding any other provision of this License, if you modify the
+Program, your modified version must prominently offer all users
+interacting with it remotely through a computer network (if your version
+supports such interaction) an opportunity to receive the Corresponding
+Source of your version by providing access to the Corresponding Source
+from a network server at no charge, through some standard or customary
+means of facilitating copying of software.  This Corresponding Source
+shall include the Corresponding Source for any work covered by version 3
+of the GNU General Public License that is incorporated pursuant to the
+following paragraph.
+
+  Notwithstanding any other provision of this License, you have
+permission to link or combine any covered work with a work licensed
+under version 3 of the GNU General Public License into a single
+combined work, and to convey the resulting work.  The terms of this
+License will continue to apply to the part which is the covered work,
+but the work with which it is combined will remain governed by version
+3 of the GNU General Public License.
+
+
+
+cheers
+
+--
+Stefano Maffulli
+Funambol Community manager
+
+
+
+From cowan at ccil.org  Wed Jan 30 17:43:44 2008
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 30 Jan 2008 12:43:44 -0500
+Subject: For approval: GNU Affero General Public License
+In-Reply-To: <2700FB39-F5C0-463F-8469-23CF9BAF6F51@funambol.com>
+References: <2700FB39-F5C0-463F-8469-23CF9BAF6F51@funambol.com>
+Message-ID: <20080130174344.GE7602@mercury.ccil.org>
+
+
+> Funambol has adopted the GNU Affero GPLv3 license ("AGPLv3") and  
+> wishes to submit the AGPLv3 to OSI for approval. 
+
+I support this.
+
+> The license proliferation category is "Licenses that are popular and  
+> widely used or with strong communities".
+
+I question this.  The GPLv3 is widely used now, at least by implication
+for the "GPLv2 or later" projects, but that does not make the AGPLv3
+widely used.  I'd classify it under "Special purpose licenses."
+
+-- 
+First known example of political correctness:   John Cowan
+After Nurhachi had united all the other         http://www.ccil.org/~cowan
+Jurchen tribes under the leadership of the      cowan at ccil.org
+Manchus, his successor Abahai (1592-1643)
+issued an order that the name Jurchen should       --S. Robert Ramsey,
+be banned, and from then on, they were all           The Languages of China
+to be called Manchus.
+
+
+From maffulli at funambol.com  Thu Jan 31 11:51:22 2008
+From: maffulli at funambol.com (Stefano Maffulli)
+Date: Thu, 31 Jan 2008 12:51:22 +0100
+Subject: For approval: GNU Affero General Public License
+In-Reply-To: <20080130174344.GE7602@mercury.ccil.org>
+References: <2700FB39-F5C0-463F-8469-23CF9BAF6F51@funambol.com> <20080130174344.GE7602@mercury.ccil.org>
+Message-ID: <62228A99-3347-46E3-B255-5FD63C760C63@funambol.com>
+
+On Jan 30, 2008, at 6:43 PM, John Cowan wrote:
+> I question this.  The GPLv3 is widely used now, at least by  
+> implication
+> for the "GPLv2 or later" projects, but that does not make the AGPLv3
+> widely used.  I'd classify it under "Special purpose licenses."
+
+I tend to disagree.  From what I understand, the meaning of "Special  
+purpose" is the purpose of the writer of the license: that is, the  
+writer is a public administration or has specific needs (like the Open  
+Group for compliance testing). In fact, in that category you find  
+licenses like NASA license or the OpenGroup Test License.  That would  
+be the category for licenses from French public administration Cecill,  
+or the EUPL from European Union.
+
+The AGPLv3, like GPLv3, even though it's not yet widely used, doesn't  
+serve a 'special purpose' only because it closes the ASP loophole.
+/Stef
+--
+Stefano Maffulli
+Funambol Community manager
+
+
+
+From stormy.peters at gmail.com  Fri Feb  1 00:45:21 2008
+From: stormy.peters at gmail.com (Stormy Peters)
+Date: Thu, 31 Jan 2008 17:45:21 -0700
+Subject: For approval: GNU Affero General Public License
+In-Reply-To: <62228A99-3347-46E3-B255-5FD63C760C63@funambol.com>
+References: <2700FB39-F5C0-463F-8469-23CF9BAF6F51@funambol.com>
+	 <20080130174344.GE7602@mercury.ccil.org>
+	 <62228A99-3347-46E3-B255-5FD63C760C63@funambol.com>
+Message-ID: <7ceb3e960801311645s768507d8tc7b9cbdbb78083c2@mail.gmail.com>
+
+We are also using the AGPL in http://ossdiscovery.org.  We didn't consider
+it a special purpose license when we choose it.
+
+Stormy
+
+From cowan at ccil.org  Fri Feb  1 00:49:06 2008
+From: cowan at ccil.org (John Cowan)
+Date: Thu, 31 Jan 2008 19:49:06 -0500
+Subject: For approval: GNU Affero General Public License
+In-Reply-To: <7ceb3e960801311645s768507d8tc7b9cbdbb78083c2@mail.gmail.com>
+References: <2700FB39-F5C0-463F-8469-23CF9BAF6F51@funambol.com> <20080130174344.GE7602@mercury.ccil.org> <62228A99-3347-46E3-B255-5FD63C760C63@funambol.com> <7ceb3e960801311645s768507d8tc7b9cbdbb78083c2@mail.gmail.com>
+Message-ID: <20080201004906.GP31250@mercury.ccil.org>
+
+Stormy Peters scripsit:
+> We are also using the AGPL in http://ossdiscovery.org.  We didn't consider
+> it a special purpose license when we choose it.
+
+Fine for you.  If the AGPLv3 were truly general-purpose, it would *be*
+the GPLv3.
+
+-- 
+If you have ever wondered if you are in hell,         John Cowan
+it has been said, then you are on a well-traveled     http://www.ccil.org/~cowan
+road of spiritual inquiry.  If you are absolutely     cowan at ccil.org
+sure you are in hell, however, then you must be
+on the Cross Bronx Expressway.          --Alan Feuer, NYTimes, 2002-09-20
+
+
+From maffulli at funambol.com  Fri Feb  1 09:17:06 2008
+From: maffulli at funambol.com (Stefano Maffulli)
+Date: Fri, 1 Feb 2008 10:17:06 +0100
+Subject: For approval: GNU Affero General Public License
+In-Reply-To: <20080201004906.GP31250@mercury.ccil.org>
+References: <2700FB39-F5C0-463F-8469-23CF9BAF6F51@funambol.com> <20080130174344.GE7602@mercury.ccil.org> <62228A99-3347-46E3-B255-5FD63C760C63@funambol.com> <7ceb3e960801311645s768507d8tc7b9cbdbb78083c2@mail.gmail.com> <20080201004906.GP31250@mercury.ccil.org>
+Message-ID: <250A65DD-3510-49E4-AD1E-6367AD2D6F9B@funambol.com>
+
+On Feb 1, 2008, at 1:49 AM, John Cowan wrote:
+> Fine for you.  If the AGPLv3 were truly general-purpose, it would *be*
+> the GPLv3.
+
+
+Maybe we should go back to basics here and try to get an agreement on  
+what 'special purpose' means in OSI License Proliferation Category.
+
+ From what I understand it means that the license exists to address a  
+specific need of the writer of the license.  NASA needs to have  
+specific language for US gov lawyers to be happy, Open Standard Group  
+needs specific language to prevent loss of integrity.  I guess that  
+cecill and EUPL would fit into this category as well, for reasons  
+similar to those of US gov.
+
+I fail to see the logic behind thinking that GPLv3 is a general  
+purpose while AGPLv3 is not.  Apache2 closes the sw patents loophole  
+that BSD/MIT licenses leave open, but it's not a 'special purpose  
+license'.  GPLv3 addresses internationalization of its language, and  
+it's not a special purpose license either.
+
+cheers
+stef
+
+--
+Stefano Maffulli
+Funambol Community manager
+
+
+
+From matthew.flaschen at gatech.edu  Fri Feb  1 06:43:53 2008
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Fri, 01 Feb 2008 01:43:53 -0500
+Subject: For approval: GNU Affero General Public License
+In-Reply-To: <20080201004906.GP31250@mercury.ccil.org>
+References: <2700FB39-F5C0-463F-8469-23CF9BAF6F51@funambol.com> <20080130174344.GE7602@mercury.ccil.org> <62228A99-3347-46E3-B255-5FD63C760C63@funambol.com> <7ceb3e960801311645s768507d8tc7b9cbdbb78083c2@mail.gmail.com> <20080201004906.GP31250@mercury.ccil.org>
+Message-ID: <47A2BFA9.1060808@gatech.edu>
+
+John Cowan wrote:
+> Stormy Peters scripsit:
+>> We are also using the AGPL in http://ossdiscovery.org.  We didn't consider
+>> it a special purpose license when we choose it.
+> 
+> Fine for you.  If the AGPLv3 were truly general-purpose, it would *be*
+> the GPLv3.
+
+It seems to me it should be in the same category as the Open Software 
+License, "Other/Miscellaneous licenses".
+
+Matt Flaschen
+
+

@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 492 subject lines. One thread appears under two subject spellings
+# Rows: 495 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -242,6 +242,7 @@
 2008-01-10	Our Purpose (Re: DRAFT FAQ: Free vs. Open)
 2008-01-18	FAQ - GPL Case Law? : GPL issue at my work place
 2008-01-28	compatibility Re: License committee report for January 2008
+2008-01-30	For approval: GNU Affero General Public License
 2008-02-04	Boost Software License -- when can it be approved?
 2008-02-13	For Approval: Anonymous Hero Public License
 2008-03-01	Public domain software is not open-source?
@@ -269,6 +270,7 @@
 2008-09-07	License Committee Report for September 2008
 2008-11-05	For approval: SIL Open Font License 1.1
 2008-11-11	License Committee Report for November 2008
+2009-01-09	caGrid Open Source License For Legacy Approval
 2009-01-21	EUPL status
 2009-01-21	TGPPL, deterring licence proliferation by withholding the stamp of OSD-conformance
 2009-03-05	What do you recommend?
@@ -281,6 +283,7 @@
 2009-09-11	For Approval: TVA Open Source License
 2009-10-05	Use of LGPL images in proprietary software?
 2009-11-27	License Committee Report for December 2009
+2009-12-08	OKL4 license
 2010-01-19	move licenses to voluntarily retired list?
 2010-01-19	updating the GPL's status in http://www.opensource.org/licenses/category ?
 2010-03-04	Open Source Decision Models
