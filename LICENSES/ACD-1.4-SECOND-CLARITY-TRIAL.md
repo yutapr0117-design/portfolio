@@ -158,7 +158,7 @@ T6 は反例なし（出力が Work に取り込まれれば §9 が自分の条
 
 - **§8.3 の語**: bb の案は文頭に *"Within the reach of Sections 8.1 and 8.4,"*（+8 語）で、25 の案（−2 語）と効果は同じなので短い方を採った。
 - **同じ型の掃引の範囲**: 5a は全 80 条の約束と否定の文、bb は *any / every / all / no* + 権利の語と、名詞を持たない全称・動詞の側の全称・句の射程・定義語の経由の 4 形、25 は 1.0 のあとに足した 76 文を読んだ。特許へ漏れるのは §5.1 と §8.3 だけだった。
-- **§6.4 の *"You owe nothing"***: §8.4 が *"Section 6.4 alone would leave Computational Use permitted as to the Covered Rights while exposed as to patents"* と述べるので、§6.4 は特許に届かないと本文が答えている。
+- **§6.4 の *"You owe nothing"***: §8.4 が *"Section 6.4 alone would leave Computational Use permitted as to the Covered Rights while exposed as to patents"* と述べるので、§6.4 は特許に届かないと本文が答えている。（**2026-11-12 追記**: この §8.4 の文は T54 で外した（§14.28）。いまの §6.4 は *"No enforceable claim arises against You, under this Dedication or under any Covered Right of the Dedicator"* と *"You owe nothing under this Dedication"*（E70）で、§1.5 が Covered Rights から特許を除くので、§6.4 は自身の語で特許に届かない。結論は同じで、根拠が §6.4 と §1.5 へ移った）
 - **§9.2 の *"asserts no right in Machine-Generated Material"***（5a）: Covered Rights に限られていないが、宣言の文で約束ではなく、特許は素材の中の権利でもないので残す。
 - ***in part* と閾値なしの合算**（5a）: 学習した特徴はどれも一部は Work から生じたと読める。*in part* を外すと 2 つのデータが各々十分な原因である場面で受領者が外れる。同じ語の表裏なので文を動かさず、費用として B7 に書く。
 - **判定の難しさ**（5a）: §8.4 は閾値を判定できないと述べるが、学習した特徴の因果も判定しにくい。*teaches or embodies* に入らない特徴の保護は薄い。問 2 の領分である。
@@ -254,7 +254,7 @@ T6 は反例なし（出力が Work に取り込まれれば §9 が自分の条
 
 | 候補 | 判定 |
 | :-- | :-- |
-| §6.4 *"You owe nothing"* に範囲の語が無い | 退いた。§8.4 の *"The grant is necessary because … Section 6.4 alone would leave …"* が本文の答えで、同じ文の前半と §6.5、§5.1 も閉じる |
+| §6.4 *"You owe nothing"* に範囲の語が無い | 退いた。§8.4 の *"The grant is necessary because … Section 6.4 alone would leave …"* が本文の答えで、同じ文の前半と §6.5、§5.1 も閉じる（**2026-11-12 追記**: 根拠に挙げた §8.4 の文は T54 で外した（§14.28）。§6.4 の範囲は、その後 E70（2026-11-08）で *"You owe nothing under this Dedication"* になり、本文が直接閉じている —— 退けた結論は変わらないが、根拠は §8.4 ではなく §6.4 自身の語である） |
 | §8.6 の *reach* が 2 つの意味 | 退いた。T17 でさらに閉じる |
 | §9.2 の *"asserts no right"* が特許や商標を通らない | 退いた。第 3 文が Sections 3 to 8 へ送り、§9.3 と両立しない |
 | §12.1 の放棄が虚偽の帰属まで及ぶ | 退いた。§12.2 の末文が、どちらが適用されても許される行為は変わらないと述べる |
