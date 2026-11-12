@@ -303,6 +303,8 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 
 **この追記が establish しないこと。** Nelson 氏の案が理事会でどう扱われたかは、このスレッドには無い。いまの OSD に同じ文は無い（ドシエの OSD の写しに *"lawfully obtained copy"* は現れない）。Sybase のライセンスの審査そのもの（別のスレッド）は読んでいない。
 
+**同じ追記の前段（2002-08）—— 許される制限を列挙する案。** 10 月の案の 2 か月前、委員長の Nelson 氏は "A new "use" clause in the OSD"（`license-discuss` 2002-08・12 通・`rounds/2002-08-license-discuss-osd-use-clause-observed.txt` に 4 通）で、許される制限だけを列挙する形の条を、OSD の 11 番目の条として出していた —— *"A license must not restrict the use or modification of the software in any way except the following: it may disclaim warranties, it may grant limited patent use rights, it may specify arbitration, it may suspend use rights if the user sues for patent infringement, and it may prohibit modifications which remove legal information."* 理由は *"There's nothing in the OSD that clearly prohibits restrictions on use."* だった。Lawrence Rosen 氏は列挙でなく一般の形（使用の権利を制限しない）を、Brian Behlendorf 氏は OSD を広げること自体への疑いを書いた。**ACD への当たり方**: ACD は列挙された 5 つの制限のどれも使用の制限として持たない（保証の否認 §13 は制限でなく否認、特許の許諾 §8 は終了しない・§8.2、仲裁も報復の終了も持たない）ので、この最も狭い案の下でも当たらない。**逆側**: 今の OSD に同じ条は無い。ACD に有利な基準が在ることを示すのではなく、最も厳しい案でも ACD が通ることを示すだけである。
+
 ## 1.181 承認は受け入れの床であって、下流の一覧ではない —— "why standard licenses"（2014）と Apache の第三者ライセンス方針（2015）（2026-11-11）
 
 `rounds/2014-04-license-discuss-why-standard-licenses-observed.txt`（4 通・スレッドは全 25 通）と `rounds/2015-05-and-08-license-discuss-apache-third-party-policy-observed.txt`（7 通・2 本のスレッドは全 31 通と 11 通）。前者は Luis Villa 氏が 2014-04-27 に、標準的なライセンスを使う理由を説明する文が FAQ にもサイトにも無いとして、FAQ の下書きを示して始めた議論。後者は Lawrence Rosen 氏が、Apache Software Foundation（ASF）が第三者のライセンスを A・B・X に分けて受け入れる方針を、OSI に任せる形へ変えるよう提案した議論で、ASF の legal-discuss から cross-post された。

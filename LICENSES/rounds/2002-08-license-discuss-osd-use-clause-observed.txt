@@ -1,0 +1,164 @@
+Source: OSI license-discuss public archive, 2002-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 4 of 12 in "A new "use" clause in the OSD" (2002-08-06 to 2002-08-07)
+Senders: Russell Nelson, Lawrence E. Rosen, Brian Behlendorf
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Tue Aug  6 14:40:49 2002
+From: nelson at crynwr.com (Russell Nelson)
+Date: 6 Aug 2002 14:40:49 -0000
+Subject: A new "use" clause in the OSD
+Message-ID: <20020806144049.1635.qmail@desk.crynwr.com>
+
+We need to introduce a new clause into the OSD.  The new clause must
+specify what restrictions on user activity are allowed.  Here is my
+suggestion:
+
+OSD#11: A license must not restrict the use or modification of the
+software in any way except the following: it may disclaim warranties,
+it may grant limited patent use rights, it may specify arbitration, it
+may suspend use rights if the user sues for patent infringement, and
+it may prohibit modifications which remove legal information.
+
+Whether this is accompanied by an acceptance ceremony
+(e.g. click-wrap) is a different subject.  This needs to be added to
+forestall any number of unattractive terms such as those showing up in 
+Microsoft EULA's and which are not otherwise prohibited by the OSD now.
+
+-- 
+-russ nelson              http://russnelson.com |  New Internet Acronym:
+Crynwr sells support for free software  | PGPok |
+521 Pleasant Valley Rd. | +1 315 268 1925 voice |         IANAE
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |  I Am Not An Economist
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From lrosen at rosenlaw.com  Tue Aug  6 16:27:50 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Tue, 6 Aug 2002 09:27:50 -0700
+Subject: A new "use" clause in the OSD
+In-Reply-To: <20020806144049.1635.qmail@desk.crynwr.com>
+Message-ID: <007201c23d66$34ff4ba0$927ba8c0@ROSENGARDEN>
+
+My preference is for a clause that is more general and doesn't list only
+the things we can think of today:
+
+   OSD #10: No open source license may limit or restrict 
+   a person's rights to use the software that would be
+   available in the absence of a license, including their
+   fair use rights under the copyright law.
+
+By the way, Russ, how did you jump to OSD#11?  Are you saving OSD#10 for
+something REALLY IMPORTANT?  :-)
+
+/Larry Rosen
+
+> -----Original Message-----
+> From: Russell Nelson [mailto:nelson at crynwr.com] 
+> Sent: Tuesday, August 06, 2002 7:41 AM
+> To: license-discuss at opensource.org
+> Subject: A new "use" clause in the OSD
+> 
+> 
+> We need to introduce a new clause into the OSD.  The new 
+> clause must specify what restrictions on user activity are 
+> allowed.  Here is my
+> suggestion:
+> 
+> OSD#11: A license must not restrict the use or modification 
+> of the software in any way except the following: it may 
+> disclaim warranties, it may grant limited patent use rights, 
+> it may specify arbitration, it may suspend use rights if the 
+> user sues for patent infringement, and it may prohibit 
+> modifications which remove legal information.
+> 
+> Whether this is accompanied by an acceptance ceremony
+> (e.g. click-wrap) is a different subject.  This needs to be 
+> added to forestall any number of unattractive terms such as 
+> those showing up in 
+> Microsoft EULA's and which are not otherwise prohibited by 
+> the OSD now.
+> 
+> -- 
+> -russ nelson              http://russnelson.com |  New 
+> Internet Acronym:
+> Crynwr sells support for free software  | PGPok |
+> 521 Pleasant Valley Rd. | +1 315 268 1925 voice |         IANAE
+> Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |  I Am Not 
+> An Economist
+> --
+> license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+> 
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From brian at collab.net  Wed Aug  7 03:46:58 2002
+From: brian at collab.net (Brian Behlendorf)
+Date: Tue, 6 Aug 2002 20:46:58 -0700 (PDT)
+Subject: A new "use" clause in the OSD
+In-Reply-To: <007201c23d66$34ff4ba0$927ba8c0@ROSENGARDEN>
+Message-ID: <20020806204226.W38422-100000@yez.hyperreal.org>
+
+Russell Nelson proposed:
+> > OSD#11: A license must not restrict the use or modification
+> > of the software in any way except the following: it may
+> > disclaim warranties, it may grant limited patent use rights,
+> > it may specify arbitration, it may suspend use rights if the
+> > user sues for patent infringement, and it may prohibit
+> > modifications which remove legal information.
+
+On Tue, 6 Aug 2002, Lawrence E. Rosen wrote:
+> My preference is for a clause that is more general and doesn't list only
+> the things we can think of today:
+>
+>    OSD #10: No open source license may limit or restrict
+>    a person's rights to use the software that would be
+>    available in the absence of a license, including their
+>    fair use rights under the copyright law.
+
+While the whole business of expanding the OSD in this area still
+smells rotten to me, I think I prefer Russ's statement.  Not only would it
+not invalidate any of the current OSI-approved licenses, it is a much more
+limited grant, and also avoids the whole rathole of tracking changes to
+"fair use" laws and variances in that between jurisdictions.  It can
+always be expanded later if something vital seems missing.
+
+	Brian
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From nelson at crynwr.com  Wed Aug  7 19:09:05 2002
+From: nelson at crynwr.com (Russell Nelson)
+Date: Wed,  7 Aug 2002 15:09:05 -0400 (EDT)
+Subject: A new "use" clause in the OSD
+In-Reply-To: <20020806204226.W38422-100000@yez.hyperreal.org>
+References: <007201c23d66$34ff4ba0$927ba8c0@ROSENGARDEN>
+	<20020806204226.W38422-100000@yez.hyperreal.org>
+Message-ID: <15697.28165.620152.547262@desk.crynwr.com>
+
+Brian Behlendorf writes:
+ > While the whole business of expanding the OSD in this area still
+ > smells rotten to me,
+
+Why?  There's nothing in the OSD that clearly prohibits restrictions
+on use.  Twice now we've had people submit restrictions on
+modifications which would cause a mechanical circular dispersion of
+feces if we had approved them.  We've stretched the meaning of one of
+the OSD terms to do it, but the current board doesn't want to have to
+do that (my interpretation), and I don't blame them.  Um, "us", I mean.
+
+-- 
+-russ nelson              http://russnelson.com |  New Internet Acronym:
+Crynwr sells support for free software  | PGPok |
+521 Pleasant Valley Rd. | +1 315 268 1925 voice |         IANAE
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |  I Am Not An Economist
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
