@@ -1,0 +1,188 @@
+Source: OSI license-review public archive, 2008-May.txt and 2009-February.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 2 of the messages on "Request for approval: EUPL (European Union Public Licence)" (2008-05-13 and 2009-02-05)
+Senders: John Cowan, Matthew Flaschen
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From cowan at ccil.org  Tue May 13 21:13:18 2008
+From: cowan at ccil.org (John Cowan)
+Date: Tue, 13 May 2008 17:13:18 -0400
+Subject: Request for approval: EUPL (European Union Public Licence)
+In-Reply-To: <428DC95699269E4691DCA0C6F3C51FF60527FBBC@GBMK-EXCH3.eu.uis.unisys.com>
+References: <428DC95699269E4691DCA0C6F3C51FF60527FBBC@GBMK-EXCH3.eu.uis.unisys.com>
+Message-ID: <20080513211318.GE10023@mercury.ccil.org>
+
+Schmitz, Patrice-Emmanuel scripsit:
+
+> # 13 - paragraph 4
+> 
+> " LINGUISTIC VERSIONS OF THIS LICENCE, APPROVED BY THE EUROPEAN
+> COMMISSION, HAVE IDENTICAL VALUE. PARTIES CAN TAKE ADVANTAGE OF THE
+> LINGUISTIC VERSION OF THEIR CHOICE."
+> 
+> Rationale:         This new paragraph reflects the original intention of
+> the European Commission when providing (currently) 22 linguistic
+> versions of the EUPL. However, this was not yet written in the EUPL. It
+> addresses questions like: "If Licensees contract under the EUPL based on
+> its English version, can a Licensor restrict their rights based, for
+> example, on the Hungarian version (in the case this one would be more
+> restrictive)?"
+
+This part disturbs me a little, since it seems to give Licensor and
+Licensee equal rights.  If Licensor brings an enforcement action
+based on the Hungarian version (which is more favorable to it) and
+Licensee defends on the basis of the English version (which is more
+favorable to it), what then?
+
+I would break such ties in favor of Licensee, since the EUPL is a
+contract of adhesion (that is, the Licensor does not negotiate
+terms, but says "Take it or leave it") and therefore suggest
+the wording:
+
+LICENSEES CAN TAKE ADVANTAGE OF THE LINGUISTIC VERSION OF THEIR CHOICE.
+
+-- 
+What asininity could I have uttered     John Cowan <cowan at ccil.org>
+that they applaud me thus?              http://www.ccil.org/~cowan
+        --Phocion, Greek orator
+
+
+From matthew.flaschen at gatech.edu  Fri Feb  6 01:27:35 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Thu, 05 Feb 2009 20:27:35 -0500
+Subject: Request for approval: EUPL (European Union Public Licence)
+In-Reply-To: <428DC95699269E4691DCA0C6F3C51FF60527FBBC@GBMK-EXCH3.eu.uis.unisys.com>
+References: <428DC95699269E4691DCA0C6F3C51FF60527FBBC@GBMK-EXCH3.eu.uis.unisys.com>
+Message-ID: <498B9207.2090703@gatech.edu>
+
+Schmitz, Patrice-Emmanuel wrote:
+> 
+> Appendix
+> 
+> "Compatible Licences" according to article 5 EUPL are:
+> 
+>                                    - General Public License (GPL) v. 2
+
+I'm disappointed that GPLv3 has not been added as I suggested, even
+though Patrice-E. previously said
+(http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:15709:200803:imagdhlfimlbgfggjmkb)
+"the EUPL expert group came to the conclusion that GPL v 3 is meeting
+the requirements. Therefore it should be included in the EUPL list of
+compatible licences in the near future.".  Furthermore, given the
+license is now Affero-like, it would be good to also have the GNU Affero
+GPLv3.
+
+> "- Distribution and/or Communication: any act of selling, giving,
+> lending, renting, distributing, communicating, transmitting, or
+> otherwise making available, on-line or off-line, copies of the Work OR
+> PROVIDING ACCESS TO ITS ESSENTIAL FUNCTIONALITIES at the disposal of any
+> other natural or legal person."
+> 
+> Rationale:         this is to clarify that the EUPL covers also the
+> activity of on-line "Application Service Provider". The idea was already
+> present in # 2 (communicate to the public, including the right to
+> ...perform publicly, as the case may be, the Work).
+
+It is true that 1.0 granted the right to perform publicly in paragraph 2
+(and I don't think anyone remarked on this).  But adding "providing
+access to its essential functionalities at the disposal of any
+other natural or legal person." to the "Distribution and/or
+Communication" definition has ramifications.  It means (unless I'm
+misinterpreting something) that using the code in a SaaS app requires
+that source code be provided.  The Provision of Source Code clause says,
+ "When distributing and/or communicating copies
+of the Work, the Licensee will provide a machine-readable copy of the
+Source Code" (I assume this should be "When Distributing and/or
+Communicating").  In other words this is now a Affero-style license.
+
+> The modified # 1 is
+> more consistent with # 2 and in line with the request from the 25
+> January workshop participants to be more explicit in the definition of #
+> 1.
+
+In my opinion, this changes the meaning of the license substantially.
+Of course, it is still OSD-compliant.  It's just something important to
+be aware of.
+
+> # 5 - Copyleft clause:
+> 
+> "If the Licensee distributes and/or communicates copies of the Original
+> Works or Derivative Works based upon the Original Work, this
+> Distribution and/or Communication will be done under the terms of this
+> Licence OR OF A LATER VERSION OF THIS LICENCE UNLESS THE ORIGINAL WORK
+> IS EXPRESSLY DISTRIBUTED "ONLY" UNDER THIS VERSION OF THE LICENCE.
+
+This takes a slightly different approach from e.g. GPL.  GPL says "If
+the Program specifies a version number of this License which applies to
+it and "any later version", you have the option of following the terms
+and conditions either of that version or of any later version published
+by the Free Software Foundation. If the Program does not specify a
+version number of this License, you may choose any version ever
+published by the Free Software Foundation. "
+
+So if you say "Foo is under GPL 2" in all relevant headers, etc. it is
+under only GPL2.  If you say "Foo is under EUPL 1.1" it is under EUPL
+1.1 or later (but you can still say "Foo is under only EUPL 1.1".  This
+is acceptable, as long as licensors understand how it works.
+
+> Rationale:         "[THE IDENTIFICATION AND ADDRESS OF THE LICENSOR,]"
+> is deleted. The EUPL refers to the applicable law, however the EUPL
+> should not "predict or provide" the content of this applicable law
+> (maybe requesting the identification and the address, but possibly also
+> other information).
+
+This is an important improvement, in that it ensures the EUPL is not
+more demanding than the EU law itself.
+
+> # 13 - paragraph 3
+> 
+> "The European Commission may PUBLISH [PUT IN FORCE] translations and/or
+> new [BINDING] versions of this Licence, so far this is required and
+> reasonable, WITHOUT REDUCING THE SCOPE OF THE RIGHTS GRANTED BY THE
+> LICENCE. New versions of the Licence will be published with a unique
+> version number."
+
+This is actually a stronger commitment than other stewards make about
+new versions (e.g. the FSF only says new versions will be "similar in
+spirit").  Anyway, since switching to new license versions is no longer
+required, this is mostly a non-issue.
+
+> " LINGUISTIC VERSIONS OF THIS LICENCE, APPROVED BY THE EUROPEAN
+> COMMISSION, HAVE IDENTICAL VALUE. PARTIES CAN TAKE ADVANTAGE OF THE
+> LINGUISTIC VERSION OF THEIR CHOICE."
+> 
+> Rationale:         This new paragraph reflects the original intention of
+> the European Commission when providing (currently) 22 linguistic
+> versions of the EUPL. However, this was not yet written in the EUPL. It
+> addresses questions like: "If Licensees contract under the EUPL based on
+> its English version, can a Licensor restrict their rights based, for
+> example, on the Hungarian version (in the case this one would be more
+> restrictive)?"
+
+I would still prefer if, as John Cowan suggested, ties broke in favor of
+the licensee.  However, the consensus appears to be that it is enough
+for OSI to ensure the English version is acceptable.  This assumes
+courts will not grant the licensee less rights than the version the
+licensee used (in case of a tie).
+
+> " [ THE NEW VERSION OF THE LICENCE BECOMES BINDING FOR YOU AS SOON AS
+> YOU BECOME AWARE OF ITS PUBLICATION. ]"
+
+This was definitely unacceptable, so I'm glad it's gone.
+
+> At the contrary, the new formulation of # 5 allows
+> any stakeholder to insert the reference to the new version in the source
+> code and documentation, and to re-distribute it under the new version as
+> from a certain date (without impacting relationships with previous
+> recipients)
+
+This is the important part.  Versions under a new license version can be
+distributed at any time, but without affecting existing recipients.
+
+I'm overall satisfied with the improvements, and I currently support
+approval.
+
+Matt Flaschen
+
+
