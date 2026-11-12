@@ -126,6 +126,27 @@ def load_sources(root=".", cache=True):
                 if _f != "MANIFEST.md":
                     with open(os.path.join(_dp, _f), encoding="utf-8", errors="replace") as _h:
                         out.append(norm(html.unescape(re.sub(r"<[^>]+>", " ", _h.read().replace("\\u2019", "'")))))
+    # 「N.M draft as adopted on YYYY-MM-DD」の引用は、その日の終わりまでに最後に草案を変えた commit の草案に当てる
+    #   (2026-11-12・portfolio-aa の提案): 試作で草案の文が後で変わると、採った日の文は今の草案にも凍結版にも無く、
+    #   errata E67 の 65 語の引用が「未確認」に数えられていた。git の履歴が要るので cache のとき (手で回すとき) だけ
+    if cache:
+        _days = set()
+        for _f in glob.glob(f"{root}/LICENSES/*.md"):
+            _days |= set(re.findall(r"(\d+\.\d+) draft as adopted on (\d{4}-\d{2}-\d{2})",
+                                    open(_f, encoding="utf-8", errors="replace").read()))
+        for _v, _d in sorted(_days):
+            _rel = f"LICENSES/ACD-{_v}-DRAFT.txt"
+            # その日の終わりの版だけでなく、その日に作られた版のすべて (同じ日に文が 2 度変わることがある・11-08)
+            try:
+                _hs = subprocess.run(["git", "-C", root, "log", f"--since={_d} 00:00:00", f"--until={_d} 23:59:59",
+                                      "--format=%H", "--", _rel], capture_output=True, text=True, check=True).stdout.split()
+                _hs += subprocess.run(["git", "-C", root, "log", "-1", f"--until={_d} 00:00:00", "--format=%H", "--", _rel],
+                                      capture_output=True, text=True, check=True).stdout.split()
+                for _h in _hs:
+                    out.append(norm(subprocess.run(["git", "-C", root, "show", f"{_h}:{_rel}"],
+                                                   capture_output=True, text=True, check=True).stdout))
+            except (OSError, subprocess.CalledProcessError):
+                continue
     pats = ([f"{CACHE}/*.txt"] if cache else []) + [f"{root}/LICENSES/ACD-*.txt", f"{root}/LICENSE"]
     for pat in pats:
         for f in sorted(glob.glob(pat)):
