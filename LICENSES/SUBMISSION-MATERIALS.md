@@ -191,6 +191,8 @@ Phipps 氏は OSI の判断について *"to explain the discretion OSI always h
 
 ## 2. 先に自分から名指すと良い反論（審査者が見つける前に）
 
+**申請の日に自分から名指す行（2026-11-12）**: 表は 16 行あるので、register の優先度が「最高」か「高」の阻害要因に当たる 5 行を先に名指し、残りは聞かれたら出す。(1)「重複していて、どのプロジェクトにも使われていない」（B2・B10）、(2)「法的な問題があっても、補う共同体が無い」（#323・B1・B2）、(3)「献呈なのかライセンスなのか」（B4）、(4)「主題（Mulan 2023 は主題で不承認）」（B15）、(5)「長さ」（B3）。B14（AI 起草）は表ではなく §1 の来歴の行と `ACD-1.0.submission.md` §E.1 が持つ。**逆側**: 優先度は我々の register の判断で、審査者が実際に最初に何を言うかを測ったものではない（2026-11-12 の portfolio-9b の測定では、§0〜§1 の手順が約 21 KB、§1b〜§2 の材料が約 49 KB）。
+
 | 反論 | 我々の答え（事実） | 所在 | 理由書の形（CAL 2020・`review-outcomes.md` §1.126） |
 | :-- | :-- | :-- | :-- |
 | 「steward が個人 1 人」 | リストが恐れてきたのは支配である（Kuhn 氏 2018 *"when an upgrade clause is in play"*・Rosen 氏 2012 の回想）。ACD に upgrade 条項は無く、§16.4 は AFL / OSL の §16 と同じ向きである（ただし AFL / OSL は本文の著作権に立ち、ACD の本文にはそれが無いかもしれない・`review-responses-meta.md` Q36）。連絡の取れない steward の下でも承認は残っている: Nelson 氏は 2006-03-11 に *"These licenses are ones for whom we have no good steward contact."* と書いて承認済みの 12 本を挙げ、そのうち 11 本は 2026-11-04 に SPDX の印で数えた 141 本に今も在る（register B12）。**⚠ 逆側**: それは承認の後の連絡先の話で、承認の時に steward を見るという見解は動かない。承継先は未定で、Kuhn 氏は *"who the license steward is"* も見るべきだと述べている（register B12） |
