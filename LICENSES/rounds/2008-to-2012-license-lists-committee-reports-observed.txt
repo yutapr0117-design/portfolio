@@ -1,0 +1,415 @@
+Source: OSI license-review public archive, 2008-November.txt, 2010-June.txt and 2010-December.txt; license-discuss public archive, 2012-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 10: 3 of 7 in "License Committee Report for November 2008", 2 of 4 in "License Committee Report for June 2010", the report of 2010-12-01, and 4 of 8 in "license committee" (2012-03-09)
+Senders: Russ Nelson, Joel Rees, Smith, McCoy, Bruce Perens, John Cowan, Mike Milinkovich
+Position: Not addressed to us. Observed. The messages from McCoy Smith and Mike Milinkovich of 2012-03-09 are cut where the quoted message ("Original Message" or the earlier text) begins; each message kept here is otherwise whole. Russ Nelson writes as chair of the license approval committee; the three reports are kept whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Tue Nov 11 21:55:05 2008
+From: nelson at crynwr.com (Russ Nelson)
+Date: Tue, 11 Nov 2008 16:55:05 -0500
+Subject: License Committee Report for November 2008
+Message-ID: <18713.65337.312313.774720@desk.crynwr.com>
+
+I'm the chair of the license approval committee.  This is my report
+for the current set of licenses under discussion.  The OSI board will
+be meeting November 12th.
+
+--
+
+Title: UOML License 1.2 (UOMLL 1.2)
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:371:200810:mfknlbjbakdohplkfefg
+License: http://www.uoml.org/uoml_license1.2.html
+Comments: This is the same license we turned back in September.  The
+    authors really REALLY want to restrict their code so that it is only
+    used for implementations which comply with the UOML standard.  Bruce,
+    Matthew, and I have been trying to convince them that an open source
+    license is not the right tool to do this.  They seem not to
+    believe any of us, and would like a statement from the board.
+Recommend: rejection
+
+--
+
+Title: SIL Open Font License 1.1
+Submission:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:385:200811:hjdgjhelbanenkidpeml
+License: http://scripts.sil.org/OFL
+Comments:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:sss:452:200811:hjdgjhelbanenkidpeml
+Recommend: still under discussion
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Crynwr sells support for free software  | PGPok | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From nelson at crynwr.com  Thu Nov 13 17:52:07 2008
+From: nelson at crynwr.com (Russ Nelson)
+Date: Thu, 13 Nov 2008 12:52:07 -0500
+Subject: License Committee Report for November 2008
+In-Reply-To: <Pine.BSM.4.64L.0811112206420.101@herc.mirbsd.org>
+References: <18713.65337.312313.774720@desk.crynwr.com>
+	<Pine.BSM.4.64L.0811112206420.101@herc.mirbsd.org>
+Message-ID: <18716.26951.86587.900700@desk.crynwr.com>
+
+Thorsten Glaser writes:
+ > excuse me, but what is the status of the MirOS Licence? After being
+ > mentioned in the September(?) Committee Report, I haven?t seen any
+ > official statement of approval or disapproval yet.
+
+ARGH!  Thanks for asking.  The board did indeed approve the MirOS
+License.  Here's the status of the other licenses:
+
+The RTEMS License needs more discussion before the board can make a
+decision.
+
+The Iggy WAnna License (IWL) is not OSD compliant and should be rejected.
+
+University Jaume I License (UJIL) also needs more discussion.
+
+Unstructured Operation Markup Language License (UOMLL) was rejected.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Crynwr sells support for free software  | PGPok | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From nelson at crynwr.com  Mon Nov 17 17:20:20 2008
+From: nelson at crynwr.com (Russ Nelson)
+Date: Mon, 17 Nov 2008 12:20:20 -0500
+Subject: License Committee Report for November 2008
+In-Reply-To: <491C6C96.5000903@oarcorp.com>
+References: <18713.65337.312313.774720@desk.crynwr.com>
+	<Pine.BSM.4.64L.0811112206420.101@herc.mirbsd.org>
+	<18716.26951.86587.900700@desk.crynwr.com>
+	<491C6C96.5000903@oarcorp.com>
+Message-ID: <18721.42964.760547.36997@desk.crynwr.com>
+
+Joel Sherrill writes:
+ > The discussion ended with some comments to the
+ > effect that the issue of removing restrictions from
+ > an approved license needed to be addressed.
+
+Yes, you can see that here:
+    http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:355:200809:mfknlbjbakdohplkfefg
+
+I think Larry's advice is wise: new licenses should look to the
+Jacobsen decision for wording.  In particular, I think that this
+committee should ask the board to agree that if a licensor using an
+open source license waives any conditions imposed by the license,
+their license is automatically approved.  Not being a lawyer, I don't
+know if that idea achieves the effect desired: giving a user more
+freedom doesn't remove OSI approval.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Crynwr sells support for free software  | PGPok | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From nelson at crynwr.com  Tue Jun  1 04:24:21 2010
+From: nelson at crynwr.com (Russ Nelson)
+Date: Tue, 1 Jun 2010 00:24:21 -0400
+Subject: License Committee Report for June 2010
+Message-ID: <19460.35701.543393.848883@desk.crynwr.com>
+
+I'm the chair of the license approval committee.  This is my report
+for the current set of licenses under discussion.  The OSI board will
+be meeting June 2.
+
+--
+
+Title: Nameless license
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:1005:201004
+License: In the submission
+Comments: None
+Recommend: Prompt license-review to discuss this proposed license.
+  Prompt submittor to name the license.
+
+--
+
+Title: KLLSD License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:980:201004
+Clarification: http://crynwr.com/cgi-bin/ezmlm-cgi?17:msn:992
+License: in the submission
+Comments: Submittor suggests that Apache is "too wordy".  Bruce
+  suggests that the change documentation makes the license
+  unapprovable.
+Recommend: More discussion.  Commentators are uniformly dubious of
+  the value of this license.  Simpler isn't necessarily better when it
+  comes to legal documents.
+
+--
+
+Title: BSD+1 License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:971:201004
+License: in the submission
+Comments: Many, all of them negative.
+Recommend: Return to the submittor for clarification on exactly what
+  constitutes "commercial use" and "made public". Bruce suggests that
+  a lawyer be involved.
+
+--
+
+Title: The BlackBox Component Builder Open Source License
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:887:200911:nlcjlommcajfndpfkoni
+License: In the submission and http://www.oberon.ch/BlackBox.html
+Comments: As Cowan says, it's sleepycat with redundancies removed and
+  the names replaced.
+Recommend: Approval when resubmitted as a template.
+
+--
+
+Title: Robot Open Source Hardware and Software License Version 1.0
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:962:201001:kalegncbjnbmnmcmmaag
+License: In the submission
+Comments: none
+Recommend: Move it over to license-discuss to see if we want to get
+  into open hardware licenses (even if, yes, combined with a software
+  license).
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From joel_rees at sannet.ne.jp  Wed Jun  2 00:52:08 2010
+From: joel_rees at sannet.ne.jp (Joel Rees)
+Date: Wed, 2 Jun 2010 09:52:08 +0900
+Subject: License Committee Report for June 2010
+In-Reply-To: <19460.35701.543393.848883@desk.crynwr.com>
+References: <19460.35701.543393.848883@desk.crynwr.com>
+Message-ID: <0E0D7F72-22F8-4998-B158-C0AF154062AC@sannet.ne.jp>
+
+Is just replying appropriate here?
+
+On ?? 22/06/01, at 13:24, Russ Nelson wrote:
+
+> --
+>
+> Title: Nameless license
+> Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:1005:201004
+> License: In the submission
+> Comments: None
+> Recommend: Prompt license-review to discuss this proposed license.
+
+I would definitely like to see some discussion. Specifically,
+
+(1) Can we template a license and allow room for a non-binding  
+section to expose a bit more of the authors' intent in extending the  
+license?
+
+Maybe I should rename the "explanations" section to "comments"?
+
+(2) I think it's necessary to formally acknowledge the inclusion of  
+public domain code and formally assert a lack of copyright claim on  
+the public domain portions. I'm sure I can word my comments more  
+precisely and concisely, but the claims exclusion clause in the  
+license proper is the best I can think of at this moment.
+
+(3) I can't afford a lawyer to help me, and I apologize for  
+submitting it without having a lawyer check it first.
+
+>   Prompt submittor to name the license.
+
+In the words of the famous geek, "erk".
+
+Uhm, I suppose, since my use of public-domain code in my BIF-C  
+project is the reason this license exists, I could call it the "BIF-C  
+license." Otherwise, it could be called something like a public  
+domain excluding copyright claim license -- "PDECCL" , but that would  
+invite misinterpretation.
+
+Joel Rees
+(waiting for a 3+GHz ARM processor to come out,
+to test Steve's willingness to switch again.)
+
+(PS: Sorry about forgetting to reply list and pumping more mail  
+directly into your mailbox, there, Russ.)
+
+
+From nelson at crynwr.com  Wed Dec  1 05:19:43 2010
+From: nelson at crynwr.com (Russ Nelson)
+Date: Wed, 1 Dec 2010 00:19:43 -0500
+Subject: License Committee Report for November 2010
+Message-ID: <19701.56047.83284.72437@desk.crynwr.com>
+
+I'm the chair of the license approval committee.  This is my report
+for the current set of licenses under discussion.  The OSI board will
+be meeting December 1st.
+
+
+
+--
+
+Title: MPL 2 alpha draft
+Discussion: http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:1086:201010
+Recommend: no action - but review the draft please.
+
+--
+
+Title: Do Whatever You Want To With It Public License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:1166:201011
+License: http://human-groveback.deviantart.com/art/DWYWTWIPL-3-187452721
+Comments: Cowan says it won't work. So doe Perens. DiBona is even more
+    dismissive.  Not likely to have the desired effect.
+Recommend: send back for further revision
+
+--
+
+Title: CodeIgniter License Agreement 
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:1087:201010
+License: In the submission and also at
+  http://codeigniter.com/user_guide/license.html
+Comments: Indemnity is too broad
+Recommend: send back for further revision
+
+--
+
+Title: netX Public License
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:1067:201010
+License: 
+Comments: The requirement to submit changes directly to the licensor
+    is a technology-specific term which goes against OSD#10. The
+    license contains language specific to netX.
+Modified: http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:1096:201010
+Recommend: needs continued discussion, per the original submittor's
+    request.
+
+--
+
+Title: Simple & Short Copyleft License (SSCL)
+Submission: http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:1043:201006
+License: In the submission
+Comments: Not likely to have the desired effect. 
+Recommend: send back for the further revision
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From mccoy.smith at intel.com  Fri Mar  9 18:37:06 2012
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Fri, 9 Mar 2012 11:37:06 -0700
+Subject: [License-discuss] license committee
+In-Reply-To: <4F5A386E.4030001@perens.com>
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+	<20120309165505.GA24767@mercury.ccil.org> <4F5A386E.4030001@perens.com>
+Message-ID: <ECB185FCC10D2346988990134CE91ADF016EB3ABB6@rrsmsx506.amr.corp.intel.com>
+
+FWIW, the report from the committee (which formed in ?04 but didn?t issue a report until ?06) was published here:  http://www.opensource.org/proliferation
+AFAIK, that report didn?t result in a significant amount of voluntary deprecation of licenses (at the time, there were only 4 OSI-approved licenses that had been deprecated;  I don?t think many others have since).
+I also don?t know if that report had some influence on stemming the tide of new licenses submitted for OSI-approval, but it seems as though fewer have been added to the list since 2006.  Those who have kept closer tabs on the pace of license submission (or voluntary deprecations) might be able to shed more light on both of those issues.
+I?m pretty sure there was some degree of dissatisfaction with the output of the ?04 committee and I thought there was going to be a new committee set up to reconsider the output, but perhaps that never happened.
+Sorry for the top-posting for those of you who find that confusing.
+
+From bruce at perens.com  Fri Mar  9 18:43:43 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 09 Mar 2012 10:43:43 -0800
+Subject: [License-discuss] license committee
+In-Reply-To: <20120309174925.GF24767@mercury.ccil.org>
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+	<20120309165505.GA24767@mercury.ccil.org>
+	<4F5A386E.4030001@perens.com>
+	<20120309171342.GC24767@mercury.ccil.org>
+	<4F5A3DCF.8000809@perens.com>
+	<20120309174925.GF24767@mercury.ccil.org>
+Message-ID: <4F5A4F5F.2000403@perens.com>
+
+On 03/09/2012 09:49 AM, John Cowan wrote:
+> Fonts are not documents.  What's meant is that the license doesn't apply
+> to a document created using the font.
+Obviously that is what is meant. But what it says is arguably different 
+from what is meant. A professional would never have made such a silly 
+mistake. And the point is that OSI can't even bring itself to 
+dis-approve the "crayon" licenses.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20120309/ae143221/attachment.vcf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4447 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20120309/ae143221/attachment.p7s>
+
+From cowan at mercury.ccil.org  Fri Mar  9 17:49:25 2012
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Fri, 9 Mar 2012 12:49:25 -0500
+Subject: [License-discuss] license committee
+In-Reply-To: <4F5A3DCF.8000809@perens.com>
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+	<20120309165505.GA24767@mercury.ccil.org>
+	<4F5A386E.4030001@perens.com>
+	<20120309171342.GC24767@mercury.ccil.org>
+	<4F5A3DCF.8000809@perens.com>
+Message-ID: <20120309174925.GF24767@mercury.ccil.org>
+
+Bruce Perens scripsit:
+
+> They would only be different if the organization became politically  
+> capable to dis-recommend licenses.
+
+Quite so.  I see no sign of that happening.  OSI, unlike FSF, has always
+been seen as a neutral fact-finder.
+
+> I think my favorite is probably still the SIL font license, where it  
+> says "The requirement for fonts to remain under this license does not  
+> apply to any document created using the Font Software." As far as I can  
+> tell, that allows you to convert a font to any license or no license,  
+> and then extract it again, and the SIL license doesn't magically come 
+> back.
+
+Fonts are not documents.  What's meant is that the license doesn't apply
+to a document created using the font.  Even if you put a full type specimen
+into a document and then extracted the characters from it, you'd wind up
+with a font again and the SIL would apply.
+
+-- 
+John Cowan    cowan at ccil.org    http://ccil.org/~cowan
+        Sound change operates regularly to produce irregularities;
+        analogy operates irregularly to produce regularities.
+                --E.H. Sturtevant, ca. 1945, probably at Yale
+
+
+From mike.milinkovich at eclipse.org  Fri Mar  9 19:28:19 2012
+From: mike.milinkovich at eclipse.org (Mike Milinkovich)
+Date: Fri, 9 Mar 2012 19:28:19 +0000
+Subject: [License-discuss] license committee
+In-Reply-To: <ECB185FCC10D2346988990134CE91ADF016EB3ABB6@rrsmsx506.amr.corp.intel.com>
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+	<20120309165505.GA24767@mercury.ccil.org>
+	<4F5A386E.4030001@perens.com>
+	<ECB185FCC10D2346988990134CE91ADF016EB3ABB6@rrsmsx506.amr.corp.intel.com>
+Message-ID: <1965090641-1331321297-cardhu_decombobulator_blackberry.rim.net-1920726594-@b27.c18.bise6.blackberry>
+
+
+I would point out that one tangible result from the report was the deprecation of the Common Public License, in favour of the Eclipse Public License. 
+
+
+
+Mike Milinkovich
+mike.milinkovich at eclipse.org
++1.613.220.3223
+

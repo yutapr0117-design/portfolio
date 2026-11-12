@@ -434,7 +434,7 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"ZPL has been applied in three of our products and approved by hundreds of thousands users of ours."* | 提出者 2016-06-23 | B2 の逆側の例。数十万の利用者を挙げた提出でも、OSD への疑義と提出の形の不備で退けられた。使われていることは承認の十分な条件ではない |
 | *"Can we get a Chinese reader to review the Chinese version, since it's the authoritative version?"* | Josh Berkus 氏 2016-06-24 | 正本が英語でないと、その言語を読める審査者を探すところから始まる。2017-01 の報告への返信で同氏は *"Also, the license's main langauage is Chinese, and needs to be reviewed in that language, which I think stalled us."* と書いた（原文ママ・2017-01-09）。ACD の英語の正本は、この費用を持たない |
 
-**2026-11-12 の追記 —— 英語以外の正本の扱い（EUPL v1.2・2017）。** `rounds/2017-05-and-07-license-review-eupl-1-2-observed.txt`（2 通）。Simon Phipps 氏は International の分類について *"That categorisation was created for licenses submitted in languages other than English, as it triggers a process that allows the list and board to reasonably review the license."* と書き（2017-05-30）、委員長は 2017-07-13 に *"The OSI has approved EUPL v1.2."*、*"As with EUPL 1.1, the approval extends to all the official language versions of the license."* と告げた。英語以外の正本を持つライセンスにも審査の道は在り、全ての言語の版に承認が及ぶ例である。ACD は英語だけを正本とするので、この分類の手続きを要しない。
+**2026-11-12 の追記 —— 英語以外の正本の扱い（EUPL v1.2・2017）。** `rounds/2017-05-and-07-license-review-eupl-1-2-observed.txt`（2 通）。Simon Phipps 氏は International の分類について *"That categorisation was created for licenses submitted in languages other than English, as it triggers a process that allows the list and board to reasonably review the license."* と書き（2017-05-30）、委員長の Richard Fontana 氏は 2017-07-13 に *"The OSI has approved EUPL v1.2."*、*"As with EUPL 1.1, the approval extends to all the official language versions of the license."* と告げた。英語以外の正本を持つライセンスにも審査の道は在り、全ての言語の版に承認が及ぶ例である。ACD は英語だけを正本とするので、この分類の手続きを要しない。
 
 **この節が establish しないこと。** 却下の理由は委員長の推薦の文に限り、理事会の決定文は読んでいない。ZENTAO がその後に別の形で出されたかは確かめていない。
 
@@ -518,3 +518,21 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"Thus a copyright license such as "You have the right to make up to five verbatim copies of this message and send them to your friends" is a bare license which happens to be in writing.  It is not the subject matter of any contract."* | John Cowan 氏 2000-03-29 | 許可とみる側。W. Yip 氏も同じ日に、許可と契約は *"two distinct legal concepts, which regrettably are known to overlap"* と書いた。許可なら対価は要らないが、翌日の Cowan 氏の文のとおり撤回されうる（上の表）。どちらの見方でも、ACD が頼るのは対価ではなく §2.5 の信頼と §4.1 の語で、その効き方が開いていること（QFC 問 1 (i)）は変わらない |
 
 **この追記が establish しないこと。** 法律家の肩書きで書いたのは Dixon 氏だけで、Cowan 氏と Yip 氏の文は説明であって法の判断ではない。
+
+## 1.192 2008〜2010 年の委員会報告 —— 条件を放棄しても承認は外れない、簡単な方がよいとは限らない、何でもしてよい式は望む効果を持たない（2026-11-12）
+
+委員長の Russ Nelson 氏の委員会報告 3 本（`license-review` 2008-11-11・2010-06-01・2010-12-01）と、2012-03 の `license-discuss` の "license committee"（`rounds/2008-to-2012-license-lists-committee-reports-observed.txt`・10 通）。2004 年の報告（`board-decisions.md` 8.11 節）と同じ形で、ライセンスごとに勧告と理由を書く。portfolio-9b の「決める側・未読」の一覧（PR 2937）から読んだ。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"I think that this committee should ask the board to agree that if a licensor using an open source license waives any conditions imposed by the license, their license is automatically approved."*、*"Not being a lawyer, I don't know if that idea achieves the effect desired: giving a user more freedom doesn't remove OSI approval."* | Russ Nelson 氏（委員長）2008-11-17 | **有利な向き。** 承認済みのライセンスの条件を全部放棄しても承認は外れない、という委員長の案。条件を課さない ACD（§10.1）は、その帰結の形をしている。**逆側**: 案であって、理事会が採った記録はこのスレッドに無く、委員長自身が法律家でないと書いた。同じ通で、新しいライセンスは Jacobsen の判決に語を合わせよという Rosen 氏の助言を *"wise"* とした（条件を持つことで執行できる、という #307 の側の話） |
+| *"Bruce, Matthew, and I have been trying to convince them that an open source license is not the right tool to do this."* → *"Recommend: rejection"*（UOML License 1.2）。2008-11-13 に委員長は *"The board did indeed approve the MirOS License."* と書き、UOML の却下も伝えた | 委員長 2008-11-11・13 | UOML は、規格に適合する実装にだけ使わせる制限で却下された（`AS-OF.md` の UOML の記録と同じ）。ACD はこの種の制限を持たない。MirOS は 2004 年の勧告（8.11 節）から 4 年後に承認された |
+| *"Commentators are uniformly dubious of the value of this license.  Simpler isn't necessarily better when it comes to legal documents."*（KLLSD License・提出者は Apache を *"too wordy"* とした） | 委員長 2010-06-01 | B3 の両面。短くすること自体は価値と数えられない —— 2004 年の WSOSL への *"shortness is not an improvement"* と同じ線である。ACD の長さ（B3）は短さで補えないが、長さそのものも理由にされていない |
+| *"Bruce suggests that a lawyer be involved."*（BSD+1 License）と、提出者の *"I can't afford a lawyer to help me, and I apologize for submitting it without having a lawyer check it first."*（名の無いライセンス） | 委員長 2010-06-01 と Joel Rees 氏 2010-06-02 | B1 の不利な面。法律家を入れるよう勧められた提出と、法律家を雇えないと詫びた単独の提出者が同じ報告に並ぶ。後者は名を付けるまで審査の表から外れた（2010-12 に本人が了承）。ACD も法律家の読みを持たない |
+| *"Cowan says it won't work. So doe Perens. DiBona is even more dismissive.  Not likely to have the desired effect."* → *"send back for further revision"*（Do Whatever You Want To With It Public License） | 委員長 2010-12-01 | **不利な面。** 何でもしてよい式の短いライセンスが、望む効果を持たないとして差し戻された。2009 年の WTFPL の却下（`board-decisions.md` 8.1 節）と同じ類型である。ACD はこの類型の目的（何でも許す）を共有するので、審査者がこの類型と並べて読む恐れがある。**逆側**: ACD は条ごとに効果を書いた長い文書で、差し戻しの理由（効かない）に対しては §3・§4・§5 の 3 つの足場で答えている |
+| *"The requirement to submit changes directly to the licensor is a technology-specific term"*（netX・OSD 10 に反するとされた）、*"Indemnity is too broad"*（CodeIgniter） | 委員長 2010-12-01 | ACD は変更の提出も補償も求めない |
+| *"And the point is that OSI can't even bring itself to dis-approve the "crayon" licenses."* と、*"OSI, unlike FSF, has always been seen as a neutral fact-finder."* | Bruce Perens 氏と John Cowan 氏 2012-03-09 | 2004 年の増殖の委員会の後の評価。McCoy Smith 氏は、2006 年の報告が自発的な非推奨をあまり生まず、2006 年以後に足された数は少なく見える、と書き、Mike Milinkovich 氏は、その報告の具体的な結果として Common Public License が Eclipse Public License に替えられて非推奨になったことを挙げた。素人の起草への list の言葉（*crayon*）は `against.md` #158 に在る |
+
+**読み。** 2008〜2010 年の報告は、2004 年と同じ線を保っている —— 門は OSD への適合で、短さや新しさの主張だけでは足りず、効かない条項は差し戻される。ACD に有利なのは、条件を放棄しても承認は外れないという委員長の案と、使用を制限する条件を持たないこと。不利なのは、法律家を入れるよう勧める文と、何でもしてよい式の類型の差し戻しである。
+
+**この節が establish しないこと。** 報告はどれも委員長の勧告で、2010 年の 2 本の理事会の議決はこのスレッドに無い。2008-11 の委員長の案が採られた記録は読んでいない。2012 年の発言は個人の評価である。

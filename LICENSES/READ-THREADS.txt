@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 465 subject lines. One thread appears under two subject spellings
+# Rows: 469 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -255,6 +255,7 @@
 2008-09-02	KnowledgeHives Open Source License
 2008-09-07	License Committee Report for September 2008
 2008-11-05	For approval: SIL Open Font License 1.1
+2008-11-11	License Committee Report for November 2008
 2009-01-21	EUPL status
 2009-01-21	TGPPL, deterring licence proliferation by withholding the stamp of OSD-conformance
 2009-03-05	What do you recommend?
@@ -271,10 +272,12 @@
 2010-01-19	updating the GPL's status in http://www.opensource.org/licenses/category ?
 2010-03-04	Open Source Decision Models
 2010-05-25	WebM license third-party submission
+2010-06-01	License Committee Report for June 2010
 2010-06-04	WebM license resolution.
 2010-10-24	Legacy Approval - CodeIgniter License Agreement
 2010-12-01	Defenestrating the GPL
 2010-12-01	OT Discussions
+2010-12-01	License Committee Report for November 2010
 2010-12-06	MPL Beta 1 Section 10 is an additional permission, not a restriction
 2011-03-08	Updating the Python License
 2011-03-08	Updating the License List
@@ -317,6 +320,7 @@
 2012-03-02	Linking question
 2012-03-02	combining GPL and proprietary software -
 2012-03-05	SPDX License List v1.14 & OSI questions
+2012-03-09	license committee
 2012-04-03	New OSI FAQ items posted about Public Domain and CC0.
 2012-04-04	CPOL 1.02
 2012-04-04	Draft of new OSI licenses landing page; please review.
