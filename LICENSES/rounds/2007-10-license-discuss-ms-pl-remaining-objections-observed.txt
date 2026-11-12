@@ -1,0 +1,68 @@
+Source: OSI license-discuss public archive, 2007-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 2 of 27 in "For Approval: Microsoft Public License" (2007-10-03)
+Senders: Russ Nelson, Chris Travers
+Position: Not addressed to us. Observed. Each message kept here is whole. Russ Nelson was the chair of the license approval committee.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Wed Oct  3 15:41:03 2007
+From: nelson at crynwr.com (Russ Nelson)
+Date: Wed, 3 Oct 2007 11:41:03 -0400
+Subject: For Approval: Microsoft Public License
+In-Reply-To: <178B4B74A9BEEE469978ACE974D383081D299CEFB6@NA-EXMSG-C111.redmond.corp.microsoft.com>
+References: <178B4B74A9BEEE469978ACE974D383081D299CEFB6@NA-EXMSG-C111.redmond.corp.microsoft.com>
+Message-ID: <18179.47119.699556.972009@desk.crynwr.com>
+
+Jon Rosenberg (PBM) writes:
+ > Microsoft is pleased to submit the Microsoft Public License
+
+There's been a huge amount of discussion of this license, some of it
+prompted by the name.  Now that that has been changed, if there are
+any remaining objections, please post them under this thread.  My
+understanding is that the only remaining objections are:
+
+1) it's Yet Another License (but any license approval has that
+objection).
+
+2) it's Microsoft (at what point does Microsoft overcome its history?
+To which Chris DiBona and Eric Raymond say "when it stops making that
+history.").
+
+-- 
+--my blog is at    http://blog.russnelson.com   | People have strong opinions
+Crynwr sells support for free software  | PGPok | about economics even though
+521 Pleasant Valley Rd. | +1 315-323-1241       | they've never studied it.
+Potsdam, NY 13676-3213  |     Sheepdog          | Curious how that is!
+
+
+From chris.travers at gmail.com  Wed Oct  3 16:21:06 2007
+From: chris.travers at gmail.com (Chris Travers)
+Date: Wed, 3 Oct 2007 09:21:06 -0700
+Subject: For Approval: Microsoft Public License
+In-Reply-To: <18179.47119.699556.972009@desk.crynwr.com>
+References: <178B4B74A9BEEE469978ACE974D383081D299CEFB6@NA-EXMSG-C111.redmond.corp.microsoft.com>
+	 <18179.47119.699556.972009@desk.crynwr.com>
+Message-ID: <f5cca7ed0710030921y16e39bddn636e0bb404644d4d@mail.gmail.com>
+
+On 10/3/07, Russ Nelson <nelson at crynwr.com> wrote:
+>
+>
+> 2) it's Microsoft (at what point does Microsoft overcome its history?
+> To which Chris DiBona and Eric Raymond say "when it stops making that
+> history.").
+
+
+
+I thnk the larger counterquestion is, should the submitter be relevant to
+the discussion?  Are we approving licenses or submitters?  For that matter
+next time we get something like the GPL v4, should we argue about the merits
+of the FSF as a condition to approving the license because, after all, it is
+not hard to characterize them as "our most viscious competitor" either?
+
+
+Best Wishes,
+Chris Travers
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20071003/0d978b80/attachment.html>
+
