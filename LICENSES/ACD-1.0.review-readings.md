@@ -625,3 +625,18 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **逆側。** 2020 年の moderation は、特定の個人の通の内容についての判断である。2026-09-09 の moderator の告知は、AI が大半を書いた投稿という種類についての方針で、同じ運用の延長と読むか、新しい方針と読むかは、この記録からは決まらない。
 
 **この節が establish しないこと。** どちらの会話も、ライセンスの承認の審査ではない。Nelson 氏の文は、倫理的なソフトウェアの定義（ESD）への反論の中の一文である。
+
+## 1.198 承認済みの語をそのまま使えば読む費用が下がる —— OVPL（2005）で委員長が求めた逐語の再利用と、それへの理事の反対（2026-11-12）
+
+"Change ot topic, back to OVPL"（`license-discuss` 2005-08・65 通・決める側の通に絞って読んだ・`rounds/2005-08-license-discuss-ovpl-verbatim-reuse-observed.txt` に 6 通）。Open Vendor Public License は CDDL を下敷きにした提出で、委員長の Russell Nelson 氏は、CDDL への改善を OVPL から外し、CDDL の番号を保つよう求めた。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"A license is written once and read many times. But a license is not read out of context."*、*"If you can read and understand a term in one license, and then see that the term is identically present in another license, that greatly reduces the cost of understanding that license. I'm asking for verbatim code reuse."* | Russell Nelson 氏（委員長）2005-08-29 | **不利な面（B13）。** ACD の多くの条は、承認済みのライセンスの語をそのまま使わず、新しく書いている。読む人は ACD の語を既知の語に当てて理解できず、読む費用が上がる。**逆側**: ACD も一部は承認済みの語の型を使う（§1.9 と §2.6 は Apache-2.0 §5 の *"intentionally submitted for inclusion in the Work"* の型。同じスレッドで Behlendorf 氏がこの §5 を引いている、§3.1 の留保は CC0 の型）。全部を逐語にできないのは、承認済みの本文に無い対象（学習、モデル、出力）を扱うからである |
+| *"Admission of past mistakes is no reason to make new ones."* | Nelson 氏 2005-08-29 | `against.md` #239 と同じ線。承認済みに似た条が在ることは新しい条の理由にならない |
+| *"I disagree with requirements for certification that go beyond conformance to the letter and spirit of OSD."*、*"Approve it and put it directly, immediately on your "not recommended" list if OSI wants to pass judgement on its quality."* | Brian Behlendorf 氏 2005-08-24・29 | **有利な面。** 承認は OSD への適合で決め、質の判断は承認の後の分類で示せばよい、という理事の立場。2025 年の理事会の文（`board-decisions.md` §2）と同じ向きで、20 年前から在った |
+| *"That's the risk we take pushing back against license proliferation. We've been taking it for years"* | Nelson 氏 2005-08-30 | Behlendorf 氏の「OSD に適うのに認証しなければ陰謀説が出る」への答え。委員長は増殖への抵抗の費用を受け入れていた |
+
+**読み。** 2005 年の委員長と理事は、承認の門を OSD だけに置くか、増殖への抵抗（逐語の再利用を求めることを含む）まで広げるかで分かれていた。ACD が新しく書いた語は、前者では問題にならず、後者では読む費用として数えられる。
+
+**この節が establish しないこと。** OVPL の帰結はこの節では追っていない（`review-readings.md` の 3 基準の節と `board-decisions.md` を参照）。Nelson 氏の逐語の再利用の要求は、下敷きのライセンスが在る提出（CDDL の派生）についての文で、下敷きを持たない ACD に同じ形で当たるとは限らない。

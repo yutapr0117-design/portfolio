@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-12 時点・424 ファイル）
+## いまの状態（2026-11-12 時点・425 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -143,6 +143,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-06 | `license-review` | **観測（The Mutualist License の審査から 3 通・語の正確さ、解釈の規則は語の不明確さを補わない、専門家の読み）** | `2026-06-license-review-mutual-drafting-and-canons-observed.txt` |
 | 2019-01〜2020-03 | `license-discuss` | **観測（2 つの会話から 4 通・意図は明確に、ただし曖昧で広すぎる語でなく。倫理的なライセンスは OSD と両立しない。moderation で落とされた通）** | `2019-01-to-2020-03-license-discuss-intent-precision-and-moderation-observed.txt` |
 | 2015-01 | `license-discuss` | **観測（"FAQ entry on CLAs" から 3 通・OSI は外向きのライセンスだけを審査する）** | `2015-01-license-discuss-osi-reviews-outbound-only-observed.txt` |
+| 2005-08 | `license-discuss` | **観測（OVPL の会話から 6 通・委員長の逐語の再利用の要求と、認証の要件は OSD に限るべきだという理事の反対）** | `2005-08-license-discuss-ovpl-verbatim-reuse-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
 | 2012〜2020 | `license-review` | **観測（特許を扱う新しい permissive の必要性と、増殖の分類の現状・4 通）** | `2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt` |

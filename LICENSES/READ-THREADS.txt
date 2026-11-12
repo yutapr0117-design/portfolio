@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 514 subject lines. One thread appears under two subject spellings
+# Rows: 515 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -163,6 +163,7 @@
 2005-08-21	Bruce Perens rejected from license-proliferation committee.
 2005-08-22	License proliferation committee
 2005-08-23	more info on license proliferation committe members
+2005-08-23	Change ot topic, back to OVPL
 2005-08-31	License Proliferation
 2005-09-06	When can licenses be revoked?
 2005-09-08	License Committee Report for September 2005
