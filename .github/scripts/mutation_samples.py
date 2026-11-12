@@ -525,6 +525,15 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 22: Session Record #34 の見出しを #33 に打ち直す —— 旧版は <= で比べ、#33 が 2 つ・#34 が無いまま昇順として"
+            "通った (2026-11-12・監査 #188)",
+    "file": ROOT / "AI2AI.md",
+    "find": "## [HANDOFF] Session Record #34",
+    "replace": "## [HANDOFF] Session Record #33",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
