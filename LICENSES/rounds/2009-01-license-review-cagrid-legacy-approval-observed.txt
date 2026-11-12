@@ -1,0 +1,249 @@
+Source: OSI license-review public archive, 2009-January.txt and 2009-February.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 5 of 6 in "caGrid Open Source License For Legacy Approval" (2009-01-09 to 2009-02-06)
+Senders: Justin Permar, John Cowan, Russ Nelson, Matthew Flaschen
+Position: Not addressed to us. Observed. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From justin.permar at osumc.edu  Fri Jan  9 16:33:55 2009
+From: justin.permar at osumc.edu (Justin Permar)
+Date: Fri, 09 Jan 2009 11:33:55 -0500
+Subject: caGrid Open Source License For Legacy Approval
+Message-ID: <C58CE6A3.187D%justin.permar@osumc.edu>
+
+All,
+
+I would like to submit the caGrid License for legacy approval. You can find
+our license at the following URL: http://cagrid.org/wiki/CaGrid:LICENSE-1.2.
+
+I recommend this license fall into the category of ?Licenses that are
+popular and widely used or with strong communities?, as the caGrid community
+is a large and growing community. The primary community for caGrid is
+currently the academic clinical and research community. caGrid is used
+widely by the National Cancer Institute and other organizations. Please find
+out more about caGrid at our website: http://cagrid.org
+
+Please let me know If I can provide additional information to streamline the
+approval process.
+
+I appreciate you reviewing this application and hope to hear from you soon.
+
+Sincerely,
+
+----------------------------------------------------------
+Justin Permar
+caGrid Knowledge Center Operations Manager
+https://cabig-kc.nci.nih.gov/CaGrid/KC
+ 
+Technical Manager
+Software Research Institute
+Department of Biomedical Informatics
+The Ohio State University
+
+
+From cowan at ccil.org  Sun Jan 11 01:54:22 2009
+From: cowan at ccil.org (John Cowan)
+Date: Sat, 10 Jan 2009 20:54:22 -0500
+Subject: caGrid Open Source License For Legacy Approval
+In-Reply-To: <C58CE6A3.187D%justin.permar@osumc.edu>
+References: <C58CE6A3.187D%justin.permar@osumc.edu>
+Message-ID: <20090111015421.GA18774@mercury.ccil.org>
+
+Justin Permar scripsit:
+
+> Please let me know If I can provide additional information to streamline
+> the approval process.
+
+A first look says that this license is Open Source; it's a permissive
+license.  It is not reusable, and should only be approved because it's
+already in use.
+
+-- 
+Real FORTRAN programmers can program FORTRAN    John Cowan
+in any language.  --Ed Post                     cowan at ccil.org
+
+
+From nelson at crynwr.com  Tue Feb  3 02:39:32 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Mon, 2 Feb 2009 21:39:32 -0500
+Subject: caGrid Open Source License For Legacy Approval
+In-Reply-To: <C58CE6A3.187D%justin.permar@osumc.edu>
+References: <C58CE6A3.187D%justin.permar@osumc.edu>
+Message-ID: <18823.44644.158998.416738@desk.crynwr.com>
+
+Justin Permar writes:
+ > I would like to submit the caGrid License for legacy approval. You can find
+ > our license at the following URL: http://cagrid.org/wiki/CaGrid:LICENSE-1.2.
+
+Legacy approval means that no new software should be licensed using
+it.  Is that really what you want?
+
+ > I recommend this license fall into the category of "Licenses that are
+ > popular and widely used or with strong communities",
+
+Legacy approval never goes into that category.
+
+ > Please let me know If I can provide additional information to streamline the
+ > approval process.
+
+Have you asked the licensors if they are willing to re-license under
+an existing license?  Have you explored the possibility of simply
+releasing the software under an existing license with nearly identical
+terms?  As a part-owner of a collective work, you have the legal
+authority to license the software under any license you want, as long
+as you compensate the other owners.  I'm sure we could find an existing
+license whose terms are so close that no compensation would be due.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Delegislation is a slippery
+Cloudmade supports http://openstreetmap.org/    | slope to prosperity.
+521 Pleasant Valley Rd. | +1 315-323-1241       | Fewer laws, more freedom.
+Potsdam, NY 13676-3213  |     Sheepdog          | (Not a GOP supporter).
+
+
+From justin.permar at osumc.edu  Fri Feb  6 19:50:54 2009
+From: justin.permar at osumc.edu (Justin Permar)
+Date: Fri, 06 Feb 2009 14:50:54 -0500
+Subject: caGrid Open Source License For Legacy Approval
+Message-ID: <C5B1FECE.219B%justin.permar@osumc.edu>
+
+Russ,
+
+>Justin Permar writes:
+>> I would like to submit the caGrid License for legacy approval. You can find
+>> our license at the following URL: http://cagrid.org/wiki/CaGrid:LICENSE-1.2.
+
+>Legacy approval means that no new software should be licensed using
+>it.  Is that really what you want?
+
+New versions of our software typically have a ?new license? with minor
+changes (version, etc.). One item that is unclear to me is if minor language
+variations make a license different enough to be ?new? (that is, does one
+license have to be taken verbatim to be re-used for a new organization,
+piece of software, etc. ?)
+
+ >> I recommend this license fall into the category of "Licenses that are
+ >> popular and widely used or with strong communities",
+
+>Legacy approval never goes into that category.
+
+OK. I read the following instructions: http://opensource.org/approval. That
+page says the following:
+
+?For Legacy Approval
+By: License Steward or Interested Licensee
+Retroactive approval of historic/legacy licenses that have already been
+extensively used by an existing community, but have not previously been
+approved.?
+
+It also says ?Recommend which license proliferation category is
+appropriate?. And the list of categories is on the following page:
+https://ideas.opensource.org/wiki/help/proliferation. One of those
+categories is ?Licenses that are popular and widely used or with strong
+communities?.
+
+I?m of course quite happy to submit under another category. I thought legacy
+approval made sense because caGrid 1.2 has been out for some time now. I
+also thought the category of widely used license is accurate as there are
+hundreds of caGrid services that have already been deployed and dozens of
+applications that have been developed using caGrid APIs. Should I re-submit
+this request under another category?
+
+> > Please let me know If I can provide additional information to streamline the
+> > approval process.
+
+>Have you asked the licensors if they are willing to re-license under
+>an existing license?  Have you explored the possibility of simply
+>releasing the software under an existing license with nearly identical
+>terms?  As a part-owner of a collective work, you have the legal
+>authority to license the software under any license you want, as long
+>as you compensate the other owners.  I'm sure we could find an existing
+>license whose terms are so close that no compensation would be due.
+
+We could discuss the possibility of modifying the license in the future. I
+myself am not at all a licensing expert (I know about BSD and GPL and that?s
+it!). Is there a current open source license very similar to the caGrid 1.2
+license that you recommend we take a look at?
+
+Thank you for your reply and help.
+
+Justin Permar
+
+
+From matthew.flaschen at gatech.edu  Fri Feb  6 21:35:37 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Fri, 06 Feb 2009 16:35:37 -0500
+Subject: caGrid Open Source License For Legacy Approval
+In-Reply-To: <C5B1FECE.219B%justin.permar@osumc.edu>
+References: <C5B1FECE.219B%justin.permar@osumc.edu>
+Message-ID: <498CAD29.8010401@gatech.edu>
+
+Justin Permar wrote:
+> New versions of our software typically have a ?new license? with minor
+> changes (version, etc.).
+
+That's generally a regrettable choice.  It imposes work on licensors,
+licensees, and (if you want it to be an open source license) OSI.
+License changes should only be made rarely for important reasons.  This
+clearly necessitates taking great care when drafting each version
+
+> One item that is unclear to me is if minor language
+> variations make a license different enough to be ?new?
+
+Generally, yes.
+
+> (that is, does one license have to be taken verbatim to be re-used for a new organization,
+> piece of software, etc. ?)
+
+Major licenses avoid this problem.  The license text itself either
+contains no reference to the licensing party or program (e.g.
+http://opensource.org/licenses/gpl-2.0.php) or such references are in
+brackets so new values can be substituted in (e.g.
+http://opensource.org/licenses/bsd-license.php)
+
+> ?For Legacy Approval
+> By: License Steward or Interested Licensee
+> Retroactive approval of historic/legacy licenses that have already been
+> extensively used by an existing community, but have not previously been
+> approved.?
+
+A legacy license is no longer being developed, and often the software
+that originally used it is also stable (or even abandoned).  Think of it
+almost like a grand-father clause.  OSI wouldn't accept licenses newly
+drafted like this, but these licenses are old, comply with OSD, and
+important in some way.
+
+If you have a thriving software program and community, legacy approval
+is not what you want.  Perhaps the web page should be made more clearly.
+ It doesn't really convey what legacy means.
+
+> It also says ?Recommend which license proliferation category is
+> appropriate?. And the list of categories is on the following page:
+> https://ideas.opensource.org/wiki/help/proliferation. One of those
+> categories is ?Licenses that are popular and widely used or with strong
+> communities?.
+
+This choice is reasonable, though I guess nearly every submitter
+believes they're in this category.
+
+> there are hundreds of caGrid services that have already been deployed
+> and dozens of applications that have been developed using caGrid APIs.
+
+Hundreds is not that many.
+
+> Should I re-submit this request under another category?
+
+You should clarify it's not a request for legacy approval.  That means
+it will be judged on a stricter standard, but as is, it probably won't
+be judged at all.
+
+> We could discuss the possibility of modifying the license in the future. I
+> myself am not at all a licensing expert (I know about BSD and GPL and that?s
+> it!). Is there a current open source license very similar to the caGrid 1.2
+> license that you recommend we take a look at?
+
+It's really just a permissive license i.e. BSD or MIT, AFAICT.
+
+Matt Flaschen
+
+

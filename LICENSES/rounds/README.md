@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-12 時点・409 ファイル）
+## いまの状態（2026-11-12 時点・411 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -128,6 +128,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2012-06 | `license-discuss` | **観測（ライセンスの頁の再編の議論から 1 通・open source でも OSI に承認されない理由 3 つ）** | `2012-06-license-discuss-open-source-but-not-osi-approved-observed.txt` |
 | 2005-12〜2007-10 | `license-discuss` | **観測（Microsoft Community License と Reciprocal License の審査から 13 通・弁護士が指摘し提出者が認めた曖昧さが、本文を変えないまま承認された）** | `2005-12-to-2007-10-license-discuss-ms-cl-and-ms-rl-observed.txt` |
 | 2007-11 | `license-discuss` | **観測（"Question on OSD #5" から 3 通・合衆国の取り戻しの規定があるので本当に perpetual なライセンスは無い）** | `2007-11-license-discuss-question-on-osd-5-perpetual-observed.txt` |
+| 2008-01〜02 | `license-review` | **観測（GNU Affero GPLv3 の提出から 7 通・分類の基準をめぐる意見の違い）** | `2008-01-license-review-agpl-category-observed.txt` |
+| 2009-01〜02 | `license-review` | **観測（caGrid License の legacy approval の求めから 5 通・数百の配備は広い分類に足りない）** | `2009-01-license-review-cagrid-legacy-approval-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
 | 2012〜2020 | `license-review` | **観測（特許を扱う新しい permissive の必要性と、増殖の分類の現状・4 通）** | `2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt` |
