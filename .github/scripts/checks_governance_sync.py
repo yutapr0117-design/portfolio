@@ -126,11 +126,13 @@ def run(ctx):
     import re as _re
     header_records = _re.findall(r'^## \[HANDOFF\] Session Record #(\d+)', ai2ai_text, _re.MULTILINE)
     record_nums = [int(n) for n in header_records]
-    order_ok = len(record_nums) == 0 or all(record_nums[i] <= record_nums[i+1] for i in range(len(record_nums)-1))
+    # 1 ずつ増えること (2026-11-12・監査 #188): <= だったので、#34 を #33 に打ち直すと「#33 が 2 つ・#34 が無い」まま
+    #   昇順として通った。古い記録は先頭から archive へ移すので、残る番号は連続する
+    order_ok = len(record_nums) == 0 or all(record_nums[i] + 1 == record_nums[i+1] for i in range(len(record_nums)-1))
     check(
         order_ok,
-        f"AI2AI.md Session Record headers are in ascending order: {record_nums}",
-        f"Check 22: AI2AI.md Session Record headers out of order: {record_nums}",
+        f"Check 22: AI2AI.md Session Record headers are consecutive and ascending: {record_nums}",
+        f"Check 22: AI2AI.md Session Record headers are not consecutive (重複か抜けか逆順): {record_nums}",
     )
 
     # ── 23. YAML syntax: .github/workflows/*.yml and dependabot.yml ───────────────
