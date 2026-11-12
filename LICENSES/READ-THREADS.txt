@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 450 subject lines. One thread appears under two subject spellings
+# Rows: 456 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -48,12 +48,15 @@
 1999-11-26	the skinny -- a LEGAL *nightmare*
 1999-11-30	Proprietary software for Linux
 2000-02-21	Dominion Games needs help
+2000-03-29	Wired Article on the GPL
 2000-04-04	Simple Public License, Please Review
 2000-04-05	OSI board asleep at the switch?
 2000-04-11	Apache v. GPL
 2000-07-22	prohibiting use that would result in death or personal injury
+2000-08-07	Public Domain and liability
 2000-08-08	License Approval Process
 2000-08-08	StarOffice under the GPL ?
+2000-08-10	Abandonment
 2000-08-12	Serious trademark trouble.
 2000-08-14	List of Licenses -- as of 8-14-00
 2000-08-17	Does Sun adopt Gnome ?
@@ -141,6 +144,7 @@
 2005-08-22	License proliferation committee
 2005-08-23	more info on license proliferation committe members
 2005-08-31	License Proliferation
+2005-09-06	When can licenses be revoked?
 2005-09-08	License Committee Report for September 2005
 2005-09-09	Best way to add a branding requirement.
 2005-09-09	Policy Questions
@@ -274,6 +278,7 @@
 2011-04-18	Unique identifier for licenses
 2011-04-26	openbravo license: another variant of the MPL
 2011-04-28	NASA Open Source Agreement v1.3
+2011-05-10	GPL revokability
 2011-06-03	Cecill License
 2011-06-07	The Python licensing situation.
 2011-07-28	IP Clearance
@@ -469,3 +474,4 @@
 2026-02-12	Subject: Re: License Approval: FARCL-1.0
 2026-02-21	Revised Submission: Open Source Copyleft License (OSCL) v1.0
 2026-09-05	Weak copyleft license with network use requirement?
+2026-10-11	Pre-submission discussion: Zero-Clause BSD with Patent Grant (0BSD-P)

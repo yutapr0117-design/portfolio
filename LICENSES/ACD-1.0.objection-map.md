@@ -92,6 +92,7 @@ Older, or not from the lists, but each one goes to whether ACD can be approved.
 | *"a non-contractual license (such as the GPL) cannot cause you to give up your warranty rights. Only a contract can do that."* | Russell Nelson, `license-discuss` 2002-08-02, as committee chair | **ACD asks for no assent (§2.3), so where this holds its disclaimers may not bind.** The same is true of every approved licence that asks for no assent; the cost falls on the Dedicator, and §14.2 narrows rather than fails | #321 |
 | *"each package would have to be reviewed as to whether it would be okay"* | Nigel H. Tzeng, `license-discuss` 2015-05-28, on a foundation's policy for third-party licences | **Approval is a floor, not a place on an adopter's list.** ACD asks to be judged against the OSD and is on no downstream list, so each adopter would review it (B2). The dedication type itself is already on at least one foundation's accepted list (`review-readings.md` §1.181) | #322 |
 | *"we do our best to reject licenses that (1) have obvious legal problems, and (2) do not have such an overwhelming community of use that the community itself becomes a legal force."* | Michael Tiemann, `license-discuss` 2007-04-24, on the board's licence categories | **Lands in part.** ACD has no community to absorb a flaw, so the question is its legal soundness, which no lawyer has checked (B1). The test names *obvious* problems, not the absence of review, and MirOS was approved the next year without a community (`review-readings.md` §1.182) | #323 |
+| *"a license that isn't a contract (a bare permission) can be freely revoked by the licensor"* | John Cowan, `license-discuss` 2000-03-30, on cphack and the GPL | **Lands in part.** The way out argued for the GPL that week was that its conditions are consideration and make it a contract. ACD places no condition on You (§10.1), so that way is closed to it. Its answers are §3, §2.5, §4.1 and §5, and whether any of them holds against revocation is open (QFC question 1 (i)). 0BSD, MIT-0 and the Unlicense, all approved, place no condition either | #324 |
 
 ### Objections that do not land (checked against the text)
 
@@ -126,4 +127,4 @@ out because we cannot have it, not because leaving it out is better** (register 
    date, OSI has not used the number of projects adopting a license as a factor"* (Jam rationale, 2021-09-12).
 3. **It is not exhaustive.** The windows we read are listed in `PEER-REVIEW-WATCH.md` §3.9.
 4. **Nothing updates this page automatically.** An entry added to `ACD-1.0.against.md` does not reach
-   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #323.
+   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #324.
