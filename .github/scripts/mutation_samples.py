@@ -551,6 +551,21 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 468r: §10.1 に「いまの状態」の語を足す (currently) —— 後で偽になる文を作用の条に書く T54 の型 (2026-11-12)",
+    "file": CURRENT_DRAFT,
+    "find": "       requirement upon You in respect of the Work.",
+    "replace": "       requirement upon You in respect of the Work as currently drafted.",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 468r: §6.5 の除外の句を書き換える —— 句で持つ除外が条から消えたら、読み直しの合図として RED (2026-11-12)",
+    "file": CURRENT_DRAFT,
+    "find": "       proved ambiguous in practice, and because a permission that an automated",
+    "replace": "       proved unclear in practice, and because a permission that an automated",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

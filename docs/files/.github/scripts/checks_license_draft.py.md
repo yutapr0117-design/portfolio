@@ -17,6 +17,7 @@ Check **468**（草案が NOT IN FORCE / NOT SUBMITTED / NOT APPLIED を述べ�
 **468p**（2026-11-02）: 凍結した草案の pointer stub が "Work on the next version happens in X" と断定するなら、X が作業中の草案であること（1.2 の pointer が 1.3 確定後 8 日間偽だった・468k は `.md` しか見ない）。468j〜468o を含む face の一覧の権威は module の docstring inventory。
 **468q**（2026-11-02）: 冒頭の箇条が「Sections A, B, C が使う句」として引く句を各条の本文が実際に含むこと（§16.6 の箇条の誤った帰属・25 が #2238 で修正）。
 **OK 行の面ごとの件数**（2026-11-12・portfolio-aa の依頼）: 468 の OK 行は条数・語数に加えて、468w（errata が「N.M draft」として引く逐語の件数）・468x（主表の After の件数と、それを持つ行数）・468y（試作と逐条の組）・468z（記述子の下書きが引く条の参照の件数と、異なる条の数。下書きの節が無い版は「—」）を出す。草案を動かした人が自分の数と単位をそろえて照合できるように、件数には単位を添える。
+**468r**（2026-11-12・portfolio-aa の §14.29）: 作用の条（第 1 条〜END OF TERMS）に、後で偽になりうる「いまの状態」の語（*unresolved* / *currently* / *not yet* など）を置かない。T54 で外した §8.4 の「法は未決」の文の型。語の一覧と、句で持つ除外（§1.5 の *presently known/subsisting*・§6.1/§6.2/§7.2 の *so far as*・§6.4 の *not decided here*・§6.5 の過去の観察）は `_lib_draft_markers.py` が権威で、除外の句が条から消えたら RED。同じ日に 468u の目印の一覧もそこへ移した（`measure_clause_overlap.py --guard` と共有・この module は 918 行になるところを 874 行に）。逆側: 語の一覧に無い言い方と、目的の句が法の状態を前提にする型（aa の T55 の記録）は見えない。
 **⚠ 既知の表記上の重複**: code 内の section コメントで `468f` が 2 箇所（ヘッダの箇条書き / 冒頭の同一性主張）に使われている。他文書と mutation 名が番号で参照している可能性があるので、改名はせずここに記録する。
 
 ## Why
