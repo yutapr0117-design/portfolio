@@ -576,6 +576,15 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 468z: 記述子の下書きの §8.6 の行の逐語を T22 より前の語 (described in Sections 8.1 and 8.4) へ戻す —— 旧版は § の"
+            "番号しか見ず、古い語が凍結の日に機械可読層へ入るのを通した (2026-11-12・portfolio-aa の依頼)",
+    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
+    "find": "§8.6 が約束するのは *\"the patent claims that Sections 8.1 and 8.4 reach",
+    "replace": "§8.6 が約束するのは *\"the patent claims described in Sections 8.1 and 8.4 reach",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
