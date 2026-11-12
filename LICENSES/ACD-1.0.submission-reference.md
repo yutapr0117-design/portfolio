@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.submission-reference.md
 audience: OSI license-review participants / licence reviewers / 監査人 / 次のセッションの実装者
-last-updated: 2026-11-07
+last-updated: 2026-11-12
 canonical-ref: LICENSES/ACD-1.0.submission.md (送る文面は §B.0。**これを貼らない**) / LICENSES/ACD-1.0.against.md / LICENSES/AS-OF.md
 ---
 
@@ -77,7 +77,8 @@ answer none of them:
    uses" overstates the parallel. Section 12.2 operates by the state of the law; Section 8.6
    operates only once a licence "is held ineffective", so no covenant exists yet at the
    assertion that would produce the holding (errata E42). The ACD-1.4 draft makes the
-   covenant operate in every jurisdiction alongside the licences. Note, 2026-11-03: this
+   covenant operate in every jurisdiction, without waiting for a licence to be held
+   ineffective (2026-11-12: it no longer says "alongside them"). Note, 2026-11-03: this
    paragraph said "Copyright is protected three times over", the wording of Section 8.6 in
    ACD-1.0 to 1.3. That is narrower than the footings it names, which operate on all the
    Covered Rights, and it can be read as protecting the Dedicator rather than the recipient

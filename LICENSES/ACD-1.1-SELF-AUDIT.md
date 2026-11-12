@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.1-SELF-AUDIT.md
 audience: a future drafter (the current draft is 1.4), OSI license-review participants, licence reviewers
-last-updated: 2026-11-11
+last-updated: 2026-11-12
 canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (the current draft; ACD-1.2.txt frozen 2026-10-17, ACD-1.3.txt frozen 2026-10-25 and applied to this repository) / LICENSES/ACD-1.1.txt (frozen 2026-09-17) / LICENSES/ACD-1.4-CHANGELIST.md (all other changes for the current draft; ACD-1.1〜1.3-CHANGELIST.md are the closed records for those versions) / LICENSES/ACD-1.0.errata.md (defects in 1.0)
 ---
 
@@ -801,3 +801,17 @@ Dedicator が自分では主張せず、独占的なライセンスを受けた�
 |---|---|---|---|
 | §2.6 第 2 文（識別の約束） | 1.1 | *"and that material is included in the Work, the Dedicator will identify it"*（1.4 草案では *with the Work*）は受動で、誰が含めても、もう関わっていない Dedicator も含めて全員に約束を負わせる | *"a Dedicator who includes that material with the Work, or causes it to be included, will identify it"*（+5 語・T37）|
 | §16.5（Steward） | 1.1 | *"and any person or entity to whom that role is assigned"* は累積で、譲渡したあとも最初の公表者が Steward のまま残る | *"or, after an assignment, the person or entity to whom that role was last assigned by"*（+4 語・T45）|
+
+## 3z. 1.4 草案の 2 つの修正が組になって作った先行詞の分岐 —— §8.6 の *"alongside them"*（2026-11-12）
+
+**1.0〜1.3 にこの文は無いので、errata ではなくここへ記録する。** 11-06 以後に変わった 17 条の相互参照 47 件を読み直したときに 25 が見つけ、bb が反例を当て、5a が測った（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.31）。
+
+| 修正 | 日付 | §8.6 第 2 文 |
+|---|---|---|
+| E42（約束を全法域で働く形へ）| 2026-11-01（`fece2e27`）| *"…on the same footing as the covenant in Section 5 and does not wait for either licence to be held ineffective: it operates in every jurisdiction alongside them."* —— 直前は単数の *covenant* で、*them* は 2 つの許諾しか指せない |
+| E71（§5 を複数形で呼ぶ）| 2026-11-08（`28dc458e`）| *covenant* → *covenants*。*them* の直前に複数の名詞が来て、「§5 の約束と並んで」とも読めるようになった |
+| T56 | 2026-11-12 | *"alongside them"* を外した（−2 語）|
+
+**読み**: 記録はどれも *them* を許諾と読んでいた。そう読むと「許諾が在る限りで並んで働く」と読む余地が生じ、許諾が無効と判断された法域でも残るという条の役目に逆らう（bb）。並んで働くことは *"does not wait"* と §2.4 第 2 文（*"none is conditioned on another being effective or on another's failure"*）が持つ。
+
+**一般形**: **単独では正しい修正が 2 つ組になると、片方の語が他方の代名詞の先行詞を変える。** E71 は語を 1 つ複数にしただけで、0 語の修正だった。語数が 0 でも、隣の文の代名詞は読み直す。修正どうしを読み合わせる読み（§14.14・§14.22）は、変わった文の次の文まで含めて読む。
