@@ -58,3 +58,5 @@ python3 .github/scripts/measure_clause_overlap.py --uses <草案> Work "Computat
 - **AI**: 試作が出たら比較モードを回し、減った「効果を運ぶ語」を反例探しの起点として渡す。数字は Before / After の両方を同じ道具で出す（片方だけ別の数え方にしない）。
 
 **`--guard` は 468r も当てる（2026-11-12）**: 468u の目印に加えて、作用の条の「いまの状態」の語と、条から消えた除外の句を出す（一覧は `_lib_draft_markers.py`・Check 468 と共有）。どれかが在れば exit 1。
+
+**`--compare` の代名詞の段（2026-11-12・portfolio-aa の依頼）**: 文そのものが変わったか、直前の文が変わった文の代名詞（they / them / their / it / its / those / these / such）を挙げる。T56 は、E71 で直前の文を複数形（*either licence*）にした結果、§8.6 の *them* の先行詞が「許諾」と読める側へ動いた型だった。その変更の commit（15d5eb76・2026-11-01）の前後に当てると、§8.6 の *them* を「直前の文が変わった」として挙げる。先行詞を決めるのは読む人で、道具は読む場所を絞るだけ（形式主語の *it* も出る）。
