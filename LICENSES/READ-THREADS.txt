@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 495 subject lines. One thread appears under two subject spellings
+# Rows: 497 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -308,12 +308,14 @@
 2011-04-26	openbravo license: another variant of the MPL
 2011-04-28	NASA Open Source Agreement v1.3
 2011-05-10	GPL revokability
+2011-05-24	FOR APPROVAL - Python License Changes
 2011-06-03	Cecill License
 2011-06-07	The Python licensing situation.
 2011-07-28	IP Clearance
 2011-08-15	MPL RC1 posted to license-review
 2011-08-15	Which list?
 2011-08-16	Terekhov
+2011-08-28	FOR APPROVAL - Python License Changes
 2011-09-07	Can OSI specify that public domain is open source?
 2011-09-07	EPICS Open License (U.S. gov't DOE / ANL project).
 2011-12-09	Updating the License List

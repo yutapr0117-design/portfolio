@@ -1,0 +1,145 @@
+Source: OSI license-review public archive, 2011-May.txt and 2011-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 3 of 17 on license-review in the two threads "FOR APPROVAL - Python License Changes" (2011-05-24 to 2011-05-26 and 2011-08-28 to 2011-09-02)
+Senders: Josh Berkus, Van Lindberg, Russ Nelson
+Position: Not addressed to us. Observed. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From josh at postgresql.org  Wed May 25 16:00:39 2011
+From: josh at postgresql.org (josh at postgresql.org)
+Date: Wed, 25 May 2011 12:00:39 -0400
+Subject: FOR APPROVAL - Python License Changes
+In-Reply-To: <4DDC0A1D.3090403@gmail.com>
+References: <AANLkTinhPDekUZa9mPdZhcdkRmvEk32qb64VSYzB3niq@mail.gmail.com>
+ <4DDC0A1D.3090403@gmail.com>
+Message-ID: <20110525120039.88666shidb069uav@webmail.postgresql.org>
+
+Van,
+
+Speaking as a user, and not as an attorney, is it really necessary to  
+have 3 different licenses for Python?  Not that much of anyone uses  
+1.6.1, but users are going to expect even old versions of Python to be  
+under the same license as new versions, and be pretty surprised when  
+they're not.
+
+If there are legal reasons why you can't reconcile these licenses,  
+then at the very least you're going to need an extensive FAQ about it.  
+  I'm also not keen on 3 separate licenses from an anti-proliferation  
+standpoint.  You can tell people that two of them are depreciated, but  
+as a PostgreSQL project member I'll tell you that does no good at all.
+
+I'm sure you've had these discussions on python mailing lists, so if  
+you could post a link we could read up and not force you to rehash the  
+same arguments.
+
+--Josh Berkus
+
+
+
+
+
+From van.lindberg at gmail.com  Wed May 25 19:36:20 2011
+From: van.lindberg at gmail.com (VanL)
+Date: Wed, 25 May 2011 14:36:20 -0500
+Subject: FOR APPROVAL - Python License Changes
+In-Reply-To: <20110525120039.88666shidb069uav@webmail.postgresql.org>
+References: <AANLkTinhPDekUZa9mPdZhcdkRmvEk32qb64VSYzB3niq@mail.gmail.com> <4DDC0A1D.3090403@gmail.com> <20110525120039.88666shidb069uav@webmail.postgresql.org>
+Message-ID: <4DDD5A34.9090109@gmail.com>
+
+On 5/25/2011 11:00 AM, josh at postgresql.org wrote:
+> Van,
+>
+> Speaking as a user, and not as an attorney, is it really necessary to 
+> have 3 different licenses for Python?  Not that much of anyone uses 
+> 1.6.1, but users are going to expect even old versions of Python to be 
+> under the same license as new versions, and be pretty surprised when 
+> they're not.
+>
+> If there are legal reasons why you can't reconcile these licenses, 
+> then at the very least you're going to need an extensive FAQ about it. 
+>  I'm also not keen on 3 separate licenses from an anti-proliferation 
+> standpoint.  You can tell people that two of them are depreciated, but 
+> as a PostgreSQL project member I'll tell you that does no good at all.
+>
+> I'm sure you've had these discussions on python mailing lists, so if 
+> you could post a link we could read up and not force you to rehash the 
+> same arguments.
+
+This is being driven by a couple different things. First, and primarily, 
+there are a few projects to reconcile the various licenses and have 
+unique identifiers for each. They were the ones that initially 
+approached us about getting this done. The board of the PSF agreed, so 
+here we are.
+
+Second, I hear you about license proliferation, but this is not creating 
+*new* licenses, really. It is recognizing the various legacy licenses 
+that are already there.
+
+Third, from a Python perspective, we were having people putting stuff 
+out "under the Python license" or "under the PSF license."  I want that 
+to be well-defined, without having weird things in the license like 
+having a specified (and for a non-Python project, wrong) copyright holder.
+
+Thanks,
+
+Van
+
+
+From nelson at crynwr.com  Sun Aug 28 15:44:50 2011
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sun, 28 Aug 2011 11:44:50 -0400
+Subject: FOR APPROVAL - Python License Changes
+In-Reply-To: <87d3fqf626.fsf@red-bean.com>
+References: <AANLkTinhPDekUZa9mPdZhcdkRmvEk32qb64VSYzB3niq@mail.gmail.com>
+	<4DDC0A1D.3090403@gmail.com>
+	<87d3fqf626.fsf@red-bean.com>
+Message-ID: <20058.25202.204219.966974@desk.crynwr.com>
+
+Karl Fogel writes:
+ > (Btw, I realize that OSI approved it already, in the CNRI Python
+ > 1.6-beta-1 license at http://opensource.org/licenses/pythonpl and in the
+ > related portion of http://opensource.org/licenses/Python-2.0.  This is
+ > just the same language as there, so we'd be hard pressed to reject the
+ > license because of it now.  But read on.)
+
+Times change, and understanding of effects changes. Something which we
+approved in the past may not be approvable today. We're not a court;
+precedents are instructive but not limiting.
+
+ >   > OSI definition 4 permits PSF clause 3.
+ >   > 
+ >   > In fact, OSI has approved licenses which forbid distributing
+ >   > modified works except as patch files.  This was done to largely to
+ >   > recognize that software like DJB's qmail is still OSI open source.
+ > 
+ > But I don't think that's quite the same thing.  Requiring changes to be
+ > distributed as patch files is well-defined, unambiguous, and can be
+ > achieved automatically.  It's a bit of a hassle, but it's an automatable
+ > and essentially trivial hassle.
+
+And that wasn't the reasoning. The reasoning was (as you write) and
+put forth because of TrollTech's Qt Public License. DJB's qmail wasn't
+open source. It wasn't even freely copyable software! With no
+copyright license, you couldn't copy it, but instead had to fetch each
+copy afresh from DJB's website.
+
+ > On the other hand, a "brief summary" is nothing like patch files.  A
+ > brief summary means the distributor of the derived work has to write a
+ > human-comprehensible summary of a diff of arbitrary complexity.
+
+"Brief" is also a nebulous term to be putting in a license. I
+speculate that the idea was to limit the difficulty of producing a
+summary, addressing our concerns.
+
+ > Have you talked to CNRI about getting clause 3 removed?
+
+I think that is a good course of action. It can take some persistence
+and patience, but I think it can be done.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
