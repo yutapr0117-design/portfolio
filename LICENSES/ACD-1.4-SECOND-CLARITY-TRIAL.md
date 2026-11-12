@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.4-SECOND-CLARITY-TRIAL.md
 audience: 次のセッションの実装者（一次読者）/ 監査人
-last-updated: 2026-11-11
+last-updated: 2026-11-12
 canonical-ref: LICENSES/ACD-1.4-CLARITY-TRIAL.md (§1〜§9・規則はそちらに従う) / LICENSES/ACD-1.4-DRAFT.txt (試作の対象・この file は草案を上書きしない) / LICENSES/ACD-1.4-CHANGELIST.md (採用した変更の記録先)
 ---
 
@@ -739,3 +739,24 @@ After: It does not apply this Dedication to material that a narrower notice the 
 
 **採否（2026-11-12・退けた）**: 欠陥が立たない。外せば (a) の外部レビューへの答えと (b) の判断の本文側の根拠も失う。目的の句は効果を運ばないが、狭める分岐も生まない（運用者は第 1 文で自分の名で許可を持つ）。残る理由は #295 と、句が「自動化システムは法人格を持たない」という法の状態を前提にしていること（電子的な人格を認める法域が出れば前提が変わるが、害は無い）だけで、具体的な欠陥と修正の必要性を示す水準に無い。草案は変えない。逐条リファレンスの §1.6 の行に、入れ子の自動化の場面とこの判断を書いた。**⚠ 逆側**: 退けたので −14 語は取らない。目的の句が法の状態を前提にしている点は、§14.29 のレンズ（いまの状態を恒久の本文に書く）が語の一覧で拾わなかった型でもある —— 前提を述べる句は「状態の語」を含まないので、語の一覧の検査（468r）では見えない。
 
+### 14.31 11-06 以後に変わった 17 条の相互参照を読み直した（47 件・残った 1）と、試作 T56（§8.6 の *them*・+1 語・2026-11-12）
+
+**レンズ**: 確定前検証（`ACD-1.4-CHANGELIST.md` の「確定前検証（段 7・2026-11-06）」）は内部参照 89 件を指す先と並べて読み、clean だった。その後に草案の 17 条が変わった（11-06 の最後の草案 `ad3574f8` と今日の草案を、条ごとに空白を正規化して比べた: §1.9・§2.3・§2.6・§5.1・§5.2・§6.4・§8.1・§8.3・§8.4・§8.5・§8.6・§9.2・§10.3・§15.1・§16.2・§16.4・§16.5）。同じ次元を新しい本文へ当て直した。今日の内部参照は 88 件（*Section(s) N* と *N.M* の形を正規表現で抜いた。11-06 の 89 件とは抜き方が違うかもしれず、差の由来は数えていない）。そのうち参照元か参照先が変わった条の 47 件を、指す先の条と並べて読んだ。
+
+**46 件は clean**。たとえば §2.4 の *"Section 15.1 governs their construction"* は、T43 で直した §15.1 が *"where a provision is capable of more than one reading"* と条項一般を対象にしているので、許諾だけでなく不行使約束の解釈も覆う。§8.4 の *"The proviso in Section 8.1 as to subject matter contained in the Work"* は、§8.1 の末尾 *"where the infringement is caused by subject matter contained in the Work as made available by the Dedicator"* をそのまま指す。§16.2 の *"(Section 6.2)"* は、§6.2 が「どの信号も Reservation と読まない」と述べることに当たる。
+
+**残った 1 件 —— §8.6 第 2 文の *them***:
+
+**Before（§8.6 第 2 文）**: *"This covenant is given on the same footing as the covenants in Section 5 and does not wait for either licence to be held ineffective: it operates in every jurisdiction alongside them."*
+
+**After**: *"This covenant is given on the same footing as the covenants in Section 5 and does not wait for either licence to be held ineffective: it operates in every jurisdiction alongside those licences."*（+1 語・`split()` で数えた）
+
+**欠陥**: *them* の直前の複数の名詞は *"the covenants in Section 5"* で、*"either licence"* は単数である。文法どおりに読めば、§8.6 の約束は「§5 の約束と並んで」働く、となる。我々の記録はどれも「許諾と並んで」と読んでいる —— errata E42 の 1.4 の欄（*"a covenant in every jurisdiction alongside the licences"*）、`against.md` #279、`ACD-1.0.submission-reference.md` 80 行目、`ACD-1.4-CHANGELIST.md` の §8.6 の行（「全法域で許諾と並んで常に働く」）、`QUESTIONS-FOR-COUNSEL.md`（*"the 1.4 draft makes it operate alongside the licences in every jurisdiction"*）。**この分岐は 1.4 草案の 2 つの修正が組になって生じた**: 11-01 の E42 の修正（`fece2e27`）で *alongside them* が入ったとき、直前は単数の *"the covenant in Section 5"* で、*them* は 2 つの許諾しか指せなかった。11-07 の E71 の修正（`5b1d487b`・単数を複数へ）で、*them* の直前に複数の名詞が来た。どちらの修正も単独では正しい。1.0〜1.3 にこの文は無いので、採るなら errata ではなく `ACD-1.1-SELF-AUDIT.md` に記録する。
+
+**作用は変わらないと読む理由**: どちらの読みでも、約束は *"in every jurisdiction"* で働き、*"does not wait for either licence to be held ineffective"* が許諾の判断を待たないことを述べ、§2.4 が許諾と約束は互いに独立に重ねて働くと述べる。「§5 の約束と並んで」と読んでも、許諾と並ぶことは失われない。ゆえに直す理由は基準 4（文法的な明晰さ）と、記録 5 か所が本文を言い換えた文の正しさである。
+
+**案は 3 つで、A を出す**: A *alongside those licences*（+1）。B *alongside both licences*（+1）は、*both* が「両方の許諾が効いている法域で」と読まれうる —— それは第 3 文が「You は決めなくてよい」とする問いそのものである。C *alongside them* を消す（−2）は、記録が言い換えた「許諾と並んで」を本文から外し、並んで働くことを §2.4 にだけ負わせる。
+
+**⚠ 逆側**: (1) どちらに読んでも作用は同じで、多くの読み手は、コロンの後ろが *"either licence"* を受けて述べる文なので、すでに許諾と読む。直すのは害の無い分岐かもしれない。(2) *those licences* の先行詞 *either licence* は単数で、数は合わない。§8.6 に許諾は 2 つしか出ず、§8.2 が *"The licences granted by Sections 8.1 and 8.4"* と呼ぶので、指す先は 1 つに決まると読む。(3) 採れば、E42 の *"1.4 draft:"* の引用（Check 468w）、冒頭の一覧、`This draft:` の語数、CHANGELIST の行と語数の内訳、逐条の §8.6 の行を同じ commit で直す。mutation の anchor はこの句に掛かっていない（grep で確かめた）。(4) 相互参照の読みは 47 件で、変わっていない条どうしの 41 件は 11-06 の読みに依っている。
+
+**依頼**: portfolio-00 に反例（A で狭まる読み・広がる読み）を、portfolio-9b に `measure_clause_overlap.py --compare / --guard` を頼む。採否はその後に書く。
