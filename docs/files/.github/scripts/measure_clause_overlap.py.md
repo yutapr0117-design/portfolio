@@ -60,3 +60,5 @@ python3 .github/scripts/measure_clause_overlap.py --uses <草案> Work "Computat
 **`--guard` は 468r も当てる（2026-11-12）**: 468u の目印に加えて、作用の条の「いまの状態」の語と、条から消えた除外の句を出す（一覧は `_lib_draft_markers.py`・Check 468 と共有）。どれかが在れば exit 1。
 
 **`--compare` の代名詞の段（2026-11-12・portfolio-aa の依頼）**: 文そのものが変わったか、直前の文が変わった文の代名詞（they / them / their / it / its / those / these / such）を挙げる。T56 は、E71 で直前の文を複数形（*either licence*）にした結果、§8.6 の *them* の先行詞が「許諾」と読める側へ動いた型だった。その変更の commit（15d5eb76・2026-11-01）の前後に当てると、§8.6 の *them* を「直前の文が変わった」として挙げる。先行詞を決めるのは読む人で、道具は読む場所を絞るだけ（形式主語の *it* も出る）。
+
+**`--sentences` / `--sync` と代名詞を解いた言い換え（2026-11-12・portfolio-aa の依頼・オーナーの「草案をどんどん良くし続けて」を受けて）**: `--sentences DRAFT [N]` は作用の条の文を語数の多い順に出す（長文を分ける試作の起点・いまは §16.4 の 89 語が最長）。`--sync BEFORE AFTER` は採る commit で直す場所を出す（冒頭の This draft・逐条の下書きの該当行・変更前の総語数を書いた行。CHANGELIST の主表と内訳は常に直す）。`--compare` の依拠の探索は、外した句の代名詞（them / it / those / they / these）を、直前の語 + 冠詞 + 変更前の条の語（単数・複数とも）に置き換えた言い換えも拾う（T56 で aa が grep で拾った "alongside the licences" の型。日本語の訳語は拾わない）。

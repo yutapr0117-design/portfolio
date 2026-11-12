@@ -26,6 +26,8 @@
     python3 .github/scripts/measure_clause_overlap.py --min 8 LICENSES/ACD-1.4-DRAFT.txt
     python3 .github/scripts/measure_clause_overlap.py --compare BEFORE.txt AFTER.txt
     python3 .github/scripts/measure_clause_overlap.py --guard TRIAL.txt   # 468u の目印が残っているか
+    python3 .github/scripts/measure_clause_overlap.py --sentences DRAFT.txt [N]   # 作用の条の長い文 (上位 N)
+    python3 .github/scripts/measure_clause_overlap.py --sync BEFORE.txt AFTER.txt   # 採る commit で直す場所
     python3 .github/scripts/measure_clause_overlap.py --uses DRAFT.txt Work "Computational Use"   # 定義語を使う条
 """
 from __future__ import annotations
@@ -282,6 +284,16 @@ def external_reliance(changed: dict[str, tuple[str, str]], after_all: str,
         gone = _grams(b, k) - _grams(a, k)
         for g in gone:
             grams[g] = (sec, g not in rest)
+    # 外した句の代名詞を先行詞へ置き換えた言い換え (2026-11-12・portfolio-aa が T56 で見つけた穴): 記録は
+    #   "alongside them" を "alongside the licences" と書く。代名詞の直前の語 + (冠詞) + 変更前の条にある複数名詞
+    _pron = {}
+    for sec, (b, a) in changed.items():
+        nouns = {w.rstrip("s") for w in _toks(b) if len(w) >= 6 and w.isalpha()}   # 単数でも複数でも当てる
+        for g in _grams(b, 3) - _grams(a, 3):
+            t = g.split()
+            if t[-1] in ("them", "it", "those", "they", "these") and len(t[-2]) >= 4 and nouns:
+                _pron[re.compile(r"\b" + re.escape(t[-2]) + r" (?:the |those |these |its |their )?(?:"
+                                 + "|".join(map(re.escape, sorted(nouns))) + r")s?\b", re.I)] = (sec, g)
     out = []
     for f in sorted((_ROOT / "LICENSES").rglob("*.md")):
         rel = f.relative_to(_ROOT).as_posix()
@@ -304,6 +316,12 @@ def external_reliance(changed: dict[str, tuple[str, str]], after_all: str,
                 if re.search(_REASON_REF.format(n=re.escape(sec)), line):
                     out.append((rel, ln, f"§{sec} を根拠として指す (版の条番号に注意)", line.strip()[:140]))
                     break
+            else:
+                for rx, (sec, g) in _pron.items():
+                    m = rx.search(line)
+                    if m:
+                        out.append((rel, ln, f"§{sec} 外した「{g}」の代名詞を解いた言い換え: 「{m.group(0)}」", line.strip()[:140]))
+                        break
     return out
 
 
@@ -414,11 +432,56 @@ def uses(path: Path, terms: list[str]) -> int:
     return 0
 
 
+def sentences(path: Path, top: int = 15) -> int:
+    """作用の条の文を語数の多い順に出す (2026-11-12・portfolio-aa の依頼: 長文を分ける試作の起点)。"""
+    rows = []
+    for c, v in clauses(path.read_text(encoding="utf-8")).items():
+        for sent in _SENT.split(" ".join(v.split())):
+            rows.append((len(sent.split()), c, sent))
+    rows.sort(key=lambda r: -r[0])
+    print(f"# {path.name}: 作用の条の文 {len(rows)} 文・上位 {top} (語数は split())")
+    for n, c, sent in rows[:top]:
+        print(f"  {n:3d} 語  §{c}: {sent[:110]}{'…' if len(sent) > 110 else ''}")
+    return 0
+
+
+def sync(before: Path, after: Path) -> int:
+    """試作を採る commit で直す場所を出す (2026-11-12・portfolio-aa の依頼)。
+
+    冒頭の "This draft:"・変わった条を名指す CHANGELIST / 逐条の下書き / errata の行・変更前の総語数を書いた行。
+    出すのは場所で、直すかどうか (記録として残す行もある) は読む人が決める。
+    """
+    tb, ta = before.read_text(encoding="utf-8"), after.read_text(encoding="utf-8")
+    cb, ca = clauses(tb), clauses(ta)
+    chg = [c for c in sorted(set(cb) | set(ca), key=lambda c: tuple(int(x) for x in c.split("."))) if cb.get(c) != ca.get(c)]
+    sep = "-" * 80
+    wb, wa = (len((t.split(sep, 1)[1] if sep in t else t).split()) for t in (tb, ta))
+    print(f"# 変わった条: {', '.join('§' + c for c in chg) or 'なし'}・題名から END までの語数 {wb} → {wa}")
+    m = re.search(r"This draft: [\d,]+ words, \d+ clauses", ta)
+    print(f"  冒頭: {m.group(0) if m else '(This draft の行が無い)'} → {wa:,} words に")
+    print("  CHANGELIST: 主表に行を足し、費用の内訳 (Check 468s が照合) を直す。試作の節に採否を書く")
+    for f in sorted((_ROOT / "LICENSES").glob("*-CLAUSE-REFERENCE-DRAFT.md")):
+        for ln, line in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
+            hit = [c for c in chg if line.startswith(f"| **{c}**")]
+            if hit:
+                print(f"  逐条の下書き {f.name}:{ln} [§{hit[0]}] {line.strip()[:100]}")
+    pats = {f"{wb:,}", str(wb)}
+    for f in sorted((_ROOT / "LICENSES").glob("*.md")):
+        for ln, line in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
+            if any(re.search(r"(?<![\d,])" + re.escape(p) + r"(?![\d,])", line) for p in pats):
+                print(f"  語数 {wb:,} を書いた行: {f.name}:{ln} {line.strip()[:100]}")
+    return 0
+
+
 def main(argv: list[str]) -> int:
     if argv and argv[0] == "--guard" and len(argv) == 2:
         return guard(Path(argv[1]))
     if argv and argv[0] == "--uses" and len(argv) >= 3:
         return uses(Path(argv[1]), argv[2:])
+    if argv and argv[0] == "--sentences" and len(argv) in (2, 3):
+        return sentences(Path(argv[1]), int(argv[2]) if len(argv) == 3 else 15)
+    if argv and argv[0] == "--sync" and len(argv) == 3:
+        return sync(Path(argv[1]), Path(argv[2]))
     n = 6
     if "--min" in argv:
         i = argv.index("--min")
