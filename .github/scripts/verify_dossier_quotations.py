@@ -534,6 +534,7 @@ def attribution(root="."):
         return cds.own_text(body) + " " + " ".join(ins)
     msgs = [(who(cds.field(h, "From")), cds._when(cds.field(h, "Date")), norm(own_plus(b))) for _p, h, b in cds.messages()]
     print(f"通 {len(msgs)} 件 (cache {CACHE})")
+    side = load_sources(root)   # rounds/・本文・DOSSIER_EXTRA_SOURCES・アーカイブ (引用の中も含む)
     seen, tally, out = set(), collections.Counter(), []
     for f in sorted(glob.glob(f"{root}/LICENSES/*.md")):
         for n, line in enumerate(open(f, encoding="utf-8"), 1):
@@ -554,9 +555,12 @@ def attribution(root="."):
                 segs = [x for x in (norm(y) for y in re.split(r"\.{3}|…", q)) if len(x.split()) >= 3] or [norm(q)]
                 hits = [(fr, d) for fr, d, t in msgs if all(x in t for x in segs)]
                 if not hits:
-                    # 引用の中 (返信が引いた形) にしか無いか、cache に無い月の通。前者は帰属の確かめ先が返信の側に無い
-                    tally["引用を除いた本文に無い"] += 1
-                    out.append(f"[引用を除いた本文に無い] {os.path.relpath(f, root)}:{n}  {names[-1]} 氏 ← {q[:70]!r}")
+                    # 通の本文に無い引用を、出典の種類で分ける (2026-11-12): 議事録・告知・サイトの文は rounds/ や
+                    #   DOSSIER_EXTRA_SOURCES に在るのが正しい。どこにも無いものだけが、出典を確かめる候補になる
+                    where = "rounds・本文・サイト・通の引用の中のどこかに在る" if present(q, side) else "どこにも無い"
+                    tally[f"通の本文に無い ({where})"] += 1
+                    if where == "どこにも無い":
+                        out.append(f"[通の本文に無い・どこにも無い] {os.path.relpath(f, root)}:{n}  {names[-1]} 氏 ← {q[:70]!r}")
                     continue
                 name_ok = any(names[-1].lower() in fr.lower() for fr, _d in hits)
                 line_names = set(re.findall(r"([A-Z][a-zA-Z'\-]+) 氏", line))
