@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 473 subject lines. One thread appears under two subject spellings
+# Rows: 475 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -158,7 +158,9 @@
 2005-09-09	Best way to add a branding requirement.
 2005-09-09	Policy Questions
 2005-09-09	Pre-existing purpose and value vs Adminstrative rules
+2005-09-10	Submitted for Approval: OSL 3.0 and AFL 3.0
 2005-09-12	board action on License Committee Report for September 2005
+2005-09-13	For Approfal: OSL 3.0 and AFL 3.0
 2005-09-15	External deployment / Otherwise Make Available
 2005-09-15	OSL 3.0 questions
 2005-09-15	Status of ACE License Submission
