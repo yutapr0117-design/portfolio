@@ -1,0 +1,153 @@
+Source: OSI license-discuss public archive, 2004-November.txt; license-review public archive, 2007-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 3: 2 of 22 in "For Approval: Some License Or Another" (2004-11-29 to 2004-11-30) and 1 of 12 in the Aesthetic Permissive License thread (2007-12-29)
+Senders: Lawrence Rosen, Ian Lance Taylor, Russ Nelson
+Position: Not addressed to us. Observed. Each message kept here is whole. Russ Nelson was the chair of the license approval committee in 2007.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Mon Nov 29 23:17:29 2004
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Mon, 29 Nov 2004 15:17:29 -0800
+Subject: For Approval: Some License Or Another
+In-Reply-To: <16811.32413.945257.820822@desk.crynwr.com>
+Message-ID: <001401c4d669$9fc49ff0$3201a8c0@Rosenlaw>
+
+> <snip> As you
+> say, you're inventing this as you go, so I'm pleased to see that
+> you're willing to make changes.
+
+I've avoided commenting on some recent licenses partly because this
+"inventing as you go" experience turns me off. And from what I am told
+privately, many of the lawyers on this list tend to tune out when the
+discussion turns to non-lawyers debating "what if I changed X to Y and A to
+B...." There are just too many open source licenses, and too little time, to
+give that much attention.
+
+Which brings up the larger question: Why do we keep receiving requests for
+approval of new licenses? Does anyone seriously believe that our customers
+and distributors can keep up with this barrage? 
+
+Perhaps we ought to require license submitters to go through a private
+process of requesting changes to specific already-approved licenses before
+an entirely new license is proposed? If an idea is a good one, shouldn't it
+be easier to get an existing licensor to adopt that provision for his
+license rather than try to convince customers to adopt something entirely
+new? 
+
+As the author of a few approved licenses, I can count on the fingers of one
+hand the number of times that people have come to me and said, "Your license
+would work for me if only it were changed this way...." That happens
+occasionally, and that's largely why the OSL/AFL licenses are at version
+2.1. But far more often I'm not asked to make improvements to my licenses.
+Instead, license submitters just start from scratch with something new, over
+and over again. Isn't that tiresome?
+
+Instead of submitting new licenses for approval, first try to convince
+existing license stewards to change their licenses to meet your needs. I'm
+sure OSI can help you contact the owners of the 50+ already approved
+licenses.
+
+I'd particularly like to see that procedure followed by anyone who believes
+that existing licenses are unenforceable in other countries (i.e., Germany
+or Unfreedonia) or with specific types of copyrighted works (i.e., hardware
+products or government works). If we can improve existing licenses to solve
+these problems instead of creating "Some License Or Another," we'll all be
+far better off.
+
+/Larry
+
+Lawrence Rosen 
+Rosenlaw & Einschlag, technology law offices (www.rosenlaw.com)
+Author of "Open Source Licensing: Software Freedom and 
+           Intellectual Property Law" (Prentice Hall 2004)
+3001 King Ranch Road, Ukiah, CA 95482 
+707-485-1242 * fax: 707-485-1243 
+email: lrosen at rosenlaw.com 
+
+
+
+From ian at airs.com  Tue Nov 30 15:02:36 2004
+From: ian at airs.com (Ian Lance Taylor)
+Date: 30 Nov 2004 10:02:36 -0500
+Subject: AW: For Approval: Some License Or Another
+In-Reply-To: <84D511A814FAF742BF6927D883CF67C177C1B4@mpg-hap-info.mpipriv-hh.mpg.de>
+References: <84D511A814FAF742BF6927D883CF67C177C1B4@mpg-hap-info.mpipriv-hh.mpg.de>
+Message-ID: <m3zn0zs7lf.fsf@gossamer.airs.com>
+
+"Axel Metzger" <metzger at mpipriv-hh.mpg.de> writes:
+
+> I hope you don't mind my clear words. I am trying since five years to
+> convince the FSF to take into account the legal problems the GPL has under
+> German and European law while writing the GPL V3. My experience is: You
+> cannot really influence them. It's like in some comments on this list. Eat it
+> like it is or stay hungry. Free Software/Open Source Software people from the
+> US often have a unilateral way of thinking. It's a lack of political wisdom.
+> Creative commons is the smarter project. They have started to build coalition
+> with Europeans. Today I'm convinced that it is not only necessary for the
+> GFSL people to have a license that is feasible under German/European law. It
+> is necessary for them to have the power to change the license if necessary. 
+
+I know nothing about whether the GPL has legal problems in Europe.
+
+But I'll note that nobody here is saying that you can't have your own
+license (although in general we dislike license proliferation).  And
+nobody is saying that you can't change your license when you see fit.
+
+All we are saying is that if you want OSI certification, you can not
+require software which has already been distributed to automatically
+change to another license which does not (yet) have OSI certification.
+I personally don't understand why this is a sticking point for you.
+
+Perhaps it would help if you stated your goals more clearly.  If your
+goal is a version of the GPL which is fully supported by German and
+European law, then automatic license update seems orthogonal to that.
+The regular GPL does not have automatic update--as you know, the usual
+GPL phrasing is "either version 2 of the License, or (at your option)
+any later version."  So your goal is not simply a version of the GPL
+supported by German and European law.  So what is your goal?
+
+Ian
+
+
+From nelson at crynwr.com  Sun Dec 30 00:32:10 2007
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sat, 29 Dec 2007 19:32:10 -0500
+Subject: ?sthetic Permissive License - For Approval
+In-Reply-To: <b6bb4d890712291139o4c335149uc849e5b31ff71712@mail.gmail.com>
+References: <b6bb4d890712200340x34989499h308e1bab4288e020@mail.gmail.com>
+	<18282.36266.751976.450383@desk.crynwr.com>
+	<b6bb4d890712280656s5023e760sf6f068188a60eaf7@mail.gmail.com>
+	<20071229012113.GQ5329@mercury.ccil.org>
+	<006901c849e5$76749770$6601a8c0@LROSENTOSHIBA>
+	<b6bb4d890712290145u25f27c5i9c30a1397690e907@mail.gmail.com>
+	<18294.40585.984805.47171@desk.crynwr.com>
+	<b6bb4d890712291139o4c335149uc849e5b31ff71712@mail.gmail.com>
+Message-ID: <18294.59146.188648.192822@desk.crynwr.com>
+
+Sean B. Palmer writes:
+ > Perhaps he, or someone qualified, can clarify how his suggested
+ > solution meets my requirements, or how my requirements are invalid or
+ > can be satisfied in other ways? That's all I'm seeking!
+
+Your requirements are invalid.  If you want the law to cooperate with
+you, you need to cooperate with it.  That means creating a license
+which is sufficiently unambiguous.  You can't do that in the number of
+lines you have arbitrarily restricted yourself to.
+
+What I suggest you do is include this statement with your code:
+
+Copyright 2007 Sean B. Palmer.  License may be found here:
+http://miscoranda.com/license.html or if not found there, the code is
+in the public domain.
+
+If as you say, you want credit, you'll get it by people reading the
+license.  And yet, if you lose interest, people still have permission
+to redistribute the code.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Software that needs
+Crynwr sells support for free software  | PGPok | documentation is software
+521 Pleasant Valley Rd. | +1 315-323-1241       | that needs repair.
+Potsdam, NY 13676-3213  |     Sheepdog          | 
+
+
