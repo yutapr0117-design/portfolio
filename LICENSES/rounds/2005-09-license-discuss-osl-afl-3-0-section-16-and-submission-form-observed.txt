@@ -1,0 +1,102 @@
+Source: OSI license-discuss public archive, 2005-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 3 of 25 in the OSL 3.0 / AFL 3.0 submission threads (2005-09-10 to 2005-09-14)
+Senders: Lawrence Rosen, Russell Nelson, Rod Dixon, J.D., LL.M.
+Position: Not addressed to us. Observed. Lawrence Rosen's message of 2005-09-12 and Rod Dixon's of 2005-09-14 are cut where the quoted original message begins; each message kept here is otherwise whole. Russell Nelson was the chair of the license approval committee.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Mon Sep 12 18:41:50 2005
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Mon, 12 Sep 2005 11:41:50 -0700
+Subject: Derivative Works of OSL 3.0 and AFL 3.0 [Section 16]
+In-Reply-To: <10b11d85fba45b135ba2686dc6c82d9f@czv.com>
+Message-ID: <20050912144254.GA68898@mail26a.sbc-webhosting.com>
+
+Chris Zumbrunn wrote:
+> > Here is what I ended up with: http://czv.com/licenses/CL3/
+
+Chris and others,
+
+While I contributed OSL 3.0 for others to use to create licenses as they
+wish, I would sincerely appreciate your not doing so at least until OSL 3.0
+is approved. Now is not the time to confuse everyone with your own versions.
+
+
+Nor, as it happens, has OSI decided how to respond to an inevitable
+profusion of OSL-like licenses with subtle and confusing differences.
+License proliferation remains a problem. 
+
+I was warned that this would happen when I first proposed section 16 but I
+took a chance in doing so because I wanted to eliminate the problem of me
+being a "license steward." Please don't write a derivative license just to
+prove it can be done. At least not now, and not without careful thought
+first.
+
+/Larry
+
+Lawrence Rosen
+Rosenlaw & Einschlag, technology law offices (www.rosenlaw.com)
+3001 King Ranch Road, Ukiah, CA 95482
+707-485-1242  *  fax: 707-485-1243
+Author of "Open Source Licensing: Software Freedom and 
+   Intellectual Property Law" (Prentice Hall 2004) 
+   [Available also at www.rosenlaw.com/oslbook.htm]
+ 
+ 
+
+From nelson at crynwr.com  Wed Sep 14 01:22:15 2005
+From: nelson at crynwr.com (Russell Nelson)
+Date: Tue, 13 Sep 2005 21:22:15 -0400
+Subject: For Approfal: OSL 3.0 and AFL 3.0
+In-Reply-To: <E1EFI9P-0002uC-00@vbn.0012209.lodgenet.net>
+References: <E1EFI9P-0002uC-00@vbn.0012209.lodgenet.net>
+Message-ID: <17191.31559.800957.900193@desk.crynwr.com>
+
+Lawrence Rosen writes:
+ > This is yet another example of OSI spending more effort on form
+ > rather than function
+
+Nope.  It's functional.  Back before it was a requirement, people
+would submit licenses and the ONLY WAY to tell that the email was a
+license approval request was to read through each and every email in
+detail to see if this subject or that subject or this thread or that
+thread contained an approval request.
+
+By specifying a standard form in which to submit approval requests, a
+submittor has a chance of actually getting their license approved.
+
+You were there -- you know what happened without the standard form.
+
+And because you've been a nice and helpful person in the past, I'll
+ignore your petty use of 'f' instead of 'v' in the subject.
+
+ > (e.g., the ONLY comment I've received about these licenses from ANY
+ > OSI board member or attorney is this complaint from Russ about the
+ > subject line),
+
+Now you know why we have committees.
+
+-- 
+--my blog is at     blog.russnelson.com         | with some experience 
+Crynwr sells support for free software  | PGPok |     you know what to do.
+521 Pleasant Valley Rd. | +1 315-323-1241       | with more experience
+Potsdam, NY 13676-3213  |     Sheepdog          |     you know what not to do.
+
+
+From roddixon at cyberspaces.org  Wed Sep 14 11:01:00 2005
+From: roddixon at cyberspaces.org (Rod Dixon, J.D., LL.M.)
+Date: Wed, 14 Sep 2005 7:01 -0400
+Subject: For Approval: OSL 3.0 and AFL 3.0
+In-Reply-To: <20050913183554.GA15470@mail26c.sbc-webhosting.com>
+References: Message-ID:
+Message-ID: <9972-SnapperMsg06BC638FBF4DB3A5@10.172.226.63>
+
+I recommend approval of both licenses.
+-Rod
+
+------------
+Rod Dixon
+www.cyberspaces.org
+
+ ..... Original Message .......
+
