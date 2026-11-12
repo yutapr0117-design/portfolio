@@ -816,3 +816,19 @@ After: It does not apply this Dedication to material that a narrower notice the 
 **portfolio-9b の測定（2026-11-12）**: 最初の 3 案を再現し、5,053 → 5,060・重複 69・族 51・指示語 0 / 0・代名詞の段 6 件（どれも先行詞は 1 つ）・外した文に依拠するドシエ 0・468u 17/17・468r 0。
 
 **採否（2026-11-12・3 つとも採った・反例の代案の形・+1 語）**: T57 は *"That exception reaches only a new version"*（−2 語）、T58 は句点（0 語）、T59 は *"to that extent"*（+3 語）。採った形で 25 が `--compare` を回し、5,053 → 5,054・重複 69 → 69・族 51・指示語 0 / 0、`--guard` は 468u 17/17・468r 0・468m の句は 1 行のまま。草案・冒頭の一覧（§2.6 は語数そのまま、§2.8 は −71 → −68、§16.4 は +43 → +41）・`This draft:`（5,551 → 5,552）・`ACD-1.4-CHANGELIST.md`（表の 3 行・内訳の名前の保護 +49 → +47・その他の明瞭化 +40 → +43・合計 +108 → +109・1.0 から 656 語・英文の語数・切り替えの日の長さの行）・逐条の 3 行・長さの数（`SUBMISSION-MATERIALS.md`・`ACD-OSI-BOTTLENECKS.md` B3）を同じ commit で直した。T59 の文は 1.0 から在るので、errata は portfolio-00 が足す。**⚠ 逆側**: (1) T57・T58 は作用の分岐を閉じる修正ではなく、読みやすさのための修正である（基準 4）。(2) 最初の案は 2 つとも反例で替わった —— 名指しの語（*Such distribution* / *the same extent*）も、指す先が 1 つに決まるかを当てる。
+
+### 14.33 T60: §5.2 末文の *it* 3 つを名指しへ（+3 語・試作・2026-11-12）
+
+**見つけた経緯**: §14.31 の代名詞のレンズで、§5.2 末文の *it* 3 つを「Dedicator と Work に決まる」と書いた。意味から決めた読みで、文法の既定（代名詞は文の主語を指しやすい）を当てていなかった。長い文を上から読む §14.32 の続きで、65 語のこの文を読み直して気づいた。
+
+**Before（§5.2 末文）**: *"Section 5 does not reach the Dedicator's rights in material, other than the Work, that the Dedicator itself makes or makes available, or the terms or measures it applies to that material or to the use of a service through which it runs the Work for others without providing a copy of it, even where using that material is a Computational Use of the Work."*
+
+**After**: *"… or the terms or measures the Dedicator applies to that material or to the use of a service through which the Dedicator runs the Work for others without providing a copy of the Work, even where using that material is a Computational Use of the Work."*（+3 語・`split()` で数えた）
+
+**欠陥**: 文の主語は *Section 5* で、*it applies* と *it runs* の *it* は文法どおりなら主語を指す。「§5 が適用する条件や手段」は意味を成さないので読み手は Dedicator に戻すが、審査者は条文が意味から救われる箇所を数える（基準 4）。*a copy of it* の *it* は、直前の *the Work* とも *a service* とも読める。**この分岐は 1.4 草案が持ち込んだ**: T48（2026-11-09）が別の文 *"Paragraphs (a) and (b) do not reach a service through which **the Dedicator** runs the Work …"* を主語が *Section 5* の文へ合流させたとき、*the Dedicator* を *it* にした。*it applies* はその前（E67 を閉じた 11-08）から在った。1.0〜1.3 にこの文は無いので、採るなら `ACD-1.1-SELF-AUDIT.md` に記録する。
+
+**作用は変わらないと読む理由**: 3 つとも、意味から決まる指す先（Dedicator・Dedicator・Work）を語で書くだけで、除外の範囲（Dedicator 自身の素材と、それに付ける条件や手段と、写しを渡さずに Work を動かすサービスの使用に付ける条件や手段）は変わらない。*even where* の句は 1 文のままなので、両方の除外に掛かる（2 文に分ける形は、この句の掛かりを片方に切るので採らない）。
+
+**⚠ 逆側**: (1) +3 語で、同じ文に *the Dedicator* が 3 回、*the Work* が 3 回並ぶ。(2) 本文のほかの *it* も、主語が別の名詞の文で使われていれば同じ型になる —— 主語と違うものを指す *it* を全数で当てる読みは、この試作の後に回す。(3) この文を逐語で引く記録が 3 つある: errata E67 の *"1.4 draft now reads"*（採るなら *as adopted on* の形へ）、E68 の同じ引用への言及、`QUESTIONS-FOR-COUNSEL.md` の問の 3 つ目。mutation の anchor はこの句に無い（grep で確かめた）。
+
+**依頼**: portfolio-00 に反例（特に *a copy of the Work* —— サービスの写しと読む余地を消すことで、除外が広がったり狭まったりしないか）と errata の段取りを、portfolio-9b に `--compare / --guard` と、「主語と違うものを指す *it*」を機械で拾えるかを頼む。
