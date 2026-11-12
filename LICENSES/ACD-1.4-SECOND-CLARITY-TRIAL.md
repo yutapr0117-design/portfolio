@@ -771,7 +771,7 @@ After: It does not apply this Dedication to material that a narrower notice the 
 
 **採否（2026-11-12・採った・案 C・−2 語）**: 欠陥は具体的に立つ —— 記録がしている読み（*them* = 許諾）が、条の役目（許諾が倒れても残る）に逆らう余地を本文の語に置いている。C は分岐の両方の枝を語ごと消し、作用は *"does not wait"*・*"in every jurisdiction"*・§2.4 第 2 文・第 3 文が持つ。草案・冒頭の一覧（§8.6 の項の *"alongside the licences"* も外した・−67 → −69 語）・`This draft:`（5,553 → 5,551 語）・`ACD-1.4-CHANGELIST.md`（表の行・語数の内訳の特許の束 −2 → −4・合計 +110 → +108・英文の下書きの語数）・逐条の §8.6 の行・E42 の 1.4 の欄（*"as adopted on 2026-11-01"* の形へ）・言い換えていた外向きの 2 か所（`submission-reference.md`・`QUESTIONS-FOR-COUNSEL.md`）・長さの数（`SUBMISSION-MATERIALS.md`・`ACD-OSI-BOTTLENECKS.md` B3）を同じ commit で直した。1.0〜1.3 に文が無いので `ACD-1.1-SELF-AUDIT.md` §3z に記録した。**⚠ 逆側**: (1) どちらに読んでも作用は同じだと 11-12 の朝には書いた。結び付きの読みは §2.4 第 2 文が逆らうので、勝つ読みではない。直したのは、争う足場を本文の語に置かないためである。(2) 「許諾と並んで」という説明は本文の語でなく §2.4 に負う。against #279 の言い換えは portfolio-00 の側で見る。
 
-### 14.32 作用の条の長い文を、作用を変えずに分けられるか（T57・T58・試作・2026-11-12）
+### 14.32 作用の条の長い文を、作用を変えずに分けられるか（T57・T58・T59・採った・+1 語・2026-11-12）
 
 **レンズ**: OSI の新規ライセンスの基準 4（文法的・構文的に明晰）と、長さと読みにくさへの審査者の異議（Chestek 氏 *"excessively wordy"*・#6）。作用の条の文を `split()` で数え、上位を読んだ（2026-11-12 の草案）: §5.2 第 1 文 149 語（(a)〜(d) の列挙を 1 文に持つ）、§16.4 第 3 文 89 語、§2.6 第 2 文 77 語、§4.2 74 語、§1.10 74 語、§8.1 73 語、§8.4 第 1 文 70 語。§5.2 は列挙の項ごとに読めるので分けない。§4.2・§1.10 は定義と権利の列挙で、分けると列挙の範囲が文ごとに切れる。§8.1・§8.4 は許諾の文で、目的語・請求項・因果の限定が 1 文にあることが許諾の範囲を決めるので分けない。オーナーの依頼（2026-11-12「ACD-1.4-DRAFT.txt もガンガン更新してより良くし続けて」）を受けて、試作の数を増やす最初の組である。
 
@@ -810,3 +810,9 @@ After: It does not apply this Dedication to material that a narrower notice the 
 **⚠ 逆側**: (1) 限りを 2 回書くと、他の条（§5.3・§12.4 の *"to the fullest extent the law permits the Dedicator to bind them"*）との並びで、限りの無い文が別に在るのではと探させる。§5.3・§12.4 は 1 文なので、同じ型の残りは無いと読むが、反例を求める。(2) 法律家の答え（問 1 (j)）が出れば、限り方の語そのものが変わりうる。(3) +4 語。代案の「第 2 文を外す」（−7 語）は、*Section 6 included* の明示を失うので採らない。
 
 **依頼**: portfolio-00 に反例（特に T57 の *"is permitted"* と *"Such distribution"* の指す先、T59 の *"to the same extent"* の掛かり先）を、portfolio-9b に `--compare / --guard` と代名詞の段を頼む。
+
+**portfolio-00 の反例（2026-11-12）**: T57 は作用が同じに読めるが、*"is permitted"* は分岐を生む —— §16.6 は §16.4 を Work の条件でなく文書の規律と置くので、*"Such distribution by the Steward is permitted"* は Dedication が Steward に許可を与える文（許可の源）と読まれうる。元の文は制限の例外で、許可を与えていない。代案は制限の声を保つ *"That exception reaches only a new version …"* で、*That exception* は直前の *except by the Steward* に一意に向く。T58 は clean（*This undertaking* は識別の約束を受ける）。T59 の *"to the same extent"* は何と同じかが書かれておらず、「Dedicator が拘束されるのと同じだけ」と読めば外したい無限定の強さが戻る。代案は *"to that extent"*（+3 語）。
+
+**portfolio-9b の測定（2026-11-12）**: 最初の 3 案を再現し、5,053 → 5,060・重複 69・族 51・指示語 0 / 0・代名詞の段 6 件（どれも先行詞は 1 つ）・外した文に依拠するドシエ 0・468u 17/17・468r 0。
+
+**採否（2026-11-12・3 つとも採った・反例の代案の形・+1 語）**: T57 は *"That exception reaches only a new version"*（−2 語）、T58 は句点（0 語）、T59 は *"to that extent"*（+3 語）。採った形で 25 が `--compare` を回し、5,053 → 5,054・重複 69 → 69・族 51・指示語 0 / 0、`--guard` は 468u 17/17・468r 0・468m の句は 1 行のまま。草案・冒頭の一覧（§2.6 は語数そのまま、§2.8 は −71 → −68、§16.4 は +43 → +41）・`This draft:`（5,551 → 5,552）・`ACD-1.4-CHANGELIST.md`（表の 3 行・内訳の名前の保護 +49 → +47・その他の明瞭化 +40 → +43・合計 +108 → +109・1.0 から 656 語・英文の語数・切り替えの日の長さの行）・逐条の 3 行・長さの数（`SUBMISSION-MATERIALS.md`・`ACD-OSI-BOTTLENECKS.md` B3）を同じ commit で直した。T59 の文は 1.0 から在るので、errata は portfolio-00 が足す。**⚠ 逆側**: (1) T57・T58 は作用の分岐を閉じる修正ではなく、読みやすさのための修正である（基準 4）。(2) 最初の案は 2 つとも反例で替わった —— 名指しの語（*Such distribution* / *the same extent*）も、指す先が 1 つに決まるかを当てる。
