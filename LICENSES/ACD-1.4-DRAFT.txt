@@ -90,7 +90,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       through which it runs the Work for others without providing a copy,
       though a term of such a service that reaches the Work however obtained
       stays inside (errata E67, E68); Section 6.4 now says that You owe nothing
-      "under this Dedication" (errata E70). (+78 words.)
+      "under this Dedication" (errata E70). Section 5.2 now names the Dedicator
+      and the Work in that closing sentence, where it said "it", which could be
+      read as Section 5. (+81 words.)
     * Section 6.1 now permits Computational Use as to the patent claims
       Section 8 reaches, where it named the patent claims of the Dedicator and
       so went beyond Section 8. (+4 words.)
@@ -203,7 +205,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5552 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5555 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -485,9 +487,10 @@ PREAMBLE (informative; not part of the operative terms)
 
        Section 5 does not reach the Dedicator's rights in material, other than
        the Work, that the Dedicator itself makes or makes available, or the
-       terms or measures it applies to that material or to the use of a service
-       through which it runs the Work for others without providing a copy of
-       it, even where using that material is a Computational Use of the Work.
+       terms or measures the Dedicator applies to that material or to the use
+       of a service through which the Dedicator runs the Work for others
+       without providing a copy of the Work, even where using that material is
+       a Computational Use of the Work.
 
   5.3  The covenants in Sections 5.1 and 5.2 bind the Dedicator's successors,
        assigns, heirs, and personal representatives, to the fullest extent the

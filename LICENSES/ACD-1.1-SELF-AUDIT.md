@@ -802,7 +802,7 @@ Dedicator が自分では主張せず、独占的なライセンスを受けた�
 | §2.6 第 2 文（識別の約束） | 1.1 | *"and that material is included in the Work, the Dedicator will identify it"*（1.4 草案では *with the Work*）は受動で、誰が含めても、もう関わっていない Dedicator も含めて全員に約束を負わせる | *"a Dedicator who includes that material with the Work, or causes it to be included, will identify it"*（+5 語・T37）|
 | §16.5（Steward） | 1.1 | *"and any person or entity to whom that role is assigned"* は累積で、譲渡したあとも最初の公表者が Steward のまま残る | *"or, after an assignment, the person or entity to whom that role was last assigned by"*（+4 語・T45）|
 
-## 3z. 1.4 草案の 2 つの修正が組になって作った先行詞の分岐 —— §8.6 の *"alongside them"*（2026-11-12）
+## 3z. 1.4 草案の修正が代名詞の先行詞を変えた 2 件 —— §8.6 の *"alongside them"* と §5.2 末文の *it*（2026-11-12）
 
 **1.0〜1.3 にこの文は無いので、errata ではなくここへ記録する。** 11-06 以後に変わった 17 条の相互参照 47 件を読み直したときに 25 が見つけ、bb が反例を当て、5a が測った（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.31）。
 
@@ -815,3 +815,10 @@ Dedicator が自分では主張せず、独占的なライセンスを受けた�
 **読み**: 記録はどれも *them* を許諾と読んでいた。そう読むと「許諾が在る限りで並んで働く」と読む余地が生じ、許諾が無効と判断された法域でも残るという条の役目に逆らう（bb）。並んで働くことは *"does not wait"* と §2.4 第 2 文（*"none is conditioned on another being effective or on another's failure"*）が持つ。
 
 **一般形**: **単独では正しい修正が 2 つ組になると、片方の語が他方の代名詞の先行詞を変える。** E71 は語を 1 つ複数にしただけで、0 語の修正だった。語数が 0 でも、隣の文の代名詞は読み直す。修正どうしを読み合わせる読み（§14.14・§14.22）は、変わった文の次の文まで含めて読む。
+
+**2 件目（T60）—— 文を合流させたときに名指しを代名詞へ。**
+**1.0〜1.3 にこの文は無いので、errata ではなくここへ記録する。** 長い作用の文を読み直したときに 25 が見つけ、bb が反例を当てた（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.33）。
+
+T48（2026-11-09）は、*"Paragraphs (a) and (b) do not reach a service through which **the Dedicator** runs the Work for others without providing a copy of it."* を、主語が *Section 5* の末文へ合流させ、*the Dedicator* を *it* にした。末文には E67 を閉じたとき（11-08）から *"the terms or measures it applies"* があった。合流の後、主語から遠い 65 語の文に *it* が 3 つ並び、文法の既定では主語の *Section 5* を指す。*a copy of it* は *a service* とも読め、そう読むと除外は意図より広がる。T60 で *the Dedicator* と *the Work* に名指しした（+3 語）。
+
+**一般形**: **2 つの文を 1 つに合流させると、合流先の主語が代名詞の既定の先行詞になる。** 合流させた文の名詞を代名詞に縮めるときは、合流先の主語との取り違えを読む。§3z（修正の組が先行詞を変える）と同じ族で、こちらは 1 つの修正の中で起きた。
