@@ -555,6 +555,7 @@ LICENSES/ACD-1.4-CHANGELIST.md | 200000 | 300000
 LICENSES/ACD-1.4-CLAUSE-REFERENCE-DRAFT.md | 160000 | 200000
 LICENSES/AS-OF.md | 130000 | 200000
 LICENSES/OSI-EVENTS-2026-10.md | 130000 | 200000
+LICENSES/SUBMISSION-MATERIALS.md | 120000 | 160000
 docs/architecture/check-repository-consistency-map.md | 380000 | 500000
 docs/session-records/CLAUDE-handoff-archive.md | 450000 | 500000
 docs/session-records/runbook-check-history.md | 240000 | 300000
