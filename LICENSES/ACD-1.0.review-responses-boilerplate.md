@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses-boilerplate.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-02
+last-updated: 2026-11-12
 canonical-ref: LICENSES/ACD-1.0.review-responses-clauses.md (第 1 層・条項別) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
 ---
 
@@ -352,10 +352,12 @@ verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against ap
 > it was exercised because the actor was not a person.** It is belt and braces, not a theory of
 > machine personhood.
 >
-> **What it would cost to remove it.** The second sentence would still place the permission in
-> the operator and the principal, so the practical effect is the same. What would be lost is
+> **What it would cost to remove it.** The sentence that begins "Where an automated system"
+> would still place the permission in the operator and the principal, so the practical effect is the same. What would be lost is
 > the answer to the argument itself — and that argument is cheap to make and expensive to
 > rebut once a dispute has started.
+
+**2026-11-12 訂正**: 英文の "The second sentence" は誤りだった。1.0 の §1.4 でも 1.4 草案の §1.6 でも、許可を運用者と委託者に置く文は 3 文目である（2 文目は *"Your" is construed accordingly.*）。文の数え違いを避けるため、文の書き出しで名指す形に直した（portfolio-00 が T55 の反例を当てる途中で見つけた）。
 
 **⚠ この問答が establish しないこと**: **機械が権利を持ちうるか**という問いには触れていない。
 §9 が「権利が存在するかは決めない」と述べているのと同じ姿勢で、ここでも決めない。
