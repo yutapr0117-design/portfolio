@@ -106,6 +106,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `LICENSES/AUDIT-LEDGER.md` | 613 | 900 | `advisory` | 手で回す道具（引用照合・アーカイブ全数調査・文長測定など）を回した結果の台帳。**回すたびに 1 節伸びる追記型**なので、900 で早期警告し、1,000 の手前で古い節を archive へ分ける |
 | `LICENSES/AUDIT-LEDGER-ARCHIVE.md` | 298 | 900 | `advisory` | **`AUDIT-LEDGER.md` から退避した日付つきの回**（2026-09-27 / 09-27〜28 / 10-10）。**2026-11-01 に本台帳が 898 行（advisory の 2 行手前）に達したので先回りで分けた**。本文は無改変で移しており、新しい回は本台帳へ足す |
 | `LICENSES/ACD-1.4-CLARITY-TRIAL.md` | 884 | 900 | `advisory` | **1.4 草案の明瞭性の試作の記録**（Before / After・反例・比較）。試作の族ごとに節が増えるので、1,000 行の前に鳴らす。伸びたら節の単位で分ける |
+| `LICENSES/ACD-1.4-SECOND-CLARITY-TRIAL.md` | 812 | 900 | `advisory` | 1.4 草案の明瞭性の試作の 2 冊目（§10 から・1 冊目と同じ規則）。**2026-11-12 に §14.32（T57〜T59）を足して 800 行を越え、Check 454 の危険域に入ったので登録した**。900 に近づいたら、節の単位で 3 冊目へ分ける |
 | `LICENSES/ACD-1.4-ADVERSARIAL-TRIAGE.md` | 287 | 400 | `advisory` | **外部の敵対的監査（172 観点）を 1 件ずつ仕分けた表**（2026-11-01）。行数は観点の数で固定され、伸びるのは分類欄の長さだけなので早めに鳴らす |
 | `LICENSES/ACD-1.0.reviewer-positions.md` | 877 | 900 | `advisory` | 審査者が**主題**について述べたことの記録（§1.49 / §1.50 / §1.52 / §1.55 / §1.56 / §1.58〜§1.61）。**2026-09-09 に `review-precedents.md` を二分して作った** —— 境界は「1 つの提出の顛末か、複数の提出を横断する主題か」。**節番号は変えていない**ので既存参照は解決する。**分割の disposition**: 次に越えたら**条文の主題（人格権・特許・データベース権）と提出の作法（長さ・弁護士・構造）**で割る —— 前者は条文を読みに来た審査者、後者は提出の形を見に来た審査者が読む |
 | `LICENSES/ACD-1.0.jurisdictions.md` | 807 | 900 | `advisory` | 法域ごとの読み（§2 日本〜§8、§9 外から届いた法源と §9a の原典）。**2026-11-08 に法定の撤回権の条文（UrhG 42 条・CPI L121-4 / L121-7・著作権法 84 条 3 項）を足して 800 行を越え、Check 454 で登録した。** 次に分けるなら §9a（外から届いた法源の原典の記録）が独立した塊である |
@@ -645,6 +646,7 @@ LICENSES/PEER-REVIEW-WATCH.md | 950 | advisory
 LICENSES/AUDIT-LEDGER.md | 900 | advisory
 LICENSES/AUDIT-LEDGER-ARCHIVE.md | 900 | advisory
 LICENSES/ACD-1.4-CLARITY-TRIAL.md | 900 | advisory
+LICENSES/ACD-1.4-SECOND-CLARITY-TRIAL.md | 900 | advisory
 LICENSES/ACD-1.4-ADVERSARIAL-TRIAGE.md | 400 | advisory
 LICENSES/ACD-1.0.reviewer-positions.md | 900 | advisory
 LICENSES/ACD-1.0.jurisdictions.md | 900 | advisory
