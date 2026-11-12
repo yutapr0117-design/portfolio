@@ -574,6 +574,15 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 453: ドシエの .md (ACD-1.0.comparison.md) を、いまの sha256 のまま FREEZE-DATA に足す —— 旧版は ACD-<版>.<英字> の形を"
+            "全部通し、正しい手順で直せない file を増やせた (2026-11-12・監査 #182。その file が後で変わると旧版も sha の不一致で赤くなる)",
+    "file": ROOT / "LICENSES" / "FROZEN.md",
+    "find": "b90a388803a628bf382455ac6350adf8d9e58fe7f381ae10155bd42c0b129e25  LICENSES/ACD-1.3.machine.json\n",
+    "replace": "b90a388803a628bf382455ac6350adf8d9e58fe7f381ae10155bd42c0b129e25  LICENSES/ACD-1.3.machine.json\n581b22e37add8a3c7138bca22c534f38e1bb218aa4c4a322df09fb3d3c295e5d  LICENSES/ACD-1.0.comparison.md\n",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
