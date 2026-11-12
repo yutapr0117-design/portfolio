@@ -608,3 +608,20 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **portfolio-aa の答えの形（2026-11-12）。** 本文は語で分岐を閉じる作業を、記録つきで続けている（`ACD-1.4-SECOND-CLARITY-TRIAL.md` の試作。同じ日の T56・T60 は代名詞の分岐を語で閉じた）。§15.1・§15.5・§15.6 は、語で閉じきれない場面の最後の受け皿で、語の代わりではない。この答えの逆側は Chestek 氏の文そのもの（受け皿が要る時点で、意図と違う結論の危険がある）と、ACD が長く、新しい定義語を持つことである。
 
 **この節が establish しないこと。** MutuaL の審査の帰結は、このスレッドの 5 通には無い（2026-06-09 の通で終わる）。Chestek 氏の文は個人の見解で、委員会の判断ではない。§15.1 と §15.6 を外すかどうかの判断は、portfolio-aa の試作の手順に委ねた。
+
+## 1.197 2019〜2020 年の 2 つの会話 —— 意図は明確に、ただし曖昧で広すぎる語でなく。list の通は moderation で落とされることがある（2026-11-12）
+
+"Intimacy in open source (SSPL and AGPL)"（`license-discuss` 2019-01・34 通）と "Ethical open source licensing - Dual Licensing for Justice"（`license-discuss` 2020-02〜03・28 通）。どちらも決める側の通に絞って読んだ。4 通を `rounds/2019-01-to-2020-03-license-discuss-intent-precision-and-moderation-observed.txt` に置いた。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"The INTENT of the license must be clear, but not with words or phrases that are vague and too broad. They should say precisely what they mean"* | Lawrence Rosen 氏 2019-01-22 | §1.196 の Chestek 氏の基準と同じ線。ACD の §6（学習と出力）と §8.4 の語の広さが、この基準で読まれる |
+| *"the ethical license proposals are fundamentally irreconcilable with the non-discrimination values in the OSD."* | Pamela Chestek 氏 2020-02-26 | 有利な向き。ACD は使い道や使う人を制限しない（§4.3）。倫理的な制限を持つ AI のライセンス（RAIL など）と ACD が分かれる点である（`comparison.md`） |
+| *"Once we say that a license is OSD-compliant, anybody can distribute software under that license and say that it's open source."* | Russell Nelson 氏 2020-03-08 | 承認の効き目の文。承認されたライセンスの下の配布は open source と名乗れる。ACD が承認されれば、ACD を付けたモデルの重みも「open source のライセンスの下」と名乗れるようになり、`review-readings.md` §1.194 の OSD 2 の問い（重みが source の形か）が、承認の後の論点として残る |
+| *"I would like to point out that the OSI rejected the email ESR sent that Gil quoted (which I have removed) and it did not get published to the list. It would be helpful if everyone could make sure when replying they aren't inadvertently subverting the moderation process."* | Pamela Chestek 氏（License Review Committee の委員長と署名）2020-02-26 | B14 の背景。list の個々の通が moderation で落とされることは 2020 年にも在り、それは OSI の創設に関わった人の通にも及んだ。我々の投稿のうち少なくとも 3 通が moderation で拒否されたこと（B14）は、この運用の中で起きている |
+
+**読み。** 2019 年の Rosen 氏の文は、2026 年の Chestek 氏の基準（§1.196）の前に同じことを述べている。2020 年の 2 つの文は、ACD の有利な点（使い道を制限しない）と、承認の後に残る問い（承認されたライセンスを付けた物は open source と名乗れる）を示す。
+
+**逆側。** 2020 年の moderation は、特定の個人の通の内容についての判断である。2026-09-09 の moderator の告知は、AI が大半を書いた投稿という種類についての方針で、同じ運用の延長と読むか、新しい方針と読むかは、この記録からは決まらない。
+
+**この節が establish しないこと。** どちらの会話も、ライセンスの承認の審査ではない。Nelson 氏の文は、倫理的なソフトウェアの定義（ESD）への反論の中の一文である。

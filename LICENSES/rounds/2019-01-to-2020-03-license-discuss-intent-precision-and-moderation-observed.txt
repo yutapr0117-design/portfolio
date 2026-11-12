@@ -1,0 +1,213 @@
+Source: OSI license-discuss public archive, 2019-January.txt, 2020-February.txt and 2020-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 4 of 62 in "Intimacy in open source (SSPL and AGPL)" (2019-01) and "Ethical open source licensing - Dual Licensing for Justice" (2020-02 to 2020-03)
+Senders: Pamela Chestek, Russell Nelson, Lawrence Rosen
+Position: Not addressed to us. Observed. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From pamela.chestek at opensource.org  Thu Feb 27 00:01:20 2020
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Wed, 26 Feb 2020 19:01:20 -0500
+Subject: [License-discuss] Ethical open source licensing - Dual
+ Licensing for Justice
+In-Reply-To: <CAB--ThbAqP3Eq+QEqMoxOXMTiUaJqdyCMhJNQKdLk336ND_6-A@mail.gmail.com>
+References: <CAMkzgA5jFikdmppcLNsSmeLcUzOmNGbQ5Gir6LVM4RH+51zcFg@mail.gmail.com>
+ <e9a2b82a-058e-724f-d763-6f6637bec443@chesteklegal.com>
+ <Pine.BSM.4.64L.2002261556410.24893@herc.mirbsd.org>
+ <CAB--ThboSHqbKE+YZnYtjWE2b9s2oT_vay6a-kU5qJ=m=v_6Hg@mail.gmail.com>
+ <20200226180911.GE42699@thyrsus.com>
+ <CAB--ThbAqP3Eq+QEqMoxOXMTiUaJqdyCMhJNQKdLk336ND_6-A@mail.gmail.com>
+Message-ID: <396735ee-7e2a-15b7-27ce-a7c838e170bc@opensource.org>
+
+I would like to point out that the OSI rejected the email ESR sent that
+Gil quoted (which I have removed) and it did not get published to the
+list. It would be helpful if everyone could make sure when replying they
+aren't inadvertently subverting the moderation process.
+
+Pam
+
+Pamela Chestek
+Chair, License Review Committee
+Open Source Initiative
+
+From pamela at chesteklegal.com  Wed Feb 26 14:25:10 2020
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Wed, 26 Feb 2020 09:25:10 -0500
+Subject: [License-discuss] Ethical open source licensing - Dual
+ Licensing for Justice
+In-Reply-To: <CAMkzgA6_9MU6tLmudcnEtU_UV5KuP7tom4U=NSUrqw5qrffMdQ@mail.gmail.com>
+References: <CAMkzgA5jFikdmppcLNsSmeLcUzOmNGbQ5Gir6LVM4RH+51zcFg@mail.gmail.com>
+ <e9a2b82a-058e-724f-d763-6f6637bec443@chesteklegal.com>
+ <CAMkzgA6_9MU6tLmudcnEtU_UV5KuP7tom4U=NSUrqw5qrffMdQ@mail.gmail.com>
+Message-ID: <12f9beea-1fae-0338-10ff-aaaf86747f15@chesteklegal.com>
+
+On 2/25/2020 12:16 PM, Eric Schultz wrote:
+> On Tue, Feb 25, 2020, 8:02 AM Pamela Chestek <pamela at chesteklegal.com
+> <mailto:pamela at chesteklegal.com>> wrote:
+>
+>
+>     I don't see the point of these contortions. Why not just write a
+>     license
+>     that says "everyone case use the software except Amazon." It
+>     suspect it
+>     would be an enforceable license. Why are you trying to fit it
+>     under the
+>     umbrella of "open source" too?
+>
+> Sure, that's an enforceable license, but it's not FOSS. Lots of people
+> value FOSS but are also concerned about other issues in the world. If
+> they feel their only option is "ethical source", they're going to
+> convince themselves that's an acceptable choice. We need a set of
+> options, licensing or otherwise, that uphold the OSD and FSD and allow
+> them to make some different on the other issues in the world. I'm
+> trying to explore the licensing topic here.
+>
+> Eric
+>
+You've assumed your premise to be true, that an ethical license must be
+FOSS, but still haven't explained why. You also say "If they feel their
+only option is 'ethical source', they're going to convince themselves
+that's an acceptable choice." What's wrong with that? Isn't that your goal?
+
+You claim to want a license that upholds the OSD yet the ethical license
+proposals are fundamentally irreconcilable with the non-discrimination
+values in the OSD. If the response is "the OSD therefore is wrong," then
+you actually don't want a license that upholds the OSD.
+
+Pam
+?
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20200226/6695f05f/attachment.html>
+
+From nelson at crynwr.com  Mon Mar  9 01:42:47 2020
+From: nelson at crynwr.com (Russell Nelson)
+Date: Sun, 8 Mar 2020 21:42:47 -0400
+Subject: [License-discuss] Ethical open source licensing - Dual
+ Licensing for Justice
+In-Reply-To: <166ED4A7-E124-4C58-A555-FB86A7D84EDC@idolhands.com>
+References: <CAMkzgA5jFikdmppcLNsSmeLcUzOmNGbQ5Gir6LVM4RH+51zcFg@mail.gmail.com>
+ <87imjh3lxr.fsf@mid.deneb.enyo.de>
+ <0AA2ADCA-B9E2-46BB-A1B7-46C95FA8F21E@jimjag.com>
+ <62175cfb-5819-82c2-b16f-8707fb72045b@crynwr.com>
+ <166ED4A7-E124-4C58-A555-FB86A7D84EDC@idolhands.com>
+Message-ID: <091b01c3-cee4-ee9a-563d-2b9787add26e@crynwr.com>
+
+
+On 3/6/20 4:47 PM, Coraline Ada Ehmke wrote:
+>> On Mar 6, 2020, at 11:04 AM, Russell Nelson <nelson at crynwr.com> wrote:
+>>
+>> I do NOT like the idea of ethical open source. It completely turns the idea of "forking without permission" into "you can only run this software if I think you are a good person.?
+>
+> I see statements like this being thrown around so often, and I?m really sick of it being repeated with exactly ZERO backing evidence.
+
+Well, then, let's look at the terms of the ESD (even though it's 
+off-topic for license-discuss). It controls not licenses, but the 
+software itself. This matters very much. Once we say that a license is 
+OSD-compliant, anybody can distribute software under that license and 
+say that it's open source. If they don't comply with the terms of the 
+license, the copyright holder has grounds for a copyright infringement suit.
+
+The ESD applies to software, not to licenses. If somebody uses 
+ESD-licensed software, they're NOT free and clear. They could get into 
+legal or social trouble down the road.
+
+For example, ESD#1 implies that software which is inheritive cannot be 
+combined with software that is not. So the GPL is out, completely. For 
+example, ESD#2 could be infringed by a developer who rejects a patch 
+("welcoming of public contributions"). Their decision may be grounds to 
+remove ESD compliance from their software depending on someone's 
+opinion, including some third party. ESD#3 says that the code of conduct 
+must be consistently and fairly enforced. Who decides this? You? Me? The 
+Ethical Source Movement board of directors? Or some other committee? ESD 
+#4 could be infringed by a piece of software which fails to include 
+sufficient prohibitions. ESD #5 seriously? You're permitting proprietary 
+software. Or, if you aren't, then it's just virtue signalling, 
+attempting to attract developers who want to beg for money. ESD #6 
+doesn't define what is a "widely interoperable open format". I can open 
+Microsoft Word files using Open Office. Does means it complies with ESD 
+#6? Does Word's XML file format make it comply? You can't argue that XML 
+is NOT a "widely interoperable open format".
+
+The whole thing reeks of arbitrary judgements.
+
+I hope this is adequate backing evidence.
+
+
+
+From lrosen at rosenlaw.com  Wed Jan 23 05:01:25 2019
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Tue, 22 Jan 2019 21:01:25 -0800
+Subject: [License-discuss] Intimacy in open source (SSPL and AGPL)
+In-Reply-To: <CAK2MWOvFyPqm0kT3Yq8o9NAm7sfKULd7-QT=0UB3g6eLnSH8tw@mail.gmail.com>
+References: <7e083457e6b24f21b5e686c2d7e454f1@nalasexr03f.na.qualcomm.com>
+ <CAK2MWOvXQTEF0Av98ciVBgSH5vzYMv=fP4A_z+WajKNuYEqvNw@mail.gmail.com>
+ <036a01d4b2ad$b90bc670$2b235350$@rosenlaw.com>
+ <CAK2MWOu-MjAJjhEzcdjxKp+OvFgF-j-V-jJB+yCPy3GQr2i3cg@mail.gmail.com>
+ <038601d4b2cf$1a864ad0$4f92e070$@rosenlaw.com>
+ <CAK2MWOvFyPqm0kT3Yq8o9NAm7sfKULd7-QT=0UB3g6eLnSH8tw@mail.gmail.com>
+Message-ID: <039601d4b2d8$b32da4a0$1988ede0$@rosenlaw.com>
+
+Bruce Perens wrote:
+
+> If you want to make a product, I will discuss with you how to resolve the issue for the particular problem you have, which mostly means you won't be creating a derivative work of any kind, but will be architecting a bright line between the free and proprietary pieces that would be extremely clear to any court.
+
+ 
+
+Bruce, that I agree with. I believe that is good advice. The boundary line is a derivative work. But that is different from "Corresponding Source" or "intimacy". The INTENT of the license must be clear, but not with words or phrases that are vague and too broad. They should say precisely what they mean, and what apparently you also mean. :-)
+
+ 
+
+/Larry
+
+ 
+
+ 
+
+From: Bruce Perens <bruce at perens.com> 
+Sent: Tuesday, January 22, 2019 8:17 PM
+To: Lawrence Rosen <lrosen at rosenlaw.com>
+Cc: license-discuss at lists.opensource.org
+Subject: Re: [License-discuss] Intimacy in open source (SSPL and AGPL)
+
+ 
+
+ 
+
+ 
+
+On Tue, Jan 22, 2019 at 8:02 PM Lawrence Rosen <lrosen at rosenlaw.com <mailto:lrosen at rosenlaw.com> > wrote:
+
+What particular architectural design do you recommend? I want an architecture that always permits a programmer to implement her own software in accordance with a published API, under any FOSS or proprietary license she chooses, and thereby let her software become intimate with some other open source software. 
+
+ 
+
+No FOSS license that prohibits that is truly open source!
+
+Oh, come on, Larry. If you want to write software and combine it with software under a license that is clearly intended to prevent combination with proprietary software, you are entirely free to use their API under a license compatible with their chosen one and release it as their terms require. There is nothing about Open Source that says they have to give a free ride to anyone, no less deep-pocket companies that are extremely jealous of their own intellectual property rights.
+
+ 
+
+If you want to make a product, I will discuss with you how to resolve the issue for the particular problem you have, which mostly means you won't be creating a derivative work of any kind, but will be architecting a bright line between the free and proprietary pieces that would be extremely clear to any court.
+
+ 
+
+    Thanks
+
+ 
+
+    Bruce
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190122/037d2a90/attachment-0001.html>
+
