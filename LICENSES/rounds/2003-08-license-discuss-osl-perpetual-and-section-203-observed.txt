@@ -1,0 +1,204 @@
+Source: OSI license-discuss public archive, 2003-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 3 of 3 in "Open Source Licensing" (2003-08-27 to 2003-08-28)
+Senders: Lawrence E. Rosen, Mahesh T. Pai, Ian Lance Taylor
+Position: Not addressed to us. Observed. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Wed Aug 27 18:31:32 2003
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Wed, 27 Aug 2003 11:31:32 -0700
+Subject: [CNI-(C)]  Re: Open Source Licensing
+In-Reply-To: <list-908876@cni.org>
+Message-ID: <000701c36cc9$742601a0$927ba8c0@ROSENGARDEN>
+
+[Cross-posted to CNI-COPYRIGHT and license-discuss at opensource.org]
+
+Joseph Pietro Riolo wrote:
+> I can see how you meant "perpetual" to be....
+> 
+> Still, that does not sit well with me.  How can lay people 
+> and judges know that you meant that way without seeing your 
+> post in CNI-COPYRIGHT?  Also, how many people who use your 
+> license really understand your meaning of "perpetual"?
+
+Who really cares what I meant?  I just drafted the contract; it is the
+parties to the contract who must have a clear understanding -- a meeting
+of the minds.
+
+I hope that parties contracting under the Open Software License (OSL,
+www.rosenlaw.com/osl2.0.html) really mean "perpetual" as "until the end
+of time."  The fact that copyright law provides an escape mechanism to
+protect against unequal bargaining power at the beginning of a copyright
+term shouldn't prevent parties from saying "perpetual" when they
+honestly, sincerely, presently intend it to be forever.
+
+I am reminded of the "till death do us part" vows in marriage
+ceremonies.  Are there any family law practitioners here who might
+compare the legal effects of those words to the perpetual language in
+software licenses?  
+
+> Will it be better if you take out the word "perpetual" and 
+> add another section on duration of license something like this:
+> 
+>      16. Duration.  This license shall be in force until
+>      the expiration of copyright in original work or the
+>      unequivocal and irrevocable dedication of the original
+>      work to the public domain, whenever happens first.  In
+>      no way this license will be terminated any time before
+>      then.
+> 
+> That way, lay people and judges will understand that you
+> do not mean the license to be overreaching, beyond the
+> scope and term of copyright.
+
+I was pleased to discover, after I published OSL version 2, that it was
+a full page shorter than the GPL.  That fact alone increases the chances
+that licensors and licensees will actually read it and try to understand
+its implications and limitations.  While your proposed language would
+indeed speak the truth, the cost of those words in terms of readability
+and public understanding is prohibitive.  :-)  
+
+Do the authors of proprietary software say such things in their
+licenses?  Since the 35-year option-to-terminate rule (17 U.S.C. 203)
+doesn't even apply to a work made for hire, is it practical to worry
+about it in most software licenses?  Suppose we said, "this license
+lasts until the copyright expires, and then you don't need a license at
+all."  How would that help public understanding of the license?
+
+But I'm still open to be convinced.  Others are encouraged to chime in
+if they think a clearer Duration clause is needed in the Open Software
+License.
+
+> Earlier in the same post, you wrote:
+> 
+> > The law always trumps when it comes to issues of public 
+> policy and it 
+> > is unnecessary for a license to say otherwise.  ...
+> 
+> In light of the recent case between Harold L. Bowers and 
+> Baystate Technologies, Inc., I have problem agreeing to your 
+> assertion.
+
+Bowers v. Baystate proves once again that "the law," as divined by the
+courts, always trumps.  Just ask Baystate how painful it was to pay
+damages!  In that case, the court reaffirmed that federal copyright law
+does not necessarily preempt state contract law claims.  In particular,
+the court held that a prohibition on reverse engineering in a
+shrink-wrap license agreement is enforceable.  There's nothing new
+there.  The court cites lots of precedent for that and the Supreme Court
+denied certiorari.
+
+Open source licenses, of course, unlike the proprietary license over
+which the parties fought in Bowers, have a different objective, to
+*guarantee freedom* rather than *impose restrictions* on the software.
+A restriction on reverse engineering is impossible in an open source
+license.
+
+The OSL grants to licensees all the bundle of rights under copyright and
+all the bundle of rights under patent, including the unlimited right to
+use both the executable and source versions of the software and to
+create derivative works from it.  There are only a few straightforward
+conditions imposed on licensees, for example to protect the integrity of
+the original author and to build a software commons through reciprocity
+(what is sometimes pejoratively called "virality").  
+
+Precisely because the OSL is an approved open source license, I want the
+OSL to be strictly enforced under state contract law.  The Bowers case
+helps ensure that my license will be interpreted according to its own
+words rather than -- as with the GPL -- under the vague philosophy of
+the Copyright Act.  To the extent that the OSL protects important policy
+interests of the open source community and guarantees software freedom,
+the license *should* prevail.  Only where the OSL might contradict a
+public policy objective of the law, such as it would if I included a
+provision that waived the right to terminate the license thirty-five
+years later, should the law limit the right of parties to contract.  
+
+/Larry Rosen
+General counsel, Open Source Initiative (www.opensource.org)
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From paivakil at yahoo.co.in  Wed Aug 27 18:47:29 2003
+From: paivakil at yahoo.co.in (Mahesh T. Pai)
+Date: Thu, 28 Aug 2003 00:17:29 +0530
+Subject: [CNI-(C)]  Re: Open Source Licensing
+In-Reply-To: <000701c36cc9$742601a0$927ba8c0@ROSENGARDEN>
+References: <list-908876@cni.org> <000701c36cc9$742601a0$927ba8c0@ROSENGARDEN>
+Message-ID: <20030827184729.GA1520@nandini>
+
+Lawrence E. Rosen said on Wed, Aug 27, 2003 at 11:31:32AM -0700,:
+ > > I can see how you meant "perpetual" to be....
+
+Dunno if this is relevant to  the decision, but I beleive that in some
+countries,  unless the  contract  specifically states  a time  period,
+certain modes of transfer of copyright are deemed by law to be limited
+to a certain period.
+
+In India atleast, an _assignment_ is deemed to be for a period of five
+years, unless the parties specifiy a period. I think that specifying
+the duration of the license is a good idea.
+ 
+-- 
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+                                          
+  Mahesh T. Pai, LL.M.,                   
+  'NANDINI', S. R. M. Road,               
+  Ernakulam, Cochin-682018,               
+  Kerala, India.                          
+                                          
+  http://in.geocities.com/paivakil         
+                                          
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From ian at airs.com  Wed Aug 27 19:10:41 2003
+From: ian at airs.com (Ian Lance Taylor)
+Date: 27 Aug 2003 12:10:41 -0700
+Subject: [CNI-(C)]  Re: Open Source Licensing
+In-Reply-To: <000701c36cc9$742601a0$927ba8c0@ROSENGARDEN>
+References: <000701c36cc9$742601a0$927ba8c0@ROSENGARDEN>
+Message-ID: <m31xv6532m.fsf@gossamer.airs.com>
+
+"Lawrence E. Rosen" <lrosen at rosenlaw.com> writes:
+
+> > Will it be better if you take out the word "perpetual" and 
+> > add another section on duration of license something like this:
+> > 
+> >      16. Duration.  This license shall be in force until
+> >      the expiration of copyright in original work or the
+> >      unequivocal and irrevocable dedication of the original
+> >      work to the public domain, whenever happens first.  In
+> >      no way this license will be terminated any time before
+> >      then.
+> > 
+> > That way, lay people and judges will understand that you
+> > do not mean the license to be overreaching, beyond the
+> > scope and term of copyright.
+> 
+> I was pleased to discover, after I published OSL version 2, that it was
+> a full page shorter than the GPL.  That fact alone increases the chances
+> that licensors and licensees will actually read it and try to understand
+> its implications and limitations.  While your proposed language would
+> indeed speak the truth, the cost of those words in terms of readability
+> and public understanding is prohibitive.  :-)  
+
+As a programmer, I don't think the proposed change would be better.
+After all, if I choose the OSL, then those are the terms I want.  The
+fact that the OSL expires when copyright expires is actually a
+drawback, not a benefit.  I understand and support the idea that
+copyright expires, but if the OSL could carry on beyond that point,
+that would be what I want.
+
+If I wanted something else, I would pick a different license, perhaps
+a time bomb OSL or something.
+
+Ian
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
