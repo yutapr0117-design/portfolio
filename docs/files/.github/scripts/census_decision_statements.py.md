@@ -50,3 +50,5 @@ OSI の 2 つのリストのアーカイブ全数から、決める側の発言�
 **register の論点の語で並べる（2026-11-12・portfolio-00 の (1)）**: `B_TOPICS` は `ACD-OSI-BOTTLENECKS.md` の B1〜B15 の見出しから portfolio-9b が選んだ英語の語で、register の判断ではない。決める側が書いた文（引用を除く）に当たった論点を各行の json の `b_topics` に入れ、未読を当たった論点の数（同数なら決める側の語の多い順）で上位 20 件出す。母数と AS-OF は動かない。追加した日の main で 214 件が少なくとも 1 つの論点に当たる。語は粗い（*patent* は B7 と B10 の両方を指す・*in use* は一般の語）ので、並べ替えの手がかりであって読みの代わりではない。
 
 **途中に決める側の文（2026-11-12・portfolio-00 の報告）**: 最初の通は提出者で、途中の通で委員・理事が勧告・却下・承認を述べる会話（2013 の "License drafting quality and process" の Berkus 氏、2005 の OSL 3.0 / AFL 3.0 の Nelson 氏）は「決める側の文書の形」に入らなかった。各行の json に `decision_inside` を足し、「途中に決める側・未読」で別に出す（追加した日の main で 82 件。*approved* などは一般の語なので誤検出は多い・並べ替えの手がかり）。
+
+**「途中に決める側」を出来事の形に絞った（2026-11-12・portfolio-00 の測定）**: 82 本のうち 68 本は bare の *approved*（*OSI-approved licenses*・仮定の *would be approved*）だけで入っていた。途中の通には `DECISION_EVENT`（*was / has been … approved / rejected*、*the board / we / the OSI has … approved / rejected*、*board resolution*、*resolved that* など）だけを当てる。最初の通が決める側という強い条件がある「決める側の文書の形」は `DECISION` のまま（絞ると 6 本が落ちた）。絞った日の main で途中の側は 82 → 12 件。

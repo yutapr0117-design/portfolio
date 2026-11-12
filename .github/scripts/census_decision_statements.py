@@ -93,6 +93,14 @@ B_TOPICS = {
 DECISION = re.compile(r"\bRecommend(?:ation|ed)?\s*:|\bboard (?:has )?(?:voted|approved|rejected|resolved|agreed)\b"
                       r"|\b(?:not )?approved\b|\brejected\b|\bmotion (?:to|carried|passed)\b|\bresolution\b"
                       r"|\bLicense Committee [Rr]eport\b", re.I)
+# 途中の通にだけ当てる出来事の形 (2026-11-12・portfolio-00 の測定): bare の approved は「途中に決める側」82 本のうち 68 本を
+#   "OSI-approved licenses" や仮定の "would be approved" だけで入れていた。最初の通が決める側という強い条件がある
+#   「決める側の文書の形」は DECISION のまま (絞ると 6 本が落ちた)
+DECISION_EVENT = re.compile(r"\bRecommend(?:ation|ed)?\s*:|\bboard (?:has |have |had )?(?:voted|approved|rejected|resolved|agreed)\b"
+                            r"|\b(?:was|were|has been|have been|had been|got|is now)\s+(?:not\s+)?(?:approved|rejected)\b"
+                            r"|\bwe (?:have |had )?(?:approved|rejected)\b|\b(?:the )?OSI (?:has|have|had) (?:approved|rejected)\b"
+                            r"|\bthe OSI rejected\b|\bmotion (?:to|carried|passed)\b|\bboard resolution\b|\bresolved that\b"
+                            r"|\bLicense Committee [Rr]eport\b", re.I)
 
 
 MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August",
@@ -335,7 +343,7 @@ def threads(out):
                    "decision_form": bool(g and DECIDERS.search(g[0][2]) and DECISION.search(own_text(g[0][4]))),
                    # 途中の通に決める側の文がある会話 (portfolio-00 の報告・11-12: 2013 の "License drafting quality and
                    #   process" の Berkus 氏、2005 の OSL 3.0 / AFL 3.0 の Nelson 氏。最初の通は提出者だった)
-                   "decision_inside": any(DECIDERS.search(x[2]) and DECISION.search(own_text(x[4])) for x in g[1:])}
+                   "decision_inside": any(DECIDERS.search(x[2]) and DECISION_EVENT.search(own_text(x[4])) for x in g[1:])}
             if n >= 3 and words >= 120:
                 rows.append(row)
             elif n >= 3 and topic >= TOPIC_MIN:
