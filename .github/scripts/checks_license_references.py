@@ -130,11 +130,13 @@ def run(ctx):
     _all472m = re.search(r"is \*\*([\d,]+) words\*\*, \*\*(\d+) times the licence\*\*", _rv472m)
     _ls472m = subprocess.run(["git", "ls-files", "-z", "LICENSES", ":!LICENSES/rounds"], cwd=ROOT, text=True, capture_output=True).stdout
     _size472m = sum(len((ROOT / _f).read_text(encoding="utf-8", errors="replace").split()) for _f in _ls472m.split("\0") if _f)
+    _dev472m = None
     if not _all472m or not _lic472m:
         _bad472m.append("ドシエ全体の語数の文が読めない")
     else:
         _said472m = int(_all472m.group(1).replace(",", ""))
         _lw472m = int(_lic472m.group(1).replace(",", ""))
+        _dev472m = abs(_said472m - _size472m) / _size472m
         if abs(_said472m - _size472m) > _size472m * 0.1:
             _bad472m.append(f"ドシエ全体 {_said472m} 語 / 実測 {_size472m} 語")
         if abs(int(_all472m.group(2)) - _said472m / _lw472m) > 1:
@@ -146,6 +148,14 @@ def run(ctx):
          "objection-map を直したら同じ commit で表と合計を直せ"),
         blocking=True,
     )
+    # 幅の手前で先に鳴らす (2026-11-12・portfolio-aa の提案): 3 人の増分で語数は 1 日に数 % 動き、10% を越えた PR が
+    #   他人の増分の分まで直す羽目になる (2973 で起きた)。8% を越えたら、まだ緑のうちに REVIEWERS の数を測り直す合図を出す
+    if _dev472m is not None:
+        check(_dev472m <= 0.08,
+              f"Check 472m (ADVISORY): ドシエ全体の語数の記載と実測の差 {_dev472m:.1%} (8% の手前)",
+              f"Check 472m (ADVISORY): ドシエ全体の語数の記載 {_said472m:,} 語と実測 {_size472m:,} 語の差が {_dev472m:.1%} で、"
+              "BLOCKING の 10% に近い。次の増分で越える前に REVIEWERS.md の数 (と倍率) を測り直す",
+              blocking=False)
 
     # 472n — 入口の面の斜体の引用が、rounds/ か manifest で解決すること (2026-11-07)。引用を読みやすく動かす誤りが
     #   6 回出て、どれも手の照合でしか見つからなかった。全 corpus は CI に無いので、手元で確かめた引用の hash を置く。
