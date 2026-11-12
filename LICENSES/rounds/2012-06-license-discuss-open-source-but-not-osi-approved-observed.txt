@@ -1,0 +1,46 @@
+Source: OSI license-discuss public archive, 2012-June.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 1 of 102 in the threads on revising the OSI licensing pages (2012-06-07)
+Senders: John Cowan
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From cowan at mercury.ccil.org  Thu Jun  7 22:04:31 2012
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Thu, 7 Jun 2012 18:04:31 -0400
+Subject: [License-discuss] proposal to revise and slightly reorganize
+ the OSI licensing pages
+In-Reply-To: <20120606141323.GA19196@hemlock.hydra>
+References: <CAFPTOkUHg8cXru2+cpUfr_vEdYA20Zj=AT+8jY4ot9LAr=R_aw@mail.gmail.com>
+	<20120606141323.GA19196@hemlock.hydra>
+Message-ID: <20120607220431.GD18004@mercury.ccil.org>
+
+Chad Perrin scripsit:
+
+> Is "have been approved through the [OSI's] license review process" really
+> a requirement for being an "open source license", or is that just a
+> requirement for being *certified* as an "open source license" by the OSI?
+
+Clearly the latter.  The text should be adjusted accordingly, as there are
+several reasons why a license might be Open Source but not OSI-approved:
+
+1) It has not been submitted for certification in proper form.
+
+2) The Board considers it a vanity license.
+
+3) The Board believes that it substantially duplicates an existing license.
+
+> It seems that there is a distinction to be made between "OSI-approved"
+> and merely "open source", where "open source" would *by definition*
+> (tautologically, it seems) be any license that conforms to the definition
+> of open source.
+
+Exactly.
+
+-- 
+Mark Twain on Cecil Rhodes:                    John Cowan
+I admire him, I freely admit it,               http://www.ccil.org/~cowan
+and when his time comes I shall                cowan at ccil.org
+buy a piece of the rope for a keepsake.
+
+
