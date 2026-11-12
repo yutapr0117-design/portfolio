@@ -758,6 +758,14 @@ def run(ctx):
         "\u1100-\u11FF"    # Hangul Jamo
         "\u3130-\u318F"    # Hangul Compatibility Jamo
         "\uAC00-\uD7AF"    # Hangul Syllables
+        # 同じスクリプトの別のブロックも見る (2026-11-12・監査 #198): 1 スクリプト 1 ブロックだったので、U+0501 (Cyrillic
+        #   Supplement)・U+FE8D (Arabic Presentation Forms-B)・U+FFA1 (Halfwidth Hangul) は日本語の語の中でも通った。
+        #   U+FEFF (BOM) は Presentation Forms-B の範囲の末尾に在るので外す
+        "\u0500-\u052F\u1C80-\u1C8F\u2DE0-\u2DFF\uA640-\uA69F"   # Cyrillic Supplement / Ext-C / Ext-A / Ext-B
+        "\uFB1D-\uFB4F"                                         # Hebrew Presentation Forms
+        "\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFC"  # Arabic Supplement / Ext-A / Presentation Forms-A / -B
+        "\uA8E0-\uA8FF"                                         # Devanagari Extended
+        "\uA960-\uA97F\uD7B0-\uD7FF\uFFA0-\uFFDC"              # Hangul Jamo Extended-A / -B / Halfwidth Hangul
     )
     _re450 = re.compile("[" + _SCRIPTS450 + "]")
     import subprocess as _sp450

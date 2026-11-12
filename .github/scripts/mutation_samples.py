@@ -523,6 +523,15 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 450: 規範層の「権威テキスト」の「テ」を Cyrillic Supplement の字 (U+0501) へ —— 旧版は 1 スクリプト 1 ブロックで、"
+            "主ブロックの外の字 (U+0501 / U+FE8D / U+FFA1) は日本語の語の中でも通った (2026-11-12・監査 #198)",
+    "file": ROOT / "docs" / "architecture" / "repository-maintainability-map.md",
+    "find": "\u6a29\u5a01\u30c6\u30ad\u30b9\u30c8",
+    "replace": "\u6a29\u5a01\u0501\u30ad\u30b9\u30c8",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
