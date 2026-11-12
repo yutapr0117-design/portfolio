@@ -112,7 +112,7 @@ is currently being argued is answering a question nobody is asking.
 
 | Criterion | The argument against | Why it is nonetheless met |
 |---|---|---|
-| **OSD 10** Technology-neutral | §2.3 forbids click-through, but §6 is written around a particular technology | §2.3 is the operative provision for OSD 10 and it removes the acceptance ritual entirely. §6's subject matter is technological; its **effect** is a grant with no technological predicate |
+| **OSD 10** Technology-neutral | §2.3 forbids click-through, but §6 is written around a particular technology | §2.3 is the operative provision for OSD 10 and it removes the acceptance ritual entirely. §6's subject matter is technological; its **effect** is a grant with no technological predicate. Removing the ritual is what OSD 10 asks for; whether a warranty disclaimer binds a recipient who never assented is a separate question, and OSD 10 does not answer it (`ACD-1.0.against.md` #321) |
 
 **The one that would actually be litigated on the list is OSD 7**, and not because the criterion
 fails — it does not — but because ACD-1.0 goes further than most approved licences in releasing
