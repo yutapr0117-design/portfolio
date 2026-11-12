@@ -1,0 +1,213 @@
+Source: OSI license-review public archive, 2026-June.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 3 of 5 in "The Mutualist License (MutuaL) v1.2" (2026-06-06 to 2026-06-09)
+Senders: Pamela Chestek, Rob Landley
+Position: Not addressed to us. Observed. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Tue Jun  9 01:06:12 2026
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 8 Jun 2026 18:06:12 -0700
+Subject: [License-review] The Mutualist License (MutuaL) v1.2
+In-Reply-To: 
+ <zo-pWylyEXgQ4ttZKQGukDZkuONhg-LQfONrC5kXAuWJv_fT0Ajmw8Tj-C181ehQZeeFVg3mwGYJ5zvwvOYJWn7BOwrHY0KvYhvm1YjiSjw=@katsuricata.com>
+References: 
+ <zo-pWylyEXgQ4ttZKQGukDZkuONhg-LQfONrC5kXAuWJv_fT0Ajmw8Tj-C181ehQZeeFVg3mwGYJ5zvwvOYJWn7BOwrHY0KvYhvm1YjiSjw=@katsuricata.com>
+Message-ID: <8fc534b5-5a0b-4ca3-bbfe-1dc676237d3c@chesteklegal.com>
+
+Dear Kat,
+
+I appreciate that you are trying to solve the problem that legal 
+documents are often difficult to understand for a reader who is not 
+legally trained. However, writing legal documents is not very different 
+from writing code: there are drafting conventions, rules for 
+interpretation, and specific words that are used when construing what 
+the intended meaning is. Writing a legal agreement without following 
+these rules is no different from writing code that doesn't follow the 
+rules -- it just doesn't work.
+
+Just the intro alone has several examples of problematic drafting. 
+"Please note that not including 'only' automatically allows license 
+upgrades." Adding it where, and for what purpose? It takes until 
+"Foresight" to understand the significance, but then it still requires 
+some guessing about where and how the word "only" is to be added -- to 
+the proposed SPDX identifier? Somewhere at the top, just add the random 
+word "only"?
+
+"Everyone is allowed to share exact copies of this license, with or 
+without changing the formatting, as long as the changes do not alter, 
+remove, or add any terms." The comment about formatting is helpful, but 
+saying "as long as the changes do not alter, remove, or add any terms" 
+adds ambiguity. A principle of contract law is that, when interpreting 
+legal instruments, every word is necessary and meaningful and not "mere 
+surplusage." You have said you only allow "exact copies," but then go on 
+to create a possible category of some alteration, removal or addition of 
+"terms" that might still qualify as an exact copy.
+
+"This license is not legal advice and does not create an 
+attorney-client relationship." What about it would make me think that? 
+Documents don't have attorney-client relationships, people do.
+
+Non-traditional naming of headings is also an ill-considered idea. The 
+license grant is under a section called "Generosity," not hardly where I 
+would be looking for it. The definitions are in a section called 
+"Clarity." Information about future versions of the license is under a 
+heading called "Foresight." Headings are to help the readers so they can 
+find what they are looking for quickly, but your language makes it much 
+more difficult.
+
+Not numbering paragraphs is a nightmare. It makes it very difficult to 
+refer to provisions of the agreement.
+
+ From these brief, initial observations and a brief scan of the 
+agreement it's quite clear this is not a document that can reliably 
+function as an open source license. Just a quick look at the license 
+grant shows that it doesn't meet the OSD because it doesn't 
+unquestionably grant all the rights necessary. The grant is "to do 
+everything with this software that would otherwise break that 
+contributor's copyright and related rights." What does "break copyright" 
+mean? Copyright owners have a specific set of rights and can grant 
+licenses to them, so I don't know what "break" means in that legal 
+context. What are "related rights" and how do you "break" those? 
+"Related rights," also known as "neighboring rights," are a very 
+specific thing <https://en.wikipedia.org/wiki/Related_rights>, is that 
+what you mean?
+
+I have not reviewed the document in any depth and this is not a list of 
+all the problems with it, so changing the very few things I mentioned 
+will not solve the problems. I am writing only to point out to you that 
+there are many, many problems with the document and you should not 
+expect any kind of insightful review or feedback when it is so far away 
+from any acceptable standard for legal writing.
+
+Best regards,
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+From rob at landley.net  Tue Jun  9 01:56:03 2026
+From: rob at landley.net (Rob Landley)
+Date: Mon, 8 Jun 2026 20:56:03 -0500
+Subject: [License-review] The Mutualist License (MutuaL) v1.2
+In-Reply-To: <8fc534b5-5a0b-4ca3-bbfe-1dc676237d3c@chesteklegal.com>
+References: 
+ <zo-pWylyEXgQ4ttZKQGukDZkuONhg-LQfONrC5kXAuWJv_fT0Ajmw8Tj-C181ehQZeeFVg3mwGYJ5zvwvOYJWn7BOwrHY0KvYhvm1YjiSjw=@katsuricata.com>
+ <8fc534b5-5a0b-4ca3-bbfe-1dc676237d3c@chesteklegal.com>
+Message-ID: <db694895-5803-4448-b8e7-fcc6e392d27b@landley.net>
+
+On 6/8/26 20:06, Pamela Chestek wrote:
+> Dear Kat,
+> 
+> I appreciate that you are trying to solve the problem that legal 
+> documents are often difficult to understand for a reader who is not 
+> legally trained. However, writing legal documents is not very different 
+> from writing code: there are drafting conventions, rules for 
+> interpretation, and specific words that are used when construing what 
+> the intended meaning is. Writing a legal agreement without following 
+> these rules is no different from writing code that doesn't follow the 
+> rules -- it just doesn't work.
+
+Worse, legalese has jurisdictions, roughly analogous to different 
+operating systems. Even within posix: Cygwin is all eldrich corner 
+cases, OS/360 is a 64 bit big endian system with a zillion deployments 
+and SO MUCH MONEY behind it, and Android is extra weird but has almost 
+FOUR BILLION users... That's what it's like writing a license in the USA 
+and looking out at the legal systems of Canada, EU, Japan, Korea, India, 
+Australia... Even within the USA, the various circuit courts are like 
+Ubuntu vs Red Hat vs Arch vs Alpine...
+
+Also, think of intellectual property licenses a bit like cryptographic 
+code. I don't care how great a programmer you are, you need domain 
+expertise in this specific area reviewing your stuff or the real world 
+will immediately pop your clever new idea with two side channel attacks, 
+a race condition, and a known firmware vulnerability you never heard of. 
+Zero day if you get their attention.
+
+None of the big players will deploy your thing on something load bearing 
+until it's been around for a while and probably had a few dot releases. 
+You can slap together your own personal project that works for you and 
+nobody else, but sending it to OSI for review is like submitting your 
+package to Fedora.
+
+https://www.redhat.com/en/about/office-locations
+
+Rob
+
+P.S. don't get me started on copyright vs contract vs patent vs 
+trademark vs trade secret. Or Gavin "spyware" Newsom declaring $7500 per 
+download bounties on software that doesn't spy on its users...
+
+From pamela at chesteklegal.com  Wed Jun 10 04:24:51 2026
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Tue, 9 Jun 2026 21:24:51 -0700
+Subject: [License-review] The Mutualist License (MutuaL) v1.2
+In-Reply-To: 
+ <u0i7M9lw_cVfiy5xc7R0B3gOGRdB6wSj4Yyeda77zv0fi_KtFBkjaQinAGnPccFRaRQoEcNmNglj1DWZVboVrmhsCxP_2Wk2kNiJs-kiBk0=@katsuricata.com>
+References: 
+ <zo-pWylyEXgQ4ttZKQGukDZkuONhg-LQfONrC5kXAuWJv_fT0Ajmw8Tj-C181ehQZeeFVg3mwGYJ5zvwvOYJWn7BOwrHY0KvYhvm1YjiSjw=@katsuricata.com>
+ <8fc534b5-5a0b-4ca3-bbfe-1dc676237d3c@chesteklegal.com>
+ <u0i7M9lw_cVfiy5xc7R0B3gOGRdB6wSj4Yyeda77zv0fi_KtFBkjaQinAGnPccFRaRQoEcNmNglj1DWZVboVrmhsCxP_2Wk2kNiJs-kiBk0=@katsuricata.com>
+Message-ID: <3038f95b-49f6-4e15-9fab-a4ada45b2bbc@chesteklegal.com>
+
+Hi Kat,
+
+I think you've misunderstood the role of OSI, why it approves licenses, 
+and what it does to those ends.
+
+The OSI primary purpose is to ensure and advance the health of the open 
+source ecosystem, and that is the lens through which licenses are 
+reviewed and approved. During review, the reviewers, some of whom are 
+open source lawyers who have been practicing for decades, do the best 
+they can to pressure test the licenses to make sure that they would be 
+correctly interpreted, that is, to ensure that a court will construe the 
+license in a way that protects and advances the purposes, values and 
+goals of the open source ecosystem as a whole. Something as simple as a 
+misplaced comma might create an unintended loophole, allowing someone to 
+undermine or defeat the openness that the license is meant to protect. 
+So the OSI is reviewing licenses with a more exacting purpose than just 
+whether it's kinda sorta in the ballpark.
+
+Canons of contract interpretation do not save the day. They aren't 
+invoked unless the language is unclear, so even having to invoke them 
+means there is a chance that the legal conclusion about the meaning will 
+not be what you intended. The better approach is to write a license that 
+is clear on its face without ambiguity -- an impossibility, but we do 
+the best we can. Using substitutes for well-known and well-understood 
+terms of art is an invitation to misinterpretation.
+
+This is also not a bias against plain language 
+<https://academic.oup.com/edited-volume/34877/chapter-abstract/298342571?redirectedFrom=fulltext&login=false> 
+drafting. The OSI has approved the Blue Oak Model License 
+<https://opensource.org/license/BlueOak-1.0.0>, a plain language license 
+written by, if recollection serves, Kyle Mitchell, Heather Meeker and 
+Luis Villa, all highly skilled open source lawyers who fully understand 
+how contracts are read and interpreted. Plain language drafting requires 
+as much knowledge about contract interpretation as writing in so-called 
+"legal" language, and probably more skill in writing. It's not the 
+writing style that is the problem, it is the inexactness with which it 
+is done that is the problem.
+
+This is nothing against your license, but it is against OSI approval of 
+your license, because the OSI's role is do what it can to ensure that 
+any approved license will work as intended. In my opinion this license 
+is too poorly drafted to assure that will happen.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
