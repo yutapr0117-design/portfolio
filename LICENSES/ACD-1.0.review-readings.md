@@ -588,3 +588,23 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **逆側。** Randal 氏の「法の変化に応じる」は、既存のライセンスの新しい版を想定した文で、新しい起草者の新しいライセンスを想定したものとは読めない。Perens 氏の「三つしかない」は 2018 年の個人の見解で、その後も新しいライセンスは承認されている（Blue Oak・2024、`reviewer-positions.md` の Blue Oak の節）。
 
 **この節が establish しないこと。** Randal 氏の文はその時点の理事の説明で、規則の文書ではない。このスレッドは決める側の通（Randal 氏、Luis Villa 氏、Perens 氏、Chris Lamb 氏など）に絞って読んだ。他の通は読んでいない。
+
+## 1.196 単独の非法律家の提出に、同じ審査者が 2026 年 6 月に書いたこと —— The Mutualist License（2026）（2026-11-12）
+
+"The Mutualist License (MutuaL) v1.2"（`license-review` 2026-06・5 通・`rounds/2026-06-license-review-mutual-drafting-and-canons-observed.txt` に 3 通）。ACD を `license-discuss` に出す 2 か月前の、`license-review` への新しいライセンスの提出である。提出者の Kat Suricata 氏は、法律家でない読み手のための平易な言葉を目的に掲げ、見出しを「Generosity」「Clarity」「Foresight」のように付けた。portfolio-9b の「途中に決める側」の一覧から読んだ。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"A principle of contract law is that, when interpreting legal instruments, every word is necessary and meaningful and not "mere surplusage.""* | Pamela Chestek 氏 2026-06-08 | **不利な面。** ACD は確認のための重ね書き（§10.2 の列挙、§4.3 の「条件にしないもの」の列挙など）を持つ。語に全部意味があるとする原則の下では、列挙に無いものは外れると読まれうる |
+| *"Not numbering paragraphs is a nightmare."*、*"What does "break copyright" mean?"* | Chestek 氏 2026-06-08 | ACD は条に番号を持ち、許諾は著作権法の語（reproduce, adapt, distribute 等）で書く。この 2 点は当たらない |
+| *"Canons of contract interpretation do not save the day. They aren't invoked unless the language is unclear, so even having to invoke them means there is a chance that the legal conclusion about the meaning will not be what you intended."*、*"Using substitutes for well-known and well-understood terms of art is an invitation to misinterpretation."* | Chestek 氏 2026-06-09 | **不利な面。** ACD の §15.1（受領者に多く与える読みが勝つ）と §15.6 は解釈の規則を本文に持つ。この文の下では、規則を書くことは語の明確さの代わりにならない。`review-responses-boilerplate.md` Q22 の答え（意図の表明であって裁判所への指示ではない）は、この形の異議に直接は当たらない |
+| *"you need domain expertise in this specific area reviewing your stuff or the real world will immediately pop your clever new idea"* | Rob Landley 氏 2026-06-08 | B1 そのもの。ACD も法律家の読みを持たない |
+| *"It's not the writing style that is the problem, it is the inexactness with which it is done that is the problem."*、*"In my opinion this license is too poorly drafted to assure that will happen."* | Chestek 氏 2026-06-09 | 審査の基準の文。平易な文体は問題にされず（Blue Oak を例に挙げた）、問題は語の不正確さだと書いた |
+
+**読み。** これは ACD と同じ形の提出（単独、法律家でない、新しいライセンス）への、ACD の投稿の直前の審査の記録で、書いたのは Pamela Chestek 氏である（同氏の過去の文は `against.md` に多く在る）。基準は文体ではなく語の正確さで、解釈の規則はそれを補わない、と明言された。ACD の §15 は規則を持つので、この基準に当てて読まれる。
+
+**逆側。** ACD の列挙は、*"includes, without limitation"*（§4.2）や *"In particular"*（§4.3・§10.2）で例示であることを本文で示し、§15.5 が列挙を例示と定めるので、列挙に無いものは外れるという読みは弱い（ただし §15.5 も本文の中の規則なので、下の解釈の規則の逆側を同じく持つ）。ACD は MutuaL が指摘された点の多く（番号の無い段落、見出しの言い換え、*break copyright* のような法の語の置き換え）を持たない。定義語（Covered Rights、Computational Use など）は term of art の置き換えではなく、本文で定義を与えている。Chestek 氏の結論は MutuaL の本文についてのもので、ACD について述べたものではない。
+
+**portfolio-aa の答えの形（2026-11-12）。** 本文は語で分岐を閉じる作業を、記録つきで続けている（`ACD-1.4-SECOND-CLARITY-TRIAL.md` の試作。同じ日の T56・T60 は代名詞の分岐を語で閉じた）。§15.1・§15.5・§15.6 は、語で閉じきれない場面の最後の受け皿で、語の代わりではない。この答えの逆側は Chestek 氏の文そのもの（受け皿が要る時点で、意図と違う結論の危険がある）と、ACD が長く、新しい定義語を持つことである。
+
+**この節が establish しないこと。** MutuaL の審査の帰結は、このスレッドの 5 通には無い（2026-06-09 の通で終わる）。Chestek 氏の文は個人の見解で、委員会の判断ではない。§15.1 と §15.6 を外すかどうかの判断は、portfolio-aa の試作の手順に委ねた。
