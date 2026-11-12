@@ -1,7 +1,7 @@
 ---
 file: LICENSES/OSI-APPROVAL-PLAN.md
 audience: オーナー（一次読者）/ 次のセッションの実装者 / 週次の定期実行
-last-updated: 2026-11-07
+last-updated: 2026-11-12
 canonical-ref: LICENSES/ACD-OSI-BOTTLENECKS.md (ボトルネックの唯一の一覧) / LICENSES/FROZEN.md (凍結・投稿先・発信状態の単一ソース) / LICENSES/REVISION-PROTOCOL.md (1 ラウンドの手順とゲート) / LICENSES/ACD-1.0.review-rules.md (OSI の公表規則の原典読み)
 ---
 
@@ -142,7 +142,7 @@ OSI に承認され得るかの自問自答と、より承認されやすくす�
 | 提出 | `license-review` へ（`license-discuss` は議論の場であって承認の窓口ではない）。件名の慣行は `For Approval: <名前>` | `submission.md` §B.0（オーナーが自分の言葉で送る） |
 | 配信の確認 | 送信控えではなく公開アーカイブで、届いた形を確かめる | `REVISION-PROTOCOL.md` ゲート 10 |
 | 審査 | 2 か月周期。**起点は最終提出**（McCoy 氏）。実測の中央値は約 101 日で、改訂すれば時計が戻る | 改訂は 1 回にまとめる（process ページの明文） |
-| 審査中の変更 | テキストは変えられない。**取り下げて新版を出す** | `FROZEN.md` の凍結・版の併置 |
+| 審査中の変更 | テキストは変えられない。**取り下げて新版を出す**。理由は審査者の言葉で記録されている —— 審査中に本文を改訂し続けた提出について Berkus 氏は 2018 年に *"I've completely lost track of what the current text is"* と書いた（`against.md` #249）。**ゆえに 1.4 草案の試作は申請の日に版を確定するまで続け、確定の後は本文を直さず、見つけた欠陥は errata と次版の草案へ回す**（試作の打ち止めの条件・2026-11-12） | `FROZEN.md` の凍結・版の併置 |
 | 決定 | 委員会が勧告し、理事会が会合で決める。承認 / 否決 / **承認しないまま留め置く** / 取り下げ | `board-decisions.md` |
 | 無応答 | 応答しない提出者は理事会の議決なしに却下されうる（2026-05-22 以降） | 質問には必ず返す（オーナー） |
 | 行動規範 | Code of Conduct の「時間と注意を尊重する」・利益相反の開示 | `REVISION-PROTOCOL.md` 規則 7 |
