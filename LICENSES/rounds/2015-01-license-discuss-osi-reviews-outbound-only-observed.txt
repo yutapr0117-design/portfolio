@@ -1,0 +1,91 @@
+Source: OSI license-discuss public archive, 2015-January.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 3 of 26 in "FAQ entry on CLAs" (2015-01-16 to 2015-01-20)
+Senders: Allison Randal, Radcliffe, Mark
+Position: Not addressed to us. Observed. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From allison at opensource.org  Fri Jan 16 17:30:02 2015
+From: allison at opensource.org (Allison Randal)
+Date: Fri, 16 Jan 2015 09:30:02 -0800
+Subject: [License-discuss] FAQ entry on CLAs
+In-Reply-To: <CAMgp1=dWkE+xJbFcgayvB5iVMAWhHK4tg1wqEkSU3_qw8Y_bZA@mail.gmail.com>
+References: <CAMgp1=dWkE+xJbFcgayvB5iVMAWhHK4tg1wqEkSU3_qw8Y_bZA@mail.gmail.com>
+Message-ID: <54B94A9A.3040508@opensource.org>
+
+On 01/16/2015 05:48 AM, Engel Nyst wrote:
+> 
+> I'd like to open a discussion about fixing this text.
+
+The text is out-of-date, and wrong in some places.
+
+OSI is in the process of a refresh on the whole site, updating or
+removing a lot of old cruft, and this will get swept as part of it.
+
+> If OSI wants to discuss or inform the larger community about CLAs, this
+> doesn't seem accurate language for doing so.
+
+I'm not convinced the OSI needs to explain contributor agreements. But,
+we do periodically get asked to review contributor agreements, so it's
+important to have some kind of statement making it clear that the OSI
+reviews *outbound* open source licenses, and not *inbound* agreements of
+any kind.
+
+Allison
+
+
+From Mark.Radcliffe at dlapiper.com  Sun Jan 18 19:57:28 2015
+From: Mark.Radcliffe at dlapiper.com (Radcliffe, Mark)
+Date: Sun, 18 Jan 2015 19:57:28 +0000
+Subject: [License-discuss] FAQ entry on CLAs
+In-Reply-To: <CAMgp1=drLRpkGpQ8-y0MSuVeZ7A_k8GbVPEsPiEuXvUDR7=A1Q@mail.gmail.com>
+References: <CAMgp1=dWkE+xJbFcgayvB5iVMAWhHK4tg1wqEkSU3_qw8Y_bZA@mail.gmail.com>
+	<54B9B493.5070008@opensource.org>
+	<CAMgp1=eXUnNdktEfohCG4VfbjhP4XwTkFnvrXfZcvAZpKGHdzA@mail.gmail.com>
+	<54BAB08F.8020003@opensource.org>
+	<CAMgp1=drLRpkGpQ8-y0MSuVeZ7A_k8GbVPEsPiEuXvUDR7=A1Q@mail.gmail.com>
+Message-ID: <E682AA2FC88ADD4589420BFC6BE3A92138347577@SANDMBX01v.piper.root.local>
+
+I am the counsel to OSI.  As Allison noted, most OSI approved licenses can be used for inbound use, but we do not take a position on that issue in approving licenses.  Different communities have different approaches, the Apache Software Foundation uses specific CLAs for its projects (and some projects using the Apache Software License use the ASL as the CLA) and FSF has long used an assignment approach.  Thus, the approval of a license by OSI as meeting the criteria of the OSD does not reflect a review of the use of the license as "inbound" but only "outbound".
+
+From allison at opensource.org  Tue Jan 20 17:50:21 2015
+From: allison at opensource.org (Allison Randal)
+Date: Tue, 20 Jan 2015 09:50:21 -0800
+Subject: [License-discuss] FAQ entry on CLAs
+In-Reply-To: <CAMgp1=drLRpkGpQ8-y0MSuVeZ7A_k8GbVPEsPiEuXvUDR7=A1Q@mail.gmail.com>
+References: <CAMgp1=dWkE+xJbFcgayvB5iVMAWhHK4tg1wqEkSU3_qw8Y_bZA@mail.gmail.com>	<54B9B493.5070008@opensource.org>	<CAMgp1=eXUnNdktEfohCG4VfbjhP4XwTkFnvrXfZcvAZpKGHdzA@mail.gmail.com>	<54BAB08F.8020003@opensource.org>
+	<CAMgp1=drLRpkGpQ8-y0MSuVeZ7A_k8GbVPEsPiEuXvUDR7=A1Q@mail.gmail.com>
+Message-ID: <54BE955D.8040206@opensource.org>
+
+On 01/18/2015 11:14 AM, Engel Nyst wrote:
+> The relevant aspect here, seems to me, is that OSI's criteria for open
+> source licenses *include* whether the *license used inbound* is giving
+> rights to anyone receiving the software, as set out in the OSD.
+> 
+> Anyone includes the "project", a legal entity behind the project, the
+> interest groups around a project, just like it includes individual
+> users, recipients of the software from the original developer or
+> project, etc.
+> 
+> OSI criteria do this by OSD #5, #6 and #7.
+
+It is true that for the rights required by the OSD, those rights are
+granted to anyone who receives the software. OSD #3 is an even greater
+protector of inbound=outbound, since it requires that any open source
+license permit modification with redistribution under the same license.
+
+But, these facts don't guarantee that all open source licenses are
+appropriate for use as inbound=outbound, they only demonstrate that the
+licenses have *some* characteristics that fit with inbound=outbound.
+
+I wrote up an example of an open source license that has different legal
+effects when used inbound and outbound, but I've deleted it to avoid
+taking this thread down a rabbit hole.
+
+The key point is that inbound=outbound is a contribution policy, a
+specific use of an open source license within a particular context. OSI
+reviews the text of licenses, it doesn't review contribution policies.
+
+Allison
+
+
