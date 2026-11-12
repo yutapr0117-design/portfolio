@@ -532,6 +532,15 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 468b: §4.6 の書き出し \"Section 4.5 does not cut\" を言い換える —— 冒頭の変更一覧はその句を引いたまま残り、"
+            "旧版は一覧の言い換えが古くなっても黙っていた (2026-11-12・portfolio-aa の提案)",
+    "file": CURRENT_DRAFT,
+    "find": "  4.6  Section 4.5 does not cut Your recipients off from this Dedication: a",
+    "replace": "  4.6  Section 4.5 does not sever Your recipients from this Dedication: a",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

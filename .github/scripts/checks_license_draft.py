@@ -72,7 +72,10 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        確定の日まで記述子は表の中の下書きで、451f の照合の外だった (portfolio-aa・2026-11-11)。
        **468r は作用の条 (第 1 条〜END OF TERMS) に、後で偽になりうる「いまの状態」の語を置かないことを見る** ——
        T54 で外した §8.4 の「法は未決」の文の型 (portfolio-aa の §14.29・2026-11-12)。語の一覧と、句で持つ除外は
-       `_lib_draft_markers.py` の `STATE_WORDS_468R` / `STATE_EXEMPT_468R` が権威 (§14.29 は最初の測定の記録)。除外の句が条から消えたら RED。 (BLOCKING)
+       `_lib_draft_markers.py` の `STATE_WORDS_468R` / `STATE_EXEMPT_468R` が権威 (§14.29 は最初の測定の記録)。除外の句が条から消えたら RED。
+       **468b は草案の冒頭の変更一覧が引く「新しい文」が本文に在ることを見る** —— 試作で条を変えたあと、一覧の言い換えが
+       古くなるのを読みでしか見ていなかった (portfolio-aa・2026-11-12)。旧文を示す引用 (where it said / no longer says /
+       instead of など) と、"ACD-N.N" のような識別子の型の例は除く。 (BLOCKING)
 """
 import json
 import re
@@ -145,6 +148,20 @@ def run(ctx):
                 f"本文側に義務語がある: {_deon468} "
                 "(#116 の緩和は「shall と must は 0 回」を測った値に依っている。"
                 "1.0 は凍結が守るが、草案は誰も守らない)")
+        # ── 468b: 冒頭の変更一覧が引く「新しい文」が本文に在る (旧文の引用と識別子の型の例は除く) ─────────
+        if "-" * 80 in _t468:
+            _h468b = " ".join(_t468.split("-" * 80, 1)[0].split())
+            _b468b = " ".join(_lic468.split())
+            _q468b = [i for i, ch in enumerate(_h468b) if ch == '"']
+            _old468b = re.compile(r"(where it (?:said|began|reached one|restricted)|no longer says(?: that)?(?: it \w+)?"
+                                  r"|instead of(?: only)?(?: where)?(?: a \w+)?|in place of|used to say|formerly)\W*$", re.I)
+            for _a, _z in zip(_q468b[0::2], _q468b[1::2]):
+                _q = _h468b[_a + 1:_z].rstrip(" .,;:")
+                # 「X, where it said Y」の X は新しい文なので照合する (旧文は Y の側 = 直前の語で見分ける)
+                if re.fullmatch(r"[A-Za-z-]*N(?:\.N)?", _q) or _old468b.search(_h468b[max(0, _a - 45):_a]):
+                    continue
+                if not all(_p.strip(" .,;:") in _b468b for _p in re.split(r"\.\.\.|…", _q) if len(_p.strip()) > 3):
+                    _bad468.append(f"468b: 冒頭の一覧が引く文 {_q[:60]!r} が本文に無い (試作で条を変えたら一覧の言い換えも直す)")
         # ── 468r: 作用の条に「いまの状態」の語を置かない (後で偽になる文を恒久の本文に書かない) ─────────
         _op468r = re.search(r"(?ms)^1\. [A-Z].*?(?=END OF TERMS)", _lic468)
         _cl468r = dict(zip(*[iter(re.split(r"(?m)^  (\d+\.\d+) ", _op468r.group(0) if _op468r else "")[1:])] * 2))
