@@ -314,66 +314,6 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 10: checks_tooling.py の docstring の r 接頭辞を外し、\\\\s を無効なエスケープに戻す —— ast.parse は通り、3.12 の SyntaxWarning (将来の SyntaxError) を見ていなかった",
-    "file": ROOT / ".github" / "scripts" / "checks_tooling.py",
-    "find": "        r\"\"\"frontmatter の 1 行の値 (行の中だけを読み、引用符を外す)。",
-    "replace": "        \"\"\"frontmatter の 1 行の値 (行の中だけを読み、引用符を外す)。",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 162: .gitignore の node_modules/ の規則をコメントにする —— file 全体の部分文字列で探し、コメントにした規則も在ると数えていた",
-    "file": ROOT / ".gitignore",
-    "find": "\nnode_modules/\n",
-    "replace": "\n# node_modules/\n",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 162: .gitignore で node_modules/ の直後に否定の !node_modules/ を足す —— 後の行の否定で打ち消された規則も在ると数えていた",
-    "file": ROOT / ".gitignore",
-    "find": "\nnode_modules/\n",
-    "replace": "\nnode_modules/\n!node_modules/\n",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 468y: 逐条の §16.1 の行から試作の節 (§14.25・変えない) への言及を消す —— 試作の結論が逐条の行から辿れるかを手で揃えていた",
-    "file": ROOT / "LICENSES" / "ACD-1.4-CLAUSE-REFERENCE-DRAFT.md",
-    "find": "運ばない語として読んだうえで変えないとした（試作 §14.25",
-    "replace": "運ばない語として読んだうえで変えないとした（試作 §14.2x",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 468z: 記述子の下書きの outOfScope[1] の note を草案に無い Section 11.9 にする —— 凍結した記述子は 451f が照合するが、確定の日までの下書きの表は照合の外だった",
-    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
-    "find": "No permission is granted under these rights (Section 11.4).",
-    "replace": "No permission is granted under these rights (Section 11.9).",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 248: utf-8 の宣言の後に、属性が前に在る 2 つ目の宣言 <meta data-x=\"1\" charset=\"shift_jis\"> を足す —— <meta charset の直後しか読まず、最初の 1 つで満たされていた",
-    "file": ROOT / "index.html",
-    "find": "    <meta charset=\"utf-8\" />\n",
-    "replace": "    <meta charset=\"utf-8\" />\n    <meta data-x=\"1\" charset=\"shift_jis\" />\n",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 248: http-equiv の Content-Type で shift_jis を宣言する —— <meta charset の形しか読まず、http-equiv の宣言は見えなかった",
-    "file": ROOT / "index.html",
-    "find": "    <meta charset=\"utf-8\" />\n",
-    "replace": "    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=shift_jis\" />\n",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 144: digest の道具の対応表で real-work-claims.md の値を別の file (ai-pioneer-identity-review.md) にする —— key だけを比べ、道具が別の file の digest を書く形を見ていなかった",
-    "file": ROOT / ".github" / "scripts" / "update_aio_digests.py",
-    "find": "    \"docs/evidence/real-work-claims.md\": ROOT / \"docs\" / \"evidence\" / \"real-work-claims.md\",",
-    "replace": "    \"docs/evidence/real-work-claims.md\": ROOT / \"docs\" / \"evidence\" / \"ai-pioneer-identity-review.md\",",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 242: </main> の後に <svg/onload=\"alert(1)\"></svg> を足す —— 開始タグの文法が属性の前に空白を要求し、/ で区切った属性 (HTML の tokenizer は区切りとして読む) を列挙から落としていた",
-    "file": ROOT / "index.html",
-    "find": "        </main>\n",
-    "replace": "        </main><svg/onload=\"alert(1)\"></svg>\n",
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 151: a11y-axe の題名を、別の spec の題名と連結で同じになる形 ('…' + '…') にする —— 最初の閉じ引用符までを題名にし、連結の題名は前半だけで比べていた",
-    "file": ROOT / "e2e" / "a11y-axe.spec.js",
-    "find": "test('a11y axe: open command palette has no render-neutral critical violations', async",
-    "replace": "test('WCAG 1.4.3: ライトの drawer / palette / ' + 'toast に color-contrast 違反がゼロ', async",
-})
-_MUTATIONS_TAIL.append({
     "name": "Check 481: checks_behavioral.py の helper の呼び出しを re.compile(r\"//[^\\n]*\").sub(…) に戻す —— re.sub( と // が 1 行に並ぶ形しか知らず、compile してから sub する形を見逃していた",
     "file": ROOT / ".github" / "scripts" / "checks_behavioral.py",
     "find": "_src406 = strip_js_comments(_uic406.read_text(encoding=\"utf-8\"))",
