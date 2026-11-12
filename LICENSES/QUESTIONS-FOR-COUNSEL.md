@@ -96,6 +96,12 @@ wrote in 2004 that *"Promissory estoppel is a contract doctrine that has nothing
 license like the GPL."* (`against.md` #236). Where a court treats the Dedication as a bare licence and
 does not apply estoppel, what protects a recipient against revocation for want of consideration: the
 words *"irrevocable"* and *"perpetual"* in §4.1, the covenants in §5, or nothing?
+The same lawyer wrote in 2003, a day after advising *"Grant an irrevocable license."*, that
+*"Probably a new licensee with notice of the revocation can't obtain a license."*, and another
+participant (not a lawyer, by his own account) put it as *"no harm, no estoppel."*
+(`gap-measurements.md` §1.146). So a narrower form of the question is whether §2.5, §4.1 or §5
+protects a person who first meets the Work after the Dedicator has purported to revoke it, and has
+notice of that.
 
 **An answer would change** whether the text keeps three footings (register B4) and how §4.4 says
 "independent". An answer to (b) or (h) would change what the dossier says rather than the text: no
