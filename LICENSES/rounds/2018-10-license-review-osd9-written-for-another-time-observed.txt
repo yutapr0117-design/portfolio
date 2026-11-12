@@ -1,0 +1,155 @@
+Source: OSI license-review public archive, 2018-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 3 of 31 in "OSD #9 would not make SSPL OSD-incompliant" (2018-10-23 to 2018-10-24)
+Senders: Bruce Perens, Lawrence Rosen
+Position: Not addressed to us. Observed. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From bruce at perens.com  Tue Oct 23 19:15:19 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 23 Oct 2018 12:15:19 -0700
+Subject: [License-review] OSD #9 would not make SSPL OSD-incompliant
+In-Reply-To: <e678c0b6-a16a-b2db-1e61-86d436acaa9c@berkus.org>
+References: <756a21fc-3236-42af-9811-823fd6928e55@berkus.org>
+ <2ce49f5a-c92c-4ff3-a03c-279d89d8bbd5@piana.eu> <3644358.bNqAIZVokL@ducky>
+ <CAFQvZEPwdLMsMv1_h5e69TesiaDZYLeO7r6aw+uxdr0aB38XTw@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5198A47F47A@FMSMSX108.amr.corp.intel.com>
+ <20181018234129.GM7688@dev.kemitchell.com>
+ <CAFQvZEPxd6h4-MN2o7M8_LeoPDJNGhn1SLgyiSYOKReS5GGuqQ@mail.gmail.com>
+ <3bd929369b0b493683b473300eae89a7@omm.com>
+ <CAFQvZEPje-v+yATRyKojzSJ1YbU_WW0s+xuLPoOuSVa-aBX=fw@mail.gmail.com>
+ <f894582004d54897b41ce41d768af350@omm.com> <20181023010105.GA30731@bluenote>
+ <e678c0b6-a16a-b2db-1e61-86d436acaa9c@berkus.org>
+Message-ID: <CAK2MWOtPgWSar1HkHtsQMQCkP3Yh_2g_Oj9zg=_OjpiZJ4eFZQ@mail.gmail.com>
+
+Folks,
+
+The OSD terms were not written for software-as-a-service. OSD #9 very
+clearly states
+
+The license must not place restrictions on other software that is
+*distributed* along with the licensed software. For example, the license
+must not insist that all other programs *distributed on the same medium*
+must be open-source software.
+
+Since software-as-a-service software is not distributed, OSD #9 doesn't
+apply. Sorry. The document was written for another time and I could not
+predict today's conditions.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20181023/07605d21/attachment.html>
+
+From lrosen at rosenlaw.com  Tue Oct 23 20:59:17 2018
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Tue, 23 Oct 2018 13:59:17 -0700
+Subject: [License-review] OSD #9 would not make SSPL OSD-incompliant
+In-Reply-To: <CAK2MWOuj-0mcaw72cVRLrwUk7a9fUcoWZz+qh7P5n-o0V+j8Xw@mail.gmail.com>
+References: <756a21fc-3236-42af-9811-823fd6928e55@berkus.org>
+ <2ce49f5a-c92c-4ff3-a03c-279d89d8bbd5@piana.eu> <3644358.bNqAIZVokL@ducky>
+ <CAFQvZEPwdLMsMv1_h5e69TesiaDZYLeO7r6aw+uxdr0aB38XTw@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5198A47F47A@FMSMSX108.amr.corp.intel.com>
+ <20181018234129.GM7688@dev.kemitchell.com>
+ <CAFQvZEPxd6h4-MN2o7M8_LeoPDJNGhn1SLgyiSYOKReS5GGuqQ@mail.gmail.com>
+ <3bd929369b0b493683b473300eae89a7@omm.com>
+ <CAFQvZEPje-v+yATRyKojzSJ1YbU_WW0s+xuLPoOuSVa-aBX=fw@mail.gmail.com>
+ <f894582004d54897b41ce41d768af350@omm.com> <20181023010105.GA30731@bluenote>
+ <e678c0b6-a16a-b2db-1e61-86d436acaa9c@berkus.org>
+ <CAK2MWOtPgWSar1HkHtsQMQCkP3Yh_2g_Oj9zg=_OjpiZJ4eFZQ@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5198A48E02E@FMSMSX108.amr.corp.intel.com>
+ <CAK2MWOtHV2kN-EiFy-8AZ30yjwDP9CwkN73NF1qeCYsCvw6GZw@mail.gmail.com>
+ <0a2f01d46b0a$ba810690$2f8313b0$@rosenlaw.com>
+ <CAK2MWOuj-0mcaw72cVRLrwUk7a9fUcoWZz+qh7P5n-o0V+j8Xw@mail.gmail.com>
+Message-ID: <0a4001d46b13$4481b990$cd852cb0$@rosenlaw.com>
+
+Bruce Perens suggested:
+
+> And we can fix OSD #9 with a two word addition "or performed" as soon as the board can meet.
+
+ 
+
+I hope not that way. 
+
+ 
+
+There is lots of legal subtlety here: The phrase "or communicate" was added in OSL 3.0 section 3(c) to encompass concerns of European lawyers that "making available" should also be inferred in the license grants. And anyway, in OSL 3.0 the permission to "perform" the work was already explicit in section 3(d), regardless of what the OSD said at that time.
+
+ 
+
+OSI-approved licenses can clean up what's not explicit in the OSD and they can clarify the law-of-the-case. For example, the GPL concept of excluding "private uses within organizations" (whatever those are!) from copyleft has been debated regularly even though the OSD and the law are vague on that. Also, as a matter of law, I don't think that a copyright performance license has anything specific to do with network uses of software, but I trust other lawyers here to describe the cases on "performance" to justify their own open source licenses. 
+
+ 
+
+When I wrote OSL 3.0, I thought that we can better rely on an intelligent and expanded definition of copyright "distribution" rights rather than "performance" rights to satisfy this network software copyleft requirement. 
+
+ 
+
+/Larry
+
+ 
+
+ 
+
+From: Bruce Perens <bruce at perens.com> 
+Sent: Tuesday, October 23, 2018 1:06 PM
+To: Lawrence Rosen <lrosen at rosenlaw.com>; License submissions for OSI review <license-review at lists.opensource.org>
+Subject: Re: [License-review] OSD #9 would not make SSPL OSD-incompliant
+
+ 
+
+Well, we have sufficient reason to reject the SSPL not counting OSD #9, simply because the overreach is so large that it's not honestly an Open Source license. We're not falling on our swords because of this. And we can fix OSD #9 with a two word addition "or performed" as soon as the board can meet. But it's annoying. OK, I didn't have any lawyers that would help me, not even Larry Rosen.
+
+ 
+
+    Thanks
+
+ 
+
+    Bruce
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20181023/56a02acd/attachment.html>
+
+From bruce at perens.com  Thu Oct 25 00:56:06 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 24 Oct 2018 17:56:06 -0700
+Subject: [License-review] OSD #9 would not make SSPL OSD-incompliant
+In-Reply-To: <20181024233304.GL18485@dev.kemitchell.com>
+References: <f894582004d54897b41ce41d768af350@omm.com>
+ <20181023010105.GA30731@bluenote>
+ <e678c0b6-a16a-b2db-1e61-86d436acaa9c@berkus.org>
+ <CAK2MWOtPgWSar1HkHtsQMQCkP3Yh_2g_Oj9zg=_OjpiZJ4eFZQ@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5198A48E02E@FMSMSX108.amr.corp.intel.com>
+ <CAK2MWOtHV2kN-EiFy-8AZ30yjwDP9CwkN73NF1qeCYsCvw6GZw@mail.gmail.com>
+ <CAJ-h4vsVcdPcZcpAt3mbo_NU8-WQ_CYn43RzOGFRopqnSoiwFg@mail.gmail.com>
+ <cf36c8e3-02e9-3f61-92bb-e28ac6f40e1c@berkus.org>
+ <20181024205327.GJ18485@dev.kemitchell.com>
+ <b80fe450-55c8-db77-f5bb-11d902179e3d@berkus.org>
+ <20181024233304.GL18485@dev.kemitchell.com>
+Message-ID: <CAK2MWOv7CVXF6tSzr3=o3twJ5D1yLKHSNxrgZqh9+KjkC8792w@mail.gmail.com>
+
+> They can use our best tools, but we can't use theirs.
+
+It's fundamental to Open Source that everyone can run the program for any
+purpose. And as we have discussed in the past, they shouldn't even have to
+read the license to do that. So, it has been obvious from the start that
+proprietary software folks could leverage their business in various ways
+using Open Source without giving back in any way.
+
+Anyone can create their own license and call it "Business Source", and give
+it rules that prevent some forms of use. But I don't think it's at all
+attractive to throw out the ability for anyone to run the software for any
+purpose, in the name of making someone's business method work. So, to the
+extent that it's necessary to make crystal clear what was always intended,
+I am recommending a change in the definition.
+
+    Thanks
+
+    Bruce
+
