@@ -385,6 +385,23 @@ def threads(out):
           + ("（--pin で一覧を作り直した）" if "--pin" in sys.argv and (new or stale) else "（--pin で一覧を作り直す）" if new or stale else ""))
     for r in sorted(new, key=lambda r: r["start"])[:20]:
         print(f"  新: {r['start']}\t{r['title']}  (通 {r['messages']}・決める側の語 {r['decider_words']}・ドシエの語 {r['dossier_hits']})")
+    # ドシエが名を出しているのに未読の会話 (2026-11-12・portfolio-00 の依頼): 読んだのに READ-THREADS に足し忘れた
+    #   会話 (0BSD-P は against #276 で読んだが行が無かった) を、件名 (3 語以上・Re: と [..] を除く) か件名の略称
+    #   ("(0BSD-P)" の形) がドシエの本文 (rounds/ の外の LICENSES/*.md) に現れるかで拾う。一般的な件名
+    #   ("License for approval" など) は別の文に一致しうるので、登録するかは人が読んで決める
+    docs = {p.name: re.sub(r"\s+", " ", p.read_text(encoding="utf-8")) for p in sorted((REPO / "LICENSES").glob("*.md"))}
+    cited = []
+    for r in sorted((r for r in unread + topic_out if not is_read(r)), key=lambda r: r["start"]):
+        core = re.sub(r"\s+", " ", re.sub(r"\[[^\]]*\]", "", re.sub(r"^\s*(?:re|fwd?)\s*:\s*", "", r["title"], flags=re.I))).strip()
+        acr = [a for a in re.findall(r"\(([A-Za-z0-9][A-Za-z0-9.\- ]{2,30})\)", r["title"])
+               if re.search(r"[A-Z]", a) and re.search(r"[-0-9]", a)]
+        where = sorted({n for n, d in docs.items() if (len(core.split()) >= 3 and core.lower() in d.lower())
+                        or any(re.search(r"(?<![\w-])" + re.escape(a) + r"(?![\w-])", d) for a in acr)})
+        if where:
+            cited.append((r, where))
+    print(f"ドシエに件名か略称が現れる未読の会話 {len(cited)} 件 (読んだなら READ-THREADS に足す・一般的な件名は別の文の一致がある)")
+    for r, where in cited:
+        print(f"  名が在る・未読: {r['start']}\t{r['title']}  ({', '.join(where[:4])}{' ほか' if len(where) > 4 else ''})")
     # AS-OF の「未読スレッドの残り」の行と同じ形 (Check 498 (h) が和を見る)
     print(f"AS-OF: 候補 {len(candidates)} 本のうち {len(candidates) - len(unread)} 本を読んだ。{len(unread)} 本は読んでいない")
 
