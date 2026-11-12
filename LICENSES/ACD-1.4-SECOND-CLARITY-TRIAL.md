@@ -719,3 +719,19 @@ After: It does not apply this Dedication to material that a narrower notice the 
 
 **⚠ 逆側**: 前文の 4 文は、法が決まれば古くなる。前文は効力を持たないので作用には響かないが、審査者が読む文としては古びる —— 版を確定する日に、前文の状態の記述がまだ真かを読み直す（確定の手順の段 7 に足す候補）。語の一覧で探したので、一覧に無い言い方（*remains open* など）は漏れうる。
 
+### 14.30 T55: §1.6 の目的の句を外す（-14 語・試作・未採用）
+
+**レンズ**: T54 と同じ型（述べた目的・必要の範囲へ明示の規定を縮める読み）を、作用の条の目的の句（*so that / in order to / for the purposes of / the purpose / intending that / so as to / is intended to*）の全 9 か所に当てた。過去の試作・errata で扱われていないのは §1.6 だけだった（§2.5 は信頼の目的そのものが作用、§2.6 の *so that* は識別の形の基準、§2.9 と §6.5 の *for the purposes of* は参照と評価、§4.1 は条件にしないものの列挙、§12.2 は 1 冊目で残した、§15.1 は解釈の規則そのもの、§15.3 は QFC 問 7 が問う、§16.4 は T44〜T50 で文ごと読んだ）。
+
+**欠陥**: §1.6（1.0 の §1.4）第 3 文は、自動化システムが許可を行使するとき、委託者と運用者の両方に等しく許可を与え、その目的を *"so that no permission fails for want of a legal person to hold it"* と述べる。目的で読む人は、運用者への許可を「委託者が法人格を持たず許可が成り立たない場面」に限りうる —— 委託者が法人（例: 顧客の会社）なら、許可は「法人格が無くて成り立たない」ことは無いので、運用者（例: 顧客のためにモデルを動かすクラウドやエージェントの事業者）に許可を与える必要は無かった、と読む。運用者は自分の行為について許可を持たないことになる。T54 で portfolio-00 が示したとおり、条文の中の目的の句は §15.1 の「語が許す読み」の材料に入るので、§15.1 だけでは分岐を消し切らない。
+
+**Before（§1.6 第 3 文・1.0 の §1.4 と同じ文）**: *"Where an automated system exercises a permission granted here, that permission is granted equally to the person or entity on whose behalf it acts and to the person or entity that operates it, so that no permission fails for want of a legal person to hold it."*
+
+**After（§1.6・1.0 の §1.4 に当たる条）**: *"Where an automated system exercises a permission granted here, that permission is granted equally to the person or entity on whose behalf it acts and to the person or entity that operates it."*（-14 語・`split()` で数えた）
+
+**作用は変わらないと読む理由**: 「等しく与える」（*granted equally … and to*）が両者への許可を述べ、目的の句が無くても運用者は自分の名で許可を持つ。法人格の無い自動化システムそのものに許可が成り立たない、という穴は、許可を人と法人（委託者・運用者）に与える形そのものが塞いでいる。
+
+**⚠ 逆側**: (1) 目的の句は、なぜ機械を You に含めるのかを審査者に説明する文で、逐条リファレンスの §1.6 の行がこれを引いている（外すなら説明を行の右の列へ移す）。想定問答（`ACD-1.0.review-responses-boilerplate.md` Q33）も同じ問いに答えている。(2) 1.0〜1.3 にも同じ文が在る。(3) 分岐の強さは T54 より弱いかもしれない —— 運用者への許可は「equally」が明示しており、§8.4 のように述べた必要と許諾の範囲が数で食い違うわけではない。(4) −12 語は結果で、理由ではない。
+
+**次**: portfolio-00 の反例（とくに、委託者が法人の場面で運用者を外す読みが本当に立つか、外すと別の穴が開かないか）→ portfolio-9b の `--compare / --guard` → 採否をこの節に書く。採るまで草案は変えない。
+
