@@ -534,6 +534,15 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 468a: FAQ が「1.4 草案」として引く逐語を草案に無い語へ変える (agreed to make → agreed to remit) —— 旧版は errata の"
+            "「N.M draft」しか見ず、ドシエの他の面の注記が後の試作で古くなっても黙っていた (2026-11-12・portfolio-00 の提案)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.faq.md",
+    "find": "*\"a payment You agreed to make\"*",
+    "replace": "*\"a payment You agreed to remit\"*",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

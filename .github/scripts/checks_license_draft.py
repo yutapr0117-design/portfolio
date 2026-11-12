@@ -82,6 +82,7 @@ import re
 
 
 from _lib_draft_markers import EFFECT_MARKERS_468U, state_hits  # 一覧は _lib_draft_markers.py (measure_clause_overlap.py --guard と共有)
+from _lib_dossier import errata_draft_quote_misses, dossier_draft_quote_misses  # 草案の逐語の照合 (468w / 468a)
 
 def run(ctx):
     ROOT = ctx.ROOT
@@ -784,35 +785,20 @@ def run(ctx):
         #   "as adopted on YYYY-MM-DD" へ直した)。照合先は、その版の草案が作業中ならその草案、凍結済みなら凍結した
         #   本文 (確定の日に向け直す作業が無い)。"draft" の後 200 字以内の最初の *"…"* を取り、"…" で切った
         #   15 字を超える断片がすべて在ること。"as adopted"・行番号 ("line 280")・"earlier version" の説明は除く
-        _er468w = (ROOT / "LICENSES" / "ACD-1.0.errata.md").read_text(encoding="utf-8")
-        _tx468w, _n468w, _miss468w = {}, 0, []
-        for _l in _er468w.split("\n"):
-            _me = re.match(r"^\|\s*\*{0,2}(E\d+)", _l)
-            if not _me:
-                continue
-            for _m in re.finditer(r"(?<![\d.])(\d+\.\d+) draft", _l):
-                _v, _tail = _m.group(1), _l[_m.end():_m.end() + 200]
-                if (re.match(r"\s*as adopted|\s*lines?\s+\d", _tail) or "earlier version" in _tail[:60]
-                        or '*"' not in _tail):
-                    continue
-                _q = re.match(r'\*"(.+?)"\*', _l[_m.end() + _tail.index('*"'):])
-                if not _q:
-                    continue
-                if _v not in _tx468w:
-                    _d, _f = ROOT / "LICENSES" / f"ACD-{_v}-DRAFT.txt", ROOT / "LICENSES" / f"ACD-{_v}.txt"
-                    _src = (_d if _d == _dr468 else _f if _f.exists() else None)
-                    _tx468w[_v] = " ".join(_src.read_text(encoding="utf-8").split()) if _src else None
-                _n468w += 1
-                _parts = [" ".join(_x.split()).strip(" ,;.") for _x in re.split(r"…|\.\.\.", _q.group(1))]
-                _lack = [_x for _x in _parts if len(_x) > 15 and (_tx468w[_v] is None or _x not in _tx468w[_v])]
-                if _lack:
-                    _miss468w.append(f"{_me.group(1)} ({_v} draft): {_lack[0][:60]!r}")
+        _n468w, _miss468w = errata_draft_quote_misses(ROOT / "LICENSES", _dr468)   # 照合は _lib_dossier.py (468a と共有)
         if not _n468w:
             _bad468.append("468w: errata から「N.M draft」の後の逐語を 1 件も読めない (読めないまま黙らせない)")
         elif _miss468w:
             _bad468.append(f"468w: errata が「N.M draft」として引く逐語が、その版の本文 (作業中の草案か凍結した本文) に無い: "
                            f"{_miss468w}。草案の文が後で変わったなら、採った日の文は \"N.M draft as adopted on YYYY-MM-DD:\" と書き、"
                            "いまの文を足す")
+
+        # ── 468a: ドシエ (作業記録と errata を除く) が「N.M 草案 / draft」として引く逐語が、いまの草案に在ること ──
+        #   portfolio-00 の提案 (2026-11-12): 日付つきの注記が後の試作で古くなる型 (11-12 に register で 3 か所・入口で 3 か所)
+        _n468a, _miss468a = dossier_draft_quote_misses(ROOT / "LICENSES", _dr468.name.split("-")[1], _t468)
+        if _miss468a:
+            _bad468.append(f"468a: ドシエが草案として引く逐語が、いまの草案に無い: {_miss468a}。採った日の文なら \"as adopted on "
+                           "YYYY-MM-DD\" と書くか、いまの語を並べる")
 
         # ── 468x: 草案の CHANGELIST の主表の After が、いまの草案に在るか、後の書き換えの記録を持つこと ────────
         #   portfolio-aa の依頼 (2026-11-11)。「何を変えるか」の列の *"…"* のうち直後が「へ」のものを After、
