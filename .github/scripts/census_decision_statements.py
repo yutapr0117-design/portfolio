@@ -332,7 +332,10 @@ def threads(out):
             row_b = sorted(b for b, rx in B_TOPICS.items() if re.search(rx, dec_text, re.I))
             row = {"b_topics": row_b, "title": g[0][3], "first": g[0][1], "start": start, "key": key,
                    "messages": n, "decider_words": words, "dossier_hits": hits, "topic_hits": topic,
-                   "decision_form": bool(g and DECIDERS.search(g[0][2]) and DECISION.search(own_text(g[0][4])))}
+                   "decision_form": bool(g and DECIDERS.search(g[0][2]) and DECISION.search(own_text(g[0][4]))),
+                   # 途中の通に決める側の文がある会話 (portfolio-00 の報告・11-12: 2013 の "License drafting quality and
+                   #   process" の Berkus 氏、2005 の OSL 3.0 / AFL 3.0 の Nelson 氏。最初の通は提出者だった)
+                   "decision_inside": any(DECIDERS.search(x[2]) and DECISION.search(own_text(x[4])) for x in g[1:])}
             if n >= 3 and words >= 120:
                 rows.append(row)
             elif n >= 3 and topic >= TOPIC_MIN:
@@ -446,6 +449,10 @@ def threads(out):
     print(f"決める側の文書の形 (最初の通が決める側・本文に勧告/議決/承認/却下の語) の未読 {len(dec)} 件")
     for r in dec:
         print(f"  決める側・未読: {r['start']}\t{r['title']}  (通 {r['messages']}・決める側の語 {r['decider_words']})")
+    ins = sorted((r for r in unread if r.get("decision_inside") and not r.get("decision_form")), key=lambda r: r["start"])
+    print(f"途中の通に決める側の文 (勧告/議決/承認/却下の語) がある未読 {len(ins)} 件 (最初の通は決める側でない・誤検出は増える)")
+    for r in ins:
+        print(f"  途中に決める側・未読: {r['start']}\t{r['title']}  (通 {r['messages']}・決める側の語 {r['decider_words']})")
     # AS-OF の「未読スレッドの残り」の行と同じ形 (Check 498 (h) が和を見る)
     print(f"AS-OF: 候補 {len(candidates)} 本のうち {len(candidates) - len(unread)} 本を読んだ。{len(unread)} 本は読んでいない")
 
