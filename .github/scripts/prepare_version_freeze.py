@@ -151,6 +151,9 @@ def next_draft_header(v: str, nxt: str, applied: str, versions: list[str], w: in
         para(f"This file is the successor text under construction. The latest frozen text is ACD-{v} (LICENSES/ACD-{v}.txt), "
              f"and the licence that covers this repository is {applied}. {pinned} are pinned by SHA-256 in LICENSES/FROZEN.md "
              "and verified in CI; nothing here changes any of them."),
+        # 凍結版の frozen_header と同じ断り (2026-11-12・portfolio-aa が 1.4 草案の冒頭に足した段落): 次版の草案にも引き継ぐ
+        para("Everything above the line below describes this file. It is not part of the Dedication (Section 1.1), and a "
+             "copy may leave it out."),
         "  Status of this draft, stated plainly so that nobody has to infer it:",
         "\n".join([
             bullet(f"It has had no legal review, like {plain}."),
