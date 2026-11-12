@@ -20,6 +20,7 @@ import ast
 import datetime
 import io
 import re
+from _lib_dossier import against_text  # register (against) の file の一覧は 1 か所
 import tokenize
 
 from collections import Counter
@@ -276,7 +277,7 @@ def run(ctx):
     _V474 = ("CLOSED", "TEXT", "DOSSIER", "EXTERNAL", "TRADE", "OPEN", "UNTRIAGED")
     _p474 = ROOT / "LICENSES" / "ACD-1.0.against.md"
     if _p474.exists():
-        _t474 = _p474.read_text(encoding="utf-8")
+        _t474 = against_text(ROOT / "LICENSES")
         # 行は「番号で始まる行」を全部拾い、`| N |` の形でなければ RED にする。太字の番号の行は
         #   以前の正規表現に見えず、状態の欄が無くても集計から黙って落ちていた (460 (e) と 491 も同じ形で数える)。
         #   セルは `\|` を除いて分ける。本文の `\|` で止まる `[^|]*` は #162 を 474b から外していた。
@@ -431,7 +432,7 @@ def run(ctx):
     _om491 = _L460 / "ACD-1.0.objection-map.md"
     _mc491 = re.search(r"last caught up at #(\d+)", _om491.read_text(encoding="utf-8") if _om491.exists() else "")
     _ag491 = _L460 / "ACD-1.0.against.md"
-    _top491 = max((int(_n) for _n in re.findall(r"^\| (\d+) \|", _ag491.read_text(encoding="utf-8"), re.M)), default=0) if _ag491.exists() else 0
+    _top491 = max((int(_n) for _n in re.findall(r"^\| (\d+) \|", against_text(_L460), re.M)), default=0) if _ag491.exists() else 0
     check(bool(_mc491), "Check 491: objection-map が追いついた番号を述べる",
           "Check 491: objection-map から \"last caught up at #N\" の文が消えた (鮮度を見られなくなる)", blocking=True)
     if _mc491:

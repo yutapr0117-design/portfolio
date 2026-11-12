@@ -117,6 +117,7 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
 
 """
 import re
+from _lib_dossier import AGAINST_FILES  # register (against) の file の一覧は 1 か所
 import json
 import subprocess
 import datetime as _dt461
@@ -533,7 +534,7 @@ def run(ctx):
                                         _fr467c.read_text(encoding="utf-8")):
         _pat467c = re.compile(r"(発信|投稿)は[^。\n]{0,25}停止している|停止中である|"
                               r"posting is paused|posting remains paused|posting is stopped|paused since|No — paused|still paused", re.I)
-        _ex467c = {"ACD-1.0.against.md", "BLIND-SPOTS-LOG.md", "AUDIT-LEDGER.md", "AUDIT-LEDGER-ARCHIVE.md",
+        _ex467c = set(AGAINST_FILES) | {"BLIND-SPOTS-LOG.md", "AUDIT-LEDGER.md", "AUDIT-LEDGER-ARCHIVE.md",
                    "MACHINE-SURFACES-AUDIT.md"}
         _bad467c = []
         _files467c = sorted((ROOT / "LICENSES").glob("*.md")) + sorted((ROOT / "LICENSES").glob("*-DRAFT.txt"))

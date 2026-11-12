@@ -140,6 +140,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 
 import json
 import re
+from _lib_dossier import against_text, is_against  # register (against) の file の一覧は 1 か所
 import sys
 from types import SimpleNamespace  # noqa: F401  (ctx の型を読者に示すためだけの import)
 
@@ -329,7 +330,7 @@ def run(ctx):
         #   古くなったのを 9 日間素通りしていた。同じ文の不利な事実の数だけが毎回直されていた。
         _ag460 = ROOT / "LICENSES" / "ACD-1.0.against.md"
         if _ag460.exists():
-            _agt = _ag460.read_text(encoding="utf-8")
+            _agt = against_text(ROOT / "LICENSES")
             _rows460 = len(re.findall(r"^\| \d+ \|", _agt, re.M))
             for _m5 in re.finditer(r"grown\s+from\s+\d+\s+entries\s+to\s+\*\*(\d+)\*\*", _agt):
                 if int(_m5.group(1)) != _rows460:
@@ -357,7 +358,7 @@ def run(ctx):
             for _f in sorted((ROOT / "LICENSES").glob("*.md")):
                 _ft = _f.read_text(encoding="utf-8")
                 _tot460 += len(re.findall(r"^\*\*Q\.|^### (?:Q|A|B)\d+[a-z]?(?:-\d+)?\.", _ft, re.M))
-                if _f.name == "ACD-1.0.against.md":
+                if is_against(_f.name):
                     _tot460 += len(re.findall(r"^\| \d+ \|", _ft, re.M))
             _m8 = re.search(r"There are \*\*(\d+)\*\* worked entries", _qi460.read_text(encoding="utf-8"))
             if not _m8:
@@ -370,7 +371,7 @@ def run(ctx):
         _erp460 = _L460 / "ACD-1.0.errata.md"
         _ern460 = len(re.findall(r"^\| E\d+ \|", _erp460.read_text(encoding="utf-8"), re.M)) if _erp460.exists() else -1
         _agp460 = _L460 / "ACD-1.0.against.md"
-        _agn460 = len(re.findall(r"^\| \d+ \|", _agp460.read_text(encoding="utf-8"), re.M)) if _agp460.exists() else -1
+        _agn460 = len(re.findall(r"^\| \d+ \|", against_text(_L460), re.M)) if _agp460.exists() else -1
         _rvp = _L460 / "REVIEWERS.md"
         if _rvp.exists():
             _rvt = _rvp.read_text(encoding="utf-8")
@@ -828,7 +829,7 @@ def run(ctx):
         _scan463s = (sorted(_L460.glob("*.md")) + sorted((ROOT / "docs" / "architecture").glob("*.md"))
                      + sorted((ROOT / "docs" / "files" / "LICENSES").rglob("*.md"))) if _n463s else []
         for _p463s in _scan463s:
-            if _p463s.name == "ACD-1.0.against.md":
+            if is_against(_p463s.name):
                 continue
             for _l463s in _p463s.read_text(encoding="utf-8").splitlines():
                 if "Check 463" not in _l463s:
@@ -849,7 +850,7 @@ def run(ctx):
         #   数えなかった。質問集とその mirror の中では、名前を書かない「尋ねたい N 問」「全 N 問」の行も読む
         _rx460w = re.compile(r"(?<!第)(?<!第 )(?<![0-9])(\d+) ?問|\b(" + "|".join(_W460) + r") questions\b|\ball (" + "|".join(_W460) + r")\b", re.I)
         for _p460w in sorted(_L460.glob("*.md")) + sorted((ROOT / "docs/files/LICENSES").glob("*.md")):
-            if _p460w.name == "ACD-1.0.against.md":
+            if is_against(_p460w.name):
                 continue
             for _n460w, _l460w in enumerate(_p460w.read_text(encoding="utf-8").splitlines(), 1):
                 _named460w = "QUESTIONS-FOR-COUNSEL" in _l460w or (
