@@ -382,9 +382,14 @@ def record_entry(root="."):
     with open(f"{root}/{ENTRY_MANIFEST}", encoding="utf-8") as fh:
         head = [ln for ln in fh if ln.startswith(("#", "own: "))]
     quotes = entry_quotes(root)
-    good = sorted({entry_key(q) for q in quotes if norm(q) not in own and present(q, blob)})
+    # CI の手元 (rounds/・本文・LICENSE) で確かめられる引用は hash に残さない (2026-11-12): 残すと、草案が後でその句を
+    #   失っても hash が引用を解決し続け、Check 472n は緑のままだった (T54 で §8.4 の文を外した日に、外向きの面の引用の
+    #   依拠を手で数えた)。そういう引用は Check 472n が毎回本文に当てる。hash はアーカイブでしか確かめられない引用だけ
+    base = load_sources(root, cache=False)
+    good = sorted({entry_key(q) for q in quotes if norm(q) not in own and present(q, blob) and not present(q, base)})
     bad = {q: [loc] for q, loc in quotes.items() if norm(q) not in own and not present(q, blob)}
-    print(f"入口の引用 {len(quotes)} 件: 確認 {len(good)} / 我々の文 {len(own)} / 確認できない {len(bad)}")
+    print(f"入口の引用 {len(quotes)} 件: アーカイブで確認 {len(good)} / 本文・rounds で確認 (hash に残さない) "
+          f"{sum(1 for q in quotes if norm(q) not in own and present(q, base))} / 我々の文 {len(own)} / 確認できない {len(bad)}")
     for q, locs in bad.items():
         print(f"  [{locs[0]}] {q[:110]}")
     for score, loc, seg in near_misses(bad, blob):
