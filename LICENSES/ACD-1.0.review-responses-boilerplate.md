@@ -140,6 +140,14 @@ canonical-ref: LICENSES/ACD-1.0.review-responses-clauses.md (第 1 層・条項�
 と読まれうる**。**この読みは、条項の射程が §16（＝この文書）に寄っているほど弱くなるが、
 条文は Work についても排除している**ので、完全には消えない。
 
+**承認済みの本文に同じ除外が在る（2026-11-12 に全アーカイブを走査・portfolio-aa の依頼）。** 上の逆側（「起草者が保護規則から逃げている」と読まれる）に対し、除外そのものは承認済みのライセンスの定型である。MPL 1.1 系の *"Any law or regulation which provides that the language of a contract shall be construed against the drafter shall not apply to this License."* を、CPAL（提出 2007-06）、CUA Office Public License（2004-03）、CDDL（2004-12）の提出文が持つ。どれも OSI の一覧の API（2026-10-27 取得）に在る。
+
+- **逆側 1**: MPL 2.0 は同じ文を片側へ狭めた —— *"… shall not be used to construe this License against a Contributor."*（`license-review` 2011-08 の RC1、2011-12 の提出。API の承認日は 20120109）。寄与者に不利に読む規則だけを外し、受領者の側では残した形である。ACD §15.6 の両方を外す形は MPL 1.1 側の形で、新しい側の形ではない。
+- **逆側 2**: 除外に気づいて問題として挙げた審査者もいる。Jason White 氏 2005-02-07 *"I note that unlike the OSL and MPL, the CDDL stands alone in excluding the contra proferentem principle of interpretation."*（MPL 1.1 も同じ除外を持つので、事実の部分は正確でない）。
+- **有利な側の別の記録**: 受領者に有利に読む規則を審査者が他の提出に求めたことがある（EUPL・`against.md` #19 の 2026-11-12 の追記）。ただし言語の版についての提案で、承認の要件にはならなかった。
+
+この段は根拠の記録で、英文の答えに足す文面ではない。どう言うかは送る人が決める（`REVISION-PROTOCOL.md` ゲート 0）。
+
 ### Q24. §15.5（不行使を放棄と読むな）——やりすぎではないか
 
 > **English:**
