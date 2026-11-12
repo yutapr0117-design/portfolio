@@ -715,7 +715,7 @@ After: It does not apply this Dedication to material that a narrower notice the 
 | §6.5 *"silence on this subject has proved ambiguous in practice"* | 過去の観察で、後で偽にならない。1 冊目の §8（T1）で外向きの文書が依拠するとして残した | 残す |
 | §1.5 *"whether or not presently known and whether or not presently subsisting"*、§6.1・§6.2・§7.2 の *"so far as"* | 状態の記述ではなく、範囲の語 | 対象外 |
 
-**結果**: 作用の条で、いまの状態を述べて後で偽になりうる文は 0。T54 で外した §8.4 の文が唯一だった。
+**結果**: 作用の条で、いまの状態を述べて後で偽になりうる文は 0。T54 で外した §8.4 の文が唯一だった。 **2026-11-12 追記**: この語の一覧は、広げた形で Check 468r（BLOCKING・portfolio-9b・PR 2918）が持つ。権威は `.github/scripts/_lib_draft_markers.py` で、この節は最初の測定の記録である。除外は語ではなく（条, 句）で持つので、除外の句を書き換えると鳴る。
 
 **⚠ 逆側**: 前文の 4 文は、法が決まれば古くなる。前文は効力を持たないので作用には響かないが、審査者が読む文としては古びる —— 版を確定する日に、前文の状態の記述がまだ真かを読み直す（確定の手順の段 7 に足す候補）。語の一覧で探したので、一覧に無い言い方（*remains open* など）は漏れうる。
 
