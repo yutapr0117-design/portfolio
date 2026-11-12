@@ -102,11 +102,21 @@ participant (not a lawyer, by his own account) put it as *"no harm, no estoppel.
 (`gap-measurements.md` §1.146). So a narrower form of the question is whether §2.5, §4.1 or §5
 protects a person who first meets the Work after the Dedicator has purported to revoke it, and has
 notice of that.
+(j) A transfer after the Dedication. Under 17 U.S.C. section 205(e), a nonexclusive licence prevails over a
+conflicting transfer of copyright ownership only if it is evidenced by a written instrument signed by
+the owner of the rights licensed or the owner's agent, and was taken before the transfer was executed,
+or in good faith before the transfer was recorded and without notice of it (text read on 2026-11-12 at
+the Legal Information Institute; we have not read a case that applies it to a public licence). Nobody
+signs the Dedication for each recipient, and §2.8 says that it binds any person to whom a Covered Right
+is transferred *"to the fullest extent the law permits"*. In the United States, does a recipient's
+licence under §4 prevail over a later assignee of the copyright, and does it matter whether §3 has
+already taken effect, leaving nothing to transfer?
 
 **An answer would change** whether the text keeps three footings (register B4) and how §4.4 says
 "independent". An answer to (b) or (h) would change what the dossier says rather than the text: no
 wording contracts out of a statute that forbids it. An answer to (i) would change whether §2.5 needs
-anything beyond §4.1 and §5, or whether the dossier must say that it has no answer.
+anything beyond §4.1 and §5, or whether the dossier must say that it has no answer. An answer to (j) would change whether
+the guidance for adopters should suggest a signed statement, which nothing in the text asks for.
 
 ## 2. Does the patent licence reach what it is meant to reach? (§8.1, §8.4, §8.6)
 
