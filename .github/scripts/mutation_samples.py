@@ -551,6 +551,15 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 472n: 申請日の 1 枚が引く草案の句 (§5.2 の \"that the Dedicator itself makes or makes available\") を草案から消す —— "
+            "旧版の manifest は本文で確かめた引用の hash も残すので、草案が句を失っても引用を解決し続けた (2026-11-12)",
+    "file": CURRENT_DRAFT,
+    "find": "       the Work, that the Dedicator itself makes or makes available, or the",
+    "replace": "       the Work, that the Dedicator itself makes or distributes, or the",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
