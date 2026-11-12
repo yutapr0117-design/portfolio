@@ -1,0 +1,275 @@
+Source: OSI license-discuss public archive, 2003-July.txt and 2003-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 4 of 5 in "Academic Free License version 2.0" (2003-07-16 to 2003-08-01)
+Senders: Lawrence E. Rosen, John Cowan, Bruce Dodson
+Position: Not addressed to us. Observed. Bruce Dodson's message of 2003-07-21 is cut where the forwarded copy ("----- Original Message -----") begins; each message kept here is otherwise whole. Lawrence Rosen is the author and submitter of the AFL.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Thu Jul 17 01:05:41 2003
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Wed, 16 Jul 2003 18:05:41 -0700
+Subject: Academic Free License version 2.0
+Message-ID: <03b801c34bff$8d027cc0$927ba8c0@ROSENGARDEN>
+
+To License-Discuss (and others interested persons on BCC):
+
+Version 2.0 of the Academic Free License (AFL) is hereby submitted for
+your review and for the approval of the OSI Board of Directors.  It can
+be found at http://rosenlaw.com/afl2.0.html.
+
+Most academic-style licenses follow the BSD model -- short, generous and
+uncomplicated.  [See http://opensource.org/licenses/bsd-license.php]
+Simply put, academic licenses permit derivative works to become a part
+of other software, including proprietary software, for any purpose
+whatsoever.  Unfortunately, those licenses often omit many details,
+leaving to the imagination how certain things are to work in an open
+source/proprietary world.
+
+The AFL fills in those gaps.  It addresses issues of patent, trademark,
+warranty, jurisdiction and venue, contributor recognition, etc., in ways
+entirely consistent with the "BSD" philosophy of open source.
+AFL-licensed software can be used in combination with any other
+software, open source *or* proprietary, for any purpose whatsoever,
+including to create derivative works.
+
+This new version of the AFL also helps eliminate possible confusion
+between academic-style licenses and reciprocal licenses [see, for
+example, the GPL, www.fsf.org/licenses/gpl.html, and the Open Software
+License (OSL), www.rosenlaw.com/osl2.0.html].  Reciprocity requires that
+any Derivative Works be licensed under the same license as the Original
+Work.  Reciprocal and non-reciprocal open source licenses ought to be
+the same -- except with respect to provisions dealing with reciprocity.
+
+
+Therefore, the new AFL is identical to the OSL except that the AFL does
+not contain a reciprocity provision.  A redlined comparison of AFL2.0
+and OSL2.0 is at http://rosenlaw.com/afl2.0-redline.pdf.  When you
+suggest changes to the AFL, please consider how that language would read
+in the OSL, and vice versa.  
+
+Suggestions regarding both AFL2.0 and OSL2.0 will be welcomed.  Feel
+free to ask questions or complain here on license-discuss.  The OSI
+board of directors needs your input before they decide whether to
+approve these licenses.  
+
+In the meantime, I encourage you to think about using the Academic Free
+License version 2.0 instead of the BSD, MIT and Apache licenses, and
+their variants, that have proliferated on OSI's approved license list.
+
+/Lawrence Rosen
+Rosenlaw & Einschlag, a technology law firm
+General counsel, Open Source Initiative
+3001 King Ranch Road, Ukiah, CA 95482
+707-485-1242 * fax: 707-485-1243
+email: lrosen at rosenlaw.com
+www.rosenlaw.com
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From jcowan at reutershealth.com  Thu Jul 17 21:36:14 2003
+From: jcowan at reutershealth.com (John Cowan)
+Date: Thu, 17 Jul 2003 17:36:14 -0400
+Subject: Academic Free License version 2.0
+In-Reply-To: <03b801c34bff$8d027cc0$927ba8c0@ROSENGARDEN>
+References: <03b801c34bff$8d027cc0$927ba8c0@ROSENGARDEN>
+Message-ID: <20030717213614.GG24731@skunk.reutershealth.com>
+
+Lawrence E. Rosen scripsit:
+
+> Version 2.0 of the Academic Free License (AFL) is hereby submitted for
+> your review and for the approval of the OSI Board of Directors.  It can
+> be found at http://rosenlaw.com/afl2.0.html.
+
+This license is obviously open source, a big win, and it's nice that it
+tracks the OSL.
+
+I think with these versions of the OSL and AFL we are in a strong position
+to respond to corporate types who come to us with their complex licenses
+"Have you checked out the OSL and AFL version 2.0?  They probably do
+everything your lawyers *and* your developers want."
+
+-- 
+But you, Wormtongue, you have done what you could for your true master.  Some
+reward you have earned at least.  Yet Saruman is apt to overlook his bargains.
+I should advise you to go quickly and remind him, lest he forget your faithful
+service.  --Gandalf             John Cowan <jcowan at reutershealth.com>
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From bruce_dodson at hotmail.com  Tue Jul 22 02:26:29 2003
+From: bruce_dodson at hotmail.com (Bruce Dodson)
+Date: Mon, 21 Jul 2003 23:26:29 -0300
+Subject: Academic Free License version 2.0
+References: <03b801c34bff$8d027cc0$927ba8c0@ROSENGARDEN>
+Message-ID: <BAY1-DAV40i0VNRXGlG00017275@hotmail.com>
+
+I think this change is mostly-positive.  The only negative
+aspect that I see is that it's twice as long as the previous
+revision.  AFL 1.2 had stricken a nice balance between
+brevity and precision.
+
+May I suggest that, alongside AFL 2.0, you publish one last
+license in the AFL 1.x series, based on AFL 1.2 but with the
+applicable OSL 2.0 revisions merged in, i.e. sublicenseable,
+and with the revised, more palatable Termination for Patent
+Action clause?
+
+In addition, considering how different the wording of AFL
+2.0 is from 1.x (even though the effect is similar), and the
+fact that there may be projects using 1.x, please do not
+withdraw the AFL 1.x when 2.0 is approved.  I would like to
+see them both in the list of approved licenses.
+
+From lrosen at rosenlaw.com  Sat Aug  2 02:21:02 2003
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Fri, 1 Aug 2003 19:21:02 -0700
+Subject: Academic Free License version 2.0
+In-Reply-To: <BAY1-DAV40i0VNRXGlG00017275@hotmail.com>
+Message-ID: <00f501c3589c$b8b2e4a0$927ba8c0@ROSENGARDEN>
+
+Bruce, thanks for your comments.  My replies are inserted below.  /Larry
+Rosen
+
+> -----Original Message-----
+> From: Bruce Dodson [mailto:bruce_dodson at hotmail.com]
+> Sent: Monday, July 21, 2003 7:26 PM
+> To: lrosen at rosenlaw.com; license-discuss at opensource.org
+> Subject: Re: Academic Free License version 2.0
+> 
+> I think this change is mostly-positive.  The only negative
+> aspect that I see is that it's twice as long as the previous 
+> revision.  AFL 1.2 had stricken a nice balance between 
+> brevity and precision.
+
+Thanks for the "mostly-positive" comment.  :-)  
+
+I'm sorry you find the license too long.  If it takes a certain number
+of words to be clear about what an academic-style license should do,
+then that's the breaks.  If you can suggest briefer ways of saying
+things, or fewer things to say, then help me by suggesting them.
+
+I point out, however, that the AFL and OSL are already a full page
+shorter than the GPL.
+
+> May I suggest that, alongside AFL 2.0, you publish one last
+> license in the AFL 1.x series, based on AFL 1.2 but with the 
+> applicable OSL 2.0 revisions merged in, i.e. sublicenseable, 
+> and with the revised, more palatable Termination for Patent 
+> Action clause?
+
+Yet one more license?  :-)
+
+> In addition, considering how different the wording of AFL
+> 2.0 is from 1.x (even though the effect is similar), and the
+> fact that there may be projects using 1.x, please do not 
+> withdraw the AFL 1.x when 2.0 is approved.  I would like to 
+> see them both in the list of approved licenses.
+
+There's no reason earlier versions should be withdrawn.  But I strongly
+encourage using the latest version.  It's up to the licensors, really.
+
+/Larry Rosen
+
+> ----- Original Message -----
+> From: "Lawrence E. Rosen" <lrosen at rosenlaw.com>
+> Newsgroups: gmane.comp.licenses.open-source.general
+> Sent: Wednesday, July 16, 2003 10:05 PM
+> Subject: Academic Free License version 2.0
+> 
+> 
+> > To License-Discuss (and others interested persons on BCC):
+> >
+> > Version 2.0 of the Academic Free License (AFL) is hereby
+> submitted for
+> > your review and for the approval of the OSI Board of
+> Directors.  It can
+> > be found at http://rosenlaw.com/afl2.0.html.
+> >
+> > Most academic-style licenses follow the BSD model --
+> short, generous and
+> > uncomplicated.  [See
+> http://opensource.org/licenses/bsd-license.php]
+> > Simply put, academic licenses permit derivative works to
+> become a part
+> > of other software, including proprietary software, for any
+> purpose
+> > whatsoever.  Unfortunately, those licenses often omit many
+> details,
+> > leaving to the imagination how certain things are to work
+> in an open
+> > source/proprietary world.
+> >
+> > The AFL fills in those gaps.  It addresses issues of
+> patent, trademark,
+> > warranty, jurisdiction and venue, contributor recognition,
+> etc., in ways
+> > entirely consistent with the "BSD" philosophy of open
+> source.
+> > AFL-licensed software can be used in combination with any
+> other
+> > software, open source *or* proprietary, for any purpose wh
+> atsoever,
+> > including to create derivative works.
+> >
+> > This new version of the AFL also helps eliminate possible
+> confusion
+> > between academic-style licenses and reciprocal licenses
+> [see, for
+> > example, the GPL, www.fsf.org/licenses/gpl.html, and the
+> Open Software
+> > License (OSL), www.rosenlaw.com/osl2.0.html].  Reciprocity
+> requires that
+> > any Derivative Works be licensed under the same license as
+> the Original
+> > Work.  Reciprocal and non-reciprocal open source licenses
+> ought to be
+> > the same -- except with respect to provisions dealing with
+> reciprocity.
+> >
+> >
+> > Therefore, the new AFL is identical to the OSL except that
+> the AFL does
+> > not contain a reciprocity provision.  A redlined
+> comparison of AFL2.0
+> > and OSL2.0 is at http://rosenlaw.com/afl2.0-redline.pdf.
+> When you
+> > suggest changes to the AFL, please consider how that
+> language would read
+> > in the OSL, and vice versa.
+> >
+> > Suggestions regarding both AFL2.0 and OSL2.0 will be
+> welcomed.  Feel
+> > free to ask questions or complain here on license-discuss.
+> The OSI
+> > board of directors needs your input before they decide
+> whether to
+> > approve these licenses.
+> >
+> > In the meantime, I encourage you to think about using the
+> Academic Free
+> > License version 2.0 instead of the BSD, MIT and Apache
+> licenses, and
+> > their variants, that have proliferated on OSI's approved
+> license list.
+> >
+> > /Lawrence Rosen
+> > Rosenlaw & Einschlag, a technology law firm
+> > General counsel, Open Source Initiative
+> > 3001 King Ranch Road, Ukiah, CA 95482
+> > 707-485-1242 * fax: 707-485-1243
+> > email: lrosen at rosenlaw.com
+> > www.rosenlaw.com
+> >
+> > --
+> > license-discuss archive is at
+> http://crynwr.com/cgi-bin/ezmlm-cgi?3
+> >
+> 
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
