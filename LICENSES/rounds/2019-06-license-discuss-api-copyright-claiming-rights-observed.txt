@@ -1,0 +1,160 @@
+Source: OSI license-discuss public archive, 2019-June.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 2 of 72 in "Copyright on APIs" (begun 2019-06-29)
+Senders: Lukas Atkinson, Bruce Perens
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From opensource at lukasatkinson.de  Sat Jun 29 16:58:00 2019
+From: opensource at lukasatkinson.de (Lukas Atkinson)
+Date: Sat, 29 Jun 2019 18:58:00 +0200
+Subject: [License-discuss] [License-review] Copyright on APIs
+In-Reply-To: <9d720e18-e229-6101-3eb8-16e76975c080@chesteklegal.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com>
+ <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org>
+ <CAK2MWOumvYSOGW9=Jn_MQcNOqaxcHqXNoD+U8x+WN7z5LFH3kg@mail.gmail.com>
+ <CAK2MWOtpGcetuQgOnK-9bU=sZEgG_HOGxSRdVh_MvzR4MA2zZQ@mail.gmail.com>
+ <9d720e18-e229-6101-3eb8-16e76975c080@chesteklegal.com>
+Message-ID: <CAJTYOd3f-L_SE6UiFbOWGL_JOUPk5YZax=T=JWzXy8dxww9vtg@mail.gmail.com>
+
+I do not think the question of whether API copyright exists is that
+relevant for review. Clearly, it is not in the interest of the open source
+community for such a right to exist, as Bruce points out. But where such a
+right does exist it ought to be fine for an open source license to exercise
+that right as part of a copyleft mechanism.
+
+In this sense, the failing of the CAL is not that it also covers API
+copyright, but that it claims such a right regardless of whether it
+actually exists in the relevant jurisdictions. As a thought experiment, if
+the CAL were reworded so that it clearly only claims to cover API copyright
+if that right exists:
+
+ - would that be an OSD 5 violation because it effectively gives different
+rights to licensees depending on their jurisdictions? Licensees in a
+jurisdiction without API copyright would have more rights. But isn't that
+the case with any license since local copyright laws might offer some
+copyright exception? Jurisdiction-specific concerns also tie in to the
+?public performance? discussion.
+
+ - would this make the license less clear? Users might not know whether API
+copyright applies to them. But arguably, other license's effects (such as
+the GPL's effects with dynamic linking) are just as murky.
+
+ - would this be strategically undesirable because it would promote the
+creation of API copyright where it doesn't already exist?
+
+I am very conflicted on each of these points and could argue them either
+way.
+
+Since it is not yet 100% clear whether API copyright exists in any
+jurisdiction and what its effects are, it would be better for the CAL to
+ignore this ? for the time being. However, it might be a good idea to
+future-proof the license to allow API copyleft once it is established more
+clearly. For example:
+
+ - a mechanism for additional terms similar to GPLv3 section 7, and allow
+terms that add API copyleft. The CAL already has a small case of such a
+mechanism with its Combined Work Exception.
+
+ - a license compatibility mechanism similar to the Creative Commons
+licenses, so that API copyleft could be patched in a later version.
+However, this raises the question of who may deem a license compatible. For
+the CC and GPL licenses this only works because the license steward is
+widely trusted. I'm personally not a fan of the GPL's opt-in to
+compatibility since that leads to a fractured ecosystem.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190629/276753b6/attachment.html>
+
+From bruce at perens.com  Sat Jun 29 18:57:26 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 29 Jun 2019 11:57:26 -0700
+Subject: [License-discuss] [License-review] Copyright on APIs
+In-Reply-To: <CAJTYOd3f-L_SE6UiFbOWGL_JOUPk5YZax=T=JWzXy8dxww9vtg@mail.gmail.com>
+References: <CAFQvZENr0qBdz40xR2aCTD+vvQyw+WmNL-tDtuXMPqHR345zMQ@mail.gmail.com>
+ <75f7060a-47e6-39aa-ad2b-6f8f2d8e7a80@opensource.org>
+ <CAK2MWOumvYSOGW9=Jn_MQcNOqaxcHqXNoD+U8x+WN7z5LFH3kg@mail.gmail.com>
+ <CAK2MWOtpGcetuQgOnK-9bU=sZEgG_HOGxSRdVh_MvzR4MA2zZQ@mail.gmail.com>
+ <9d720e18-e229-6101-3eb8-16e76975c080@chesteklegal.com>
+ <CAJTYOd3f-L_SE6UiFbOWGL_JOUPk5YZax=T=JWzXy8dxww9vtg@mail.gmail.com>
+Message-ID: <CAK2MWOvfnj_UhMcgw7q_t5iE5zmqVvtggcd9UC0AYvrsdsU4Wg@mail.gmail.com>
+
+This is connected with why I gave up on Open Hardware licenses. Pretty much
+every one of them attempts to assert copyright rights upon things that can
+not reliably be copyrighted under current US law. In this case to assert it
+over the production of hardware devices implementing a schematic design
+which is IMO entirely functional. Eventually the question of hardware
+design copyright will get to a court, which will look at industry practice
+before making a decision that *extends copyright. *We should not be
+providing the examples which prompt the court to do that.
+
+And of course there is a similar argument for API copyright, designs of
+three dimensional shapes (where the analogous 2-D fonts today can be traced
+with impunity), etc.
+
+    Thanks
+
+    Bruce
+
+On Sat, Jun 29, 2019 at 9:58 AM Lukas Atkinson <opensource at lukasatkinson.de>
+wrote:
+
+> I do not think the question of whether API copyright exists is that
+> relevant for review. Clearly, it is not in the interest of the open source
+> community for such a right to exist, as Bruce points out. But where such a
+> right does exist it ought to be fine for an open source license to exercise
+> that right as part of a copyleft mechanism.
+>
+> In this sense, the failing of the CAL is not that it also covers API
+> copyright, but that it claims such a right regardless of whether it
+> actually exists in the relevant jurisdictions. As a thought experiment, if
+> the CAL were reworded so that it clearly only claims to cover API copyright
+> if that right exists:
+>
+>  - would that be an OSD 5 violation because it effectively gives different
+> rights to licensees depending on their jurisdictions? Licensees in a
+> jurisdiction without API copyright would have more rights. But isn't that
+> the case with any license since local copyright laws might offer some
+> copyright exception? Jurisdiction-specific concerns also tie in to the
+> ?public performance? discussion.
+>
+>  - would this make the license less clear? Users might not know whether
+> API copyright applies to them. But arguably, other license's effects (such
+> as the GPL's effects with dynamic linking) are just as murky.
+>
+>  - would this be strategically undesirable because it would promote the
+> creation of API copyright where it doesn't already exist?
+>
+> I am very conflicted on each of these points and could argue them either
+> way.
+>
+> Since it is not yet 100% clear whether API copyright exists in any
+> jurisdiction and what its effects are, it would be better for the CAL to
+> ignore this ? for the time being. However, it might be a good idea to
+> future-proof the license to allow API copyleft once it is established more
+> clearly. For example:
+>
+>  - a mechanism for additional terms similar to GPLv3 section 7, and allow
+> terms that add API copyleft. The CAL already has a small case of such a
+> mechanism with its Combined Work Exception.
+>
+>  - a license compatibility mechanism similar to the Creative Commons
+> licenses, so that API copyleft could be patched in a later version.
+> However, this raises the question of who may deem a license compatible. For
+> the CC and GPL licenses this only works because the license steward is
+> widely trusted. I'm personally not a fan of the GPL's opt-in to
+> compatibility since that leads to a fractured ecosystem.
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190629/b9a9bbea/attachment.html>
+
