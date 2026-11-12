@@ -180,6 +180,24 @@ _PRONOUN = re.compile(r"\b(they|them|their|theirs|it|its|those|these|such)\b", r
 _SENT = re.compile(r"(?<=[.;:])\s+(?=[A-Z(])")
 
 
+# 比較・照応の相手を前に求める句と、許可の声 (2026-11-12・portfolio-00 の報告): T59 の "to the same extent" は比較の相手が
+#   書かれず 2 通りに読めた。T57 の "Such distribution by the Steward is permitted" は制限の例外から許可の付与へ声が変わった
+_COMPARE = re.compile(r"\b(?:the same|same|such|similar(?:ly)?|likewise|equally|correspondingly|to that extent|to the same extent|"
+                      r"as aforesaid|thereof|therein|thereto)\b", re.I)
+_PERMIT = re.compile(r"\b(?:is|are) (?:permitted|allowed|entitled|authori[sz]ed)\b|\bmay\b", re.I)
+
+
+def changed_sentences(cb: dict[str, str], ca: dict[str, str]) -> list[tuple[str, str]]:
+    """(条, 文)。After の文のうち Before の同じ条に無い文。"""
+    out = []
+    for c in ca:
+        if cb.get(c) == ca[c]:
+            continue
+        sb = {" ".join(x.split()) for x in _SENT.split(" ".join(cb.get(c, "").split()))}
+        out += [(c, x) for x in (" ".join(y.split()) for y in _SENT.split(" ".join(ca[c].split()))) if x and x not in sb]
+    return out
+
+
 def pronoun_shift(cb: dict[str, str], ca: dict[str, str]) -> list[tuple[str, str, str, str]]:
     """(条, 代名詞, 文の抜粋, 理由)。理由は「文が変わった」か「直前の文が変わった」。"""
     out = []
@@ -360,6 +378,16 @@ def compare(before: Path, after: Path, n: int) -> None:
     print(f"# 先行詞の無い指示語: Before {len(db)} / After {len(da)}")
     for k, ctx in sorted(da - db):
         print(f"#   ⚠ 新たに宙に浮いた: §{k}: …{ctx}…")
+    _cs = changed_sentences(cb, ca)
+    _cmp = [(k, m.group(0), sent[max(0, m.start() - 50):m.end() + 40]) for k, sent in _cs for m in _COMPARE.finditer(sent)]
+    print(f"# 変わった文の比較・照応の句 (相手が書かれているか読む): {len(_cmp)}")
+    for k, w, ctx in _cmp:
+        print(f"#   ・ §{k} {w!r}: …{ctx}…")
+    _pv = [(k, len(_PERMIT.findall(cb.get(k, ""))), len(_PERMIT.findall(ca[k]))) for k in ca if cb.get(k) != ca[k]]
+    _pv = [x for x in _pv if x[2] > x[1]]
+    print(f"# 許可の声 (is permitted / may / is entitled …) が増えた条: {len(_pv)} (制限の例外が許可の付与へ変わっていないか読む)")
+    for k, b_, a_ in _pv:
+        print(f"#   ⚠ §{k}: {b_} → {a_}")
     _ps = pronoun_shift(cb, ca)
     print(f"# 文が変わったか直前の文が変わった文の代名詞: {len(_ps)} (先行詞を読み直す・形式主語の it も出る)")
     for k, w, ctx, why in _ps:
