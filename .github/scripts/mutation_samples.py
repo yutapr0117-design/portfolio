@@ -541,6 +541,15 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 468g: §10.2 の \"You need not give attribution\" を \"You will not give attribution\" にする —— You を主語にした will は"
+            "義務に読まれうるが、旧版の型 (shall / must / You agree …) には無かった (2026-11-12・語数は同じ)",
+    "file": CURRENT_DRAFT,
+    "find": "  10.2 In particular, You need not give attribution, reproduce any notice,",
+    "replace": "  10.2 In particular, You will not give attribution, reproduce any notice,",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

@@ -138,14 +138,18 @@ def run(ctx):
         #   「1.0 への引用は 1.0 の本文を使うこと」等の**草案についての注記**で、条文ではない。
         #   `_lic468`（セパレータ以降）で見るのはそのためで、**file 全体で数えると
         #   ヘッダの散文が条文の性質として報告される。**
+        # You を主語にした義務・条件の言い回しも見る (2026-11-12・portfolio-9b のレンズ): 1.4 草案で 0 件と測った形を
+        #   0 のまま守る (will / should / undertake / are to / need to などは shall と同じく義務に読まれうる)
         _pat468g = (r"\b(shall|must)\b", r"You are required\b", r"provided that\b",
-                    r"on condition\b", r"You agree\b", r"You may not\b")
+                    r"on condition\b", r"You agree\b", r"You may not\b",
+                    r"\bYou (?:will|should|undertake|are to|have to|need to|are obliged|are bound)\b",
+                    r"\b(?:unless|only if|provided) You\b", r"\b(?:so|as) long as\b", r"\bin (?:consideration|return) for\b")
         _deon468 = sorted({_m.group(0).lower()
                            for _p in _pat468g
                            for _m in re.finditer(_p, _lic468, re.I)})
         if _deon468:
             _bad468.append(
-                f"本文側に義務語がある: {_deon468} "
+                f"468g: 本文側に義務語がある: {_deon468} "
                 "(#116 の緩和は「shall と must は 0 回」を測った値に依っている。"
                 "1.0 は凍結が守るが、草案は誰も守らない)")
         # ── 468b: 冒頭の変更一覧が引く「新しい文」が本文に在る (旧文の引用と識別子の型の例は除く) ─────────
