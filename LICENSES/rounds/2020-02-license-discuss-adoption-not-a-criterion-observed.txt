@@ -1,0 +1,130 @@
+Source: OSI license-discuss public archive, 2020-February.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 2 of 47 in "Ethical open source licensing - Persona non Grata Preamble" (2020-02-20 to 2020-02-29)
+Senders: Brian Behlendorf, Russell Nelson
+Position: Not addressed to us. Observed. Messages that end in quoted text are cut where the quotation begins; each message kept here is otherwise whole.
+
+----- begin verbatim -----
+From brian at behlendorf.com  Fri Feb 21 19:26:25 2020
+From: brian at behlendorf.com (Brian Behlendorf)
+Date: Fri, 21 Feb 2020 11:26:25 -0800 (PST)
+Subject: [License-discuss] Ethical open source licensing - Persona non
+ Grata Preamble
+In-Reply-To: <40C03FA8-2CD7-435E-8520-8578956F9589@jimjag.com>
+References: <CAMkzgA6mBhHA+3SY4+oy-J04snOKVzcp_KcUU-Bw+x80uNHx5Q@mail.gmail.com>
+ <40C03FA8-2CD7-435E-8520-8578956F9589@jimjag.com>
+Message-ID: <alpine.DEB.2.21.2002211104150.3904@flooz>
+
+On Fri, 21 Feb 2020, Jim Jagielski wrote:
+>> On Feb 20, 2020, at 9:16 PM, Eric Schultz <eric at wwahammy.com> wrote:
+>>
+>> Instead I've been thinking through ways in which licensing and ethical FOSS community policies can interact in order to discourage and shame morally corrupt users.
+>
+> So who defines who is "morally corrupt"? Who exactly is a "bad actor"? What is "evil"?
+
+The licensors define that, in their preamble. You don't have to agree.
+
+I would likely never use such a license on my software, I would strongly 
+avoid writing code that depended upon such a license when writing my own, 
+and I would probably prefer to use software licensed otherwise.
+
+But, that is true for many other certified Open Source licenses. 
+Likelihood of widespread adoption has never been a formal criteria for 
+certification, aside from proliferation and inadvertant duplication 
+concerns. Back when the open source software world was much smaller, and 
+we were still struggling for acceptance, and we really did want every 
+company large and small to be a part of the revolution, then a big tent 
+was called for by some (permissive) and a principled stand by others 
+(copyleft). This is a different sort of principled stand, one likely to 
+repel even more people than copyleft depending on the non Gratas, but I 
+struggle to see how it's any less valid than copyleft.
+
+I am struck by the brilliance of the self-shaming aspect of this - that 
+ICE would be free to use this software, but would have to redistribute 
+ICE-shaming sentence if they redistributed or derived works from it. 
+Unless I'm misunderstanding though, such text would not have to be 
+displayed in the user interface or if deployed over the network, only 
+where such copyright notices are usually displayed. Rarely does that make 
+its way to end-users. So there's a flaw in this that may require 
+patching-over with an AGPL-like requirement to display or offer the 
+license text in any end-user UI. But even then, that's not disqualifying.
+
+Clearly this is not a license you would expect to see mass adopted for 
+lower levels of the stack - operating systems, network daemons, databases 
+- or mainstram end-user software like a web browser. But if I had just 
+pulled together (through a training set + algorithms) a pretty great 
+facial recognition system, I'd give this license serious thought - 
+especially if I thought I could get a critical mass of other 
+facial-recognition developers & researchers on board with a particular set 
+of non-Gratas, such that an alternate engine more permissively licensed 
+would struggle to compete. But I'd have to also concede that Bad Actors 
+are unlikely to be persuaded by (or even read?) the terms of such a 
+license, or would figure out how to route around any redisplay 
+requirements. But the symbolism and signalling would be compelling, a step 
+up from a bumper sticker or t-shirt.
+
+One more practical and probably negative impact: it will always be easier 
+to add new names than to remove old ones, because adding new names is a 
+simple sublicense that can be done by anyone, but removing a name will 
+require a relicense with the consent of every contributor who contributed 
+under that license. So, in my facial-recognition example, I would likely 
+as for assignment of the right to relicense from any contributor, so that 
+I might be able to remove a name once they've cleaned up their act. 
+Otherwise a list that can only grow becomes an embarrassment and 
+ineffective at actually changing behavior, it just becomes a howl in the 
+night. But centralizing IP (rather than a mere right to redistribute a la 
+DCO / CLA) is something I think we've done well to avoid.
+
+Brian
+
+
+
+
+
+
+From nelson at crynwr.com  Sat Feb 29 07:12:41 2020
+From: nelson at crynwr.com (Russell Nelson)
+Date: Sat, 29 Feb 2020 02:12:41 -0500
+Subject: [License-discuss] Ethical open source licensing - Persona non
+ Grata Preamble
+In-Reply-To: <CAMkzgA6mBhHA+3SY4+oy-J04snOKVzcp_KcUU-Bw+x80uNHx5Q@mail.gmail.com>
+References: <CAMkzgA6mBhHA+3SY4+oy-J04snOKVzcp_KcUU-Bw+x80uNHx5Q@mail.gmail.com>
+Message-ID: <f2e35e0b-31ea-9b3b-4af5-c62305c4d45d@crynwr.com>
+
+There are, as one might expect, multiple aspects of this idea.
+
+Is it legally enforceable? Not even lawyers can answer that question 
+because it depends (as Larry Rosen once said) on which side of the bed 
+the judge has gotten up on. Probably a better question is whether you 
+intend the new terms to be legally enforceable? Eric makes it clear that 
+enforceability is immaterial since he does not intend it to restrict 
+licensees.
+
+Well, given that, the entire thing is moot. We deal in licenses which 
+give permission to licensees to further sub-license the software. We 
+don't have licenses which do not permit would-be licensees to retrieve 
+or accept ownership of a copy of the software. We don't have licenses 
+which restrict -- in any way -- their use of the software. All of this 
+has been hashed out literally decades ago.
+
+If Eric wants somebody to refrain from using his software, he is free to 
+ask them to refrain. He doesn't need any change in the Open Source 
+licensing regimen. If, however, he ships his software under a modified 
+license, even if that license merely importunes people to not use it, he 
+has removed himself from the Open Source community.
+
+Given that such a discriminatory importunation (that probably wasn't a 
+word until just now) facially violates OSD#5 (or #6, depending), I'm not 
+sure that we should welcome discussion of such a thing on opensource.org 
+mailing lists. It is simply off-topic. Not good, not bad, just 
+off-topic. People might think that we don't hold ALL the terms of the 
+OSD in equal stead. Another thing the valuable and useful Larry Rosen 
+(former OSI lawyer) said is that if you want a judge to believe you, you 
+have to believe yourself. If you don't take yourself seriously, why 
+should the judge?
+
+On 2/20/20 9:16 PM, eric at wwahammy.com (Eric Schultz) wrote:
+> Over the last few weeks, I've been exploring ideas around ways in which
+> licensing could be used for dealing with unethical behavior in FOSS.
+
+
