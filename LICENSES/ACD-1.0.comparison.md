@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.comparison.md
 audience: ai, human (提出者), 監査人, 採用検討者, 第三者全般
-last-updated: 2026-11-03
+last-updated: 2026-11-12
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / docs/architecture/acd-license-rationale.md (§2 に無条件系との比較と 0BSD/Apache 逐条差分) / LICENSES/ACD-1.0.review-responses.md (総論の想定問答・索引)
 ---
 
@@ -314,6 +314,8 @@ rule of thumb であって規則でもない。**
 ## 1.4 CC0 —— 同型で OSI の審査に入り、**否決されずに取り下げられた**先例（2012）
 
 **審査の本体と意向調査（13 対 8）の読みは `review-precedents.md` §1.138 に在る（2026-11-07）。**
+
+> **⚠ 逆側（2026-11-12 追加）。** 「否決されずに」は手続きの上の事実で、下の Phipps 氏 2014 の訂正に依る。だが審査の側にいた Richard Fontana 氏は 2019-08-22 に、OSI はほとんど正式に却下してこなかったが、承認しない処分は *"(at least arguably) equivalent to a rejection, and is often spoken of as a rejection"* だと書き、CC0 の取り下げを *"the "rejection" (i.e., withdrawal after negative license-review reaction) of CC0"* と呼んだ（`against.md` #236 の追記・`rounds/2017-04-and-2019-08-license-lists-bsd-patent-approval-and-cc0-disposition-observed.txt`）。この見出しを、CC0 が審査で否定されなかった、と読ませてはならない —— 否定的な反応の後に取り下げられ、その取り下げを却下と同じ側に置く審査者がいる。
 
 > **⚠ 見出しの訂正（2026-09-25・#236）。** 旧見出しは「OSI で止まった先例」と述べていた。**当時の OSI 会長 Simon Phipps 氏は 2014-05 にリスト上で明言している** —— *"We did not decide against CC0. The discussion was certainly at a low point when Creative Commons withdrew it from the approval process, but that's what happened, **not an OSI denial**."* `review-corpus.md` は既にこれを訂正していたが、**この見出しは古いまま残っていた**（#222 の class）。**訂正で変わらないもの**: 争点が特許だったこと、CC0 が承認されていないこと、**そして「取り下げ」は「否決」ではないが「承認」でもないこと**（#139 の第 3 の帰結）。
 
