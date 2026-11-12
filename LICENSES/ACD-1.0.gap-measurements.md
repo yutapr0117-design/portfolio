@@ -633,6 +633,8 @@ Wikimedia の管理者 Derrick Coetzee 氏が、帰属を求めないライセ�
 
 **この節が establish しないこと。** BSD + Patent の承認を除き、どれも個人の発言で OSI の決定ではない。話者の役割は付けず、当時の所属が文中に在るものだけを書いた。
 
+**2026-11-12 の追記 —— 承認の告知（2017-04-05）。** 委員長の Richard Fontana 氏は `license-review` で *"The OSI has approved both the Upstream Compatibility License 1.0 and the BSD+Patent License."* と告げ、*"The issue of proliferation category was not specifically addressed in the course of approval of BSD+Patent; for the moment I would assume it should be treated as 'Special Purpose' as well."* と書いた（`rounds/2017-04-and-2019-08-license-lists-bsd-patent-approval-and-cc0-disposition-observed.txt`）。許容型に特許の許諾を足した ACD に最も近い型は、似たライセンスの分類を承認の過程で問われずに承認され、当面の分類は「重複」ではなく「特別な目的」とされた。McCoy Smith 氏は 2-clause BSD の変種として承認する道も挙げていた。**逆側**: 告知は分類を「当面」とし、決めていない。ACD は BSD+Patent と違って条件を持たず、作品を超える範囲に特許の許諾が及ぶ（§8.4）ので、同じ扱いを受けるとは言えない（B10）。
+
 ## 1.144 公有の作品は open source か（2014）、特許を添える形（2017）、学習と OSD（2024）（2026-11-08）
 
 未読の候補から 3 本を読んだ（`rounds/2014-to-2024-license-discuss-public-domain-patents-ai-cited-observed.txt`）。2014 年の 1 通（Fogel 氏の *"when accompanied by"*）は入口に引いていたが、スレッドは読んでいなかった。

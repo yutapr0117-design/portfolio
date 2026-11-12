@@ -1,0 +1,231 @@
+Source: OSI license-review public archive, 2017-April.txt; license-discuss public archive, 2019-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-12)
+Messages: 5: the approval notice in "New license approvals" (license-review 2017-04-05) and 4 of 6 in "Fact-gathering on OSI-approved licenses" (license-discuss 2019-08-19 to 2019-08-22)
+Senders: Richard Fontana, Pamela Chestek, Bruce Perens
+Position: Not addressed to us. Observed. Each message kept here is whole. Richard Fontana writes the 2017 notice from opensource.org (he was the chair of the License Committee in 2017) and the 2019 message from redhat.com. Pamela Chestek writes the 2019 opening message from opensource.org.
+
+----- begin verbatim -----
+From fontana at opensource.org  Wed Apr  5 16:53:47 2017
+From: fontana at opensource.org (Richard Fontana)
+Date: Wed, 05 Apr 2017 12:53:47 -0400
+Subject: [License-review] New license approvals
+Message-ID: <1491411227.2588336.935280584.4F7C48C8@webmail.messagingengine.com>
+
+Good news, everyone!
+
+The OSI has approved both the Upstream Compatibility License 1.0 and the
+BSD+Patent License. 
+
+The UCL was specifically approved as a 'Special Purpose' proliferation
+category license. I see that McCoy Smith suggested the same category for
+BSD+Patent but suggested as an alternative that it could be approved as
+a variant to the 2-clause BSD license. The issue of proliferation
+category was not specifically addressed in the course of approval of
+BSD+Patent; for the moment I would assume it should be treated as
+'Special Purpose' as well.
+
+Richard
+
+
+From pamela.chestek at opensource.org  Mon Aug 19 20:13:38 2019
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Mon, 19 Aug 2019 16:13:38 -0400
+Subject: [License-discuss] Fact-gathering on OSI-approved licenses
+Message-ID: <3ab8ee49-19d4-476e-16dc-8d7b795e0804@opensource.org>
+
+?Hi everyone,
+
+We've had a lot of discussion about the attributes of open source
+licenses and what is and isn't acceptable. I thought historical data on
+approved licenses might prove valuable, or at least interesting. I
+prepared a spreadsheet that lists all the OSI-approved licenses, with
+columns for some attributes that have been heavily discussed recently.
+It is at
+https://docs.google.com/spreadsheets/d/1VVaSoVPmRa7yY6SlI5mb72zqrnGpstMH5LBfNAKNIdc/edit?usp=sharing/edit?usp=sharing
+
+I'm hoping people will be interested in helping fill it out. I suggest
+as the first step that we take a look and see whether the headings are
+sufficiently clear and whether we should be recording any further
+information. My goal was to limit data collection to the current areas
+of discussion, not do a comprehensive review of all the possible
+variables in open source licenses. Column E was meant to capture the
+non-copyright, non-patent "yeah, that's ok" stuff that we commonly see
+in licenses and that isn't noteworthy. Once we've settled on the form we
+can start filling it in.
+
+I don't want the spreadsheet to be a place for arguing the merits, just
+a place for fact-gathering. I also don't know what will happen once we
+have gathering the information, but I do believe gathering the
+information is the first step.
+
+Thanks,
+Pam
+
+-- 
+Pamela Chestek
+Chair, License Review Committee
+Open Source Initiative
+
+
+From bruce at perens.com  Thu Aug 22 17:24:42 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 22 Aug 2019 10:24:42 -0700
+Subject: [License-discuss] Fact-gathering on OSI-approved licenses
+In-Reply-To: <3ab8ee49-19d4-476e-16dc-8d7b795e0804@opensource.org>
+References: <3ab8ee49-19d4-476e-16dc-8d7b795e0804@opensource.org>
+Message-ID: <CAK2MWOsHWW__+jHUJO2hw_tvAniiOkH8g7qM+FVyiXNVHz_4jw@mail.gmail.com>
+
+Pam,
+
+I am actually more interested in the licenses that OSI has historically
+rejected, and the reasons given when this has been archived.
+
+For example, the BitMover license, which required that users connect to a
+logging server operated by BitMover Inc. to log their usage, was rejected.
+I'm not saying it should have been approved, but it is interesting in that
+it did not require the transmission to the logging server of data processed
+by the program, only the fact that such data was processed, and by whom.
+
+This is from a long time ago and data may not have survived, and the main
+complaint I heard was regarding the submitter's comportment rather than his
+license, so the information might actually not be that useful in this case.
+But it would be interesting to see.
+
+    Thanks
+
+    Bruce
+
+On Mon, Aug 19, 2019 at 1:14 PM Pamela Chestek <
+pamela.chestek at opensource.org> wrote:
+
+>  Hi everyone,
+>
+> We've had a lot of discussion about the attributes of open source
+> licenses and what is and isn't acceptable. I thought historical data on
+> approved licenses might prove valuable, or at least interesting. I
+> prepared a spreadsheet that lists all the OSI-approved licenses, with
+> columns for some attributes that have been heavily discussed recently.
+> It is at
+>
+> https://docs.google.com/spreadsheets/d/1VVaSoVPmRa7yY6SlI5mb72zqrnGpstMH5LBfNAKNIdc/edit?usp=sharing/edit?usp=sharing
+>
+> I'm hoping people will be interested in helping fill it out. I suggest
+> as the first step that we take a look and see whether the headings are
+> sufficiently clear and whether we should be recording any further
+> information. My goal was to limit data collection to the current areas
+> of discussion, not do a comprehensive review of all the possible
+> variables in open source licenses. Column E was meant to capture the
+> non-copyright, non-patent "yeah, that's ok" stuff that we commonly see
+> in licenses and that isn't noteworthy. Once we've settled on the form we
+> can start filling it in.
+>
+> I don't want the spreadsheet to be a place for arguing the merits, just
+> a place for fact-gathering. I also don't know what will happen once we
+> have gathering the information, but I do believe gathering the
+> information is the first step.
+>
+> Thanks,
+> Pam
+>
+> --
+> Pamela Chestek
+> Chair, License Review Committee
+> Open Source Initiative
+>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens - Partner, OSS.Capital.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190822/30591471/attachment-0001.html>
+
+From rfontana at redhat.com  Thu Aug 22 18:22:20 2019
+From: rfontana at redhat.com (Richard Fontana)
+Date: Thu, 22 Aug 2019 14:22:20 -0400
+Subject: [License-discuss] Fact-gathering on OSI-approved licenses
+In-Reply-To: <CAK2MWOsHWW__+jHUJO2hw_tvAniiOkH8g7qM+FVyiXNVHz_4jw@mail.gmail.com>
+References: <3ab8ee49-19d4-476e-16dc-8d7b795e0804@opensource.org>
+ <CAK2MWOsHWW__+jHUJO2hw_tvAniiOkH8g7qM+FVyiXNVHz_4jw@mail.gmail.com>
+Message-ID: <CAC1cPGxiWscWfAMjjA5mByQNjU6rz0A1WHM1yGZEC84Uk05sEQ@mail.gmail.com>
+
+On Thu, Aug 22, 2019 at 1:25 PM Bruce Perens via License-discuss
+<license-discuss at lists.opensource.org> wrote:
+>
+> Pam,
+>
+> I am actually more interested in the licenses that OSI has historically rejected, and the reasons given when this has been archived.
+
+I agree, even though attempting to gather that information would be
+much more difficult. Just focusing on licenses that have been approved
+will give an incomplete and misleading picture, particularly because
+the OSI seems to have been institutionally reluctant to admit to
+having possibly made policy or administrative mistakes in distant-past
+license approvals. Adding to the difficulty is that for the most part
+the OSI has not formally rejected licenses at all, yet often the
+non-approval disposition of a license submission is (at least
+arguably) equivalent to a rejection, and is often spoken of as a
+rejection.
+
+As an example, the approval of the Adaptive Public License is arguably
+in conflict with the "rejection" (i.e., withdrawal after negative
+license-review reaction) of CC0 several years later. But the
+"rejection" of CC0 was in line with the "rejection" (withdrawal after
+negative license-review reaction) of the MXM license a few years
+earlier.
+
+Richard
+
+
+From pamela at chesteklegal.com  Thu Aug 22 19:59:53 2019
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Thu, 22 Aug 2019 15:59:53 -0400
+Subject: [License-discuss] Fact-gathering on OSI-approved licenses
+In-Reply-To: <CAC1cPGxiWscWfAMjjA5mByQNjU6rz0A1WHM1yGZEC84Uk05sEQ@mail.gmail.com>
+References: <3ab8ee49-19d4-476e-16dc-8d7b795e0804@opensource.org>
+ <CAK2MWOsHWW__+jHUJO2hw_tvAniiOkH8g7qM+FVyiXNVHz_4jw@mail.gmail.com>
+ <CAC1cPGxiWscWfAMjjA5mByQNjU6rz0A1WHM1yGZEC84Uk05sEQ@mail.gmail.com>
+Message-ID: <128ec074-2cb1-c8d6-44e3-a3cdbaea361f@chesteklegal.com>
+
+
+On 8/22/2019 2:22 PM, Richard Fontana wrote:
+> On Thu, Aug 22, 2019 at 1:25 PM Bruce Perens via License-discuss
+> <license-discuss at lists.opensource.org> wrote:
+>> Pam,
+>>
+>> I am actually more interested in the licenses that OSI has historically rejected, and the reasons given when this has been archived.
+> I agree, even though attempting to gather that information would be
+> much more difficult. 
+Agree that while this would be interesting and informative, I have no
+idea how to go about collecting it. I don't think we can even collect it
+for approved licenses. But if someone has an idea for mining information
+from email archives, board minutes, and anywhere else there might be
+data, let's figure it out.
+> Just focusing on licenses that have been approved
+> will give an incomplete and misleading picture, particularly because
+> the OSI seems to have been institutionally reluctant to admit to
+> having possibly made policy or administrative mistakes in distant-past
+> license approvals. 
+I assume that's true, but we don't know until we've gathered the facts.
+The second step would be to decide what to do with what we've learned.
+There are many possible outcomes - ignore, ratify, distinguish, reject
+(and the discussion is sure to be lengthy and contentious). But it
+starts with simply collecting the information.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
