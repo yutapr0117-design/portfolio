@@ -1,0 +1,143 @@
+Source: https://opensource.org/meeting-minutes/2026-09-24 (index: https://opensource.org/minutes)
+Retrieved: 2026-11-15 by the steward (Yuta Yokoi), who copied the page text from a browser and pasted it into this session; the page was not fetched by this repository's tools. The page is dated "November 13, 2026" and says "Minutes approved on 2026-10-23".
+Position: OSI board minutes. Not addressed to us. The reading is in LICENSES/ACD-1.0.board-decisions.md §4a, LICENSES/PEER-REVIEW-WATCH.md and LICENSES/ACD-OSI-BOTTLENECKS.md (B1, B3, B10).
+Form: the pasted text as received; no words added, removed, or reordered. The site's navigation and footer are kept because they were in the paste.
+
+----- begin verbatim -----
+Skip to content
+Open Source Initiative
+About
+
+ Licensing
+
+ Open Source AI
+
+ Policy & Standards
+
+ Research & Education
+
+ Community
+
+ News
+
+November 13, 2026  Nick Vidal
+2026-09-24
+2026-09-24 Board Meeting
+Minutes approved on 2026-10-23
+
+Board members: Tracy Hinds, McCoy Smith, Carlo Piana, Sayeed Choudhury, Catharina Maracke, Anne-Marie Scott, Chris Aniszczyk, Thierry Carrez, Ruth Suehle, Gaël Blondelle
+
+Guests: Duane O’Brien
+
+Regrets:
+
+Quorum: Quorum reached at 12:31 p.m. Pacific Time US
+
+Tracy welcomes the board and calls the meeting to order at 12:32 p.m.
+
+The board reviews the minutes of the previous board meeting (2026-07-24)
+
+Motion: Ruth moves to approve the minutes of previous board meeting 2026-07-24
+Second: Tracy seconds
+All others approve
+Anne-Marie presents the financial health of the organisation to the board.
+
+Duane presents a fundraising update to the board.
+
+McCoy presents the work of the License Committee.
+
+The License Committee informed the board that according to the enabling motion to reject licenses under certain conditions passed in May 2026, the committee rejected the four following licenses:
+
+Project Tick General Public License, Version 3 (Poor drafting; no response)
+CompanioNation Public Licence, version 1.0 (Poor drafting; no response)
+Milenium License 1.0 (Poor drafting; argument without revision)
+Mutualist License (MutuaL) v1.2 (Poor drafting; argument without revision)
+Ruth and Tracy present the work of the Governance Working Group to the board. The board works on the following motions.
+
+Motion 1: Adoption of Governance Working Group Recommendations and Model Reform
+WHEREAS, the Governance Working Group was commissioned to review existing governance processes, address operational vulnerabilities, and resolve dissonance with Article IV of the Open Source Initiative (OSI) Bylaws;
+
+NOW, THEREFORE, BE IT RESOLVED, that the Board of Directors hereby accepts and adopts the recommendations of the Governance WG, including:
+
+Clarifying individual supporter and affiliate participation as candidate ranking for appointment selection(an advisory primary input rather than a binding non-profit election).
+Establishing a target Board composition of four (4) individual supporter ranked seats(formerly individual members), four (4) affiliates ranked seats, and five (5) direct Board-appointed seats utilizing the criteria established each selection season by the Governance WG.
+Motion: Catharina moves to approve the motion
+Second: Anne-Marie seconds
+All others approve
+Motion 2: Adoption of 3-Year Term Standard and Interim Seat Extensions
+WHEREAS, the Board is aligning director seat durations to 3-year terms to maintain continuity and institutional knowledge while transitioning to the updated nomination cycle;
+
+NOW, THEREFORE, BE IT RESOLVED, that all Board seats shall henceforth carry 3-year terms; and
+
+BE IT FURTHER RESOLVED, that the Board approves the following interim schedule adjustments to bridge the transition to the new timeline:
+
+Self-directed appointed seats up for expiration are hereby extended through September 2027.
+Individual supporter and affiliate seats currently expiring are hereby extended through March 2027.
+Motion: Ruth moves to approve the motion
+Second: McCoy seconds
+All others approve
+Motion 3: Bylaw Cleanup and Legal Counsel Authorization
+WHEREAS, the Board seeks to align governance documentation with organizational reality and ensure all governing language complies with Article IV of the Bylaws (“corporation shall have no members”);
+
+NOW, THEREFORE, BE IT RESOLVED, that the Board authorizes staff and designated officers to work with legal counsel to:
+
+Draft Bylaw amendments replacing all references to “member” and “election” with appropriate advisory and contributor terminology across bylaws, site materials, and governance documents.
+Amend the Bylaws to reflect standard 3-year term lengths for all Board directorships.
+Consult on the proper placement of Anti-Capture rules within either the Bylaws or the Board Governance and Selection documentation, including the proposal of a 2-Person Anti-Capture Cap limiting seats on the Board of Directors to no more than two (2) seated directors from any single corporate group, parent company, affiliate, or umbrella fiscal host.
+Present the drafted amendments to the Board for final vote and ratification of the update ByLaws.
+Motion: Anne-Marie moves to approve the motion
+Second: Thierry seconds
+All others approve
+Motion 4: Reauthorization and Charter Amendment for the Governance Working Group
+WHEREAS, ongoing oversight, candidate vetting, and ecosystem contribution guidelines require continuous operational focus;
+
+NOW, THEREFORE, BE IT RESOLVED, that the Board approves updating the Governance Working Group Charter to:
+
+Strike the original 2027 sunset/end date, and bring back a revised terms of reference.
+Motion: McCoy moves to approve the motion
+Second: Gaël seconds
+All others approve
+Motion 5: Confirmation of Candidate Agreement and Onboarding Eligibility Criteria
+WHEREAS, clear expectations and organizational alignment are critical for prospective Board members prior to standing for ranking.
+
+NOW, THEREFORE, BE IT RESOLVED, that the Board confirms the Candidate Agreement as a mandatory component of candidate eligibility; and
+
+BE IT FURTHER RESOLVED, that prior to presenting any candidate for ranking, the candidate must participate in an onboarding session with sitting Director(s) covering Board expectations, fiduciary duties, governance structures, and sign the Candidate Agreement.
+
+Motion: Carlo moves to approve the motion
+Second: Anne-Marie seconds
+All others approve
+Duane presents the updated policy about Lobbying, integrating inputs from DLA Piper
+
+Motion: Ruth moves that the Open Source Initiative Board of Directors approve adoption of the proposed OSI Lobbying Policy Version 1.2.
+Second: McCoy seconds
+All others approve
+Duane presents the applications of five organisations to become OSI affiliates.
+
+Motion: Anne-Marie moves that the Open Source Initiative Board of Directors approve the AboutCode Foundation, MobilityData, the Open Logistics Foundation, the OpenSSL Foundation, and the Tor Project as new OSI Affiliates.
+Second: Ruth seconds
+All others approve
+Tracy adjourns the meeting at 1:20 p.m. Pacific Time US
+
+2026-06-29
+
+Get involved
+
+Mastodon
+
+LinkedIn
+
+Subscribe to our newsletter
+Receive the top news and articles of the Open Source ecosystem in your inbox, the first week of every month.
+
+
+Your email
+
+Please leave this field empty.
+
+
+The content on this website, of which Opensource.org is the author, is licensed under a Creative Commons Attribution 4.0 International License.
+
+Opensource.org is not the author of any of the licenses reproduced on this site. Questions about the copyright in a license should be directed to the license steward. Read our Privacy Policy
+
+Proudly powered by WordPress. Hosted by Pressable.
