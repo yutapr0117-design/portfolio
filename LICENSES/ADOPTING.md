@@ -65,6 +65,12 @@ narrow band where those assumptions fail together.
    the dividing line describes this repository's file and is not part of the Dedication (§1.1), so
    your copy may leave it out.
 3. **Add the notice** from §16.1 of that text, with the location of your copy.
+4. **Mark anything the Dedication does not cover.** If your work includes material under other
+   terms, §2.6 has you identify it in a form that travels with the work, so that a person or a
+   program can tell what is excluded. The text names no standard; forms that say *which* material
+   is excluded include a per-file `SPDX-License-Identifier`, REUSE's `.license` files or
+   `REUSE.toml`, and the `license` field of a dataset or model card naming the files it covers. A
+   single licence expression for a whole package says which licences are mixed in, not where.
 
 There is nothing to register, and you do not need to tell us.
 
