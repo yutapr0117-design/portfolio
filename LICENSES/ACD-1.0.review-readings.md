@@ -747,7 +747,7 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 
 ## 1.205 新しい言葉そのものを示し、既存のライセンスとの差を詳しく示すこと、提出の前に法律家を使うこと —— Project Tick（2026）（2026-11-15）
 
-"Project Tick General Public License v1.0"（`license-discuss` 2026-01・11 通・`rounds/2026-01-license-discuss-project-tick-attorney-observed.txt` に 1 通）。2021 年以降の未読を新しい順に読んだ 4 本目。単独の作者が GPL の文を下敷きにした copyleft の草案を出し、承認は求めずに意見を求めた。Perens 氏の 2026-01-21 の通は草案の全文を引用していて 957 行になるので、rounds には置かずアーカイブの月（2026-January）を示す（`rounds/README.md` 規則 6）。
+"Project Tick General Public License v1.0"（`license-discuss` 2026-01・11 通・`rounds/2026-01-license-discuss-project-tick-attorney-observed.txt` に 1 通）。2021 年以降の未読を新しい順に読んだ 4 本目。単独の作者が GPL の文を下敷きにした copyleft の草案を出し、この会話では承認は求めずに意見を求めた。同じ作者は並行して `license-review` に提出しており（2026-01）、理事会は 2026-02-20 に *"ambiguities in drafting make it impossible to determine whether or not it complies with the OSD"* として否決した（`board-decisions.md`）。v2 は 2026-04 に出し直されている。Perens 氏の 2026-01-21 の通は草案の全文を引用していて 957 行になるので、rounds には置かずアーカイブの月（2026-January）を示す（`rounds/README.md` 規則 6）。
 
 | 発言 | 誰が | ACD への当たり方 |
 | :-- | :-- | :-- |
@@ -756,10 +756,10 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 | *"So, this is now three licenses, depending upon what you opt in."*、*"There should be a single and definite action that activates the terms or not."* | Perens 氏 2026-01-23 | **有利な面。** ACD に選択の項目は無く、採用者は本文を編集しない（`REVIEWERS.md` の *"An adopter edits no term and chooses no option"*）。§2.3 で許諾は受け手の行為に依らない |
 | *"Before you actually submitted this as a license, you would have to deal with the GPL copying, and make use of an attorney for the license language. Failure to make use of an attorney is in general a harmful action to developer who use the license, since it would be prone to fail in unanticipated ways, making them incapable of enforcing their copyrights, and subject to various sorts of liability. Making the language suitable for acceptance is probably a year's work, with some expense, don't take it lightly."* | Perens 氏 2026-01-23 | **不利な面（B1）。** 2026 年の、今も審査に加わる人の文で、法律家を使わないことを使う人への害と呼ぶ。挙げた害のうち「著作権を行使できなくなる」は、何も行使しない ACD には当たらない。「さまざまな責任を負う」は当たる —— 条件を置かない構造が保証の免責を弱める（`ACD-1.0.against.md` #41） |
 
-**読み。** 2026 年の Perens 氏は、新しいライセンスの作者に 2 つを求めた。新しい文そのものを、既存の文との差として示すことと、提出の前に法律家を使うことである。前者は ACD の側で直せる。後者は B1 で、委員長の *"not a blocker"*（2024-12-18・`REVIEWERS.md` の "Legal review" の行）と並べて置く —— 規則は求めないが、議論に加わる人は求める。
+**読み。** 2026 年の Perens 氏は、新しいライセンスの作者に 2 つを求めた。その草案は 1 か月後に理事会で否決され、理由は起草の曖昧さだった。新しい文そのものを、既存の文との差として示すことと、提出の前に法律家を使うことである。前者は ACD の側で直せる。後者は B1 で、委員長の *"not a blocker"*（2024-12-18・`REVIEWERS.md` の "Legal review" の行）と並べて置く —— 規則は求めないが、議論に加わる人は求める。
 
 **逆側。** Perens 氏の要求は copyleft の草案に向けたもので、GPL との差を読む費用は GPL が長いから大きい。ACD の比較相手（CC0、0BSD、Unlicense、MIT-0）は短く、差は読みやすい。だから文を並べる費用は小さく、並べないことの言い訳も立たない。法律家については、「1 年の仕事」という見積もりは copyleft の起動条件の調整についてで、条件の無い ACD に同じ時間が要るとは限らない。だが、要らないと示す材料も我々は持たない。
 
 **この節から出た作業。** `REVIEWERS.md` に、ACD の新しい 3 つの効果（§8.4 のモデルと出力に及ぶ特許の許諾、§10.1 の無条件、§7.2 のデータベース権の動詞）の文を逐語で置き、いちばん近い承認済みのライセンスの文と並べる表を足す。本文と入口の担当（portfolio-1c）へ渡した。
 
-**この節が establish しないこと。** Perens 氏の文は 1 人の参加者の意見で、委員会の基準ではない。Project Tick は提出されていない。
+**この節が establish しないこと。** Perens 氏の文は 1 人の参加者の意見で、委員会の基準ではない。理事会の否決の理由は起草の曖昧さで、法律家を使わなかったことではない（理由の文に法律家の語は無い）。`license-review` の側の会話（2026-01 と 2026-04・22 通）は、この節では読んでいない。
