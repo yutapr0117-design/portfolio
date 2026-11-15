@@ -15,7 +15,7 @@
 
 使い方:
     python3 .github/scripts/add_round.py --list license-discuss --month 2024-March \\
-        --subject "Blue Oak ?Model License and the license reinvention" --sender "Bruce Perens" \\
+        --subject "Blue OakModel License and the license reinvention" --sender "Bruce Perens" --count 1 \\
         --slug blue-oak-reinvention --position "Not addressed to us. Observed. The message is kept whole." \\
         --what "…から … 氏の 1 通を無改変で置いた。…" --why "`ACD-1.0.review-readings.md` §1.217 の一次資料として置く。" \\
         --row "**観測（…から 1 通・…）**" [--date "15 Mar 2024"] [--dry-run]
@@ -64,6 +64,14 @@ def subject_core(s: str) -> str:
         s = t
 
 
+def msg_date(msg: str):
+    """通の Date を日付に (読めなければ None)。"""
+    try:
+        return email.utils.parsedate_to_datetime(header(msg, "Date")).date()
+    except (TypeError, ValueError, IndexError):
+        return None
+
+
 def own(msg: str) -> str:
     """引用行 (>) を除いた本文を空白で正規化したもの (本文の決め手 --needle を当てる先・2f の落とし穴 (3))。"""
     body = msg.split("\n\n", 1)[1] if "\n\n" in msg else ""
@@ -72,8 +80,12 @@ def own(msg: str) -> str:
 
 def main(argv: list[str]) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    for a in ("list", "subject", "slug", "position", "what", "why", "row"):
+    for a in ("list", "slug", "position", "what", "why", "row"):
         ap.add_argument(f"--{a}", required=True)
+    g = ap.add_mutually_exclusive_group(required=True)
+    g.add_argument("--subject", help="件名の一部 (文字どおり・空白の違いは無視)。'BSD + Patent' や 'C++' もそのまま書く")
+    g.add_argument("--subject-regex", help="件名の正規表現 (要るときだけ)")
+    ap.add_argument("--count", type=int, help="選ばれる通の数。違えば止まる (同じ人・同じ日に複数の通がある会話で取り違えない)")
     ap.add_argument("--month", action="append", required=True, help="2024-March の形。会話が月をまたぐなら複数 (2f の落とし穴 (6))")
     ap.add_argument("--sender", action="append", default=[])
     ap.add_argument("--date", action="append", default=[])
@@ -92,15 +104,32 @@ def main(argv: list[str]) -> int:
     if out.exists():
         print(f"STOP: 既に在る: {out.relative_to(ROOT)}")
         return 1
-    rx = re.compile(o.subject, re.I)
+    # 件名は既定で文字どおりに照らす (2026-11-15・2f の検証: "BSD + Patent" を正規表現として読み 0 通で止まった)
+    rx = re.compile(o.subject_regex if o.subject_regex else r"\s+".join(re.escape(w) for w in o.subject.split()), re.I)
+    want_dates = set()
+    for d in o.date:  # Date は日付として比べる ("2 Sep 2015" の部分一致は "12 Sep 2015" にも当たった・2f の検証)
+        for fmt in ("%d %b %Y", "%Y-%m-%d", "%d %B %Y"):
+            try:
+                want_dates.add(datetime.datetime.strptime(" ".join(d.split()), fmt).date())
+                break
+            except ValueError:
+                continue
+        else:
+            print(f"STOP: --date を日付として読めない: {d!r} (例: '2 Sep 2015' / 2015-09-02)")
+            return 1
     thread = [m for s in srcs for m in messages(s.read_text(encoding="utf-8", errors="surrogateescape"))
               if rx.search(subject_core(header(m, "Subject")))]
     picked = [m for m in thread
               if (not o.sender or any(s.lower() in header(m, "From").lower() for s in o.sender))
-              and (not o.date or any(" ".join(d.split()) in header(m, "Date") for d in o.date))
+              and (not want_dates or msg_date(m) in want_dates)
               and (not o.needle or any(n in own(m) for n in o.needle))]
     if not picked:
         print(f"STOP: 一致する通が無い (件名に一致 {len(thread)} 通・差出人・日付・本文の決め手で 0 通)")
+        return 1
+    if o.count is not None and len(picked) != o.count:
+        print(f"STOP: 選ばれた通が {len(picked)} 通で --count {o.count} と違う。--needle / --date / --sender で絞る:")
+        for m in picked:
+            print(f"  {header(m, 'Date')} | {header(m, 'From')} | {own(m)[:80]}")
         return 1
     src = srcs[0]
     first = email.utils.parsedate_to_datetime(header(thread[0], "Date")).date().isoformat()
