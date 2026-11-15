@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/census_decision_statements.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-11-11
+last-updated: 2026-11-15
 canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (§1.140 が rules の出力を読んだ記録) / LICENSES/AUDIT-LEDGER.md
 ---
 
@@ -29,7 +29,7 @@ OSI の 2 つのリストのアーカイブ全数から、決める側の発言�
 
 ## Constraints
 
-正規表現と手で選んだ差出人の一覧なので下限である。**対照が 1 つ外れている**: 入口が引く *"That is not a blocker."* はこの道具に掛からない。規則の語を含まない文は拾えない。`threads` の出力は未読の候補で、未読の証明ではない。`threads` の母数は「いまの候補 ∪ `LICENSES/THREAD-CANDIDATES.txt` ∪ READ-THREADS」で、一度候補になったスレッドは外さない（2026-11-11。ドシエの語が増えただけで未読が減っていた）。`--pin` で新しい候補を一覧に足し、「いまの語では候補でないが一覧に在る（N 件・うち未読 M 件）」を出す。`threads` は `LICENSES/READ-THREADS.txt` の一覧だけを「読んだ」に数え（2026-11-09 に portfolio-00 と決めた。rounds/ の件名を数えると、別スレッドの通を 1 通だけ置いたときにそのスレッドまで読了になる。rounds にだけ在る候補は `<out>.rounds-only.json` と「rounds に在るが READ-THREADS に無い（候補内 N 件）」の行で名指す）、AS-OF の「未読スレッドの残り」と同じ形の 1 行（候補 N 本のうち M 本を読んだ。K 本は読んでいない）を出す（2026-11-09）。READ-THREADS の件名は候補に残す: 読むとドシエに語が足されて候補から外れ、母数が読むほど縮むため。
+正規表現と手で選んだ差出人の一覧なので下限である。**対照が 1 つ外れている**: 入口が引く *"That is not a blocker."* はこの道具に掛からない。規則の語を含まない文は拾えない。`threads` の出力は未読の候補で、未読の証明ではない。`threads` の母数は「いまの候補 ∪ `LICENSES/THREAD-CANDIDATES.txt` ∪ READ-THREADS」で、一度候補になったスレッドは外さない（2026-11-11。ドシエの語が増えただけで未読が減っていた）。`--pin` で新しい候補を一覧に足し、「いまの語では候補でないが一覧に在る（N 件・うち未読 M 件）」を出す。`threads` は `LICENSES/READ-THREADS.txt` の一覧だけを「読んだ」に数え（2026-11-09 に portfolio-00 と決めた。rounds/ の件名を数えると、別スレッドの通を 1 通だけ置いたときにそのスレッドまで読了になる。rounds にだけ在る候補は `<out>.rounds-only.json` と「rounds に在るが READ-THREADS に無い（候補内 N 件）」の行で名指す）、AS-OF の「未読スレッドの残り」と同じ形の 1 行（候補 N 本のうち M 本を読んだ。K 本は読んでいない）を出す（2026-11-09）。READ-THREADS の件名は候補に残す: 読むとドシエに語が足されて候補から外れ、母数が読むほど縮むため。 **2026-11-15（2f と 30 の報告・9b）**: `threads` は `<out>.unquoted-decider.json` も出す。候補の外の会話のうち、決める側の通で、その通単独ではドシエに 8 語連鎖が無いもの（40 語以上）を会話ごとに並べる。会話全体の一致が閾値を越えると候補の外に出るので、ドシエが一部だけ引いた大きな会話（ModelGo）の残りの決める側の通は、どの一覧にも出なかった。**「引いていない」であって「読んでいない」ではない**。母数は動かさない。初回は 246 会話・1,619 通（CAL の 3 本、TGPPL、OpenMDW、SSPL、CC0 の審査本体など）。
 
 ## Change impact
 

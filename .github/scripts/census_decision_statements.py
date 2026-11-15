@@ -17,6 +17,10 @@
 ほとんど現れず、`LICENSES/rounds/` に逐語で置いた通の件名にも無いものを並べる。
 未読の候補であって、未読の証明ではない。rounds の件名で除いた数も出すので、AS-OF の
 「未読スレッドの残り」を手で数え直さずに済む。
+`threads` は隣に `<out>.unquoted-decider.json` も出す (2026-11-15): 候補の外 (会話全体のドシエ一致が閾値以上) の
+会話のうち、決める側の通で、その通単独ではドシエに 8 語連鎖が 1 つも無いもの (40 語以上) を会話ごとに並べる。
+**「引いていない」であって「読んでいない」ではない** —— 読んでも引かなかった通も出る。母数 (候補・読了・AS-OF の数) は
+動かさない。ドシエが一部だけ引いた大きな会話 (ModelGo 約 120 通) の残りの通が、どの一覧にも出なかった穴を埋める。
 
 `noreview`: `license-review` の提出 (件名が For Approval / Approval / Submission の
 スレッドの最初の通) のうち、提出者が本文で法的レビューの不在を自分で述べたものを数える。
@@ -181,6 +185,7 @@ def title_key(subject):
 
 
 CANDIDATES = REPO / "LICENSES" / "THREAD-CANDIDATES.txt"
+UNQUOTED_MIN = 40  # 決める側の未引用の通として数える最小の語数 (挨拶・受領の一言を除く)
 
 
 def _list_keys(path):
@@ -325,17 +330,23 @@ def threads(out):
     rows, topical = [], []
     for key, cs in convs.items():
         for start, _end, g in cs:
-            seen, n, words, hits, topic = set(), 0, 0, 0, 0
+            seen, n, words, hits, topic, unquoted = set(), 0, 0, 0, 0, []
             for _t, date, sender, title, body in g:
                 if (sender, date) in seen:
                     continue
                 seen.add((sender, date))
                 n += 1
                 text = own_text(body)
-                hits += sum(1 for gm in grams(text) if gm in seen_in_dossier)
+                own_hits = sum(1 for gm in grams(text) if gm in seen_in_dossier)
+                hits += own_hits
                 topic += len(TOPIC.findall(text))
                 if DECIDERS.search(sender):
                     words += len(text.split())
+                    # 決める側の通で、その通単独ではドシエに 8 語連鎖が 1 つも無いもの (2026-11-15・2f / 30 の報告):
+                    #   候補の閾値は会話全体の一致で見るので、ドシエが一部だけ引いた大きな会話 (license-review の ModelGo・
+                    #   約 120 通) は候補の外に出て、残りの決める側の通がどの一覧にも出なかった。短い通 (40 語未満) は除く
+                    if own_hits == 0 and len(text.split()) >= UNQUOTED_MIN:
+                        unquoted.append((_iso(date), sender.split("<")[0].strip().strip('"'), len(text.split())))
             dec_text = " ".join(own_text(x[4]) for x in g if DECIDERS.search(x[2]))
             row_b = sorted(b for b, rx in B_TOPICS.items() if re.search(rx, dec_text, re.I))
             row = {"b_topics": row_b, "title": g[0][3], "first": g[0][1], "start": start, "key": key,
@@ -343,7 +354,8 @@ def threads(out):
                    "decision_form": bool(g and DECIDERS.search(g[0][2]) and DECISION.search(own_text(g[0][4]))),
                    # 途中の通に決める側の文がある会話 (portfolio-00 の報告・11-12: 2013 の "License drafting quality and
                    #   process" の Berkus 氏、2005 の OSL 3.0 / AFL 3.0 の Nelson 氏。最初の通は提出者だった)
-                   "decision_inside": any(DECIDERS.search(x[2]) and DECISION_EVENT.search(own_text(x[4])) for x in g[1:])}
+                   "decision_inside": any(DECIDERS.search(x[2]) and DECISION_EVENT.search(own_text(x[4])) for x in g[1:]),
+                   "unquoted_decider": unquoted}
             if n >= 3 and words >= 120:
                 rows.append(row)
             elif n >= 3 and topic >= TOPIC_MIN:
@@ -420,6 +432,18 @@ def threads(out):
           + ("（--pin で一覧を作り直した）" if "--pin" in sys.argv and (new or stale) else "（--pin で一覧を作り直す）" if new or stale else ""))
     for r in sorted(new, key=lambda r: r["start"])[:20]:
         print(f"  新: {r['start']}\t{r['title']}  (通 {r['messages']}・決める側の語 {r['decider_words']}・ドシエの語 {r['dossier_hits']})")
+    # 候補の外 (ドシエの一致が閾値以上) で、決める側の通のうちドシエが 1 語連鎖も引いていない通を持つ会話
+    #   (2026-11-15・2f の相談に 9b が (a) を選んだ)。母数 (候補・読了・AS-OF の数) は動かさない —— 会話を読んだかでなく、
+    #   どの通をまだ引いていないかの一覧で、READ-THREADS に足すかは人が読んで決める
+    known = pairs | pinned
+    outside_unq = sorted((r for r in rows if (r["key"], r["start"]) not in known and r["unquoted_decider"]),
+                         key=lambda r: (-len(r["unquoted_decider"]), r["start"]))
+    json.dump(outside_unq, open(str(out) + ".unquoted-decider.json", "w"), ensure_ascii=False, indent=0)
+    print(f"候補の外で、決める側の通のうちドシエに 8 語連鎖が無い通 ({UNQUOTED_MIN} 語以上) を持つ会話 {len(outside_unq)} 件・"
+          f"その通 {sum(len(r['unquoted_decider']) for r in outside_unq)} 通: {out}.unquoted-decider.json")
+    for r in outside_unq[:15]:
+        first = ", ".join(f"{d} {s}" for d, s, _w in r["unquoted_decider"][:3])
+        print(f"  未引用の決める側の通 {len(r['unquoted_decider'])}: {r['start']}\t{r['title'][:60]}  (例: {first})")
     # ドシエが名を出しているのに未読の会話 (2026-11-12・portfolio-00 の依頼): 読んだのに READ-THREADS に足し忘れた
     #   会話 (0BSD-P は against #276 で読んだが行が無かった) を、件名 (3 語以上・Re: と [..] を除く) か件名の略称
     #   ("(0BSD-P)" の形) がドシエの本文 (rounds/ の外の LICENSES/*.md) に現れるかで拾う。一般的な件名
