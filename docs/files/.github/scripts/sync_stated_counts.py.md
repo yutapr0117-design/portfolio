@@ -20,6 +20,8 @@ canonical-ref: .github/scripts/_lib_draft_counts.py (length_sites・場所の一
 
 2026-11-15 に、ドシエの規模の数も足した（30 の依頼・`_lib_dossier.count_sites`）。不利な事実の件数（against の総括・REVIEWERS・READY-TO-SUBMIT・§4c）、errata の件数（against・REVIEWERS・READY-TO-SUBMIT・errata 冒頭の英語の数詞と閉じた番号の一覧）、worked entries の総数（REVIEWERS・QUESTION-INDEX）。不利な事実を 1 行足すたびに 6〜7 か所を手で直していた。これらは file 全体の位置で読む（Check 460 (e) と同じく、語の間の改行を越える）。書き換えたあとは `npm run status` で STATUS.md も作り直す。
 
+同じ日に、runbook §9 の「追跡ファイル総数」の行の 5 つの数と実測日（2f の依頼・rounds/ に受領文を足すたびに手で +2 / +1 していた。`git ls-files` で数えるので、新しい file は `git add` してから回す）と、「1.0 から何が変わったか」の英文の errata の数と § ごとの件数（Check 498 (j)・30 の検証から）も足した。英文は `>` の引用で行をまたぐので、引用の語をつないで照らし、数の位置を元の file へ戻す。errata 冒頭の「閉じていない行を一覧の後で名指す句」（Check 460 (v)）は判断の文なので書き換えず、名指されていない番号を「手で足す」と出す。
+
 ## Why
 
 1c は草案の語数が変わるたびに 7 か所を手で直していた。2026-11-15 には、同じ日に 263→281 の誤りと 597 の直し忘れが起きた。Check は「書かれた数と実測が違う」と言えるが、直すのは人だった。照合（Check 460 (x)）と書き換え（この道具）は、同じ場所の一覧 `_lib_draft_counts.length_sites` を読む。別々の正規表現を持つと食い違うからである。
