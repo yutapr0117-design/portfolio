@@ -1,0 +1,63 @@
+Source: OSI license-review public archive, 2018-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 16 in "Support for SSPL v2" (2018-12-13)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Tue Dec 18 23:29:33 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 18 Dec 2018 15:29:33 -0800
+Subject: [License-review] Support for SSPL v2
+In-Reply-To: <F63C628D-D24D-4E58-B16C-F4DCFE8EC660@gmail.com>
+References: <12167460-6D39-4A49-8728-AAA24E2F64A0@hazelcast.com>
+ <54cce73b-2d5b-a9ae-4e69-c5041bee7f98@landley.net>
+ <BAA7FBFC-E4C0-42B5-A66D-087790B1EF1D@hazelcast.com>
+ <62f2c58e-67c0-40a8-8685-bcb8a5980888@piana.eu>
+ <F63C628D-D24D-4E58-B16C-F4DCFE8EC660@gmail.com>
+Message-ID: <CAK2MWOuG3Ak6WM=_D-Xy3XzD7Sxw8_xKVpUj9p9SWXTAJEW_Sw@mail.gmail.com>
+
+On Thu, Dec 13, 2018 at 6:07 AM Nigel T <nigel.2048 at gmail.com> wrote:
+
+> Frankly, this is just an end run around the fact that non-commercial
+> licenses aren?t considered to be open source.
+>
+
+Yes. I think we need to reiterate that OSI doesn't prevent you from using
+any license. Just don't call it Open Source. If people find it compelling
+enough, they will use it.
+
+The problem is generally that the license is *not *sufficiently compelling
+to build a community, and the submitter believes it will magically become
+so if OSI sprinkles approval fairy dust upon it.
+
+I disagree that academic/NC licenses aren?t open source but that?s the way
+> it?s been.
+>
+
+You mean educational-use-only. This community uses "academic" to refer to
+the BSD/MIT style of license and in general ones without copyleft.
+
+The rules of Open Source were first designed for the Debian distribution of
+Linux, and then found wider adoption. One of the goals was for everyone to
+be able to use Debian, without having to hire a lawyer just to be able to
+run the software. Inclusion of educational use only software would have
+severely restricted the audience for the Debian distribution. Having been
+adopted by a wider community than Debian, this is extended to mean that
+everybody can run Open Source software for any purpose and should not have
+to hire a lawyer just to run it. Which seems to have a very broad buy-in.
+
+One has to ask where is the educational-use-only community, and how are
+they promoting themselves? Nobody's stopping them. What I see is that some
+individual programs have small communities, but there is no aggregation of
+them to promote the concept of educational-use-only software.
+
+So, IMO the problem for some of the proposed licenses is not a lack of
+OSI's approval, but a lack of interest.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20181218/d54f129a/attachment.html>

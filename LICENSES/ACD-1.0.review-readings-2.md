@@ -325,3 +325,18 @@ portfolio-1c の T69（1.4 草案の §2.6 に、除外する素材を示す形�
 **逆側。** ACD の §2.6（1.0 でも §2.6）は、別段を述べた素材を示すことを Dedicator に約束させる。利用者に課すものではないが、「誰かが何かをしなければならない」文が本文にあることは、netX の型を探す審査者の目に留まりうる（§2.6 は *"imposes nothing upon You"* と書いて答えている）。Perens 氏の「承認済みのものを使え」は、効果の差（G1）が読まれなければ、そのまま ACD に当たる。
 
 **この節が establish しないこと。** netX の審査の帰結（却下か取り下げか）は、この会話の中では確かめていない。
+
+## 1.237 承認すれば使われるようになると提出者は信じるが、問題は承認の欠如ではなく関心の欠如だ —— Perens 氏の「承認の妖精の粉」（"Support for SSPL v2"・2018-12）（2026-11-15）
+
+"Support for SSPL v2"（`license-review` 2018-12・16 通と、`license-discuss` へ移した 1 通）を通読し、1 通を置いた（`rounds/2018-12-license-review-sspl-support-perens-fairy-dust-observed.txt`）。会話はクラウドの事業者に条件を課すライセンスを支持する事業者の声と、それへの反論で、条件を置かない ACD には大半が当たらない。当たるのは次の 1 通である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"The problem is generally that the license is *not *sufficiently compelling to build a community, and the submitter believes it will magically become so if OSI sprinkles approval fairy dust upon it."* / *"So, IMO the problem for some of the proposed licenses is not a lack of OSI's approval, but a lack of interest."* | Bruce Perens 氏 2018-12-18 | **不利な面（B2）。** 採用が少ないライセンスの提出者は、承認が採用を生むと期待している、という見方である。ACD の実使用は 1 リポジトリで（B2）、承認の前に関心を示せていない。審査者がこの線で ACD を読めば、「承認を採用の手段にしようとしている」と見える |
+| *"Having been adopted by a wider community than Debian, this is extended to mean that everybody can run Open Source software for any purpose and should not have to hire a lawyer just to run it. Which seems to have a very broad buy-in."* | Bruce Perens 氏 2018-12-18（同じ通） | **有利な面。** ACD は何の条件も課さず（§10.1・1.0 でも §10.1）、受諾も要らない（§2.3）。「動かすために法律家を雇わなくてよい」を、使う人だけでなく配る人と改変する人にまで及ぼした形である（§1.229 の同じ人の 2017 年の文と同じ線） |
+
+**読み。** Perens 氏は、承認を採用の代わりにしようとする提出を疑う。ACD の B2 はこの疑いの的になりうる。一方で、ACD の中身（何も課さない）は、同じ通で Perens 氏が広い支持を得ていると書いた「目的を問わず、法律家なしに動かせる」に合う。
+
+**逆側。** Perens 氏の文は、クラウドの事業者に条件を課したい事業者の提出（SSPL とその支持者）への文で、承認が欲しい理由が事業上の利益だった。ACD の提出の理由は事業上の利益ではない（`against.md` #161 は「AI の自走の実験」と書く）が、承認を求める理由が採用ではない、とも言い切れない。B2 の解除の条件（`board-decisions.md` §2c の関心の表明）を承認の前に満たすことが、この疑いへのいちばん直接の答えになる。
+
+**この節が establish しないこと。** Perens 氏の見方が委員会の基準になったかは確かめていない（B2 には「使用は承認の基準ではない」という委員会の文が 3 本ある）。

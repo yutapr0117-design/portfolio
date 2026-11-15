@@ -20,6 +20,8 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "For Approval: The netX Public Lisense (in plain text)"（`license-review` 2010-10・27 通を通読）を `review-readings-2.md` §1.236 へ（特定の相手への通知を条件にすると相手が消えれば許諾が使えなくなり OSD に合わない・Phipps 氏、サイトが消えてもライセンスは続かなければならない・Perens 氏、承認済みを使え・Perens 氏）
+
 - 2026-11-15 に "MPL 2 section 11"（`license-review` 2010-11〜12・49 通を通読）を `review-readings-2.md` §1.235 へ（OSI と同時に FSF にも一覧への掲載を求めた・Villa 氏、追加の許可は本文の外で、ライセンスは不変に・Perens 氏）
 
 - 2026-11-15 に "what would de-listing of licenses look like?"（`license-discuss` 2013-03・18 通を通読）を `review-readings-2.md` §1.234 へ（法律家なしの起草を取り下げの理由に挙げた・Perens 氏、退けて OSD だけを理由にし、OSD の解釈は法律家と非法律家が等しくできる・Fontana 氏、起草の質の評価は主観的・Villa 氏）
