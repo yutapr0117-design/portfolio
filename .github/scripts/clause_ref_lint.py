@@ -12,7 +12,8 @@
 
 出すもの: file:行・番号・その番号の 1.0 の条の頭と、いまの草案の条の頭 (取り違えかを、その場で決められるように)。
 exit は常に 0 (ADVISORY)。版を名に持つ文書 (`ACD-1.4-CHANGELIST.md`・`ACD-1.4-…-TRIAL.md` など、`ACD-N.M-` で始まる file) は
-文書全体がその版の番号なので読まない。読むのは 1.0 のドシエ (`ACD-1.0.*.md`) と入口の文書 (REVIEWERS など)。
+文書全体がその版の番号なので読まない。冒頭 40 行で "Clause numbers are those of …" / 「条番号は ACD-N.M」と文書全体の版を
+宣言している文書 (QUESTIONS-FOR-COUNSEL・objection-map など) も読まない。読むのは 1.0 のドシエ (`ACD-1.0.*.md`) と入口の文書 (REVIEWERS など)。
 
 使い方:
     python3 .github/scripts/clause_ref_lint.py                     # origin/main からの差分で足した行
@@ -87,8 +88,13 @@ def main(argv: list[str]) -> int:
     rx = re.compile(r"§(%s)(?![\d.])" % "|".join(re.escape(a) for a in sorted(amb, key=len, reverse=True)))
     hits = 0
     cache: dict[str, list[str]] = {}
+    declared = re.compile(r"Clause numbers are those of|条番号は\s*(?:ACD-)?\d")
     for f, ln in added_lines(since):
         lines = cache.setdefault(f, (ROOT / f).read_text(encoding="utf-8").split("\n"))
+        # 冒頭で文書全体の版を宣言している文書は、その版の番号で書かれている (QUESTIONS-FOR-COUNSEL は ACD-1.3、
+        #   objection-map は ACD-1.0・30 の提案 2026-11-15)。版を名に持つ文書と同じく読まない
+        if any(declared.search(x) for x in lines[:40]):
+            continue
         line = lines[ln - 1]
         if not rx.search(line) or VER.search(block(lines, ln - 1)):
             continue

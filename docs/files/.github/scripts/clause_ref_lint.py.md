@@ -31,6 +31,7 @@ python3 .github/scripts/clause_ref_lint.py --since HEAD~3
 
 - 版を名に持つ文書（`ACD-N.M-` で始まる file。CHANGELIST・試作・逐条の下書き）は、文書全体がその版の番号なので読まない。
 - rounds/ は逐語なので読まない。
+- 冒頭 40 行で「Clause numbers are those of …」/「条番号は ACD-N.M」と文書全体の版を宣言している文書（QUESTIONS-FOR-COUNSEL・QUESTIONS-FOR-PRACTITIONERS・objection-map）も読まない（30 の提案・2026-11-15。今日の差分で 10 件 → 8 件）。
 
 ## Change impact
 
