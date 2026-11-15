@@ -368,7 +368,12 @@ def backfill_table_misses(licenses_dir: Path) -> tuple[int, list[str], list[str]
         cells = [c.strip() for c in re.split(r"(?<!\\)\|", r)]
         m = _BF_CELL.match(cells[0]) if cells else None
         if not m:
-            continue  # 見出しと区切りの行
+            # 飛ばすのは見出しの行 (節 | 反映 | 確かめ方) と区切りの行 (:--) だけ。それ以外を黙って飛ばすと、書いた人は表に足した
+            #   つもりで照合だけ外れる (2026-11-15・50 の #3251 の「review-precedents 1.45」42 行・安全網の規律 (3))
+            if cells and (cells[0] == "節" or re.fullmatch(r":?-{2,}:?", cells[0])):
+                continue
+            bad.append(f"REFLECTION-BACKFILL の行 {cells[0][:40]!r}: 番号のセルが「1.N」か「`<file>.md` 1.N」の形でない (照合から外れる)")
+            continue
         n += 1
         num = int(m.group("num").split(".")[1])
         where = f"REFLECTION-BACKFILL の行 {cells[0]}"
