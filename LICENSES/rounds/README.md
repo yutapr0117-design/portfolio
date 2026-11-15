@@ -115,6 +115,10 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2017-05・07 | `license-review` | **観測（"EUPL v1.2" から 2 通・International の分類の目的、全ての言語の版に及ぶ承認）** | `2017-05-and-07-license-review-eupl-1-2-observed.txt` |
 | 2019-02 | `license-review` | **観測（"For Approval: Twente License" から 4 通・プライバシーと人権の条件を利用に課して OSD 6 で退けられた）** | `2019-02-license-review-twente-license-observed.txt` |
 | 2002-10 | `license-discuss` | **観測（"click-wrap is legally supportable?" から 3 通・同意を求めないライセンスの条項は争われうるか）** | `2002-10-license-discuss-click-wrap-observed.txt` |
+| 2002-10 | `license-discuss` | **観測（"Moral Rights" から 1 通・Rosen 氏 2002-10-03）** | `2002-10-license-discuss-moral-rights-rosen-question-observed.txt` |
+| 2002-10 | `license-discuss` | **観測（"Moral Rights" から 1 通・Rosen 氏 2002-10-06）** | `2002-10-license-discuss-moral-rights-rosen-attorney-observed.txt` |
+| 2002-10 | `license-discuss` | **観測（"Modified Artistic License (eNetwizard …)" から 1 通・Nelson 氏 2002-10-03）** | `2002-10-license-discuss-enetwizard-nelson-redundant-observed.txt` |
+| 2002-10 | `license-discuss` | **観測（"Moral Rights" から 1 通・Nelson 氏 2002-10-07）** | `2002-10-license-discuss-moral-rights-nelson-volunteers-observed.txt` |
 | 2015-07〜08 | `license-review` | **観測（"Request for approval of the Non-Coercive Copyleft Licence (NCCL) 1.0" から 4 通・本文を添えずに配ることへの懸念、同意を求めない形、誰も賛成せず 18 日で「却下」）** | `2015-07-and-08-license-review-nccl-observed.txt` |
 | 2012-04 | `license-discuss` | **観測（"Draft of new OSI licenses landing page; please review." から 4 通・短い一覧へ導く案、特許を正しく扱うこと、献呈の型を勧める弁護士の文）** | `2012-04-license-discuss-licenses-landing-page-observed.txt` |
 | 2003-08 | `license-discuss` | **観測（"Can abandonment be irrevocable?" から 7 通・放棄の代わりに撤回できない許諾を、と勧めた翌日に、撤回された許諾も放棄と変わらないかもしれないと書いた弁護士の文、禁反言は依拠した人しか守らないという読み）** | `2003-08-license-discuss-can-abandonment-be-irrevocable-observed.txt` |

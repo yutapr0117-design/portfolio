@@ -1,0 +1,135 @@
+Source: OSI license-discuss public archive, 2002-October.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 9 in "Moral Rights (was Simplified Artistic License (A Proposed Compromise))" (2002-10-03)
+Senders: Lawrence E. Rosen
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Thu Oct  3 22:32:57 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Thu, 3 Oct 2002 15:32:57 -0700
+Subject: Moral Rights (was Simplified Artistic License (A Proposed Compromise))
+In-Reply-To: <000101c26b22$5650c830$0100a8c0@Aamwwlgwhite00>
+Message-ID: <014301c26b2c$d2bfbf70$927ba8c0@ROSENGARDEN>
+
+Robert Samuel White and Russ Nelson:
+
+I'm sorry I haven't stepped into this conversation sooner.  I've been
+lurking and handling other matters....
+
+I am unhappy with the current status of this request.  Robert Samuel
+White (RSW) is absolutely within his rights to obtain approval for his
+license if it satisfies the published criteria on OSI's website.  Russ
+Nelson is also absolutely correct in worrying, as do all members of the
+board of directors of OSI, about the proliferation of licenses that only
+serve to confuse and confound the community.
+
+Let's concede that all of us (including Robert Samuel White) are focused
+on trying to develop better open source licenses.  
+
+The question that Russ asked RSW is important to us and we want to hear
+your answer.  The board of OSI is considering adopting as an official
+goal that a few licenses -- including the GPL, MPL, OSL and AFL, but not
+necessarily limited to that set and perhaps only after certain changes
+are made to those licenses -- become the major, recommended, free and
+open source licenses.  
+
+Therefore, we need to understand, as part of our analysis of your
+license, why one of those "best practice" licenses can't serve your
+needs.  What's wrong with the AFL, for example, as an alternative to
+RSW's Simplified Artistic License?  Why doesn't trademark law give RSW
+the artistic protection he desires?  These are not just idle questions
+intended to give you one more hurdle to overcome; your answers are
+vitally important so we can determine whether the AFL itself needs to be
+improved.
+
+Here's one objection about the AFL that two independent projects have
+now raised: The AFL does not guaranty the kind of artistic control that
+certain people want.  These projects seem to define "artistic control"
+as a requirement for notices of original authorship that are to be
+retained in derivative works, or as restrictions on the right to use
+individual or program names in derivative works.  
+
+More broadly, perhaps we should consider what *moral rights* really
+should be for software in an open source environment.  The Berne
+Convention contains provisions that allow the author of a work to
+control (in some ways) how his work can be changed.  The United States
+has never adopted these moral rights provisions into US copyright law
+except as pertains to a work of visual art, but moral rights are a part
+of the law in many other countries.  In some countries, I understand,
+moral rights may not be contracted away regardless of what a license
+says.  (I actually know very little about the law pertaining to moral
+rights in other countries.)
+
+By copy of this email, I'm specifically asking Robert Samuel White,
+Glenn Randers-Pehrson and Bruce Perens (all of whom have raised the same
+issue in different contexts), to help us understand what OSD-compatible
+form of license provision should be recommended to protect an author's
+rights in a work:
+
+* to claim authorship of that work;
+
+* to prevent the use of his or her name as the author of any work which
+he or she did not create;
+
+* to prevent the use of his or her name as the author of a work in the
+event of a distortion, mutilation, or other modification of the work
+which would be prejudicial to his or her honor or reputation.
+
+Do we really want to go down such a path in open source licenses,
+opening up a whole pandora's box of litigation about what constitutes
+"honor or reputation" in the sofware arena?  Should we instead try to
+implement a meaningful moral rights provision for US copyright law?
+
+Inquiring minds really do want to know what you think about these
+issues.
+
+/Larry Rosen
+
+> -----Original Message-----
+> From: Robert Samuel White [mailto:webmaster at enetwizard.net] 
+> Sent: Thursday, October 03, 2002 2:18 PM
+> To: 'Russell Nelson'
+> Cc: license-discuss at opensource.org
+> Subject: RE: Simplified Artistic License (A Proposed Compromise)
+> 
+> 
+> I've decided to just forget it.  I'm going to use my license 
+> and forget about OSI approving it.  I didn't want this much 
+> controversy.  I was very patient and listened to every one's 
+> comments on the list, and I adjusted my license as 
+> recommended, all with the misguided belief that my license 
+> would be approved as long as it met the conditions of the 
+> OSD.  I support OSI, the OSD, and the open source community.  
+> So I guess this is the end.  Have a wonderful life and keep 
+> up the good work.
+> 
+> 
+> -----Original Message-----
+> From: Russell Nelson [mailto:nelson at crynwr.com] 
+> Sent: Thursday, October 03, 2002 5:01 PM
+> To: Robert Samuel White
+> Subject: RE: Simplified Artistic License (A Proposed Compromise)
+> 
+> Robert Samuel White writes:
+>  > 
+>  > There are some things I like about the Academic Free 
+> License, then there  > are many things that I do not like...  
+> Do you really want me to go into  > it?
+> 
+> Yes.
+> 
+> -- 
+> -russ nelson              http://russnelson.com |
+> Crynwr sells support for free software  | PGPok | businesses 
+> persuade 521 Pleasant Valley Rd. | +1 315 268 1925 voice | 
+> governments coerce
+> Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |
+> 
+> 
+> --
+> license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+> 
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

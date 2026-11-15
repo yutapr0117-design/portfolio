@@ -1,0 +1,55 @@
+Source: OSI license-discuss public archive, 2002-October.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 5 in "Modified Artistic License (eNetwizard Content Application Server)" (2002-10-03)
+Senders: Russell Nelson
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Thu Oct  3 20:02:02 2002
+From: nelson at crynwr.com (Russell Nelson)
+Date: Thu,  3 Oct 2002 16:02:02 -0400 (EDT)
+Subject: Modified Artistic License (eNetwizard Content Application Server)
+In-Reply-To: <000d01c26afa$fe1c7000$0100a8c0@Aamwwlgwhite00>
+References: <15772.28139.754106.458115@desk.crynwr.com>
+	<000d01c26afa$fe1c7000$0100a8c0@Aamwwlgwhite00>
+Message-ID: <15772.40954.992578.165379@desk.crynwr.com>
+
+Robert Samuel White writes:
+ > Taken from the Artistic License (which is approved by OSI):
+
+ > You may not charge a fee for this Package itself.
+
+Hrm.  I would have a problem with that language if it came up for
+approval now.  The question is: whether we should approve another
+license with language like this, and bless it further?  It's not a
+term that belongs in an Open Source license.  Who cares how much
+somebody pays for open source software.  The fact of the matter is
+that somebody else can charge less for it, or even give it away.  So
+why should the license dictate the price??
+
+ > Why are you suddenly being hard nosed with me?
+
+Because your license just isn't that different.  It just isn't.  How is 
+the world served by Yet Another Not Very Different License?  The
+answer: it isn't.  The main problem that your license solves, so it
+would seem, is the world's raging lack of a Robert Samuel White
+license.  While you may feel that pain, I doubt anybody else shares it.
+
+And I'm not being hard-nosed with just you.  I've been hard-nosed with 
+other people, and they've decided that an existing license would be
+fine.
+
+ >  > I want my license associated specifically with my product.  That's
+ >  > very important to me...
+
+I'd really, really like you to consider using an existing license.
+Consider it *hard*.  If, in the end, against best advice, you want
+your own license approved, you'll get it.
+
+-- 
+-russ nelson              http://russnelson.com |
+Crynwr sells support for free software  | PGPok | businesses persuade
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | governments coerce
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
