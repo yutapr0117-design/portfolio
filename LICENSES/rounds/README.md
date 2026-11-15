@@ -69,6 +69,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2012-02 | `license-review` | **観測（CC0 の審査から、特許について述べた 7 通）** | `2012-02-license-review-cc0-submission-patent-statements-observed.txt` |
 | 2013-10〜12 | `license-review` | **観測（Tidepool Open Access to Health Data Software License の審査から 13 通・2 部の 1）** | `2013-10-to-12-license-review-tidepool-health-data-observed-1of2.txt` |
 | 2013-11 | `license-discuss` | **観測（Rosen 氏の 1 通・OSL と AFL は版を重ねて承認された）** | `2013-11-license-discuss-osl-afl-rosen-iterations-observed.txt` |
+| 2013-11 | `license-review` | **観測（Berkus 氏の 1 通・提出者は理事会の過半数に、オープンソース・法的に有効・必要の 3 つを立証する）** | `2013-11-license-review-sfsl-berkus-burden-three-observed.txt` |
 | 2013-11 | `license-discuss` | **観測（Rosen 氏の 1 通・FOSS の許諾は永遠、旧版を勧めなくても配った物は変わらない）** | `2013-11-license-discuss-osl-afl-rosen-forever-observed.txt` |
 | 2013-10〜12 | `license-review` | **観測（同・2 部の 2。取り下げの通と、同じ報告のスレッドの NOSA 2.0 についての 1 通を含む）** | `2013-10-to-12-license-review-tidepool-health-data-observed-2of2.txt` |
 | 2008-07〜09 | `license-review` / `license-discuss` | **観測（MirOS Licence の審査と、承認を勧めた 2008-09 の委員会報告・8 通）** | `2008-07-to-09-license-review-miros-licence-approval-observed.txt` |
@@ -134,13 +135,16 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2012-04 | `license-discuss` | **観測（"Draft of new OSI licenses landing page; please review." から 4 通・短い一覧へ導く案、特許を正しく扱うこと、献呈の型を勧める弁護士の文）** | `2012-04-license-discuss-licenses-landing-page-observed.txt` |
 | 2003-08 | `license-discuss` | **観測（"Can abandonment be irrevocable?" から 7 通・放棄の代わりに撤回できない許諾を、と勧めた翌日に、撤回された許諾も放棄と変わらないかもしれないと書いた弁護士の文、禁反言は依拠した人しか守らないという読み）** | `2003-08-license-discuss-can-abandonment-be-irrevocable-observed.txt` |
 | 2000-03 | `license-discuss` | **観測（"Wired Article on the GPL" から 15 通・cphack の譲渡のあとで GPL を撤回できるか、署名した書面が無い許諾は譲渡に優先するか（17 U.S.C. §205(e)）、条件が対価になるか）** | `2000-03-license-discuss-gpl-revocation-cphack-observed.txt` |
+| 2000-03 | `license-discuss` | **観測（Cowan 氏の 1 通・無条件の公の許諾は公有への献呈と取られうる）** | `2000-03-license-discuss-rms-position-cowan-unconditional-dedication-observed.txt` |
 | 2000-08 | `license-discuss` | **観測（"Public Domain and liability" と "Abandonment" から 3 通・公有化した作品の免責、登録の無い宣言による公有化）** | `2000-08-license-discuss-public-domain-liability-and-abandonment-observed.txt` |
 | 2005-09 | `license-discuss` | **観測（"When can licenses be revoked?" から 5 通・対価の無い許諾だけが随意に撤回できる、受領者の義務は免責の受け入れまで対価になりうる）** | `2005-09-license-discuss-when-can-licenses-be-revoked-observed.txt` |
 | 2011-05 | `license-discuss` | **観測（"GPL revokability" から 3 通・GPL 3.0 は条件を守る限り撤回できないと定めた、1.0 と 2.0 は事実と法域による）** | `2011-05-license-discuss-gpl-revokability-observed.txt` |
+| 2011-08 | `license-discuss` | **観測（Linksvayer 氏の 1 通・CC0 は FSF と共に公有を望むソフトウェアに推奨した・2011）** | `2011-08-license-discuss-dual-licence-linksvayer-cc0-fsf-observed.txt` |
 | 2000-03 | `license-discuss` | **観測（"Licenses versus contracts" から 3 通・ライセンスは契約か許可か）** | `2000-03-license-discuss-licenses-versus-contracts-observed.txt` |
 | 2000-08 | `license-discuss` | **観測（"The different between GPL and non-license" から 7 通・著作権者は自分で公有に置けるか、放棄の抗弁は 1976 年法の下で生きているか）** | `2000-08-license-discuss-gpl-and-non-license-observed.txt` |
 | 2002-10〜11 | `license-discuss` | **観測（"a proposed change to the OSD" から 12 通・委員長の「使用と改変を制限しない」案、受け入れの手順と免責をめぐる委員長と弁護士の対立）** | `2002-10-license-discuss-proposed-osd-change-use-and-click-wrap-observed.txt` |
 | 2004-02〜2005-02 | `license-discuss` | **観測（委員会報告 3 本と返信から 9 通・似たライセンスは「改善でない」が「望めば承認する」、使う人への引用の要求は使用の制限）** | `2004-license-discuss-committee-reports-observed.txt` |
+| 2004-03 | `license-discuss` | **観測（Cowan 氏の 1 通・公の許諾は常に取り消せないものとして扱われてきた、撤回は期待に反し禁反言に当たる）** | `2004-03-license-discuss-must-read-cowan-irrevocable-expectation-observed.txt` |
 | 2008-11〜2012-03 | `license-review` / `license-discuss` | **観測（委員会報告 3 本と "license committee" から 10 通・条件を放棄しても承認は外れないという案、簡単な方がよいとは限らない、何でもしてよい式の差し戻し）** | `2008-to-2012-license-lists-committee-reports-observed.txt` |
 | 2025-12 | `license-review` | **観測（BarrerSoftware License の審査から 4 通・OSD 6 で承認できない、本文が AI の道具で書かれたように読めることを読むのをやめる理由に挙げた審査者）** | `2025-12-license-review-barrersoftware-observed.txt` |
 | 2025-12 | `license-discuss` | **観測（Berkus 氏の 1 通・非対称を作らない限り OSD 違反は無い）** | `2025-12-license-discuss-contributor-clauses-berkus-asymmetry-observed.txt` |

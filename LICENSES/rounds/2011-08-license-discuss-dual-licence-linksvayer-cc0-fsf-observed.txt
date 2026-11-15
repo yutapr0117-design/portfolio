@@ -1,0 +1,85 @@
+Source: OSI license-discuss public archive, 2011-August.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 39 in "Which DUAL Licence should I choose." (2011-08-01)
+Senders: Mike Linksvayer
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From ml at gondwanaland.com  Mon Aug  8 20:22:32 2011
+From: ml at gondwanaland.com (Mike Linksvayer)
+Date: Mon, 8 Aug 2011 13:22:32 -0700
+Subject: Which DUAL Licence should I choose.
+In-Reply-To: <CA659420.EC98%Nigel.Tzeng@jhuapl.edu>
+References: <CAGi9AuWo5qLM9pTwOJRjep-9dB3ACRL9grgVJarU+bvm2KDP4A@mail.gmail.com>
+	<CA659420.EC98%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <CAGSmzpT+u9a1=Ky8fUEoCarQLnP7H=EuAGOOSm67Cs=0ZCgRRw@mail.gmail.com>
+
+On Mon, Aug 8, 2011 at 11:18, Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu>wrote:
+
+> While charging for software products may not be the only way to make money
+> on software, it is a/the dominant one and highly effective.  There is also
+> middle ground between proprietary and F/LOSS.  OSI can concede that
+> territory or not but CC has elected to embrace it and I think to good
+> benefit to their commons even with some legal nebulosity of the NC clause.
+>
+
+Has already been said on this thread, but worth stressing that CC has not
+elected to embrace a middle ground when it comes to software.
+
+CC has embraced a bit of a middle ground for non-software, but it isn't
+clear whether that has been a good thing for the commons. Lots of people
+think it is the biggest mistake CC has made. Even CC (where I currently
+work) spends lots of time steering people away from NC and ND (no
+derivatives) licenses where public benefit is primary and/or use by business
+necessary.
+
+There is a reasonable argument for NC in some domains (eg music, where fear
+and irrationality rules, and the main threat to the world is locking down
+the net to prevent filesharing, which CC NC licenses permit), but it seems
+to me the case against NC is even stronger in software than in the fields in
+which CC routinely argues against its use (eg education, government,
+scientific communication). Ben Tilly explained one of the reasons succinctly
+earlier in this thread. I wrote a bit about this in
+http://p2pfoundation.net/Free_Culture_in_Relation_to_Software_Freedom
+
+Anyway, the reason CC steadfastly refuses to condone using CC licenses for
+software is not really that a license that covers both software and
+non-software is inconceivable -- familiar language would be/have been easy
+to add in a version -- but that use of CC licenses for software is bad for
+the commons, both because NC and ND for software are harmful, and because no
+CC license is clearly GPL-compatible. The exception that proves the rule is
+the CC0 public domain dedication, which is GPL-compatible and with the FSF
+we recently recommended for software if public domain is the intention.
+
+You might note that the NC clause doesn't cause much conceptual confusion
+> in the CC world.
+>
+
+If only that were true.
+http://blog.ninapaley.com/2010/10/20/creative-commons-branding-confusion/ is
+hyperbolic and I don't agree with all of it, but it does dispute above. :-)
+
+
+> I do wish we could as easily choose from a full spectrum of licenses as
+> they do and have plain english explanations of our rights and
+> responsibilities under those terms.  As another benefit the CC doesn't
+> have a problem with license proliferation that we do and their license
+> interaction complexities appear no worse than ours.
+
+
+CC license interaction complexities might be better, but not always in a
+good way -- the incompatibilities between libre, NC, and ND licenses are
+intentional, black and white, unresolvable, except via people abandoning NC
+and ND. That said, CC has mostly been a force for anti-proliferation within
+the non-software space. I recently had a look at the many pre-CC (pre-2002)
+licenses, almost none of which are now used much, and none unambiguously
+compatible with any of the others. Unfortunately proliferation seems to be
+on the rise, though not of the intentional, unresolvable sort (eg due to
+governments rolling their own licenses). I hope that CC can learn a bit from
+the FLOSS world in addressing that kind of proliferation; some more on that
+at http://share-psi.eu/papers/CreativeCommons.pdf
+
+Mike
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20110808/19050cfe/attachment.html>

@@ -1,0 +1,46 @@
+Source: OSI license-review public archive, 2013-November.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 59 in "For Approval: Scripting Free Software License, Version 1.3.5 (S-FSL v1.3.5)" (2013-11-05)
+Senders: Josh Berkus
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From josh at postgresql.org  Thu Nov  7 18:26:59 2013
+From: josh at postgresql.org (Josh Berkus)
+Date: Thu, 07 Nov 2013 10:26:59 -0800
+Subject: [License-review] For Approval: Scripting Free Software License,
+ Version 1.3.5 (S-FSL v1.3.5)
+In-Reply-To: <527BA8B9.7050007@elstel.org>
+References: <52795722.1060108@gmail.com>	<527A302E.6030203@gmail.com>	<527ACA5E.80005@gmail.com>	<527ACCA6.3030008@postgresql.org>
+	<527BA8B9.7050007@elstel.org>
+Message-ID: <527BDB73.6010309@postgresql.org>
+
+Elmar,
+
+> You can not simply claim non-conformance with the Open Source Definition
+> from the Open Source Initiative just because you do not like the
+> license. You will have to give detailed arguments. The license has been
+> clearly evaluated against these criteria before being published. If your
+> understanding of open source goes ahead from this criteria then it is
+> your own worry.
+
+Plenty of other people on this list have given you reasons why it is not
+open source (and badly written to boot).  From reading the Debian
+thread, plenty of people there gave you such reasons as well.  You've
+chosen to repeatedly ignore those reasons, but that doesn't make them
+invalid.
+
+In other words, I don't *have* to do anything.  As a new license
+proposer, the burden is on you to prove to a majority of the OSI board
+that your license is:
+
+- open source
+- legally valid
+- needed
+
+And note that we haven't even begun the non-proliferation arguments yet,
+which will also be substantial.  I doubt we'll get that far, though.  I
+strongly suggest that you find the existing license which is closest to
+your needs and adopt it.
+
+--Josh Berkus

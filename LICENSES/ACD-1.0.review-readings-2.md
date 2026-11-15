@@ -590,3 +590,22 @@ census の候補の外の未読の会話の 1 本（"License-review Digest, Vol 
 **この節が establish しないこと。** 各法域でソフトウェアに人格権がどう及ぶかの評価はしていない（`jurisdictions.md` の範囲）。
 
 **反映**: 1c 種（§12 が「法域で違うから要る」ことを逐条の §12 の行で示しているかの点検・THIRD §15.6 の掃引の対象・1c へ）。
+
+## 1.253 「論点なし」とした会話を全文で当て直して拾った 4 点 —— 公の許諾は取り消せないものとして扱われてきた、無条件の許諾は献呈と取られうる、CC0 は FSF と共にソフトウェアに推奨された（2011）、提出者は 3 つを立証する（2026-11-16）
+
+2f は帯の会話を、決める側の通を先頭の 220〜300 字で切った抜き出しで読み、35 本を「新しい論点は無い」とした。portfolio-30 が同じ会話の 1 つ（2020-08 の BSD の変種）から、切った先に在った Rosen 氏の文を拾った（portfolio-30 の PR 3273 で `review-readings-3.md` に足す節）ので、「論点なし」とした 75 本を切らずに全文で ACD の論点の語に当て直した。新しく拾ったのは次の 4 通で、rounds に置いた（`rounds/2004-03-license-discuss-must-read-cowan-irrevocable-expectation-observed.txt`・`rounds/2000-03-license-discuss-rms-position-cowan-unconditional-dedication-observed.txt`・`rounds/2011-08-license-discuss-dual-licence-linksvayer-cc0-fsf-observed.txt`・`rounds/2013-11-license-review-sfsl-berkus-burden-three-observed.txt`）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"The FLOSS world has always treated its public licenses as irrevocable, though it tolerates new versions being issued under incompatible or even proprietary licenses. Anyone who tries to revoke a public license outright with retroactive force is acting against community expectations"* | John Cowan 氏 2004-03-15（SCO の件で、他者が依拠していれば撤回は禁反言で止められる、と同じ通で続ける） | **有利な面（§2.2・§2.5）。** 共同体の期待と依拠を撤回の歯止めとする線で、ACD の §2.5（1.0 でも §2.5・他者の依拠を目的とし、法が認める範囲で禁反言に服する）の考え方そのものである。同じ人の 2003 年の疑い（§1.242）と並べると、Cowan 氏は「本文の一文では拘束しないが、依拠と期待が歯止めになる」と読んでいたことになる |
+| *"An *unconditional* public license like "Anyone may copy, distribute, publicly perform, and make derivative works, without restriction" might be taken as a dedication to the public domain. But the various free licenses are conditional"* | John Cowan 氏 2000-03-28 | **両面（B4・`against-2.md` #324）。** 何の条件も課さない許諾は献呈と取られうる。ACD は自ら献呈と名乗るので、この読みと食い違わない。一方で、条件付きのライセンスが対価を通じて撤回に耐えるという線（#324）には乗らない |
+| *"The exception that proves the rule is the CC0 public domain dedication, which is GPL-compatible and with the FSF we recently recommended for software if public domain is the intention."* | Mike Linksvayer 氏 2011-08-08（Creative Commons の側から書いており、"we" は CC を指す。CC はソフトウェアに CC ライセンスを勧めない、という流れで） | **FSF の扱いの手がかり。** 2011 年に CC と FSF は、公有を望む場合のソフトウェアに CC0 を推奨した、と CC の側が述べた。§1.229 で出典が無いとして取り下げた「FSF の扱い」について、一次資料の手がかりになる。ただし FSF 自身の文ではない |
+| *"As a new license proposer, the burden is on you to prove to a majority of the OSI board that your license is: - open source - legally valid - needed"* / *"And note that we haven't even begun the non-proliferation arguments yet, which will also be substantial."* | Josh Berkus 氏 2013-11-07 | **基準（B1・B10）。** 立証の責任は提出者にあり、その中身は「オープンソースであること・法的に有効であること・必要であること」の 3 つで、増殖の議論はその後に来る。2015 年の 4 つの問い（§1.179）と同じ線で、「法的に有効」は B1（法的レビューが無い）、「必要」は B10 に当たる |
+
+**読み。** 切った抜き出しで「論点なし」とした会話にも、ACD に当たる文が残っていた。撤回について、Cowan 氏は 2003 年には本文の一文の効力を疑い、2004 年には共同体の期待と依拠を歯止めとした。ACD の §2.2 と §2.5 の重ね方は、この両方に答える形である。
+
+**逆側。** Cowan 氏も Berkus 氏も、文を書いた時点で決める側の役にあったかは、この節では確かめていない（Berkus 氏は "the burden is on you to prove to a majority of the OSI board" と、理事会の側から書いている）。Linksvayer 氏の文は CC の側の報告で、FSF がその後に CC0 の特許の除外をどう扱ったか（2022 年の Fedora の変更など）は別の問いである。FSF の現在の見解は、FSF の一次資料に当てるまで読みに使わない。
+
+**この節が establish しないこと。** 当て直しは語で当てたもので、語に当たらない読み落としは残りうる（測り方の限界）。
+
+**反映**: B1・B10（Berkus 氏 2013 の 3 つの立証の責任・30 へ）/ against #324（Cowan 氏 2000 の無条件の許諾と献呈・2004 の期待と依拠・30 へ）/ 入口（FSF への自己点検で、2011 年の CC と FSF の推奨を手がかりに FSF の一次資料に当たる・50 と 30 へ）。
