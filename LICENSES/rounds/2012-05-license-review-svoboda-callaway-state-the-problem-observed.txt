@@ -1,0 +1,36 @@
+Source: OSI license-review public archive, 2012-May.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 24 in "Svoboda for Approval" (2012-05-20)
+Senders: Tom Callaway
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From tcallawa at redhat.com  Mon May 21 17:53:48 2012
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Mon, 21 May 2012 13:53:48 -0400
+Subject: [License-review] Svoboda for Approval
+In-Reply-To: <CAOPXC2mxEGXq+oQrJ0tkkM1yQcwtCfeZJU_hSd01sgRvaZVgvQ@mail.gmail.com>
+References: <CAOPXC2mqRM0jV_10kkDJDad1rfWbDFXy6F1Dbk0Gecdnjf-T+A@mail.gmail.com>
+	<CAOPXC2mxEGXq+oQrJ0tkkM1yQcwtCfeZJU_hSd01sgRvaZVgvQ@mail.gmail.com>
+Message-ID: <4FBA812C.3040101@redhat.com>
+
+On 05/21/2012 01:42 PM, Gregor Pintar wrote:
+> It is composed from parts of well known licenses like ISC, MirOS and zlib.
+
+Why exactly are you doing this? Why not use one of those "well known
+licenses"? I mean, the license you post above is effectively the same
+thing as the common MIT variant, just worded slightly differently, and
+merely contributes to license proliferation.
+
+Licenses are like volatile chemicals, mixing them is rarely advised, and
+should be left to experts (e.g. lawyers).
+
+If you must do this, at least state the problem you're trying to address
+that isn't already addressed by an OSI license. Heck, I'd argue that
+step should be a mandatory prerequisite for _any_ new license submission
+at this point.
+
+~tom
+
+==
+Fedora Project

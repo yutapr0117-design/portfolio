@@ -430,7 +430,7 @@ census の候補の外で、話題の語に当たる未読の会話の 1 本（`
 | *"There is no such thing as a public domain licence.  The documents are combinations of an attempt to abandon copyright, meaning you can't licence, and a, fallback, licence that attempts to give away as many rights as possible, even though you still own the copyright and moral rights."* | David Woolley 氏 2015-01-07 | **B4 の両面。** ACD は §3（1.0 でも §3・権利の放棄）と §4（1.0 でも §4・放棄が効かない範囲での許諾）を並べる。Woolley 氏の言う「放棄の試みと代わりの許諾の組み合わせ」は、この形を普通の型として描いている。同時に、放棄が成功すれば許諾するものが無い、という内側の緊張も指している |
 | *"In most countries, including the UK, an attempt to abandon copyright will fail; if you want to put something in the public domain, you must die and then wait 70 years.  Many question whether anyone except the federal government can abandon it in the USA."* | David Woolley 氏 2015-01-07 | **逆側（§3）。** 放棄は多くの法域で効かない、という見方である。ACD の §3.3（1.0 でも §3.3・権利を手放すこと（surrender）は認めないが waive は認める法域では、Dedicator が waive する）と §4 の許諾は、この場合に備える。ACD は放棄が効くことに頼らない |
 
-**読み。** 「放棄＋代わりの許諾」の形は、承認済みの CC0 の審査（`review-precedents.md`）でも論じられた普通の型で、Woolley 氏はそれを当然のように描いた。ACD の §3 と §4 の並存（B4）は、この型に属する。
+**読み。** 「放棄＋代わりの許諾」の形は、承認されなかった CC0 の審査（2012・提出は取り下げ・`review-precedents.md`）でも論じられた型で、承認済みでは Unlicense（献呈と列挙された許諾・2020）が同じ型に近い。Woolley 氏はそれを当然のように描いた。ACD の §3 と §4 の並存（B4）は、この型に属する。**訂正（2026-11-15・portfolio-30 の当て直し）**: 最初は「承認済みの CC0 の審査」と書いていた。CC0 は OSI に承認されていない（`board-decisions.md` §2f）。有利な側に寄った事実の誤りだった。
 
 **逆側。** Woolley 氏は決める側の人ではない。「公有のライセンスというものは無い」という言い方は、ACD を「公有に置くもの」と紹介すると反論を呼ぶことを示す。ACD の入口が ACD を何と呼んでいるか（dedication と licence の両方の語を使う）は、この線で確かめる価値がある。
 
