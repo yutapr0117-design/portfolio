@@ -12,6 +12,7 @@ Check 498 (h) は AS-OF の件数を READ-THREADS と THREAD-CANDIDATES から�
     DOSSIER_ARCHIVE_CACHE=~/osi-archive-cache python3 .github/scripts/record_read.py \\
         --start 2018-06-04 --subject "Some notes for license submitters" \\
         --entry '"Some notes for license submitters"（`license-review` 2018-06）を `review-readings-2.md` §1.224 へ（…）'
+    --entry は単一引用符で渡す (二重引用符だと zsh が `…` を command substitution として評価し、消える・2f が踏んだ)。
     --no-thread を付けると (1) を飛ばす (会話を読んだのではなく、通だけを引いたとき・件数は動かない)。--dry-run は書かない。
     --log-only は AS-OF の直近の 1 件を動かさず、LOG にだけ 1 項目を足す (読んだが新しい論点の無い会話をまとめた項目など・
     件数は直す)。候補の数が変わったら (候補の外の会話を読んだとき)、項目の末尾に「候補は X → Y」を書き足す (2f の依頼)。
@@ -33,7 +34,7 @@ L = ROOT / "LICENSES"
 
 def main(argv: list[str]) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("--entry", required=True, help="直近の 1 件の本文 (「YYYY-MM-DD に 」の後ろ)")
+    ap.add_argument("--entry", required=True, help="直近の 1 件の本文 (「YYYY-MM-DD に 」の後ろ)。単一引用符で渡す (` を含むため)")
     ap.add_argument("--start", help="会話の始まりの日付 (census の start・READ-THREADS の行の日付)")
     ap.add_argument("--subject", help="件名 (アーカイブのとおり)")
     ap.add_argument("--no-thread", action="store_true", help="会話を読んだのではない (READ-THREADS に足さない)")

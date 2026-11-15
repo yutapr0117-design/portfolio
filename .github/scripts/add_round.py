@@ -56,7 +56,10 @@ def subject_core(s: str) -> str:
         s = str(email.header.make_header(email.header.decode_header(s)))
     except Exception:  # noqa: BLE001 —— 復号できない件名はそのまま照らす
         pass
-    s = re.sub(r"\[[^\]]*\]", "", s)
+    # 外すのはリストの札 ([License-discuss] / [License-review]) だけ。角括弧の中身を全部消すと、
+    #   "resolving ambiguities in OSD [was Re: For Approval: License Zero Reciprocal …]" の [was Re: …] まで消え、
+    #   元の件名で探せなかった (2026-11-15・2f の観測・Phipps 2017-10-25)
+    s = re.sub(r"\[License-[^\]]*\]", "", s, flags=re.I)
     while True:
         t = re.sub(r"^\s*(?:re|fwd?|aw)\s*:\s*", "", s, flags=re.I)
         if t == s:
