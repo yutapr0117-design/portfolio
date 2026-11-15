@@ -15,6 +15,8 @@
     出現回数の差。試作で消えた語は、元では許され試作では許されない (またはその逆の) 利用の候補になる
   - 比較モード: **そろえ残し** —— 試作が A を「A and B」/「neither A nor B」へ増やしたとき、変わった条を参照する文や
     A を含む 3 つ以上の列挙で、A だけが残り B が無い文 (2026-11-15・T67 で §12.3 と §2.4 を人が見つけた型)
+  - 比較モード: **新しく入った全称の句** ("every other provision" など) と、同じ条が名指す条 —— 全称は同じ条が
+    限定している条も呑む (2026-11-15・T70 の §5.3 で、50 が反例で見つけた型)
   - 比較モード: 外した語に**ドシエの外向きの文書が依拠していないか** (LICENSES/*.md・rounds/ と作業記録を除く)。
     外した 5 語の連なりの引用と、「§N.N gives」「Section N.N's own text」「§N.N 自身が述べ」の形を拾い、
     審査者向けの文書 (その版を対象にするなら書き換えが要る) と記録 (当時の本文を引く) に分けて出す
@@ -435,6 +437,33 @@ def coordination_gaps(cb: dict, ca: dict) -> list[tuple[str, str, str, str]]:
     return out
 
 
+_UNIVERSAL = re.compile(r"\b(?:every|each|any|all|no)(?: other)? (?:provision|section)s?\b(?: of this dedication)?|\bnothing in this dedication\b", re.I)
+_SECTIONS = re.compile(r"\bSections? (\d+(?:\.\d+)?(?:(?:, (?:and |or )?| and | or | to )\d+(?:\.\d+)?)*)")
+_EXCEPT = re.compile(r"\b(?:other than|save that|except|excluding|apart from)\b", re.I)
+
+
+def universal_scope(cb: dict[str, str], ca: dict[str, str]) -> list[tuple[str, str, list[str], bool, str]]:
+    """変わった文に新しく入った全称の句 ("every other provision" / "nothing in this Dedication" …) と、同じ条が名指す条。
+
+    2026-11-15、T70 は §5.3 末文の列挙 "Sections 3, 4, 8.1, and 8.4 operate in their favour independently of this
+    Section" を "Every other provision of this Dedication operates …" へ一般化した。"other" が外すのは §5.3 自身だけで、
+    §5.3 が縛る約束 (§5.1・§5.2・§8.6) も「他の条」に入り、「この条と独立に働く」と読めた (50 の反例・ab54c5a5 で
+    "other than those covenants" へ直した)。全称は同じ条が限定している条も呑むので、同じ条が名指す条を並べて人が読む。
+    返り値: [(条, 全称の句, 同じ条が名指す条, 除外の句が同じ文に在るか, 文の抜粋)]
+    """
+    out = []
+    for k, s in changed_sentences(cb, ca):
+        before_hits = {m.group(0).lower() for m in _UNIVERSAL.finditer(" ".join(cb.get(k, "").split()))}
+        for m in _UNIVERSAL.finditer(s):
+            if m.group(0).lower() in before_hits:
+                continue
+            named = sorted({x for g in _SECTIONS.findall(" ".join(ca[k].split()))
+                            for x in re.findall(r"\d+(?:\.\d+)?", g)} - {k},
+                           key=lambda c: tuple(int(x) for x in c.split(".")))
+            out.append((k, m.group(0), named, bool(_EXCEPT.search(s)), s[max(0, m.start() - 40):m.end() + 60]))
+    return out
+
+
 def compare(before: Path, after: Path, n: int) -> None:
     cb, ca = clauses(before.read_text(encoding="utf-8")), clauses(after.read_text(encoding="utf-8"))
     tb, ta = sum(len(words(v)) for v in cb.values()), sum(len(words(v)) for v in ca.values())
@@ -474,6 +503,13 @@ def compare(before: Path, after: Path, n: int) -> None:
           "「B は含まれない」と読ませうる (2026-11-15・T67 の §12.3 と §2.4)")
     for k, a, b, ctx in _cg:
         print(f"#   ⚠ §{k} [{a} だけ・{b} が無い]: …{ctx}…")
+    _us = universal_scope(cb, ca)
+    print(f"# 新しく入った全称の句 (every other provision / nothing in this Dedication …): {len(_us)} —— 全称は同じ条が"
+          "限定している条も呑む。名指した条がその全称に入ってよいかを読む (2026-11-15・T70 の §5.3)")
+    for k, w, named, exc, ctx in _us:
+        mark = "・" if exc or not named else "⚠"
+        print(f"#   {mark} §{k} {w!r} (同じ条が名指す条: {', '.join('§' + x for x in named) or '無し'}"
+              f"{'・除外の句あり' if exc else ''}): …{ctx}…")
     _xd = (external_reliance({c: (cb.get(c, ""), ca.get(c, "")) for c in _chg}, after.read_text(encoding="utf-8"))
            if _chg else [])
     _out = [x for x in _xd if _OUTWARD.search(x[0])]
