@@ -1,0 +1,85 @@
+Source: OSI license-review public archive, 2017-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 106 in "For Approval: License Zero Reciprocal Public License" (2017-10-02)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Fri Oct 20 04:09:07 2017
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 19 Oct 2017 21:09:07 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public
+	License
+In-Reply-To: <20171019235827.GD9707@dev.kemitchell.com>
+References: <20170916004817.GU5422@dev.kemitchell.com>
+ <20170923000911.GN14929@dev.kemitchell.com>
+ <852a278a-e1f7-c749-8ec9-d856084131de@postgresql.org>
+ <086b2989-c50c-c984-5192-bc966380788e@piana.eu>
+ <20170926020744.GK6204@dev.kemitchell.com>
+ <46261d9e-733f-7414-ca75-e7128ca99ada@piana.eu>
+ <20171019235827.GD9707@dev.kemitchell.com>
+Message-ID: <CAK2MWOvkjP+SSYr99NX8Bxs6H9S29tfVKSqcKOuD1aZbMsue5A@mail.gmail.com>
+
+There was quite a lot I did not think of when writing the OSD, and which
+perhaps did not belong in the OSD but which OSI should do as part of the
+license approval process for the benefit of developers and users. It's
+probably time to put together a list of what those things are, for
+everybody's information.
+
+With regard to *simple users,* those who make use of the Open Source
+software and do not modify or redistribute it, there should be as close to *no
+legal load* as possible. We need to be cognizant that many of these users
+are individuals and very small businesses that can't reasonably assume any
+legal load at all. We can't protect them from patent issues brought by
+others than the licensor of the software, but to the extent that we can
+protect them, we should. In particular, *simple users should not ever have
+to read the license.*
+
+We should also endeavor to keep the legal load upon *Open Source developers*
+as low as possible. These are also individuals, small businesses, etc. We
+expect them to understand the license somewhat, but they are not legal
+experts and do not necessarily have easy access to legal experts or even
+the inclination to use them.
+
+So, we can think about some things that would increase the load on those
+communities.
+
+Use-coupled license responsibilities. We should not allow them at all. If
+you're an infringer if you don't put the correct web badge on your site,
+it's a bad license for Open Source because it means the user has to track
+what programs they're running and put the proper badges online, and make
+sure in perpetuity that those badges keep being presented. No thanks.
+
+License proliferation: We don't want them to have to do more license
+combinatorial analysis than should be necessary. Thus, we should not in
+general accept new licenses, unless they in some way present a benefit to
+the community in a way that presently-accepted licenses do not.
+
+Crayon licenses: We should not today approve licenses that were developed
+without the assistance of a lawyer, because they are likely to not be
+parsed by a judge the way the developer expects. The name "crayon license"
+comes from a Monty Python sketch including a "cat license" which has "dog"
+crossed out and "cat" written in, in crayon. Some developers have been
+really seriously harmed (by Artistic License 1) and there are a few
+unfortunately-OSI-accepted time bombs waiting for new victims.
+
+Additional loads on the developer: We already place a number of loads on
+them when distributing, in general they have to present a copyright
+statement and license, sometimes a notice of source code availability,
+sometimes they have to distribute source code, and they perform some
+management of contributors and their rights. That's already a significant
+load, and additional loads upon the developer might not be a reasonable
+expectation.
+
+What we get from this is that there will be some licenses which are
+OSD-compliant but which should not be OSI-certified.
+
+Surely there are more things we should watch out for, this is just off the
+top of my head.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171019/f14d322d/attachment.html>

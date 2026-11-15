@@ -261,6 +261,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-09-03 | `license-review` | Michael Dolan → 受領 | 上記 OpenMDW 質問への回答（名指しで応答）|
 | 2014-05-04 | `license-discuss`（観測）| **Karl Fogel 氏の 1 通 → 観測保存** | *"would certify PD *when accompanied by* a particular patent non-assertion text"*。§3 と §8.6 の組み合わせに近い形への発言で、ドシエに記録が無かった |
 | 2017-10-26 | `license-discuss`（観測）| **Christopher Sean Morrison 氏の 1 通 → 観測保存** | *"something close to public domain yet still addressing indemnification and contributor patent grants"*。受益者が少ないという反論（#284）に当たる需要の記述で、採用の実績ではない |
+| 2017-10 | `license-review` | **観測（Phipps 氏の 1 通・OSI・FSF・Debian の全部に承認されるかは良い事前点検）** | `2017-10-license-review-l0r-phipps-preflight-observed.txt` |
+| 2017-10 | `license-review` | **観測（Perens 氏の 1 通・使うだけの人には法的な負担を限りなく 0 に）** | `2017-10-license-review-l0r-perens-no-legal-load-observed.txt` |
 | 2026-11-06 | **OSI の公式 FAQ（public domain / CC0 の 2 問）** | 一次資料 → 自己取得 | *"it's still not a license"* と、CC0 の最も重い懸念が clause 4(a) だったことを OSI 自身が述べている。ドシエは委員長の発言の中の URL としてしか触れていなかった |
 | 2012-03-07 | **OSI 理事会の議事録（CC0 の結果の報告）** | 一次資料 → 取得物から切り出し | *"Recommend disapprove, due to clause 4a"*。CC0 が止まった理由の、組織の側の一次資料である |
 | 2007-11-07 | **OSI 理事会の議事録（SimPL の報告）** | 一次資料 → 取得物から切り出し | 再ライセンスを許すライセンスは *"does not create a licensing dead-end"* と述べる。#84 への、理事会の言葉の答えである |
@@ -399,6 +401,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（23/23 部）** | **同じ束の 23/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2013-06 | `license-review` | **観測（"License drafting quality and process" から 5 通・多段階の承認とまず license-discuss、使用の数を要件にすれば萎縮、断る手段が無い、新しいライセンスの基準率）** | `2013-06-license-review-drafting-quality-and-process-observed.txt` |
 | 2017-11 | `license-review`（観測）| **Unicode の 2 つの承認 16 通（2018 legacy / 2023 v3） → 観測保存（1/3 部）** | **OSI は「data files」を主題に明記したライセンスを 2 度承認している**（2018 legacy / 2023 v3・どちらもカテゴリつき）——**B15 にとってフォントに続く 2 つ目の counterweight**（#259）。**2023 年の提出は「一般化」を目的に明記し、著作権表示を *"fill in the blanks"* にした本文で承認された** ——*"to **genercize it so that it may be used by entities other than the Unicode Consortium**"*（#260） |
+| 2017-11 | `license-review` | **観測（Berkus 氏の 1 通・承認済みに無いことを複数するライセンスの審査は速くも簡単でもない）** | `2017-11-license-review-l0r-berkus-novel-not-fast-observed.txt` |
 | 2017-11 | `license-review`（観測）| **Unicode の 2 つの承認 16 通（2018 legacy / 2023 v3） → 観測保存（2/3 部）** | **同じ束の 2/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2017-11 | `license-review`（観測）| **Unicode の 2 つの承認 16 通（2018 legacy / 2023 v3） → 観測保存（3/3 部）** | **同じ束の 3/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2022-03 | `license-review`（観測）| **YATeam Public License v1 の否決 9 通（2023-09-15 理事会） → 観測保存（1/5 部）** | **否決の Rationale Document が逐語で在る** —— *"**Unless a license meets the OSD in every possible iteration, it cannot be approved** as an open source license. **The license is also unintelligible in the English language version.**"* ——**英語としての不可解さが実際の否決理由として書かれている**。二言語ライセンスについて Chestek 氏 *"translations shouldn't be part of the formal agreement"*（#261） |

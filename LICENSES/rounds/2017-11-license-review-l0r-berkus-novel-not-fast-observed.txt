@@ -1,0 +1,42 @@
+Source: OSI license-review public archive, 2017-November.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 40 in "For Approval: Rewrite of License Zero Reciprocal Public License" (2017-11-06)
+Senders: Josh berkus
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From josh at postgresql.org  Mon Nov 13 17:27:44 2017
+From: josh at postgresql.org (Josh berkus)
+Date: Mon, 13 Nov 2017 09:27:44 -0800
+Subject: [License-review] For Approval: Rewrite of License Zero
+ Reciprocal Public License
+In-Reply-To: <20171109071031.GD23064@dev.kemitchell.com>
+References: <20171027202935.GA5874@dev.kemitchell.com>
+ <CAK2MWOta_sCbfiztv=yfT_m6xBNnMqWPUy=iZukFWmypb-UdzA@mail.gmail.com>
+ <20171107224929.GK25059@dev.kemitchell.com>
+ <CAK2MWOvhJCMFimdGSV5xw2MF8CzfjZt1DKJZKXh1GGeKMngiTQ@mail.gmail.com>
+ <20171108075050.GQ25059@dev.kemitchell.com>
+ <CAA4ffp9mFt0sGY0sf_ZsMeNAXPMU+-TLH-qv5-S5h5jKpYhJmA@mail.gmail.com>
+ <20171109071031.GD23064@dev.kemitchell.com>
+Message-ID: <c0710c8e-c592-26f6-1600-8d728074b352@postgresql.org>
+
+On 11/08/2017 11:10 PM, Kyle Mitchell wrote:
+> I so wish that my first e-mail to license-discuss had been a
+> request for an overview of the process, soup to nuts.
+> Instead, I did what looked for all the world like my
+> homework, and followed its instructions.  I can't help
+> feeling that's hurt more than helped me.
+
+You are submitting for approval a license which does several things
+which no license previously approved by the OSI does.
+
+If you thought that reviewing such a license was going to be either fast
+or straightforwards, or that committee members would be unanimous in our
+evaluation of criteria or recommendations, then I'm sorry.  Hopefully
+your expectations are updated now.
+
+Frankly, I'm not clear why you would have such an expectation.  Your
+plans and business model for LicenseZero.com have been even more
+controversial within the javascript community.
+
+--Josh Berkus
