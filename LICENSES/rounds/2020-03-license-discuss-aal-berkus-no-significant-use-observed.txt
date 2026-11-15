@@ -1,0 +1,34 @@
+Source: OSI license-discuss public archive, 2020-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 32 in "Thoughts on AAL and OSS vs FOSS" (2020-03-29)
+Senders: Josh Berkus
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From josh at berkus.org  Mon Mar 30 16:32:04 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Mon, 30 Mar 2020 09:32:04 -0700
+Subject: [License-discuss] Thoughts on AAL and OSS vs FOSS
+In-Reply-To: <CAC1cPGy6PXrHrQz21MQJF88Dri1bAMyO2_3rZmrd5dZtEBxr5g@mail.gmail.com>
+References: <CACQ8_Zzhq+4LyyFGb7O9h-MdbHY8mwpLz6tWoWBK_Mmo2WYAaw@mail.gmail.com>
+ <CAJTYOd2Yc6bdF0Dr9OKQgeQV7dAqkqN0N4to+Hm7+ouQ03NK0w@mail.gmail.com>
+ <CAHEP+D+gVqYZ5xmAP89AFSaikCcHL4f2vWzxMF+PdpQhKpfGCw@mail.gmail.com>
+ <CAE+Udopqtfc2B4da8pZG8bVwA3zP9RxL8uuJvqp9coYsLu=1BQ@mail.gmail.com>
+ <CAHEP+DLLkYwKPWiap82P3RE=-E9=xMV1gLzf5uF4nw9KAbDoJA@mail.gmail.com>
+ <CAE+UdoqnDMHiK4PFsKPAXUS96jOTxE7VG-mU4gTyUWu-8YkgEg@mail.gmail.com>
+ <CAHEP+D+ebhzKujJfqEHKQ+WYdaTiHQv_h=kcb98rr6_fsJjL0g@mail.gmail.com>
+ <CAKHykesxoG+o-q+EQawn7NbyB0Go9=sW=+Bf7qJmiUCOLUBKmA@mail.gmail.com>
+ <097c01d606ab$130f9190$392eb4b0$@lexpan.law>
+ <CAC1cPGy6PXrHrQz21MQJF88Dri1bAMyO2_3rZmrd5dZtEBxr5g@mail.gmail.com>
+Message-ID: <88ef22ce-19d3-69a3-f793-efaed7ea3daf@berkus.org>
+
+On 3/30/20 8:59 AM, Richard Fontana wrote:
+> Assuming this is the same person https://github.com/edsuom
+> it is interesting that his present-day code is apparently all released
+> under the Apache License 2.0.
+
+Yeah, that was the first thing I looked at when I remarked that the
+license didn't have significant use anymore.
+
+-- 
+Josh Berkus
