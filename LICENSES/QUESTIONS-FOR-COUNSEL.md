@@ -309,10 +309,25 @@ on a promise made to the public as an intended beneficiary, in the United States
 jurisdiction, and does it matter that the promise is a covenant not to sue rather than a duty to perform
 (`ACD-1.0.against.md` #327)?
 
+The fifth question is about the second limb of §5.2(a). The Dedicator covenants not to *"invoke
+against You any law concerning the circumvention of such measures"*, where the measures are those
+that restrict access to or use of the Work. The limb was written against DRM, that is, against the
+anti-circumvention rules of copyright law (17 U.S.C. §1201, Article 6 of Directive 2001/29/EC and
+their national forms). Since T64 the 1.4 draft lets the Dedicator apply a measure, such as a
+proof-of-work challenge, a rate limit or an authentication step on its own download server. Does
+*"any law concerning the circumvention"* also make the Dedicator give up computer-misuse law (the
+Computer Fraud and Abuse Act, Japan's Act on the Prohibition of Unauthorized Computer Access) against
+a person who defeats that measure to take copies? If it does, are there words that leave the
+Dedicator the law that protects its computers without returning to it any law that protects the
+measure as a restriction on the Work? A trial that limited the limb to laws protecting measures *"as
+a means of protecting rights in the Work"* (T68) was not taken: it would also have returned unfair-
+competition protection of technological measures (Japan's Unfair Competition Prevention Act) to the
+Dedicator, and would have left the limb empty where the surrender in §3 takes effect.
+
 **An answer would change** whether "for" is the right word, and whether data protection needs its
 own exception. An answer to the second question would change whether §11.3 needs the altered-work case in words.
 An answer to the third would change whether the end of §5.2 needs to say that it does not reach a term
-or measure in so far as it restricts the Work. An answer to the fourth would change whether §5.3 should keep the words *intended beneficiary*, and whether T66 should have extended them to §8.6.
+or measure in so far as it restricts the Work. An answer to the fourth would change whether §5.3 should keep the words *intended beneficiary*, and whether T66 should have extended them to §8.6. An answer to the fifth would change whether the second limb of §5.2(a) needs a carve-out for computer-misuse law.
 
 ## 6. Do the text-and-data-mining declarations do anything? (§6.2, §6.3)
 
