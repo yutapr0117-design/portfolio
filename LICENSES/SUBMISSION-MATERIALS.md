@@ -95,6 +95,8 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 | §8.1 は *"derived from"*、§8.4・§6.4 は *"resulting from"* | 語の違いで §8.1 が狭まった | 2 つの許諾の対象の違い（§8.1 は Work とそこから派生したもの、§8.4 は計算的利用の結果）で、意図したもの。§8.4 は *"a grant in its own right"* |
 | §5.2(a) から *"apply"* を外した | Dedicator が DRM を掛けてよくなった | 掛けることは許すが、その手段について権利を主張せず、回避の法を向けない。GPL-3.0 §3 と同じ形（T64・E82） |
 
+**出し方（決める側の先例・`review-readings-2.md` §1.220）**: (1) **1.0 の投稿への返信にせず、新しい件名で出す** —— Berkus 氏 2025-12-08 *"can you please start a new thread for the revised edition?"*。(2) **本文は全文を 1 つの文書で示す**（差だけを出さない）—— Chestek 氏（委員長）2025-02-10 *"It is too confusing and the recordkeeping too difficult to have multiple documents"*。(3) **redline は添付せず、リポジトリの URL で示す** —— 添付つきの通が一部に届かず、送り直した McCoy Smith 氏は 2023-08-30 *"I'm not including the attachments which might be the cause of the problem."* と書き、2026-09 には redline を GitHub に置いてリンクで配った。有利な先例: Unicode v3 の委員会の理由書（2023-11）は提出者の番号つきの変更一覧をそのまま引いた。**逆側**: 1.0 → 1.4 の変更は数十件あり、量の多い一覧は「審査中に大きく書き直した」と読まれうる（`against.md` #249）。
+
 **投稿版を記録する**: 投稿の日の草案の commit と日付を草案の冒頭と `FROZEN.md` の POSTING-NOTE に書き、以後の変更は草案の冒頭の別節に分ける（段 6b）。
 
 **⚠ 逆側**: 注を添えるほど投稿は長くなる（B3・B13）。注は「読み違えうる」と我々が判断した箇所だけで、審査者が別の箇所を読み違えることは防げない。1.1 の短い依頼が moderation で拒否された前例があり（`against.md` #215）、届くことは仮定しない（ゲート 10）。
