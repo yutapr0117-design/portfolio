@@ -19,7 +19,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 L = ROOT / "LICENSES"
-ENTRY = ("SUBMISSION-MATERIALS.md", "REVIEWERS.md", "QUESTION-INDEX.md", "READY-TO-SUBMIT.md")
+ENTRY = ("SUBMISSION-MATERIALS.md", "REVIEWERS.md", "QUESTION-INDEX.md", "READY-TO-SUBMIT.md", "REVISION-PROTOCOL.md", "OSI-APPROVAL-PLAN.md")
 
 
 def section_b(lines: list[str], i: int) -> str | None:
@@ -63,7 +63,13 @@ def main(argv: list[str]) -> int:
         cand = sorted({k for f, i, ln in hits for k in kinds(f, ln, section_b(texts[f], i - 1))})
         if rows:
             where = "・".join(sorted({f"{f}:{i}" for f, i, _ in hits})[:4]) or "当たり無し"
-            print(f"| 1.{n} | {' / '.join(cand) if cand else '未定'} | 反映先の文書がこの節の番号を引いていることを grep で確かめた（{where}） |")
+            # 「入口」と「1c」は行き先の文書を backtick で添える (Check 501b は、grep と言う行の行き先を、反映のセルの
+            #   against の行・E の行・B の文書・backtick の file に探す。添えないと照合に落ちる・2026-11-15)。見出しの無い「B?」は出さない
+            cell = []
+            for k in [c for c in cand if c != "B?"]:
+                fs = sorted({f for f, i, ln in hits if k in kinds(f, ln, section_b(texts[f], i - 1))})
+                cell.append(f"{k}（{'・'.join(f'`{f}`' for f in fs[:3])}）" if k in ("入口", "1c") else k)
+            print(f"| 1.{n} | {' / '.join(cell) if cell else '未定'} | 反映先の文書がこの節の番号を引いていることを grep で確かめた（{where}） |")
             continue
         print(f"1.{n}: 候補 {', '.join(cand) or '(無し)'} · 当たり {len(hits)} 行")
         for f, i, ln in hits[:6]:
