@@ -301,6 +301,8 @@ are not present."* **この 1 文を落としてはならない。**
 
 **2026-11-15 に足した —— OSD そのものも法律家の手を経ていない（`review-readings-3.md` §1.304）。** 当時の理事 Russell Nelson 氏 2001-09 *"Of course, a big problem with the OSD is that it talks about legal requirements, and yet was not touched by a lawyer before being cast into stone."* **逆側（同じ通）**: 同氏は続けて、大きく書き直すなら法律の経験のある人がすべきだと書いた。法律家の関与が無くてよい、の材料にはならない —— むしろ B1 の不利な側を補う。
 
+**2026-11-15 に足した —— 承認は条項の有効性の意見ではない（`review-readings-6.md` §1.451・portfolio-9b）。** Lawrence Rosen 氏 2002-01-20 *"The OSI board of directors approves licenses if they are consistent with the OSD. The board renders no opinion about the validity or enforceability of specific clauses in specific licenses."* **両面**: B1（法律家の審査が無い）は承認の基準そのものではない、という読みを支える。同時に、承認されても §3 や §4 が各国で有効だとは誰も言わないので、有効性の問いは採用者の法律家に残る（B2 の費用）。
+
 ### B2（実使用 1 件）——**作れない。制御できるのは discoverability だけ**
 
 **採用は捏造できない。** 存在しない採用を書けば、それは提出の失格事由であって弱点ではない
@@ -324,6 +326,8 @@ are not present."* **この 1 文を落としてはならない。**
 **2026-11-15 に足した（3 つ目）—— 承認の後も、使われなくなれば廃止が論じられる。** Josh Berkus 氏 2020-03（`license-discuss`・AAL の廃止の議論）は理由として *"the license didn't have significant use anymore"* を挙げた（`review-readings-2.md` §1.239）。承認は使用の代わりにならず、承認の後にも使用の問いは残る（上の 2026-11-11 の段と同じ線）。**逆側**: 廃止は承認済みの一覧の整理で、承認の可否の基準ではない。
 
 **2026-11-15 に足した（5 つ目）—— 支持の無い版の見込みを、委員長が言葉にした（模擬委員会・portfolio-30）。** Pamela Chestek 氏 2020-12-28（`license-review`・当時の委員長・OIN License）*"It does not appear that anyone supports this version of the license, so the chances of it being approved appear quite slim."* 2024 年の OSPL の不承認の理由書も *"No reviewer was in favor of approving this license"* を最初に挙げた（`review-corpus.md`）。ACD は `license-discuss` で返信を得ていない。**逆側**: どちらの例も、OSD との衝突が別に指摘されていた提出である。支持が無いことだけを理由にした不承認は、まだ見つけていない。
+
+**2026-11-15 に足した（4 つ目）—— 使われないライセンスは何のためにあるのか（`review-readings-4.md` §1.351・portfolio-50）。** 当時の理事長 Russell Nelson 氏 2004-12-13 *"A "dead" license is one which is no longer used for any projects."*、2004-12-14 *"What purpose does a license serve if nobody uses it?"*（"pruning "dead" licenses"）。上の 2020 年の AAL の廃止の議論と同じ問いが、16 年前に理事長の言葉で在った。**逆側**: これは承認済みの一覧から外す提案の議論で、新しい提出の承認の基準ではない。採用者が 1 件の ACD にとっては、承認の後にもこの問いが残る、という読みになる。
 
 ### 🔴 2026-09-13 追記 —— 理事会は B2 に、否決ではない帰結を用意している
 

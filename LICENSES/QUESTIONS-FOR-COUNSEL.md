@@ -247,8 +247,19 @@ to be made *"in the submission or to the Dedicator to whom it is submitted"* and
 (`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.27, T53): it would treat an express refusal as ineffective
 because it reached the wrong person, and we do not know whether a court would do that.
 
+A third question is about form. Lawrence Rosen wrote in 2005, of a licence that took an assignment of
+copyright from contributors, *"Nobody should rely on an unsigned copyright assignment, especially one
+that's buried in an unsigned open source license."* (`review-readings-4.md` §1.353). §2.6 makes a
+contributor a Dedicator without a signature, and §3 surrenders rights without one. Under 17 U.S.C.
+section 204(a) a transfer of copyright ownership needs a signed writing; a non-exclusive licence does not.
+Is a surrender under §3, or a contributor's dedication under §2.6, a "transfer" for that purpose, or for
+the equivalent rule in other jurisdictions? Our reading is that a surrender transfers nothing to anyone
+and that §4 in any case needs no writing, but Rosen's remark was about a transfer to a project, which
+ACD does not take, and we have not found a case on an unsigned surrender.
+
 **An answer would change** whether §2.6 should require an affirmative statement, at a cost to
-projects that accept contributions informally, and whether the opt-out needs an addressee.
+projects that accept contributions informally, whether the opt-out needs an addressee, and
+whether adopters should be told to keep a signed statement from contributors.
 
 ## 5. How far does the covenant against "any claim or cause of action" reach? (§5.1, §5.2(d), §11)
 

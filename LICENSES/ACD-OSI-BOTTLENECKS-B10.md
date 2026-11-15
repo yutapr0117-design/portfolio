@@ -137,7 +137,15 @@ running the Program"* は**著作権の話であって特許ではない**）。
 
 ### 2026-11-15 —— 2001 年には「新しさが無くても OSD に合えば退けられない」と書かれていた（`review-readings-3.md` §1.301）
 
-当時の理事 Russell Nelson 氏 2001-08-05 *"Some of the licenses ARE innovative, and it's not clear that we can reject the ones which aren't so innovative given that they comply with the open source definition."*、事務局長 Lawrence Rosen 氏 2001-09-26 *"OSI approves licenses if and only if the license is consistent with the provisions of the published Open Source Definition."*。同じ年に Rosen 氏は、審査の優先度として差・使用・起草の質・必要性の説明の明確さ・共同体の関心を挙げた（2001-01-19・本人の提案）。**逆側**: これは今の基準ではない。2008 年の委員長（上の Nelson 氏の同じ人）は *"more Open Source licenses are not a good thing"* と書き、委員会は後に差を問うようになった。古い基準を有利に引くなら、それが今の基準でないことを同じ文で言う。2001 年の記録が示すのは、差の問いが承認の可否ではなく優先度として始まった、という経過だけである。
+当時の理事 Russell Nelson 氏 2001-08-05 *"Some of the licenses ARE innovative, and it's not clear that we can reject the ones which aren't so innovative given that they comply with the open source definition."*、事務局長 Lawrence Rosen 氏 2001-09-26 *"OSI approves licenses if and only if the license is consistent with the provisions of the published Open Source Definition."*。同じ年に Rosen 氏は、審査の優先度として差・使用・起草の質・必要性の説明の明確さ・共同体の関心を挙げた（2001-01-19・本人の提案）。**逆側**: これは今の基準ではない。2008 年の委員長（上の Nelson 氏の同じ人）は *"more Open Source licenses are not a good thing"* と書き、委員会は後に差を問うようになった。古い基準を有利に引くなら、それが今の基準でないことを同じ文で言う —— 現役の委員の Pamela Chestek 氏は 2019-07 に *"I disagree with your framing that every license must be approved unless we can point to a specific rule broken."* と書き、Richard Fontana 氏は 2026-08-28 にその由来を、新奇な条項を持つライセンスは OSD の特定の条に反すると名指せない限り承認を強いられる、という起草者の主張への対応だと説明した（`reviewer-positions.md` の「一般的な規則の移り変わり」・`board-decisions.md` §2h）。2001 年の記録が示すのは、差の問いが承認の可否ではなく優先度として始まった、という経過だけである。
+
+### 2026-11-15 —— 承認できる提出を、増殖を理由に保留した実例（OVPL・2005・`review-readings-4.md` §1.350・portfolio-50）
+
+当時の理事長 Russell Nelson 氏 2005-08-19 *"It's approvable as far as I can see. However we also have license proliferation issues to worry about."* —— OSD に合うと認めたうえで、増殖を理由に別の道（CDDL への改善の取り込み）を求めた。B10 の「差は承認の可否ではなく優先度として始まった」（上の 2001 年の段）は、2005 年には可否の手前で働いていた。**逆側**: 同じ通で同氏は *"This is just my opinion, and I can be talked out of it."* と書き、処方は「CDDL の改善は CDDL へ入れよ」だった。ACD は既存のライセンスの派生ではないので、処方はそのまま当たらない。当たるのは「増殖は OSD への適合と別に問われる」という点である。
+
+### 2026-11-15 —— OSD の起草者と当時の理事が述べた目標を、ACD は文字どおりに満たす（`review-readings-6.md` §1.451・portfolio-9b）
+
+Bruce Perens 氏 2002-01-20 *"One of the goals of the OSD was to have software that the user could run without having to read the license or take any special action."*、Russell Nelson 氏 2002 は、OSD は *"If you have a copy of this software, you can do anything you want with it."* と言うべきだったと書いた。ACD の §10.1〜§10.4 は、受け手に条件も義務も課さず、何も知らせなくてよいと定める。**逆側**: MIT と 0BSD も同じ目標をほぼ満たすので、これは B10 の問い（既存のライセンスで足りないのは何か）には答えない。有利な材料として使えるのは、「条件を持たない形は OSD の目標に沿う」という点だけである。
 
 ### 2026-09-20 追記 —— gap の 1 本目に、**決着した裁判例が付いた**
 
