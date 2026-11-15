@@ -543,6 +543,14 @@ _MUTATIONS_TAIL.append({
     "replace": "\n## 1.240 ",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 501: review-readings-6 に反映の欄の無い節を足す —— 読んだ節がどこへ効いたかを書かないまま、"
+            "未反映で本申請へ進める形 (オーナーの前提・2026-11-15)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.review-readings-6.md",
+    "find": "で読了だけを記録する。\n",
+    "replace": "で読了だけを記録する。\n\n## 1.499 反映の欄の無い節\n\n本文だけを書いた。\n",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
