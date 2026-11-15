@@ -1,0 +1,35 @@
+Source: OSI license-review public archive, 2010-October.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 28 in "For Approval: The netX Public License" (2010-10-04)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Wed Oct  6 13:14:17 2010
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 06 Oct 2010 06:14:17 -0700
+Subject: For Approval: The netX Public Lisense (in plain text)
+In-Reply-To: <4CAC7396.1020300@redhat.com>
+References: <8571F7783FE5ED488D0FD4119BB601BA023AB1FFDC@SBS-WBSLAWNET.intranet.wb-law.org> <8571F7783FE5ED488D0FD4119BB601BA023AB2000A@SBS-WBSLAWNET.intranet.wb-law.org> <4CAC7396.1020300@redhat.com>
+Message-ID: <4CAC7629.2030208@perens.com>
+
+And licenses that have been predicated on a particular upload site have 
+previously been rejected. The language must continue the license once 
+the web site goes away, as they so often do.
+
+     Bruce
+
+On 10/06/2010 06:03 AM, Tom "spot" Callaway wrote:
+> On 10/06/2010 08:23 AM, Christian Solmecke wrote:
+>    
+>> (2) Provided that the Program is a Kernel interface, changes must be uploaded to the website http://www.industrialNETworX.com by the way of uploading the respective source code and - contrary to ? 2 clause 3 - released under the terms of this License.
+>>      
+> Pretty sure this violates #10:
+>
+> 10. License Must Be Technology-Neutral
+>
+> No provision of the license may be predicated on any individual
+> technology or style of interface.
+>
+> ~spot
+>    
