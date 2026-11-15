@@ -1,0 +1,144 @@
+Source: OSI license-discuss public archive, 2002-March.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 67 in "OSD modification regarding what license can require of user" (2002-03-13)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From bruce at perens.com  Wed Mar 13 20:20:07 2002
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 13 Mar 2002 12:20:07 -0800
+Subject: OSD modification regarding what license can require of user
+In-Reply-To: <15463.18541.181867.601368@desk.crynwr.com>
+References: <20020209205015.B362B9CB64@perens.com> <15463.18541.181867.601368@desk.crynwr.com>
+Message-ID: <20020313202007.GA19110@perens.com>
+
+Please make sure replies in this thread are copied to "bruce at perens.com".
+I'm afraid that my life is so complicated of late that I don't often have
+time to read lists, no matter how important they are.
+
+The assignment is to propose a modification to the OSD to make explicit
+the implicit prohibition in the OSD on odious requirements on the user.
+The examples of odious user requirements that are brought up most often
+are badgeware ("if you use this software, put my icon on your home page")
+and spyware (the Bitkeeper reporting feature), but there have been others.
+
+So, I've been thinking about this for a month.
+
+It has been contended that today the only requirements the OSD can place on
+the user are those embodied in a copyright permission, due to the
+language in OSD #7. Others contend that OSD #6 applies as well. I'd rather
+not expand those arguments here, except to note that this is not nearly
+explicit enough for my taste.
+
+It is very tempting to ask for the OSD to say "no requirements connected with
+use, whatsoever". But I don't believe that's what we should do.
+
+It was an explicit goal when we created the OSD that the GPL be
+accomodated. An important goal of the GPL and a few similar licenses is
+to prevent the producers of proprietary software from parasitizing Free
+Software creations by including them in proprietary works. The GPL prevents
+the proprietary programmer from deriving from GPL works unless he is willing
+to give everybody all of the GPL rights on his derived work. This protection
+has made the GPL very attractive. It's our most-used license. 
+
+The GPL creators contend that a copyright permission is all they
+need to enforce the derived-works provision of the GPL, even in the
+context of dynamic linking. A future version of the GPL could deal with
+even-less-direct forms of linking such as daemonizing for the purpose of
+license-circumvention and use of object brokers to make a program that
+acts as if it's linked but actually occupies two or more separate
+address spaces.
+
+There is exactly one court case regarding "dynamic linking" and derivative
+works, Nintendo vs. Goloob Games, and it's not entirely germane. I'll
+give an oversimplified synopsys here: Goloob made a cartrige that
+the user could plug into their Nintendo game, and then could plug
+the Nintendo cartrige into that. The Goloob cartrige would give the
+user's game character powers greater than the normal constraints of the
+game. Nintendo claimed that the Goloob cartrige was a derivative work,
+Goloob disagreed. The judge found for Goloob. The judge made a point of
+noting that this case should not be considered to be definitive.
+
+So, what if it turns out that the present GPL doens't hold up with regard
+to dynamic linking? Some future version of the GPL might have to place a
+constraint on the user regarding combination of works on the user's system
+that would, if it were distributed in that form, be considered a derived work.
+I think that should be allowed by the OSD.
+
+Let's consider also the "ASP problem". Somebody makes extensive changes
+to a GPL work, and deploys that work as a service, perhaps via .NET, rather
+than distributing the work. This circumvents the GPL because the GPL terms
+activate upon distribution. We had thought to use the copyright law provisions
+on public performance rights to restrict this sort of behavior, but this
+is problematical since copyright law only admits to the existence of
+public performance rights for certain sorts of work, and software is not
+among them. A use restriction might turn out to be necessary to solve the
+ASP problem.
+
+The above is theoretical, especially since the GPL creators are so far
+loath to consider restrictions upon the user - they only want to have
+their licenses give the user permissions, and have the user restricted
+only by what is the default in copyright law. So, consider that rather
+than a future GPL with use restrictions there might be other, GPL-like,
+licenses that contain these restrictions, and are not from FSF, and are
+worthy of our support.
+
+Some licenses insist that the user indemnify the copyright holder and
+distributors of the software from damanges sustained in connection
+with use or distribution of the software. This puts some teeth in the
+"No Warranty" component of the license. I'd be uncomfortable with an
+OSD change that prohibited that sort of requirement.
+
+Suppose an Open Source license, as a software patent defense, prohibited
+users from obtaining patent licenses in connection with the covered
+work? The intent would be that the patented principle be available to
+either everyone or nobody at all, in connection with the covered work. This
+seems to be in alignment with the FSF's approach to patents. We are
+approaching a time when our hands could be seriously tied by interlocking
+software patents, to the extent that we are constrained from
+distributing software under OSD-compliant licenses. Thus, I'm interested in
+defenses against software patents, even if the only workable ones turn out to
+be "poison the well" defenses.
+
+Thus, there seem to be a few sorts of requirement on the user that I think
+_should_ be permitted by the OSD. All of them are intended to further the
+goals of Open Source or Free Software.
+
+Can you think of more that should be added to this list?
+
+	Thanks
+
+	Bruce
+
+On Sun, Feb 10, 2002 at 11:35:15PM -0500, Russell Nelson wrote:
+> Steve Mallett writes:
+>  > On February 9, 2002 04:50 pm, Bruce Perens wrote:
+>  > > I'd be happy to write the first draft and coordinate comments and changes
+>  > > to it. Of course it would be a group project as I'd need to consult lots of
+>  > > people - attorneys, community leaders, a discussion list, etc.
+> 
+> Cool.
+> 
+>  > > I suspect that some of the things I am worried about fail the current OSD
+>  > > under "use" restrictions, but not as explicitly as I'd like.
+> 
+> There is much in the OSD which is insufficiently explicit.  For
+> example, we have maintained that there are no possible restrictions
+> a license could put on users, because there is no possible mechanism
+> one could use to constraint them, because no approved license can
+> require that the user execute a license (OSD#7).
+> 
+>  > It frightens me that no one has (on the list) bothered to ask what the 
+>  > additions might address.  Bruce?
+> 
+> Bruce isn't an idiot.  He wouldn't propose additions we wouldn't be
+> likely to accept.
+> 
+> -- 
+> -russ nelson              http://russnelson.com | Crypto without a threat
+> Crynwr sells support for free software  | PGPok | model is like cookies
+> 521 Pleasant Valley Rd. | +1 315 268 1925 voice | without milk.
+> Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   | 
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

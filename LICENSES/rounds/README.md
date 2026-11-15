@@ -98,6 +98,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2015-09 | `license-review` | **観測（Berkus 氏の 1 通・既にそうなら条は要らず、そうでないなら条は悪い）** | `2015-09-license-review-oset-ns-berkus-not-needed-observed.txt` |
 | 2015-09 | `license-review` | **観測（Fontana 氏の 1 通・OSD に合っても OSI が承認するとは考えられないライセンスがある）** | `2015-09-license-review-oset-ns-fontana-inconceivable-observed.txt` |
 | 2002-08 | `license-discuss` | **観測（"Legal soundness comes to open source distribution" から 4 通・契約でないライセンスと保証の否認、AFL の承認）** | `2002-08-license-discuss-legal-soundness-observed.txt` |
+| 2002-08 | `license-discuss` | **観測（"why does allowing click-through licenses …" から 1 通・Behlendorf 氏 2002-08-06）** | `2002-08-license-discuss-click-through-behlendorf-ignore-observed.txt` |
 | 2014-04 | `license-discuss` | **観測（"why standard licenses" の FAQ の下書きから 4 通・承認は受け入れの床か信頼か）** | `2014-04-license-discuss-why-standard-licenses-observed.txt` |
 | 2015-05・08 | `license-discuss` | **観測（Apache の第三者ライセンス方針の 2 件名から 7 通・下流の一覧は各組織が決める、opensource.org からの返信）** | `2015-05-and-08-license-discuss-apache-third-party-policy-observed.txt` |
 | 2007-04 | `license-discuss` | **観測（"License Proliferation Dissatisfaction" から 5 通・分類の採択、理事会が何を却下するか、承認を閉じる案）** | `2007-04-license-discuss-license-proliferation-dissatisfaction-observed.txt` |
@@ -232,6 +233,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
 | 2012〜2020 | `license-review` | **観測（特許を扱う新しい permissive の必要性と、増殖の分類の現状・4 通）** | `2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt` |
 | 2002-11〜12 | `license-discuss` | **観測（寄与者の特許の許諾が派生物まで届くか・3 通）** | `2002-11-to-12-license-discuss-mpl-patent-grants-on-derivatives-observed.txt` |
+| 2003-01 | `license-discuss` | **観測（"\"Derivative Work\" for Software Defined" から 1 通・Rosen 氏 2003-01-14）** | `2003-01-license-discuss-derivative-work-rosen-interpretive-observed.txt` |
+| 2002-11 | `license-discuss` | **観測（"Approval Requested for AFL 1.2 and OSL 1.1" から 1 通・Rosen 氏 2002-11-06）** | `2002-11-license-discuss-afl-osl-rosen-real-reader-observed.txt` |
 | 2002-11 | `license-discuss` | **観測（"Approval Requested for AFL 1.2 and OSL 1.1" から 1 通・Rosen 氏 2002-11-06）** | `2002-11-license-discuss-afl-osl-rosen-country-neutral-observed.txt` |
 | 2002-11 | `license-discuss` | **観測（"Approval Requested for AFL 1.2 and OSL 1.1" から 1 通・Rosen 氏 2002-11-06）** | `2002-11-license-discuss-afl-osl-rosen-no-preamble-observed.txt` |
 | 2002-11 | `license-discuss` | **観測（"time frame between request for approval …" から 1 通・Nelson 氏 2002-11-20）** | `2002-11-license-discuss-time-frame-nelson-pre-vet-observed.txt` |
@@ -371,9 +374,11 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-09-22 | （リスト外）| **ACD-1.2 草案への外部レビュー（OSI 承認準備）→ 受領** | オーナー経由。**渡されたレビュー対象が現行 `ACD-1.2-DRAFT.txt` と sha256 一致**（`1356b2b0…`）—— **この評は現行の byte に当たっている**（09-20 の 3 件は PDF 抽出で、`against.md` #167 の破損ヘッダを含む版を読んでいた）。**確定した実欠陥 1 件**: 冒頭が「1.1 と同一」と述べたまま下に 9 件の変更が並んでいた（`against.md` #207・**4 日間偽で、09-20 の 3 件は報告していない**）。**5 条の指摘のうち §6.2 / §6.3 は、勧める分離が既に本文にある** |
 | 2001-11 | `license-discuss`（観測）| **Intel's proposed BSD + Patent License → 観測保存（1of4 部）** | **特許許諾を GPL の OS に条件づけた 2001 年版が OSD 3 / 6 / 8 で争われ、承認されなかった。** 2016 年の無条件版は承認されている（`2016-01-...` を参照）。**ACD §8.2 が無条件・終了不能である理由に当たる。** |
 | 2002-01 | `license-discuss` | **観測（"Advertising Clauses in Licenses" から 1 通・Perens 氏 2002-01-20）** | `2002-01-license-discuss-advertising-perens-run-observed.txt` |
+| 2002-01 | `license-discuss` | **観測（"Advertising Clauses in Licenses" から 1 通・Rosen 氏 2002-01-20）** | `2002-01-license-discuss-advertising-rosen-praise-observed.txt` |
 | 2002-01 | `license-discuss` | **観測（"NCSA Open Source License" から 1 通・Rosen 氏 2002-01-20）** | `2002-01-license-discuss-ncsa-rosen-no-opinion-observed.txt` |
 | 2002-02 | `license-discuss` | **観測（"Advertising Clauses in Licenses" から 1 通・Nelson 氏 2002-02-13）** | `2002-02-license-discuss-advertising-nelson-use-observed.txt` |
 | 2002-03 | `license-discuss` | **観測（"Static v. Dynamic Linking -- redux" から 1 通・Nelson 氏 2002-03-16）** | `2002-03-license-discuss-static-dynamic-nelson-interpret-observed.txt` |
+| 2002-03 | `license-discuss` | **観測（"OSD modification regarding what license can require of user" から 1 通・Perens 氏 2002-03-13）** | `2002-03-license-discuss-osd-modification-perens-not-no-use-observed.txt` |
 | 2002-03 | `license-discuss` | **観測（"OSD modification regarding what license can require of user" から 1 通・Nelson 氏 2002-03-16）** | `2002-03-license-discuss-osd-modification-nelson-use-restricted-observed.txt` |
 | 2001-11 | `license-discuss`（観測）| **Intel's proposed BSD + Patent License → 観測保存（2of4 部）** | **特許許諾を GPL の OS に条件づけた 2001 年版が OSD 3 / 6 / 8 で争われ、承認されなかった。** 2016 年の無条件版は承認されている（`2016-01-...` を参照）。**ACD §8.2 が無条件・終了不能である理由に当たる。** |
 | 2001-11 | `license-discuss`（観測）| **Intel's proposed BSD + Patent License → 観測保存（3of4 部）** | **特許許諾を GPL の OS に条件づけた 2001 年版が OSD 3 / 6 / 8 で争われ、承認されなかった。** 2016 年の無条件版は承認されている（`2016-01-...` を参照）。**ACD §8.2 が無条件・終了不能である理由に当たる。** |

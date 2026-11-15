@@ -25,6 +25,8 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 
 **この節が establish しないこと。** 2002 年の米国で、ライセンスの外の解説が実際に解釈に使われた判決を、この会話は挙げていない。ACD のドシエが解釈に使われた事例は無い（ACD を争った訴訟は無い）。
 
+**2026-11-16 の当て直し（全文で読み直した）。** 最初の読みは決める側の通を 220 語で切っていた（30 と 2f が見つけた穴の一般形・§1.456 の冒頭）。全文で読み直すと、逆側に頼った §15.1 そのものに当たる問いが 2003 年に在った —— 同じ Rosen 氏が、契約でないと名乗る著作権の許諾の解釈の文が受け手を縛るかを問うている（§1.456）。
+
 **反映**: against #124（逆側の補強 —— 外の説明は直す力を約束されず、しかも読まれうる・30 へ）/ B13（ドシエの不利な読みが意図の証拠として働く向き・`QUESTIONS-FOR-COUNSEL.md` に問いとして足す候補・30 へ）。本文は変えない（1.4 草案の §15.1・§15.6 が既にその向きを扱う）。
 
 ## 1.451 「コピーを持っているなら、それで何をしてもよい」と OSD は言うべきだった —— 使用に条件を付けるライセンスを、理事は意図して承認したことが無いと書いた（"Advertising Clauses in Licenses"・2002-01〜02、"NCSA Open Source License"・2002-01）（2026-11-15）
@@ -42,6 +44,14 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 **逆側。** 同じ会話で Nelson 氏は *"We've never intentionally approved use-restricted licenses before."* と書いたが（"OSD modification regarding what license can require of user"・2002-03-16）、それは条件を持つライセンスの話で、条件を持たないライセンスが承認に有利だとは言っていない。条件が無いことは OSD の下限を越えるだけで、B10（既存の許容的なライセンスで足りるのでは、という問い）には答えない —— MIT や 0BSD も使用に条件を付けない。また Rosen 氏の文は 2002 年の理事会の運用で、2026 年の Licensing Committee が条項の有効性を論じる例（`against.md` #124 など）とは時代が違う。
 
 **この節が establish しないこと。** Perens 氏が提案した OSD の追加の文が採られたかは、この会話の範囲では確かめていない。
+
+**2026-11-16 の当て直し（全文で読み直した）。** 最初の読みは決める側の通を 220 語で切り、長い会話の前半を見ていなかった。全文で読むと、この節の有利な読みには、同じ会話の中に逆側が 2 つ在った。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"It is very tempting to ask for the OSD to say "no requirements connected with use, whatsoever". But I don't believe that's what we should do."* | Bruce Perens 氏 2002-03-13（OSD の改定を任された最初の通・`rounds/2002-03-license-discuss-osd-modification-perens-not-no-use-observed.txt`） | **逆側（B10）。** 同じ OSD の起草者は、使用への要件を一切禁じることには反対した（GPL の将来の版や、免責の補償を求める条を認めるため）。この節の 1 行目「ライセンスを読まずに使える」は目標であって、「使用に要件を付けないこと」を OSD の原則にせよという主張ではない |
+| *"The individuals and communities who create free and open source software deserve to receive credit for their contributions."* / *"All-in-all, I praise the advertising clause and encourage it to be used."* | Lawrence Rosen 氏 2002-01-20（同じ会話の最初の通・`rounds/2002-01-license-discuss-advertising-rosen-praise-observed.txt`） | **不利な面（`against.md` #277 の先例）。** 当時の OSI の法律顧問は、帰属表示を求める条を称えた。ACD の §10.2 は帰属表示を求めない。「条件が無いこと」は、決める側にとって無条件に良いことではなかった |
+| *"Right now, people can by and large ignore open source licenses *unless* they intend to modify *and* redistribute. That's an awfully nice aspect that would be a shame to lose."* | Brian Behlendorf 氏 2002-08-06（当時の理事・`rounds/2002-08-license-discuss-click-through-behlendorf-ignore-observed.txt`） | **有利な面（B10）。** 利用者がライセンスを気にせずに使えることを、理事が手放したくない良さとして書いた。ACD は改変して再配布する者にも何も求めないので、この良さをさらに広げる |
 
 **反映**: B10（有利な面 —— 決める側が 2002 年に「使用に条件を付けない」を OSD の目標と原則として述べた・逆側は MIT と 0BSD も同じ・30 へ）/ B1（Rosen 氏 2002 —— 承認は条項の有効性の意見ではない・有利と不利の両面・30 へ）/ 入口（「条件を一切課さない」の説明に OSD の起草者の目標を引く候補・50 へ）。本文は変えない。
 
@@ -116,3 +126,21 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 **この節が establish しないこと。** AFL 1.2 と OSL 1.1 がこの会話の後に承認されたかは、この会話の範囲では確かめていない（§1.240 は OSL と AFL の複数の版が承認されたと Rosen 氏 2013 が書いたことを記録している）。
 
 **反映**: B13（承認されたライセンスの起草者が、要らないと思う条を念のため明文で足した —— §6.5 の明文化の先例・30 へ）/ against #124（同じ起草者が、前文で自分の言葉を解釈することを避けた —— §1.450 と同じ根・30 へ）/ 1c（§15.3 の「定めない」と OSL の「国に中立」の違いを、逐条の §15.3 の逆側に足す候補）。本文は変えない。
+
+## 1.456 ライセンスの本当の読み手は法律家だ、だから著作権法の語を使う —— そして、契約でないと名乗る著作権の許諾の解釈の文が受け手を縛れるか、と同じ起草者が問うた（2002-11・2003-01）（2026-11-16）
+
+9b の帯の 31 本を、決める側の通を 170〜220 語で切って読んでいたことが分かった（30 の確認の依頼・2026-11-16）。切れていた決める側の通と最初の通は 39 通、出力の末尾しか見ていなかった長い会話が 5 本あった。全文で読み直し、§1.450・§1.451 に当て直しの段を足し、新しい論点をこの節に置いた。2 通を置いた（`rounds/2002-11-license-discuss-afl-osl-rosen-real-reader-observed.txt`・`rounds/2003-01-license-discuss-derivative-work-rosen-interpretive-observed.txt`）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"But the real reader of an open source license is another lawyer who is going to advise his client what that word means."* / *"I'm using language from the Copyright Act on purpose."* | Lawrence Rosen 氏 2002-11-06（OSL 1.1 と AFL 1.2 の承認を求めた会話・同じ通の追伸で *"The license has been submitted to several companies' attorneys for review"* と書いた） | **不利な面（B1・B13）。** 承認された OSL の起草者は、読み手を法律家と置き、法令の語を意図して使い、複数の企業の弁護士の審査も経た。ACD は "Covered Rights" などの自前の定義語で書かれ、弁護士の審査を経ていない。**逆側**: 同じ起草者は「承認は法的な祝福ではない」とも書いた（§1.454）—— 法律家の起草は承認の要件ではない |
+| *"But when a license purports NOT to be a contract and intends to be interpreted in the same way worldwide under copyright law alone, then I don't understand how you can go beyond what that law provides."* / *"How can a licensee be bound to interpretive language in a *mere* copyright license?"* | Lawrence Rosen 氏 2003-01-14（GPL の "work based on the Program" の読みをめぐる会話） | **不利な面（§1.450 の逆側への問い・B1）。** §1.450 は、ドシエの不利な読みが意図の証拠として持ち出されても、1.4 草案の §15.1（受け手に多く与える読みが勝つ）と §15.6 がその向きを倒す、と書いた。Rosen 氏の問いは、その種の解釈の文が契約でない許諾の中で効くかに向いている。**逆側**: Rosen 氏の問いは *受け手を* 解釈の文で縛ることについてで、ACD の §15.1 は Dedicator の側を縛る向き（受け手に多く与える）である。許諾者が自分に不利な読みを自分で約束する形は、受け手に義務を負わせる形とは違う。どちらが効くかは法の問いで、ここでは決まらない（B1） |
+
+**読み。** 2002〜2003 年の OSI の法律顧問は、ライセンスを法律家に読まれる文書として書き、契約でない許諾の解釈の文の効きを疑った。ACD は自前の定義語で書かれ、§15 の解釈の規則に頼る部分がある。どちらも B1 の「法律家の読み」の問いに戻る。
+
+**逆側。** 同じ起草者は、法律家の起草が承認の要件ではないこと（§1.454）と、要らないと思う条を念のため明文で足すこと（§1.455）も書いた。ACD の §15.1 が受け手を縛らず Dedicator を縛る向きであることは、Rosen 氏の問いの的を外れる読みを支える。
+
+**この節が establish しないこと。** Rosen 氏の問いに裁判所がどう答えたかは、この会話からは分からない。ACD の §15.1 が効くかは確かめていない（B1）。
+
+**反映**: B1（承認されたライセンスの起草者は読み手を法律家と置き、企業の弁護士の審査を経た・30 へ）/ B13（自前の定義語と法令の語・1c へ種）/ against #124（§1.450 の逆側が頼る §15.1 に、契約でない許諾の解釈の文の効きという問いが当たる・30 へ）。本文は変えない。
+

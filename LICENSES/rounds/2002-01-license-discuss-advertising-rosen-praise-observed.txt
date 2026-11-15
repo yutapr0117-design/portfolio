@@ -1,0 +1,63 @@
+Source: OSI license-discuss public archive, 2002-January.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 23 in "Advertising Clauses in Licenses" (2002-01-20)
+Senders: Lawrence E. Rosen
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Sun Jan 20 20:07:53 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Sun, 20 Jan 2002 12:07:53 -0800
+Subject: Advertising Clauses in Licenses
+In-Reply-To: <20020120104449.P75009-100000@localhost>
+Message-ID: <00be01c1a1ee$254f7fe0$585004c7@ROSENGARDEN>
+
+The "generally-deprecated advertising clause used by Apache" (a phrase
+used in an earlier email to this list) is, in my opinion, an entirely
+appropriate license provision.  The clause reads:
+
+ 3. The end-user documentation included with the redistribution,
+    if any, must include the following acknowledgment:
+    "This product includes software developed by the
+    Apache Software Foundation (http://www.apache.org/)."
+    Alternately, this acknowledgment may appear in the software itself,
+    if and wherever such third-party acknowledgments normally appear.
+
+The "rationale" accompanying section 4 of the OSD
+(http://www.opensource.org/docs/definition.html) recognizes that
+"encouraging lots of improvement is a good thing, but users have a right
+to know who is responsible for the software they are using. Authors and
+maintainers have reciprocal right to know what they're being asked to
+support and protect their reputations."  How better to achieve those
+objectives than by a simple one-sentence notice that must be included
+with derivative works either in end-user documentation or in the
+software itself?
+
+The FSF website (http://www.fsf.org/philosophy/bsd.html), specifically
+discussing the "obnoxious" BSD advertising clause, argues that
+advertising clauses in licenses potentially lead to long lists of
+acknowledgements in derivative works.  RMS wrote that in 1997 he counted
+75 such sentences that needed to be included in one version of NetBSD.  
+
+I am unmoved by this perceived threat to free or open source software.
+The individuals and communities who create free and open source software
+deserve to receive credit for their contributions.  Is it asking too
+much to require the authors of derivative works to acknowledge the
+contributions through simple notices?
+
+Suppose the list of contributions grows long.  Is it expecting too much
+for the authors of derivative works to include a text file listing those
+contributions along with the software?
+
+And finally, although it does impose a burden on the authors of
+derivative works to take the time to identify the contributors of
+software they are using, that task is *essential* to avoid copyright
+infringement or breach of contract.  Those notices required by the
+advertising clauses should help make this task much easier.  
+
+All-in-all, I praise the advertising clause and encourage it to be used.
+
+/Larry Rosen
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

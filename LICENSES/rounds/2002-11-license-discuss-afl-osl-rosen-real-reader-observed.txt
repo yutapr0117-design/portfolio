@@ -1,0 +1,89 @@
+Source: OSI license-discuss public archive, 2002-November.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 27 in "Approval Requested for AFL 1.2 and OSL 1.1" (2002-11-05)
+Senders: Lawrence E. Rosen
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Wed Nov  6 17:11:35 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Wed, 6 Nov 2002 09:11:35 -0800
+Subject: Approval Requested for AFL 1.2 and OSL 1.1
+In-Reply-To: <200211061556.gA6FuHcN018768@bean.epix.net>
+Message-ID: <000001c285b7$9091d160$927ba8c0@ROSENGARDEN>
+
+Forrest,
+
+You raise a good and important issue.  There is a reason why I use legal
+terms of art in my licenses, but I owe you an explanation of that.
+
+As a lawyer drafting a license that at least purports to represent the
+concensus views of the open source community, I clearly have to get
+buy-in from my own "clients" to what I'm doing.  (Please: I mean
+"client" in the colloquial sense.  The only formal client I represent
+here is Open Source Initiative.)  Communicating in my clients' language
+is important.  
+
+But at the same time I must write for enforceability.  I must do my best
+to make sure that other attorneys and the courts will clearly understand
+what I mean by every word I use.  In that, I am speaking to a non-geek
+audience.  That legal audience is trained in legal terminology that I
+must use precisely.
+
+When I use language copied from a statute, I am not suggesting that it
+is the most easily understood expression of what we in the geek
+community intend.  The word "prepare," for example, doesn't mean
+precisely the same thing as the word "create," and perhaps geeks think
+it makes more sense to say "create."  But the real reader of an open
+source license is another lawyer who is going to advise his client what
+that word means.  If I use the word "prepare," just as the Congress did
+when it wrote the Copyright Act, and just as the federal courts do when
+they decide copyright cases, other lawyers will know exactly what I
+mean.  They will know that they can turn to the statutory and case law
+in the Licensor's jurisdiction to know what the OSL means.  And if there
+is no legal history available to assist in interpretation of the OSL,
+we're at least no worse off than we are with the GPL, which is to be
+strictly interpreted under the meanings of the Copyright Act.  
+
+I'm using language from the Copyright Act on purpose.
+
+That isn't always true for open source licenses and that concerns me.
+Some licenses are downright ambiguous and imprecise.  I'm trying not to
+be.
+
+I will tell you also, although this is not intended as legal advice
+because you are not my client, that I would advise any client who was
+concerned that he was "creating" rather than "preparing," that he not
+worry about the distinction.  In that respect, the OSL will almost
+certainly be interpreted by the courts the way my geek friend wants it
+to be.  
+
+In any event, that's why I did what I did, and I'm not changing the word
+"prepare" just 'cause someone doesn't like it.
+
+/Larry
+
+P.S. Not to say that all words in the OSL are precise.  Several people
+have already suggested subtle word changes (and deletions) from earlier
+versions of the license that really did improve the license enormously.
+I value suggestions, but I don't always accept them. /LR
+
+> -----------
+> BTW, request for approval after very recent changes is a poor 
+> idea from a "release engineering" perspective.  What's the rush?
+
+I feel a slight rush.  We've been talking about OSL 1.1 on
+license-discuss for over a month now and I've simply been incorporating
+good suggestions made by lots of people.  The license has been submitted
+to several companies' attorneys for review and we've considered (and in
+one important situation accepted) one company's suggestions for changes.
+The OSI board of directors has spent many hours discussing its
+provisions.  Nobody has even suggested that the license isn't OSD
+compatible.  It's enough better than the currently-approved version that
+I'd like to discourage people from using the old version.  So why not
+get on with it?
+
+/Larry
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
