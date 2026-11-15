@@ -217,6 +217,9 @@ the 1.0 text.
 
 ---
 
+
+**2026-11-15 に足した —— 名前が 1 つの本文を指すことを、決める側が良いこととして求めた記録。** Bruce Perens 氏 2010-11（`license-review`・MPL 2.0 の審査）*"I submit that Mozilla would be doing the community a service if they were to make their license invariant."*（`review-readings-2.md` §1.235・portfolio-2f）。ACD の §16.4（1.0 でも §16.4）は、名前と識別子が 1 つの本文を指し続けるように、改変した本文をその名の下で配ることを禁じる —— Perens 氏の求めた不変の形である。**逆側**: ACD は 1.0 から 1.3 まで 4 つの本文を確定し、1.4 を作っている（`against.md` #320）。1 つの名前の下の版の数そのものが、不変を求める読み手には別の問いになりうる。
+
 ## B8 —— §12 人格権。**同じ条項が「gap」と「mission creep」の両方で名指しされている**
 
 **この項目が難しいのは、賛否が割れているからではなく、賛否が同じ条項の別の面を見ているからである。**
