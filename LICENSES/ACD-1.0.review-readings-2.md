@@ -262,3 +262,18 @@ portfolio-1c の T69（1.4 草案の §2.6 に、除外する素材を示す形�
 **逆側。** 受諾を要しない設計（§2.3）は利用者に有利だが、貢献の条項の執行の根拠を一つ減らす。提出を同意の表示と読むのは Smith 氏の一通で、どの法域で通るかは確かめていない。Berkus 氏の例（文書の文法の直し、翻訳、デザイン、依存の版の更新）のうち、Chestek 氏は依存の更新を著作物でないと退け、文書の直しは派生物だと答えたが、ライセンスを受諾せずに貢献する人がいることは否定しなかった。§2.6 の「受諾が無くても提出で結びつく」は、この隙間を埋める向きだが、埋まるかは法律家の問いである（`QUESTIONS-FOR-COUNSEL.md` の問 4）。
 
 **この節が establish しないこと。** 提出が同意の表示になるかの法的な評価はしていない。Chestek 氏と Berkus 氏の 2025-12-09 の往復（独占的なライセンスで手にした版から貢献する人）は、帰結が会話の中で定まっていないので、読みに使っていない。
+
+## 1.233 委員長は「license-review は本物のライセンスに限る、思考実験は license-discuss で」と書いた（2020）—— 5 年前の委員長は「思考実験のライセンスも承認した」と書いている。ACD は適用された本文だが、適用先は自らを実験と呼ぶ（2026-11-15）
+
+"What should fit in a FOSS license?"（`license-discuss` 2020-03・19 通）を通読し、1 通を置いた（`rounds/2020-03-license-discuss-what-fits-chestek-thought-experiments-observed.txt`）。会話の大半は倫理的な条件をライセンスに入れるかの意見で、ACD には当たらない（ACD は条件を置かない）。当たるのは、次の 1 通と、B2 が既に引く 2015 年の委員会報告との対照である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"No, you shouldn't. License-review is a burdensome process for the OSI and the list participants, so it should be limited to real licenses, not thought experiments. License-discuss is for thought experiments."* | Pamela Chestek 氏 2020-03-09（License Review Committee の委員長として署名）。考えを本物のライセンスの文に起こし、皆にとって面白い演習として `license-review` に通してみようか、と書いた Christopher Lemmer Webber 氏への返答（Webber 氏の文は Chestek 氏の通の引用行に在る） | **手順の材料と不利な面の候補。** 委員長は、演習として作った文を `license-review` に出すことを退けた。ACD を `license-review` に出すときに問われうるのは、ACD が「本物のライセンス」か「演習」かである |
+| *"OSI has approved thought-experiment licenses before (e.g. the SimPL) as well as licenses that were not used prior to OSI approval (e.g. the UPL)."* | Richard Fontana 氏 2015-10-13（委員長として、Free Public License の委員会報告・`rounds/2015-10-13-license-review-fontana-committee-report-fpl-observed.txt`・B2 が既に引く） | **有利な面（承認の記録）。** 思考実験として書かれたライセンスも承認されてきた。ただし Chestek 氏の文は承認の可否ではなく、`license-review` に出してよいかについてで、5 年後の委員長の運用である |
+
+**読み。** 2 人の委員長の文は食い違うように見えるが、問いが違う。Fontana 氏は「承認されたライセンスの中に思考実験もあった」と書き、Chestek 氏は「演習として審査に出すな」と書いた。ACD は演習として書いたのではなく、このリポジトリに適用されている（`LICENSE` は 1.3 を適用し、*"The dedication used here was written for this repository and is offered for general use by anyone"* と書く）。審査の対象として「本物のライセンス」である、という主張は立つ。
+
+**逆側。** 適用先のリポジトリは、`LICENSE` 自身が *"This repository is a public experiment in AI orchestration"* と書き、README も「experiment」と書く。ライセンスの本文と提出の文書（`submission.md`・`REVIEWERS.md`）には「experiment」の語は無いが（2026-11-15 に grep で 0 件）、リポジトリを開いた審査者は「実験の一部として作られたライセンス」と読みうる。OSI の moderators が 2026-09-09 にこのリストを *"proof-of-concept"* に使われていると書いたこと（`against.md` #161・B14）と重なると、Chestek 氏の「思考実験」の線に読まれる危険がある。実使用が 1 リポジトリだけであること（B2）も、この読みを強める。
+
+**この節が establish しないこと。** 2026 年の委員会が Chestek 氏の 2020 年の運用を引き継いでいるかは確かめていない。ACD を「本物のライセンス」と示す材料として、適用の事実のほかに何が要るか（他のプロジェクトの使用、B2）は、この節では扱わない。

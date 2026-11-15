@@ -20,6 +20,8 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "Contributor Clauses in Licenses"（`license-discuss` 2025-12・21 通を通読）を `review-readings-2.md` §1.232 へ（貢献の条項を執行できる根拠は受諾だ・Chestek 氏、ACD は受諾を要しないので移らない、提出する行為が同意の表示・Smith 氏は §2.6 に移る）（候補は 820 → 821・読んだので母数に入った）
+
 - 2026-11-15 に SPDX と REUSE を本文で名指すことを全月で当て、3 通を部分的に読んだ（会話としては読んでいない・`review-readings-2.md` §1.231・承認された CAL-1.0 の本文は SPDX の札を名指した、本文の URL は古びた、AFL の告知の形は REUSE と衝突した、OSI は識別子ではなくライセンスを承認する）
 
 - 2026-11-15 に "For Approval: Convertible Free Software License, Version 1.1 (C-FSL v1.1)"（`license-review` 2018-09〜10・決める側の通に絞った）を `review-readings-2.md` §1.230 へ（指摘が改訂版で扱われないので理事会は判断を延ばした・著者に代わって論点を集めた・Phipps 氏、先例の主張は否定的に受け取られる・Smith 氏）（候補は 818 → 819・読んだので母数に入った）

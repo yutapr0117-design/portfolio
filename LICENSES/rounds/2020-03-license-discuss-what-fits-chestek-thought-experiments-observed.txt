@@ -1,0 +1,30 @@
+Source: OSI license-discuss public archive, 2020-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 19 in "What should fit in a FOSS license?" (2020-03-09)
+Senders: Pamela Chestek
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From pamela.chestek at opensource.org  Mon Mar  9 20:59:47 2020
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Mon, 9 Mar 2020 16:59:47 -0400
+Subject: [License-discuss] What should fit in a FOSS license?
+In-Reply-To: <871rq1tj7z.fsf@dustycloud.org>
+References: <871rq1tj7z.fsf@dustycloud.org>
+Message-ID: <66b72afe-f6cc-cb21-fc07-6caffa44660e@opensource.org>
+
+On 3/9/2020 3:35 PM, Christopher Lemmer Webber wrote:
+> I actually considered
+> drafting this into real license text and trying to push it all the way
+> through the license-review process.  I thought that doing so would be an
+> interesting exercise for everyone.  Maybe I still should. 
+
+No, you shouldn't. License-review is a burdensome process for the OSI
+and the list participants, so it should be limited to real licenses, not
+thought experiments. License-discuss is for thought experiments.
+
+Pam
+
+Pamela Chestek
+Chair, License Review Committee
+Open Source Initiative

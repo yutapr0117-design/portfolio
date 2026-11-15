@@ -520,6 +520,7 @@
 2020-02-28	Moderation observations
 2020-02-29	Columbia S&T Law Review analysis of the OSI license-discuss mailing list
 2020-03-04	Questions Regarding Open Source Hardware Licenses
+2020-03-09	What should fit in a FOSS license?
 2020-03-15	How can we as a community help empower authors outside license agreements?
 2020-03-16	Strong non-discriminatory licensing
 2020-03-26	REMOVE AAL from list of approved licenses
