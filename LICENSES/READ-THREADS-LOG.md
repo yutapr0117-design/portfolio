@@ -20,6 +20,28 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "why does allowing click-through licenses \"just feel wrong\" to me?"（`license-discuss` 2002-08・9 通・決める側の通と最初の通を読んだ）は新しい論点なし（クリックスルーの是非・ACD は受諾の行為を求めない）
+
+- 2026-11-15 に "Open Source Click-Wrap Notice"（`license-discuss` 2002-08・35 通・決める側の通と最初の通を読んだ）は新しい論点なし（特許権者は許諾なしの使用を禁じうる・Rosen 氏、ACD の §8 は使用を含む特許の許諾を与えるので当たらない）
+
+- 2026-11-15 に "A practical example of a click-wrap license"（`license-discuss` 2002-08・19 通・決める側の通と最初の通を読んだ）は新しい論点なし（特許の防御的停止と仲裁のためのクリックラップの案・ACD は条件と仲裁を持たない）
+
+- 2026-11-15 に "OSL Version 1.0 dated 8/2/2002"（`license-discuss` 2002-08・9 通・決める側の通と最初の通を読んだ）は新しい論点なし（OSL の外部配備の条と受諾の条・ACD は受諾を求めない）
+
+- 2026-11-15 に "UnitedLinux and \"open source\""（`license-discuss` 2002-06・39 通・決める側の通と最初の通を読んだ）は §1.451 と同じ論点（使用を制限することはできない・Nelson 氏）で新しい論点なし
+
+- 2026-11-15 に "discuss: Bento Poetic License (resubmission)"（`license-discuss` 2002-05〜07・10 通・決める側の通と最初の通を読んだ）は新しい論点なし（標準への準拠を著作権の許諾の条件にするのは OSD に合わない・Behlendorf 氏、ACD は条件を持たない）
+
+- 2026-11-15 に "violation of GPLv2 - remedies?"（`license-discuss` 2002-05・8 通・決める側の通と最初の通を読んだ）は新しい論点なし（GPL は契約でなく著作権の許諾として書かれている・Rosen 氏、一般論での法的助言は避ける）
+
+- 2026-11-15 に "Discuss: Request for OSI approval"（`license-discuss` 2002-04・17 通・決める側の通と最初の通を読んだ）は新しい論点なし（提出の形式を HTML で求める運用・Beatnik のライセンス）
+
+- 2026-11-15 に "\"source code\" button"（`license-discuss` 2002-03・12 通・決める側の通と最初の通を読んだ）は新しい論点なし（GPL の ASP 条項の案への Perens 氏の異論・ACD は複製や公開を求めないので当たらない）
+
+- 2026-11-15 に "Modified Artistic License (eNetwizard Content Application Server)"（`license-discuss` 2002-10・4 通を通読）を `review-readings-6.md` §1.452 へ（Yet Another Not Very Different License・それでも求めるなら承認する・Nelson 氏）
+
+- 2026-11-15 に "Static v. Dynamic Linking -- redux"（`license-discuss` 2002-03・13 通を通読）を `review-readings-6.md` §1.450 へ（ライセンスについて書いた物は前文でも別の解説でも解釈に使われる、だから最良の本文を書いてあとは黙れ・Nelson 氏、against #124 の逆側）（候補は 821 → 824・読んだので母数に入った）
+
 - 2026-11-15 に "request for approval of APPOSL - going by the numbers."（`license-discuss` 2002-03・6 通・決める側の通と最初の通を読んだ）は新しい論点なし（ライセンスの形をした政治的な主張は承認を拒んできた・Nelson 氏）
 
 - 2026-11-15 に "Off topic question re Export controls"（`license-discuss` 2002-03・8 通・決める側の通と最初の通を読んだ）は新しい論点なし（OSI の理事は法的助言をしない、理事に法律家はいない・Rosen 氏 2002、B1 の背景）

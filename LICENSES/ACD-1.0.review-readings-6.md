@@ -44,3 +44,39 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 **この節が establish しないこと。** Perens 氏が提案した OSD の追加の文が採られたかは、この会話の範囲では確かめていない。
 
 **反映**: B10（有利な面 —— 決める側が 2002 年に「使用に条件を付けない」を OSD の目標と原則として述べた・逆側は MIT と 0BSD も同じ・30 へ）/ B1（Rosen 氏 2002 —— 承認は条項の有効性の意見ではない・有利と不利の両面・30 へ）/ 入口（「条件を一切課さない」の説明に OSD の起草者の目標を引く候補・50 へ）。本文は変えない。
+
+## 1.452 議論が止んだことは承認を意味しない、議論の参加者はボランティアだ —— そして冗長なライセンスでも、勧めに反して求めるなら承認する、と同じ理事が書いた（eNetwizard のライセンス・2002-10）（2026-11-15）
+
+"Moral Rights"（`license-discuss` 2002-10・9 通を通読）と "Modified Artistic License (eNetwizard Content Application Server)"（`license-discuss` 2002-10・4 通を通読）は、同じ提出（Robert Samuel White 氏のライセンス）の承認をめぐる会話である。3 通を置いた（`rounds/2002-10-license-discuss-moral-rights-nelson-volunteers-observed.txt`・`rounds/2002-10-license-discuss-enetwizard-nelson-redundant-observed.txt`・`rounds/2002-10-license-discuss-moral-rights-rosen-attorney-observed.txt`）。提出者は `license-discuss` で指摘を受けて直し、指摘が止んだので承認されると考えていた。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Here's the problem: Robert worked with the people on license-discuss to fix the problems in his license. He thought that, when they stopped suggesting changes, that that meant that his license would be approved. The people on license-discuss are volunteers. Their contributions are valuable and valued. Unfortunately, you can't beat up volunteers to get them to contribute more."* | Russell Nelson 氏 2002-10-07（当時の理事） | **ACD の沈黙の読みへの先例（`against.md` #109・#228）。** ACD は 2026-08-26 に `license-discuss` へ出し、アーカイブに返信は無い。我々は「沈黙を支持と読ませない」と決めている（`REVISION-PROTOCOL.md` §3.6 分岐 B）。2002 年の理事が、議論が止んだことを承認と読んだ提出者を、その誤りとして名指した記録で、我々の決めごとと同じ向きにある。**不利な面も同じ文に在る**: 議論の参加者はボランティアで、議論を引き出すことはできない —— 沈黙が続くことは提出者には変えられない |
+| *"Is not having your name on the license sufficient reason for us to approve a redundant license?"* | Russell Nelson 氏 2002-10-07 | **不利な面（B10・B2）。** 既存のライセンスで得られないものが「自分の名前」だけなら、冗長なライセンスだ、という問い。ACD が答えるべき問いは、既存のどのライセンスでも得られないものは何か、である（B10 の表がその答えの試み） |
+| *"How is the world served by Yet Another Not Very Different License? The answer: it isn't."* / *"I'd really, really like you to consider using an existing license. Consider it *hard*. If, in the end, against best advice, you want your own license approved, you'll get it."* | Russell Nelson 氏 2002-10-03 | **両面（B10）。** 不利な面: 冗長さへの強い反対。有利な面: それでも 2002 年の運用では、OSD に合えば、勧めに反しても承認した。**逆側**: 2026 年の委員会は冗長さ（proliferation）を却下の理由に挙げうる（`against.md` に在る 2026-09-24 の議事録の 4 本の却下）。2002 年の「求めるなら承認する」は、今の基準ではない |
+| *"We've all said many times that, if RSW's license is OSD-compatible, it will be approved. I do recommend, however, that RSW seek an attorney's advice. I recommend that to everyone who wants to "roll his own" license."* | Lawrence Rosen 氏 2002-10-06（当時の OSI の法律顧問・事務局長） | **両面（B1）。** 承認の基準は OSD で、弁護士の助言は勧めであって条件ではない（有利）。ただし決める側の法律家は、自作のライセンスを出す全員に弁護士の助言を勧めた（不利 —— ACD は受けていない） |
+
+**読み。** 2002 年の決める側は、(1) 議論が止んだことは承認を意味しないと書き、(2) 冗長なライセンスに強く反対しながら、OSD に合えば承認するのが運用だと書き、(3) 弁護士の助言を条件ではなく勧めとした。(1) は ACD の沈黙の読みと同じ向きで、(3) は B1 の「要件ではない」の読みを支える。
+
+**逆側。** (2) の「求めるなら承認する」は 2002 年の運用で、いまの委員会は冗長さを理由に却下しうる。ACD に有利な先例として引くなら、時代の違いを同じ場所に書く必要がある。(1) は我々の決めごとを支えるが、沈黙を変える手段を与えない —— 議論の参加者に議論を求めることはできない、とまで書かれている。
+
+**この節が establish しないこと。** eNetwizard のライセンスが最終的に承認されたかは、この 2 つの会話の範囲では確かめていない。
+
+**反映**: against #109（沈黙の読み・決める側の 2002 年の先例を足す・30 へ）/ B10（冗長さへの反対と、2002 年の「求めるなら承認する」・時代の違いを逆側に・30 へ）/ B1（弁護士の助言は勧めで条件ではない・同時に全員に勧めた・30 へ）。本文は変えない。
+
+## 1.453 ソフトウェアの人格権をライセンスで守ると「名誉と声望」をめぐる訴訟の箱を開けるのでは、と OSI の法律顧問が問うた —— ACD は放棄し、偽の著者表示だけを外に置く（"Moral Rights"・2002-10）（2026-11-15）
+
+同じ "Moral Rights"（`license-discuss` 2002-10）から、Lawrence Rosen 氏の最初の通を置いた（`rounds/2002-10-license-discuss-moral-rights-rosen-question-observed.txt`）。著者の「芸術的な管理」を求める 2 つのプロジェクトの声を受け、人格権を OSD に合う形でどう扱うかを、提出者と Bruce Perens 氏らに問うた通である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"to prevent the use of his or her name as the author of any work which he or she did not create;"* | Lawrence Rosen 氏 2002-10-03（人格権として守るべきものの 2 つ目に挙げた） | **有利な面（B8）。** ACD の 1.4 草案は §11.3 で、作っていない作品を Dedicator が書いたと偽ることを、この文書が許せる範囲の外に置き（*"it was never the Dedicator's to permit"*）、§12.5 で人格権の放棄と不行使の約束がそこへ及ばないとする。Rosen 氏が挙げた 2 つ目の利益を、ACD は放棄の外に残している |
+| *"Do we really want to go down such a path in open source licenses, opening up a whole pandora's box of litigation about what constitutes "honor or reputation" in the sofware arena?"* | Lawrence Rosen 氏 2002-10-03 | **両面（B8）。** 有利な面: ACD は名誉と声望を守る条を置かず、人格権を放棄し、放棄できない所では行使しないと約束する（1.4 草案の §12.1・§12.2）。Rosen 氏が避けたがった訴訟の箱を、ACD は開けない向きにある。不利な面: B8 は同じ §12 を「gap」とも「mission creep」とも呼ばれた記録を持ち、ライセンスが人格権を扱うこと自体を、2002 年の法律顧問は問いとして立てた —— 扱わない方がよいという読みも、この問いから出る |
+
+**読み。** 2002 年の OSI の法律顧問は、人格権をオープンソースのライセンスで守る道に慎重で、名誉と声望の訴訟を避けたいと書いた。同時に、作っていない作品に名前を使われない利益は、守るべきものとして挙げた。ACD の 1.4 草案は、前者を放棄と不行使の約束で閉じ、後者を §11.3 と §12.5 で放棄の外に残す。2 つの扱いが、Rosen 氏の問いの 2 つの側にそれぞれ当たる。
+
+**逆側。** Rosen 氏の問いは、ライセンスで人格権を *守る* 条（著者の側）についてで、ACD の §12 は人格権を *放棄する* 条（受け手の側）である。向きが逆の条について、同じ慎重さが当たるとは限らない。また Rosen 氏は自分で *"I actually know very little about the law pertaining to moral rights in other countries."* と書いており、放棄できない法域での不行使の約束（§12.2）の効きは、この通からは何も言えない（B1・B8）。
+
+**この節が establish しないこと。** OSI がこの後、人格権について方針を定めたかは、この会話の範囲では確かめていない。
+
+**反映**: B8（2002 年の法律顧問の問い —— 名誉と声望の訴訟を避ける向きと、偽の著者表示を守る向きの両方が ACD の 1.4 草案の §12 と §11.3 に当たる・逆側は「守る条」と「放棄する条」の向きの違い・30 へ）。本文は変えない。

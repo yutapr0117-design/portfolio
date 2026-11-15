@@ -151,13 +151,24 @@
 2002-03-13	OSD modification regarding what license can require of user
 2002-03-14	OSD modification regarding what license can require of
 2002-03-15	Static v. Dynamic Linking -- redux
+2002-03-15	"source code" button
+2002-04-25	Discuss: Request for OSI approval
+2002-05-06	violation of GPLv2 - remedies?
 2002-05-22	Proposed License-RPL
+2002-05-29	discuss: Bento Poetic License (resubmission)
+2002-06-06	UnitedLinux and "open source"
 2002-06-09	Do I know what I'm talking about?
 2002-08-02	Legal soundness comes to open source distribution
+2002-08-02	OSL Version 1.0 dated 8/2/2002
+2002-08-04	A practical example of a click-wrap license
 2002-08-06	A new "use" clause in the OSD
+2002-08-06	Open Source Click-Wrap Notice
+2002-08-06	why does allowing click-through licenses "just feel wrong" to me?
 2002-08-11	click once, accept all licenses.
 2002-09-12	Addendums to the LGPL
 2002-09-30	discuss: OCLC Office of Research Open Source License
+2002-10-03	Moral Rights
+2002-10-03	Modified Artistic License (eNetwizard Content Application Server)
 2002-10-06	Procedure for using an approved license
 2002-10-15	RPL version 1.1
 2002-10-20	Warranty
