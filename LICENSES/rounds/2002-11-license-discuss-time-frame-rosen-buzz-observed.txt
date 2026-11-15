@@ -1,0 +1,66 @@
+Source: OSI license-discuss public archive, 2002-November.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 9 in "time frame between request for approval and acknowledgement of request?" (2002-11-20)
+Senders: Lawrence E. Rosen
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Thu Nov 21 00:11:25 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Wed, 20 Nov 2002 16:11:25 -0800
+Subject: time frame between request for approval and acknowledgement of request?
+In-Reply-To: <OE18VkCUVPw7iBqY3pJ00004a8d@hotmail.com>
+Message-ID: <042e01c290f2$88bf50c0$927ba8c0@ROSENGARDEN>
+
+OSI has a confusing queue.  Plus the board has been involved in
+strategic issues regarding the open source definition, licensing law and
+patents that have interrupted license approval for some licenses.
+Should we go with the "squeeky wheel" process: The license that gets the
+most conversation and comment ("buzz") on license-discuss gets expedited
+attention from the OSI board?  
+/Larry Rosen
+
+> -----Original Message-----
+> From: Bruce Dodson [mailto:bruce_dodson at hotmail.com] 
+> Sent: Wednesday, November 20, 2002 3:12 PM
+> To: license-discuss at opensource.org
+> Cc: license-approval at opensource.org
+> Subject: time frame between request for approval and 
+> acknowledgement of request?
+> 
+> 
+> What should one expect as a reasonable time period between 
+> the sumission of a license-approval request, and some 
+> acknowledgement that the request has been made?
+> 
+> --
+> 
+> Background:
+> 
+> On November 6, I wrote to license-discuss suggesting that the 
+> style of permission notice used in Python 1.5, OGDI, Lucent 
+> AWK, Scintilla, etc. should be considered for approval by the 
+> board.  On November 9, I made a formal request to that effect.
+> 
+> A draft of the template is here:
+>   http://www.geocities.com/brucedodson.rm/hist_pnd.htm
+> 
+> I structured the request as a template so that it would match 
+> the minor variations in wording / punctuation / proper names 
+> in these OSD-compliant licenses.  Otherwise I would have to 
+> make a separate request for each license.  The board is 
+> already overworked, and so am I.
+> 
+> --
+> 
+> I realize the actual time to discuss the license and process 
+> the request will vary from one case to the next, and can be 
+> months.  However, I just want to know that I'm in the queue.
+> 
+> Bruce
+> --
+> license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+> 
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

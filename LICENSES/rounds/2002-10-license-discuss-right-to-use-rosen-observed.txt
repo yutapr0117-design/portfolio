@@ -1,0 +1,35 @@
+Source: OSI license-discuss public archive, 2002-October.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 10 in "Right to Use" (2002-10-29)
+Senders: Lawrence E. Rosen
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Tue Oct 29 17:32:40 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Tue, 29 Oct 2002 09:32:40 -0800
+Subject: Right to Use
+Message-ID: <016001c27f71$2f7f0240$927ba8c0@ROSENGARDEN>
+
+I have added the following provision to the OSL version 1.1.
+
+   15) Right to Use. You may use the Original Work in all ways
+   not otherwise restricted or conditioned by this License or
+   by law, and Licensor promises not to interfere with or be
+   responsible for such uses by You. 
+
+I don't actually believe that this provision is legally necessary in
+many jurisdictions but, just in case, I wanted to express the
+understanding of the open source community about the *use* of software.
+This will become the "law of the contract" in licensor jurisdictions
+where the parties can agree to almost any damn fool thing they want to
+and will be bound to it.
+
+The new provision is in www.rosenlaw.com/osl1.1.html, a DRAFT license.
+
+Any suggestions?
+
+/Larry
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
