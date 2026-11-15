@@ -49,6 +49,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | **受け取った議論の原文**（無改変で置く場所。**2026-09-28 訂正**: 旧文は「いまは空」だった —— 実際は 2026-08-26 の送信文以来ファイルが在り、在庫の申告は `rounds/README.md` が持ち Check 465 が実ファイルと照合する） | [`rounds/`](rounds/README.md) |
 | **疑問から引く索引（審査者向け・英語）** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) |
 | **不利な事実の網羅（先に読ませる用・英語）** | [`ACD-1.0.against.md`](ACD-1.0.against.md) |
+| **不利な事実の網羅の続き（#223 から・新しい行はここの末尾へ・英語）** | [`ACD-1.0.against-2.md`](ACD-1.0.against-2.md) —— 2026-11-15 にバイトの予算（Check 495）で分けた。番号・状態の記法・総括は 1 冊目と共通 |
 | **license-review へ出す日の材料（要件ごとの事実と根拠・文面ではない）** | [`SUBMISSION-MATERIALS.md`](SUBMISSION-MATERIALS.md) —— オーナーが自分の言葉で書くための材料。出す版（1.4 以降）向け |
 | **自分の著作物に適用する前に読むもの（英語）** | [`ADOPTING.md`](ADOPTING.md) —— 取り消せないこと、分かっていないこと、別のライセンスの方が良い場合、適用の手順 |
 | **弁護士に何を尋ねるか（英語）** | [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) —— 法的レビューが無い（B1）。弁護士の読みが本文を最も変える 9 問を、帰結の大きい順に |

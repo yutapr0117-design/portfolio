@@ -15,7 +15,7 @@ against.md はバイトの予算 (Check 495) に近づいており、BLOCKING �
 import re
 from pathlib import Path
 
-AGAINST_FILES = ("ACD-1.0.against.md",)
+AGAINST_FILES = ("ACD-1.0.against.md", "ACD-1.0.against-2.md")
 
 
 def against_paths(licenses_dir: Path) -> list[Path]:
