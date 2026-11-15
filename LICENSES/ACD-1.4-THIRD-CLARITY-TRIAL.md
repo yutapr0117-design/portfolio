@@ -104,3 +104,13 @@ Check 468y は 2 冊目とこの file の両方の「変えない」「退けた
 **結果**: 削る候補は 0。「要らない」に分けられる条は無く、どの条も参照先か、法域で違う点か、反対解釈を閉じる働きを持っていた。「害」に分けられる条（特権を与え、判定を課す）も無い。
 
 **⚠ 逆側**: 型を借りただけで、審査者がこれらの条を論じた記録は無い。§11.3 第 1 文は、§5.1 の語の参照先という理由で残したので、§5.1 の除外の語を *"a representation Section 11.3 describes"* に替えれば外せる —— ただしその形は T21（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.7）で *false statement* へ広げた経緯を戻すことになる。
+
+### 15.7 T71: §8.3 の理由の文と規則を外す（−40 語・採った・2026-11-15）
+
+**見つけた経緯（portfolio-30 の再提起・errata E85）**: §8.3 の第 3 文 *"A dedication that gives away copyright while withholding patent rights leaves the recipient exposed, because software cannot be practised without practising whatever patent claims it embodies."* は *software* を名指す。§1.3 の Work はデータ・文書・視聴覚資料を含むので、目的で読む人は第 4 文 *"Any reading of this Dedication that would produce that result is to be rejected."* をソフトウェアの Work に限りうる —— E78（§8.4 の理由の文が許諾を狭く読ませた・T54）と同じ型。1 冊目の試作の CE8 が既にこの残余を記録していた（`ACD-1.4-CLARITY-TRIAL.md`）。そこで試した「結果を書き込む形」（*"Any reading … that gives away a Covered Right while withholding a patent right is to be rejected"*）は、§8.4 が意図して許諾しない請求項まで退けるべき読みにして不成立だった。
+
+**Before**: *"Sections 8.1 and 8.4 reach a patent claim only as to the acts they describe. Nothing in this Dedication reserves, preserves, or leaves unaffected any patent claim they reach. A dedication that gives away copyright … whatever patent claims it embodies. Any reading of this Dedication that would produce that result is to be rejected."* **After**: 最初の 2 文だけ。
+
+**最初の形と反例**: 最初は第 2 文に *"and any reading to the contrary is to be rejected"* を結ぶ形（−30 語）とし、規則の対象を *"any patent claim they reach"* に結んで CE8 の失敗を避けた。portfolio-50 の反例: その規則は作用の文に「反対の読みは退ける」を付けるだけの同語反復で、何も足さない。曖昧なときの向き（受け手が無防備になる読みを退ける）は §15.1（*"the reading that grants more to You prevails"*）が持つ。portfolio-30 は *"the contrary"* の先は 1 つに決まると確かめた。
+
+**⚠ 逆側**: (1) 旧い第 4 文は、届く範囲（*reach*）を狭く読む読みも「受け手を晒す結果」として退けていた。外した後、範囲の争いは §15.1 だけに頼り、§15.1 は *in respect of the Work* に限られるので、§8.4 のモデルと出力の請求項が「Work について」かを争う余地がある（30）—— ただし旧文の規則も *software* の理由に結んでいて、モデルと出力を名指していなかった（50）。(2) §8 全体の目的（著作権を渡して特許を留保すると受け手が晒される）を審査者に一目で示す説明力は、本文の作用の条からは消える。前文（*"… both leave the recipient of software exposed"*）に残る（30）。(3) 外向きの文書 5 つが 1.0 の文として引くので、切り替えの日の表に行を置いた。(4) −40 語で、GPL-3.0 より題名から短い余裕は 31 語から 71 語になる。B3 への作用は結果で、理由ではない。
