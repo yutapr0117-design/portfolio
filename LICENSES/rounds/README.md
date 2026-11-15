@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-15 時点・439 ファイル）
+## いまの状態（2026-11-15 時点・441 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -157,6 +157,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2019-05 | `license-discuss` | **観測（"Government licenses" から 4 通・著作権の無い部分には既存のライセンスが及ばないだけで足りる、パブリックドメインを契約で縛るのは奇妙）** | `2019-05-license-discuss-government-works-uncopyrightable-parts-observed.txt` |
 | 2014-09 | `license-review` | **観測（"Sublicensing" から 4 通・再許諾で約束は落ちる、FOSS は直接の許諾、再許諾を許す理由を示せ）** | `2014-09-license-review-sublicensing-privity-observed.txt` |
 | 2013-08 | `license-discuss` | **観測（"License incompatibility" から 2 通・法律上の語を定義するのはライセンスの役目ではない、新しいライセンスは最後の手段）** | `2013-08-license-discuss-incompatibility-statutory-terms-last-resort-observed.txt` |
+| 2016-06 | `license-review` | **観測（Moritz30 の提出から 6 通・読めなければ適合しないと推定する、法律家への相談を要件にしない、長い語は効くために要る）** | `2016-06-license-review-moritz30-unclear-means-nonconformant-observed.txt` |
+| 2025-02 | `license-review` | **観測（ModelGo への Berkus 氏の所見 1 通・機械学習の条項に AI を作る実務家の読みを、英語に母語話者の編集者を）** | `2025-02-license-review-modelgo-berkus-practitioner-review-observed.txt` |
 | 2020-02 | `license-discuss` | **観測（Persona non Grata の前文の会話から 2 通・採用の見込みは承認の基準ではなかった、拘束しない語は要らない）** | `2020-02-license-discuss-adoption-not-a-criterion-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |

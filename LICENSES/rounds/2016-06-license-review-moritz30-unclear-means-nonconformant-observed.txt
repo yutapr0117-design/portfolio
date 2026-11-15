@@ -1,0 +1,242 @@
+Source: OSI license-review public archive, 2016-June.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 6 of 21 in "License submission for approval for Moritz30-Projects Open Source License Version 1" (begun 2016-06-06)
+Senders: Richard Fontana, Carlo Piana, Josh Berkus
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From fontana at opensource.org  Tue Jun  7 15:55:29 2016
+From: fontana at opensource.org (Richard Fontana)
+Date: Tue, 7 Jun 2016 11:55:29 -0400
+Subject: [License-review] License submission for approval for
+ Moritz30-Projects Open Source License Version 1
+In-Reply-To: <5756B2D7.60706@piana.eu>
+References: <15526b0c9c9.e1aa440734147.1179489258391652182@moritz30.de>
+ <5756B2D7.60706@piana.eu>
+Message-ID: <e463dfc2-6fab-0392-274d-a69f4eb51ae5@opensource.org>
+
+On 06/07/2016 07:41 AM, Carlo Piana wrote:
+> Sorry for the rude answer, but there is no other license like it because
+> it's very badly written (including some English mistakes).
+
+It is certainly very difficult to understand because of what seems to be
+a significant amount of non-idiomatic English.
+
+> Just read section 5:
+> 
+>> If the license get?s removed by the original software owner nothing will change for end users that already use the software. Redistributors will have to remove their redistributions if nothing other is stated by the new license after request. For new end users this license won?t be valid and they have to accept the new one. All newer versions of this software will be only under their new license. Also end users that started using this software will have to accept the new agreement to use the newer versions. Redistributors mustn?t publish newer versions of this software unless something other is stated by the new license.
+> 
+> This section of the license is totally unacceptable and is liable to
+> jeopardize everything, as the new license is a) compulsory and b)
+> undefined, and therefore the original license is totally revocable.
+> 
+> Make no mistake, this is not at all similar to the "or any later
+> version" in *GPL or the upgrade provision in MPL. In both versions, the
+> upgrade is optional to the downstream developer, not imposed by the
+> upstream one, and the license itself is not revoked.
+> 
+> Also section 11 reads as badgeware.
+> 
+> I suggest outright rejection of this submission.
+
+I believe it would need to be rewritten and resubmitted (though I'd
+encourage Matthias to reconsider whether licenses such as GPLv2 or GPLv3
+would meet his objectives). It is not really possible to assess as-is,
+other than to conservatively assume that it's not OSD-conformant. For
+example I really can't tell whether Carlo's interpretation of section 5
+is correct.
+
+Richard
+
+
+
+
+From carlo at piana.eu  Tue Jun  7 16:16:13 2016
+From: carlo at piana.eu (Carlo Piana)
+Date: Tue, 7 Jun 2016 18:16:13 +0200
+Subject: [License-review] License submission for approval for
+ Moritz30-Projects Open Source License Version 1
+In-Reply-To: <e463dfc2-6fab-0392-274d-a69f4eb51ae5@opensource.org>
+References: <15526b0c9c9.e1aa440734147.1179489258391652182@moritz30.de>
+ <5756B2D7.60706@piana.eu>
+ <e463dfc2-6fab-0392-274d-a69f4eb51ae5@opensource.org>
+Message-ID: <5756F34D.2000609@piana.eu>
+
+On 07/06/2016 17:55, Richard Fontana wrote:
+
+[...]
+> I believe it would need to be rewritten and resubmitted (though I'd
+> encourage Matthias to reconsider whether licenses such as GPLv2 or GPLv3
+> would meet his objectives). It is not really possible to assess as-is,
+> other than to conservatively assume that it's not OSD-conformant. For
+> example I really can't tell whether Carlo's interpretation of section 5
+> is correct.
+>
+> Richard
+
+I can't either, and this is the main problem. ;-)
+
+Perhaps my reading differs hugely from the intention of the writer, but
+this is a public license and its submission to OSI indicates a potential
+widespread adoption, even totally detached from the use made by the
+original author of the license. Therefore it needs to be sufficiently
+clear and suitable to stand-alone interpretation, at the very least,
+otherwise its compliance would be uncertain.
+
+I totally agree with Richard's suggestion.
+
+Carlo
+
+
+From fontana at opensource.org  Tue Jun  7 16:18:30 2016
+From: fontana at opensource.org (Richard Fontana)
+Date: Tue, 7 Jun 2016 12:18:30 -0400
+Subject: [License-review] License submission for approval for
+ Moritz30-Projects Open Source License Version 1
+In-Reply-To: <932621f5-53f9-7913-7032-df65b8fca146@redhat.com>
+References: <15526b0c9c9.e1aa440734147.1179489258391652182@moritz30.de>
+ <5756B2D7.60706@piana.eu>
+ <e463dfc2-6fab-0392-274d-a69f4eb51ae5@opensource.org>
+ <932621f5-53f9-7913-7032-df65b8fca146@redhat.com>
+Message-ID: <d53ef7f7-c165-632a-60de-2ff18821b0de@opensource.org>
+
+On 06/07/2016 12:07 PM, Tom Callaway wrote:
+> Perhaps incoming licenses that wish to be reviewed could also answer the
+> question of whether the license text has been reviewed by a lawyer?
+> While not strictly required (I know of a few people who have never
+> passed the bar but could probably write a OSI compliant license), it
+> would certainly shine light on both the submitter and the license. 
+
+It's a reasonable question to ask of a submitter of a license in the
+course of discussion of the license. I am reluctant to make it a
+required or expected piece of information for a license submission
+though (as it comes close to a requirement that a lawyer have been
+consulted, which is something that has been suggested in the past but
+which I consider a bad idea).
+
+Richard
+
+
+
+From josh at postgresql.org  Tue Jun  7 16:28:42 2016
+From: josh at postgresql.org (Josh berkus)
+Date: Tue, 7 Jun 2016 12:28:42 -0400
+Subject: [License-review] License submission for approval for
+ Moritz30-Projects Open Source License Version 1
+In-Reply-To: <d53ef7f7-c165-632a-60de-2ff18821b0de@opensource.org>
+References: <15526b0c9c9.e1aa440734147.1179489258391652182@moritz30.de>
+ <5756B2D7.60706@piana.eu>
+ <e463dfc2-6fab-0392-274d-a69f4eb51ae5@opensource.org>
+ <932621f5-53f9-7913-7032-df65b8fca146@redhat.com>
+ <d53ef7f7-c165-632a-60de-2ff18821b0de@opensource.org>
+Message-ID: <5756F63A.5020600@postgresql.org>
+
+On 06/07/2016 12:18 PM, Richard Fontana wrote:
+> On 06/07/2016 12:07 PM, Tom Callaway wrote:
+>> Perhaps incoming licenses that wish to be reviewed could also answer the
+>> question of whether the license text has been reviewed by a lawyer?
+>> While not strictly required (I know of a few people who have never
+>> passed the bar but could probably write a OSI compliant license), it
+>> would certainly shine light on both the submitter and the license. 
+> 
+> It's a reasonable question to ask of a submitter of a license in the
+> course of discussion of the license. I am reluctant to make it a
+> required or expected piece of information for a license submission
+> though (as it comes close to a requirement that a lawyer have been
+> consulted, which is something that has been suggested in the past but
+> which I consider a bad idea).
+
+I'd say "lawyer or expert".  The quesiton on our standard form could be
+broader:
+
+Q: What expertise did you make use of when drafting this license?  Did
+you receive advice from an attorney or other licensing expert?
+
+-Josh
+
+
+From josh at postgresql.org  Tue Jun  7 19:07:22 2016
+From: josh at postgresql.org (Josh berkus)
+Date: Tue, 7 Jun 2016 15:07:22 -0400
+Subject: [License-review] License submission for approval for
+ Moritz30-Projects Open Source License Version 1
+In-Reply-To: <5756F63A.5020600@postgresql.org>
+References: <15526b0c9c9.e1aa440734147.1179489258391652182@moritz30.de>
+ <5756B2D7.60706@piana.eu>
+ <e463dfc2-6fab-0392-274d-a69f4eb51ae5@opensource.org>
+ <932621f5-53f9-7913-7032-df65b8fca146@redhat.com>
+ <d53ef7f7-c165-632a-60de-2ff18821b0de@opensource.org>
+ <5756F63A.5020600@postgresql.org>
+Message-ID: <57571B6A.7080909@postgresql.org>
+
+On 06/07/2016 12:28 PM, Josh berkus wrote:
+> On 06/07/2016 12:18 PM, Richard Fontana wrote:
+>> On 06/07/2016 12:07 PM, Tom Callaway wrote:
+>>> Perhaps incoming licenses that wish to be reviewed could also answer the
+>>> question of whether the license text has been reviewed by a lawyer?
+>>> While not strictly required (I know of a few people who have never
+>>> passed the bar but could probably write a OSI compliant license), it
+>>> would certainly shine light on both the submitter and the license. 
+>>
+>> It's a reasonable question to ask of a submitter of a license in the
+>> course of discussion of the license. I am reluctant to make it a
+>> required or expected piece of information for a license submission
+>> though (as it comes close to a requirement that a lawyer have been
+>> consulted, which is something that has been suggested in the past but
+>> which I consider a bad idea).
+> 
+> I'd say "lawyer or expert".  The quesiton on our standard form could be
+> broader:
+> 
+> Q: What expertise did you make use of when drafting this license?  Did
+> you receive advice from an attorney or other licensing expert?
+
+In the best of all possible worlds, OSI would provide license-drafting
+advice.  However, license-review is NOT the place to get such advice; it
+would need to be delivered one-on-one by OSI volunteers.
+
+The obstacles to this are we don't have such volunteers, and are
+unlikely to find them.  Some of us have conflicts of interest (like some
+of the attorneys get paid for this sort of thing), and some of us (like
+me) prefer to reject 98% of proposed licenses.
+
+Also, given advice on license drafting would need to be handled very
+carefully in order to make sure that providing drafting advice wasn't
+seen as pre-approval of the resulting document.
+
+--Josh
+
+
+
+
+From josh at postgresql.org  Wed Jun  8 13:38:27 2016
+From: josh at postgresql.org (Josh berkus)
+Date: Wed, 8 Jun 2016 09:38:27 -0400
+Subject: [License-review] License submission for approval for
+ Moritz30-Projects Open Source License Version 1
+In-Reply-To: <1552e5b42e8.11752b7d740610.6879408444995037063@moritz30.de>
+References: <15526b0c9c9.e1aa440734147.1179489258391652182@moritz30.de>
+ <5756B2D7.60706@piana.eu>
+ <e463dfc2-6fab-0392-274d-a69f4eb51ae5@opensource.org>
+ <1552e5b42e8.11752b7d740610.6879408444995037063@moritz30.de>
+Message-ID: <57581FD3.2070208@postgresql.org>
+
+Matthias,
+
+So, first, you haven't shown that you have licensing needs which are not
+satisfied by existing licenses.  It really seems like what you want is
+the LGPL, or a similar license; why not just use that?
+
+Using an existing license both means that you benefit from the legal
+expertise of many other people, it also makes it easier for developers
+and companies to use your code because they know what to expect from
+that license.  Even assuming that we accepted your license (which is
+unlikely), it would be a barrier to adoption and contributions to your
+software just because it would be strange and unexpected.
+
+Second, you really need the help of a professional to write this; the
+reason why real licenses are "wordy" is that certain language is
+required for the licenses to be effective.  Unfortunately, OSI does not
+currently supply such help.
+
+--Josh Berkus

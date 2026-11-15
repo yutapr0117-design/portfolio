@@ -820,3 +820,41 @@ Project Tick General Public License の `license-review` 側の会話（v1 の�
 **逆側。** 直接の許諾と再許諾を両方持つことの理由を、ACD は書いていない。Rosen 氏の「"I want it" より良い理由を」に、本文もドシエも今は答えられない。語を消すと MIT・Apache-2.0 と並ぶ慣行から外れ、残すなら理由を逐条リファレンスに 1 行書くのが安い。どちらにするかは本文の担当（portfolio-1c）へ渡した。
 
 **この節が establish しないこと。** この会話の提案が何で、どう決着したかは、この節では読んでいない（決める側の通に絞った）。
+
+## 1.209 読めなければ適合しないと推定する、法律家への相談を提出の要件にしない、長い語は効くために要る —— Moritz30（2016）（2026-11-15）
+
+"License submission for approval for Moritz30-Projects Open Source License Version 1"（`license-review` 2016-06・21 通・決める側の通に絞って読んだ・`rounds/2016-06-license-review-moritz30-unclear-means-nonconformant-observed.txt` に 6 通）。census の論点の順位（B1・B2・B3）から読んだ。単独の作者が出した新しいライセンスで、委員会の 3 人がその日のうちに退ける向きで書いた。ACD と同じ「単独の非法律家の提出」の 10 年前の先例である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"It is not really possible to assess as-is, other than to conservatively assume that it's not OSD-conformant."* | Richard Fontana 氏 2016-06-07 | **不利な面（B3・B13）。** 読めないライセンスは適合しないと推定される。2026 年の理事会が Project Tick を *"ambiguities in drafting make it impossible to determine whether or not it complies with the OSD"* で否決した（§1.205）のと同じ基準が、10 年前に既に在った。ACD の長さは、この推定を招く方向に働きうる |
+| *"this is a public license and its submission to OSI indicates a potential widespread adoption, even totally detached from the use made by the original author of the license. Therefore it needs to be sufficiently clear and suitable to stand-alone interpretation"* | Carlo Piana 氏 2016-06-07 | 公開のライセンスは作者の意図から離れて単独で読めなければならない。ACD の理由（§6.5 など）を本文の中に書く作りは、作者の外の読み手に意図を渡す工夫だが、理由の文が増えるほど長さ（B3）が増える |
+| *"I am reluctant to make it a required or expected piece of information for a license submission though (as it comes close to a requirement that a lawyer have been consulted, which is something that has been suggested in the past but which I consider a bad idea)."* | Fontana 氏 2016-06-07 | **有利な面（B1）。** 法律家に相談したかを提出の要件にすることを、当時の委員長に近い立場の人が「悪い考え」とした。2024 年の Chestek 氏の *"not a blocker"* と同じ向きの、より古い文である |
+| *"Q: What expertise did you make use of when drafting this license?  Did you receive advice from an attorney or other licensing expert?"* | Josh Berkus 氏 2016-06-07 | 審査者が問う形は「法律家か」ではなく「どんな専門性を使ったか」である。ACD の答え（AI が起草し、人間が設計し、法律家は読んでいない・`submission.md`）は、この問いにそのまま当てられる |
+| *"some of us (like me) prefer to reject 98% of proposed licenses."*、*"license-review is NOT the place to get such advice"* | Berkus 氏 2016-06-07 | **不利な面（B10）。** 新しいライセンスに対する、少なくとも 1 人の決める側の初期値である（§1.202 の Perens 氏の「毎月の誤解」と同じ向き） |
+| *"you haven't shown that you have licensing needs which are not satisfied by existing licenses."*、*"the reason why real licenses are "wordy" is that certain language is required for the licenses to be effective."* | Berkus 氏 2016-06-08 | 前者は B10 の問い。後者は **B3 の有利な面** で、長いこと自体は欠陥ではなく、効くために要る語があるという見方である。ただし Berkus 氏はそれを「専門家の助けが要る」理由として書いた |
+
+**読み。** 2016 年の 3 人は、単独の作者のライセンスを 3 つの基準で退けた。読めなければ適合しないと推定する（Fontana 氏）、作者から離れて単独で読めること（Piana 氏）、既存のライセンスで足りないことを示すこと（Berkus 氏）である。法律家への相談そのものは要件にしなかった（Fontana 氏）。ACD は 3 つ目を `REVIEWERS.md` の "In one screen" で示し、1 つ目と 2 つ目は本文の明確さの問題として、portfolio-1c の試作と portfolio-50 の整合監査が見ている。
+
+**逆側。** Berkus 氏の「長いのは効くため」は、ACD の 4,896 語を正当化する文として引きたくなるが、同じ通で氏は専門家の起草をその条件にしている。ACD が長さの理由を「効くため」と言えるのは、効くことを法律家が確かめた場合で、ACD はそれを持たない（B1）。また、2016 年の提出は英語の不自然さで読めなかった。ACD の英語は AI が書いたもので、2025 年の Berkus 氏は別の提出に「英語を母語とする編集者に見せよ」と書いている（§1.210）。
+
+**この節が establish しないこと。** この提出の帰結（取り下げか否決か）は、この節では確かめていない。2016 年の Fontana 氏の役職は、この通からは確かめていない（opensource.org のアドレスから書いている）。
+
+## 1.210 機械学習の条項には AI を作る実務家の読みを、英語は母語の編集者に —— ModelGo Attribution-OpenSource への Berkus 氏の所見（2025）（2026-11-15）
+
+"ModelGo Attribution-OpenSource License, Version 2.0"（`license-review` 2025-02）への Josh Berkus 氏の 2025-02-25 の 1 通（`rounds/2025-02-license-review-modelgo-berkus-practitioner-review-observed.txt` に全文）。portfolio-30 が register の照合で見つけ、ドシエに未記録だった（`license-review` 側の ModelGo の会話は、census を作る前からドシエが多く引いていたので候補の母数の外に在る）。ModelGo の審査の帰結は §1.159 が扱う。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"This is non-attorney commentary, as I am not a lawyer"*、*"while I am an AI/ML user I am not an AI/ML system developer, and we probably need some feedback from someone with that expertise."*、*"I'd like someone who works in-depth on building AI systems to comment on the following clauses to see if they are likely to be sufficiently clear and effective"* | Josh Berkus 氏 2025-02-25 | **不利な面（B1 の隣・新しい種類）。** 機械学習を扱う条項について、決める側の 1 人が法律家とは別に「AI を作る実務家」の読みを求めた。ACD の §1.7・§6・§8.4 はまさにその種類の条項である。ドシエの試作（T30〜T33 など）は AI が複数の立場を演じた読みで、人間の実務家の読みではない。**これは法律家のレビューより得やすい**: 機械学習の実務家は法律家より多く、条項が「明確で効くか」を技術の側から読むのに資格は要らない |
+| *"Before these licenses are final, you should have an editor who is a native English speaker review them as there are many typos and grammatical issues."* | Berkus 氏 2025-02-25 | B13。ACD の英語は AI が書いており、母語話者の編集者は読んでいない。誤字や文法の誤りが少ないことは機械で確かめられるが、慣用から外れた言い回しは母語話者でなければ拾いにくい |
+| 2.3.a.i の "all applicable laws" の条を *"wholly unnecessary, and are debatably a minor OSD violation"*、7.1 の準拠法（Singapore）を *"probably a violation of OSD5"* | Berkus 氏 2025-02-25 | **有利な面。** ACD は法令遵守の条を持たず、準拠法を名指さない（1.4 草案の §15.3 *"This Dedication specifies no governing law and no forum."*・1.0 では §15.7。2023 年の理事会の方針と同じ）。出力に「AI 生成を含みうる」の通知を求める 2.4.b を *"a pretty novel notice requirement, with no parallel in accepted non-AI licenses"* と呼んだが、ACD は出力に何も課さない（§6.4） |
+| 2.1.a *"What does it mean for a license to be "non-transferable and sublicensable"?"*、2.5.b は *"make it clear that you can refer to the Licensor's trademark in order to identify the software"* | Berkus 氏 2025-02-25 | ACD の §4.1 と §8.1 は *"sublicensable, and transferable"* で、この矛盾を持たない（§1.208 の再許諾の理由の問いは別に残る）。ACD の §11 は名前を作品の識別に使うことを妨げない |
+
+**読み。** 2025 年の Berkus 氏は、自分が法律家でも AI の開発者でもないと明示した上で、2 種類の外の読み手を求めた。AI を作る実務家と、英語を母語とする編集者である。どちらも法律家のレビュー（B1）より得やすく、ACD の弱点（機械学習の条項の明確さ、AI が書いた英語）に直接当たる。
+
+**逆側。** 実務家や編集者の読みは、法律家のレビューの代わりにならない（Berkus 氏も「これは法律家の所見ではない」と断っている）。また、外の読み手を得る行為は人間が行うもので、AI が依頼の文を書いて送れば B14 に当たる。得られた読みを記録するときも、誰がどの条をどう読んだかを、AI の試作と混ぜずに分けて書く必要がある。
+
+**この節から出た作業。** 「AI を作る実務家に §1.7・§6・§8.4 を読んでもらう」「英語を母語とする編集者に本文を読んでもらう」を、法律家のレビューと別の項目として register に足す（portfolio-30）。どちらも依頼の行為はオーナーのもので、AI は依頼の文を完成品として出さない。
+
+**この節が establish しないこと。** Berkus 氏の求めは ModelGo への 1 通で、委員会の要件ではない。ModelGo がその後どの読み手を得たかは、この節では確かめていない。
