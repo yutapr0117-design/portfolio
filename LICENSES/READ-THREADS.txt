@@ -395,6 +395,7 @@
 2007-06-05	License Committee Report for May 2007
 2007-06-20	when is an open source license open source?
 2007-06-25	For Approval: Common Public Attribution License (CPAL)
+2007-06-28	Politics-Free Licence ;)
 2007-07-07	Do I need to inform my employer before contributing to an Open Source Project?
 2007-07-07	why is taking open-source code closed expensive?
 2007-07-12	searchable list archives?
@@ -836,6 +837,7 @@
 2021-08-26	Zope Public License v2.1 is up!
 2021-11-02	Consumer protection, defective product
 2022-08-02	Should fork a project on github be seen as distribution of origin project?
+2022-08-09	Question about AGPLv3 with a Plugin Exception
 2022-09-19	Does the LinShare "attribution" notice violate OSD?
 2022-12-11	Disclaimer of warranty under German law
 2023-01-26	License Review working group asks for community input on its recommendations

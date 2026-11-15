@@ -99,3 +99,20 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 WTFPL の承認の請求（"WTFPL approval, please?"・2009-02）は、Nelson 氏が承認しない理由（名前を変えないと改変できない）を述べた後、Michlmayr 氏に指摘されて *"Duh. Yes. Indeed."* と認めており、OSD 上の理由は残っていない。Nelson 氏は同じ通で、このライセンスを使うことを勧めないとも書いた（語の品位について）。同じ提出者の SOS の通で Perens 氏は *"Nothing associated with "wtf" is likely to be consdiered serious."* と書いた（2009-03-14）—— **名前は審査者の受け取り方に効く**（B6 の材料。ACD の名前は真面目に読まれる形）。残りは使い方の質問（"How do I choose a licence"・"combining software under different licenses"・"GPL with the Classpath exception"・"GNU GPL vs. source code fees"・"Licensing question"・"ARToolKit"・"question about AGPLv3, OSLv3, the keyword 'communicate'"・"What does "new" mean in Section 1.9 (b) of the MPL v 1.1.?"）、告知（"DISA to open source administrative software"）、雇用主から権利の放棄の書面を取ること（"Freeing my code... need some guidance"・Tiemann 氏 2009-01-15 —— §1.4 の Dedicator が権利を持つことの実務で、`ADOPTING.md` の材料）で、ACD の条に当たる論点は無い。
 
 **反映**: B6（名前の受け取り方）へ（portfolio-30）。入口（`ADOPTING.md` の雇用主の権利の確認・portfolio-50）。残りの会話は論点が無い。
+
+## 1.407 準拠法は書くか何も書かないか、新しいライセンスは混乱を増やす —— Phipps 氏・Smith 氏・DiBona 氏（2007）、プラグインの例外（2022）（2026-11-15）
+
+未読の最後の分。"Politics-Free Licence ;)"（`license-discuss` 2007-06・候補が 821 本から 824 本へ増えたときに入った 2006〜2008 の帯の 1 本）と "Question about AGPLv3 with a Plugin Exception"（`license-discuss` 2022-08・どの帯にも入っていなかった 1 本）。原文は `rounds/2007-06-license-discuss-phipps-choice-of-law-namespace-observed.txt`・`rounds/2007-06-license-discuss-phipps-fixed-law-or-none-observed.txt`・`rounds/2007-06-license-discuss-dibona-every-new-licence-confusion-observed.txt`。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"It seems to me that if you want maximum uptake on an open source license, you'd leave out jurisdiction and venue clauses."*（2007-06-28）| McCoy Smith 氏 | **有利**。§15.3 は *"This Dedication specifies no governing law and no forum."* と、どちらも置かない |
+| 準拠法を *"a "namespace" declaration helping interpretation of the language of the license"* と見て入れる方に共感する（2007-06-28）。翌日 *"Thus, I assert that /either/ there should be a fixed statement of the system of law assumed by the license, or none at all. Encouraging the language of the license to be variably interpreted unsettles lots of people"*（2007-06-29・同じ通は、多くの法律家に磨かれていないライセンスほど想定した法体系を書くのが賢いとも書く）| Simon Phipps 氏 | **両面**。§15.3 第 1 文は Phipps 氏の二択の「何も書かない」側に合う。第 2 文 *"It is intended to operate under the law of each jurisdiction in which the Work is used, according to that law."* は、Phipps 氏が人を不安にするとした「法域ごとに違う読み」を自分から述べる文にも読める。ACD は法律家に磨かれていない（B1）ので、Phipps 氏の基準では「想定した法体系を書く」側が勧められる |
+| *"Every new license osi approves as subscribing to the osd adds to the confusion and difficulty that new developers and companies face when using open source and worse yet means yet another largely incompatible potential pool of code."*（2007-06-28）| Chris DiBona 氏 | **不利（B10・B2）**。§1.402 の Nelson 氏 2007 と同じ向き。ACD は条件が無く、どのライセンスの下のコードとも組めるので「非互換の池」には当たりにくいが、新しいライセンスの費用そのものは残る |
+| *"Licenses can, and should, clearly state when an API is meant to be a connector to another work which can be under a different license and is not to be considered derivative. … We don't want to win in court about this sort of thing. We want to never go to court."*（2022-08-16）| Bruce Perens 氏 | B13（明瞭さ）と同じ向きの一般の規範。ACD は条件を持たないので、派生物の境界を問う場面が無い |
+
+**逆側**: Phipps 氏の二択は、準拠法を選ぶライセンスの起草者への助言で、選ばないことを述べ直す文が「違う読みを促す」かは、同氏が論じていない。第 2 文は法律家への問い 7（*"What follows from naming no governing law and no forum?"*）が、残すかどうかを既に訊いている。
+
+**この節が establish しないこと**: 2007 年と 2022 年の個人の発言で、委員会の基準ではない。
+
+**反映**: 1c（逐条の §15.3 の行に Smith 氏と Phipps 氏の両面を・本文は変えない —— 第 2 文を残すかは法律家への問い 7 の答えを待つ）。B10・B2（DiBona 氏・portfolio-30）。法律家への問い 7 に Phipps 氏の二択を材料として（portfolio-30）。

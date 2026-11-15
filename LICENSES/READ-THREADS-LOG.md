@@ -20,6 +20,10 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "Politics-Free Licence ;)"（2007-06・18 通・決める側の通を全文で読んだ）を `review-readings-5.md` §1.407 へ
+
+- 2026-11-15 に "Question about AGPLv3 with a Plugin Exception"（2022-08・14 通・決める側の通を全文で読んだ）を `review-readings-5.md` §1.407 へ
+
 - 2026-11-15 に "Moral Rights"（`license-discuss` 2002-10・9 通を通読）を `review-readings-6.md` §1.452 と §1.453 へ（議論が止んだことは承認を意味しない・参加者はボランティア・Nelson 氏、OSD に合えば承認するが自作なら弁護士の助言を・Rosen 氏、人格権をライセンスで守ると名誉と声望の訴訟の箱を開ける・Rosen 氏）
 - 2026-11-15 に "Invariant manifestos as an approach to expressing values / beliefs / missions for open source projects"（`license-discuss` 2020-12・通読）を `review-readings-2.md` §1.251 へ（法的な文書に拘束しない部分は無い・Chestek 氏、前文の調子・Atkinson 氏）
 
