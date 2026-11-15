@@ -225,6 +225,26 @@ def run(ctx):
             "リファクタ/抽出で anchor の対象コードが別 file へ移動/消滅した — mutation_samples.py の該当 "
             "file/find を現行コードへ追従させよ (mutation-probe は CI 非実行ゆえ本 Check が anchor 整合を守る)",
         )
+        # 草案の本文 (区切り線の後) を打つ mutation の anchor は行をまたがない (2026-11-15・1c の依頼から一般化):
+        #   anchor が改行と字下げを含むと、語を 1 つも変えない詰め直しでも切れる。1c が §6.4 / §16.4 を詰め直したとき
+        #   4 件が同時に切れ、草案の PR が止まった。語の並びだけを持たせる。行の配置そのものが的の mutation
+        #   (468l の 80 桁・題名の行) だけを名前で除く。冒頭の注記 (区切り線の前) は道具が箇条を作り直すので対象外
+        _dr362 = [_p for _p in sorted((ROOT / "LICENSES").glob("ACD-*-DRAFT.txt"))
+                  if "HAS BEEN FROZEN" not in _p.read_text(encoding="utf-8").split("\n", 1)[0]]
+        _span362: list[str] = []
+        if len(_dr362) == 1:
+            _dt362 = _dr362[0].read_text(encoding="utf-8")
+            _body362 = _dt362.find("-" * 80)
+            for _m362 in _ms362.MUTATIONS:
+                if (_m362["file"] == _dr362[0] and "\n" in _m362["find"] and _dt362.find(_m362["find"]) > _body362
+                        and not any(_k in _m362["name"] for _k in ("Check 468l", "題名行"))):
+                    _span362.append(_m362["name"][:60])
+        check(
+            not _span362,
+            f"Check 362: 草案の本文を打つ mutation の anchor は行をまたがない (対象 {_dr362[0].name if _dr362 else '—'})",
+            f"Check 362: 草案の本文を打つ mutation の anchor が改行を含む ({len(_span362)} 件): {_span362[:5]}。"
+            "語を変えない詰め直しでも切れるので、1 行に収まる短い句へ向け直せ (2026-11-15 に §6.4 / §16.4 の整形で 4 件が切れた)",
+        )
     except ImportError as _e362:
         warnings.append(f"Check 362: mutation_samples import failed ({_e362}) — anchor resolution skipped")
 

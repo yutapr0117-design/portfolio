@@ -473,8 +473,8 @@ MUTATIONS_ARCHIVE5 = [
     {
     "name": "Check 468u: §2.8 の末文から「§5.3 / §12.4 は本条を狭めない」が落ちる —— 試作 e で外した理由の文が担っていた反対解釈の封じが本文から消える",
     "file": CURRENT_DRAFT,
-    "find": "Section 6 included. Neither Section 5.3 nor Section 12.4\n       narrows this Section.",
-    "replace": "Section 6 included. Sections 5.3 and 12.4 are read with\n       this Section.",
+    "find": "Neither Section 5.3 nor Section 12.4",
+    "replace": "Section 5.3 and Section 12.4 are read with this Section, and neither",
     "check": CHECK,
 },
     {
@@ -487,8 +487,8 @@ MUTATIONS_ARCHIVE5 = [
     {
     "name": "Check 468u: §8.4 の \"resulting from Computational Use of the Work\" が \"that processing\" に縮む —— 特許許諾がモデル・出力のその後の使用・販売に届かなくなり、B10 の唯一の立証済みの効果 (§1.133) が ERROR 無しで消える",
     "file": CURRENT_DRAFT,
-    "find": "output resulting from Computational\n       Use of the Work, under every",
-    "replace": "output resulting from that processing, under every",
+    "find": "parameter set, weight, embedding, or output resulting from Computational",
+    "replace": "parameter set, weight, embedding, or output resulting from that processing, not from",
     "check": CHECK,
 },
     {
@@ -728,8 +728,8 @@ MUTATIONS_ARCHIVE5 = [
     {
     "name": "Check 468u: §5.1 の特許の除外を落とす —— §8.4 が外した請求項まで「許された使用の請求」として不行使になる",
     "file": CURRENT_DRAFT,
-    "find": "permits, other than for\n       patent infringement (Section 8), under trademark",
-    "replace": "permits, other than under trademark",
+    "find": "permits, other than for",
+    "replace": "permits, other than",
     "check": CHECK,
 },
     {

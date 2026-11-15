@@ -63,14 +63,14 @@ MUTATIONS_ARCHIVE7 = [
     {
     "name": "Check 468x: 主表が「足す」と述べた語句 (or for a payment You agreed to make) を草案から消す —— After は「へ」の引用しか読まず、「*\"…\"* を足す」の引用は照合していなかった",
     "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
-    "find": "       11.3), or for a payment You agreed to make.\n",
-    "replace": "       11.3).\n",
+    "find": "), or for a payment You agreed to make.",
+    "replace": ").",
 },
     {
     "name": "Check 468x: 主表が §1.3 から「外す」と述べた語句 (in whole or in part) を §1.3 に戻す —— 「外す」の引用は照合しておらず、外したはずの語が条に残っても通った",
     "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
-    "find": "  1.3  \"Work\" means the material to which the Dedicator has applied this\n",
-    "replace": "  1.3  \"Work\" means the material, in whole or in part, to which the Dedicator has applied this\n",
+    "find": "\"Work\" means the material to which",
+    "replace": "\"Work\" means the material, in whole or in part, to which",
 },
     {
     "name": "Check 498: 「1.0 から何が変わったか」の下書きの版ごとの閉鎖数の 1.3 を 5 にする —— 使い捨ての計数で版の語の最初の一致を数え、閉鎖の印 (19 / 13 / 4) と違う数を書いた",
