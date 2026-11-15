@@ -20,6 +20,8 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "License drafting quality and process"（`license-review` 2013-04〜06・32 通・決める側の通に絞った・候補の外）を `review-readings-2.md` §1.223 へ（多段階の承認とまず license-discuss・Berkus 氏、使用の数を要件にすれば萎縮・Fontana 氏、断る手段が無い・Villa 氏、新しいライセンスの基準率）。
+
 - 2026-11-15 に 2026 年の 2 つの提出（Modified 0BSD・ISC を基にしたロシア語のライセンス）への決める側の最初の返信を `review-readings-2.md` §1.222 へ（差・使用・手順・目的の 4 つの問い）。1 通ずつなので READ-THREADS には足さない。
 
 - 2026-11-15 に "Resources to discourage governments from bespoke licenses?"（`license-discuss` 2020-02〜03・決める側の通に絞った）を `review-readings-2.md` §1.221 へ（書いた本人が説明し、代理人はうまくいかなかった、直す意思が要る・Chestek 氏 2020。3 年後の「審査は直す場ではない」と並べた）。
