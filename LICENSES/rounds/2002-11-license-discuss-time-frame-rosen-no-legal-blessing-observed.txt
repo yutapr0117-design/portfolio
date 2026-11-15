@@ -1,0 +1,31 @@
+Source: OSI license-discuss public archive, 2002-November.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 9 in "time frame between request for approval and acknowledgement of request?" (2002-11-20)
+Senders: Lawrence E. Rosen
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Fri Nov 22 03:28:11 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Thu, 21 Nov 2002 19:28:11 -0800
+Subject: time frame between request for approval and acknowledgement of request?
+In-Reply-To: <200211211911.31455.david@usermode.org>
+Message-ID: <000401c291d7$2f90f360$927ba8c0@ROSENGARDEN>
+
+> But someone with a legal knowledge should still be looking 
+> them over, because 
+> a lot of us operate under "common sense" rather than what a 
+> court would say 
+> should a license ever be taken before one.
+
+Oooops!  That's true, but please everyone remember that OSI does not
+evaluate licenses from a legal perspective.  Some licenses are written
+by lawyers and others are not.  Only your own lawyer can evaluate a
+license for you.  So don't treat approval by OSI as if there is a legal
+blessing upon the license.  
+
+/Larry Rosen
+General Counsel, OSI
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

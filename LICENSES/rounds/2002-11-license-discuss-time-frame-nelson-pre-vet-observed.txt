@@ -1,0 +1,33 @@
+Source: OSI license-discuss public archive, 2002-November.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 9 in "time frame between request for approval and acknowledgement of request?" (2002-11-20)
+Senders: Russell Nelson
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Thu Nov 21 04:44:59 2002
+From: nelson at crynwr.com (Russell Nelson)
+Date: Wed, 20 Nov 2002 23:44:59 -0500 (EST)
+Subject: time frame between request for approval and acknowledgement of request?
+In-Reply-To: <OE18VkCUVPw7iBqY3pJ00004a8d@hotmail.com>
+References: <OE18VkCUVPw7iBqY3pJ00004a8d@hotmail.com>
+Message-ID: <15836.25139.989625.714157@desk.crynwr.com>
+
+Bruce Dodson writes:
+ > What should one expect as a reasonable time period between the sumission of
+ > a license-approval request, and some acknowledgement that the request has
+ > been made?
+
+I'm a volunteer, Bruce, with a TODO list longer than your arm.  The
+problem with license submittals is that I try to pre-vet them, so that 
+the license-discuss people don't have to waste their time with
+licenses that are obviously unacceptable.  Yours has not been
+pre-vetted yet.  It will be.
+
+-- 
+-russ nelson              http://russnelson.com |
+Crynwr sells support for free software  | PGPok | it's better to be free
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | than to be correct.
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   |
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
