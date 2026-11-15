@@ -30,7 +30,11 @@ choice. Section numbers below are the same in every version unless the page says
   put such measures on your server, and promise only not to assert rights in them or use
   anti-circumvention law against people who get round them. That is the draft, not a fixed text;
   until a fixed version says so, the safer course is to let a host you do not operate serve the
-  copies (`ACD-1.0.against.md` #171 reads a host's own measures as outside the covenant).
+  copies (`ACD-1.0.against.md` #171 reads a host's own measures as outside the covenant). In
+  every version the covenant reaches *"any law concerning the circumvention of such measures"*;
+  whether that includes the law against unauthorised access to a computer, if someone gets round
+  your server's defences, is open and is one of our questions for a lawyer
+  ([`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md)).
 
 ## What nobody can tell you yet
 
