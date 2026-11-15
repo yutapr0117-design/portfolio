@@ -169,15 +169,26 @@
 2002-09-30	discuss: OCLC Office of Research Open Source License
 2002-10-03	Moral Rights
 2002-10-03	Modified Artistic License (eNetwizard Content Application Server)
+2002-10-03	Simplified Artistic License (A Proposed Compromise)
 2002-10-06	Procedure for using an approved license
 2002-10-15	RPL version 1.1
 2002-10-20	Warranty
+2002-10-22	OSI certification mark and BSD licence
 2002-10-23	Revised versions of the OSL and AFL
+2002-10-24	BXAPL - request for comments
+2002-10-24	Copyright
 2002-10-25	a proposed change to the OSD
 2002-10-28	click-wrap is legally supportable?
+2002-10-28	Approval Request: RPSL 1.0
+2002-10-29	Right to Use
+2002-10-29	Manifestation of Assent
 2002-10-30	Manifestation of Assent and the OSL
+2002-11-05	Approval Requested for AFL 1.2 and OSL 1.1
 2002-11-08	a data licensing problem
+2002-11-12	"Derivative Work" for Software Defined
 2002-11-14	W3C Patent Policy
+2002-11-20	time frame between request for approval and acknowledgement of request?
+2002-11-22	The OSD and commercial use
 2003-03-14	Compatibility of the ASL and LGPL in the specific case of Java
 2003-03-14	Please add "Public Domain" to "license" list
 2003-03-14	What about LGPL? Re: Compatibility of the AFL with the GPL

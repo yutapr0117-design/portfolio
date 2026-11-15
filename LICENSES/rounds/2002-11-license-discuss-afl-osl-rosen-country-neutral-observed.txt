@@ -1,0 +1,41 @@
+Source: OSI license-discuss public archive, 2002-November.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 27 in "Approval Requested for AFL 1.2 and OSL 1.1" (2002-11-05)
+Senders: Lawrence E. Rosen
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Wed Nov  6 21:52:04 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Wed, 6 Nov 2002 13:52:04 -0800
+Subject: Approval Requested for AFL 1.2 and OSL 1.1
+In-Reply-To: <3DC987DB.8030303@saxnot.com>
+Message-ID: <000e01c285de$be8b9d90$927ba8c0@ROSENGARDEN>
+
+> From: Henry Pijffers [mailto:henry.pijffers at saxnot.com] 
+> How good do you think it is for us Europeans and other non-US 
+> residents?
+> 
+> And on a sidenote, I don't like licenses that designate a specific 
+> court of law. I ain't gonna go to the US of A to defend my rights.
+
+Under the OSL, if you are the Licensor you determine the jurisdiction.
+It's your software after all.  So if you write and license your software
+in Europe to customers anywhere, you can defend your rights in Europe
+under European contract law.  
+
+If you are the licensee, you can demand your rights in a jurisdiction
+where the licensor resides or has its primary business.  So if you want
+to sue a big US company for licensing software to you over the Internet
+while you were in your home in Paris, and big US company has registered
+to do business in Paris, you can sue big US company in Paris.  
+
+Almost every license on the OSI approved list specifies a US
+jurisdiction.  The OSL is specifically intended to be country neutral in
+that respect.  If it isn't, we should make it so.  What changes do you
+suggest?
+
+/Larry Rosen
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

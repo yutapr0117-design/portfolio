@@ -115,6 +115,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2017-05・07 | `license-review` | **観測（"EUPL v1.2" から 2 通・International の分類の目的、全ての言語の版に及ぶ承認）** | `2017-05-and-07-license-review-eupl-1-2-observed.txt` |
 | 2019-02 | `license-review` | **観測（"For Approval: Twente License" から 4 通・プライバシーと人権の条件を利用に課して OSD 6 で退けられた）** | `2019-02-license-review-twente-license-observed.txt` |
 | 2002-10 | `license-discuss` | **観測（"click-wrap is legally supportable?" から 3 通・同意を求めないライセンスの条項は争われうるか）** | `2002-10-license-discuss-click-wrap-observed.txt` |
+| 2002-10 | `license-discuss` | **観測（"Right to Use" から 1 通・Rosen 氏 2002-10-29）** | `2002-10-license-discuss-right-to-use-rosen-observed.txt` |
 | 2002-10 | `license-discuss` | **観測（"Moral Rights" から 1 通・Rosen 氏 2002-10-03）** | `2002-10-license-discuss-moral-rights-rosen-question-observed.txt` |
 | 2002-10 | `license-discuss` | **観測（"Moral Rights" から 1 通・Rosen 氏 2002-10-06）** | `2002-10-license-discuss-moral-rights-rosen-attorney-observed.txt` |
 | 2002-10 | `license-discuss` | **観測（"Modified Artistic License (eNetwizard …)" から 1 通・Nelson 氏 2002-10-03）** | `2002-10-license-discuss-enetwizard-nelson-redundant-observed.txt` |
@@ -208,6 +209,11 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
 | 2012〜2020 | `license-review` | **観測（特許を扱う新しい permissive の必要性と、増殖の分類の現状・4 通）** | `2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt` |
 | 2002-11〜12 | `license-discuss` | **観測（寄与者の特許の許諾が派生物まで届くか・3 通）** | `2002-11-to-12-license-discuss-mpl-patent-grants-on-derivatives-observed.txt` |
+| 2002-11 | `license-discuss` | **観測（"Approval Requested for AFL 1.2 and OSL 1.1" から 1 通・Rosen 氏 2002-11-06）** | `2002-11-license-discuss-afl-osl-rosen-country-neutral-observed.txt` |
+| 2002-11 | `license-discuss` | **観測（"Approval Requested for AFL 1.2 and OSL 1.1" から 1 通・Rosen 氏 2002-11-06）** | `2002-11-license-discuss-afl-osl-rosen-no-preamble-observed.txt` |
+| 2002-11 | `license-discuss` | **観測（"time frame between request for approval …" から 1 通・Nelson 氏 2002-11-20）** | `2002-11-license-discuss-time-frame-nelson-pre-vet-observed.txt` |
+| 2002-11 | `license-discuss` | **観測（"time frame between request for approval …" から 1 通・Rosen 氏 2002-11-20）** | `2002-11-license-discuss-time-frame-rosen-buzz-observed.txt` |
+| 2002-11 | `license-discuss` | **観測（"time frame between request for approval …" から 1 通・Rosen 氏 2002-11-21）** | `2002-11-license-discuss-time-frame-rosen-no-legal-blessing-observed.txt` |
 | 2016-12 | `license-discuss` | **観測（React の別ファイルの特許許諾と、CC0 に添える特許の文言・4 通）** | `2016-12-license-discuss-react-patents-and-cc0-patent-language-observed.txt` |
 | 2025-05〜12 | `license-review` | **観測（ModelGo の再提出の審査から、出力・AI の語彙・権利の列挙・3 通）** | `2025-05-to-12-license-review-modelgo-outputs-and-vocabulary-observed.txt` |
 | 2023-11〜2024-01 | `license-review` | **観測（Blue Oak の審査から承認の告知まで・6 通）** | `2023-11-to-2024-01-license-review-blue-oak-approval-observed.txt` |
