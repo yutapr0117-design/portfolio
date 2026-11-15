@@ -13,7 +13,8 @@ canonical-ref: .github/scripts/checks_license_draft.py (Check 468n / 468s / 定�
 
 - `bullet_components(hdr, prev, cur, changed, prev_body, cur_body, prev_ver)` —— 468n（箇条ごと）。冒頭の変更一覧の語数申告を、箇条が名指す変わった条でまとめた（union-find）まとまりごとに、本文の差と照らす。
 - `changelist_table_total(path)` —— 468s。CHANGELIST の主表（「## 表」〜「## errata 由来」）の「費用（語）」列の合計。
-- `draft_length_claims(licenses_dir, skip)` —— 460 (x)。B3 の見出しや SUBMISSION-MATERIALS の長さの行が「N.M 草案は」と現在形で述べる語数と GPL-3.0 との差を、草案の実測と照らす。
+- `length_sites(licenses_dir, skip, scope)` —— 草案の語数から導出する数を書いた場所の一覧（2026-11-15）。`scope="outward"` は B3 の見出しと SUBMISSION-MATERIALS の長さの行（後半の「条文では N 語長いまま」を含む）、`"all"` は草案冒頭の申告・CHANGELIST の語数の内訳と英文も含む。`apply_sites(sites)` が書き換える（`sync_stated_counts.py --apply`）。
+- `draft_length_claims(licenses_dir, skip)` —— 460 (x)。`length_sites(..., "outward")` の場所のうち、実測と違うものを誤りの文にする。
 - `defined_term_uses(clauses)` —— 468（定義語）。定義した語が、定義した条の外で 1 回以上使われているか。
 
 ## Why
