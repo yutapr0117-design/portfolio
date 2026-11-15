@@ -1,0 +1,47 @@
+Source: OSI license-discuss public archive, 2002-November.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 27 in "Approval Requested for AFL 1.2 and OSL 1.1" (2002-11-05)
+Senders: Lawrence E. Rosen
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Wed Nov  6 21:44:21 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Wed, 6 Nov 2002 13:44:21 -0800
+Subject: Approval Requested for AFL 1.2 and OSL 1.1
+In-Reply-To: <200211062001.PAA72993336@shell.TheWorld.com>
+Message-ID: <000d01c285dd$aabd3b30$927ba8c0@ROSENGARDEN>
+
+I've been talking to Russ Nelson and Steve Mallett about setting up a
+separate threaded list where we can collect good FAQs about these
+licenses.  Anyone with ideas for getting such a FAQ together should
+speak up.  There's many more people than me who could contribute to such
+a FAQ.  I'm reluctant to write a preamble, as such, because it might
+sound too much like interpreting my own words.  
+
+One other word to the wise: Treat every word in any license as "strange"
+until you understand it in the context of that license.  The OSL and AFL
+aren't unusual in that respect.  
+
+/Larry Rosen
+
+> -----Original Message-----
+> From: Chris F Clark [mailto:cfc at TheWorld.com] 
+> Sent: Wednesday, November 06, 2002 12:02 PM
+> To: license-discuss at opensource.org
+> Subject: Re: Approval Requested for AFL 1.2 and OSL 1.1
+> 
+> 
+> Perhaps it makes sense (say in a preamble) to mention that 
+> certain sections (and obviously which sections) use wording 
+> copied from the US copyright code, so that eveyone knows that 
+> the reasons the words sound strange is that they are legal 
+> jargon with precise meanings....
+> 
+> -Chris
+> --
+> license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+> 
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

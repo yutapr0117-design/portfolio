@@ -80,3 +80,39 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 **この節が establish しないこと。** OSI がこの後、人格権について方針を定めたかは、この会話の範囲では確かめていない。
 
 **反映**: B8（2002 年の法律顧問の問い —— 名誉と声望の訴訟を避ける向きと、偽の著者表示を守る向きの両方が ACD の 1.4 草案の §12 と §11.3 に当たる・逆側は「守る条」と「放棄する条」の向きの違い・30 へ）。本文は変えない。
+
+## 1.454 OSI は法律の観点からライセンスを評価しない、承認を法的な祝福と扱うな、と OSI の法律顧問が書いた —— 同じ会話で、議論の多いライセンスに注意を早く向ける案が出た（"time frame between request for approval and acknowledgement of request?"・2002-11）（2026-11-15）
+
+"time frame between request for approval and acknowledgement of request?"（`license-discuss` 2002-11・9 通を通読）を読み、3 通を置いた（`rounds/2002-11-license-discuss-time-frame-rosen-no-legal-blessing-observed.txt`・`rounds/2002-11-license-discuss-time-frame-rosen-buzz-observed.txt`・`rounds/2002-11-license-discuss-time-frame-nelson-pre-vet-observed.txt`）。提出者が、承認の請求への受領の知らせが来るまでの時間を尋ねた会話である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"please everyone remember that OSI does not evaluate licenses from a legal perspective. Some licenses are written by lawyers and others are not. Only your own lawyer can evaluate a license for you. So don't treat approval by OSI as if there is a legal blessing upon the license."* | Lawrence Rosen 氏 2002-11-21（署名は "General Counsel, OSI"） | **両面（B1）。** 有利な面: 承認は法律の評価ではなく、法律家が書いたライセンスもそうでないものもある —— 法的レビューの不在（B1）は、承認の基準の外にある、という読みを支える。不利な面: 同じ文が、承認は利用者に法的な保証を与えないと言う。ACD を採る人が「OSI が承認したから法的に安全だ」と読むことはできず、B2（利用者）の側の費用は承認の後も残る |
+| *"Should we go with the "squeeky wheel" process: The license that gets the most conversation and comment ("buzz") on license-discuss gets expedited attention from the OSI board?"* | Lawrence Rosen 氏 2002-11-20（理事会が戦略の問題に追われ、承認が止まっていると書いた同じ通で） | **不利な面（`against.md` #109・§1.452）。** 議論の多さで注意の順を決める案で、2002 年の運用の案である。ACD の `license-discuss` への投稿には返信が無く、この案の下では後回しになる側に立つ |
+| *"The problem with license submittals is that I try to pre-vet them, so that the license-discuss people don't have to waste their time with licenses that are obviously unacceptable."* | Russell Nelson 氏 2002-11-20（当時の理事） | **観測（手続き）。** 2002 年には、理事が提出を list へ回す前に下見した。いまの手続き（`license-review` への提出と委員会の審査）とは違う。ACD の手続きの読みには、いまの process ページが効く（`REVISION-PROTOCOL.md`） |
+
+**読み。** 2002 年の OSI の法律顧問は、承認は法律の評価ではないと書いた。これは B1 の「法的レビューは要件ではない」を支え、同時に「承認は利用者に法的な保証を与えない」を述べる。同じ会話で、議論の多いライセンスを先に見る案が出ており、沈黙の続く ACD には不利な向きの運用の案である。
+
+**逆側。** Rosen 氏の文は 2002 年の運用で、いまの Licensing Committee は条項の効き方を論じることがある（`against.md` #124 など）。「法律の観点から評価しない」がいまも同じかは、この会話からは言えない。「squeaky wheel」は案で、採られたかはこの会話の範囲では確かめていない。
+
+**この節が establish しないこと。** この会話の提出者のライセンスが承認されたかは確かめていない。
+
+**反映**: B1（2002 年の法律顧問「承認は法律の評価ではない・法的な祝福と扱うな」—— 要件ではないことの支えと、利用者の側の費用が残ることの両面・30 へ）/ against #109（議論の多さで注意を向ける 2002 年の案 —— 沈黙の費用の補強・30 へ）。本文は変えない。
+
+## 1.455 法的には要らないと思うが念のため、使用の許可を明文で足した —— 承認された OSL 1.1 の起草者が書いた。同じ起草者は、前文は自分の言葉の解釈に聞こえるので書かないとした（"Right to Use"・2002-10、"Approval Requested for AFL 1.2 and OSL 1.1"・2002-11）（2026-11-15）
+
+"Right to Use"（`license-discuss` 2002-10・10 通・決める側の通と最初の通を読んだ）と "Approval Requested for AFL 1.2 and OSL 1.1"（`license-discuss` 2002-11・27 通・決める側の通と最初の通を読んだ）から 3 通を置いた（`rounds/2002-10-license-discuss-right-to-use-rosen-observed.txt`・`rounds/2002-11-license-discuss-afl-osl-rosen-no-preamble-observed.txt`・`rounds/2002-11-license-discuss-afl-osl-rosen-country-neutral-observed.txt`）。Lawrence Rosen 氏が自分の起草した OSL と AFL の改訂版を出し、承認を求めた会話である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"I don't actually believe that this provision is legally necessary in many jurisdictions but, just in case, I wanted to express the understanding of the open source community about the *use* of software."* | Lawrence Rosen 氏 2002-10-29（OSL 1.1 に "Right to Use" の条を足したと告げた通） | **有利な面（B13・B3）。** ACD の 1.4 草案の §6.5 は *"Section 6 states expressly what Sections 3 to 5 and 8 would in any event permit."* と書き、他の条が既に許すことを明文で言い直している。法律家の起草者が、要らないと思う条を念のため足した記録で、言い直しそのものは異例ではない。ACD の長さ（B3）の一部は、この種の明文化である |
+| *"I'm reluctant to write a preamble, as such, because it might sound too much like interpreting my own words."* | Lawrence Rosen 氏 2002-11-06 | **不利な面（§1.450・`against.md` #124・B13）。** 同じ起草者は、ライセンスの外に自分の解釈を書くことを避けた。ACD は本文の §6.5・§8.2・§8.3 で理由を述べ、ドシエで自分の本文の読みを大量に書いている。§1.450 の Nelson 氏 2002（外の解説も解釈に使われる）と同じ根の、起草者の側の慎重さである |
+| *"Almost every license on the OSI approved list specifies a US jurisdiction. The OSL is specifically intended to be country neutral in that respect."* | Lawrence Rosen 氏 2002-11-06 | **有利な面（B10 の周辺）。** ACD の 1.4 草案の §15.3 は準拠法と裁判地を定めない。2002 年の法律顧問は、米国の裁判地を定めない国に中立なライセンスを意図して書いた。ACD の §15.3 はその線にある。**逆側**: 同じ会話で Rosen 氏は、OSL の下では許諾者が裁判地を決め、利用者は許諾者の所在で権利を求められる、と書いており（2002-11-06・2002-11-17 の通）、「定めない」とは違う。ACD の「定めない」が国に中立と読まれるかは、この会話からは言えない |
+
+**読み。** 承認された OSL 1.1 の起草者（法律家・当時の OSI の法律顧問）は、要らないと思う使用の許可を念のため明文で足し、同時に、前文で自分の言葉を解釈することは避けた。ACD は前者（§6.5 の明文化）と同じ向きにあり、後者（解説を書かない）とは逆の向きにある。
+
+**逆側。** Rosen 氏の「念のため」の条は 1 文で、ACD の §6 は 5 つの項（1.4 草案）である。明文化の量は比べられていない。また、前文を書かないことを選んだのは起草者自身の判断で、OSI の基準ではない。
+
+**この節が establish しないこと。** AFL 1.2 と OSL 1.1 がこの会話の後に承認されたかは、この会話の範囲では確かめていない（§1.240 は OSL と AFL の複数の版が承認されたと Rosen 氏 2013 が書いたことを記録している）。
+
+**反映**: B13（承認されたライセンスの起草者が、要らないと思う条を念のため明文で足した —— §6.5 の明文化の先例・30 へ）/ against #124（同じ起草者が、前文で自分の言葉を解釈することを避けた —— §1.450 と同じ根・30 へ）/ 1c（§15.3 の「定めない」と OSL の「国に中立」の違いを、逐条の §15.3 の逆側に足す候補）。本文は変えない。

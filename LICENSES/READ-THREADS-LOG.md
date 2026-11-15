@@ -20,6 +20,30 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "time frame between request for approval and acknowledgement of request?"（`license-discuss` 2002-11・9 通を通読）を `review-readings-6.md` §1.454 へ（OSI は法律の観点からライセンスを評価しない、承認を法的な祝福と扱うな・Rosen 氏、議論の多いライセンスに注意を早く向ける案・Rosen 氏、提出の下見・Nelson 氏）
+
+- 2026-11-15 に "The OSD and commercial use"（`license-discuss` 2002-11・20 通・決める側の通と最初の通を読んだ）は新しい論点なし（商用の利用者に料金を課すライセンスは OSD 6 に反する・ACD は何も課さない）
+
+- 2026-11-15 に "\"Derivative Work\" for Software Defined"（`license-discuss` 2002-11〜2003-01・67 通・決める側の通と最初の通を読んだ）は新しい論点なし（GPL の「work based on the Program」の読み・ACD は二次的著作物の境界に依らない）
+
+- 2026-11-15 に "Manifestation of Assent"（`license-discuss` 2002-10・15 通・決める側の通と最初の通を読んだ）は新しい論点なし（契約としてのライセンスの同意の表示・ACD は同意を求めない）
+
+- 2026-11-15 に "Approval Request: RPSL 1.0"（`license-review` 以前の `license-discuss` 2002-10〜11・6 通・決める側の通と最初の通を読んだ）は新しい論点なし（著作権法の二次的著作物を超える定義は受け手を驚かせる・Rosen 氏）
+
+- 2026-11-15 に "Copyright"（`license-discuss` 2002-10・50 通・決める側の通と最初の通を読んだ）は新しい論点なし（クレジットの削除はライセンスが決める・最大の自由であって絶対の自由ではない・Rosen 氏）
+
+- 2026-11-15 に "BXAPL - request for comments"（`license-discuss` 2002-10・7 通・決める側の通と最初の通を読んだ）は新しい論点なし（改変の著作権を許諾者へ譲らせる条は受け入れられない・Rosen 氏、ACD は何も求めない）
+
+- 2026-11-15 に "OSI certification mark and BSD licence"（`license-discuss` 2002-10・9 通・決める側の通と最初の通を読んだ）は新しい論点なし（承認されるのはライセンスで、ソフトウェアは承認されたライセンスで配られると認証される・Rosen 氏）
+
+- 2026-11-15 に "Simplified Artistic License (A Proposed Compromise)"（`license-discuss` 2002-10・3 通を通読）は §1.452 と同じ論点（既存の AFL を使えと勧める・Nelson 氏）で新しい論点なし
+
+- 2026-11-15 に "Approval Requested for AFL 1.2 and OSL 1.1"（`license-discuss` 2002-11・27 通・決める側の通と最初の通を読んだ）を `review-readings-6.md` §1.455 へ（前文は自分の言葉の解釈に聞こえるので書かない、OSL は国に中立を意図する・Rosen 氏）
+
+- 2026-11-15 に "Right to Use"（`license-discuss` 2002-10・10 通・決める側の通と最初の通を読んだ）を `review-readings-6.md` §1.455 へ（法的には要らないと思うが念のため使用の許可を明文で足した・Rosen 氏）
+
+- 2026-11-15 に "Static v. Dynamic Linking -- redux"（`license-discuss` 2002-03・13 通を通読）を `review-readings-6.md` §1.450 へ（ライセンスについて書いた物は前文でも別の解説でも解釈に使われる、だから最良の本文を書いてあとは黙れ・Nelson 氏、against #124 の逆側）（候補は 821 → 824・読んだので母数に入った）
+
 - 2026-11-15 に "Moral Rights"（`license-discuss` 2002-10・9 通を通読）を `review-readings-6.md` §1.452 と §1.453 へ（議論が止んだことは承認を意味しない・参加者はボランティア・Nelson 氏、OSD に合えば承認するが自作なら弁護士の助言を・Rosen 氏、人格権をライセンスで守ると名誉と声望の訴訟の箱を開ける・Rosen 氏）
 - 2026-11-15 に "Invariant manifestos as an approach to expressing values / beliefs / missions for open source projects"（`license-discuss` 2020-12・通読）を `review-readings-2.md` §1.251 へ（法的な文書に拘束しない部分は無い・Chestek 氏、前文の調子・Atkinson 氏）
 
