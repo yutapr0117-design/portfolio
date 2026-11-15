@@ -1,0 +1,36 @@
+Source: OSI license-discuss public archive, 2025-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 21 in "Contributor Clauses in Licenses" (2025-12-08)
+Senders: Josh Berkus
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From josh at berkus.org  Mon Dec  8 21:32:59 2025
+From: josh at berkus.org (Josh Berkus)
+Date: Mon, 8 Dec 2025 13:32:59 -0800
+Subject: [License-discuss] Contributor Clauses in Licenses
+Message-ID: <94650bb3-6277-4249-adfc-6e693b087ad4@berkus.org>
+
+All:
+
+We've seen a recent trend in new licenses to include a clause governing 
+contributions to the project (there may be some in older licenses too, I 
+haven't done a review).  This seems both weird and ineffective to me, 
+because:
+
+1. Unless enforced by some other mechanism (CLA, repository TOS, etc.), 
+it is not automatically true that contributions are under the license in 
+the first place;
+
+2. A license cannot reasonably contain the full multiple-page-long set 
+of the various things that a contributor should comply with, leaving us 
+with a very arbitrary selection.
+
+Given the above, I feel like any terms applying to contributors should 
+be in individual projects' contributor documentation and governance, and 
+have no place in an OSS license.
+
+Discuss?
+
+-- 
+Josh Berkus

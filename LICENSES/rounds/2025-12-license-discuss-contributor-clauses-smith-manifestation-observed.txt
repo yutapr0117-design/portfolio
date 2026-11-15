@@ -1,0 +1,62 @@
+Source: OSI license-discuss public archive, 2025-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 21 in "Contributor Clauses in Licenses" (2025-12-08)
+Senders: McCoy Smith
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From mccoy at lexpan.law  Tue Dec  9 00:25:08 2025
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Mon, 8 Dec 2025 16:25:08 -0800
+Subject: [License-discuss] Contributor Clauses in Licenses
+In-Reply-To: <46b29473-a55a-4e41-9193-bf293653d778@berkus.org>
+References: <94650bb3-6277-4249-adfc-6e693b087ad4@berkus.org>
+ <5b103b9a-7d6a-45c3-a2f5-271c9b1e65f0@david-woolley.me.uk>
+ <c7adc83f-97cd-430f-bbf0-927db20037fb@berkus.org>
+ <bc68460e-7a0b-4e57-b237-1c33465f59be@lexpan.law>
+ <6793a0cb-3398-d386-1268-6948da3922b4@chesteklegal.com>
+ <46b29473-a55a-4e41-9193-bf293653d778@berkus.org>
+Message-ID: <8e3aaabd-6dbd-4289-be9f-0f8da6ca5f49@lexpan.law>
+
+I'm not seeing why there is a difference between a document that says 
+"here are the conditions upon which any contributions to the software 
+are accepted" and a document that says "here are the conditions upon 
+which the software is licensed, and here are also the conditions upon 
+which any contributions to the software are accepted."
+
+If you're concern is manifestation of assent, the act of submitting a 
+contribution and requesting it be accepted would be the manifestation.
+
+On 12/8/2025 4:06 PM, Josh Berkus wrote:
+> On 12/8/25 3:43 PM, Pamela Chestek wrote:
+>> As to Josh's comment "No text contained within the license can 
+>> enforce that my PR is under that license," I disagree. When I created 
+>> my contribution I necessarily accepted the terms of the outbound 
+>> license, or at least I am hard-pressed to think of a way that someone 
+>> made a contribution that matters but would not have taken an action 
+>> that requires acceptance of the license.
+>
+> I can think of lots of ways to make a meaningful contribution without 
+> having either run or redistributed the software:
+>
+> - Someone contributing grammar corrections to the docs or website 
+> without using the software
+>
+> - Someone offering to naturalize the documentation based on a 
+> translation framework, which also doesn't require using the software
+>
+> - Someone building a code contribution based on a differently licensed 
+> version of the same software (if, for example, it's available under a 
+> proprietary license as well)
+>
+> - Someone submitting 3rd-party dependency version updates without 
+> running the software (like, for example, DependaBot does, and humans 
+> do this as well).
+>
+> - A graphics designer submitting a change to graphics or UI design 
+> created entirely with design programs.
+>
+> I'm sure there's other situations I haven't thought of.  Are most 
+> contributions based on the contributor having first downloaded and run 
+> the software under the license?  Sure.  But definitely not all of them.
+>

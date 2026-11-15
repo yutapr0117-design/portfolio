@@ -1,0 +1,38 @@
+Source: OSI license-discuss public archive, 2025-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 21 in "Contributor Clauses in Licenses" (2025-12-08)
+Senders: Josh Berkus
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From josh at berkus.org  Mon Dec  8 22:44:11 2025
+From: josh at berkus.org (Josh Berkus)
+Date: Mon, 8 Dec 2025 14:44:11 -0800
+Subject: [License-discuss] Contributor Clauses in Licenses
+In-Reply-To: <bc68460e-7a0b-4e57-b237-1c33465f59be@lexpan.law>
+References: <94650bb3-6277-4249-adfc-6e693b087ad4@berkus.org>
+ <5b103b9a-7d6a-45c3-a2f5-271c9b1e65f0@david-woolley.me.uk>
+ <c7adc83f-97cd-430f-bbf0-927db20037fb@berkus.org>
+ <bc68460e-7a0b-4e57-b237-1c33465f59be@lexpan.law>
+Message-ID: <62985c18-563c-4c7e-86cb-6a207b917268@berkus.org>
+
+On 12/8/25 2:12 PM, McCoy Smith wrote:
+> If the contribution is not a derivative, they're merely articulating the 
+> conditions under which a contribution would be accepted by the project 
+> maintainers, *not* a condition on how the non-derivative work can 
+> otherwise be used. Again, I don't see how that is an issue.
+
+It doesn't violate the OSD, no.  But it also has zero effect.  It's a no-op.
+
+Say I submit a 3-line PR to the included documentation for an OSS 
+project.  No text contained within the license can enforce that my PR is 
+under that license.  That has to be enforced elsewhere -- in which case, 
+why put it in the license at all?
+
+ > One could solve this problem by simply saying license in=license out but
+ > you don't need a separate clause in a license to do that.
+
+Yes.  This exactly.
+
+-- 
+Josh Berkus
