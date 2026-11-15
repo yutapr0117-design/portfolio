@@ -696,11 +696,13 @@ def run(ctx):
         #   T 番号か節の番号 (§14.N) を含むこと。審査者は逐条の行で条を読むので、試作の結論 (変えない理由) が
         #   そこから辿れないと、同じ問いを同じ答えのまま繰り返させる。いままで手で揃えていた (6 組)
         _v468y = _dr468.name.split("-")[1]
-        _tr468y = ROOT / "LICENSES" / f"ACD-{_v468y}-SECOND-CLARITY-TRIAL.md"
+        # 試作は 2 冊目から 3 冊目へ続く (2026-11-15: 2 冊目が 1,000 行に当たり §15 から THIRD へ分けた)。両方を読む
+        _trs468y = [ROOT / "LICENSES" / f"ACD-{_v468y}-{_n}-CLARITY-TRIAL.md" for _n in ("SECOND", "THIRD")]
+        _tr468y = _trs468y[0]
         _cr468y = ROOT / "LICENSES" / f"ACD-{_v468y}-CLAUSE-REFERENCE-DRAFT.md"
         _pairs468y, _miss468y = 0, []
         if _tr468y.exists():
-            _trt = _tr468y.read_text(encoding="utf-8")
+            _trt = "\n".join(_p.read_text(encoding="utf-8") for _p in _trs468y if _p.exists())
             _rows468y = {}
             for _l in (_cr468y.read_text(encoding="utf-8").split("\n") if _cr468y.exists() else []):
                 _mr = re.match(r"^\|\s*\*\*(\d+\.\d+)\*\*\s*\|", _l)

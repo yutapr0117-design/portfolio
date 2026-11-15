@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.4-SECOND-CLARITY-TRIAL.md
 audience: 次のセッションの実装者（一次読者）/ 監査人
-last-updated: 2026-11-12
+last-updated: 2026-11-15
 canonical-ref: LICENSES/ACD-1.4-CLARITY-TRIAL.md (§1〜§9・規則はそちらに従う) / LICENSES/ACD-1.4-DRAFT.txt (試作の対象・この file は草案を上書きしない) / LICENSES/ACD-1.4-CHANGELIST.md (採用した変更の記録先)
 ---
 
@@ -992,3 +992,5 @@ After: It does not apply this Dedication to material that a narrower notice the 
 **30 の案から変えた点**: 30 の (A) は §12.2 も主語に入れる形（+2 語）だった。§12.2 の承継は §12.4 が、§5.3 と違う広い列挙（*"any person entitled to exercise or enforce Moral Rights in the Work after the Dedicator's death"*）で持つ。§12.2 を §5.3 に入れると、同じ約束の承継の列挙が 2 つ重なり、狭い方（§5.3）が広い方を限ると読む余地を作る —— §2.8 の末文（*"Neither Section 5.3 nor Section 12.4 narrows this Section"*）が閉じたのと同じ型を、§5.3 と §12.4 の間に新しく作る。§12.2 は相手を自分で名指しているので、受け手がその約束の相手であることは語から決まる。30 の (B)（§8.6 と §12.2 に *"Section 5.3 applies to this covenant as to those in Section 5."*・各 +11 語）は語数が重い。 **作用**: 特許の約束を、下流の受け手が受益者として依拠できることを §5 の約束と同じ語で明示する。§8.6 の承継は、§2.8（Dedication 全体）と §5.3 の 2 か所に書かれる（どちらも *"the law permits"* の限りで、§2.8 末文が §5.3 は §2.8 を狭めないと述べる）。特許の約束を下流が依拠できるかは、モデルと出力を扱う採用者にとって重い。
 
 **⚠ 逆側**: (1) *"same footing"* で §5.3 が §8.6 へ運ばれるという読み（E71 の重さの列）は普通に立つので、欠陥は弱い（Low）。(2) §12.2 に *intended beneficiary* の語が無いことは残る。(3) §5.3 の第 2 文 *"Sections 3 and 4 operate in their favour independently of this Section"* は §8 を挙げない。§8.1・§8.4 は §5.3 と別に働く（§2.4）ので食い違わないが、列挙の形は残る。(4) +1 語。 **依頼**: portfolio-50 に反例（特に (3) と、承継が §2.8 と §5.3 の 2 か所になること）を、portfolio-9b に `--compare / --guard` を頼む。
+
+§15 からは `ACD-1.4-THIRD-CLARITY-TRIAL.md` に続く（この file が 1,000 行の BLOCKING に届いたため・2026-11-15）。
