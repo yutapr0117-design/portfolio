@@ -1,13 +1,15 @@
 ---
 file: LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-09-14
+last-updated: 2026-11-15
 canonical-ref: LICENSES/ACD-OSI-BOTTLENECKS.md (索引・分類・集計はあちらが canonical) / LICENSES/ACD-1.0.against.md / LICENSES/AS-OF.md
 ---
 
 # LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md
 
 ## What
+
+**2026-11-15**: B10 の本体を `ACD-OSI-BOTTLENECKS-B10.md` へ丸ごと移した（advisory 800 行を越えたため）。B10 の位置には指し先の 1 段だけが残る。
 
 **OSI 承認のボトルネックのうち、我々の作業では動かせない 8 項目（7 節）の深い分析。**
 B1 + B2（法的レビュー / 実使用）/ B4（献呈と許諾の並存）/ B5（§4.4 第 2 文・起草は 1.1 で閉じ設計の問いが外部）/
