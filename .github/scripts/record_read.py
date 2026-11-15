@@ -49,6 +49,18 @@ def main(argv: list[str]) -> int:
     rt = L / "READ-THREADS.txt"
     rtt = rt.read_text(encoding="utf-8")
     if not o.no_thread:
+        # --start は census の会話の始まりの日付 (THREAD-CANDIDATES の行の日付) でなければならない (Check 498 (h) は
+        #   (件名の key, 日付) の組で照らす)。最初の通の日付 (アーカイブの月の境で別の日になる) を渡すと、候補の外の
+        #   会話を読んだと数えられ、件数が合わない (2f が 2026-11-15 に 10-04 と 10-06 で 1 度踏んだ・5 人で読む日の依頼)。
+        #   同じ件名の候補が在って日付が違えば止まる。件名が候補に無いのは「候補の外」を読んだときで、正当なので知らせるだけ
+        from census_decision_statements import _list_rows, title_key
+        same = [d for k, d, _t in _list_rows(L / "THREAD-CANDIDATES.txt") if k == title_key(o.subject)]
+        if same and o.start not in same:
+            print(f"STOP: --start {o.start} は THREAD-CANDIDATES の同じ件名の会話の日付 {', '.join(same)} のどれでもない。"
+                  "census の start (会話の始まり) を渡す")
+            return 2
+        if not same:
+            print("注意: この件名は THREAD-CANDIDATES に無い (候補の外を読んだ)。候補の数 N と読了 M が同じだけ増える")
         row = f"{o.start}\t{o.subject}"
         if row in rtt.split("\n"):
             print(f"STOP: READ-THREADS に既に在る: {row}")
