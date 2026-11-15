@@ -87,6 +87,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2005-09 | `license-discuss` | **観測（"License Proliferation" から 5 通・OSD に適合するものを全部か良いものだけか、理事が述べた 3 つの基準の使い方）** | `2005-09-license-discuss-license-proliferation-observed.txt` |
 | 2012-06 | `license-discuss` | **観測（OSI のライセンスのページの見せ方の提案から 4 通・承認しない方針は正式に定められていないという理事の理解と、それと並ぶ理解）** | `2012-06-license-discuss-licensing-pages-proposal-observed.txt` |
 | 2015-09〜11 | `license-review` | **観測（OSET Public License の審査から 6 通・審査の 4 つの問い、提出者の名の外し、承認）** | `2015-09-to-11-license-review-oset-public-license-observed.txt` |
+| 2015-09 | `license-review` | **観測（Berkus 氏の 1 通・既にそうなら条は要らず、そうでないなら条は悪い）** | `2015-09-license-review-oset-ns-berkus-not-needed-observed.txt` |
+| 2015-09 | `license-review` | **観測（Fontana 氏の 1 通・OSD に合っても OSI が承認するとは考えられないライセンスがある）** | `2015-09-license-review-oset-ns-fontana-inconceivable-observed.txt` |
 | 2002-08 | `license-discuss` | **観測（"Legal soundness comes to open source distribution" から 4 通・契約でないライセンスと保証の否認、AFL の承認）** | `2002-08-license-discuss-legal-soundness-observed.txt` |
 | 2014-04 | `license-discuss` | **観測（"why standard licenses" の FAQ の下書きから 4 通・承認は受け入れの床か信頼か）** | `2014-04-license-discuss-why-standard-licenses-observed.txt` |
 | 2015-05・08 | `license-discuss` | **観測（Apache の第三者ライセンス方針の 2 件名から 7 通・下流の一覧は各組織が決める、opensource.org からの返信）** | `2015-05-and-08-license-discuss-apache-third-party-policy-observed.txt` |

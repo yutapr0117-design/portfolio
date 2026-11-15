@@ -387,3 +387,18 @@ portfolio-1c の T69（1.4 草案の §2.6 に、除外する素材を示す形�
 **逆側。** Rosen 氏は法律家で、OSL と AFL の初期の版は理事会の求めで書かれた。ACD は法律家でない者の起草で（B1）、理事会の求めで書いたものではない。また OSL と AFL の版の改めは数年にわたり、ACD は 3 か月足らずで 5 つの本文を出している（`against.md` #320 の Kuhn 氏 2018 は、35 日での置き換えを手続きの問題とした）。版の数ではなく、版を改める速さが問われうる点は、この先例では答えられない。
 
 **この節が establish しないこと。** OSL と AFL のどの版がいつ承認されたかは、この会話の範囲では確かめていない（Engel Nyst 氏は「承認されたはず」と書き、Rosen 氏が承認を認めた）。
+
+## 1.241 OSD に文字どおり合っても OSI が承認するとは考えられないライセンスがある、既にそうなら条は要らず、そうでないなら条は悪い（OSET Public License の「国家安全保障と公益」の条・2015-09）（2026-11-15）
+
+"-- National Security and Public Policy (3.5B and 4)"（`license-review` 2015-09・16 通）を通読し、2 通を置いた（`rounds/2015-09-license-review-oset-ns-fontana-inconceivable-observed.txt`・`rounds/2015-09-license-review-oset-ns-berkus-not-needed-observed.txt`）。OSET Public License の審査は §1.179 で読んであり、政府の側に有利な条（3.5B と 4）が一部の利用者に特権を与える、という論点と委員会の帰結（条を元の MPL 2.0 の形へ戻すよう求めた）はそこに在る。不平等を組み込む先例を作るのは愚かだ、という Simon Phipps 氏の文は、2015-10-13 の委員会報告が引いている（`rounds/2015-10-13-license-review-fontana-committee-report-fpl-observed.txt`）。この節は、§1.179 が読まなかった 2 通を足す。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Actually, I think such a license could be demonstrably OSD-conformant (or, to make this easier, conformant to the similar-in-spirit Free Software Definition of the FSF). But it is inconceivable that the OSI would approve such a license, and it might, and maybe does, expose some inadequacy in the Open Source Definition or some overly-literal interpretations of it."* | Richard Fontana 氏 2015-09-17（一部の者に他の貢献者より多くの権利を与えるライセンスについて） | **期待（審査は OSD の文言より広い）。** OSD に文字どおり合うことは、承認の十分条件ではない。§1.230 の Smith 氏 2018（運用は OSD の文言より厳しい）と同じ線である。ACD の OSD 逐条（`submission-osd.md`）が文字どおりの適合を示しても、審査はそれだけで終わらない。ACD が全員に同じ許諾を与えること（§2・§4）は、Fontana 氏が「承認するとは考えられない」とした非対称を持たない |
+| *"Precisely. If governments already have immunity, the clause is not needed; if they don't, then the clause is bad. Either way, it is not something OSI should be endorsing."* | Josh Berkus 氏 2015-09-17（政府は既に著作権の請求で限られた救済しか受けない、という John Cowan 氏の指摘を受けて） | **審査者の攻め方の型。** 法が既にそうしているなら条は要らず、していないなら条は害になる、という二択で条を退ける。この型は、法の状態を述べ直すだけの条に当たる。ACD は法域ごとに効力が違う点に備える条を多く持つ（§3.3 の放棄が効かない法域での許諾、§12 の人格権など）。それらは「法が既にそうしているか」が法域で違うから要る、と答えられるが、答えを用意しておく必要がある |
+
+**読み。** 2015 年の審査は、OSD の文字どおりの適合だけでは承認に足りないことと、要らない条や特権を与える条を二択で退けることを示した。ACD は特権を持たないので前者の非対称には当たらない。後者の型は、ACD の法域ごとの備えの条に向けられうる。
+
+**逆側。** Berkus 氏の二択は、特権を与える条（OSET の政府への例外）に向けたもので、何も与えない説明の条には「害になる」の側が当たらない。その場合に残るのは「要らない」の側で、それは本文の長さの費用（1.4 草案の語数の議論）として現れる。Fontana 氏の文は、我々の OSD 逐条を軽く見る理由にもなりうる。逐条が示すのは必要条件であって十分条件ではない、と提出の文書が自分で書いているかは確かめていない。
+
+**この節が establish しないこと。** OSET Public License の最終的な帰結は §1.179 の範囲で、この節は扱わない。ACD のどの条が Berkus 氏の二択の「要らない」側に読まれうるかは、条ごとには数えていない。

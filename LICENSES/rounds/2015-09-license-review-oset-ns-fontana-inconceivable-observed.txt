@@ -1,0 +1,59 @@
+Source: OSI license-review public archive, 2015-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 16 in "[Was: Submission of OSET Public License for Approval] -- National Security and Public Policy (3.5B and 4)" (2015-09-15)
+Senders: Richard Fontana
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From fontana at sharpeleven.org  Thu Sep 17 15:59:36 2015
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Thu, 17 Sep 2015 11:59:36 -0400
+Subject: [License-review] [Was: Submission of OSET Public License for
+ Approval] -- National Security and Public Policy (3.5B and 4)
+In-Reply-To: <55FADF49.4020000@postgresql.org>
+References: <588CF6CE14FFAB47AF5CEC6660C350764F26E838@USHTMB1X.firm.omm.com>
+ <55F830FB.3090206@postgresql.org>
+ <588CF6CE14FFAB47AF5CEC6660C350764F272817@USHTMB1X.firm.omm.com>
+ <55FADF49.4020000@postgresql.org>
+Message-ID: <20150917155936.GA21679@sharpeleven.org>
+
+On Thu, Sep 17, 2015 at 10:42:01AM -0500, Josh Berkus wrote:
+> On 09/16/2015 08:11 PM, Meeker, Heather J. wrote:
+> > Understood, and by implication I gather you would also not contribute to any project under a permissive license.
+> > 
+> 
+> Nope, because I already do (which you'd realize if you googled me).  The
+> issue is one of asymmetry.
+> 
+> If I contribute to OSET under the OSET license, and I have to obey the
+> terms of the OSET license if I want to use the OSET software in my own
+> business.  But governments, and favored contractors with complaint
+> legislators, or even just corrupt beaurocrats, get to use my
+> contribution *without* the restrictions which I must obey.  So the OSET
+> license creates a 2-class system, in which people with access to the
+> levers of government have more rights than code contributors do.
+> 
+> Personally I think corrupt legislators and beaurocrats have enough power
+> already.  We don't need to give them more in the terms of a license.
+> 
+> This is materially identical to dual-licensing, where companies offer
+> code under the GPL, but also commercially license it.  I don't
+> contribute to those projects either (and neither does anyone else,
+> historically).  Imagine if someone asked us to certify a license which
+> said "corporations can ignore any provision of this license which
+> conflicts with company policy".  This would not be an OSS license.
+
+Actually, I think such a license could be demonstrably OSD-conformant
+(or, to make this easier, conformant to the similar-in-spirit Free
+Software Definition of the FSF). But it is inconceivable that the OSI
+would approve such a license, and it might, and maybe does, expose
+some inadequacy in the Open Source Definition or some overly-literal
+interpretations of it.
+
+> Due to this provision, I see the OSET license as presented as being in
+> violation of the OSD, and would not currently vote to certify it.
+
+I'm not sure whether I agree yet but I think you've raised a very
+important concern.
+
+Richard
