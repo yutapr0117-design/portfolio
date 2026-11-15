@@ -157,6 +157,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2019-05 | `license-discuss` | **観測（"Government licenses" から 4 通・著作権の無い部分には既存のライセンスが及ばないだけで足りる、パブリックドメインを契約で縛るのは奇妙）** | `2019-05-license-discuss-government-works-uncopyrightable-parts-observed.txt` |
 | 2014-09 | `license-review` | **観測（"Sublicensing" から 4 通・再許諾で約束は落ちる、FOSS は直接の許諾、再許諾を許す理由を示せ）** | `2014-09-license-review-sublicensing-privity-observed.txt` |
 | 2013-08 | `license-discuss` | **観測（"License incompatibility" から 2 通・法律上の語を定義するのはライセンスの役目ではない、新しいライセンスは最後の手段）** | `2013-08-license-discuss-incompatibility-statutory-terms-last-resort-observed.txt` |
+| 2013-08 | `license-discuss` | **観測（Rosen 氏の 1 通・OWFa の後継者を縛る約束、倒産法 365(n)、迂回しない約束）** | `2013-08-license-discuss-owfa-successors-bankruptcy-observed.txt` |
 | 2016-06 | `license-review` | **観測（Moritz30 の提出から 6 通・読めなければ適合しないと推定する、法律家への相談を要件にしない、長い語は効くために要る）** | `2016-06-license-review-moritz30-unclear-means-nonconformant-observed.txt` |
 | 2025-02 | `license-review` | **観測（ModelGo への Berkus 氏の所見 1 通・機械学習の条項に AI を作る実務家の読みを、英語に母語話者の編集者を）** | `2025-02-license-review-modelgo-berkus-practitioner-review-observed.txt` |
 | 2026-08 | `license-review` | **観測（OpenMDW の審査から 3 通・著作権の反訴による終了は公平か、ソフトウェアでないものに及ぶライセンスを「ソフトウェアなら」の基準だけで量らない）** | `2026-08-license-review-openmdw-antisuit-and-non-software-observed.txt` |

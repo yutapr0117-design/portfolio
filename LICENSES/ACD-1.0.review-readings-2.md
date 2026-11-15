@@ -38,7 +38,7 @@ portfolio-1c（T66・§5.3 の受益者に §8.6 を入れるか）と portfolio
 | 発言 | 誰が | ACD への当たり方 |
 | :-- | :-- | :-- |
 | *"Are you suggesting that there can be oblivious third party beneficiaries (under contract law!) of a software license who get their rights from infringers (under copyright law!)?"* | Lawrence Rosen 氏 2014-09-16（UPL の審査） | **不利な面（§5.3 と §2.3 の組み合わせ）。** ACD は受け手が Dedication を知らなくても許諾を持つとし（§2.3）、受け手を約束の受益者にする（§5.3）。「知らない受益者」が契約法の上で成り立つかを、2014 年の審査者が疑問として出している。ACD の §5.3 は *"to the extent a jurisdiction gives effect to such reliance"* と限り、§3 と §4 は §5.3 と独立に働く（最後の文）ので、受益者の構成が崩れても許諾は残る |
-| *"Most FOSS licenses nowadays are not -- and need not be -- sublicenseable. They are directly licenses between a Licensor and a Licensee. That avoids all the confusing contractual rules about contract privity."* | Rosen 氏 2016-01-21（BSD+Patent の審査） | 直接の許諾が privity の問題を避ける、という読み。ACD は §1.6・§4.6 で直接の許諾を持つ（§1.208）。§5.3 の受益者の条は、直接の許諾が及ばない約束（訴えない約束）を下流へ届かせるための層で、Rosen 氏の言う「避けた問題」を約束の側で引き受けている |
+| *"Most FOSS licenses nowadays are not -- and need not be -- sublicenseable. They are directly licenses between a Licensor and a Licensee. That avoids all the confusing contractual rules about contract privity."* | Rosen 氏 2016-01-21（BSD+Patent の審査） | 直接の許諾が privity の問題を避ける、という読み。ACD は 1.4 草案の §1.6・§4.6 で直接の許諾を持つ（§1.208）。§5.3 の受益者の条は、直接の許諾が及ばない約束（訴えない約束）を下流へ届かせるための層で、Rosen 氏の言う「避けた問題」を約束の側で引き受けている |
 | *"You might be missing that "third-party beneficiary" has a special meaning in contract law."*（NOSA 2.0 の政府を受益者にする条に） | Bruce Perens 氏 2018-03-02 | 受益者の語は契約法の特別な意味を持ち、審査者はその効果を問う。ACD の §5.3 は受益者が「依拠できる」ことだけを言い、受益者に何かを強制させる条ではない |
 
 **読み。** 承認済みのライセンスが受益者の語を使うのは licensee に守らせる側で、ACD は受け手を守る側で使う。この向きは新しく、承認済みの先例が無い。審査者の疑問（知らない受益者、契約法の特別な意味）は ACD に当たりうるが、§5.3 は効果を法域に委ね、許諾（§3・§4）を受益者の構成から切り離している。
@@ -161,3 +161,19 @@ portfolio-1c の依頼（1.4 草案の §16.4 の名前と識別子の規律、�
 **逆側。** 先例の MPL・CPL・EPL の Steward は大きな組織（Mozilla・IBM・Eclipse）で、ACD の Steward は個人である（B12）。譲渡の形が在っても、譲る相手がいるかは別の問いである。Rosen 氏の「名前は商標で守る」は、名前の規律を本文に置くこと自体への疑問として当たりうる。
 
 **この節が establish しないこと。** MPL 2.0 §10.3 の承認の過程でこの条が論じられたかは読んでいない。CPL・EPL の Steward の条が承認の理由に挙がったかも確かめていない。
+
+## 1.227 権利が移っても、倒産しても、約束は残る —— OWFa の 3 つの条を Rosen 氏が示した（2013）（2026-11-15）
+
+"Open Source Eventually License Development"（`license-discuss` 2013-08・`rounds/2013-08-license-discuss-owfa-successors-bankruptcy-observed.txt` に 1 通）。portfolio-1c の依頼（1.4 草案の §2.8 で、権利が移った後も許諾が残ることを本文で述べた先例）の探索で見つけた。決める側の通に 17 U.S.C. §205(e) を論じたものは無かったが、同じ問いに法律家が起草の形で答えた通が在った。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| Eben Moglen 氏の「ライセンスは倒産などで終わりうる」に対し、OWFa の条を引いて *"the Open Web Foundation Agreement ("OWFa") deals directly with the fact that copyrights and patents can change ownership (voluntarily or involuntarily)"*、3.1.3 *"Notwithstanding the personal nature of my promise, this promise is intended to be binding on any future owner, assignee or exclusive licensee who has been given the right to enforce any Granted Claims against third parties."* | Lawrence Rosen 氏 2013-08-18 | **有利な面（§2.8・起草の先例）。** 権利が移った後も約束を将来の所有者・譲受人に及ぼす形は、法律家（Rosen 氏）が起草した文書に在る。1.4 草案の §2.8 は *"binds the Dedicator's successors, assigns, heirs, and personal representatives, and any person to whom a Covered Right or a patent claim in the Work is transferred"* と書き、同じ形である |
+| 3.1.4 *"Solely for purposes of Section 365(n) of Title 11, United States Bankruptcy Code and any equivalent law in any foreign jurisdiction, this promise will be treated as if it were a license and you may elect to retain your rights under this promise if I … as a debtor in possession, or a bankruptcy trustee, reject this non-assert."* | Rosen 氏 2013-08-18（OWFa の引用） | **有利な面と差（§2.9）。** 倒産で約束が止まらない形の先例。1.4 草案の §2.9 は「倒産・管財などで止まらず、管財人は §2.8 の譲受人に当たる」と一般の語で書き、365(n) を名指さない。OWFa は約束（non-assert）を許諾として扱うと書いて 365(n) の保護に入れている。ACD の §5 の約束（訴えない約束）に同じ扱いを書くかは、試作の候補になりうる（portfolio-1c へ） |
+| 6 *"I agree that I will not intentionally take or willfully assist any third party to take any action for the purpose of circumventing my obligations under this CLA."*、*"Could a court invalidate this license? Yes, it would have the authority to do so. Is that likely? No."* | Rosen 氏 2013-08-18（OWFa の引用と本人の評価） | §5.1 の *"not to authorise or assist any other person to assert"* と同じ向き。Rosen 氏は裁判所が無効にしうることを認めつつ、ありそうにないとした |
+
+**読み。** ACD の §2.8・§2.9・§5.1 の 3 つの形は、2013 年に法律家が起草した OWFa の 3.1.3・3.1.4・6 とほぼ同じ並びである。ACD は法律家の確認を持たない（B1）が、同じ問題に法律家が出した答えの形をなぞっている、と言える。
+
+**逆側。** OWFa は仕様への貢献のための合意（CLA に近い文書）で、OSI が承認したライセンスではない。承認の先例ではなく起草の先例である。また OWFa は 365(n) を名指して約束を許諾として扱い、ACD はそれを書かない ——ACD の §2.9 の一般の語が米国の倒産手続きで同じ効果を持つかは、法律家に当てていない（`QUESTIONS-FOR-COUNSEL.md` の候補）。
+
+**この節が establish しないこと。** Moglen 氏の主張の全体と、会話の帰結は読んでいない。決める側の通に §205(e) の議論が無かったことは、語の照合による。
