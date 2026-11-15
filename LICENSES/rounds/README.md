@@ -391,6 +391,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（21/23 部）** | **同じ束の 21/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（22/23 部）** | **同じ束の 22/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（23/23 部）** | **同じ束の 23/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2013-06 | `license-review` | **観測（"License drafting quality and process" から 5 通・多段階の承認とまず license-discuss、使用の数を要件にすれば萎縮、断る手段が無い、新しいライセンスの基準率）** | `2013-06-license-review-drafting-quality-and-process-observed.txt` |
 | 2017-11 | `license-review`（観測）| **Unicode の 2 つの承認 16 通（2018 legacy / 2023 v3） → 観測保存（1/3 部）** | **OSI は「data files」を主題に明記したライセンスを 2 度承認している**（2018 legacy / 2023 v3・どちらもカテゴリつき）——**B15 にとってフォントに続く 2 つ目の counterweight**（#259）。**2023 年の提出は「一般化」を目的に明記し、著作権表示を *"fill in the blanks"* にした本文で承認された** ——*"to **genercize it so that it may be used by entities other than the Unicode Consortium**"*（#260） |
 | 2017-11 | `license-review`（観測）| **Unicode の 2 つの承認 16 通（2018 legacy / 2023 v3） → 観測保存（2/3 部）** | **同じ束の 2/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2017-11 | `license-review`（観測）| **Unicode の 2 つの承認 16 通（2018 legacy / 2023 v3） → 観測保存（3/3 部）** | **同じ束の 3/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |

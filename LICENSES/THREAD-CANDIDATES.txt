@@ -609,6 +609,7 @@
 2013-03-28	License Committee Report - for board meeting of 2013-04-03
 2013-04-01	Comment on MOSL and similar licenses
 2013-04-05	Copyright Free Software Foundation, but license not GPL
+2013-04-07	License drafting quality and process
 2013-04-27	New license submission
 2013-05-03	Akshar License 1.0 Final Draft
 2013-05-05	Some suggested writing projects to improve opensource.org: call for volunteers

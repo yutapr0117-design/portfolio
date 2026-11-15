@@ -95,3 +95,21 @@ portfolio-50 の依頼（`REVISION-PROTOCOL.md` の 3.6 節の 6b で 1.4 を `l
 **逆側。** 2 つの提出はどちらも退けられた側（ISC の翻訳はほぼ同じ文、Modified 0BSD は Chestek 氏が否決を勧めた）で、最初の問いが同じでも ACD の扱いが同じになるとは限らない。使用の問いは、委員会の理由書が「基準ではない」とした問い（§1.201、MIT-0・Jam）を委員が最初に訊いていることを示し、規則と実際の問いの順の間にずれがある（B2）。
 
 **この節が establish しないこと。** 2 つの提出の帰結は扱わない。Piana 氏の 3 つの問いが毎回同じ形で来るかは、この 1 通からは分からない。
+
+## 1.223 多段階の承認、まず license-discuss、問いは「OSD に合うか」と「既存の全てと十分に違うか」—— 2013 年の「起草の質と手順」の議論（2026-11-15）
+
+"License drafting quality and process"（`license-review` 2013-04〜06・32 通・決める側の未引用の通 7 通・`rounds/2013-06-license-review-drafting-quality-and-process-observed.txt` に 5 通）。census の会話の一覧にも READ-THREADS にも行が無く、ドシエは同じ会話の Berkus 氏の *"it happens afterwards"*（法律家のレビューは提出の前か後か）と Fontana 氏の「支持者が複数いる」提案だけを引いていた。portfolio-9b が census に入れた通単位の面で見つけた。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"I think there would be significant non-proliferation benefit to having a multi-stage approval process for new licenses, an important part of which could be license-discuss."*、問いは *"(1) does the license fit the OSD? (2) is it sufficiently different from all existing licenses?"* | Josh Berkus 氏 2013-06-05 | **手順と問いの形。** 新しいライセンスは `license-discuss` を含む多段階で、問いは OSD への適合と既存の全てとの十分な差の 2 つ、と 2013 年に書かれた。2026 年の Chestek 氏の「`license-discuss` に 30 日」（§1.206）と Piana 氏の最初の問い（§1.222）は、この形の続きに見える。ACD の入口は (1) を `submission-osd.md`、(2) を "In one screen" で答える |
+| *"Requiring evidence of 100+ projects using a proposed license will have the same chilling effect against further reform and evolution of open source licensing. There is a bit of a chicken/egg problem, as the absence of OSI approval may significantly deter projects *independent of the steward* from choosing the new license."* | Richard Fontana 氏 2013-06-06 | **有利な面（B2）。** 使用の数を要件にすると新しいライセンスを止めてしまい、承認が無いこと自体が採用を妨げる、という鶏と卵の指摘である。2015 年の同じ人の委員会報告（使用の要素を採らずに承認・§1.216）と同じ線で、B2 の「使用は基準でない」の支えが 2013 年まで遡る |
+| *"it is quite possible to submit a license that complies with all our formal requirements without improving the overall ecosystem, and we have no formal way to say no to those."* | Luis Villa 氏 2013-06-06 | **不利な面（B10）。** 形式の要件を満たしても生態系を良くしないライセンスを断る手段が無い、という当時の委員の不満である。2025 年の理事会の「留め置き」の形（`board-decisions.md`）は、この不満への後年の答えと読める |
+| *"the only licenses we've approved in the last year were new versions of old approved licenses. Every other proposed license we've seen has been rejected as either (a) not OSD-compliant, or (b) very poorly conceived and written, or (c) wholly duplicative of an existing license."* | Berkus 氏 2013-06-12 | **不利な面（基準率）。** 2012〜13 年に新しく書かれたライセンスは、既存の新版を除いてすべて退けられ、理由は OSD 不適合・起草の質・重複の 3 つだった。ACD が当たりうるのは (b)（B1・B3・B13）と (c)（B10） |
+| *"To be clear, this is now official policy. Submissions to license-review that aren't quite compliant with the submissions policy will be politely rejected until you come back with a better one."* | Villa 氏 2013-06-13 | 提出の形式（必要な情報）を満たさない提出は内容を見る前に退ける、が 2013 年に方針になった。ACD の `SUBMISSION-MATERIALS.md` と REVISION-PROTOCOL の表の 8 がこれに当たる |
+
+**読み。** 2013 年の議論は、新しいライセンスの承認の形を「まず `license-discuss`、問いは OSD と十分な差、形式の不備は門前で戻す」に寄せ、使用の数を要件にする案は鶏と卵として退けた。今の手順（2026 年の 30 日、最初の問い、形式の要件）はこの線の上に在る。ACD の手順（`license-discuss` に 1.0 を置き、版を出し直し、入口で差を示す）は、この形に合っている。
+
+**逆側。** 同じ会話の基準率は厳しい: 2012〜13 年の新しいライセンスは既存の新版を除いて全部退けられた。理由の (b) 起草の質と (c) 重複は、ACD の B1・B3・B13 と B10 にそのまま当たる。Villa 氏の「断る手段が無い」は、後に理事会が留め置きの形で手段を持ったことで解けており、その手段は ACD にも使われうる。
+
+**この節が establish しないこと。** 2013 年の Berkus 氏の多段階の案が正式な手順になったかは、この会話からは分からない。基準率は 2012〜13 年の 1 年の Berkus 氏の数え方で、我々は数え直していない。
