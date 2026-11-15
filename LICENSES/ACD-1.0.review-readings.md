@@ -878,3 +878,23 @@ Project Tick General Public License の `license-review` 側の会話（v1 の�
 **この節から出た作業。** B15 の有利な面（2021 年の基準を文面で満たす）の隣に、Piana 氏 2026-08-31 の「ソフトウェアなら受け入れられるか、だけでは量れない」を置く（portfolio-30）。against #46 の逆側に Piana 氏の比例性、側に Berkus 氏の「10 年前なら議論なく承認された」を足す（portfolio-30）。
 
 **この節が establish しないこと。** Piana 氏は暫定の立場と明記している。OpenMDW の審査の帰結は、取得時点で公表されていない（`board-decisions.md`）。
+
+## 1.212 ドシエが一度も引いていなかった 2024〜2026 年の決める側の通から 5 点 —— 前例を論拠にしない、精確な語は品質の問題、AI 生成の表示はファイル単位で、完全な許諾は全法域の動詞を持つ、非操作的な前文（2026-11-15）
+
+2024〜2026 年の `license-review` の決める側の通を 8 語連鎖でドシエに照合し、重なりが 1 つも無かった 74 通のうち、OpenMDW（§1.211）と ModelGo（§1.210）の外で ACD に当たる 6 通を読んだ（`rounds/2024-to-2026-license-review-unquoted-decider-messages-observed.txt`）。4 つの別の提出に付いた通で、提出そのものの帰結はこの節では扱わない。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Please never use the "but license x does the same" argument. If there was a mistake in approving one license, this does not mean the same mistake must be repeated over and over."* | Carlo Piana 氏 2024-09-06（ADVPL 1.0・個人の立場） | **不利な面（提出の書き方）。** ACD の入口（`REVIEWERS.md` の "What the record already says in its favour"）と `submission-reference.md` は、承認済みのライセンスが同じことをしている、という形の論拠を多く使う。入口は *"Approval of a license with the same or similar terms in the past does not bind the OSI"* を先に引いているが、Piana 氏の文は論拠の形そのものを退ける。前例は「OSD の読み」を示す材料として出し、「だから承認せよ」の形にしない書き分けが要る |
+| *"I think this submission does not fully comply with the submission guidelines. I doubt a lawyer has laid their eyes on this text and I can't find any such indication."* | Piana 氏 2024-09-05（同） | **不利な面（B1）。** 3 か月後の 2024-12-18 に Piana 氏は法律家のレビューを要件と書いた文を *"bad choice of words"* として撤回している（`REVIEWERS.md` の "Legal review" の行）。この 9 月の文はその前の、同じ人の読みである。撤回で規則の読みは正されたが、法律家の目が通ったかを審査者が最初に探すことは変わらない |
+| *"It would be worth reminding that use of appropriate and precise wording is a quality issue that can be taken into account"*、*"it is imperative that freedom of expression recedes in front of strict conditions or covenants (?) that can be parsed and described in an algorithm"* | Piana 氏 2025-12-10（CingXaero） | 両面。語の精確さは品質として量られうる（B3・B13 の不利な面）。一方で、ライセンスの文は機械が解析できる形であるべきだという求めは、ACD が条件を置かず（§10.1）、機械が許諾を決められることを目的に書く（§6.5 *"a permission that an automated system cannot determine is … no permission at all"*）向きと同じである（有利な面） |
+| *"For any substantial project which has a history of development, there is going to be a mix, including: files that are wholly AI-generated, files which are AI-assisted, files which were written by humans"*、*"if you want to copy a single module from this project, you don't know what copyright applies."* | Josh Berkus 氏 2026-03-13・2026-03-15（AI-MIT） | **有利な面（§9）。** 理事の 1 人は、AI 生成か否かをプロジェクト全体で 1 度だけ述べる形では、部分を写す人がどの権利が当たるか分からないと書いた。1.4 草案の §9.3 は *"You are not required to determine which parts of the Work are Machine-Generated Material. No permission granted here depends on that question"* と書き、どの部分が AI 生成でも許諾が変わらない作りで、この問いそのものを生まない |
+| *"IMHO if you want to write a "perfect" license grant you'd include all the verbs in Berne, and USA (C) law, and perhaps the EU (C) directive, and you'd do the same for patent rights as well"*、*"I'm not sure there is any license that does that"* | McCoy Smith 氏 2025-01-22（Mulan PSL v2） | **有利な面（B10 の (iii)）。** 1.4 草案の §4.2 は *"publicly display, publicly perform"*（米国法）、*"communicate to the public"*（EU 指令）、*"lend, rent"*（貸与の権利）を並べ、§7.2 は EU のデータベース権の *"extract and re-utilise"* を、§8.1 は特許の *"make, have made, use, offer to sell, sell, import"* の系統の動詞を持つ。Smith 氏の「完全な許諾」の形に近い。ただし全動詞を網羅したかは我々が数えておらず、網羅していると書けない |
+
+**読み。** ドシエが引いていなかった最近の通は、ACD の 2 つの性質（AI 生成かを問わないこと、複数の法域の動詞を並べること）を有利な側で支え、提出の書き方（前例を論拠にしない）と B1 の最初の印象（法律家の目が通ったかを探す）に不利な材料を足した。
+
+**逆側。** 前例を論拠にするなという Piana 氏の文は、ACD のドシエの作り方の中心に当たる。ドシエは承認済みのライセンスとの比較で差（B10）を示すので、比較そのものはやめられない。やめるべきは「同じだから承認せよ」の推論で、ドシエの入口の表がその形に読まれないかを、portfolio-50 の整合監査で見る必要がある。§4.2 の動詞の網羅は、長さ（B3）を増やす側の理由でもある。
+
+**この節から出た作業。** `REVIEWERS.md` の "What the record already says in its favour" の表が「同じだから承認せよ」と読まれないかの確認（portfolio-50）。§4.2・§7.2・§8.1 の動詞を Berne・米国法・EU 指令の動詞と突き合わせる表（Smith 氏の「完全な許諾」の測定）は、作れば B10 の (iii) を数で言えるが、未着手。
+
+**この節が establish しないこと。** 4 つの提出の帰結は扱わない（AI-MIT は 2026-03-19 に取り下げ・`AS-OF.md`）。Piana 氏の 2024-09 の 2 通は個人の立場と明記されている。
