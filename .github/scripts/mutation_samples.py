@@ -402,7 +402,7 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 471 (d): CHANGELIST の SELF-AUDIT の節の参照を存在しない §3zz にする —— 旧版は節番号の末尾の英字を 1 文字まで"
             "しか読まず、§3zz を参照として拾わずに黙って通した (2026-11-12・SELF-AUDIT が 3a〜3z を使い切った)",
-    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
     "find": "errata ではなく `ACD-1.1-SELF-AUDIT.md` §3z に記録した | −2",
     "replace": "errata ではなく `ACD-1.1-SELF-AUDIT.md` §3zz に記録した | −2",
     "check": CHECK,
@@ -428,7 +428,7 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 468z: 記述子の下書きの §8.6 の行の逐語を T22 より前の語 (described in Sections 8.1 and 8.4) へ戻す —— 旧版は § の"
             "番号しか見ず、古い語が凍結の日に機械可読層へ入るのを通した (2026-11-12・portfolio-aa の依頼)",
-    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
     "find": "§8.6 が約束するのは *\"the patent claims that Sections 8.1 and 8.4 reach",
     "replace": "§8.6 が約束するのは *\"the patent claims described in Sections 8.1 and 8.4 reach",
     "check": CHECK,
