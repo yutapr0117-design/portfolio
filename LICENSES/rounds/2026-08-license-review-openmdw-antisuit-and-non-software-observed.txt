@@ -1,7 +1,7 @@
 Source: OSI license-review public archive, 2026-August.txt
 Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
-Messages: 2 of the messages in "For Approval: OpenMDW License Agreement, versions 1.1" (2026-08)
-Senders: Josh Berkus, Carlo Piana
+Messages: 3 of the messages in "For Approval: OpenMDW License Agreement, versions 1.1" (2026-08)
+Senders: Josh Berkus, Carlo Piana, Richard Fontana
 Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
 
 ----- begin verbatim -----
@@ -185,3 +185,144 @@ Carlo
 -------------- next part --------------
 An HTML attachment was scrubbed...
 URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260831/1011c20b/attachment.htm>
+From rfontana at redhat.com  Sun Aug 16 22:43:11 2026
+From: rfontana at redhat.com (Richard Fontana)
+Date: Sun, 16 Aug 2026 18:43:11 -0400
+Subject: [License-review] For Approval: OpenMDW License Agreement,
+ versions 1.1 (OpenMDW-1.1)
+In-Reply-To: 
+ <CAFV=PSH_wNaPuPQi5i6-JZP2wfyx5UpudQsrjao3TCCSE4jb9w@mail.gmail.com>
+References: 
+ <CAFV=PSG=bsLTemzjyCKYYz9j=rX9dcNo6=2T6htbxTRgervMrA@mail.gmail.com>
+ <CAC1cPGxE=ozAmGTfHt4k+SePQcstym_Kaq=w4Aj5_=hvkp15hA@mail.gmail.com>
+ <CAC1cPGyZf3indkwzeCHvodDFxyPmKhfRqGdbBx=+X+1wB9v86g@mail.gmail.com>
+ <CAFV=PSH_wNaPuPQi5i6-JZP2wfyx5UpudQsrjao3TCCSE4jb9w@mail.gmail.com>
+Message-ID: 
+ <CAC1cPGxeqtcZmH-n8tkLcoWeA7_KfK13s=GRx+Z8zS+K4-C8MQ@mail.gmail.com>
+
+On Fri, Aug 14, 2026 at 1:09 PM Michael Dolan
+<mdolan at linuxfoundation.org> wrote:
+>
+> I welcome the feedback. I am not aware of any other AI model-focused license having been submitted previously,
+
+There actually has been at least one, but I think OpenMDW (considering
+both versions) is probably the only one seeing any real-world use.
+
+> and I apologize if we are pushing boundaries that OSI or this committee is not prepared to cover. I had heard rumors there was interest within OSI in seeing the OpenMDW license submitted, which is part of why we brought OpenMDW here rather than treating it as outside scope. If OSI is the wrong forum, I will take that as a fair response.
+
+Given that OpenMDW is designed to be applied to software as well as
+other kinds of "Model Materials", and I suppose given the approach to
+licensing taken by the OSI in the OSAID (though I assume no model
+released under OpenMDW would qualify as "open source AI" under the
+OSAID), I think the submission to OSI is completely appropriate, FWIW.
+Given that OpenMDW-1.0 is being used already and doesn't have the
+'copyright assertion defensive termination' feature of 1.1, maybe it
+would be a good idea for OSI to consider 1.0 too, but that's up to the
+OSI.
+
+> The feedback seems to focus on the termination provision. I'll repaste the OpenMDW-1.1 [5] termination provision here so everyone can easily take another look at it:
+>
+>
+> If you file, maintain, or voluntarily participate in a lawsuit against any person or entity asserting that the Model Materials directly or indirectly infringe any patent or copyright, then all rights and grants made to you hereunder are terminated, unless that lawsuit was in response to a corresponding lawsuit first brought against you.
+[ . . . ]
+> 1. It helps to separate the termination trigger from the scope of what is terminated.
+>
+> On the remedy side, terminating copyright grants is not new for OSI-approved licenses.
+
+Yes, this now seems quite clear.
+
+> So full termination of all grants, copyright included, has a history of precedent within OSI. I suspect what is unique in OpenMDW-1.1 [5] is copyright as a trigger for termination, and I will address that in point 3. below.
+[ . . . ]
+> The consistent point seems to be the trigger: termination should be limited to claims about the licensed work itself. The OpenMDW-1.1 is likewise scoped to trigger on claims against the Model Materials, or in other words, the covered work.
+
+I want to push back a little on this, though I think it may expose a
+problem that may be present in existing OSI-approved licenses with
+defensive termination provisions.
+
+How do you know what the "covered work" is? This question relates to
+my suggestion that there may be an OSD 9 problem.
+
+""Model Materials" means the materials provided to
+you under this agreement, consisting of: (1) one or more machine learning
+models (including architecture and parameters); and (2) all related artifacts
+(including associated data, documentation and software) that are provided to
+you hereunder."
+
+I've suggested there may be an OSD 9 problem because the license is
+designed to apply to a bunch of different classes of materials that --
+I would contend -- are of types that at least in the Linux ecosystem
+(whose traditions I feel most familiar with) would have historically
+been thought of as multiple, potentially differently-licensed works.
+With OpenMDW, the termination provision applies seamlessly across the
+whole set -- for policy reasons that are actually unclear to me other
+than drafting simplicity. I suppose we can say that the Apache-2.0
+termination provision has a corresponding problem because of its use
+of the "Work" term, which on some level is ambiguous (""Work" shall
+mean the work of authorship, whether in Source or Object form, made
+available under the License, as indicated by a copyright notice that
+is included in or attached to the work"). But at least as a matter of
+tradition, I *think* we know that the Apache-2.0 patent termination
+provision doesn't extend across, say, different Apache-licensed
+projects even where released by the same licensor, perhaps on the same
+website, and even where one might be a dependency for another for a
+built project. For example, surely the ASF and its contributors would
+not contend that asserting a patent against Apache Commons Lang leads
+to termination of patent licenses granted for Apache Kafka (er,
+right?).
+
+This is where the widespread annoying practice of AI folks dividing up
+materials across differently-hosted repositories, which I referred to
+previously, becomes relevant. If an OpenMDW licensor releases some
+Model Materials on Hugging Face and other Model Materials on GitHub,
+alll associated with one specific model release, perhaps even with the
+respective repositories having dissimilar names and non-obvious common
+maintenance, and all that material is released under OpenMDW-1.1 -- a
+situation that for all I know is already happening -- what's the
+covered work in that case? Or, let's put aside the split-hosting
+problem. Model Materials explicitly can be two or more models. That
+suggests that those multiple models might be released in different
+repositories (and perhaps other Model Materials will be released in
+still other multiple repositories). The multiple models could in
+principle be radically different in type. How does any licensee have
+reasonable notice of what the scope of the "covered work" is? The safe
+conclusion might be that anything that a licensor ever releases under
+OpenMDW-1.1 constitutes one gigantic, and perhaps ever expanding,
+covered work, with significant consequences for licensees thinking
+about the risks associated with the termination provision.
+
+Maybe that doesn't matter for OpenMDW-1.0, because of an uncodified
+"software patents are such bad things that we can go really far in
+disincentivizing patent assertions" principle, but OpenMDW-1.1 has to
+be analyzed differently because it reaches licensee copyright claims.
+
+Perhaps OpenMDW could be revised in such a way that the licensor would
+have the expectation/obligation of listing out what they consider the
+elements of the Model Materials to be?
+
+> Model publishers are facing a very different economic equation than circa 1990-2005 software developers. Models are built from large bodies of existing works, and that is where the model publisher’s legal exposure arises. For those model publishers, the realistic assertion they face is that the licensed materials themselves infringe, and that infringement claim likely runs under copyright, not patent law. A patent-only provision in this context would replicate Apache-2.0's form while abandoning its function - there would not be symmetry. And that was the clear feedback received after OpenMDW-1.0's release.
+
+This makes sense and I addressed the basic sociopolitical problem with
+this in other responses. I would note for this response that this
+doesn't explain why the termination has to be structured to apply
+across the set of Model Materials. Couldn't you have it scoped to the
+model parameters? Realistically, that's what we're talking about for a
+copyright claim, I think.
+
+> 5. The practical reality.
+>
+>
+>
+> The reality is that we’ve seen a marked increase in bespoke model licenses designed to cover the gaps identified in my submission. The NVIDIA Open Model License [11] terminates on copyright or patent litigation alleging the model infringes and was the inspiration behind the change in OpenMDW-1.1. The current Nemotron license [12] extends its trigger to claims that outputs infringe. The Llama family [13] (while admittedly not OSI-approved) terminates on IP claims broadly (patent and copyright, claims and counterclaims, outputs and weights), plus acceptable use restrictions. These are terms important to model builders and publishers. The trend has been that the valuable models people want to use are often not under a license that would meet OSI’s standards.
+
+This is an important argument but I understand it as: To get model
+publishers to use licenses that are closer to traditional FOSS
+licenses, we need to bend the norms a little bit to accommodate their
+idiosyncratic policy preferences, and if necessary modify how we
+understand the OSD/'open source' in the process so that "closer to
+open" then becomes "open". I guess I would just note that, while
+NVIDIA, or whoever at NVIDIA makes decisions about model licensing,
+seems committed to not using existing OSI approved licenses for
+models, plenty of other model publishers (including recently Meta)
+have been using Apache-2.0 and MIT.
+
+Richard

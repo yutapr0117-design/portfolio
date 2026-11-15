@@ -159,7 +159,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2013-08 | `license-discuss` | **観測（"License incompatibility" から 2 通・法律上の語を定義するのはライセンスの役目ではない、新しいライセンスは最後の手段）** | `2013-08-license-discuss-incompatibility-statutory-terms-last-resort-observed.txt` |
 | 2016-06 | `license-review` | **観測（Moritz30 の提出から 6 通・読めなければ適合しないと推定する、法律家への相談を要件にしない、長い語は効くために要る）** | `2016-06-license-review-moritz30-unclear-means-nonconformant-observed.txt` |
 | 2025-02 | `license-review` | **観測（ModelGo への Berkus 氏の所見 1 通・機械学習の条項に AI を作る実務家の読みを、英語に母語話者の編集者を）** | `2025-02-license-review-modelgo-berkus-practitioner-review-observed.txt` |
-| 2026-08 | `license-review` | **観測（OpenMDW の審査から 2 通・著作権の反訴による終了は公平か、ソフトウェアでないものに及ぶライセンスを「ソフトウェアなら」の基準だけで量らない）** | `2026-08-license-review-openmdw-antisuit-and-non-software-observed.txt` |
+| 2026-08 | `license-review` | **観測（OpenMDW の審査から 3 通・著作権の反訴による終了は公平か、ソフトウェアでないものに及ぶライセンスを「ソフトウェアなら」の基準だけで量らない）** | `2026-08-license-review-openmdw-antisuit-and-non-software-observed.txt` |
 | 2020-02 | `license-discuss` | **観測（Persona non Grata の前文の会話から 2 通・採用の見込みは承認の基準ではなかった、拘束しない語は要らない）** | `2020-02-license-discuss-adoption-not-a-criterion-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
