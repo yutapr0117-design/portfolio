@@ -542,6 +542,13 @@ Submit via https://tools.spdx.org/app/submit_new_license/ (preferred) or the
    that did not happen.
 8. **Re-read section E** of this file. Its disclosures apply to whatever is posted, and the
    provenance one (E.1) is the disclosure most likely to be discovered independently.
+9. **The version you are submitting has been on `license-discuss` for at least 30 days.**
+   Pamela Chestek advised another submitter in January 2026 to allow *"at least 30 days for
+   feedback on license-discuss before submitting to license-review"*, in the same message as a
+   *"hard "no""* (`review-readings.md` §1.206). Only 1.0 has reached the list so far. Give the
+   date the submitted version (or its difference from 1.0) appeared in the public archive, and
+   point to the section of the draft's header that lists the changes made since that posting (`OSI-APPROVAL-PLAN.md` §4, step 6b). If the posting was rejected in
+   moderation, say so rather than counting the days from the attempt.
 
 ---
 
