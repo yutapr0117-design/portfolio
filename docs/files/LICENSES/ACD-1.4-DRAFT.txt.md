@@ -17,7 +17,7 @@ canonical-ref: LICENSES/ACD-1.4-CHANGELIST.md / LICENSES/ACD-1.3.txt (直前の�
 
 ## How
 
-変更は冒頭の変更一覧と `ACD-1.4-CHANGELIST.md` の表の両方に記録する。両者を本文の差分と照合するのは Check 468n（冒頭）と Check 468s（表の語数列）で、468f は冒頭の箇条書きの形式を、468i は閉じた errata が冒頭に載っているかを見る。
+変更は冒頭の変更一覧と `ACD-1.4-CHANGELIST.md` の表の両方に記録する。両者を本文の差分と照合するのは Check 468n（冒頭。合計と、名指す条でまとめた箇条ごとの 2 段）と Check 468s（表の語数列）で、468f は冒頭の箇条書きの形式を、468i は閉じた errata が冒頭に載っているかを見る。
 
 ## Constraints
 
