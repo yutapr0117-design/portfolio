@@ -549,6 +549,11 @@ Submit via https://tools.spdx.org/app/submit_new_license/ (preferred) or the
    date the submitted version (or its difference from 1.0) appeared in the public archive, and
    point to the section of the draft's header that lists the changes made since that posting (`OSI-APPROVAL-PLAN.md` §4, step 6b). If the posting was rejected in
    moderation, say so rather than counting the days from the attempt.
+10. **No thread in the archive's list of candidates is left unread, and every reading has been
+    acted on.** `LICENSES/AS-OF.md` shows the unread count; it must be 0, and every section of
+    the `ACD-1.0.review-readings*.md` files must end with a line saying where its finding went,
+    or why nowhere (`REVISION-PROTOCOL.md` §3.6, row 6c). The owner set this on 2026-11-15: a
+    submission sent while threads remain unread or unreflected is not of the quality to send.
 
 ---
 
