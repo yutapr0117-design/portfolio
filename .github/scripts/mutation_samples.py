@@ -542,6 +542,16 @@ _MUTATIONS_TAIL.append({
     "replace": "*\"a payment You agreed to remit\"*",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 468n (箇条ごと): 草案冒頭の §4.2 と §4.3 の語数の申告を +6 / +12 にずらす —— 合計は変わらないので、旧版 (合計の 1 本の"
+            "等式だけを見る 468n) は箇条間の取り違えを見逃していた (2026-11-15・§1.2 と §4.2 の入れ替えで緑を実測)",
+    "file": CURRENT_DRAFT,
+    "find": "engineering among the acts the licence includes. (+5 words.)\n    * Section 4.3 now names the size and revenue of the user, "
+            "the scale of use,\n      and the number of users served among the things the licence is not\n      conditioned on. (+13 words.)",
+    "replace": "engineering among the acts the licence includes. (+6 words.)\n    * Section 4.3 now names the size and revenue of the user, "
+               "the scale of use,\n      and the number of users served among the things the licence is not\n      conditioned on. (+12 words.)",
+    "check": CHECK,
+})
 
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 

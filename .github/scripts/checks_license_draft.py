@@ -102,6 +102,7 @@ def run(ctx):
     if _dr468.exists():
         _t468 = _dr468.read_text(encoding="utf-8")
         _bad468 = []
+        _comps468nb = []  # 468n (箇条ごと) のまとまり。OK の行に数を出す
         for _phrase in ("NOT IN FORCE", "NOT SUBMITTED", "NOT APPLIED"):
             if _phrase not in _t468:
                 _bad468.append(f"冒頭に {_phrase!r} が無い (草案は自分の身分を述べること)")
@@ -597,6 +598,45 @@ def run(ctx):
                     if _sum468n != _diff468n:
                         _bad468.append(f"468n: 変更一覧の語数申告の合計 {_sum468n:+d} が、申告語数 − ACD-{_pv468n} の本文語数 "
                                        f"({_diff468n:+d}) と一致しない (箇条の書き落とし・申告の誤り)")
+                    # ── 468n (箇条ごと): 申告は合計だけでなく、箇条のまとまりごとにも本文の差に一致する ──
+                    #   2026-11-15 (9b)。上の照合は 1 本の等式なので、ある箇条の +5 と別の箇条の +4 を
+                    #   取り違えても、2 つの誤りが打ち消し合っても緑のまま (実測: §1.2 と §4.2 の申告を
+                    #   入れ替えても緑だった)。箇条は「変更」ごとに語を数えるので、文を §8.1 から §8.3 へ
+                    #   移した変更は §8.3 の箇条に両側の差を載せる —— 条ごとの差とは 1 対 1 に対応しない。
+                    #   そこで、箇条が名指す変わった条を辺にして箇条をまとめ (union-find)、まとまりごとに
+                    #   「申告の和 = その条たちの本文の差の和」を見る。条でない本文 (前文・見出し) を述べる
+                    #   箇条は、条の外の差にまとめる。「the words Sections 8.1 and 8.4 use」の形は語の出所を
+                    #   引くだけで差を運ばないので辺にしない (含めると 19 箇条が 1 つにつながり、照合が
+                    #   ほぼ合計と同じになる)。申告の無い箇条は 0 扱いにせず RED にする。
+                    _chg468nb = set(_changed468n)
+                    _dl468nb = {k: len(_dc468n.get(k, "").split()) - len(_pc468n.get(k, "").split()) for k in _chg468nb}
+                    _out468nb = (len(_dbody468n.split()) - len(_pbody468n.split())) - sum(_dl468nb.values())
+                    _comps468nb = []
+                    #   読むのは「Changes in this draft」の後の箇条だけ (その前の箇条は草案の状態を述べる)。
+                    _chs468nb = _hdr468n.split("Changes in this draft", 1)
+                    if len(_chs468nb) < 2:
+                        _bad468.append("468n (箇条ごと): 冒頭に「Changes in this draft」が無く、変更の箇条を区切れない")
+                    for _b in (" ".join(_b.split()) for _b in re.split(r"\n    \* ", _chs468nb[-1])[1:]):
+                        if "This draft:" in _b:
+                            continue
+                        _md = re.search(r"\((?:([+-])(\d+)|0) words?\.?\)", _b)
+                        if not _md:
+                            _bad468.append(f"468n (箇条ごと): 語数の申告 (+N / -N / 0 words.) が無い箇条: {_b[:60]!r}")
+                            continue
+                        _dec = int(_md.group(1) + _md.group(2)) if _md.group(1) else 0
+                        _bb = re.sub(r"the words? (?:that )?Sections? (?:\d+\.\d+|[^,.()])*? uses?\b", "", _b)
+                        _s = {k for k in re.findall(r"\b(\d+\.\d+)\b", _bb) if k in _chg468nb} or {"<条の外>"}
+                        _new = [_dec, set(_s), 1]
+                        for _c in [_c for _c in _comps468nb if _c[1] & _s]:
+                            _comps468nb.remove(_c)
+                            _new = [_new[0] + _c[0], _new[1] | _c[1], _new[2] + _c[2]]
+                        _comps468nb.append(_new)
+                    for _dec, _s, _n in _comps468nb:
+                        _act = sum(_dl468nb.get(k, 0) for k in _s) + (_out468nb if "<条の外>" in _s else 0)
+                        if _act != _dec:
+                            _bad468.append(f"468n (箇条ごと): {_n} 箇条のまとまり {sorted(_s)} の申告 {_dec:+d} が、"
+                                           f"それらの条の ACD-{_pv468n} からの本文の差 {_act:+d} と一致しない "
+                                           "(箇条間の取り違え・打ち消し合う 2 つの誤り)")
                     # ── 468s: CHANGELIST の変更表の「費用（語）」列の合計も同じ差に一致する ─────────
                     #   portfolio-25 の提案 (2026-11-03)。468n は草案冒頭の申告しか見ず、変更表は
                     #   手で足し引きされる (同日だけで行 6 つ追加・既存行 1 つの値変更) ので、書き忘れると
@@ -861,7 +901,8 @@ def run(ctx):
              f"468w errata の草案の逐語 {_n468w} 件・468x 主表の After {_n468x} 件 "
              f"({sum(1 for _p in _parsed468x if _p[3])} 行)・468y 試作と逐条の組 {_pairs468y} 件・"
              f"468z 記述子の下書きの参照 "
-             f"{'—' if _n468z is None else f'{_n468z} 件 (異なる条 {len(_u468z)})'})"),
+             f"{'—' if _n468z is None else f'{_n468z} 件 (異なる条 {len(_u468z)})'}・"
+             f"468n 箇条のまとまり {len(_comps468nb)} (最大 {max((_c[2] for _c in _comps468nb), default=0)} 箇条))"),
             (f"Check 468: 次版草案に問題がある: {_bad468}。**草案は 1.0 と書式が同じで条番号だけ"
              "ずれているので、取り違えると凍結中の提出物について誤った条番号を引くことになる。**"
              "自分が何であるかを本文に述べ、1.0 について測っている性質を同じ形で保つこと"),
