@@ -322,7 +322,11 @@ Dedicator the law that protects its computers without returning to it any law th
 measure as a restriction on the Work? A trial that limited the limb to laws protecting measures *"as
 a means of protecting rights in the Work"* (T68) was not taken: it would also have returned unfair-
 competition protection of technological measures (Japan's Unfair Competition Prevention Act) to the
-Dedicator, and would have left the limb empty where the surrender in §3 takes effect.
+Dedicator, and would have left the limb empty where the surrender in §3 takes effect. The answer
+cuts both ways. If the limb does not reach computer-misuse law, a Dedicator may put a bot challenge in
+front of its server and use that law against a crawler that defeats it; the purpose of §6 (a work
+meant to be learned from) is then kept only if copies remain obtainable by other means, and the text
+does not require that they do.
 
 **An answer would change** whether "for" is the right word, and whether data protection needs its
 own exception. An answer to the second question would change whether §11.3 needs the altered-work case in words.
