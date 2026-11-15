@@ -52,6 +52,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | **license-review へ出す日の材料（要件ごとの事実と根拠・文面ではない）** | [`SUBMISSION-MATERIALS.md`](SUBMISSION-MATERIALS.md) —— オーナーが自分の言葉で書くための材料。出す版（1.4 以降）向け |
 | **自分の著作物に適用する前に読むもの（英語）** | [`ADOPTING.md`](ADOPTING.md) —— 取り消せないこと、分かっていないこと、別のライセンスの方が良い場合、適用の手順 |
 | **弁護士に何を尋ねるか（英語）** | [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) —— 法的レビューが無い（B1）。弁護士の読みが本文を最も変える 9 問を、帰結の大きい順に |
+| **ML の実務家に何を尋ねるか（英語）** | [`QUESTIONS-FOR-PRACTITIONERS.md`](QUESTIONS-FOR-PRACTITIONERS.md) —— 審査の側が ML の条に AI システムを作る人のコメントを求めた（Berkus 氏 2025-02-25）。§1.7・§2.6・§6・§8.4 の語が実務の行為・成果物・合図・形式と合うかを 5 問で |
 | **既知の欠陥と、直さない理由（英語）** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) |
 | **議論に付した確定テキスト（凍結）** | [`ACD-1.1.txt`](ACD-1.1.txt) —— **FROZEN / NOT SUBMITTED / NOT APPLIED**。確定した時点（2026-09-17）で 1.0 の errata に記録されていた 21 件のうち 19 件を閉じた（**この 21 は当時の数**で、errata はその後も増えている。現在の件数は `ACD-1.0.errata.md` の冒頭が権威。`REVIEWERS.md` の同じ記述と同じ形）。**条番号は §15 以降で 1.0 と異なる**ので、**1.0 を引くときは 1.0 の本文から**（対応表は `ACD-1.1-CHANGELIST.md` §0.5）|
 | **1.0 → 1.1 の変更記録** | [`ACD-1.1-CHANGELIST.md`](ACD-1.1-CHANGELIST.md) |
