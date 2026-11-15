@@ -114,3 +114,22 @@ Check 468y は 2 冊目とこの file の両方の「変えない」「退けた
 **最初の形と反例**: 最初は第 2 文に *"and any reading to the contrary is to be rejected"* を結ぶ形（−30 語）とし、規則の対象を *"any patent claim they reach"* に結んで CE8 の失敗を避けた。portfolio-50 の反例: その規則は作用の文に「反対の読みは退ける」を付けるだけの同語反復で、何も足さない。曖昧なときの向き（受け手が無防備になる読みを退ける）は §15.1（*"the reading that grants more to You prevails"*）が持つ。portfolio-30 は *"the contrary"* の先は 1 つに決まると確かめた。
 
 **⚠ 逆側**: (1) 旧い第 4 文は、届く範囲（*reach*）を狭く読む読みも「受け手を晒す結果」として退けていた。外した後、範囲の争いは §15.1 だけに頼り、§15.1 は *in respect of the Work* に限られるので、§8.4 のモデルと出力の請求項が「Work について」かを争う余地がある（30）—— ただし旧文の規則も *software* の理由に結んでいて、モデルと出力を名指していなかった（50）。(2) §8 全体の目的（著作権を渡して特許を留保すると受け手が晒される）を審査者に一目で示す説明力は、本文の作用の条からは消える。前文（*"… both leave the recipient of software exposed"*）に残る（30）。(3) 外向きの文書 5 つが 1.0 の文として引くので、切り替えの日の表に行を置いた。(4) −40 語で、GPL-3.0 より題名から短い余裕は 31 語から 71 語になる。B3 への作用は結果で、理由ではない。
+
+## 16. 模擬委員会 —— 記録に立場が厚く残る審査者の目で 1.4 草案を通読する（2026-11-15〜）
+
+**仕組み**: オーナーの依頼（「5 人で話し合って、より良い案をガンガン実行して」）を受けて、portfolio-1c が出し 5 人で決めた。記録に立場が厚く残る 5 人の審査者を 1 人ずつ受け持ち（30 = Chestek 氏、50 = Fontana 氏、2f = Perens 氏、9b = Smith 氏、1c = Villa 氏）、その人の過去の文だけを根拠に、その人の目で 1.4 草案を頭から通読して「どこを突くか」を条番号つきで出す。根拠の無い推測は書かない（必ずその人の文を引く）。各節は表（基準と出典 | 当たる条 | 扱い済みの場所 | 残る点）と、条を変える指摘（試作の種）を持つ。**0 件でも表を残す** —— 審査者の基準を網羅して当てた記録になる。**この節が establish しないこと**: 模擬であって、その人が実際にそう言うことを意味しない。
+
+### 16.1 Villa 氏の基準を 1.4 草案に当てた（portfolio-1c・条を変える指摘 0 件）
+
+| 基準と出典 | 当たる条 | 扱い済みの場所 | 残る点 |
+| :-- | :-- | :-- | :-- |
+| 却下は OSD に明らかに反するものと明文の方針に限るのが適切だが、実務では *"being poorly written and/or duplicative was sufficient"*。OSD は特許などで曖昧（2019 頃の整理・`reviewer-positions.md`）| 全体（起草の質）・§8 | 1.4 の試作 T34〜T71 と errata E39〜E85 は起草の質を直した記録。§8 は特許を明示する | 長さ（B3）と、法律家の関与が無いこと（B1）は残る |
+| *"Apache fills the same purpose[1] (permissive license) while being better drafted and properly handling patents."*（`review-readings.md` §1.178 の追記）| §8・B10 | B10（既存に無い効果）と `comparison.md` が Apache-2.0 との差を述べる | 「Apache-2.0 で足りないか」は B10 の H1-g と同じ問いで、量の問いとして答える（`SUBMISSION-MATERIALS.md` §0d） |
+| *"If you/your community/your project have not already conducted a review of the basic license, this isn't the place to get that done."*（2013-11-17）| 提出の手順 | 段 6b（list に 30 日）と法律家への問いの文書 | B1（法律家の審査が無い）は残る |
+| *"it's impossible to prove the negative"*（B2 の文脈）| 採用 | B2 の記述がこの発言を伏せていないことを確かめた（register） | 採用の数（B2）は変わらない |
+| TDM 例外と米国の fair use について *"very clear good-faith arguments"*（2026-09-10・`against.md` #132）| §6 | §6.5 が §6 を明示する理由を述べ、§6.2・§6.3 は留保をしないことで例外が働く条件を保つ（portfolio-2f の読み・`against.md` #132 の欄） | 「例外で足りるのに §6 は長い」と読まれる余地（B3） |
+| GPL-3.0 §3 は WIPO 条約の回避の権利を行使したい人を差別すると arguably 読める（`license-review` 2018-11・SSPL の審査・portfolio-2f が T64 の材料として挙げた弱い文で、ドシエの節には置いていない）| §5.2(a)（T64）| T64 は GPL-3.0 §3 型を採ったが、ACD の §5.2(a) は Dedicator 自身の約束で、受領者や第三者に何も課さない —— 差別の問いは、他人に放棄を課す GPL の形にしか当たらない | なし |
+
+**結果**: 条を変える指摘は 0 件。Villa 氏の基準は、起草の質（直した記録がある）、既存との差（B10）、事前の審査（B1）、採用（B2）に集まり、どれも register の側の問いで、1.4 の本文の語では閉じられない。
+
+**§15.7（T71）への追記（portfolio-30）**: 理由を作用の条に置くと Chestek 氏 2026-01-24 *"The unnumbered parts appear to be explanatory material, so I question whether they belong in the agreement at all."* と Piana 氏の線（説明は本文に入れない）に当たり、前文に置くと前文は自ら *"informative; not part of the operative terms"* と述べるので、`against.md` #124 の線では効力を持たない。どちらも同じ審査者の文に当たるので「理由をどこに置くか」に正解は無く、T71 は理由が範囲を狭める読みを許す害（E85）を除く方を選んだ。
