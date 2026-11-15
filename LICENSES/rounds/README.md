@@ -84,6 +84,11 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2004-06 / 2004-08 / 2009-11 | `license-discuss` / `license-review` | **観測（ECL の 2004 年の審査から 4 通と、2009 年 12 月分の委員会報告）** | `2004-to-2009-license-lists-ecl-and-committee-report-december-2009-observed.txt` |
 | 2008-11 | `license-review` | **観測（SIL Open Font License 1.1 の審査から 5 通・フォントをソフトウェアとして扱う読み、ハードウェアについての当時の扱い）** | `2008-11-license-review-sil-open-font-license-observed.txt` |
 | 2012-04〜05 | `license-review` | **観測（CeCILL v2.1 の審査から 3 通・権利の総称、2 つの正本、既存のもので足りるか）** | `2012-04-to-05-license-review-cecill-2-1-observed.txt` |
+| 2012-05 | `license-review` | **観測（Fontana 氏の 1 通・なぜ CC0 を使わないのか）** | `2012-05-license-review-svoboda-fontana-why-not-cc0-observed.txt` |
+| 2012-05 | `license-review` | **観測（Perens 氏の 1 通・短い公有の文は crayon license）** | `2012-05-license-review-svoboda-perens-crayon-observed.txt` |
+| 2012-05 | `license-review` | **観測（Callaway 氏の 1 通・CC0 が長いのは徹底しているから）** | `2012-05-license-review-svoboda-callaway-cc0-thorough-observed.txt` |
+| 2012-05 | `license-review` | **観測（Callaway 氏の 1 通・既存で解けない問題を述べることを提出の必須の前提に）** | `2012-05-license-review-svoboda-callaway-state-the-problem-observed.txt` |
+| 2012-05 | `license-review` | **観測（Nelson 氏の 1 通・CC0 が長いのは世界中で確実に手放すため、承認されないのは特許のため）** | `2012-05-license-review-svoboda-nelson-cc0-length-observed.txt` |
 | 2005-09 | `license-discuss` | **観測（"License Proliferation" から 5 通・OSD に適合するものを全部か良いものだけか、理事が述べた 3 つの基準の使い方）** | `2005-09-license-discuss-license-proliferation-observed.txt` |
 | 2012-06 | `license-discuss` | **観測（OSI のライセンスのページの見せ方の提案から 4 通・承認しない方針は正式に定められていないという理事の理解と、それと並ぶ理解）** | `2012-06-license-discuss-licensing-pages-proposal-observed.txt` |
 | 2015-09〜11 | `license-review` | **観測（OSET Public License の審査から 6 通・審査の 4 つの問い、提出者の名の外し、承認）** | `2015-09-to-11-license-review-oset-public-license-observed.txt` |
@@ -137,6 +142,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2005-09 | `license-discuss` | **観測（OSL 3.0 / AFL 3.0 の提出から 3 通・改変版を許す第 16 条と steward、提出の件名の形）** | `2005-09-license-discuss-osl-afl-3-0-section-16-and-submission-form-observed.txt` |
 | 2011-04 | `license-discuss` | **観測（"Accidental Public License?" から 2 通・法務部門は既存の複雑さを一度学べばよい、新しく試されていないライセンスの限界費用）** | `2011-04-license-discuss-accidental-public-license-observed.txt` |
 | 2013-04〜06 | `license-review` | **観測（"Comment on MOSL and similar licenses" とその枝から 6 通・法的な助言なしの起草、支持者と採用を求める案への反対、OSD に適合しても退ける裁量、却下の 3 理由）** | `2013-04-to-06-license-review-mosl-legal-review-and-approval-bar-observed.txt` |
+| 2013-05 | `license-discuss` | **観測（Fogel 氏の 1 通・新しいライセンスを作ることは強く勧めない）** | `2013-05-license-discuss-akshar-fogel-discourage-observed.txt` |
+| 2013-05 | `license-discuss` | **観測（Villa 氏の 1 通・2013 年の承認の規則の 5 項目）** | `2013-05-license-discuss-akshar-villa-approval-rules-observed.txt` |
 | 2004-11・2007-12 | `license-discuss` / `license-review` | **観測（3 通・審査中に直すことへの法律家の受け止め、自動で新しい版へ移す条、曖昧でないライセンスと行数）** | `2004-11-and-2007-12-license-lists-rewriting-upgrade-and-length-observed.txt` |
 | 2003-07〜08 | `license-discuss` | **観測（"Academic Free License version 2.0" から 4 通・BSD 型が欠く細部を埋める、明確にするのに要る語数）** | `2003-07-and-08-license-discuss-afl-2-0-gaps-and-length-observed.txt` |
 | 2007-10 | `license-discuss` | **観測（"For Approval: Microsoft Public License" から 2 通・残る異議は「また 1 つのライセンス」と「Microsoft だ」、ライセンスか提出者か）** | `2007-10-license-discuss-ms-pl-remaining-objections-observed.txt` |
