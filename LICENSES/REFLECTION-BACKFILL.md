@@ -12,7 +12,7 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 
 **節の末尾に足さず表にした理由。** 古い節の多くが在る `ACD-1.0.review-readings.md` は 989 行で、54 節に 2 行ずつ足すと 1,000 行の上限（Check 365）を越える。節を別の文書へ動かすと、他の文書が `review-readings.md` の節を番号で引いている参照が壊れる。表なら、どちらも起きない。**逆側**: 節を読む人は、反映先を知るためにこの表を引く必要がある。
 
-**書き方。** 1 節に 1 行。番号のセルは「1.179」と書き、§ を付けない。**§1.69 以下の節は文書ごとの番号なので（Check 500 の床は 70）、番号の前に文書の名を置く**（例「reviewer-positions 1.49」。2026-11-15 に §1.163 以前へ広げたときに足した）。反映先が「§1.49」と引いていても、別の文書の §1.49 のことがあるので、確かめるときは引く側の行がその文書を名指しているかを見る（まだ在らない節を § で引くと Check 471 (e) が RED になるため）。反映のセルは Check 501 と同じ語彙（B# / against #N / errata E# / 1c / THIRD / 入口 / なし（理由） / 未定）で書く。確かめ方のセルには、その反映先が本当にその節を引いているかをどう確かめたかを書く。同じ節に、末尾の欄とこの表の行の両方を置かない（Check 501 が RED にする）。帯の分け方は 9b が数えた（2f 1.164〜1.178・30 1.179〜1.191・50 1.192〜1.207・1c 1.208〜1.222・9b 1.223〜1.241）。 §1.163 以前（読みの節は 122 個・comparison・CHANGELIST・REVISION-PROTOCOL の見出しは読みの節ではないので除く）は文書ごとに分けた（2f gap-measurements・dig-2026-09 / 30 reviewer-positions・objection-map / 50 review-precedents・review-labels / 1c review-corpus・review-venue / 9b review-rules・review-doctrine・review-outcomes）。
+**書き方。** 1 節に 1 行。番号のセルは「1.179」と書き、§ を付けない（まだ在らない節を § で引くと Check 471 (e) が RED になるため）。反映のセルは Check 501 と同じ語彙（B# / against #N / errata E# / 1c / THIRD / 入口 / なし（理由） / 未定）で書く。確かめ方のセルには、その反映先が本当にその節を引いているかをどう確かめたかを書く。同じ節に、末尾の欄とこの表の行の両方を置かない（Check 501 が RED にする）。帯の分け方は 9b が数えた（2f 1.164〜1.178・30 1.179〜1.191・50 1.192〜1.207・1c 1.208〜1.222・9b 1.223〜1.241）。
 
 | 節 | 反映 | 確かめ方 |
 | :-- | :-- | :-- |
@@ -60,23 +60,23 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 | 1.205 | against #325 / B1・B10・B13（`ACD-OSI-BOTTLENECKS.md`・`ACD-OSI-BOTTLENECKS-B10.md`）/ 入口（`SUBMISSION-MATERIALS.md` §0d・`OSI-APPROVAL-PLAN.md` の段 6b・`ACD-1.0.board-decisions.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
 | 1.206 | B14（`ACD-OSI-BOTTLENECKS.md` の B14 の行）/ 入口（`REVISION-PROTOCOL.md` §3.6 の 6b・`SUBMISSION-MATERIALS.md` の 0b と §0d・`ACD-1.0.submission.md` §D・`OSI-APPROVAL-PLAN.md` の段 6b） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
 | 1.207 | 入口（`SUBMISSION-MATERIALS.md` §1c の新規ライセンスの基準 7 の行・§9 は既存のライセンスも及ばないだけで足りるので gap の理由に数えない） | この PR で反映先にこの節の番号を書き、grep で確かめた（2026-11-15・portfolio-50） |
-| reviewer-positions 1.49 | against #84・#104・#111 / 入口（`AS-OF.md` の Status） | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
-| reviewer-positions 1.50 | against #102 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
-| reviewer-positions 1.52 | against #1・#113・#163・#274 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
-| reviewer-positions 1.55 | B15（`ACD-OSI-BOTTLENECKS-EXTERNAL.md` の B15 の節・Agent Skills は著作物でありうる） | この PR で反映先に番号を書き、grep で確かめた（2026-11-15・portfolio-30） |
-| reviewer-positions 1.56 | B11（REUSE の file 単位の宣言の欠落）/ against #106 | B11 の節と #106 が同じ欠落を扱い、`REUSE.toml` を足して閉じたと書いている。番号では引かれていない（2026-11-15・portfolio-30） |
-| reviewer-positions 1.58 | against #107 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
-| reviewer-positions 1.59 | B8 / against #6・#84・#111 / 入口（`ACD-1.0.submission.md` B.0） | against と submission の行は文書の名を挙げて番号を引く。B8 の節は名を挙げずに「§1.59」と引くが、引いている中身（日本の同一性保持権・*"not open source, at least not in Japan"*）がこの節と一致することを読んで確かめた（2026-11-15・portfolio-30） |
-| reviewer-positions 1.60 | against #116・#165 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
-| reviewer-positions 1.61 | against #110・#114 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
-| reviewer-positions 1.64 | against #113 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
-| reviewer-positions 1.65 | against #114（この節は #114 を書いた経緯と、その訂正の記録で、結論は #114 の行が持つ） | #114 の行が前文と条文の食い違いを記録していることを読んで確かめた。#114 は番号で引いていない（2026-11-15・portfolio-30） |
-| reviewer-positions 1.140 | B1・B6 / against #291・#292 / 入口（`SUBMISSION-MATERIALS.md` §1c） | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
-| reviewer-positions 1.142 | 入口（`SUBMISSION-MATERIALS.md` §1c） | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
-| reviewer-positions 1.147 | against #309 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
-| reviewer-positions 1.155 | errata E72 / against #314 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
-| reviewer-positions 1.156 | against #315 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
-| reviewer-positions 1.157 | against #233（逆側として・OSD は特許にも及ぶという当時の標準化担当の言明） | この PR で反映先に番号を書き、grep で確かめた（2026-11-15・portfolio-30） |
-| reviewer-positions 1.158 | against #313 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
-| reviewer-positions 1.159 | 入口（`QUESTIONS-FOR-PRACTITIONERS.md` の問い 2） | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
-| objection-map 1.62 | 入口（この節そのものが入口の面で、審査者が当たる反論の一覧である） | `objection-map.md` が `REVIEWERS.md` から入口として引かれていることを確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.49 | against #84・#104・#111 / 入口（`AS-OF.md` の Status） | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.50 | against #102 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.52 | against #1・#113・#163・#274 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.55 | B15（`ACD-OSI-BOTTLENECKS-EXTERNAL.md` の B15 の節・Agent Skills は著作物でありうる） | この PR で反映先に番号を書き、grep で確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.56 | B11（REUSE の file 単位の宣言の欠落）/ against #106 | B11 の節と #106 が同じ欠落を扱い、`REUSE.toml` を足して閉じたと書いている。番号では引かれていない（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.58 | against #107 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.59 | B8 / against #6・#84・#111 / 入口（`ACD-1.0.submission.md` B.0） | against と submission の行は文書の名を挙げて番号を引く。B8 の節は名を挙げずに「§1.59」と引くが、引いている中身（日本の同一性保持権・*"not open source, at least not in Japan"*）がこの節と一致することを読んで確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.60 | against #116・#165 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.61 | against #110・#114 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.64 | against #113 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.65 | against #114（この節は #114 を書いた経緯と、その訂正の記録で、結論は #114 の行が持つ） | #114 の行が前文と条文の食い違いを記録していることを読んで確かめた。#114 は番号で引いていない（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.140 | B1・B6 / against #291・#292 / 入口（`SUBMISSION-MATERIALS.md` §1c） | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.142 | 入口（`SUBMISSION-MATERIALS.md` §1c） | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.147 | against #309 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.155 | errata E72 / against #314 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.156 | against #315 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.157 | against #233（逆側として・OSD は特許にも及ぶという当時の標準化担当の言明） | この PR で反映先に番号を書き、grep で確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.158 | against #313 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.reviewer-positions.md` 1.159 | 入口（`QUESTIONS-FOR-PRACTITIONERS.md` の問い 2） | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
+| `ACD-1.0.objection-map.md` 1.62 | 入口（この節そのものが入口の面で、審査者が当たる反論の一覧である） | `objection-map.md` が `REVIEWERS.md` から入口として引かれていることを確かめた（2026-11-15・portfolio-30） |
