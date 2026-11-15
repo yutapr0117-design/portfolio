@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-15 時点・431 ファイル）
+## いまの状態（2026-11-15 時点・432 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -149,6 +149,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2019-06 | `license-discuss` | **観測（"Copyright on APIs" から 2 通・在るか分からない権利を主張すること、名指すことが権利の拡張の例になること）** | `2019-06-license-discuss-api-copyright-claiming-rights-observed.txt` |
 | 2025-12 | `license-discuss` | **観測（"Total Reciprocity Public License (TRPL v1.0)" から 3 通・出力を派生物とみなす条は使用の制限か、ライセンスが法の語を作り直すこと）** | `2025-12-license-discuss-trpl-functional-output-observed.txt` |
 | 2025-12 | `license-discuss` | **観測（同じ会話から 2 通・同じ誤解がほぼ月に一度来ること、出力への条件は契約でしか働かず同意した者しか縛らないこと）** | `2025-12-license-discuss-trpl-once-a-month-and-contract-observed.txt` |
+| 2025-07〜10 | `license-review` | **観測（PPPL BSD-3 の提出から 4 通・名前だけが違う同じライセンスは承認しない、著作権者の表示はライセンスの外に置く、名は steward が決める）** | `2025-07-to-10-license-review-pppl-same-license-new-name-observed.txt` |
 | 2020-02 | `license-discuss` | **観測（Persona non Grata の前文の会話から 2 通・採用の見込みは承認の基準ではなかった、拘束しない語は要らない）** | `2020-02-license-discuss-adoption-not-a-criterion-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
