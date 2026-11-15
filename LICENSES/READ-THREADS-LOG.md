@@ -20,6 +20,10 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に portfolio-9b の判断（候補の外で読んだ会話も READ-THREADS に足す・読んだ行の会話は census の候補に入り、未読の数は動かない）に揃え、決める側の通を広く読んだ候補の外の 2 会話の行を足した: "For Approval: OpenMDW License Agreement, versions 1.1"（2026-08-13・§1.211）、"How can we as a community help empower authors outside license agreements?"（`license-discuss` 2020-03-15・46 通の決める側の通を読んだが、倫理的なライセンスをめぐる運営の議論で ACD に新しい論点が無く、読了の記録だけにした）。1〜2 通だけを読んだ会話（ModelGo Attribution-OpenSource 2025-02・ADVPL・Mulan PSL v2・CingXaero・AI-MIT・CAL の Berkus 氏 2019-08 の 1 通）は会話を読んだとは言えないので、行を足さない。
+
+- 2026-11-15 に "CC0 incompliant with OSD on patents,"（`license-review` / `license-discuss` 2012-03・94 通・決める側の通に絞った）を `review-readings.md` §1.213 へ（著作権の範囲だけのライセンスをオープンソースとするのは滑りやすい坂・Piana 氏、パブリックドメインの効果を論じるのは時間の無駄・Rosen 氏）。
+
 - 2026-11-15 に、`review-precedents.md` §1.138（2026-11-07）が CC0 の審査の本体として読んだ 4 本のうち READ-THREADS に行が無かった 3 本（"Submitting CC0 for OSI approval" 2012-02-17、"Request for consultation with CC on patent issue" 2012-02-19、"Non-binding straw poll: Do you think CC0 should be approved?" 2012-03-02）の行を足した（portfolio-9b の指摘）。census は読んだ行の会話を候補に入れるので、`--pin` で THREAD-CANDIDATES に 3 会話が足され、候補が 800 → 803 になった（未読の数は変わらない）。
 
 - 2026-11-15 に 2024〜2026 年の `license-review` の決める側の通のうちドシエと語の重なりが無かった 74 通から、ADVPL・Mulan PSL v2・CingXaero・AI-MIT に付いた 6 通を `review-readings.md` §1.212 へ（前例を論拠にするな・Piana 氏、AI 生成の表示はファイル単位で・Berkus 氏、完全な許諾は全法域の動詞を持つ・Smith 氏）。
