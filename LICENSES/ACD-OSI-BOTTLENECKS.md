@@ -225,6 +225,8 @@ the 1.0 text.
 
 **2026-11-15 に足した（3 つ目）—— 名前を持つ本文の規律は最初の数年から在った（`review-readings-3.md` §1.302）。** Russell Nelson 氏 2001-11-07（GPL の改変版の提出へ）*"Please either use the GPL as written, adopt another approved license, or write your own license (which we will be glad to consider for approval)."*、Brian Behlendorf 氏 1999-04-14 は名前と固有名詞を抜いた不変の型板を求め（*"genericize them"*）、2000-09-11 には *"changing names on a license doesn't affect OSD conformance"* と書いた。§16.3（誰でも 1 語も変えずに当てられる）と §16.4（改変した本文は別の名で）の形である。**逆側**: どれも承認済みのライセンスの整理か、他人の本文の改変についての文で、新しいライセンスの名前の選び方（「Commons」「Dedication」の 2 語）には答えない。
 
+**2026-11-15 に足した（4 つ目）—— 名前を持たない型板は、2003 年には運用として述べられていた（`review-readings-3.md` §1.306）。** Russell Nelson 氏 2003-04-23 *"For example, the Zope Public License contains the name of the Zope Corporation within it. If you want to use it, you need to create a derivative license, which in most cases will earn a rubber stamp."* ACD は本文に固有名詞を持たないので、この派生の手間が無い。**逆側**: 名前を変えただけの派生が通りやすい、という話で、新しいライセンスの名前（「Commons」「Dedication」）の審査には答えない。
+
 ## B8 —— §12 人格権。**同じ条項が「gap」と「mission creep」の両方で名指しされている**
 
 **この項目が難しいのは、賛否が割れているからではなく、賛否が同じ条項の別の面を見ているからである。**
