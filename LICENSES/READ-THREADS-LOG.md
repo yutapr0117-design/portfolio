@@ -117,6 +117,38 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 - 2026-11-15 に "Idea for time-dependent license, need comments"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
 
+- 2026-11-15 に "For Approval: CUA Office Public License"（`license-discuss` 2003-12・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。MPL の名前だけを変えた提出。名前を変えるだけのライセンスを作る理由を問う Rosen 氏の通は、§1.302 の線と同じなので節は立てない
+
+- 2026-11-15 に "That Notorious Suit (Slightly OT)"（`license-discuss` 2003-10・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。SCO と IBM の訴訟と GPL をめぐる会話。決める側の通は Greant 氏の 1 通で、ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "Termination for Patent Action"（`license-discuss` 2003-09・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。AFL 2.0 の特許の終了の条項。OSI と同時に FSF に送った、広い報復の条項は採用者が拒んで外した、の Rosen 氏の通を `review-readings-3.md` §1.309 と against #328・#46 へ
+
+- 2026-11-15 に "please discuss EU DataGrid"（`license-discuss` 2003-09・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。1 か月の沈黙の後に委員長が意見を求め、1 人の賛成で承認を勧めた通を `review-readings-3.md` §1.307 と B2・分岐 B へ
+
+- 2026-11-15 に "license idea (revised)"（`license-discuss` 2003-07・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。ウェブで使わせることを頒布とみなす GPL の案。Rosen 氏が OSL の External Deployment を示した。ACD は条件を持たないので当たらない（節は立てない）
+
+- 2026-11-15 に "is it just summertime?"（`license-discuss` 2003-07・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。2 つの提出に返信が無いことへの Nelson 氏の通を `review-readings-3.md` §1.307 へ
+
+- 2026-11-15 に "Open source and trademarks"（`license-discuss` 2003-07・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。商標とソースの中の名前の質問。真実の名指しは自由という Rosen 氏の通を `review-readings-3.md` §1.310 へ（§11.2・§11.3 に合う）
+
+- 2026-11-15 に "commercial application development"（`license-discuss` 2003-06・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。GPL と MySQL の結合の質問への Behlendorf 氏の通。ACD は条件を持たないので当たらない（節は立てない）
+
+- 2026-11-15 に "study of GNU GPL vs MS EULA"（`license-discuss` 2003-04・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。GPL と MS の EULA の比較の研究の紹介。法律家でない書き方が曖昧さを増すかの問いだけで、ACD の新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "License Approval Committee"（`license-discuss` 2003-04・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。license-discuss を License Approval Committee に任じた Nelson 氏の通と、承認は理事会だけという Rosen 氏の通を `review-readings-3.md` §1.306 と B6 へ
+
+- 2026-11-15 に "Licensing Model: Joint Copyright Assignments"（`license-discuss` 2003-04・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。共同の著作権の譲渡をめぐる Rosen 氏の 7 通。管轄を指定するという同氏の文を `review-readings-3.md` §1.310 と against #254 へ
+
+- 2026-11-15 に "IETF Patent Licenses are RAND"（`license-discuss` 2003-03・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。IETF の特許の方針（RAND）への Rosen 氏の通。ACD の §8 は無条件なので当たらない（節は立てない）
+
+- 2026-11-15 に "legal issues under GPL"（`license-discuss` 2003-03・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。寄与の著作権の扱いを Rosen 氏が分けて説明した通。ACD の §2.6 に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "from advogato, open source licenses revokable?"（`license-discuss` 2003-01・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。許諾の撤回の可否。perpetual と明示する・203 条の終了権・契約法にも服するように、の Rosen 氏の通を `review-readings-3.md` §1.308 と against #152・#321 へ
+
+- 2026-11-15 に "OSD Model Code -- Article 1 (Free Distribution)"（`license-discuss` 2003-01・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。OSD 1 の言い直しをめぐる Rosen 氏と Nelson 氏の通。集合著作物と二次的著作物の区別の議論で、ACD の新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Model Code for the OSD"（`license-discuss` 2003-01・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。OSD のモデル法典の草案（Dixon 氏）と、文書の提供をめぐる Rosen 氏の通。ACD はソースも文書も求めないので当たらない（節は立てない）
+
 - 2026-11-15 に 2004〜2005 年に始まる未読 54 本（53 会話・879 通・決める側の通に絞った）を portfolio-50 が読んだ（5 人の分担・30 の案）。論点のある会話は `review-readings-4.md` の 1.350〜1.353 の節へ（OVPL の否決と OSD 5・「死んだ」ライセンスの整理・本文の書き方・寄与の既定と同意）、それ以外は読了の記録だけにした
 - 2026-11-15 に "why does allowing click-through licenses \"just feel wrong\" to me?"（`license-discuss` 2002-08・9 通・決める側の通と最初の通を読んだ）は新しい論点なし（クリックスルーの是非・ACD は受諾の行為を求めない）
 
