@@ -320,7 +320,10 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
   every drafting decision, each with its reasons and the case against it (the change list, the
   trial drafts, the errata and `ACD-1.0.against.md`), and he decides what changes in answer to a
   question. We state this here so that you can weigh it before the first question, not after.
-- **One adopter: this repository.** That is the only real-world use.
+- **One adopter: this repository.** That is the only real-world use. The repository calls itself a public
+  experiment in AI orchestration; the licence is not a text written for discussion but the terms
+  the repository's contents are released under today (ACD-1.3, applied 2026-10-25), and it is
+  written so that anyone can apply it unchanged.
 - These are stated at length in `ACD-1.0.submission-reference.md` §5 and §E.1, not buried.
 
 ## Checking the claims yourself
