@@ -20,6 +20,10 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "Does the LinShare "attribution" notice violate OSD?"（`license-discuss` 2022-09・決める側の通に絞った・候補の外）を読了の記録だけにした。AGPL に足した過大な帰属表示（badgeware）を、Berkus 氏は OSD 10（6・8 も）、Phipps 氏・Chestek 氏は改名を禁じて fork を妨げると論じた。ACD は表示も文書の保持も求めない（§10.2）ので当たらない。Chestek 氏の *"The duty to keep the notice is a contractual duty."*（米国では表示の除去は侵害を誘う・隠すと知ってする場合だけ違法）は、表示を求めない §10.2 の有利な側の文になる程度で、新しい論点は足さない（候補は 817 → 818・読んだので母数に入った）
+
+- 2026-11-15 に "Proposed new OSD item - patent termination"（`license-discuss` 2005-04・決める側の通に絞った・候補の外）を読了の記録だけにした。Perens 氏は特許訴訟での防御的終了を、他のオープンソースのソフトウェアへの訴訟にまで広げる案を支持し（*"Who wants to make free grants to folks who are suing them?"*）、ハードウェアの特許にも及ぼしたいと書いた。`against.md` #46（ACD は終了を持たず、訴える者も許諾を保つ費用）の側の古い文で、2026 年の Berkus 氏の「著作権の反訴条項は公平」（§1.211）と同じ向き。新しい論点は足さない（候補は 816 → 817・読んだので母数に入った）
+
 - 2026-11-15 に "Open Source Eventually License Development"（`license-discuss` 2013-08）の Rosen 氏の通を `review-readings-2.md` §1.227 へ（OWFa の 3 つの条が ACD の §2.8・§2.9・§5.1 と同じ並び）。会話を読んだのではないので件数は動かない
 
 - 2026-11-15 に "Views on React licensing?"（`license-discuss` 2016-12・決める側の通に絞った・候補の外）を読了の記録だけにした。React の BSD＋別ファイルの特許許諾（終了の条件つき）の会話で、ACD に当たる Fontana 氏 2016-12-13「CC0 への懸念は明示の特許の文が無いことではなく除外の文。CC0 に明示の特許の文を添えるなら審査を歓迎する」は `gap-measurements.md` に既出。Rosen 氏の「OSD 7 の rights は著作権だけと理解していた」と Phipps 氏の「OSD 7 は別の手続きの完了を条件にする効果を扱う」は、1 つの文書で特許を許諾する ACD には当たらない（候補は 814 → 815・読んだので母数に入った）

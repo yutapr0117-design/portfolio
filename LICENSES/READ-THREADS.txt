@@ -156,6 +156,7 @@
 2005-03-21	Which license is recommended?
 2005-03-29	"De-approve" the Intel Open Source License
 2005-04-09	"Open Source Constitution"?
+2005-04-09	Proposed new OSD item - patent termination
 2005-04-11	OSI's war on corporate licenses
 2005-04-11	Official License Anti-Proliferation policy?
 2005-04-12	Mistaken statement about MPL?
@@ -533,6 +534,7 @@
 2021-08-26	Zope Public License v2.1 is up!
 2021-11-02	Consumer protection, defective product
 2022-08-02	Should fork a project on github be seen as distribution of origin project?
+2022-09-19	Does the LinShare "attribution" notice violate OSD?
 2022-12-11	Disclaimer of warranty under German law
 2023-01-26	License Review working group asks for community input on its recommendations
 2023-04-27	License pages cleanup project underway - status update
