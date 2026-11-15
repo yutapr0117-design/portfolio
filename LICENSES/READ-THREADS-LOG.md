@@ -148,6 +148,36 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 - 2026-11-15 に "OSD Model Code -- Article 1 (Free Distribution)"（`license-discuss` 2003-01・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。OSD 1 の言い直しをめぐる Rosen 氏と Nelson 氏の通。集合著作物と二次的著作物の区別の議論で、ACD の新しい論点は無かった（節は立てない）
 
 - 2026-11-15 に "Model Code for the OSD"（`license-discuss` 2003-01・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。OSD のモデル法典の草案（Dixon 氏）と、文書の提供をめぐる Rosen 氏の通。ACD はソースも文書も求めないので当たらない（節は立てない）
+- 2026-11-15 に "question about AGPLv3, OSLv3, the keyword 'communicate'"（2009-10・0 通・決める側の通を全文で読んだ・9b の帯を 1c が引き受けた）を`review-readings-5.md` §1.406 へ
+
+- 2026-11-15 に "ARToolKit"（2010-09・5 通・決める側の通を全文で読んだ・9b の帯を 1c が引き受けた）を`review-readings-5.md` §1.406 へ
+
+- 2026-11-15 に "Legacy Approval - BlackBox Component Builder Open Source License"（2009-11・4 通・決める側の通を全文で読んだ・9b の帯を 1c が引き受けた）を`review-readings-5.md` §1.404 へ
+
+- 2026-11-15 に "GPL with the Classpath exception - clarification needed"（2009-03・41 通・決める側の通を全文で読んだ・9b の帯を 1c が引き受けた）を`review-readings-5.md` §1.406 へ
+
+- 2026-11-15 に "Licensing question"（2010-02・33 通・決める側の通を全文で読んだ・9b の帯を 1c が引き受けた）を`review-readings-5.md` §1.406 へ
+
+- 2026-11-15 に "GNU GPL vs. source code fees"（2010-12・5 通・決める側の通を全文で読んだ・9b の帯を 1c が引き受けた）を`review-readings-5.md` §1.406 へ
+
+- 2026-11-15 に "Freeing my code... need some guidance"（2009-01・26 通・決める側の通を全文で読んだ・9b の帯を 1c が引き受けた）を`review-readings-5.md` §1.406 へ
+
+- 2026-11-15 に "WTFPL approval, please?"（2009-02・8 通・決める側の通を全文で読んだ・9b の帯を 1c が引き受けた）を`review-readings-5.md` §1.406 へ
+
+- 2026-11-15 に "GPL Issue"（2010-09・26 通・決める側の通を全文で読んだ・9b の帯を 1c が引き受けた）を`review-readings-5.md` §1.405 へ
+
+- 2026-11-15 に "Open Data Definition at OSCON"（2010-06・5 通・決める側の通を全文で読んだ・9b の帯を 1c が引き受けた）を`review-readings-5.md` §1.405 へ
+
+- 2026-11-15 に "DISA to open source administrative software"（2009-03・8 通・決める側の通を全文で読んだ・9b の帯を 1c が引き受けた）を`review-readings-5.md` §1.406 へ
+
+- 2026-11-15 に "combining software under different licenses"（2009-08・8 通・決める側の通を全文で読んだ・9b の帯を 1c が引き受けた）を`review-readings-5.md` §1.406 へ
+
+- 2026-11-15 に "How do I choose a licence"（2009-08・9 通・決める側の通を全文で読んだ・9b の帯を 1c が引き受けた）を`review-readings-5.md` §1.406 へ
+
+- 2026-11-15 に "What does "new" mean in Section 1.9 (b) of the MPL v 1.1.?"（2010-04・9 通・決める側の通を全文で読んだ・9b の帯を 1c が引き受けた）を`review-readings-5.md` §1.406 へ
+
+- 2026-11-15 に "Serious Open Source (SOS) License -- Injunctive Relief clause"（2009-03・21 通・決める側の通を全文で読んだ・9b の帯を 1c が引き受けた）を`review-readings-5.md` §1.404 へ
+
 
 - 2026-11-15 に 2004〜2005 年に始まる未読 54 本（53 会話・879 通・決める側の通に絞った）を portfolio-50 が読んだ（5 人の分担・30 の案）。論点のある会話は `review-readings-4.md` の 1.350〜1.353 の節へ（OVPL の否決と OSD 5・「死んだ」ライセンスの整理・本文の書き方・寄与の既定と同意）、それ以外は読了の記録だけにした
 - 2026-11-15 に "why does allowing click-through licenses \"just feel wrong\" to me?"（`license-discuss` 2002-08・9 通・決める側の通と最初の通を読んだ）は新しい論点なし（クリックスルーの是非・ACD は受諾の行為を求めない）

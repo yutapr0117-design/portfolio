@@ -1,0 +1,26 @@
+Source: OSI license-discuss public archive, 2010-June.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 5 in "Open Data Definition at OSCON" (2010-06-29)
+Senders: Russ Nelson
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Wed Jun 30 02:05:07 2010
+From: nelson at crynwr.com (Russ Nelson)
+Date: Tue, 29 Jun 2010 22:05:07 -0400
+Subject: Open Data Definition at OSCON
+Message-ID: <19498.42579.902038.900231@desk.crynwr.com>
+
+I'm running a BOF at OSCON on Wednesday night at 7PM, with the
+declared purpose of writing an Open Source Definition for Open Data.
+Safe enough to say that the OSD has been quite successful in laying
+out a set of criteria for what is, and what is not, Open Source.  I
+think we can and should do the same thing for Open Data.
+
+Will you join me there?
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
