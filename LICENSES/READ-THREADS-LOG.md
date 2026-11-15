@@ -20,6 +20,10 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "Submission of Orivex Syscall Note License (OSN-1.0) for OSI Approval"（`license-review` 2025-10）への Piana 氏の 1 通を `review-readings.md` §1.215 へ（licensor と貢献者を分けて扱うことは OSD 5 に触れうる・ACD の §1.4 は Dedicator を等しく扱う）。1 通だけなので READ-THREADS には足さない。同じ日に "discussion of L-R process"（`license-discuss` 2019-03・決める側の通 14 通）を読了の記録だけにした（Fontana 氏「多くの提出は否定的な反応を受けて提出者が自ら降りるので投票に至らない」・審査の運営の議論で、ACD に新しい論点を足さない）。
+
+- 2026-11-15 に "veto against Unlicence" / "veto against Unlicense"（`license-review` 2020-04〜06・決める側の通に絞った）を `review-readings.md` §1.214 へ（法律の論点では法律家の声が数えられる・Berkus 氏、危険は他のライセンスと量的に違わない・Chestek 氏）。
+
 - 2026-11-15 に portfolio-9b の判断（候補の外で読んだ会話も READ-THREADS に足す・読んだ行の会話は census の候補に入り、未読の数は動かない）に揃え、決める側の通を広く読んだ候補の外の 2 会話の行を足した: "For Approval: OpenMDW License Agreement, versions 1.1"（2026-08-13・§1.211）、"How can we as a community help empower authors outside license agreements?"（`license-discuss` 2020-03-15・46 通の決める側の通を読んだが、倫理的なライセンスをめぐる運営の議論で ACD に新しい論点が無く、読了の記録だけにした）。1〜2 通だけを読んだ会話（ModelGo Attribution-OpenSource 2025-02・ADVPL・Mulan PSL v2・CingXaero・AI-MIT・CAL の Berkus 氏 2019-08 の 1 通）は会話を読んだとは言えないので、行を足さない。
 
 - 2026-11-15 に "CC0 incompliant with OSD on patents,"（`license-review` / `license-discuss` 2012-03・94 通・決める側の通に絞った）を `review-readings.md` §1.213 へ（著作権の範囲だけのライセンスをオープンソースとするのは滑りやすい坂・Piana 氏、パブリックドメインの効果を論じるのは時間の無駄・Rosen 氏）。

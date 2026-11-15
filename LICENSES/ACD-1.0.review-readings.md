@@ -933,3 +933,36 @@ Project Tick General Public License の `license-review` 側の会話（v1 の�
 **逆側。** Berkus 氏の文は、反対者が非法律家の法的な議論で承認を止めようとした場面のもので、提出者の側の非法律家の議論を退ける文ではない。2020 年には反対する法律家がいなかったので、提出の側に法律家の声が要るかは問われていない。ACD の場合も、法律家が反対しなければ同じ構図になりうる。だが、法律家が誰も意見を述べない場合（沈黙）の扱いはこの会話から分からない。Unlicense には複数の法律家が自分から意見を述べた。
 
 **この節が establish しないこと。** 委員会の理由書の結論は `against.md` #270 と `AS-OF.md` が持つ。Unlicense は「legacy」として承認された（#87）ので、新しいライセンスの承認の基準とは重さが違う。
+
+## 1.215 元の licensor と貢献者を分けて扱うことは OSD 5 に触れうる、改変物を頒布する語はどこに在るか —— Orivex Syscall Note License への Piana 氏の所見（2025）（2026-11-15）
+
+"Submission of Orivex Syscall Note License (OSN-1.0) for OSI Approval"（`license-review` 2025-10）への Carlo Piana 氏の 2025-10-21 の 1 通（`rounds/2025-10-license-review-orivex-licensor-contributor-observed.txt`）。2024〜2026 年の決める側の未引用の通の 1 つで、条ごとの所見が ACD の定義と許諾の作りにそのまま当たる。提出そのものの帰結はこの節では扱わない。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"I firstly note a potential ambiguity on who is the Licensor."*、元の licensor と貢献者を分けたことが *"creates an unacceptable, in my view, discrimination between Licensor and Contributor"*、*"This alone discriminates different classes of copyright holders and I consider it potentially against #5."* | Carlo Piana 氏 2025-10-21 | **有利な面。** 1.4 草案の §1.4（1.0 では §1.3）は Dedicator を *"each person or entity applying this Dedication to the Work"* と定め、複数のときは *"this Dedication operates severally as to each"* と書く。§2.6 は貢献者を *"a Dedicator as to that Contribution"* にする。元の作者と貢献者に別の権利や義務を置かないので、Piana 氏の言う「著作権者の種類による差別」の形を持たない。名を持つ特別な立場は §16.5 の Steward だけで、それは本文の名前の規律（文書としての扱い）に限られ、作品の権利には及ばない（§16.6） |
+| *"It would be nice if submitters already decided to use placeholders instead of their name, or, better, to avoid placing the original licensor in a more favorable position than others"* | Piana 氏 2025-10-21 | **有利な面。** ACD の本文は固有名を持たず（`REVIEWERS.md` の "Anyone can adopt it"）、元の Dedicator を有利に置く条も無い |
+| *"I am strongly in disfavor not only of any choice of law … but also with any jurisdiction clause."* | Piana 氏 2025-10-21 | **有利な面。** 1.4 草案の §15.3（1.0 では §15.7）は *"This Dedication specifies no governing law and no forum."* |
+| *"what language exactly enables the licensor to distribute dervative works at all? The license only extends to "prepare" and "reproduce", but the right to distribute is only granted in the software"* | Piana 氏 2025-10-21 | **有利な面。** 1.4 草案の §4.2 は *"distribute, lend, rent, sell, and sublicense the Work and any adaptation of it"* と、改変物（adaptation）の頒布を同じ動詞の並びで許す |
+
+**読み。** 2025 年の委員の 1 人が単独の提出に当てた条ごとの点検は、(1) 誰が licensor かの曖昧さと、licensor と貢献者の扱いの差（OSD 5）、(2) 固有名と licensor の有利な位置、(3) 準拠法と裁判地、(4) 改変物を頒布する語の有無、だった。ACD はこの 4 点のどれにも当たらない作りである。
+
+**逆側。** 4 点に当たらないことは、Piana 氏が同じ通で挙げなかった点に当たらないことを意味しない。また、ACD の §2.6 は貢献の扱いをライセンスの本文に入れており、2024 年の Berkus 氏は別の提出に *"This is a strange clause … Shouldn't it be part of the project's Contributing Guide?"* と書いている（Berkeley Artistic License・2024-10-07）。§2.6 は *"Whether the Dedicator asks a contributor for anything else is a matter of project governance and is not addressed here"* と線を引くが、貢献の条そのものがライセンスの外の事柄と読まれる余地はある。
+
+**この節が establish しないこと。** Orivex の審査の帰結、Berkeley Artistic License の帰結は扱わない。Piana 氏の所見は 1 人の委員のもので、委員会の判断ではない。
+
+## 1.216 写しからライセンスを剥がせることは方針の問いか —— Free Public License（今の 0BSD）の審査（2015）（2026-11-15）
+
+"Approval Request: Free Public License 1.0.0"（`license-review` 2015-08〜09・`rounds/2015-08-to-09-license-review-fpl-license-stripping-observed.txt` に 5 通）。このライセンスは 2015 年に承認され、今は 0BSD と呼ばれる。ACD の入口は 0BSD の承認を *"a license with no conditions"*、*"Cannot be argued to violate OSD"*（理事会の議事録 2015-10-14）として引くが、承認の前に list で「下流の写しからライセンスを剥がせること」が方針の問いとして出ていたことは、ドシエに一度も出ていなかった（"license-stripping" の語で 0 件）。1.4 草案の §10.2 は *"You need not … reproduce any notice … retain this file, or inform anyone of anything"* と書き、同じ性質を持つ。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"We have had two proposals this year involving licenses which allow stripping the license from downstream copies. Given that, perhaps this concept needs to be taken up in a larger venue which can debate the legal ramifications? And possibly amend the OSD, if necessary?"*、*"I feel that the OSI board needs to make a decision, and we need to publish that decision somewhere. … But this is a major policy decision, and I don't feel equipped to make it on this mailing list."* | Josh Berkus 氏 2015-09-01・09-02 | **不利な面（当時）。** ライセンスを剥がせることを、決める側の 1 人が理事会の方針判断を要する問いとした。ACD の §10.2 はこの性質をそのまま持つ |
+| *"In neither case is the license being used for a substantial body of software nor is that likely to happen in the short term were the license approved. So I don't think this is a significant enough development to justify special examination by the OSI. If CC0 (which also permits license stripping) were ever re-submitted for approval, we'd have a fairly prominent license, or license-like thing, raising this question. When CC0 was previously submitted for approval, I don't think this feature attracted any attention."* | Richard Fontana 氏 2015-09-06 | **両面。** 有利: Fontana 氏は特別な検討は要らないとし、FPL はその後承認された（0BSD・議事録 2015-10-14）。問いは承認で事実上決着した。不利: 氏が要らないとした理由は「広く使われていない」ことで、「広く使われるライセンスなら問いになる」とも読める。CC0 のように目立つものが出せば問いが立つ、と氏は書いている。ACD は CC0 と同じ型（放棄と許諾）の提出なので、この問いを再び開く側に立ちうる |
+| *"licensed but unmarked code is permanently tainted unless the copyright owner can be found, and should never be loose in the wild."* | John Cowan 氏 2015-08-31 | **不利な面。** 印の無いコードは、著作権者が見つからない限り「汚染されている」という見方である。ACD は受け手が知らなくても許諾を持つ（§2.3 *"You need not know of this Dedication"*、§4.6）ので、印が剥がれた写しの受け手も法的には許諾を持つ。だが、その受け手は自分が許諾を持つことを確かめる手段を持たない。Cowan 氏の懸念は法的な許諾の有無ではなく、確かめられることに向いている |
+
+**読み。** 0BSD の承認の前に、写しからライセンスを剥がせることは方針の問いとして挙がり（Berkus 氏）、広く使われていないことを理由に特別な検討なしで通った（Fontana 氏）。0BSD はその後承認され、2026 年の今では承認済みの「条件の無い 3 本」の 1 つである。ACD の §10.2 は同じ性質を持ち、その点では 0BSD の承認の内に在る。
+
+**逆側。** Fontana 氏の理由は「目立たないから問わない」で、性質そのものの是認ではない。ACD が CC0 と同じ型の提出として目立つ形で出れば、問いが開き直される余地がある。また Cowan 氏の「確かめられない」は、ACD の §2.3（知らなくても持つ）がむしろ強める面がある。ACD の側の答えは「印を残すことを求めないが、残すことを妨げない（§10.3 の依頼は条件でない）」で、§16.2 の識別子だけでの通知が残りやすさを助けるが、残ることを保証しない。
+
+**この節が establish しないこと。** 2015 年のもう 1 つの提出（NCCL）の中身は読んでいない。理事会がこの問いを議事録で扱ったかは確かめていない（`board-decisions.md` の 2015-10-14 の行は承認の理由を持つ）。

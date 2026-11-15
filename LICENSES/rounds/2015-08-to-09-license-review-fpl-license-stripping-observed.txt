@@ -1,0 +1,165 @@
+Source: OSI license-review public archive, 2015-August.txt and 2015-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 5 of the messages in "Approval Request: Free Public License 1.0.0" (begun 2015-08-30; the licence approved in 2015 and now named 0BSD)
+Senders: John Cowan, Josh Berkus, Richard Fontana
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From cowan at mercury.ccil.org  Mon Aug 31 12:17:39 2015
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Mon, 31 Aug 2015 08:17:39 -0400
+Subject: [License-review] Approval Request: Free Public License 1.0.0
+In-Reply-To: <20150831102731.GG16685@linuxmafia.com>
+References: <CAM6WPeMhT_OZSXqBvN15gdZFfbC7Qj-tF4bg79xgP3c45XK8bg@mail.gmail.com>
+ <20150831102731.GG16685@linuxmafia.com>
+Message-ID: <20150831121738.GF11791@mercury.ccil.org>
+
+Rick Moen scripsit:
+
+> Because copyright as a legal reality cannot be finessed away, code
+> recipients benefit greatly from knowing what copyright encumbrance
+> exists and what year it arose (thus, what year it will cease to exist),
+> and what licence terms the stakeholder specified.  
+
+While I agree with the general tenor of your criticism, I'd like to
+point out that we have no idea when, if ever, copyright will cease to
+exist on any post-1923 work, and some reason to think it never will.
+If anything, this makes your point stronger: licensed but unmarked
+code is permanently tainted unless the copyright owner can be found,
+and should never be loose in the wild.
+
+-- 
+John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+At the end of the Metatarsal Age, the dinosaurs abruptly vanished.
+The theory that a single catastrophic event may have been responsible
+has been strengthened by the recent discovery of a worldwide layer of
+whipped cream marking the Creosote-Tutelary boundary.  --Science Made Stupid
+
+
+From josh at postgresql.org  Tue Sep  1 18:07:47 2015
+From: josh at postgresql.org (Josh Berkus)
+Date: Tue, 01 Sep 2015 11:07:47 -0700
+Subject: [License-review] Approval Request: Free Public License 1.0.0
+In-Reply-To: <C9B0B47E-744B-407E-9A27-BDB45F4B31B8@mac.com>
+References: <mailman.5.1441022401.13827.license-review@opensource.org>
+ <C9B0B47E-744B-407E-9A27-BDB45F4B31B8@mac.com>
+Message-ID: <55E5E973.7080705@postgresql.org>
+
+License Review Committee:
+
+We have had two proposals this year involving licenses which allow
+stripping the license from downstream copies.  Given that, perhaps this
+concept needs to be taken up in a larger venue which can debate the
+legal ramifications?  And possibly amend the OSD, if necessary?
+
+--Josh Berkus
+
+
+
+From fontana at sharpeleven.org  Wed Sep  2 01:43:51 2015
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Tue, 1 Sep 2015 21:43:51 -0400
+Subject: [License-review] Approval Request: Free Public License 1.0.0
+In-Reply-To: <55E5E973.7080705@postgresql.org>
+References: <mailman.5.1441022401.13827.license-review@opensource.org>
+ <C9B0B47E-744B-407E-9A27-BDB45F4B31B8@mac.com>
+ <55E5E973.7080705@postgresql.org>
+Message-ID: <20150902014351.GA7421@sharpeleven.org>
+
+On Tue, Sep 01, 2015 at 11:07:47AM -0700, Josh Berkus wrote:
+> License Review Committee:
+> 
+> We have had two proposals this year involving licenses which allow
+> stripping the license from downstream copies.  Given that, perhaps this
+> concept needs to be taken up in a larger venue which can debate the
+> legal ramifications?  And possibly amend the OSD, if necessary?
+
+Josh, when you say 'possibly amend the OSD', do you mean amend the OSD
+to clarify that something can be an open source license if it allows
+such license-stripping, or amending the OSD to clarify that open
+source licenses must be minimally restrictive so as to prohibit
+downstream license-stripping? (Or do you mean possibly one or the
+other pending such recommended taking-up in a larger venue?)
+
+Richard
+
+
+From josh at postgresql.org  Wed Sep  2 19:54:55 2015
+From: josh at postgresql.org (Josh Berkus)
+Date: Wed, 2 Sep 2015 12:54:55 -0700
+Subject: [License-review] Approval Request: Free Public License 1.0.0
+In-Reply-To: <20150902014351.GA7421@sharpeleven.org>
+References: <mailman.5.1441022401.13827.license-review@opensource.org>
+ <C9B0B47E-744B-407E-9A27-BDB45F4B31B8@mac.com>
+ <55E5E973.7080705@postgresql.org> <20150902014351.GA7421@sharpeleven.org>
+Message-ID: <55E7540F.2020703@postgresql.org>
+
+On 09/01/2015 06:43 PM, Richard Fontana wrote:
+>> We have had two proposals this year involving licenses which allow
+>> > stripping the license from downstream copies.  Given that, perhaps this
+>> > concept needs to be taken up in a larger venue which can debate the
+>> > legal ramifications?  And possibly amend the OSD, if necessary?
+> Josh, when you say 'possibly amend the OSD', do you mean amend the OSD
+> to clarify that something can be an open source license if it allows
+> such license-stripping, or amending the OSD to clarify that open
+> source licenses must be minimally restrictive so as to prohibit
+> downstream license-stripping? (Or do you mean possibly one or the
+> other pending such recommended taking-up in a larger venue?)
+
+The last.
+
+As in, I feel that the OSI board needs to make a decision, and we need
+to publish that decision somewhere.  It might not be an amendment to the
+OSD, it might be more of a footnote.  But this is a major policy
+decision, and I don't feel equipped to make it on this mailing list.
+
+--Josh Berkus
+
+
+From fontana at sharpeleven.org  Sun Sep  6 13:44:08 2015
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Sun, 6 Sep 2015 09:44:08 -0400
+Subject: [License-review] Approval Request: Free Public License 1.0.0
+In-Reply-To: <55E7540F.2020703@postgresql.org>
+References: <mailman.5.1441022401.13827.license-review@opensource.org>
+ <C9B0B47E-744B-407E-9A27-BDB45F4B31B8@mac.com>
+ <55E5E973.7080705@postgresql.org>
+ <20150902014351.GA7421@sharpeleven.org>
+ <55E7540F.2020703@postgresql.org>
+Message-ID: <20150906134408.GA3740@sharpeleven.org>
+
+On Wed, Sep 02, 2015 at 12:54:55PM -0700, Josh Berkus wrote:
+> On 09/01/2015 06:43 PM, Richard Fontana wrote:
+> >> We have had two proposals this year involving licenses which allow
+> >> > stripping the license from downstream copies.  Given that, perhaps this
+> >> > concept needs to be taken up in a larger venue which can debate the
+> >> > legal ramifications?  And possibly amend the OSD, if necessary?
+> > Josh, when you say 'possibly amend the OSD', do you mean amend the OSD
+> > to clarify that something can be an open source license if it allows
+> > such license-stripping, or amending the OSD to clarify that open
+> > source licenses must be minimally restrictive so as to prohibit
+> > downstream license-stripping? (Or do you mean possibly one or the
+> > other pending such recommended taking-up in a larger venue?)
+> 
+> The last.
+> 
+> As in, I feel that the OSI board needs to make a decision, and we need
+> to publish that decision somewhere.  It might not be an amendment to the
+> OSD, it might be more of a footnote.  But this is a major policy
+> decision, and I don't feel equipped to make it on this mailing list.
+
+I've given some thought to this. Of those two licenses, one (NCCL)
+seems to have been withdrawn from consideration by the submitter in
+response to criticism from this list.The other (Free Public License)
+hasn't been under discussion for too long. In neither case is the
+license being used for a substantial body of software nor is that
+likely to happen in the short term were the license approved. So I
+don't think this is a significant enough development to justify
+special examination by the OSI.
+
+If CC0 (which also permits license stripping) were ever re-submitted
+for approval, we'd have a fairly prominent license, or license-like
+thing, raising this question. When CC0 was previously submitted for
+approval, I don't think this feature attracted any attention.
+
+Richard
