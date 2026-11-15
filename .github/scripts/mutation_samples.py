@@ -559,6 +559,22 @@ _MUTATIONS_TAIL.append({
     "replace": "\n| 1.1799 | ",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 501b: 床 (70) の下の節の行き先から文書の名を外す —— 「§1.45」だけでは comparison の §1.45 とも読め、"
+            "別の文書の同じ番号で照合が偽の緑になる (2026-11-15・30 の指摘)",
+    "file": ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md",
+    "find": "（`review-precedents.md` §1.45）",
+    "replace": "（§1.45）",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 501b: 表の番号のセルを読めない形にする —— 形の合わない行を黙って飛ばすと、書いた人は表に足したつもりで"
+            "照合だけ外れる (2026-11-15・50 の #3251 の 42 行)",
+    "file": ROOT / "LICENSES" / "REFLECTION-BACKFILL.md",
+    "find": "\n| `ACD-1.0.review-precedents.md` 1.45 | ",
+    "replace": "\n| review_precedents 1.45 | ",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
