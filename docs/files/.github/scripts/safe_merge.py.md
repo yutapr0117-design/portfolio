@@ -24,6 +24,12 @@ PR を「いまの main に重ねた形」で consistency check に通してか�
 2. 衝突の塊のうち、数だけが違う塊は main 側を採る（後で `sync_stated_counts.py --apply` が実測から書き直す）。両側が行を足しただけの塊（表の行・READ-THREADS の行）は両方を残す。それ以外の塊があれば何もしないで止まる。
 3. 載せ直した形で consistency を回し、緑なら push して新しい PR を出し、元の PR を閉じる。merge はしない。新しい PR の CI を待ってから、もう一度 safe_merge で入れる。
 
+同じ日に、50 の指摘で次の 3 点を足した。
+
+- `--reland` の前に、`<branch>-reland` の local / remote の branch と、それを head にする open PR を見る。在れば「既に載せ直し中」と言って止まる（統合役と作者が同時に回すと、2 人目が traceback で落ちた・#3138）。
+- merge が「Merge already in progress」で失敗したら、15 秒待って状態を読み直す（#3139 で 50 と重なった）。
+- `validate-level-constraints` が checks に無ければ、「Architecture pipeline が起動していない」と言って止まる。trigger の取りこぼしがその日 4 回あり、CodeQL 系だけが緑だと「CI 緑」に見えた。
+
 その日、5 本が rounds/README の在庫・長さの行・AS-OF の件数だけで衝突し、そのたびに手で載せ直した。push 済みの branch は rebase しないので、新しい branch と新しい PR を作る。古い main から runbook の数だけを変えた commit を作り、push と gh を差し替えて、最後まで通ることを確かめた。
 
 ## Why

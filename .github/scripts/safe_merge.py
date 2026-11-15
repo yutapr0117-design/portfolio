@@ -101,6 +101,15 @@ def reland(pr: str, info: dict) -> int:
     run(["git", "fetch", "-q", "origin", "main", info["headRefName"]])
     commits = run(["git", "rev-list", "--reverse", f"origin/main..{info['headRefOid']}"]).stdout.split()
     new = f"{info['headRefName']}-reland"
+    # 統合役 (50) と作者が同時に回すと、2 人目は既在の branch で `worktree add -b` が落ちて traceback になった
+    #   (2026-11-15・#3138)。先に local / remote の branch と、それを head にする open PR を見て、在れば止まる
+    open_pr = json.loads(run(["gh", "pr", "list", "--head", new, "--state", "open", "--json", "number"]).stdout or "[]")
+    local = run(["git", "rev-parse", "--verify", "--quiet", f"refs/heads/{new}"], check=False).returncode == 0
+    remote = bool(run(["git", "ls-remote", "--heads", "origin", new], check=False).stdout.strip())
+    if open_pr or local or remote:
+        where = f"#{open_pr[0]['number']}" if open_pr else ("remote の branch" if remote else "local の branch")
+        print(f"STOP: 既に載せ直し中: {new} ({where})。そちらの CI を待って safe_merge する")
+        return 0
     tmp = Path(tempfile.mkdtemp(prefix=f"reland-{pr}-"))
     wt = tmp / "wt"
     ok = False
@@ -160,6 +169,12 @@ def main(argv: list[str]) -> int:
         return 1
     bad_ci = [f'{c.get("name")}={c.get("conclusion") or c.get("status") or c.get("state")}' for c in info["statusCheckRollup"]
               if (c.get("conclusion") or c.get("state")) not in ("SUCCESS", "SKIPPED", "NEUTRAL")]
+    # Architecture のパイプライン (validate-level-constraints) が起動しないことがある (trigger の取りこぼし・2026-11-15 に
+    #   4 回)。CodeQL 系だけが緑だと「CI 緑」に見えるので、検査の本体が checks に無ければ止まる (50 の提案)
+    if not any(c.get("name") == "validate-level-constraints" for c in info["statusCheckRollup"]):
+        print(f"STOP: #{pr} で Architecture pipeline が起動していない (validate-level-constraints が checks に無い)。"
+              "空の commit を push するか、新しい branch へ載せ直す")
+        return 1
     run(["git", "fetch", "-q", "origin", info["headRefName"]])
     head = info["headRefOid"]
     # main は 5 人の merge で数分ごとに動く。確かめている間に動いたら、新しい main に重ね直して回し直す (最大 3 回)
@@ -188,6 +203,11 @@ def main(argv: list[str]) -> int:
         return 0
     r = run(["gh", "pr", "merge", pr, "--rebase"], check=False)
     state = json.loads(run(["gh", "pr", "view", pr, "--json", "state"]).stdout)["state"]
+    if state != "MERGED" and "already in progress" in (r.stdout + r.stderr):
+        # 別の人が同じ PR を同時に merge している (2026-11-15・#3139 で 50 と重なった)。少し待って状態を読み直す
+        import time
+        time.sleep(15)
+        state = json.loads(run(["gh", "pr", "view", pr, "--json", "state"]).stdout)["state"]
     print(f"{'MERGED' if state == 'MERGED' else 'STOP: merge できなかった'}: #{pr}\n{r.stdout}{r.stderr}".rstrip())
     return 0 if state == "MERGED" else 1
 
