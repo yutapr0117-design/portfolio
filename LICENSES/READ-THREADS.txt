@@ -20,36 +20,52 @@
 #   35 rows were re-dated to the start of the conversation that contains their old date; each of these subjects has
 #   only one candidate conversation. A conversation of a read subject that has no evidence of being read (no message
 #   in rounds/, no citation) has no row and counts as unread.
+1999-04-14	Get ready....
+1999-04-14	Copyright
 1999-04-15	Stop. Stop, stop, stop, stop, stop
+1999-04-19	APSL 1.1 available for comment.
 1999-04-24	APSL 1.1 certification...
 1999-04-27	SGI OpenVault
 1999-05-03	Archive?
+1999-05-11	A new open source license
 1999-05-12	XXX PUBLIC LICENSE
 1999-05-19	making money off your GPL-ed code
 1999-05-27	GPL kernel clients
+1999-07-12	IBM Public License
 1999-08-10	RFC soon on essay "Does Free Software Production in a Bazaar obey the Law of Diminishing R
+1999-08-10	RFC soon on essay "Does Free Software Production in a Bazaar obey the Law of Diminishing Returns?"
+1999-08-11	Essay RFC delayed.
 1999-08-16	RFC soon on essay "Does Free Software Production in a Bazaarobey the Law of Diminishing Re
+1999-08-16	RFC soon on essay "Does Free Software Production in a Bazaarobey the Law of Diminishing Returns?"
 1999-08-30	Oversimplifications in HtN
 1999-09-01	The Essay is Done.
 1999-09-01	Simple Public License, draft
+1999-09-03	advertising clauses
 1999-09-09	ATT SOURCE CODE AGREEMENT Version 1.2C
 1999-09-19	Who gets stuck with advocacy?
 1999-09-19	Oversimplifications in HtN -- Philosophy and biology
 1999-09-23	license-review mailing list
 1999-10-10	Question about GNU/Linux & the advertising clause of BSD
+1999-10-11	GNU License for Hardware
 1999-10-12	GPL + advertising clause
 1999-10-13	"rights" and "freedoms"
 1999-10-14	YAOSL - Yet Another Open Source License
 1999-10-16	Accusations, accusations, always accusations
 1999-10-17	Some general principles of naming
+1999-10-18	Free World Licence.
 1999-11-06	OpenDesk.com License Proposal
 1999-11-09	SOS license
+1999-11-13	Moral Rights
 1999-11-15	Apple Public Source License - is it OSI certified?
 1999-11-15	MIT license vs Dynamic Linking
 1999-11-15	Draft 1 of the OpenDesk.com Public Source License
+1999-11-15	Can you alter the MIT license?
 1999-11-18	OSI Certification Process
+1999-11-19	3dfx license
+1999-11-22	Dual Licensing
 1999-11-26	the skinny -- a LEGAL *nightmare*
 1999-11-30	Proprietary software for Linux
+2000-02-13	License Approval Process
 2000-02-21	Dominion Games needs help
 2000-03-28	Licenses versus contracts
 2000-03-28	The position RMS takes...
@@ -57,6 +73,7 @@
 2000-04-04	Simple Public License, Please Review
 2000-04-05	OSI board asleep at the switch?
 2000-04-11	Apache v. GPL
+2000-05-22	The LaTeX Project Public License
 2000-07-22	prohibiting use that would result in death or personal injury
 2000-07-22	Plan 9 license
 2000-08-07	Public Domain and liability
@@ -70,27 +87,60 @@
 2000-08-27	Status of Vovida VOCAL License?.
 2000-08-30	OpenSales -- DRAFT developers agreement
 2000-09-04	NASM Public Licence - What do you guys think?
+2000-09-04	Qt and the GPL
 2000-09-05	The "M" word...money.
 2000-09-06	NASM Licence
 2000-09-08	Proposal for OSI Certification: The SteelBlue License
+2000-09-11	License List -- as of 9-11-00
+2000-10-28	revised GPL?
 2000-11-28	Modifying existing licenses in minor ways
 2000-12-09	Directory for open-source software
 2001-01-15	Request for approval: IPL 1.0
 2001-01-18	OSI compliance requiring software to be "free beer"?
 2001-01-18	OpenDivX license
 2001-01-19	To the keepers of the holy grail of Open Source
+2001-01-19	Cherry-picking license proposals
+2001-01-22	trademarked logos and GPL
 2001-02-12	Converting/Splitting Code - Open to Closed
 2001-02-15	boomberg bloopers
 2001-02-21	Assigning copyright
 2001-02-22	Transfer of Copyright
+2001-03-20	Apache vs. BSD licenses
+2001-04-04	APSL 1.2
 2001-04-12	Certification Mark: OSI Certified
 2001-06-17	SUN Binary Code License
+2001-06-21	Copyright & License Questions
+2001-06-25	Interesting Microsoft license clause re open source
+2001-07-24	License for approval
 2001-07-27	"Perl Artistic License"
+2001-07-30	approved licenses web page not being updated
+2001-08-05	X.Net, Inc. License
+2001-08-07	VENTURE CAPITAL
+2001-08-08	Quick Reference For Choosing a Free Software License
 2001-08-10	approval time
+2001-08-31	License backlog - OSI is making itself irrellevant
 2001-09-05	newsforge story
+2001-09-21	OSI mark. was[Re: Backlog assistance?]
+2001-09-21	Backlog assistance?
+2001-09-22	YAPL is bad
+2001-09-25	Section 2 source distribution terms
+2001-09-25	click, click, boom
+2001-09-27	forums
+2001-09-28	News. was[Re: forums]
+2001-10-18	fileset without makefiles Open Source?!
 2001-10-30	Intel's proposed BSD + Patent License
+2001-10-30	Article on open-source licenses (and the OSI)
 2001-10-31	Response to comments on Intel's proposed BSD+Patent license
+2001-11-05	Wonka Public Licence
+2001-11-07	CMGPL licence
+2001-11-13	Spirit of OSD - was[Fails OSD #1.]
+2001-11-13	Fails OSD #1. [Re: OSD compliant shareware]
+2001-11-14	OSD/OpenSource.org Translations
+2001-11-18	Please discuss the PSF license
 2001-11-25	free database licenses
+2001-12-07	Does "modification" include translation to another HLL?
+2001-12-10	license-ish vs. Bill of Rights-ish
+2001-12-12	Discussion: ADPL
 2002-02-26	I don't mean to whine, but
 2002-05-22	Proposed License-RPL
 2002-06-09	Do I know what I'm talking about?
