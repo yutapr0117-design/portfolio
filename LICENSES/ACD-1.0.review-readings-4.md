@@ -91,4 +91,4 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 
 **この節が establish しないこと。** 署名なしの放棄の効力は、どの法域についても確かめていない。
 
-**反映**: Apache-2.0 §5 の先例は `SUBMISSION-MATERIALS.md` §1b の §2.6 の段へ（50）。署名なしの放棄が書面の要件に当たるかは `QUESTIONS-FOR-COUNSEL.md` の問いとして 30 へ渡した。同意の助言（Rosen 氏 2004・2005）は `against.md` #321 の追記として 30 へ渡した。
+**反映**: 入口 —— Apache-2.0 §5 の先例は `SUBMISSION-MATERIALS.md` §1b の §2.6 の段へ（50）。署名なしの放棄が書面の要件に当たるかは `QUESTIONS-FOR-COUNSEL.md` の問いとして 30 へ渡した。同意の助言（Rosen 氏 2004・2005）は `against.md` #321 の追記として 30 へ渡した。
