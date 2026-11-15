@@ -127,13 +127,16 @@ def main(argv: list[str]) -> int:
         print("  old number is shown in brackets.")
     print("  Word differences are not differences of legal effect.")
     print()
-    counts = {"unchanged": 0, "changed": 0, "new": 0, "removed": 0}
+    counts = {"unchanged": 0, "changed": 0, "new": 0, "removed": 0}  # new = 旧版に無い / removed = 新版に無い
     for key in B:
         old = from_old.get(key)
         tag = label(key) + (f" [ACD-{va} {old}]" if old and old != key else "")
         if old is None or old not in A:
             counts["new"] += 1
-            print(f"{tag}: new in ACD-{vb}")
+            # 番号の使い回し (2026-11-15・50 の検証): 1.0 の §15.5 / §15.6 は 1.1 で消え、1.2 / 1.3 が同じ番号に別の条を
+            #   置いた。「new」とだけ書くと、旧版の同じ番号の条が消えて新しく出たのか取り違える
+            reused = f" (ACD-{va} also has a Section {key}, with other content; see below)" if key in A else ""
+            print(fill(f"{tag}: not in ACD-{va}{reused}", indent=""))
             print(fill("{+" + B[key] + "+}"))
             print()
         elif A[old] == B[key]:
@@ -149,7 +152,8 @@ def main(argv: list[str]) -> int:
     for key in A:
         if to_new.get(key) not in B:
             counts["removed"] += 1
-            print(f"{label(key)} of ACD-{va}: not in ACD-{vb}")
+            now = f" (ACD-{vb} uses the number {key} for other content)" if key in B else ""
+            print(fill(f"{label(key)} of ACD-{va}: not in ACD-{vb}{now}", indent=""))
             print(fill("[-" + A[key] + "-]"))
             print()
     print("Summary: " + ", ".join(f"{v} {k}" for k, v in counts.items()) + ".")
