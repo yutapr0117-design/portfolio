@@ -400,9 +400,10 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 > **English:**
 >
 > Two reasons, and neither is that other licences got through. First, the
-> question was put in 2015 and set aside, not decided: the chair wrote that
-> the licences then before the committee did not justify "special examination
-> by the OSI", and no board decision on it followed. Second, the Open Source
+> question was answered on its merits when it was first raised: the chair's
+> committee report of October 2015 said "I do not find the policy objections
+> to the Free Public License persuasive", and the board approved that licence
+> (now 0BSD) the next day. Second, the Open Source
 > Definition does not require a licence to travel with the software, and the
 > committee has read it that way since: its 2020 rationale for MIT-0 named the
 > property ("remove the requirement that the copyright notice and permission
@@ -422,7 +423,7 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 > and I would rather it were decided than deferred on the ground that a licence
 > is obscure.
 
-**逆側**: 「決めた記録が無い」は「問わないと決めた」ことではない（#326）。承認済みの 3 本を挙げることは、Piana 氏 2024-09-06 *"Please never use the "but license x does the same" argument."*（`review-readings.md` §1.212）の形に読まれうるので、答えの芯を「先送り」と「OSD の読み」に置き、3 本は読みの材料として後ろに置いた（portfolio-50 の反例・2026-11-15）。最後の段は、方針の判断を自分から求めることになり、承認の時期を延ばしうる。外すなら、その費用（先送りの条件に自分から触れない形になり #326 の合否を満たさない）を書いて外す。
+**逆側**: 理事会が方針として一般に決めた文は無く、2015 年の報告が例に引いた CC0 は承認されていない（#326 の残る逆側）。承認済みの 3 本を挙げることは、Piana 氏 2024-09-06 *"Please never use the "but license x does the same" argument."*（`review-readings.md` §1.212）の形に読まれうるので、答えの芯を「先送り」と「OSD の読み」に置き、3 本は読みの材料として後ろに置いた（portfolio-50 の反例・2026-11-15）。最後の段は、方針の判断を自分から求めることになり、承認の時期を延ばしうる。外すなら、その費用（先送りの条件に自分から触れない形になり #326 の合否を満たさない）を書いて外す。
 
 #### 帰属ゼロ + 明示特許の組み合わせへの反対（2026-10・`against.md` #276 / #277 から・審査者より先に自分で立てる）
 
