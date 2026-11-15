@@ -1,0 +1,80 @@
+Source: OSI license-discuss public archive, 2026-January.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 11 in "Project Tick General Public License v1.0" (begun 2026-01-18)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. (Perens's message of 2026-01-21, which quotes the whole draft and runs to 957 lines, is cited from the archive month and not copied here: rounds/README.md rule 6.) Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Sat Jan 24 01:05:49 2026
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 23 Jan 2026 17:05:49 -0800
+Subject: [License-discuss] Draft for discussion: Project Tick General
+ Public License v2.0 (only)
+In-Reply-To: <2AD0CE01-BFB8-49A1-90B7-C378DD9479CD@icloud.com>
+References: <18546324-53D5-4436-9CA2-D3227D8C4D0A@icloud.com>
+ <CAK2MWOsaaVUGgd9KAj_qqX3SPWud3ktV_y=-NoJC=5xD89Z0fQ@mail.gmail.com>
+ <35A48F14-21BB-4B17-A757-4DCA73D777E3@icloud.com>
+ <CAK2MWOuR2v8ON=Wci5O-ZzwUxBu6acOJW8ukiGWynff3ZGvYRQ@mail.gmail.com>
+ <2AD0CE01-BFB8-49A1-90B7-C378DD9479CD@icloud.com>
+Message-ID: 
+ <CAK2MWOuzfq3G4_RUegzO7DMNL+LSnOz5J=1G854UutUxDD+5mg@mail.gmail.com>
+
+On Thu, Jan 22, 2026 at 6:08 AM M.samet Duman <dumanmehmetsamet at icloud.com>
+wrote:
+
+> 1. Explicit opt-in for network-based source obligations
+> 2. Network operation triggers source availability only, not full conveyance
+>
+
+So, this is now three licenses, depending upon what you opt in. This is a
+similar issue to my criticism of Creative Commons licenses. If you say you
+have a Creative Commons license, nobody has any idea what rights they have
+other than the right to read the material. You have also left a big door
+for argument about the inclusion and the clarity of the statement enabling
+the license feature. The more argument, the more expensive and uncertain
+any enforcement of the license.
+
+
+> > Such operation may be treated as conveyance solely for the purpose
+> > of triggering the source availability obligations expressly set forth
+> > in this License, where an Explicit Network Use Notice applies.
+>
+
+May means "you can, but you don't have to. There should be a single and
+definite action that activates the terms or not. And "treated as
+conveyance" is a rather oblique way to say "activates these terms", and can
+be subject to yet more argument.
+
+You have also left lots of room for argument about what is general
+infrastructure, unrelated, independent, proprietary, tightly-coupled,
+service glue, deployment-specific code. For example, is all of the Debian
+distribution general infrastructure, every one of 70K packages?
+
+>
+> > Technical mechanisms … are permitted provided that such mechanisms
+> > do not prevent recipients from accessing, modifying, or conveying
+> > the Corresponding Resource of the covered Work under the terms of
+> > this License.
+>
+
+The anti-tivoi-ization provisions in GPL etc. generally have the effect of
+making it possible for the platform upon which the software was conveyed to
+have modified software installed and continue to perform all of its
+functions. You didn't state enough to make that effective in the language I
+see.
+
+Before you actually submitted this as a license, you would have to deal
+with the GPL copying, and make use of an attorney for the license language.
+Failure to make use of an attorney is in general a harmful action to
+developer who use the license, since it would be prone to fail in
+unanticipated ways, making them incapable of enforcing their copyrights,
+and subject to various sorts of liability. Making the language suitable for
+acceptance is probably a year's work, with some expense, don't take it
+lightly.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260123/b07aae5a/attachment.htm>
