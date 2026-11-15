@@ -377,6 +377,8 @@ Chestek 氏が engage しなかった 2 例は**ライセンス本文**の語数
 
 ---
 
+**2026-11-15 に足した —— 不透明さを善意で通した判断を、通した側の 1 人が後で誤りとした。** John Cowan 氏 2018-06-20（`license-review`・L0-R の審査）*"I believe that RPL's certification was wrongly decided, although it is probably too late to reverse it now. I remember thinking at the time that the license was very hard to understand (I don't find it so now, particularly), but that it meant well and we probably should approve it despite its opacity. I wish now that I'd made more fuss then."*（`review-readings-2.md` §1.228・portfolio-2f）。「意図は良いが読みにくい」本文を通した過去を、決める側が悔いた記録で、理解の費用は善意では払えないことを示す。2026-09-24 の却下の第 1 の理由が *"Poor drafting"* だったこと（B1・`board-decisions.md` §4a）と同じ向きである。**逆側**: 同じ文の括弧書き（今はそれほど難しくない）は、読みにくさが慣れで変わることも言っている。RPL は使用に条件を課す型で、何も課さない ACD とは読みの重さが違う。
+
 ## B3 —— 長さ。測定が解消経路を示した
 
 **なぜ承認上の問題か（事実）**: Chestek 氏が長さを理由に engage しなかった記録が **2 件**ある（2024-10 は委員長として・2026-06 は委員として） ——
