@@ -135,7 +135,9 @@ def field(head, name):
 def own_text(body):
     kept = []
     for line in body.split("\n"):
-        if line.startswith("-------------- next part"):
+        # Outlook の形 ("-----Original Message-----" の後に ">" の無い引用) は、引いた別人の文を本人の文として拾う
+        #   (1c が 2026-11-15 に McCoy Smith 氏の通の中の Temeles 氏の文で踏んだ)
+        if line.startswith("-------------- next part") or re.match(r"\s*-{3,}\s*Original Message\s*-{3,}", line, re.I):
             break
         if not re.match(r"\s*(>|\|)", line) and not re.match(r".*wrote:\s*$", line):
             kept.append(line)

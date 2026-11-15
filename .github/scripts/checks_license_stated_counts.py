@@ -1,4 +1,4 @@
-"""checks_license_stated_counts.py — 自己申告の文が持つ 2 つ目の数 (498) と、入口の「最後に読んだ時刻」(499)、§1.N の重複 (500)
+"""checks_license_stated_counts.py — 自己申告の文が持つ 2 つ目の数 (498) と、入口の「最後に読んだ時刻」(499)、§1.N の重複 (500)、読んだ節の反映の欄 (501)
 
 2026-11-08 に足した。Check 460 は自己申告の文の最初の数を実測と照合する面を多く持つが、同じ文の
 2 つ目の数と、隣の文が繰り返す同じ数は読んでいなかった（Check の監査 findings #114〜#123）。
@@ -32,6 +32,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
   500. **ドシエの §1.N 見出し (N >= 70) が全体で 1 か所にしか無いこと** (BLOCKING・2026-11-15・30 の問い):
        §1.70 以降は通し番号として文書の名を添えずに引かれる。未読の 285 本を 5 人で読むため節番号を帯で分けた日に、
        帯を越えた重複を止める (本体は _lib_dossier.section_heading_duplicates)。
+  501. **§1.242 以降の各節が「**反映**: …」の行を 1 つ持ち、行き先を語彙で述べること** (BLOCKING・2026-11-15・2f の提案 (A)):
+       オーナーの前提「未読があり、未反映のまま本申請は出せない」。against #N と errata E# は実在を照らす。「未定」は ADVISORY
+       (本体は _lib_dossier.reflect_field_misses)。
 """
 import datetime
 import re
@@ -324,3 +327,13 @@ def run(ctx):
          "名を添えない「§1.N」の引用がどちらの節かを決められない。自分の帯 (review-readings-N の冒頭) の番号を使え"),
         blocking=True,
     )
+
+    # ── 501. 読んだ節の「反映」の欄 (BLOCKING・未定は ADVISORY) ──────────────────────────────
+    # 5 人で未読を読む日 (2026-11-15) から、節ごとに「どこへ効いたか」を書く。合成 (2f の提案 (C)) は B# を鍵に集める
+    from _lib_dossier import REFLECT_FROM, reflect_field_misses
+    _n501, _bad501, _pend501 = reflect_field_misses(L)
+    check(not _bad501, f"Check 501: §1.{REFLECT_FROM} 以降の {_n501} 節がすべて反映の欄を語彙で持つ",
+          (f"Check 501: 反映の欄が欠けるか誤る: {_bad501}。節の末尾に「**反映**: B# / against #N / errata E# / 1c 種 / 入口 / "
+           "なし（理由）」を 1 行書く。**未反映のまま本申請は出せない** (オーナー・2026-11-15)"), blocking=True)
+    check(not _pend501, f"Check 501 (ADVISORY): 反映が「未定」の節は無い",
+          f"Check 501 (ADVISORY): 反映が「未定」の節 {len(_pend501)} 件: {_pend501[:8]}。提出の前に決める", blocking=False)
