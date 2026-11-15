@@ -20,6 +20,8 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "What should fit in a FOSS license?"（`license-discuss` 2020-03・19 通を通読）を `review-readings-2.md` §1.233 へ（license-review は本物のライセンスに限る、思考実験は license-discuss で・Chestek 氏、2015 年の委員長は思考実験のライセンスも承認したと書いた、適用先のリポジトリは自らを実験と呼ぶ）
+
 - 2026-11-15 に "Contributor Clauses in Licenses"（`license-discuss` 2025-12・21 通を通読）を `review-readings-2.md` §1.232 へ（貢献の条項を執行できる根拠は受諾だ・Chestek 氏、ACD は受諾を要しないので移らない、提出する行為が同意の表示・Smith 氏は §2.6 に移る）（候補は 820 → 821・読んだので母数に入った）
 
 - 2026-11-15 に SPDX と REUSE を本文で名指すことを全月で当て、3 通を部分的に読んだ（会話としては読んでいない・`review-readings-2.md` §1.231・承認された CAL-1.0 の本文は SPDX の札を名指した、本文の URL は古びた、AFL の告知の形は REUSE と衝突した、OSI は識別子ではなくライセンスを承認する）

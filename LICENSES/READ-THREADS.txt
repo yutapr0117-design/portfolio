@@ -392,6 +392,7 @@
 2013-03-05	CeCILL license V2.1 for Approval
 2013-03-06	FAQ entry for slight variations in licenses?
 2013-03-06	License Committee Report - 2013-03-06
+2013-03-06	what would de-listing of licenses look like?
 2013-03-07	further license presentation improvements? (inc. call for help)
 2013-03-17	Text version issue on licenses pages
 2013-03-17	What is missing from this post? (license-discuss/review "year in review")

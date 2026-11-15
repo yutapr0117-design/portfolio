@@ -1,0 +1,24 @@
+Source: OSI license-discuss public archive, 2013-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 18 in "what would de-listing of licenses look like?" (2013-03-06)
+Senders: Luis Villa
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From luis at tieguy.org  Thu Mar  7 04:23:56 2013
+From: luis at tieguy.org (Luis Villa)
+Date: Wed, 6 Mar 2013 20:23:56 -0800
+Subject: [License-discuss] what would de-listing of licenses look like?
+Message-ID: <CAFPTOkU8WjZ+6xx2QFyjHoy+dJdFqPifh3-OKayvTFQvWqG-Wg@mail.gmail.com>
+
+On Wed, Mar 6, 2013 at 11:48 AM, Richard Fontana
+<fontana at sharpeleven.org> wrote:
+> The Frameworx license is one of those OSI-approved licenses that I
+> believe was approved "in haste". If OSI had such a procedure, I would
+> recommend that the Frameworx license be reviewed for de-listing.
+
+Any recommendations on what such a process would look like, Richard?
+I'm not super-enthused about the idea, but don't want to rule out
+anything without at least some discussion.
+
+Luis

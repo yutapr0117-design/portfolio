@@ -97,6 +97,11 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2012-02 | `license-review` | **観測（"OSI recognition for Creative Commons Zero License?" から 7 通・CC が出す前に利用者が承認を求めた、既存の許容型で足りるか、誰が出すべきか）** | `2012-02-license-review-osi-recognition-cc0-observed.txt` |
 | 2013-07〜08 | `license-discuss` | **観測（"Open source license chooser choosealicense.com launched." から 5 通・選択サイトを案内するか、偏り、「無名には理由がある」、増殖の何が悪いか）** | `2013-07-and-08-license-discuss-choosealicense-observed.txt` |
 | 2013-03 | `license-review` | **観測（"CeCILL license V2.1 for Approval" の 2013 年の会話から 2 通・1 年止まった提出の再開と、委員長の謝罪）** | `2013-03-license-review-cecill-2-1-restart-observed.txt` |
+| 2013-03 | `license-discuss` | **観測（Villa 氏の 1 通・Fontana 氏の「Frameworx は急いで承認された」を引いて取り下げの手続きを問う）** | `2013-03-license-discuss-delisting-villa-opener-observed.txt` |
+| 2013-03 | `license-discuss` | **観測（Villa 氏の 1 通・起草の質の評価は主観的）** | `2013-03-license-discuss-delisting-villa-subjective-observed.txt` |
+| 2013-03 | `license-discuss` | **観測（Fontana 氏の 1 通・取り下げの理由は OSD だけ、OSD の解釈に法律家は要らない）** | `2013-03-license-discuss-delisting-fontana-osd-only-observed.txt` |
+| 2013-03 | `license-discuss` | **観測（Perens 氏の 1 通・法律家なしの起草は容易に見分けられる）** | `2013-03-license-discuss-delisting-perens-diagnose-observed.txt` |
+| 2013-03 | `license-discuss` | **観測（Perens 氏の 1 通・取り下げの理由 3 つ、法律家なしの起草を含む）** | `2013-03-license-discuss-delisting-perens-justifications-observed.txt` |
 | 2013-03 | `license-discuss` | **観測（"FAQ entry for slight variations in licenses?" から 4 通・承認済みライセンスの変種の確認に弁護士は要るか、で 2 人の弁護士が反対を向いた）** | `2013-03-license-discuss-slight-variations-lawyer-observed.txt` |
 | 2013-03 | `license-review` | **観測（2013 年 3 月の委員会報告 2 本から 3 通・理事会が求めて復活した正式の報告、CeCILL 2.1 の推薦、個人の起草者への勧め）** | `2013-03-license-review-committee-reports-observed.txt` |
 | 2017-01〜02 | `license-review` | **観測（"License Committee Report - January 2017" から 4 通・推薦は委員長個人のもの、list の沈黙、理事会は前もって判断を示さない）** | `2017-01-and-02-license-review-committee-report-observed.txt` |

@@ -1,0 +1,61 @@
+Source: OSI license-discuss public archive, 2013-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 18 in "what would de-listing of licenses look like?" (2013-03-06)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Thu Mar  7 06:46:49 2013
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 06 Mar 2013 22:46:49 -0800
+Subject: [License-discuss] what would de-listing of licenses look like?
+In-Reply-To: <CAFPTOkUOfYTqxb90onixe-+KB7rE91Wbn9NrTYN7+VUF+xDR5w@mail.gmail.com>
+References: <CAFPTOkU8WjZ+6xx2QFyjHoy+dJdFqPifh3-OKayvTFQvWqG-Wg@mail.gmail.com>
+	<51381C61.4020205@perens.com>
+	<20130307053944.GL28503@mercury.ccil.org>
+	<bca9aff8-1d40-42f7-9a2d-a4885c897c3a@email.android.com>
+	<20130307061551.GS28503@mercury.ccil.org>
+	<CAFPTOkUOfYTqxb90onixe-+KB7rE91Wbn9NrTYN7+VUF+xDR5w@mail.gmail.com>
+Message-ID: <39e14385-ee51-495b-9ebe-03e5023cfd15@email.android.com>
+
+It isn't the least bit difficult to diagnose when no lawyer was involved in drafting a license. At the start we had an excuse because no lawyer would help us. The only excuse those licenses have today is disinterest in fixing the problem.
+
+
+Luis Villa <luis at tieguy.org> wrote:
+
+>On Wed, Mar 6, 2013 at 10:15 PM, John Cowan <cowan at mercury.ccil.org>
+>wrote:
+>> Bruce Perens scripsit:
+>>
+>>> So, what the Artistic License 1.0 made much more difficult for the
+>>> poor Open Source developer is exactly what I'd like to fix. And yet
+>>> the Artistic 1.0 is not the one I thought of first upon seeing this
+>>> discussion in progress. We have much worse.
+>>
+>> Please itemize.
+>
+>I don't think we do anyone any favors by having extensive public
+>discussions of the legal/drafting weaknesses of existing licenses, so
+>please don't.
+>
+>The point stands that some licenses are poorly drafted, and that in a
+>perfect world where we could easily identify and evaluate such
+>licenses, we would probably no longer publicize/endorse them.
+>
+>That said, as Richard pointed out, this is an extremely difficult
+>issue to evaluate. It is inherently subjective, and a matter requiring
+>expertise. Given that, I see  no evidence that OSI (or anyone) could
+>perform it in a reasonable, objective, efficient manner, so I'm not
+>very interested in pursuing it.
+>
+>Luis
+>_______________________________________________
+>License-discuss mailing list
+>License-discuss at opensource.org
+>http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+
+-- 
+Sent from my Android phone with K-9 Mail. Please excuse my brevity.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20130306/4f3f29c5/attachment.html>
