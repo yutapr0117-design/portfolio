@@ -1,0 +1,103 @@
+Source: OSI license-discuss public archive, 2011-May.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 2 of the messages in "NASA requests help finding gov't use of standard OSS licenses." (begun 2011-05-01)
+Senders: Karl Fogel, John Cowan
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From kfogel at red-bean.com  Mon May  2 21:03:16 2011
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Mon, 02 May 2011 16:03:16 -0500
+Subject: NASA requests help finding gov't use of standard OSS licenses.
+In-Reply-To: <4DBF12DC.8030306@gmail.com> (VanL's message of "Mon, 02 May 2011
+	15:23:56 -0500")
+References: <BANLkTik2tVL-qQkJcwngNshsfN2Bpuk1VQ@mail.gmail.com>
+	<C9DF5422.C823%Nigel.Tzeng@jhuapl.edu>
+	<BANLkTimzNeZUhJ6oG0j2k6eDr+job9NMKQ@mail.gmail.com>
+	<878vuprigi.fsf_-_@red-bean.com> <4DBF12DC.8030306@gmail.com>
+Message-ID: <87tydchl2j.fsf@red-bean.com>
+
+VanL <van.lindberg at gmail.com> writes:
+>On 5/1/2011 8:37 PM, Karl Fogel wrote:
+>> Scott Goodwin, CIO of NASA's Space Operations Mission Directorate, is
+>> looking for examples of federal agencies releasing open source software
+>> under standard OSS licenses -- like BSD, Apache, GNU GPL, etc.
+>>
+>> Part of the purpose is to evaluate the future of NASA's custom open
+>> source license, the NASA Open Source Agreement (NOSA) [1].  As you can
+>> see from Scott's message below [2], one possibility is that existing OSS
+>> licenses could serve all of NASA's purposes, and that NOSA would no
+>> longer be necessary.
+>
+>Pardon the history lesson, but I am do not understand how traditional
+>licenses would address the original NOSA use case - specifically,
+>providing a non-copyright basis for keeping government-written code in
+>public.
+>
+>With reference to source code written by government contractors,
+>traditional copyright (and thus traditional licenses) apply. For
+>purely government-written code, however, copyright doesn't apply; it
+>is public domain by statute.
+>
+>The NOSA was designed to emulate the behavior of common open source
+>licenses by declaring the government as an intended third party
+>beneficiaries to future developments of the code, in theory giving
+>them the right to pursue legal action to keep the code open. It
+>performs this under contract law principles, though, not copyright
+>principles.
+
+Thanks for the history lesson.
+
+Hmm, so how does NOSA get enforced on someone who didn't "agree" to it?
+That is, if the code itself is in the public domain, and I get a copy of
+it, then how are NOSA's terms binding on me?
+
+One could make the argument that someone who originally downloads the
+code from NASA's servers is bound by the terms of any agreement that
+they clicked "OK" on to get physical access to the code.  But then two
+questions arise:
+
+  1) The next party to whom the code is distributed did not click "OK",
+     and therefore could treat the code as public domain, right?  Yet if
+     NOSA places more restrictions on the original downloader than on
+     downstream recipients, that's clearly a problem.
+
+  2) Something about using a contract to get around the plain intent of
+     the "government works are public domain" rule sticks in the craw :-).
+     Public domain is public domain; one shouldn't have to file a FOIA
+     request to get the code.  Public domain is open source too, anyway.  
+
+Now, if what NASA wants is the ability to copyleft, then that's an
+interesting proposition, but it's a specialized case of simply wanting
+to open source the code, which they can do without NOSA or any other
+license/contract.
+
+The more I look at NOSA, the more confusing it gets.  I'd love your take
+on the above two points, Van.
+
+-Karl
+
+
+From cowan at mercury.ccil.org  Tue May  3 15:07:54 2011
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Tue, 3 May 2011 11:07:54 -0400
+Subject: NASA requests help finding gov't use of standard OSS licenses.
+In-Reply-To: <C9E5802E.CA2C%Nigel.Tzeng@jhuapl.edu>
+References: <4DBF12DC.8030306@gmail.com> <C9E5802E.CA2C%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <20110503150754.GA17390@mercury.ccil.org>
+
+Tzeng, Nigel H. scripsit:
+
+> How does NOSA keep the code more "open" than public domain?
+
+As I pointed out already, federal government code is in the public
+domain *only in the US*.  Elsewhere it is in copyright, and needs a
+license.  In addition, the federal government may hold copyrights
+transferred to it.
+
+-- 
+You annoy me, Rattray!  You disgust me!         John Cowan
+You irritate me unspeakably!  Thank Heaven,     cowan at ccil.org
+I am a man of equable temper, or I should       http://www.ccil.org/~cowan
+scarcely be able to contain myself before
+your mocking visage.            --Stalky imitating Macrea
