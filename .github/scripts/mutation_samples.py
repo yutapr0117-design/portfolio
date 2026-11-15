@@ -519,6 +519,14 @@ _MUTATIONS_TAIL.append({
     "replace": "",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 468 (§0d): 材料 §0d の表の「§8.1 は *\"derived from\"*」を *\"resulting from\"* にする —— §8.1 にその語は無い。表の行は"
+            "草案の状態を前提にしているのに、草案が変わっても何も鳴らなかった (2026-11-15・50 の提案)",
+    "file": ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md",
+    "find": "§8.1 は *\"derived from\"*",
+    "replace": "§8.1 は *\"resulting from\"*",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

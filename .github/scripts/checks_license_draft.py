@@ -83,7 +83,7 @@ import re
 
 from _lib_draft_markers import EFFECT_MARKERS_468U, state_hits  # 一覧は _lib_draft_markers.py (measure_clause_overlap.py --guard と共有)
 from _lib_dossier import errata_draft_quote_misses, dossier_draft_quote_misses  # 草案の逐語の照合 (468w / 468a)
-from _lib_draft_counts import bullet_components, changelist_table_total, defined_term_uses, errata_list_mismatch  # 468n / 468s / 定義語 / 468i
+from _lib_draft_counts import bullet_components, changelist_table_total, defined_term_uses, errata_list_mismatch, materials_0d_mismatches  # 468n / 468s / 定義語 / 468i / §0d
 
 def run(ctx):
     ROOT = ctx.ROOT
@@ -611,6 +611,11 @@ def run(ctx):
                     #   語を外す試作が続くので、使い先の無い定義が残りうる。本体は _lib_draft_counts.defined_term_uses
                     _uses468d, _b468d = defined_term_uses(_dc468n)
                     _bad468.extend(_b468d)
+                    # ── 468 (§0d): 提出の材料 §0d の「狭めたと読まれうる箇所」の表が前提にする草案の状態 (2026-11-15・50 の提案) ──
+                    #   本体は _lib_draft_counts.materials_0d_mismatches
+                    _sm468d = ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md"
+                    _n4680d, _b4680d = materials_0d_mismatches(_sm468d.read_text(encoding="utf-8") if _sm468d.exists() else "", _dc468n)
+                    _bad468.extend(_b4680d)
 
         # ── 468m: §16.4 が「1 識別子 = 1 固定本文」を Steward 例外の中でも保つこと ─────────────
         #   2026-11-01、外部 AI の敵対的レビュー (against.md #279) が、§16.4 の Steward 例外は版番号の
