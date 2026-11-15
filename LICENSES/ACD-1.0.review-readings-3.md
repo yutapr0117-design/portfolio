@@ -105,3 +105,85 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 **この節が establish しないこと。** ソフトウェア以外を含むライセンスを OSI が承認するかは扱わない（B15 は OSI 判断依存のまま）。
 
 **反映**: B15（`ACD-OSI-BOTTLENECKS-EXTERNAL.md` の B15 の節・ソフトウェアを認証しライセンスを承認する、という 2001 年の区別と、決めていなかった事実）。§4.2 は語がそろっているので 1.4 草案は変えない。
+
+## 1.306 License Approval Committee は、license-discuss そのものとして始まった —— 決め方は rough consensus、承認の権限は理事会だけ（"License Approval Committee"・2003-04）（2026-11-15）
+
+2026-11-15 に 9b の帯から引き受けた 2003 年の 16 本（portfolio-30）の 1 本。決める側の通を全文、他の通を冒頭で読んだ。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Part of this change gives license-discuss more authority. You're being deputized to serve as the License Approval Committee. License approval requests now go directly to you."* | Russell Nelson 氏 2003-04-23 | **経過（B13・B14）。** 審査の委員会は、このリストの購読者として始まった。ACD が 1.0 を出した `license-discuss` は、2003 年には審査そのものの場だった |
+| *"Just to be clear, the OSI Board of Directors has sole authority to approve or disapprove licenses. That is essential to retain our certification mark."*、*"The License Approval Committee recommends only."* | Lawrence Rosen 氏 2003-04-23 | **経過。** 勧告と承認を分けた。いまの委員会の勧告と理事会の議決の形の起点 |
+| *"Rough consensus. Like the IETF uses."* | Nelson 氏 2003-04-23（勧告をどう決めるかへの答え） | **見込み（B2）。** 勧告は賛否の数ではなく大まかな合意で決める、とした |
+| *"For example, the Zope Public License contains the name of the Zope Corporation within it. If you want to use it, you need to create a derivative license, which in most cases will earn a rubber stamp."* | Nelson 氏 2003-04-23 | **有利な面（B6・§16.3）。** 本文に会社名を持つライセンスは、他人が使うには派生のライセンスを作る必要があった。ACD は本文に固有名詞を持たず、§16.3 で誰でも 1 語も変えずに当てられる |
+
+**読み。** 委員会は、`license-discuss` の購読者に勧告を任せる形で始まり、承認は理事会に残された。§1.302 の「名前を抜いた型板」（1999）と同じ線が、2003 年には「名前を変えた派生はほぼ自動で通る」という運用として述べられている。
+
+**逆側。** 2003 年の委員会はリストそのもので、いまの委員会（任命された委員と委員長）とは形が違う。「rough consensus」はいまの規則の文ではない。Zope の例は、名前を変えただけの派生が通りやすいことを言っているのであって、新しいライセンスの審査の基準ではない。
+
+**この節が establish しないこと。** 2003 年の手続きの改定の全文（Nelson 氏が示したページ）は読んでいない。
+
+**反映**: B6（`ACD-OSI-BOTTLENECKS.md` の B6 の節・名前を持たない型板が 2003 年には運用として述べられていた）。
+
+## 1.307 誰も意見を書かないとき、委員長は自分から求め、1 人の賛成で承認を勧めた（"is it just summertime?"・2003-07、"please discuss EU DataGrid"・2003-09）（2026-11-15）
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Are these licenses obviously open source? It would be helpful if someone other than myself would say so."* | Russell Nelson 氏 2003-07-09（2 つの提出に返信が無いことについて） | **見込み（B2・分岐 B）。** 返信の無さを、委員長は「明らかだから黙っている」とも「読まれていない」とも決めず、言葉にしてほしいと求めた |
+| *"This license has been sitting around for over a month, and nobody has said anything. Maybe it's because it's obviously open source, but as committee members, I'd like to hear it explicitly from your mouths (or keyboards rather) to report back to the board."* | Nelson 氏 2003-09-26 | 同じ向き。1 か月の沈黙の後に、委員長が意見を求めた |
+| *"Thanks, Ernie. I'm going to recommend that the board approve it."* | Nelson 氏 2003-10-10（1 人が「OSD との衝突は見えない」と返した後） | **有利な面（2003 年の運用）。** 沈黙の後の 1 通の賛成で、承認の勧告に進んだ |
+
+**読み。** 2003 年の委員長は、沈黙を賛成とも反対とも読まず、明示の言葉を求めた。`review-readings.md` §1.187（2017 年の委員長: list の沈黙は読んだ印ではない）と同じ線の、14 年前の運用である。
+
+**逆側。** 2003 年の EU DataGrid は、修正 BSD に近い短いライセンスで、委員長自身が中身を説明して求めた。ACD のように長く新しい形のライセンスが、1 通の賛成で勧告に進むとは読めない。いまの委員会は、支持の無い版の見込みを低く見る（`ACD-OSI-BOTTLENECKS-EXTERNAL.md` の B2 の節・Chestek 氏 2020）。
+
+**この節が establish しないこと。** 2003-07 の 2 つの提出がその後どうなったかは確かめていない。
+
+**反映**: B2（`ACD-OSI-BOTTLENECKS-EXTERNAL.md` の B2 の節）/ 入口（`REVISION-PROTOCOL.md` の分岐 B に 1 段・沈黙のときに決める側が明示の言葉を求めた先例）。
+
+## 1.308 「perpetual」と書いても米国では 35 年後に終了しうる、だから明示する —— 当時の OSI の general counsel（"from advogato, open source licenses revokable?"・2003-01）（2026-11-15）
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Because of the very confusion that is reflected in the discussion you referred to, my two new licenses (the Open Software License and the Academic Free License) make "perpetual" grants. I believe in being explicit."* | Lawrence Rosen 氏 2003-01-25 | **有利な面（§4.1・§2.2）。** 撤回の不安に、許諾を perpetual と明示して答えた。ACD の §4.1 は *irrevocable, perpetual* と書き、§2.2 は撤回できないと述べる |
+| *"Note that, for public policy reasons, under the Copyright Act all licenses are terminable "at any time during a period of five years beginning at the end of thirty-five years from the date of execution of the grant...." 17 U.S.C. 203(a)(3). This is true even if the license states that it is "perpetual.""* | Rosen 氏 2003-01-25 | **不利な面（#152）。** 本文の *perpetual* は、米国の終了権を越えられない、とリストの上で法律家が述べた記録 |
+| *"I think licenses should be written so as to be subject to both copyright law and contract law. Fuzziness in licenses is bad."* | Rosen 氏 2003-01-26 | **不利な面（#321）。** 著作権法と契約法の両方に服するように書け、とした。ACD は受諾を求めず、契約を作らない（§2.3） |
+
+**読み。** 撤回の可否について、2003 年の法律家は「明示する」ことと「法定の終了権は越えられない」ことを同じ通で述べた。ACD の §2.2・§4.1 は前者の形で、後者は `against.md` #152 と `jurisdictions.md` が扱う。
+
+**逆側。** 203 条の終了権は、作者の生前の許諾についての米国の規定で、ACD の §3 の放棄（許諾ではない）に及ぶかは別の問いである。Rosen 氏の「契約法にも服するように」は、ACD の設計（条件を持たず受諾を求めない）とは逆の向きで、§5 の約束を契約なしに立たせる ACD の形は、この線では弱く見える。
+
+**この節が establish しないこと。** 203 条が ACD のどの部分に及ぶかの法的な評価はしていない（`QUESTIONS-FOR-COUNSEL.md` 問 1）。
+
+**反映**: against #152（203 条の終了権をリストの上で法律家が述べていた）/ against #321（契約法にも服するように書け）。
+
+## 1.309 OSI に出すのと同時に FSF にも送った、終了の条項は使う人の拒否で外された（"Termination for Patent Action"・2003-09）（2026-11-15）
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"I did send a copy of the license to FSF at the same time as I submitted the license to the OSI board for its approval."* | Lawrence Rosen 氏 2003-09-27（AFL 2.0 について） | **手順の先例（#328）。** OSI への提出と並べて FSF に送った。`review-readings-2.md` §1.235 の Mozilla（2010）より 7 年早い |
+| *"Actually, the new AFL version 2.0 (...) doesn't contain that mutual defense clause because some key folks really hated it and refused to use any license that contained it."* | Rosen 氏 2003-09-27（URL は省いた） | **有利な面（#46 の逆側）。** 広い特許の報復の条項は、使う人が拒んだので外された。ACD は報復の条項を持たない（§8.2） |
+| *"The theory behind this clause is that you need to consider carefully before you sue an open source licensor for patent infringement."* | Rosen 氏 2003-09-28 | **不利な面（#46）。** 残した狭い終了の条項の理由。ACD はこの抑止も持たない |
+
+**読み。** 起草者が OSI と FSF の両方に並べて出すことは、2003 年にも行われていた。報復の条項の範囲は、採用者の拒否で狭められた。
+
+**逆側。** Rosen 氏は広い条項を外して狭い条項を残した。条項を持たないことを支持したのではない。FSF に写しを送ったことは、FSF が何を答えたかを示さない。
+
+**この節が establish しないこと。** FSF が AFL 2.0 について何を述べたかは読んでいない。
+
+**反映**: against #328（FSF に並べて送った 2003 年の先例）/ against #46（報復の条項の範囲は採用者の拒否で狭められた）。
+
+## 1.310 管轄を指定する、商標の名指しは自由 —— §15.3 と §11.2 に当たる 2003 年の法律家の文（"Licensing Model: Joint Copyright Assignments"・2003-04、"Open source and trademarks"・2003-07）（2026-11-15）
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Yes, that term is complex, and U.S. law may be different from that of other countries. I try to solve that jurisdiction problem by specifying a jurisdiction in all my licenses."* | Lawrence Rosen 氏 2003-04-15（「二次的著作物」の語が国で違うことについて） | **不利な面（§15.3）。** ACD は準拠法も管轄も指定しない。当時の法律家は、語の意味の国ごとの違いを、管轄の指定で解こうとした |
+| *"Anyone is free to use a trademark by way of comparison ("Jello pudding tastes better than Royal pudding") or to make truthful statements about a product ("this Nokia telephone works on the AT&T Wireless network")."* | Rosen 氏 2003-07-06 | **有利な面（§11.2・§11.3）。** 真実の名指しは自由で、出所を偽る使い方だけが侵害になる。ACD の §11.2（名指しは妨げない）と §11.3（偽りは及ばない）と同じ線 |
+
+**読み。** 準拠法について、2003 年の法律家は指定する側に立った。ACD の §15.3 は指定しない側に立つ。
+
+**逆側。** 理事会は後に、準拠法の条は *"not necessary or advisable in open source licenses"* と付言した（`REVIEWERS.md`・against-2）。いまの決める側の線は ACD の側にある。Rosen 氏の通は、指定しないことの費用（語の意味が国ごとに割れる）を名指していて、その費用は残る。
+
+**この節が establish しないこと。** 管轄を指定しないことが、どの国の裁判所でどう扱われるかは扱わない（`QUESTIONS-FOR-COUNSEL.md` 問 7）。
+
+**反映**: against #254 に 1 文（準拠法の条を置かないことの費用を、2003 年の法律家が名指していた）。新しい行は立てない。
