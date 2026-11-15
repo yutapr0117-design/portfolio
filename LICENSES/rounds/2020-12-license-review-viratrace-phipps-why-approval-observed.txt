@@ -1,0 +1,42 @@
+Source: OSI license-review public archive, 2020-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 3 in "License-review Digest, Vol 97, Issue 8" (2020-12-11)
+Senders: Simon Phipps
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From simon at webmink.com  Fri Dec 11 17:18:39 2020
+From: simon at webmink.com (Simon Phipps)
+Date: Fri, 11 Dec 2020 17:18:39 +0000
+Subject: [License-review] License-review Digest, Vol 97, Issue 8
+In-Reply-To: <CAMkzgA4DqGdz8Mkq4zBTXVsXZ3dGdXvr3YoneRzzk29PFSgsWw@mail.gmail.com>
+References: <mailman.80.1607655376.15037.license-review_lists.opensource.org@lists.opensource.org>
+ <176528a1bdd.ccae99de162652.3262001223077271951@viratrace.us>
+ <CAMkzgA4DqGdz8Mkq4zBTXVsXZ3dGdXvr3YoneRzzk29PFSgsWw@mail.gmail.com>
+Message-ID: <CAA4ffp938NNc8wsQ5t64KGJyWTpo9H-JBmEH_3TGRob_Ni97=A@mail.gmail.com>
+
+I have to agree with Eric here - it seems likely you will have to choose
+between OSI approval and the protections you seek for your interests
+through these terms. Please can you succinctly explain why having your
+license be approved by OSI is important to you?
+
+Cheers,
+
+Simon
+(in a personal capacity)
+
+On Fri, Dec 11, 2020 at 5:08 PM Eric Schultz <eric at wwahammy.com> wrote:
+
+> Wayne,
+>
+> I would like to ask again. What is your goal of submitting your license
+> here? What do you hope to achieve?
+>
+> I will reiterate again. There is zero chance this license will be approved
+> by the OSI in anything like its current state
+>
+> Eric
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20201211/c2b7977e/attachment.html>

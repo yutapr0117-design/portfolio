@@ -402,3 +402,54 @@ portfolio-1c の T69（1.4 草案の §2.6 に、除外する素材を示す形�
 **逆側。** Berkus 氏の二択は、特権を与える条（OSET の政府への例外）に向けたもので、何も与えない説明の条には「害になる」の側が当たらない。その場合に残るのは「要らない」の側で、それは本文の長さの費用（1.4 草案の語数の議論）として現れる。Fontana 氏の文は、我々の OSD 逐条を軽く見る理由にもなりうる。逐条が示すのは必要条件であって十分条件ではない、と提出の文書が自分で書いているかは確かめていない。
 
 **この節が establish しないこと。** OSET Public License の最終的な帰結は §1.179 の範囲で、この節は扱わない。ACD のどの条が Berkus 氏の二択の「要らない」側に読まれうるかは、条ごとには数えていない。
+
+## 1.242 「取り消せない」と本文に書いても、それは自分への約束にすぎない —— Cowan 氏 2003 は無償の許諾の撤回を論じた（"Language question"・2003-05）（2026-11-15）
+
+census の候補の外で、話題の語（撤回・放棄）に当たる未読の会話の 1 本（`license-discuss` 2003-05・18 通）を通読し、3 通を置いた（`rounds/2003-05-license-discuss-language-question-cowan-{irrevocable,promise,corporation}-observed.txt`）。著作権の承継とオープンソースの許諾の関係を問う会話である。撤回の可否はドシエで厚く扱われている（`QUESTIONS-FOR-COUNSEL.md` の問 (i)、Rosen 氏 2003 の *"Probably a new licensee with notice of the revocation can't obtain a license."*）。この節は、同じ年の別の人の文を足す。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"It's *far* from clear that the licenses you have already granted are somehow irrevocable.  I'd be interested to know under what theory you think they are."* / *"Even if we suppose that existing licensees (those who have already copied or distributed) are grandfathered, I see no possibility that new licensees can come into existence based on a grant that the grantor (or his successor in title) has explicitly revoked."* | John Cowan 氏 2003-05-07（*"IANAL, TINLA"* と断っている） | **逆側（§2.2・§2.5）。** 既に受け取った者は守られるとしても、撤回の後に初めて作品に出会う者は許諾を得られない、という見方で、問 (i) の狭い形（撤回を知った後に初めて出会う者）と同じ問いである |
+| *"All that is, is a promise to yourself, and it's not binding, any more than your publishing a promise never to tell a lie is.  You may look bad if you break it, but there can't be any legal liability."* | John Cowan 氏 2003-05-08（本文が許諾を取り消せないと明記している、という提出者の返答へ） | **逆側（§2.2）。** ACD の §2.2（1.0 でも §2.2）は *"This Dedication is irrevocable."* と書く。Cowan 氏の見方では、その一文だけでは拘束しない。ACD はこれに §2.5（1.0 でも §2.5・他者の依拠を目的とし、撤回を主張しないと約束し、法が認める範囲で禁反言に服する）と §3.1（権利の放棄）を重ねて答えている |
+| *"Furthermore, if the author transfers the copyright to a corporation whose chartered purpose is to maintain the license, then the corporation would be unable to revoke it through lack of appropriate powers."* | John Cowan 氏 2003-05-07 | **B12 の材料。** 撤回を防ぐ一つの形として、許諾の維持を目的とする法人へ著作権を移すことを挙げた。ACD は Dedicator が個人でありうる形で、この形を取っていない |
+
+**読み。** 2003 年の議論は、「取り消せない」という本文の一文の効力を疑い、撤回の後に初めて出会う者の扱いを問題にした。ACD はこの疑いを見越して、§2.2 の一文だけでなく、§2.5 の約束と禁反言、§3.1 の放棄を重ねている。
+
+**逆側。** Cowan 氏は法律家でないと断っており、これは決める側の判断ではない。一方で、問 (i) の Rosen 氏 2003（法律家）も同じ向きのことを書いており、二人の見方は一致する。§2.5 の禁反言について、Rosen 氏は 2004 年に、約束的禁反言は契約の法理で GPL のような単純な許諾には関係が無いと書いた（`against.md` #236）。ACD の重ねた答えがどの法域で効くかは、法律家の問いのまま残る。
+
+**この節が establish しないこと。** 撤回の可否の法的な評価はしていない。
+
+**反映**: B12（法人に移せば取り消せない、という形・30 へ）/ B4 の撤回の論点の補強（`QUESTIONS-FOR-COUNSEL.md` の問 (i)・撤回の後に初めて出会う者・30 へ）。本文は変えない（§2.2・§2.5・§3.1 を重ねた答えが既に在る）。
+
+## 1.243 「公有のライセンス」というものは無い、それは放棄の試みと代わりの許諾の組み合わせだ —— ACD の §3 と §4 の形そのもの（"Public domain license - Public Domain Customized"・2014-12〜2015-01）（2026-11-15）
+
+census の候補の外で、話題の語に当たる未読の会話の 1 本（`license-discuss`・2 通）を通読し、1 通を置いた（`rounds/2015-01-license-discuss-pd-customized-woolley-no-pd-licence-observed.txt`）。公有に置きつつ特許の許諾も明示したい、という問いへの返答である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"There is no such thing as a public domain licence.  The documents are combinations of an attempt to abandon copyright, meaning you can't licence, and a, fallback, licence that attempts to give away as many rights as possible, even though you still own the copyright and moral rights."* | David Woolley 氏 2015-01-07 | **B4 の両面。** ACD は §3（1.0 でも §3・権利の放棄）と §4（1.0 でも §4・放棄が効かない範囲での許諾）を並べる。Woolley 氏の言う「放棄の試みと代わりの許諾の組み合わせ」は、この形を普通の型として描いている。同時に、放棄が成功すれば許諾するものが無い、という内側の緊張も指している |
+| *"In most countries, including the UK, an attempt to abandon copyright will fail; if you want to put something in the public domain, you must die and then wait 70 years.  Many question whether anyone except the federal government can abandon it in the USA."* | David Woolley 氏 2015-01-07 | **逆側（§3）。** 放棄は多くの法域で効かない、という見方である。ACD の §3.3（1.0 でも §3.3・権利を手放すこと（surrender）は認めないが waive は認める法域では、Dedicator が waive する）と §4 の許諾は、この場合に備える。ACD は放棄が効くことに頼らない |
+
+**読み。** 「放棄＋代わりの許諾」の形は、承認済みの CC0 の審査（`review-precedents.md`）でも論じられた普通の型で、Woolley 氏はそれを当然のように描いた。ACD の §3 と §4 の並存（B4）は、この型に属する。
+
+**逆側。** Woolley 氏は決める側の人ではない。「公有のライセンスというものは無い」という言い方は、ACD を「公有に置くもの」と紹介すると反論を呼ぶことを示す。ACD の入口が ACD を何と呼んでいるか（dedication と licence の両方の語を使う）は、この線で確かめる価値がある。
+
+**この節が establish しないこと。** 放棄が各法域で効くかの評価はしていない（`jurisdictions.md` の範囲）。
+
+**反映**: B4（§3 と §4 の並存の両面・30 へ）/ 入口（ACD を dedication と licence のどちらで呼ぶかの点検・50 へ）。本文は変えない。
+
+## 1.244 「OSI に承認されることが、あなたにとってなぜ大事なのか」—— Phipps 氏が提出者に直接尋ねた（ViraTrace・2020-12）（2026-11-15）
+
+census の候補の外の未読の会話の 1 本（"License-review Digest, Vol 97, Issue 8"・`license-review` 2020-12・3 通）を通読し、1 通を置いた（`rounds/2020-12-license-review-viratrace-phipps-why-approval-observed.txt`）。ViraTrace のライセンスの審査の一部で、同じ提出の他の通は `rounds/2020-12-license-review-viratrace-gdpr-observed-*` に在る。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"I have to agree with Eric here - it seems likely you will have to choose between OSI approval and the protections you seek for your interests through these terms. Please can you succinctly explain why having your license be approved by OSI is important to you?"* | Simon Phipps 氏 2020-12-11 | **期待（提出の動機）。** 審査者は提出者に、承認がなぜ大事かを直接尋ねることがある。`against.md` #161 は、提出の理由が審査の入力になりうるとした（Fontana 氏 2019 など）。ACD の提出でも同じ問いが来うるので、答えを先に持っておく |
+
+**読み。** 承認を求める理由は、審査者が明示に尋ねる問いである。ACD の場合、その答えは提出者（オーナー）の言葉で書かれる必要がある（B14）。
+
+**逆側。** Phipps 氏の問いは、利益を守る条項と OSI の承認が両立しない提出に向けたもので、条件を置かない ACD とは場面が違う。ただし ACD の提出は「AI の自走の実験」と結びついて読まれうるので（#161・§1.233）、問われる可能性はむしろ高い。
+
+**この節が establish しないこと。** ACD の提出で何と答えるべきかは、この節では決めない（オーナーの言葉の線）。
+
+**反映**: against #161（提出の理由が審査の入力になる・その補強・30 へ）/ 入口（「承認がなぜ大事か」に答える用意を `OSI-APPROVAL-PLAN.md` に置く・答えはオーナーの言葉で B14 の下・50 へ）。

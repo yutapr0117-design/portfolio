@@ -1,0 +1,56 @@
+Source: OSI license-discuss public archive, 2003-May.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 18 in "Language question" (2003-05-06)
+Senders: John Cowan
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From jcowan at reutershealth.com  Wed May  7 20:53:57 2003
+From: jcowan at reutershealth.com (John Cowan)
+Date: Wed, 7 May 2003 16:53:57 -0400
+Subject: Language question
+In-Reply-To: <Pine.LNX.4.50.0305071231270.7358-100000@deepone.dagon.net>
+References: <000501c31407$000bb640$4aa274d5@oemcomputer> <Pine.LNX.4.50.0305061215420.26260-100000@deepone.dagon.net> <006101c314c2$35f0f2a0$347c74d5@oemcomputer> <Pine.LNX.4.50.0305071109460.6670-100000@deepone.dagon.net> <20030507195529.GR31473@skunk.reutershealth.com> <Pine.LNX.4.50.0305071231270.7358-100000@deepone.dagon.net>
+Message-ID: <20030507205357.GU31473@skunk.reutershealth.com>
+
+Mark Rafn scripsit:
+
+> I purposely ignored this possibilty, and should have said so.  Some claim 
+> that, in the absence of a contract, there can be no irrevocable grant of 
+> permission.  I hope this is not the case, as there is really no such thing 
+> as free software if this is true.
+
+In general, there can be such a thing as implicit licenses.  If it is well-known
+that I tolerate people trespassing on my land, an attempt to sue *you* for
+doing so in particular will probably not cut the mustard.  So if you didn't
+know that I had revoked the license, you'd be justified in continuing to
+rely on it.
+
+Furthermore, if the author transfers the copyright to a corporation whose
+chartered purpose is to maintain the license, then the corporation would be
+unable to revoke it through lack of appropriate powers.
+
+> I'm also very surprised it hasn't happened, if it's possible to revoke 
+> such a grant of permission.
+
+We are still in the first generation of free software authors.
+
+> If it's true that open-source licenses are revocable, you're right.  It's 
+> still not an obligation on either the original copyright holder or his 
+> assignees.  The scenario given would apply to the original author just as 
+> well as his heirs.
+
+I think the point of the "obligation" here was whether transferring the
+copyright in free software carried with it the obligation not to revoke the
+license; clearly not.
+
+IANAL, TINLA.
+
+-- 
+"There is no real going back.  Though I         John Cowan
+may come to the Shire, it will not seem         jcowan at reutershealth.com
+the same; for I shall not be the same.          http://www.reutershealth.com
+I am wounded with knife, sting, and tooth,      http://www.ccil.org/~cowan
+and a long burden.  Where shall I find rest?"           --Frodo
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

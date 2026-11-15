@@ -1,0 +1,37 @@
+Source: OSI license-discuss public archive, 2015-January.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 2 in "Public domain license - Public Domain Customized" (2015-01-07)
+Senders: David Woolley
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From forums at david-woolley.me.uk  Wed Jan  7 23:18:18 2015
+From: forums at david-woolley.me.uk (David Woolley)
+Date: Wed, 07 Jan 2015 23:18:18 +0000
+Subject: [License-discuss] Public domain license - Public Domain
+	Customized
+In-Reply-To: <CACzUNfxHZz6-O4-5mNs5PvS-N+sPOg7btdvvGra8zsi6auwCxQ@mail.gmail.com>
+References: <CACzUNfxHZz6-O4-5mNs5PvS-N+sPOg7btdvvGra8zsi6auwCxQ@mail.gmail.com>
+Message-ID: <54ADBEBA.8030704@david-woolley.me.uk>
+
+On 04/12/14 17:57, Joe Kua wrote:
+> I wish to release my software in public domain including giving
+> explicit patent grants. Is Public Domain Customized a good license to
+> choose ?
+
+There is no such thing as a public domain licence.  The documents are 
+combinations of an attempt to abandon copyright, meaning you can't 
+licence, and a, fallback, licence that attempts to give away as many 
+rights as possible, even though you still own the copyright and moral 
+rights.
+
+If you didn't want patent rights, why did you patent it in the first 
+place?  Actually there might be a good reason in that the existence of a 
+patent might be more reliable than publishing your invention in 
+establishing prior art, and therefore blocking another patent.  However, 
+I think there is no way of abandoning a patent once you have acquired it.
+
+In most countries, including the UK, an attempt to abandon copyright 
+will fail; if you want to put something in the public domain, you must 
+die and then wait 70 years.  Many question whether anyone except the 
+federal government can abandon it in the USA.

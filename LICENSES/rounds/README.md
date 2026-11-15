@@ -165,6 +165,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2019-01〜2020-03 | `license-discuss` | **観測（2 つの会話から 4 通・意図は明確に、ただし曖昧で広すぎる語でなく。倫理的なライセンスは OSD と両立しない。moderation で落とされた通）** | `2019-01-to-2020-03-license-discuss-intent-precision-and-moderation-observed.txt` |
 | 2019-01 | `license-review` | **観測（Phipps 氏の 1 通・四つの自由は評価の前提、一般の利用のための承認、対等な権利）** | `2019-01-license-review-cfsl-phipps-general-use-observed.txt` |
 | 2015-01 | `license-discuss` | **観測（"FAQ entry on CLAs" から 3 通・OSI は外向きのライセンスだけを審査する）** | `2015-01-license-discuss-osi-reviews-outbound-only-observed.txt` |
+| 2015-01 | `license-discuss` | **観測（Woolley 氏の 1 通・公有のライセンスは放棄の試みと代わりの許諾の組み合わせ）** | `2015-01-license-discuss-pd-customized-woolley-no-pd-licence-observed.txt` |
 | 2005-08 | `license-discuss` | **観測（OVPL の会話から 6 通・委員長の逐語の再利用の要求と、認証の要件は OSD に限るべきだという理事の反対）** | `2005-08-license-discuss-ovpl-verbatim-reuse-observed.txt` |
 | 2002-08 | `license-discuss` | **観測（"A new "use" clause in the OSD" から 4 通・許される制限だけを列挙する OSD の条の案）** | `2002-08-license-discuss-osd-use-clause-observed.txt` |
 | 2018-10 | `license-review` | **観測（SSPL と OSD 9 の会話から 3 通・OSD は別の時代のために書かれた、承認済みのライセンスは OSD の隙を整えられる）** | `2018-10-license-review-osd9-written-for-another-time-observed.txt` |
@@ -212,6 +213,9 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-11-15 | OSI 理事会 | **観測（2026-09-24 の議事録・オーナーがブラウザから写した本文）** | `2026-11-15-osi-board-minutes-2026-09-24-snapshot.txt` |
 | 2026-11-07 | SPDX | **観測（収録基準の現行と前の版）** | `2026-11-07-spdx-license-inclusion-guidelines-snapshot.txt` |
 | 2003-03 | `license-discuss` | **観測（Public Domain を一覧に載せる求め・5 通）** | `2003-03-license-discuss-public-domain-on-the-list-observed.txt` |
+| 2003-05 | `license-discuss` | **観測（Cowan 氏の 1 通・既に与えた許諾が取り消せないかは明らかでない）** | `2003-05-license-discuss-language-question-cowan-irrevocable-observed.txt` |
+| 2003-05 | `license-discuss` | **観測（Cowan 氏の 1 通・許諾の維持を目的とする法人に移せば取り消せない）** | `2003-05-license-discuss-language-question-cowan-corporation-observed.txt` |
+| 2003-05 | `license-discuss` | **観測（Cowan 氏の 1 通・取り消せないと書いても自分への約束で拘束しない）** | `2003-05-license-discuss-language-question-cowan-promise-observed.txt` |
 | 2020-03〜04 | `license-review` | **観測（Unlicense の審査から引いた 4 通）** | `2020-03-to-04-license-review-unlicense-cited-observed.txt` |
 | 2020-03 | `license-discuss` | **観測（Berkus 氏の 1 通・公開されたライセンスは共同体全体のもの）** | `2020-03-license-discuss-aal-berkus-name-belongs-community-observed.txt` |
 | 2020-03 | `license-discuss` | **観測（Berkus 氏の 1 通・承認済みの AAL はもはや大きく使われていない）** | `2020-03-license-discuss-aal-berkus-no-significant-use-observed.txt` |
@@ -404,6 +408,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（14/15 部）** | **同じ束の 14/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（15/15 部）** | **同じ束の 15/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2020-12 | `license-review`（観測）| **ViraTrace Public Source License と GDPR × ライセンス条項 35 通 → 観測保存（1/6 部）** | **データ保護法とライセンスの境界について、Chief Privacy Officer の明確な一文** —— Turner 氏 *"data protection law ... is about ... organisations **in control of personal data** ... **software licensors are not part of the picture**"*。**§1.5 が Covered Rights にデータ保護を含めず §11.4 が "It reaches nothing else" と述べることの外からの裏づけ**（#256）。**McCoy Smith 氏の *"Freedom Zero ... inherently, part of the OSD"* も在る**（#248 / #251 の line） |
+| 2020-12 | `license-review` | **観測（Phipps 氏の 1 通・OSI に承認されることがなぜ大事なのか簡潔に説明してほしい）** | `2020-12-license-review-viratrace-phipps-why-approval-observed.txt` |
 | 2020-12 | `license-review`（観測）| **ViraTrace Public Source License と GDPR × ライセンス条項 35 通 → 観測保存（2/6 部）** | **同じ束の 2/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2020-12 | `license-review`（観測）| **ViraTrace Public Source License と GDPR × ライセンス条項 35 通 → 観測保存（3/6 部）** | **同じ束の 3/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2020-12 | `license-review`（観測）| **ViraTrace Public Source License と GDPR × ライセンス条項 35 通 → 観測保存（4/6 部）** | **同じ束の 4/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
