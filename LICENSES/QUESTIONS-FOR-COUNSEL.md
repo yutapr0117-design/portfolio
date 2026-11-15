@@ -373,6 +373,17 @@ balancing (#178), so the core of the question is whether §2.9's statement that 
 Dedication is *"suspended by, or revived by"* such a proceeding or an officer's act would be read
 the same way under another jurisdiction's insolvency law.
 
+A second question is about the covenants. §365(n) protects a licensee; ACD's §5 covenants (and the
+patent covenant of §8.6) are promises not to sue, not licences. A drafting precedent exists for
+exactly this gap: the Open Web Foundation Agreement 1.0, drafted by lawyers, says in 3.1.4
+*"Solely for purposes of Section 365(n) of Title 11, United States Bankruptcy Code and any
+equivalent law in any foreign jurisdiction, this promise will be treated as if it were a license"*
+(quoted by Lawrence Rosen on `license-discuss`, 2013-08-18). If a covenant might fall outside
+§365(n)-type protection where a licence would not, would a sentence of that kind in §2.9 help? And
+would it harm, by appearing to decide a legal classification that the text otherwise leaves to the
+law (the same objection that led us to remove sentences asserting legal results, errata E23 and
+E79)? The 1.4 draft does not add such a sentence, for that second reason.
+
 ## 9. Does the limitation of liability reach a breach of the Dedicator's own covenants? (§14.1, §5, §8.6, §12.2)
 
 **The clauses.** §14.1, set in capitals as conspicuous: the Dedicator *"IS NOT LIABLE TO YOU OR TO
