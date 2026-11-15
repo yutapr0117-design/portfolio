@@ -1,0 +1,45 @@
+Source: OSI license-discuss public archive, 2019-January.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 2 in "Open Source and the extension of copyright" (2019-01-31)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Thu Jan 31 18:09:58 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 31 Jan 2019 10:09:58 -0800
+Subject: [License-discuss] Open Source and the extension of copyright
+In-Reply-To: <CAK2MWOuw+ahOKO7G82j-ZcsxCLGz0re5sHu_gizUc1B3pOw5fA@mail.gmail.com>
+References: <CAFQvZEOumONtQmB54dC1OjJbvQh_XOHR0gLCGdYGt47pY+jaww@mail.gmail.com>
+ <CAK2MWOuw+ahOKO7G82j-ZcsxCLGz0re5sHu_gizUc1B3pOw5fA@mail.gmail.com>
+Message-ID: <CAK2MWOvWALBJLeY4qLVWKzXf+CMk9fmVh8EyexSp3A8v3hPNKA@mail.gmail.com>
+
+I think it's important to make a point about the extension of copyright. In
+the case of Open Hardware, licenses are crafted which intend to copyright
+not only schematics (which are functional things and thus not
+copyrightable) but the *implementations of hardware from those schematics.*
+
+This is an obvious extension of copyright law beyond where it has been
+applied so far. The risk in such a thing is that courts could consider it
+valid, going along with the innovation of industry as they often do, and
+then suddenly copyright would be applied to every schematic in a book, and
+electronic designs which we today copy with impunity, and we'd have to
+license all of our schematics everywhere.
+
+This would have a tremendous stifling effect on the practice of
+electronics, especially by individuals and non-profit groups such as the
+Open Hardware projects themselves.
+
+This is why I abandoned work on Open Hardware licensing.
+
+In addition, I think there's a principle here. Extension of copyright is
+bad for Open Source, even if it helps us enforce our licenses more
+effectively. It will always work against us to a greater extent that it can
+be put to work for us.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190131/538dd2cf/attachment.html>

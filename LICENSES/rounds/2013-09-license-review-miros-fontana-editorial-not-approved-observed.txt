@@ -1,0 +1,53 @@
+Source: OSI license-review public archive, 2013-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 4 in "Suggested MirOS Licence wording change: editorial or substantial?" (2013-09-09)
+Senders: Richard Fontana
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From fontana at sharpeleven.org  Wed Sep 11 01:45:26 2013
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Tue, 10 Sep 2013 21:45:26 -0400
+Subject: [License-review] Suggested MirOS Licence wording change:
+ editorial or substantial?
+In-Reply-To: <Pine.BSM.4.64L.1309091812130.15325@herc.mirbsd.org>
+References: <Pine.BSM.4.64L.1309091812130.15325@herc.mirbsd.org>
+Message-ID: <20130910214526.2c928d69@riley>
+
+On Mon, 9 Sep 2013 18:17:18 +0000 (UTC)
+Thorsten Glaser <tg at mirbsd.de> wrote:
+
+> Hi,
+> 
+> I?ve received a suggestion to change the wording of The MirOS Licence
+> to avoid hyphenation, using normal Open Source user feedback channels:
+> 
+> --- current
+> +++ suggested
+> @@ -1,5 +1,5 @@
+>  Provided that these terms and disclaimer and all copyright notices
+>  are retained or reproduced in an accompanying document, permission
+> -is granted to deal in this work without restriction, including un-
+> -limited rights to use, publicly perform, distribute, sell, modify,
+> -merge, give away, or sublicence.
+> +is granted to deal in this work, and to do so without restriction,
+> +including unlimited rights to use, distribute, modify, sublicence,
+> +sell, give away, merge, or publicly perform.
+> 
+> The changes are:
+> 
+> ? ?to deal in this work without restriction? got changed to
+>   ?to deal in this work, and to do so without restriction,?
+> 
+> ? the rights were shuffled (but not changed)
+> 
+> Is this an editorial change (that doesn?t mean a change to the
+> licence, doesn?t mean we need to version it and reapply)?
+
+My personal view is that this revised version should not be
+characterized as an OSI-approved license, even if the revisions here
+are justifiably considered 'merely editorial'. You could say it's very
+similar to an OSI-approved license, and point out the degree of
+similarity.
+
+- RF

@@ -21,6 +21,101 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 ## 2026-11-15 の読了（新しいものが上）
 
 - 2026-11-15 に "Moral Rights"（`license-discuss` 2002-10・9 通を通読）を `review-readings-6.md` §1.452 と §1.453 へ（議論が止んだことは承認を意味しない・参加者はボランティア・Nelson 氏、OSD に合えば承認するが自作なら弁護士の助言を・Rosen 氏、人格権をライセンスで守ると名誉と声望の訴訟の箱を開ける・Rosen 氏）
+- 2026-11-15 に "Invariant manifestos as an approach to expressing values / beliefs / missions for open source projects"（`license-discuss` 2020-12・通読）を `review-readings-2.md` §1.251 へ（法的な文書に拘束しない部分は無い・Chestek 氏、前文の調子・Atkinson 氏）
+
+- 2026-11-15 に "license review request"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "CPAL 1.0 License | Badge-ware | Clarification"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Thoughts on the subject of ethical licenses"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "exploring the attachment between the author and the code"（`license-discuss` 2020-02〜03・通読）を `review-readings-2.md` §1.252 へ（米国ではソフトウェアに人格権は無い・Chestek 氏）
+
+- 2026-11-15 に "Language, appropriateness, and ideas"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に ""Ethical open source" and the Persona Non Grata clause."（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Storing source artifacts in ELF files"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "The Right of Display"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Coordinated release of security vulnerability information."（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Discussion: AGPL and Open Source Definition conflict"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Private modification"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "IP licensing: Specific performance (or damages) vs. Infringement - algorithm for (C++) programmers"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Essential step defense and first sale"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Trigger for licensee obigations"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Open source commons"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Question about LGPL 2.1 and APL 2.0 Compatibility"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Open Source and the extension of copyright"（`license-discuss` 2019-01・通読）を `review-readings-2.md` §1.250 へ（著作権の拡張はオープンソースに悪い・Perens 氏）
+
+- 2026-11-15 に "Developing a new open source license"（`license-discuss` 2019-01・通読）を `review-readings-2.md` §1.249 へ（「Autonomous」を名に持つ先行のライセンス・後の CAL）
+
+- 2026-11-15 に "Intimacy in open source"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "FYI, opensource.dev released"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "OSL and obfuscated code"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "GPLv3 'permanent' license reinstatement?"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Source code availability after end of life"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Pritunl "open source""（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "OSL and AFL"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "ESA-PL Weak 2.3"（`license-review` 2018-03〜05・通読）を `review-readings-2.md` §1.248 へ（本文でなく FAQ で答える応答は meh・Perens 氏）
+
+- 2026-11-15 に "Moderator Advice"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "FreeAndFair license"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "OSI equivalent"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Is the OBM License OSD compatible?"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Octopus License"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "licenses for hosted services"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Source-attribution licenses and Javascript compatibility"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Outstanding license submissions"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "AFL/OSL/NOSL 3.0"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Companies that encourage license violations"（`license-discuss` 2015-08〜09・通読）を `review-readings-2.md` §1.242 の追記へ（裸の約束・Cowan 氏、対価はあふれている・Rosen 氏）
+
+- 2026-11-15 に "International Licenses"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "License question"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Strong and weak copyleft"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Shortest copyleft licence"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Wikipedia Content"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "License compatibility for FOSS aggregations"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "For Approval: Scripting Free Software License, Version 1.3.5 (S-FSL v1.3.5)"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Started discussion with Figaro re their license."（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Suggested MirOS Licence wording change: editorial or substantial?"（`license-review` 2013-09・通読）を `review-readings-2.md` §1.247 へ（表記だけの改訂でも承認済みと呼べない・Fontana 氏）
+
+- 2026-11-15 に "Red Hat compilation copyright & RHEL contract"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Idea for time-dependent license, need comments"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
 
 - 2026-11-15 に 2004〜2005 年に始まる未読 54 本（53 会話・879 通・決める側の通に絞った）を portfolio-50 が読んだ（5 人の分担・30 の案）。論点のある会話は `review-readings-4.md` の 1.350〜1.353 の節へ（OVPL の否決と OSD 5・「死んだ」ライセンスの整理・本文の書き方・寄与の既定と同意）、それ以外は読了の記録だけにした
 - 2026-11-15 に "why does allowing click-through licenses \"just feel wrong\" to me?"（`license-discuss` 2002-08・9 通・決める側の通と最初の通を読んだ）は新しい論点なし（クリックスルーの是非・ACD は受諾の行為を求めない）

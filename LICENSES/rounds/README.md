@@ -92,6 +92,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2005-09 | `license-discuss` | **観測（"License Proliferation" から 5 通・OSD に適合するものを全部か良いものだけか、理事が述べた 3 つの基準の使い方）** | `2005-09-license-discuss-license-proliferation-observed.txt` |
 | 2012-06 | `license-discuss` | **観測（OSI のライセンスのページの見せ方の提案から 4 通・承認しない方針は正式に定められていないという理事の理解と、それと並ぶ理解）** | `2012-06-license-discuss-licensing-pages-proposal-observed.txt` |
 | 2015-09〜11 | `license-review` | **観測（OSET Public License の審査から 6 通・審査の 4 つの問い、提出者の名の外し、承認）** | `2015-09-to-11-license-review-oset-public-license-observed.txt` |
+| 2015-09 | `license-discuss` | **観測（Rosen 氏の 1 通・オープンソースのライセンスは裸の約束ではない、対価はあふれている）** | `2015-09-license-discuss-violations-rosen-consideration-abounds-observed.txt` |
 | 2015-09 | `license-review` | **観測（Berkus 氏の 1 通・既にそうなら条は要らず、そうでないなら条は悪い）** | `2015-09-license-review-oset-ns-berkus-not-needed-observed.txt` |
 | 2015-09 | `license-review` | **観測（Fontana 氏の 1 通・OSD に合っても OSI が承認するとは考えられないライセンスがある）** | `2015-09-license-review-oset-ns-fontana-inconceivable-observed.txt` |
 | 2002-08 | `license-discuss` | **観測（"Legal soundness comes to open source distribution" から 4 通・契約でないライセンスと保証の否認、AFL の承認）** | `2002-08-license-discuss-legal-soundness-observed.txt` |
@@ -180,6 +181,9 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2018-06 | `license-review` | **観測（Cowan 氏の 1 通・RPL は不透明でも善意だから承認したが誤りだった）** | `2018-06-license-review-l0r-cowan-rpl-observed.txt` |
 | 2026-06 | `license-review` | **観測（The Mutualist License の審査から 3 通・語の正確さ、解釈の規則は語の不明確さを補わない、専門家の読み）** | `2026-06-license-review-mutual-drafting-and-canons-observed.txt` |
 | 2019-01〜2020-03 | `license-discuss` | **観測（2 つの会話から 4 通・意図は明確に、ただし曖昧で広すぎる語でなく。倫理的なライセンスは OSD と両立しない。moderation で落とされた通）** | `2019-01-to-2020-03-license-discuss-intent-precision-and-moderation-observed.txt` |
+| 2019-01 | `license-discuss` | **観測（Perens 氏の 1 通・著作権の拡張は強制に役立つ場合でもオープンソースに悪い）** | `2019-01-license-discuss-extension-of-copyright-perens-observed.txt` |
+| 2019-01 | `license-discuss` | **観測（Perens 氏の 1 通・Autonomous Agent License の API の条項は承認しないよう強く勧める）** | `2019-01-license-discuss-autonomous-agent-license-perens-observed.txt` |
+| 2019-01 | `license-discuss` | **観測（Lindberg 氏の 1 通・後の CAL の前身「Autonomous Agent License」の事前の告知）** | `2019-01-license-discuss-autonomous-agent-license-lindberg-observed.txt` |
 | 2019-01 | `license-review` | **観測（Phipps 氏の 1 通・四つの自由は評価の前提、一般の利用のための承認、対等な権利）** | `2019-01-license-review-cfsl-phipps-general-use-observed.txt` |
 | 2015-01 | `license-discuss` | **観測（"FAQ entry on CLAs" から 3 通・OSI は外向きのライセンスだけを審査する）** | `2015-01-license-discuss-osi-reviews-outbound-only-observed.txt` |
 | 2015-01 | `license-discuss` | **観測（Woolley 氏の 1 通・公有のライセンスは放棄の試みと代わりの許諾の組み合わせ）** | `2015-01-license-discuss-pd-customized-woolley-no-pd-licence-observed.txt` |
@@ -199,6 +203,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2019-05 | `license-discuss` | **観測（"Government licenses" から 4 通・著作権の無い部分には既存のライセンスが及ばないだけで足りる、パブリックドメインを契約で縛るのは奇妙）** | `2019-05-license-discuss-government-works-uncopyrightable-parts-observed.txt` |
 | 2014-09 | `license-review` | **観測（"Sublicensing" から 4 通・再許諾で約束は落ちる、FOSS は直接の許諾、再許諾を許す理由を示せ）** | `2014-09-license-review-sublicensing-privity-observed.txt` |
 | 2013-08 | `license-discuss` | **観測（"License incompatibility" から 2 通・法律上の語を定義するのはライセンスの役目ではない、新しいライセンスは最後の手段）** | `2013-08-license-discuss-incompatibility-statutory-terms-last-resort-observed.txt` |
+| 2013-09 | `license-review` | **観測（Fontana 氏の 1 通・表記だけの改訂でも改訂版は承認済みと呼べない）** | `2013-09-license-review-miros-fontana-editorial-not-approved-observed.txt` |
+| 2013-09 | `license-review` | **観測（Villa 氏の 1 通・おおむね正しい、BSD・MIT の既定の本文は例外）** | `2013-09-license-review-miros-villa-roughly-right-observed.txt` |
 | 2013-08 | `license-discuss` | **観測（Rosen 氏の 1 通・OWFa の後継者を縛る約束、倒産法 365(n)、迂回しない約束）** | `2013-08-license-discuss-owfa-successors-bankruptcy-observed.txt` |
 | 2016-06 | `license-review` | **観測（Moritz30 の提出から 6 通・読めなければ適合しないと推定する、法律家への相談を要件にしない、長い語は効くために要る）** | `2016-06-license-review-moritz30-unclear-means-nonconformant-observed.txt` |
 | 2025-02 | `license-review` | **観測（ModelGo への Berkus 氏の所見 1 通・機械学習の条項に AI を作る実務家の読みを、英語に母語話者の編集者を）** | `2025-02-license-review-modelgo-berkus-practitioner-review-observed.txt` |
@@ -461,6 +467,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（23/23 部）** | **同じ束の 23/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2013-06 | `license-review` | **観測（"License drafting quality and process" から 5 通・多段階の承認とまず license-discuss、使用の数を要件にすれば萎縮、断る手段が無い、新しいライセンスの基準率）** | `2013-06-license-review-drafting-quality-and-process-observed.txt` |
 | 2017-11 | `license-review`（観測）| **Unicode の 2 つの承認 16 通（2018 legacy / 2023 v3） → 観測保存（1/3 部）** | **OSI は「data files」を主題に明記したライセンスを 2 度承認している**（2018 legacy / 2023 v3・どちらもカテゴリつき）——**B15 にとってフォントに続く 2 つ目の counterweight**（#259）。**2023 年の提出は「一般化」を目的に明記し、著作権表示を *"fill in the blanks"* にした本文で承認された** ——*"to **genercize it so that it may be used by entities other than the Unicode Consortium**"*（#260） |
+| 2018-05 | `license-review` | **観測（Perens 氏の 1 通・論点を本文でなく FAQ で答える応答への評価は「meh」）** | `2018-05-license-review-esa-pl-perens-faq-not-text-observed.txt` |
 | 2017-11 | `license-review` | **観測（Berkus 氏の 1 通・承認済みに無いことを複数するライセンスの審査は速くも簡単でもない）** | `2017-11-license-review-l0r-berkus-novel-not-fast-observed.txt` |
 | 2017-11 | `license-review`（観測）| **Unicode の 2 つの承認 16 通（2018 legacy / 2023 v3） → 観測保存（2/3 部）** | **同じ束の 2/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2017-11 | `license-review`（観測）| **Unicode の 2 つの承認 16 通（2018 legacy / 2023 v3） → 観測保存（3/3 部）** | **同じ束の 3/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
@@ -585,6 +592,9 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2015-10-13 | `license-review`（観測）| **Richard Fontana 氏の委員会報告 → 観測保存** | Free Public License（現 0BSD）について *"Approval, or else OSI to adopt some formal maturity/real-world-use factor"*（`board-decisions.md` §8.6）|
 | 2015-10-13 | `license-review`（観測）| **Richard Fontana 氏の Berkus 氏への返信 → 観測保存** | *"there doesn't seem to be any proliferation concern with FPL"*。引用部に Berkus 氏の法的レビューの懸念が在る（`against.md` #287）|
 | 2015-08〜09 | `license-review` | **観測（Free Public License〔今の 0BSD〕の審査から 5 通・写しからライセンスを剥がせることは方針の問いか、印の無いコードは汚染されている）** | `2015-08-to-09-license-review-fpl-license-stripping-observed.txt` |
+| 2020-03 | `license-discuss` | **観測（Chestek 氏の 1 通・米国ではソフトウェアに人格権は無い）** | `2020-03-license-discuss-author-attachment-chestek-moral-right-observed.txt` |
+| 2020-12 | `license-discuss` | **観測（Atkinson 氏の 1 通・前文は役に立つが、調子は中立でも足りる）** | `2020-12-license-discuss-invariant-manifestos-atkinson-preamble-observed.txt` |
+| 2020-12 | `license-discuss` | **観測（Chestek 氏の 1 通・法的な文書に拘束しない部分は無い、前文は意図の解釈に使われる）** | `2020-12-license-discuss-invariant-manifestos-chestek-no-non-binding-observed.txt` |
 | 2024-09-01 | `license-review`（観測）| **Stefano Maffulli 氏（事務局長）の問い → 観測保存** | *"non-software artifacts like datasets, documentation, and model parameters (aka weights)"*（`board-decisions.md` §2g）|
 | 2024-09-10 | `license-review`（観測）| **Pamela Chestek 氏（委員長）の 1 通 → 観測保存** | *"legal mechanisms other than a license"*（`board-decisions.md` §2g）|
 | 2024-09-10 | `license-review`（観測）| **Pamela Chestek 氏（委員長）の 1 通 → 観測保存** | *"This area needs room to develop"*。1 本か複数かを OSI が決めないと述べる（`board-decisions.md` §2g）|

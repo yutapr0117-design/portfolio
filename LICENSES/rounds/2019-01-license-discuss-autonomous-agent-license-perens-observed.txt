@@ -1,0 +1,75 @@
+Source: OSI license-discuss public archive, 2019-January.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 7 in "Developing a new open source license" (2019-01-31)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Thu Jan 31 17:51:38 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 31 Jan 2019 09:51:38 -0800
+Subject: [License-discuss] Developing a new open source license
+In-Reply-To: <CAFQvZEOumONtQmB54dC1OjJbvQh_XOHR0gLCGdYGt47pY+jaww@mail.gmail.com>
+References: <CAFQvZEOumONtQmB54dC1OjJbvQh_XOHR0gLCGdYGt47pY+jaww@mail.gmail.com>
+Message-ID: <CAK2MWOuw+ahOKO7G82j-ZcsxCLGz0re5sHu_gizUc1B3pOw5fA@mail.gmail.com>
+
+Van,
+
+With all respect and understanding of the motivations of the group behind
+this, I have a really big problem with this part:
+
+Unlike other current open source licenses, the Autonomous Agent License
+will require software that implements a compatible API or publicly performs
+the API to also be open source.
+
+I am the standards chair of the Open Source Initiative. *If the provision
+you propose in this license was used by standards associations, they could
+trivially prohibit Open Source implementations of their standard APIs.*
+This is obviously something that OSI would have to fight in court.
+
+Thus, it's a really, really bad idea for OSI to stand for such a provision
+by approving a license containing it.
+
+Also, almost trivially compared to the above issue, this obviously violates
+OSD #9.
+
+So, unfortunately I really have to recommend in the strongest way that a
+license incorporating that term not be approved.
+
+     Sorry
+
+     Bruce
+
+On Thu, Jan 31, 2019 at 9:17 AM VanL <van.lindberg at gmail.com> wrote:
+
+> Hello all,
+>
+> I have been retained to help develop a new, strong copyleft open source
+> license for a client, Holo Ltd. We have been going back and forth
+> internally for a little while and we will shortly be putting out a draft
+> for public comment. After the public comment period, we will be submitting
+> the license to the OSI for certification.
+>
+> I will also be discussing this license in my presentation at CopyleftConf
+> on Monday.
+>
+> In the meantime, some of the underlying reasoning for why we need a
+> different open source license is being presented on Holo's blog. The first
+> post is up now, and the second will be up in a couple days:
+>
+>
+> https://medium.com/h-o-l-o/why-we-need-a-new-open-source-license-c8faf8a8dadd
+>
+> Comments are welcome.
+>
+> Thanks,
+> Van
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190131/50d8667d/attachment.html>

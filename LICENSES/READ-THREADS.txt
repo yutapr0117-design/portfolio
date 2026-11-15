@@ -617,15 +617,20 @@
 2013-07-07	further license presentation improvements? (inc. call for help)
 2013-07-08	FAQ entry for slight variations in licenses?
 2013-07-15	Open source license chooser choosealicense.com launched.
+2013-07-18	Idea for time-dependent license, need comments
 2013-08-16	Minor change to website
 2013-08-28	License incompatibility
+2013-09-02	Red Hat compilation copyright & RHEL contract
 2013-09-09	Al Re: Red Hat compilation copyright & RHEL contract
+2013-09-09	Suggested MirOS Licence wording change: editorial or substantial?
+2013-09-19	Started discussion with Figaro re their license.
 2013-10-03	Open source license and non disclosure agreement
 2013-10-05	Request for approval by license steward: Tidepool Open Access to Health Data Software License
 2013-10-14	Rejected license list
 2013-10-14	TrueCrypt license (not OSI-approved; seeking history, context).
 2013-10-21	Newbie post: Localisable open source software license
 2013-11-05	Listing of licensing-related tools
+2013-11-05	For Approval: Scripting Free Software License, Version 1.3.5 (S-FSL v1.3.5)
 2013-11-06	license information improvement project - now with a mockup!
 2013-11-10	FAQ suggestion
 2013-11-13	Proposal to revise (and move?) the CC0 FAQ
@@ -641,19 +646,26 @@
 2014-05-06	CityWhisk Request for Approval of Apache 2.0 OSI License
 2014-08-29	For Legacy Approval: eCos License version 2.0
 2014-09-11	Sublicensing
+2014-09-12	License compatibility for FOSS aggregations
 2014-09-15	GPL exceptions, eCos, and wxwindows
 2014-11-14	Why CAVO Recommends GPLv3
+2014-12-01	Wikipedia Content
 2014-12-04	Public domain license - Public Domain Customized
 2014-12-30	Approval request for GG License 1.0
 2015-01-16	FAQ entry on CLAs
 2015-03-04	Reverse Engineering and Open Source Licenses
 2015-03-12	Software, licenses, and patents
+2015-03-30	Shortest copyleft licence
+2015-04-07	Strong and weak copyleft
+2015-05-01	License question
 2015-05-20	Proposal: Apache Third Party License Policy
 2015-05-21	Disclosure of patents by Apache projects
 2015-05-26	SF - LAFCO open source voting draft
+2015-06-04	International Licenses
 2015-07-20	Request for approval of the Non-Coercive Copyleft Licence (NCCL) 1.0
 2015-08-07	Outstanding license submissions -- tools
 2015-08-17	Category "B" licenses at Apache
+2015-08-21	Companies that encourage license violations
 2015-08-30	Approval Request: Free Public License 1.0.0
 2015-09-01	Submission of OSET Public License for Approval]
 2015-09-09	OSET Foundation
@@ -666,92 +678,128 @@
 2015-12-03	Orphan Works: Summary of proposed 17 USC 514
 2015-12-11	CDDL 1.0 vs. 1.1
 2016-01-13	Approval: BSD + Patent License
+2016-01-18	AFL/OSL/NOSL 3.0
 2016-01-30	Words that don't mean derivative work
+2016-02-02	Outstanding license submissions
 2016-02-03	META: license review tracking
 2016-02-04	NOSA 2.0?
 2016-03-23	Some more comments on NOSA 2.0
 2016-05-11	exploring tracking tool for license-review
+2016-05-19	Source-attribution licenses and Javascript compatibility
 2016-06-01	New settings for license-review
 2016-06-05	ZENTAO PUBLIC LICENSE For Approval
 2016-06-06	License submission for approval for Moritz30-Projects Open Source License Version 1
 2016-06-16	Approval request for ZENTAO PUBLIC LICENSE
+2016-08-05	licenses for hosted services
 2016-08-22	The License Talking-About List
 2016-11-28	Using opensource in a company not in the software business
 2016-12-01	Views on React licensing?
+2016-12-22	Octopus License
+2017-01-05	Is the OBM License OSD compatible?
 2017-01-08	License Committee Report - January 2017
 2017-01-10	notes on a systematic approach to "popular" licenses
 2017-01-18	Yet another question about using libraries with different licensed in OSS
+2017-02-15	OSI equivalent
 2017-02-28	Possible alternative
 2017-03-06	patent rights and the OSD
 2017-03-08	code.mil update
 2017-04-05	New license approvals
 2017-05-30	EUPL v1.2
+2017-06-10	FreeAndFair license
+2017-06-21	Moderator Advice
 2017-07-27	Hooyami License Version 1.0 for Approval
 2017-09-14	New Exhibit A for EPLv2
 2018-03-02	ESA Permissive PL 2.3
+2018-03-02	ESA-PL Weak 2.3
+2018-06-18	OSL and AFL
 2018-06-19	moving to an issue tracker
 2018-06-19	Consensus on L0-R
 2018-06-20	NOSA 2.0 and Government licensing
+2018-06-20	Pritunl "open source"
+2018-08-02	Source code availability after end of life
 2018-08-07	License-discuss Digest, Vol 78, Issue 4
 2018-09-26	For Approval: Convertible Free Software License, Version 1.1 (C-FSL v1.1)
 2018-10-03	"Shall" in open source licenses
 2018-10-17	Mandatory meta OSI process thread
 2018-10-23	OSD #9 would not make SSPL OSD-incompliant
+2018-10-24	GPLv3 'permanent' license reinstatement?
 2018-10-25	The license of OpenMotif (Open Group Public License)
 2018-11-07	Open source software licenses and the OSD
 2018-11-13	Please submit session proposals to FOSDEM Legal & Policy DevRoom and CopyleftConf
+2018-11-21	OSL and obfuscated code
 2018-12-04	Open source license with obligation to display an attribution?
 2018-12-07	International licenses redux
 2018-12-07	Proposed license decision process
 2018-12-13	Support for SSPL v2
 2019-01-08	For Approval: Convertible Free Software License, Version 1.3 (C-FSL v1.3)
+2019-01-09	FYI, opensource.dev released
+2019-01-10	Intimacy in open source
 2019-01-18	Intimacy in open source (SSPL and AGPL)
+2019-01-31	Developing a new open source license
+2019-01-31	Open Source and the extension of copyright
 2019-02-05	For Approval: Twente License
 2019-03-08	Fw: #905674: parallel: move to nonfree
 2019-03-15	discussion of L-R process
 2019-03-18	The license of OpenMotif (Open Group Public License)
 2019-03-19	The political / technical dichotomy
+2019-04-25	Question about LGPL 2.1 and APL 2.0 Compatibility
 2019-05-13	history of l-r/org relationship
 2019-05-24	Evolving the License Review process for OSI
 2019-05-27	The three license discussion
 2019-05-28	Government licenses
 2019-05-31	Threading and topic drift
+2019-05-31	Open source commons
 2019-06-05	OSI practicing what we preach
 2019-06-10	code hosting
 2019-06-29	Copyright on APIs
+2019-06-29	Trigger for licensee obigations
 2019-07-03	OSI is not a trade association
 2019-07-05	Conference on Open Source business methods
+2019-07-14	Essential step defense and first sale
 2019-07-23	End of CAL discussion? Paging Arthur Brock.
+2019-07-26	IP licensing: Specific performance (or damages) vs. Infringement - algorithm for (C++) programmers
 2019-07-29	Blue Oak Model License 1.0.0
 2019-08-03	For Public Comment: The Contribution Public License
 2019-08-08	For Discussion: Cryptographic Autonomy License (CAL) Beta 2
 2019-08-08	For Public Comment: The Libre Source License
+2019-08-08	Private modification
+2019-08-13	Discussion: AGPL and Open Source Definition conflict
 2019-08-19	Fact-gathering on OSI-approved licenses
+2019-08-22	Coordinated release of security vulnerability information.
+2019-08-28	The Right of Display
 2019-09-11	Coherent Open Source - Getting underway next Friday
 2019-09-25	WordPress GPL software
+2019-10-07	Storing source artifacts in ELF files
 2019-12-26	Approval Status of MIT-0
 2020-01-02	AGPL timeline & why cautious processes with real-world testing are better
 2020-02-20	Ethical open source licensing - Persona non Grata Preamble
 2020-02-24	"Fairness" vs. mission objectives
 2020-02-24	Ethical open source licensing - Dual Licensing for Justice
+2020-02-24	"Ethical open source" and the Persona Non Grata clause.
+2020-02-26	Language, appropriateness, and ideas
 2020-02-27	Resources to discourage governments from bespoke licenses?
 2020-02-28	Moderation observations
+2020-02-28	exploring the attachment between the author and the code
 2020-02-29	Columbia S&T Law Review analysis of the OSI license-discuss mailing list
 2020-03-04	Questions Regarding Open Source Hardware Licenses
+2020-03-04	Thoughts on the subject of ethical licenses
 2020-03-09	What should fit in a FOSS license?
 2020-03-15	How can we as a community help empower authors outside license agreements?
 2020-03-16	Strong non-discriminatory licensing
 2020-03-26	REMOVE AAL from list of approved licenses
 2020-03-28	Request for legacy approval: The Unlicense
 2020-03-29	Thoughts on AAL and OSS vs FOSS
+2020-03-30	CPAL 1.0 License | Badge-ware | Clarification
 2020-04-23	Certifying MIT-0
 2020-04-24	veto against Unlicence
 2020-05-15	What does "appropriate standing" in the review process mean?
 2020-05-16	veto against Unlicense
 2020-07-27	Feedback about fair-code model
+2020-10-09	license review request
 2020-10-16	License-review Digest, Vol 95, Issue 10
 2020-10-16	License-review Digest, Vol 95, Issue 7
 2020-12-11	License-review Digest, Vol 97, Issue 8
+2020-12-27	Invariant manifestos as an approach to expressing values / beliefs / missions for open source projects
 2021-02-11	Approval submission for the Qlovatech License
 2021-06-03	Licence-review request
 2021-08-26	Zope Public License v2.1 is up!
