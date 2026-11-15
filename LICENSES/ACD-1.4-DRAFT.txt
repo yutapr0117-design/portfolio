@@ -54,8 +54,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       inclusion in the Work bound every Dedicator, and it gives the undertaking
       and whom it binds as two sentences. (+6 words.)
     * Section 2.7 now limits the rights reached to those the Dedicator holds
-      "now or in future", the words Sections 8.1 and 8.4 use (errata E60). (+4
-      words.)
+      "now or in future", the words Sections 8.1 and 8.4 use (errata E60), and
+      no longer points to Section 13.2. (-4 words.)
     * Sections 2.8 and 12.4 no longer state why they bind successors expressly,
       and Section 2.8 now says that "This Dedication, in respect of the Work,"
       binds successors and transferees, where it named Sections 3, 4, 6, and 8
@@ -122,7 +122,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       controls "now or in future", and says that a claim is controlled "if, and
       only if", at the time in question, the Dedicator has the right to grant
       these licences under it without breaching an obligation to, or paying,
-      another person (errata E39, E60). (+44 words.)
+      another person (errata E39, E60). It no longer points to Section 13.2.
+      (+36 words.)
     * Section 8.6's covenant not to assert the patent claims that Sections 8.1
       and 8.4 reach now operates in every jurisdiction, instead of only where a
       licence "is held ineffective", and reaches "any act that those Sections
@@ -159,7 +160,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       performance of a person other than the Dedicator" (errata E43, E44). Like
       Section 2.7 and Section 8.5, it no longer points to Section 13.2, and it
       no longer states why its limit matters but ends with the sentence that
-      ends Section 11.3. (-49 words.)
+      ends Section 11.3. (-33 words.)
     * Section 12.2 now reaches anyone who receives the Work from You "directly
       or indirectly", the words Sections 4.6 and 5.3 use (errata E62). (+3
       words.)
