@@ -14,7 +14,7 @@ this directory — everything except `rounds/` — is **493,000 words**, **101 t
 more than that in fact, because Japanese is not space-delimited. `rounds/` holds the primary
 sources verbatim so that every quotation can be checked against what was actually sent; **nobody
 is asked to read it.** The whole of it exists so that a claim we make can be checked, **not so
-that it must be**. *(Re-measure: `git ls-files -z LICENSES ':!LICENSES/rounds' | xargs -0 cat | wc -w`.)*
+that it must be**. *(Re-measure: `git ls-files -z LICENSES ':!LICENSES/rounds' | xargs -0 cat | python3 -c "import sys; print(len(sys.stdin.read().split()))"`. `wc -w` gives about 2% more, because it splits the Japanese text differently.)*
 
 **If you read three things you have checked the parts that decide the question:**
 
