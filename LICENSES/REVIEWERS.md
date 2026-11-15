@@ -293,6 +293,14 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
   state afterwards.** He read the full text and understood it before sending it. He is the
   Dedicator and the steward and answers for it; **he did not write its clauses**
   (`submission.md` §E.1).
+- **Who answers your questions.** The owner, in his own words; the AI that drafted the text does
+  not post. Pamela Chestek, 2020-02-28: *"the people who wrote the license are ideally the ones
+  explaining it to the license-review list because they know the ins and outs. We've had proxies
+  participate in the past and it doesn't go well."* By that measure he is closer to a proxy than
+  to an author, since he did not write the clauses. What he answers from is the public record of
+  every drafting decision, each with its reasons and the case against it (the change list, the
+  trial drafts, the errata and `ACD-1.0.against.md`), and he decides what changes in answer to a
+  question. We state this here so that you can weigh it before the first question, not after.
 - **One adopter: this repository.** That is the only real-world use.
 - These are stated at length in `ACD-1.0.submission-reference.md` §5 and §E.1, not buried.
 
