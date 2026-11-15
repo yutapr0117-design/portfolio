@@ -97,6 +97,23 @@ derivative works. §6.4 of the 1.4 draft: *"You owe nothing under this Dedicatio
 licence that deems outputs derivative and puts its terms on them (TRPL, `license-discuss`
 2025-12) runs the other way.
 
+**Why not an approved licence plus an additional permission?** Shuji Sado asked a submitter in
+2026 for *"a brief explanation of why existing OSI-approved licenses plus additional
+permissions/exceptions or guidance cannot achieve the same goals"*. For the patent grant, the
+honest answer is that they could: an additional permission can grant a patent licence of any
+reach, §8.4's included, and 0BSD plus a few hundred words would carry the first row of the table
+above. What that would not remove: an identifier such as *0BSD WITH* an exception is read by
+scanners only once the exception is on SPDX's list, so the cost of a new name stays; and the
+exception would itself be new, unreviewed legal text. The approved precedent went the other way:
+BSD-2-Clause-Patent was submitted as *"a simple permissive license that is compatible with the
+GNU General Public License (GPL), version 2, but which also has an express patent grant
+included"* and approved in 2017 as a licence of its own; we found no post in that thread asking
+for BSD-2-Clause plus an exception instead (its stated reason was GPLv2 compatibility, which is
+not ours). The rest of ACD — the surrender (§3), the covenants (§5), moral rights (§12) — is not
+what the gap claim rests on; putting it in one instrument is a choice of form, not a claim of
+difference. The question is being asked now, and a 2017 precedent may weigh less than it.
+([`ACD-OSI-BOTTLENECKS-EXTERNAL.md`](ACD-OSI-BOTTLENECKS-EXTERNAL.md) B10, H1-g.)
+
 ## Which text you are looking at
 
 **There are four frozen texts, and they are frozen for different reasons.** *(2026-10-29: this table said "two" and named 1.0 as the applied licence after 1.2 and 1.3 had been frozen; corrected.)*
