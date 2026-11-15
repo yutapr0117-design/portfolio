@@ -187,3 +187,21 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 **この節が establish しないこと。** 管轄を指定しないことが、どの国の裁判所でどう扱われるかは扱わない（`QUESTIONS-FOR-COUNSEL.md` 問 7）。
 
 **反映**: against #254 に 1 文（準拠法の条を置かないことの費用を、2003 年の法律家が名指していた）。新しい行は立てない。
+
+## 1.311 「承認済みの BSD 型のライセンスが増え続けるのは馬鹿げている、OSI はもう断るべきだ」—— 2020 年の Rosen 氏（"A modest proposal to reduce the number of BSD licenses"・2020-08）（2026-11-16）
+
+この会話の読了は portfolio-2f が記録した（PR 3270・新しい論点は無いとして読了の記録だけ）。portfolio-30 も同じ時に決める側の通を読み、Rosen 氏の 1 通がドシエのどこにも引かれていない不利な面だったので、この節を立てた（2f と重なって読んだ。読了の数には 2f の記録だけを数える）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| 承認済みの BSD 型のライセンスが増えていることは *"ludicrous"* で、*"OSI should simply refuse to do it anymore!"*（原文の引用符は写しで文字化けしているので、その部分は逐語で引かない） | Lawrence Rosen 氏 2020-08-18 | **不利な面（B10）。** 条件の少ない許可型のライセンスが似たまま増えることに、OSI はもう承認を出すべきでない、とした。ACD は条件の無い許可型の文書で、0BSD・MIT-0・Unlicense と同じ棚に置かれうる |
+| *"For such a short license, BSD has an awful lot of variations."* | Josh Berkus 氏 2020-08-21 | 同じ向き（B10）。短い許可型のライセンスの変種の多さ |
+| 似た BSD 型の 2 つのうち片方へ寄せる再許諾の試みを提案し、法に反すると認めたうえで *"The question is what harm is created and what benefit is created, not whether a law exists or not."* と書いた | Russell Nelson 氏 2020-08-17・19 | 経過（B10）。元の理事も、似たライセンスの数を減らす方へ動いた |
+
+**読み。** 2020 年に、元の事務局長と現役に近い理事の両方が、似た許可型のライセンスが増えることを問題として述べた。B10 の不利な面（「既存で足りるのに増やすな」）の、許可型に絞った形である。
+
+**逆側。** Rosen 氏の文は BSD の変種（同じ効果の言い換え）についてで、新しい効果を持つ文書を断れとは言っていない。ACD の差の主張（`ACD-OSI-BOTTLENECKS-B10.md` の G1）は「効果が違う」ことに立つので、この文がそのまま当たるのは、差が認められなかった場合である。Rosen 氏は 2005 年に「OSD に合えば承認すべき」と書いており（`review-readings.md` §1.177）、2020 年のこの文はその立場から動いた記録でもある。
+
+**この節が establish しないこと。** 提案された再許諾がその後に行われたかは確かめていない。
+
+**反映**: B10（`ACD-OSI-BOTTLENECKS-B10.md`・許可型の変種の増殖に、元の事務局長が「もう断るべき」と書いた）。
