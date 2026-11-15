@@ -1,0 +1,235 @@
+Source: OSI license-discuss public archive, 2013-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 2 of 26 in "License incompatibility" (begun 2013-08-28)
+Senders: Bradley M. Kuhn, Lawrence Rosen
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bkuhn at ebb.org  Wed Aug 28 14:59:43 2013
+From: bkuhn at ebb.org (Bradley M. Kuhn)
+Date: Wed, 28 Aug 2013 10:59:43 -0400
+Subject: [License-discuss] License incompatibility (was Re: Open source
+	license chooser choosealicense.com launched.)
+In-Reply-To: <029201cea368$6ec2a7a0$4c47f6e0$@rosenlaw.com> (Lawrence Rosen's
+	message of "Tue, 27 Aug 2013 14:00:02 -0700")
+References: <87mwpnyanm.fsf@kwarm.red-bean.com>
+	<20130715181037.GA5852@mercury.ccil.org>
+	<F46AD83B-CD39-4787-9236-FDA2DACFCE8D@javaman.com.br>
+	<CAFPTOkWs-bAkhLPrMZJkypv4b_SeBsozNPeQg1=c2mZ4g+oumg@mail.gmail.com>
+	<87pptf82d0.fsf@ebb.org> <20130818013803.GB15612@sharpeleven.org>
+	<5210E3FC.8090908@chesteklegal.com>
+	<20130819022150.GA2991@sharpeleven.org>
+	<52122379.6070103@chesteklegal.com>
+	<080601ce9de6$809b66b0$81d23410$@rosenlaw.com>
+	<87mwo8craw.fsf@ebb.org>
+	<004001cea119$6692bcb0$33b83610$@rosenlaw.com>
+	<87fvtvcdqe.fsf@birch.sfconservancy.org>
+	<029201cea368$6ec2a7a0$4c47f6e0$@rosenlaw.com>
+Message-ID: <87r4dd97z4.fsf_-_@birch.sfconservancy.org>
+
+Lawrence Rosen wrote at 17:00 (EDT) on Tuesday:
+> I asked for practical examples. You cited none. In the world of
+> copyrights or most logical pursuits, absence of evidence isn't
+> evidence.
+
+License compatibility issues come up regularly on lots of bug tickets
+and threads about licensing on lots of projects.  I don't have
+a saved file of evidence to hand you, mostly because it's such an
+unremarkable occurrence that I don't note it down when it happens.  I
+see it at least once a month somewhere.  I suspect anyone who follows
+Free Software development regularly sees it just as much.  I can tell
+you that I dealt with two issues of license incompatibility in my
+day job recently, but I can't disclose the specifics since it
+was confidential advice.
+
+Meanwhile, if you need evidence to satisfy your curiosity right away,
+I'd suggest debian-legal archives would be a good place to start your
+research on this, but...
+
+> Awaiting your evidence to the contrary....
+
+... I can't spare the time to do this basic research for you.  If
+anyone else here does agree with you that license incompatibility
+isn't a problem in the real world, then perhaps it's worth continuing
+this thread, but I suspect you may be alone on this one. :)
+
+> Most FOSS licenses (including the GPL!)  don't actually define the
+> term "derivative work" with enough precision to make it meaningful for
+> court interpretation. ...  The court will therefore use the statutory
+> and case law to determine that situation.
+
+That's as it should be.  It's not the job (nor is it really appropriate)
+for a copyright license to define statutory terms, so the GPL doesn't do
+that.  The GPL has always tried to go as far as copyright would allow to
+mandate software freedom.  That's what Michael Meeks (and/or Jeremy
+Allison -- I heard them both use this phrase within a few weeks of each
+other and not sure who deserves credit) call "copyleft's judo move on
+copyright".  It's the essence of strong copyleft.
+
+> all major FOSS licenses that I'm aware of *except the GPL* make it
+> abundantly clear that the mere combination of that licensed software
+> with other software (FOSS or non-FOSS) does not affect ("infect"?) the
+> other software.
+
+Indeed, weaker copylefts give guidelines for certain derivative works
+that can be proprietarized, and the rest are left under copyleft.
+
+BTW, if you are interested in how the European lawyers view this question,
+I refer you to an excellent talk by Till Jaeger at FOSDEM 2013:
+   http://www.faif.us/cast/2013/mar/26/0x39/
+
+> So what's the worry about license incompatibility all about?  Is it
+> merely that so many licenses are deemed incompatible with the GPL,
+
+Many licenses are incompatible with the Eclipse Public License, too,
+since it's a stronger copyleft than, say, the MPL or LGPL.  There aren't
+very many strong copylefts around.
+
+> with other software (FOSS or non-FOSS) does not affect ("infect"?) the
+> other software.
+
+Finally, I'm unlikely to respond to this thread further as I think the
+use of slurs like "infect" (notwithstanding the quotes, and '?') to
+refer to copyleft are just unnecessarily inflammatory.  I've asked you
+not to talk about copyleft using slur words so many times before in the
+thirteen years we've known each other, it's really hard for me to believe
+you aren't saying "infect" intentionally just to spread needless discord.
+-- 
+   -- bkuhn
+
+
+From lrosen at rosenlaw.com  Wed Aug 28 18:11:02 2013
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Wed, 28 Aug 2013 11:11:02 -0700
+Subject: [License-discuss] License incompatibility (was Re: Open
+	source	license chooser choosealicense.com launched.)
+In-Reply-To: <87r4dd97z4.fsf_-_@birch.sfconservancy.org>
+References: <87mwpnyanm.fsf@kwarm.red-bean.com>	<20130715181037.GA5852@mercury.ccil.org>	<F46AD83B-CD39-4787-9236-FDA2DACFCE8D@javaman.com.br>	<CAFPTOkWs-bAkhLPrMZJkypv4b_SeBsozNPeQg1=c2mZ4g+oumg@mail.gmail.com>	<87pptf82d0.fsf@ebb.org>
+	<20130818013803.GB15612@sharpeleven.org>	<5210E3FC.8090908@chesteklegal.com>	<20130819022150.GA2991@sharpeleven.org>	<52122379.6070103@chesteklegal.com>	<080601ce9de6$809b66b0$81d23410$@rosenlaw.com>	<87mwo8craw.fsf@ebb.org>	<004001cea119$6692bcb0$33b83610$@rosenlaw.com>	<87fvtvcdqe.fsf@birch.sfconservancy.org>	<029201cea368$6ec2a7a0$4c47f6e0$@rosenlaw.com>
+	<87r4dd97z4.fsf_-_@birch.sfconservancy.org>
+Message-ID: <038a01cea419$f98c6b30$eca54190$@rosenlaw.com>
+
+Bradley Kuhn wrote:
+> Finally, I'm unlikely to respond to this thread further as I think the 
+> use of slurs like "infect" (notwithstanding the quotes, and '?') to refer
+> to copyleft are just unnecessarily inflammatory.  I've asked you not to
+> talk about copyleft using slur words so many times before in the 
+> thirteen years we've known each other, it's really hard for me to
+> believe you aren't saying "infect" intentionally just to spread needless
+> discord.
+
+
+Bradley, 
+
+The fear that *you* sow is infectious, not the GPL. I do not slur that
+license and certainly not "copyleft"!!! Indeed, I have argued at length here
+and elsewhere [1] that fear of the GPL is unwarranted. It is instead the
+fear that companies will be challenged by aggressive folks suing on some
+bogus "derivative work theory" that infects our community.
+
+To revert to the subject of this thread: The GPL should clearly be on every
+FOSS license chooser. But don't leave licenses off those license choosers
+simply because they are deemed "incompatible" under those false derivative
+work enforcement theories or some generalized fear of "license
+proliferation".
+
+Here's what I suggest for license choosers:  
+
+(1) Ask first whether the developer is intending to integrate his or her
+software most with Eclipse, Apache, Linux, Mozilla or other specific current
+FOSS projects. 
+
+(2) Recommend that FOSS project's license (with appropriate IANAL caveats!).
+
+(3) Otherwise, consult a lawyer before choosing a license on your own.
+
+(4) Invent a new license only as a very last resort and only when justified
+by something missing in all other approved licenses.
+
+/Larry
+
+[1] In 2005 I published this: http://rosenlaw.com/pdf-files/Rosen_Ch06.pdf.
+See also my antique 2001 article on the topic of "GPL infection":
+http://www.rosenlaw.com/html/GPL.pdf 
+
+
+
+-----Original Message-----
+From: Bradley M. Kuhn [mailto:bkuhn at ebb.org] 
+Sent: Wednesday, August 28, 2013 8:00 AM
+To: license-discuss at opensource.org
+Subject: [License-discuss] License incompatibility (was Re: Open source
+license chooser choosealicense.com launched.)
+
+Lawrence Rosen wrote at 17:00 (EDT) on Tuesday:
+> I asked for practical examples. You cited none. In the world of 
+> copyrights or most logical pursuits, absence of evidence isn't 
+> evidence.
+
+License compatibility issues come up regularly on lots of bug tickets and
+threads about licensing on lots of projects.  I don't have a saved file of
+evidence to hand you, mostly because it's such an unremarkable occurrence
+that I don't note it down when it happens.  I see it at least once a month
+somewhere.  I suspect anyone who follows Free Software development regularly
+sees it just as much.  I can tell you that I dealt with two issues of
+license incompatibility in my day job recently, but I can't disclose the
+specifics since it was confidential advice.
+
+Meanwhile, if you need evidence to satisfy your curiosity right away, I'd
+suggest debian-legal archives would be a good place to start your research
+on this, but...
+
+> Awaiting your evidence to the contrary....
+
+... I can't spare the time to do this basic research for you.  If anyone
+else here does agree with you that license incompatibility isn't a problem
+in the real world, then perhaps it's worth continuing this thread, but I
+suspect you may be alone on this one. :)
+
+> Most FOSS licenses (including the GPL!)  don't actually define the 
+> term "derivative work" with enough precision to make it meaningful for 
+> court interpretation. ...  The court will therefore use the statutory 
+> and case law to determine that situation.
+
+That's as it should be.  It's not the job (nor is it really appropriate) for
+a copyright license to define statutory terms, so the GPL doesn't do that.
+The GPL has always tried to go as far as copyright would allow to mandate
+software freedom.  That's what Michael Meeks (and/or Jeremy Allison -- I
+heard them both use this phrase within a few weeks of each other and not
+sure who deserves credit) call "copyleft's judo move on copyright".  It's
+the essence of strong copyleft.
+
+> all major FOSS licenses that I'm aware of *except the GPL* make it 
+> abundantly clear that the mere combination of that licensed software 
+> with other software (FOSS or non-FOSS) does not affect ("infect"?) the 
+> other software.
+
+Indeed, weaker copylefts give guidelines for certain derivative works that
+can be proprietarized, and the rest are left under copyleft.
+
+BTW, if you are interested in how the European lawyers view this question, I
+refer you to an excellent talk by Till Jaeger at FOSDEM 2013:
+   http://www.faif.us/cast/2013/mar/26/0x39/
+
+> So what's the worry about license incompatibility all about?  Is it 
+> merely that so many licenses are deemed incompatible with the GPL,
+
+Many licenses are incompatible with the Eclipse Public License, too, since
+it's a stronger copyleft than, say, the MPL or LGPL.  There aren't very many
+strong copylefts around.
+
+> with other software (FOSS or non-FOSS) does not affect ("infect"?) the 
+> other software.
+
+Finally, I'm unlikely to respond to this thread further as I think the use
+of slurs like "infect" (notwithstanding the quotes, and '?') to refer to
+copyleft are just unnecessarily inflammatory.  I've asked you not to talk
+about copyleft using slur words so many times before in the thirteen years
+we've known each other, it's really hard for me to believe you aren't saying
+"infect" intentionally just to spread needless discord.
+-- 
+   -- bkuhn
+_______________________________________________
+License-discuss mailing list
+License-discuss at opensource.org
+http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
