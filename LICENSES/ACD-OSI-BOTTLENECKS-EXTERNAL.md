@@ -325,6 +325,8 @@ are not present."* **この 1 文を落としてはならない。**
 
 **2026-11-15 に足した（5 つ目）—— 支持の無い版の見込みを、委員長が言葉にした（模擬委員会・portfolio-30）。** Pamela Chestek 氏 2020-12-28（`license-review`・当時の委員長・OIN License）*"It does not appear that anyone supports this version of the license, so the chances of it being approved appear quite slim."* 2024 年の OSPL の不承認の理由書も *"No reviewer was in favor of approving this license"* を最初に挙げた（`review-corpus.md`）。ACD は `license-discuss` で返信を得ていない。**逆側**: どちらの例も、OSD との衝突が別に指摘されていた提出である。支持が無いことだけを理由にした不承認は、まだ見つけていない。
 
+**2026-11-15 に足した（6 つ目）—— 2003 年の委員長は、沈黙を賛否のどちらにも読まず、明示の言葉を求めた（`review-readings-3.md` §1.307）。** Russell Nelson 氏 2003-09-26 *"Maybe it's because it's obviously open source, but as committee members, I'd like to hear it explicitly from your mouths (or keyboards rather) to report back to the board."* その後の 1 通の賛成で承認を勧めた。**逆側**: 短い修正 BSD 型の提出で、委員長が自ら中身を説明していた。長く新しい形の ACD に同じ運びは期待できない（上の Chestek 氏 2020）。
+
 ### 🔴 2026-09-13 追記 —— 理事会は B2 に、否決ではない帰結を用意している
 
 **議事録という一次資料を初めて読んだ**（`ACD-1.0.board-decisions.md` §2 が分析・逐語は `rounds/`）。
