@@ -182,8 +182,10 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       words.)
     * Section 12.2 now also gives, in a sentence of its own, the Dedicator's
       consent to any act by You or by any such person that would otherwise
-      infringe those rights, and Sections 12.4 and 12.5 name the consent beside
-      the covenant. (+25 words.)
+      infringe those rights; Section 12.3, Section 12.4, and Section 12.5 name
+      the consent beside the covenant, and Section 2.4 names consent among the
+      grants, permissions, and covenants that stand independently. (+29
+      words.)
     * Section 12.5 now says in one sentence that the interest Moral Rights
       protect against false attribution "survives" the covenant in Section 12.2
       (errata E53). (-11 words.)
@@ -230,7 +232,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5600 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5604 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -366,11 +368,11 @@ PREAMBLE (informative; not part of the operative terms)
        sign, register, notify, request, or agree to anything, and nothing You do
        or fail to do can cause You to lose one.
 
-  2.4  Sections 3, 4, 5, and 6 are independent of one another, as is every
-       other grant, permission, and covenant in this Dedication. Each operates
-       on its own footing, and none is conditioned on another being effective
-       or on another's failure. Where more than one operates, they operate
-       cumulatively, and Section 15.1 governs their construction.
+  2.4  Sections 3, 4, 5, and 6 are independent of one another, as is every other
+       grant, permission, consent, and covenant in this Dedication. Each
+       operates on its own footing, and none is conditioned on another being
+       effective or on another's failure. Where more than one operates, they
+       operate cumulatively, and Section 15.1 governs their construction.
 
   2.5  The Dedicator makes this Dedication intending that others rely on it and
        incur effort and expense in doing so; that reliance is the purpose of
@@ -743,10 +745,10 @@ PREAMBLE (informative; not part of the operative terms)
        permitted by this Dedication depends on that question or on how it is
        answered.
 
-  12.3 The covenant in Section 12.2 is limited to the Work. It extends to no
-       other work of the Dedicator, whether existing or future, and it is given
-       in respect of a work that the Dedicator has chosen to place in the
-       commons for the purpose stated in Section 6.
+  12.3 The covenant and the consent in Section 12.2 are limited to the Work.
+       They extend to no other work of the Dedicator, whether existing or
+       future, and they are given in respect of a work that the Dedicator has
+       chosen to place in the commons for the purpose stated in Section 6.
 
   12.4 The covenant and the consent in Section 12.2 bind the Dedicator's
        successors, assigns, heirs, personal representatives, and any person
