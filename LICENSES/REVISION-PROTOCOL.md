@@ -400,7 +400,7 @@ the basis of this response, I wrote everything else myself"*）。**これを毎
 
 ## 3.8 指摘を受けたら —— 説明だけで返さない（`[TRADE]` の撤退線・2026-11-15）
 
-**根拠**: 2026-09-24 の理事会議事録で、委員会は 2026-05 の委任を初めて行使し、4 本を理事会の議決なしに却下した。2 本の理由は *"Poor drafting; argument without revision"* —— 応答はしたが、直さずに反論した（`ACD-1.0.board-decisions.md` §4a）。`against.md` の `[TRADE]`（意図した設計上の取引・29 件）は、定義上「直すものは無い・立場を述べ切れているかが合否」で、審査で押されたときの答えが**説明だけ**になる項目である。そこで、本文に関わる `[TRADE]` 13 件について、**押されたら出す直しの形**か、**直さない理由を先に述べる赤線**かを、指摘を受ける前に決めておく。
+**根拠**: 2026-09-24 の理事会議事録で、委員会は 2026-05 の委任を初めて行使し、4 本を理事会の議決なしに却下した。2 本の理由は *"Poor drafting; argument without revision"* —— 応答はしたが、直さずに反論した（`ACD-1.0.board-decisions.md` §4a）。同じ向きの文は 6 年前から在る: 当時の委員長の Pamela Chestek 氏 2020-02-28 *"There also needs to be some willingness to modify the license based on feedback. … If it's presented to license-review as "take it or leave it," the outcome for a newly written license is likely going to be "leave it.""*（`review-readings-2.md` §1.221）。`against.md` の `[TRADE]`（意図した設計上の取引・29 件）は、定義上「直すものは無い・立場を述べ切れているかが合否」で、審査で押されたときの答えが**説明だけ**になる項目である。そこで、本文に関わる `[TRADE]` 13 件について、**押されたら出す直しの形**か、**直さない理由を先に述べる赤線**かを、指摘を受ける前に決めておく。
 
 **規則**: (1) 撤退線のある項目は、同じ指摘が 2 人から来たら、説明と一緒に直しの試作（`ACD-1.4-SECOND-CLARITY-TRIAL.md`）を返す。(2) 赤線の項目は、説明の最初の段で「直さない」と言い、その費用を自分から述べる（議事録の 2 本は、直さないこと自体ではなく、直さずに反論したことで却下された）。(3) どちらでも、指摘への返信は「何を変えたか / 変えないなら何を引き受けるか」で始める。
 
