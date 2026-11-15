@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/_lib_io.py
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-11-15
 canonical-ref: docs/architecture/check-repository-consistency-map.md §1
 ---
 
@@ -12,6 +12,8 @@ canonical-ref: docs/architecture/check-repository-consistency-map.md §1
 CI scripts 共通の純 I/O helper module。`read()` / `read_bytes()` / `extract()` / `csp_sri_hash()` / `now_iso8601()` / `update_webp_xmp_dates()` / `update_mp3_metadata_date()` / `strip_js_comments()` / `parse_robots_groups()` / `robots_full_site_disallow()` / `html_attributes()` の 11 public 関数を export。`html_attributes()` は HTML の開始タグの属性を (要素名, 属性名, 値, 原文) で列挙する (名前は小文字化・値は二重 / 一重 / 引用符なしの 3 通り・コメントと script / style の中身は読まない)。2026-11-02 まで Check 242 / 323 は小文字・二重引用符の形しか探しておらず、`ONLOAD="…"` / `style='…'` / `onclick=x` を素通りしていた。`parse_robots_groups()` は robots.txt を RFC 9309 のグループの意味で読む (連続する `User-agent:` 行は 1 グループ・`#` は行のどこからでもコメント)。2026-11-02 まで Check 161 / 342 は行単位の正規表現で読んでおり、行末コメント付きの `Disallow: / # tmp`・`Disallow: /*`・名前付き bot のグループの全サイト拒否・`User-agent: *` の直後に別 agent 行を足した形を素通りしていた。`strip_js_comments()` は JS のコメントを、文字列・テンプレート文字列 (`${}` のネスト)・正規表現リテラルを壊さずに、改行を残した空白へ置き換える (出力は入力と同じ長さ・同じ行番号)。2026-11-01 まで各 Check は「`/* */` → `//`」の 2 段の正規表現で消しており、`//` コメント中の `/*` を起点に main.js の 74 行を消していた。espree のコメント範囲と 80 file 全件で一致を確認済み。
 
 ## Why
+
+**2026-11-15**: 456 行で advisory（450）を越えたので、robots.txt の parser（`parse_robots_groups` / `robots_full_site_disallow`）を `_lib_robots.py` へ移した。名前はこの module から export し直すので、読み手の import は変わらない。
 
 `check_repository_consistency.py` の肥大化 (3,500+ 行) を抑え、Plan C で「番号体系の外」にある純関数 helper をここに集約。Phase 2 の C6 derived-value 例外条項の binary 日付同期 helper もここに統合 (6 案 helper 統一)。
 
