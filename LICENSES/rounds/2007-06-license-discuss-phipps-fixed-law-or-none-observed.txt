@@ -1,0 +1,71 @@
+Source: OSI license-discuss public archive, 2007-June.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 18 in "Politics-Free Licence ;)" (2007-06-28)
+Senders: Simon Phipps
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From Simon.Phipps at Sun.COM  Fri Jun 29 01:38:48 2007
+From: Simon.Phipps at Sun.COM (Simon Phipps)
+Date: Fri, 29 Jun 2007 02:38:48 +0100
+Subject: Politics-Free Licence ;)
+In-Reply-To: <7456560B-076B-4F5D-90D6-80DDBADEA59D@codefab.com>
+References: <a5c3d8350706272355r48e271c9t6bd0599da8ecbf73@mail.gmail.com>
+ <3409751E7375C346A743B321A33B40D00247B6CB@orsmsx416.amr.corp.intel.com>
+ <7d9492d90706280835w4a506bbdrbeace799d2e64863@mail.gmail.com>
+ <a5c3d8350706281103g791e3852u6933a2a3114f5601@mail.gmail.com>
+ <45441C4D-69C2-4061-A936-618DAE28E7BA@codefab.com>
+ <B8AB68C4-8923-4A0F-B2E8-AE23BF0E5FE6@Sun.COM>
+ <7456560B-076B-4F5D-90D6-80DDBADEA59D@codefab.com>
+Message-ID: <34198B34-955A-4BB6-ABEE-29E6523B2922@Sun.COM>
+
+
+On Jun 28, 2007, at 23:46, Chuck Swiger wrote:
+>
+> Worse for whom?
+>
+> There's a reason why the GPL makes a great deal of effort to spell  
+> out terms that might be assumed in one system of law but might not  
+> in other, because they (meaning the FSF and others) want the  
+> license to have the same interpretation worldwide.  This goal may  
+> not be perfectly achievable because some jurisdictions prevent the  
+> disclaimer of warranty, et cetera, but nobody who writes Free  
+> Software or OpenSource software *wants* to be sued or deal with  
+> related legal crap in a completely foreign jurisdiction to them.
+
+Right.  This we agree about, I think. I'm saying that, in cases where  
+the license has not been honed by many global legal minds to have  
+layered and nuanced meaning (as the GPLv3 has been, for example), it  
+is smart to tell the reader what system of law you had in mind when  
+you were writing. That way, all readers can see what the license  
+means and not have to gain local knowledge of the case law and  
+semantics on a use-by-use basis.
+
+Thus, I assert that /either/ there should be a fixed statement of the  
+system of law assumed by the license, or none at all. Encouraging the  
+language of the license to be variably interpreted unsettles lots of  
+people (I met some of them at DebConf last weekend for example).
+
+Of course, as others on this thread have pointed out, what actually  
+happens when one finally reaches court may be unaffected by all this!
+
+> If someone wants to sue me over software which I've made public for  
+> everyone to share, modify, and use, the least they can do is show  
+> up and do so in the courtroom in my neighborhood, rather than  
+> halfway around the world.
+
+This is choice of venue, and is a different topic. I disagree with  
+your interpretation of what a choice of a legal venue in license  
+means (I think the SocialText folks have got it right in their most  
+recent submission, FWIW), but I do feel that more people will be more  
+happy with a license that makes no attempt to choose a venue.
+
+S.
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 2494 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20070629/13acf796/attachment.p7s>
