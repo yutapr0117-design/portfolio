@@ -709,3 +709,20 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **逆側。** 審査者は TRPL を数通で退けた（Perens 氏は *"I dismissed the license quickly"* と自分で書いた）。新しいライセンスを読む初期値が「毎月の誤解」であるなら、ACD の長さ（B3）は、その初期値を覆す前に読む気を失わせる方向に働く。また、Chestek 氏は出力に互恵を課すことを OSD に反しないと読んでおり、「ACD は出力に条件を課さないので有利」という比較は、OSD の適合ではなく、読みやすさと解釈の費用の差にとどまる。§1.7 の "Computational Use" が出力の利用まで定義に含めることは、派生物とみなすことではないが、審査者が §6.4 まで読まずに §1.7 だけを読めば、同じ型の定義として読まれうる。
 
 **この節が establish しないこと。** TRPL は `license-review` に提出されておらず、この会話に審査の帰結は無い。Sado 氏は OSI の委員ではなく（Open Source Group Japan の代表）、氏の日本法の読みは ACD の法域の分析（`ACD-1.0.jurisdictions.md`）の代わりにならない。
+
+## 1.203 名前だけが違うライセンスは承認しない、著作権者の表示はライセンスの外に置く —— PPPL BSD-3（2025）（2026-11-15）
+
+"OSI License Submission - PPPL BSD-3"（`license-review` 2025-07 と 2025-10 の 2 つの会話・16 通・`rounds/2025-07-to-10-license-review-pppl-same-license-new-name-observed.txt` に 4 通）。2021 年以降の未読を新しい順に読んだ 2 本目。DOE の国立研究所が、承認済みの BSD-3-Clause-LBNL の研究所名を自分の名に替えたものを提出した。提出文は *"The license has not been through legal review."* と自分で述べている。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"giving it a different name when it's actually the same license, creates unnecessary friction, clogs the namespace and creates a lot of issues in automated license compatibility resolution, especially if it's given a separate SPDX identifier."* | Carlo Piana 氏 2025-07-18 | **有利な面（B10）。** 審査者が当てた基準は「名前のほかに違いが在るか」である。ACD には承認済みのどの本文にも無い効果が在る（B10 の一覧の行・`gap-measurements.md`）。**不利な面（B11）。** 列挙された費用のうち、自動の互換性の判定に新しい識別子を覚えさせる費用は、違いが在っても新しいライセンスなら必ず払わせる |
+| *"it is not the license the right place to claim copyright. In source code there are standards like SPDX and REUSE and that one is the (machine readable) way."* | Piana 氏 2025-07-18 | 目的語は著作権の主張（権利者の表示）で、許諾が機械に決められるかではない。§6.5（機械学習の許諾を本文に明示する理由）とは別の問いに答えている。近いのは §16.2 で、通知が効く範囲を本文が「コメントの位置、ファイル名、区切りの印」で定める（§2.6 も除外した素材を機械が読める形で示すと約束する）。印の意味を本文が決める点は「印は SPDX / REUSE の側に」の向きと擦れるが、§16.2 は *"SPDX-License-Identifier"* のタグを十分な通知として受け、REUSE の運用と同じ向きなので、補完的と読む（重さは低い・portfolio-30 の照合 2026-11-15） |
+| *"this is just asking for approval for an already approved license."* | McCoy Smith 氏 2025-07-18（理事としてではなく個人として） | B10 と同じ向き。ACD を CC0・0BSD・Unlicense と並べて読む審査者は、まずこの問いを当てる |
+| *"It's OSI practice to NOT rename licenses unless the original license steward requests it."* | Josh Berkus 氏 2025-10-23 | B6・B12。承認された後の名は steward が決める。ACD が名を変えない判断（B6・2026-10-24）は steward の側の判断として残る |
+
+**読み。** 研究所名だけが違う提出は承認されず、理事会は委員会に承認済みのライセンスを一般化する権限を与えた（`board-decisions.md` §6(2)）。提出者は法律家のレビューの不在を自分で書いたが、16 通のどれもそれに触れていない。審査者が退けた理由は重複だった。ACD に当てると、問われるのは「承認済みのどれかと名前のほかに違うか」で、ACD はこの問いには本文の効果で答えられる。
+
+**逆側。** 違いが在ることは、違いが新しいライセンスに値することを意味しない（B10 の題そのもの）。Piana 氏が並べた費用は違いの大きさに関わらず掛かり、ACD の違いが特許の範囲と機械学習の明示に集まっていることは、既存のライセンスに例外や注記を足せば済む、という返答を招く。また、法律家のレビューの不在に誰も触れなかったのは、重複で退けるのに足りたからで、レビューが要らないことを示さない（`review-rules.md` §1.141 はこの提出を「不在を自分で述べた提出」に数えている）。
+
+**この節が establish しないこと。** 理事会の一般化の決定が、この会話のどの通にどう依ったかは議事録の側（`board-decisions.md`）の記録で、この節は確かめていない。Smith 氏は個人として書いたと明記している。

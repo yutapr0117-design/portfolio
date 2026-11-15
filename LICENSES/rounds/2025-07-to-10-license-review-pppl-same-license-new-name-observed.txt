@@ -1,0 +1,519 @@
+Source: OSI license-review public archive, 2025-July.txt and 2025-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 4 of 16 in "OSI License Submission - PPPL BSD-3" (begun 2025-07-09; continued 2025-10-21)
+Senders: Carlo Piana, McCoy Smith, Richard Fontana, Josh Berkus
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From carlo at piana.eu  Fri Jul 18 13:36:44 2025
+From: carlo at piana.eu (Carlo Piana)
+Date: Fri, 18 Jul 2025 15:36:44 +0200 (CEST)
+Subject: [License-review] OSI License Submission - PPPL BSD-3
+In-Reply-To: 
+ <CAKvc+FxAs9a_y2-sCuc+TERh5P2rijPzf_YD2-AEPfi6nscb9g@mail.gmail.com>
+References: 
+ <CAKvc+FxAs9a_y2-sCuc+TERh5P2rijPzf_YD2-AEPfi6nscb9g@mail.gmail.com>
+Message-ID: <993260815.340135.1752845804986.JavaMail.zimbra@piana.eu>
+
+Will, 
+
+thank you for your submission. 
+
+If I understand correctly, the main reason for creating a new license and submit it as an approved license is to permit attribution of copyright? I am rather opposed to have this kind of licenses approved, since the BSD license has a placeholder and any name slotted in is by definition approved and this one, if I understand it correctly, does not bring any difference but the name, so it's the same license. 
+
+Despite it not being necessarily an issue of proliferation, giving it a different name when it's actually the same license, creates unnecessary friction, clogs the namespace and creates a lot of issues in automated license compatibility resolution, especially if it's given a separate SPDX identifier. 
+
+Besides, it is not the license the right place to claim copyright. In source code there are standards like SPDX and REUSE and that one is the (machine readable) way. In object code there are numerous ways too. 
+
+Have you considered the above? 
+
+Thank you very much. 
+
+Carlo 
+
+> Da: "Will Rarich via License-review" <license-review at lists.opensource.org>
+> A: "license-review at lists.opensource.org" <license-review at lists.opensource.org>
+> Cc: "Will Rarich" <wrarich at pppl.gov>
+> Inviato: Mercoledì, 9 luglio 2025 18:25:54
+> Oggetto: [License-review] OSI License Submission - PPPL BSD-3
+
+> Hello,
+
+> I work in the tech transfer office at the Princeton Plasma Physics Lab (PPPL), a
+> DOE National Laboratory, and I have recently taken up a stewardship role over
+> the lab's software portfolio. I am in the process of ensuring we are compliant
+> with our contractual obligations to the DOE in how we obtain permission to
+> copyright software, so there are a number of "legacy" codes at the lab being
+> open sourced in addition to anything newly authored by our developers. My
+> colleague Chris Wright has prepared a preferred license for this process, a
+> variant of Lawrence Berkeley National Lab's BSD-3 license ( [
+> https://opensource.org/license/bsd-3-clause-lbnl |
+> https://opensource.org/license/bsd-3-clause-lbnl ] ) with PPPL's name
+> substituted. We would like to have our license officially approved by OSI to
+> encourage its use when our developers decide to open source through our office.
+
+> As it pertains to this review process, this license would be considered "new" as
+> it has been in use for only a few months.
+
+> The attached PPPL BSD-3 License complies with the Open Source Definition,
+> including clauses 3, 5, 6, and 9.
+
+> Anarrima ( [ https://github.com/PrincetonUniversity/anarrima |
+> https://github.com/PrincetonUniversity/anarrima ] ) has been made publicly
+> available with the PPPL BSD-3 License, and several other PPPL-developed codes
+> will be imminently open sourced with it.
+
+> The license steward is PPPL's Strategic Engagement and Applications Development
+> office ( [ mailto:SEAD at pppl.gov | SEAD at pppl.gov ] ).
+
+> The license name is Princeton Plasma Physics Lab BSD Variant License with the
+> identifier BSD-3-Clause-PPPL.
+
+> The gap filled by this additional license is PPPL's ability to assert copyright
+> on software authored by its staff and affiliates. When DOE-funded software
+> announcements are made in accordance with our government contract at [
+> https://www.osti.gov/doecode/ | https://www.osti.gov/doecode/ ] the
+> announcement requires the name and/or link to the OSS License. Having the PPPL
+> version of the BSD-3-Clause-PPPL published on [ http://opensource.org/ |
+> opensource.org ] will reduce confusion by enabling links to the correct
+> document.
+
+> It is most similar to LBNL's BSD-3 license ( [
+> https://opensource.org/license/bsd-3-clause-lbnl |
+> https://opensource.org/license/bsd-3-clause-lbnl ] ) with PPPL's name
+> substituted throughout.
+
+> The license has not been through legal review.
+
+> I am happy to address any further questions or comments regarding this license.
+
+> Best,
+
+> Will Rarich
+> Technology Transfer Specialist
+> [ mailto:wrarich at pppl.gov | wrarich at pppl.gov ]
+> Mobile: (908)-285-7143
+> Visit us at [ https://innovation.pppl.gov/ | https://innovation.pppl.gov/ ]
+> Princeton Plasma Physics Laboratory is a U.S. Department of Energy National
+> Laboratory managed by Princeton University.
+
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily
+> those of the Open Source Initiative. Communication from the Open Source
+> Initiative will be sent from an opensource.org email address.
+
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20250718/497a2c3c/attachment.htm>
+
+From mccoy at lexpan.law  Fri Jul 18 14:36:30 2025
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Fri, 18 Jul 2025 07:36:30 -0700
+Subject: [License-review] OSI License Submission - PPPL BSD-3
+In-Reply-To: <993260815.340135.1752845804986.JavaMail.zimbra@piana.eu>
+References: 
+ <CAKvc+FxAs9a_y2-sCuc+TERh5P2rijPzf_YD2-AEPfi6nscb9g@mail.gmail.com>
+ <993260815.340135.1752845804986.JavaMail.zimbra@piana.eu>
+Message-ID: <45e20b27-a815-42ea-b5e8-33157001a8d5@lexpan.law>
+
+One of the nice things that SPDX has done is to identify licenses for 
+which there is either omittable or replaceable text. BSD-3-Clause-LBNL 
+is a exemplary example of that:
+
+https://spdx.org/licenses/BSD-3-Clause-LBNL.html
+
+https://spdx.github.io/spdx-spec/v2.3/license-matching-guidelines-and-templates/#b34-guideline-replaceable-text
+
+This request for approval is merely to re-approve BSD-3-Clause-LBNL with 
+replaceable text fitting in within SPDX guidelines for BSD-3-Clause-LBNL.
+
+In other words, in my opinion, this is just asking for approval for an 
+already approved license.
+
+For that reason, I don't think this should be approved as it already has 
+been in the form of BSD-3-Clause-LBNL.*
+
+*FWIW, OSI probably ought to put a notice on all the approved licenses 
+that any variants that fall within the omittable or replaceable text 
+guidelines under SPDX are also approved.
+
+[speaking in personal capacity not as member of the Board]
+
+
+On 7/18/2025 6:36 AM, Carlo Piana wrote:
+> Will,
+>
+> thank you for your submission.
+>
+> If I understand correctly, the main reason for creating a new license 
+> and submit it as an approved license is to permit attribution of 
+> copyright? I am rather opposed to have this kind of licenses approved, 
+> since the BSD license has a placeholder and any name slotted in is by 
+> definition approved and this one, if I understand it correctly, does 
+> not bring any difference but the name, so it's the same license.
+>
+> Despite it not being necessarily an issue of proliferation, giving it 
+> a different name when it's actually the same license, creates 
+> unnecessary friction, clogs the namespace and creates a lot of issues 
+> in automated license compatibility resolution, especially if it's 
+> given a separate SPDX identifier.
+>
+> Besides, it is not the license the right place to claim copyright. In 
+> source code there are standards like SPDX and REUSE and that one is 
+> the (machine readable) way. In object code there are numerous ways too.
+>
+> Have you considered the above?
+>
+> Thank you very much.
+>
+> Carlo
+>
+>
+> ------------------------------------------------------------------------
+>
+>     *Da: *"Will Rarich via License-review"
+>     <license-review at lists.opensource.org>
+>     *A: *"license-review at lists.opensource.org"
+>     <license-review at lists.opensource.org>
+>     *Cc: *"Will Rarich" <wrarich at pppl.gov>
+>     *Inviato: *Mercoledì, 9 luglio 2025 18:25:54
+>     *Oggetto: *[License-review] OSI License Submission - PPPL BSD-3
+>
+>     Hello,
+>
+>     I work in the tech transfer office at the Princeton Plasma Physics
+>     Lab (PPPL), a DOE National Laboratory, and I have recently taken
+>     up a stewardship role over the lab's software portfolio. I am in
+>     the process of ensuring we are compliant with our contractual
+>     obligations to the DOE in how we obtain permission to
+>     copyright software, so there are a number of "legacy" codes at the
+>     lab being open sourced in addition to anything newly authored by
+>     our developers. My colleague Chris Wright has prepared a preferred
+>     license for this process, a variant of Lawrence Berkeley National
+>     Lab's BSD-3 license
+>     (https://opensource.org/license/bsd-3-clause-lbnl) with
+>     PPPL's name substituted. We would like to have our license
+>     officially approved by OSI to encourage its use when our
+>     developers decide to open source through our office.
+>
+>     As it pertains to this review process, this license would be
+>     considered "new" as it has been in use for only a few months.
+>
+>     The attached PPPL BSD-3 License complies with the Open Source
+>     Definition, including clauses 3, 5, 6, and 9.
+>
+>     Anarrima (https://github.com/PrincetonUniversity/anarrima) has
+>     been made publicly available with the PPPL BSD-3 License, and
+>     several other PPPL-developed codes will be imminently open sourced
+>     with it.
+>
+>     The license steward is PPPL's Strategic Engagement and
+>     Applications Development office (SEAD at pppl.gov).
+>
+>     The license name is Princeton Plasma Physics Lab BSD Variant
+>     License with the identifier BSD-3-Clause-PPPL.
+>
+>     The gap filled by this additional license is PPPL's ability to
+>     assert copyright on software authored by its staff and
+>     affiliates. When DOE-funded software announcements are made in
+>     accordance with our government contract at
+>     https://www.osti.gov/doecode/ the announcement requires the name
+>     and/or link to the OSS License. Having the PPPL version of the
+>     BSD-3-Clause-PPPL published on opensource.org
+>     <http://opensource.org> will reduce confusion by enabling links to
+>     the correct document.
+>
+>     It is most similar to LBNL's BSD-3
+>     license (https://opensource.org/license/bsd-3-clause-lbnl) with
+>     PPPL's name substituted throughout.
+>
+>     The license has not been through legal review.
+>
+>     I am happy to address any further questions or comments regarding
+>     this license.
+>
+>     Best,
+>
+>     Will Rarich
+>     Technology Transfer Specialist
+>     wrarich at pppl.gov
+>     Mobile: (908)-285-7143
+>     Visit us at https://innovation.pppl.gov/
+>     *Princeton Plasma Physics Laboratory* is a U.S. Department of
+>     Energy National Laboratory managed by Princeton University.
+>     PPPL
+>
+>     _______________________________________________
+>     The opinions expressed in this email are those of the sender and
+>     not necessarily those of the Open Source Initiative. Communication
+>     from the Open Source Initiative will be sent from an
+>     opensource.org email address.
+>
+>     License-review mailing list
+>     License-review at lists.opensource.org
+>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20250718/48e5732e/attachment-0001.htm>
+
+From rfontana at redhat.com  Wed Oct 22 13:35:07 2025
+From: rfontana at redhat.com (Richard Fontana)
+Date: Wed, 22 Oct 2025 09:35:07 -0400
+Subject: [License-review] OSI License Submission - PPPL BSD-3
+In-Reply-To: 
+ <CAKvc+Fyd5acrd64ojAbs_TmKvQeYuG+cP6jKp95etJPMpFoY4A@mail.gmail.com>
+References: 
+ <CAKvc+FxAs9a_y2-sCuc+TERh5P2rijPzf_YD2-AEPfi6nscb9g@mail.gmail.com>
+ <993260815.340135.1752845804986.JavaMail.zimbra@piana.eu>
+ <CAKvc+FxuOLoaupmRorBP7JOsu17e3uGCV9K7Gfu5W_XL1T_AZg@mail.gmail.com>
+ <CAKvc+Fyd5acrd64ojAbs_TmKvQeYuG+cP6jKp95etJPMpFoY4A@mail.gmail.com>
+Message-ID: 
+ <CAC1cPGyk12c9_oiAm0+nqR+TNYNfXhY11wuD22kBe_GN7z0amw@mail.gmail.com>
+
+If I understand correctly, the objection is actually to use of an SPDX
+identifier that refers to `LBNL`. I would say you should raise this with
+the SPDX legal team  and that this is not an OSI issue. (cc'ing Jilayne
+Lovejoy who's on the SPDX legal team)
+
+I suppose OSI could rename "Lawrence Berkeley National Labs BSD Variant
+License" to something more generic but I don't think that would guarantee
+that SPDX would follow suit with its corresponding identifier.
+
+But it seems somewhat akin to a project complaining about using
+`Apache-2.0` or `GPL-2.0-or-later` because the project is not affiliated
+with the Apache Software Foundation or the GNU project, respectively. It's
+an arguably charming feature of open source that licenses often have names
+with historical associations that refer to particular licensors -- indeed
+this is of course also true of "BSD". Especially on the SPDX identifier
+side, or in cases where an SPDX identifier is assigned before a license
+gets OSI-approved (possibly relevant to `BSD-3-Clause-LBNL`?), the problem
+is that sometimes the SPDX identifier has what I'd argue is the "wrong"
+historical association, in the sense that the license in question
+originated with some earlier licensor/author/copyright holder, though I
+don't know if that's relevant in this case.
+
+Richard
+
+
+On Wed, Oct 22, 2025 at 8:14 AM Will Rarich via License-review <
+license-review at lists.opensource.org> wrote:
+
+> Hi,
+>
+> I wanted to follow up on this discussion from earlier this year regarding
+> a genericization of the BSD-3-LBNL entry on the OSI site into one that can
+> be adapted to any DOE National Laboratory. We would like to have an OSI
+> link to refer to this preferred license, particularly within the metadata
+> of open source software listed in DOE CODE
+> <https://www.osti.gov/doecode/biblio/12565>. A "BSD-3-DOE" would be more
+> appropriate than the version naming LBNL.
+>
+> Please let me know if there's any other information PPPL can provide to
+> justify this request.
+>
+> Best,
+>
+> Will Rarich
+> Technology Transfer Specialist
+> wrarich at pppl.gov
+> Mobile: (908)-285-7143
+> Visit us at https://innovation.pppl.gov/
+> *Princeton Plasma Physics Laboratory* is a U.S. Department of Energy
+> National Laboratory managed by Princeton University.
+> [image: PPPL]
+>
+>
+> On Mon, Jul 21, 2025 at 1:00 PM Will Rarich <wrarich at pppl.gov> wrote:
+>
+>> Carlo,
+>>
+>> Thank you for your comments. Apologies for any confusion around the
+>> "claiming copyright" concept we mentioned in the request, it is just
+>> required in our government reporting obligations that we cite a published
+>> OSS license.
+>>
+>> Josh's suggestion to genericize the language in the BSD-LBNL on the OSI
+>> site is probably the ideal solution for us and other DOE labs. We only
+>> submitted this request because citing that version could be confusing,
+>> since it contains the specific name of the Lab.
+>>
+>> Best,
+>>
+>> Will Rarich
+>> Technology Transfer Specialist
+>> wrarich at pppl.gov
+>> Mobile: (908)-285-7143
+>> Visit us at https://innovation.pppl.gov/
+>> *Princeton Plasma Physics Laboratory* is a U.S. Department of Energy
+>> National Laboratory managed by Princeton University.
+>> [image: PPPL]
+>>
+>>
+>> On Fri, Jul 18, 2025 at 9:36 AM Carlo Piana <carlo at piana.eu> wrote:
+>>
+>>> Will,
+>>>
+>>> thank you for your submission.
+>>>
+>>> If I understand correctly, the main reason for creating a new license
+>>> and submit it as an approved license is to permit attribution of copyright?
+>>> I am rather opposed to have this kind of licenses approved, since the BSD
+>>> license has a placeholder and any name slotted in is by definition approved
+>>> and this one, if I understand it correctly, does not bring any difference
+>>> but the name, so it's the same license.
+>>>
+>>> Despite it not being necessarily an issue of proliferation, giving it a
+>>> different name when it's actually the same license, creates unnecessary
+>>> friction, clogs the namespace and creates a lot of issues in automated
+>>> license compatibility resolution, especially if it's given a separate SPDX
+>>> identifier.
+>>>
+>>> Besides, it is not the license the right place to claim copyright. In
+>>> source code there are standards like SPDX and REUSE and that one is the
+>>> (machine readable) way. In object code there are numerous ways too.
+>>>
+>>> Have you considered the above?
+>>>
+>>> Thank you very much.
+>>>
+>>> Carlo
+>>>
+>>>
+>>> ------------------------------
+>>>
+>>> *Da: *"Will Rarich via License-review" <
+>>> license-review at lists.opensource.org>
+>>> *A: *"license-review at lists.opensource.org" <
+>>> license-review at lists.opensource.org>
+>>> *Cc: *"Will Rarich" <wrarich at pppl.gov>
+>>> *Inviato: *Mercoledì, 9 luglio 2025 18:25:54
+>>> *Oggetto: *[License-review] OSI License Submission - PPPL BSD-3
+>>>
+>>> Hello,
+>>>
+>>> I work in the tech transfer office at the Princeton Plasma Physics Lab
+>>> (PPPL), a DOE National Laboratory, and I have recently taken up a
+>>> stewardship role over the lab's software portfolio. I am in the process of
+>>> ensuring we are compliant with our contractual obligations to the DOE in
+>>> how we obtain permission to copyright software, so there are a number of
+>>> "legacy" codes at the lab being open sourced in addition to anything newly
+>>> authored by our developers. My colleague Chris Wright has prepared a
+>>> preferred license for this process, a variant of Lawrence Berkeley National
+>>> Lab's BSD-3 license (https://opensource.org/license/bsd-3-clause-lbnl)
+>>> with PPPL's name substituted. We would like to have our license officially
+>>> approved by OSI to encourage its use when our developers decide to open
+>>> source through our office.
+>>>
+>>> As it pertains to this review process, this license would be considered
+>>> "new" as it has been in use for only a few months.
+>>>
+>>> The attached PPPL BSD-3 License complies with the Open Source
+>>> Definition, including clauses 3, 5, 6, and 9.
+>>>
+>>> Anarrima (https://github.com/PrincetonUniversity/anarrima) has been
+>>> made publicly available with the PPPL BSD-3 License, and several other
+>>> PPPL-developed codes will be imminently open sourced with it.
+>>>
+>>> The license steward is PPPL's Strategic Engagement and Applications
+>>> Development office (SEAD at pppl.gov).
+>>>
+>>> The license name is Princeton Plasma Physics Lab BSD Variant License
+>>> with the identifier BSD-3-Clause-PPPL.
+>>>
+>>> The gap filled by this additional license is PPPL's ability to assert
+>>> copyright on software authored by its staff and affiliates. When DOE-funded
+>>> software announcements are made in accordance with our government contract
+>>> at https://www.osti.gov/doecode/ the announcement requires the name
+>>> and/or link to the OSS License. Having the PPPL version of the
+>>> BSD-3-Clause-PPPL published on opensource.org will reduce confusion by
+>>> enabling links to the correct document.
+>>>
+>>> It is most similar to LBNL's BSD-3 license (
+>>> https://opensource.org/license/bsd-3-clause-lbnl) with PPPL's name
+>>> substituted throughout.
+>>>
+>>> The license has not been through legal review.
+>>>
+>>> I am happy to address any further questions or comments regarding this
+>>> license.
+>>>
+>>> Best,
+>>>
+>>> Will Rarich
+>>> Technology Transfer Specialist
+>>> wrarich at pppl.gov
+>>> Mobile: (908)-285-7143
+>>> Visit us at https://innovation.pppl.gov/
+>>> *Princeton Plasma Physics Laboratory* is a U.S. Department of Energy
+>>> National Laboratory managed by Princeton University.
+>>> [image: PPPL]
+>>>
+>>> _______________________________________________
+>>> The opinions expressed in this email are those of the sender and not
+>>> necessarily those of the Open Source Initiative. Communication from the
+>>> Open Source Initiative will be sent from an opensource.org email
+>>> address.
+>>>
+>>> License-review mailing list
+>>> License-review at lists.opensource.org
+>>>
+>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>
+>>> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Communication from the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20251022/d880e50f/attachment-0001.htm>
+
+From josh.berkus at opensource.org  Thu Oct 23 18:47:57 2025
+From: josh.berkus at opensource.org (Josh Berkus)
+Date: Thu, 23 Oct 2025 11:47:57 -0700
+Subject: [License-review] [External] Re:  OSI License Submission - PPPL
+ BSD-3
+In-Reply-To: <009901dc444c$5a603510$0f209f30$@lbl.gov>
+References: 
+ <CAKvc+FxAs9a_y2-sCuc+TERh5P2rijPzf_YD2-AEPfi6nscb9g@mail.gmail.com>
+ <993260815.340135.1752845804986.JavaMail.zimbra@piana.eu>
+ <CAKvc+FxuOLoaupmRorBP7JOsu17e3uGCV9K7Gfu5W_XL1T_AZg@mail.gmail.com>
+ <CAKvc+Fyd5acrd64ojAbs_TmKvQeYuG+cP6jKp95etJPMpFoY4A@mail.gmail.com>
+ <CAC1cPGyk12c9_oiAm0+nqR+TNYNfXhY11wuD22kBe_GN7z0amw@mail.gmail.com>
+ <c9343a2f-ae3a-43d7-9090-472baa053f4a@opensource.org>
+ <CAJXV7V6XYygWLJ0D=V1Hb0Z=eW1LCLdhcc+E2SaBg4M_NRGrTA@mail.gmail.com>
+ <e0117a36-e44a-44fa-8c3e-a3b6c99ec49f@opensource.org>
+ <CAJXV7V4Q28EiE-svnC0BGuzCL3wvxZ-8e97_gnU6pNPotjaV5g@mail.gmail.com>
+ <009901dc444c$5a603510$0f209f30$@lbl.gov>
+Message-ID: <dabfd062-a2b6-4eb8-9aad-947a609e8f89@opensource.org>
+
+On 10/23/25 11:39 AM, sainslie at lbl.gov wrote:
+> Hi. Not a problem. Was in use a few years before my time at LBNL (2015) 
+> and was used by LBNL first. If it becomes more generic regarding the 
+> copyright of the entity using it that’s fine by me. It would be nice if 
+> it could still be called the LBNL BSD as it is a variant BSD first used 
+> and created by LBNL.
+> 
+
+It's OSI practice to NOT rename licenses unless the original license 
+steward requests it.  That's not being proposed.
+
+-- 
+-- Josh Berkus
+OSI Board Member
