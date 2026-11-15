@@ -590,3 +590,21 @@ census の候補の外の未読の会話の 1 本（"License-review Digest, Vol 
 **この節が establish しないこと。** 各法域でソフトウェアに人格権がどう及ぶかの評価はしていない（`jurisdictions.md` の範囲）。
 
 **反映**: 1c 種（§12 が「法域で違うから要る」ことを逐条の §12 の行で示しているかの点検・THIRD §15.6 の掃引の対象・1c へ）。
+
+## 1.253 法廷地は外してよいが、準拠法は「名前空間の宣言」として解釈を助ける —— 法律家の手で磨かれていないライセンスほど、想定した法体系を告げるのが賢い（"Politics-Free Licence ;)"・2007-06）（2026-11-16）
+
+`license-discuss` 2007-06 の会話（6 通・census の会話の始まり 2007-06-28）を通読し、3 通を置いた（`rounds/2007-06-license-discuss-pfl-phipps-{omit-venue,uncertainty,system-of-law}-observed.txt`）。法律家でも開発者でもない個人が、英国法を準拠法とする短いライセンスの案を示した会話である。ドシエは準拠法を置かないことの有利な面（Open Logistics License の承認の告知 2023・`against.md` #254、Piana 氏 2025）を持つが、この逆側は持っていなかった。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"I also agree with McCoy. Given the freedom to do so, I would omit "choice of venue" from licenses, even though it might make corporate litigation a bit harder. When it comes to "choice of law" I regard that as a "namespace" declaration helping interpretation of the language of the license and am sympathetic towards including it, but I've seen the misunderstandings it causes in some communities."* | Simon Phipps 氏 2007-06-28（当時 Sun Microsystems） | **両面（§15.3）。** 法廷地を外すことには賛成で、ACD の §15.3（1.0 では §15.7）が法廷地を置かないことに合う。一方で準拠法は解釈を助ける「名前空間の宣言」と見て、置くことに好意的だった |
+| *"I'm not sure if this doesn't make it worse, Chuck. If we don't know what system of law is assumed in the interpretation of the license, or if it varies from use to use, I believe the community uncertainty it produces is worse, not better."* | Simon Phipps 氏 2007-06-28 | **逆側（§15.3）。** ACD の §15.3 は *"It is intended to operate under the law of each jurisdiction in which the Work is used, according to that law."* と書く。Phipps 氏の言う「使うたびに変わる」は、この形そのものである |
+| *"I'm saying that, in cases where the license has not been honed by many global legal minds to have layered and nuanced meaning (as the GPLv3 has been, for example), it is smart to tell the reader what system of law you had in mind when you were writing."* | Simon Phipps 氏 2007-06-29 | **逆側（§15.3 と B1）。** 多くの法律家の手で磨かれていないライセンスほど、想定した法体系を告げるべきだ、という線で、法的レビューの無い ACD（B1）にとって重い |
+
+**読み。** 準拠法について、決める側の文は 2 つの時点で逆を向いている。2007 年の Phipps 氏（後の OSI の会長）は、磨かれていないライセンスほど準拠法を告げるべきだとし、2023 年の理事会は準拠法の条は必要でも望ましくもないとした。ACD は後者に沿う。
+
+**逆側。** 2023 年の理事会の文は、準拠法を置いた提出（Open Logistics License）に「外してよい」と言ったもので、置かないことで解釈の不確かさが増すという Phipps 氏の懸念に答えてはいない。ACD の §15.3 は各法域の法で働くと書くが、各法域でどう読まれるかは法律家の問い（`QUESTIONS-FOR-COUNSEL.md`）のまま残る。Phipps 氏自身も同じ通で、準拠法の条が一部の共同体で誤解を生むのを見たと書いており、置くことの費用も認めている。
+
+**この節が establish しないこと。** Phipps 氏の 2007 年の見方が、その後の OSI の運用に引き継がれたかは確かめていない（2023 年の理事会の文はその逆を向く）。
+
+**反映**: against #254（準拠法を置かないことの有利な面に、2007 年の逆側の記録を並べる・30 へ）/ 1c 種（§15.3 に「書いたときに想定した法体系」を告げる一文が要るかの試作・語数の費用と、2023 年の理事会の文との釣り合い・1c へ）。
