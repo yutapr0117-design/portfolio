@@ -399,11 +399,15 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 
 > **English:**
 >
-> Because the question was put in 2015 and set aside rather than decided, and
-> the licences approved since then share the property. The Free Public License
-> (now 0BSD) was approved after the chair wrote that it did not justify
-> "special examination by the OSI"; the Unlicense and MIT-0 were approved in
-> 2020. Section 10.2 has the same effect as all three; it differs only in
+> Because the question was put in 2015 and set aside, and the committee has
+> since named the property and approved a second licence with it. The Free
+> Public License (now 0BSD) was approved after the chair wrote that it did not
+> justify "special examination by the OSI". In 2020 the committee's rationale
+> for MIT-0 said that it and 0BSD "have the same modification to their origin
+> license, which is to remove the requirement that the copyright notice and
+> permission notice be included in copies of the software", recorded that "no
+> one raised a substantive objection to its approval", and recommended it; the
+> Unlicense was approved the same year. Section 10.2 has the same effect as all three; it differs only in
 > saying so in terms ("You need not ... reproduce any notice ... retain this
 > file"), so that no one has to infer it.
 >
