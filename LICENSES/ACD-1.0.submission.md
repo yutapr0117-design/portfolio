@@ -550,9 +550,10 @@ Submit via https://tools.spdx.org/app/submit_new_license/ (preferred) or the
    point to the section of the draft's header that lists the changes made since that posting (`OSI-APPROVAL-PLAN.md` §4, step 6b). If the posting was rejected in
    moderation, say so rather than counting the days from the attempt.
 10. **No thread in the archive's list of candidates is left unread, and every reading has been
-    acted on.** `LICENSES/AS-OF.md` shows the unread count; it must be 0, and every section of
-    the `ACD-1.0.review-readings*.md` files must end with a line saying where its finding went,
-    or why nowhere (`REVISION-PROTOCOL.md` §3.6, row 6c). The owner set this on 2026-11-15: a
+    acted on.** Re-run the census on an archive fetched that day: the unread count must be 0.
+    Every reading must record where its finding went, or why nowhere, with none left "to be
+    decided" (sections from 1.242 on, in a closing line; earlier ones, in a table still being
+    built) (`REVISION-PROTOCOL.md` §3.6, row 6c). The owner set this on 2026-11-15: a
     submission sent while threads remain unread or unreflected is not of the quality to send.
 
 ---
