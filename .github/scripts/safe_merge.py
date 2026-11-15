@@ -33,13 +33,24 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 
 
 def run(cmd: list[str], cwd: Path = ROOT, check: bool = True) -> subprocess.CompletedProcess:
-    return subprocess.run(cmd, cwd=cwd, text=True, capture_output=True, check=check)
+    # git fetch は一時的に落ちる (2026-11-15・#3198 で CI 緑の後の fetch が exit 1 → traceback で merge されなかった。
+    #   手で回し直すと通った)。fetch だけ 3 回まで間隔を空けて試す。他のコマンドは 1 回 (merge を 2 度打たない)
+    tries = 3 if cmd[:2] == ["git", "fetch"] else 1
+    for i in range(tries):
+        r = subprocess.run(cmd, cwd=cwd, text=True, capture_output=True)
+        if r.returncode == 0 or i == tries - 1:
+            break
+        time.sleep(10 * (i + 1))
+    if check and r.returncode:
+        raise subprocess.CalledProcessError(r.returncode, cmd, r.stdout, r.stderr)
+    return r
 
 
 def overlay_check(pr: str, head: str, base: str) -> tuple[bool, str]:
@@ -205,7 +216,6 @@ def main(argv: list[str]) -> int:
     state = json.loads(run(["gh", "pr", "view", pr, "--json", "state"]).stdout)["state"]
     if state != "MERGED" and "already in progress" in (r.stdout + r.stderr):
         # 別の人が同じ PR を同時に merge している (2026-11-15・#3139 で 50 と重なった)。少し待って状態を読み直す
-        import time
         time.sleep(15)
         state = json.loads(run(["gh", "pr", "view", pr, "--json", "state"]).stdout)["state"]
     print(f"{'MERGED' if state == 'MERGED' else 'STOP: merge できなかった'}: #{pr}\n{r.stdout}{r.stderr}".rstrip())
