@@ -503,6 +503,14 @@ _MUTATIONS_TAIL.append({
     "replace": "（#322・**[CLOSED]**）",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 468 (468i 逆向き): 草案冒頭の箇条が 1.2 で閉じた E24 も名乗る —— 旧版は「閉じた errata が箇条に載るか」しか見ず、"
+            "箇条が別の版で閉じた番号や存在しない番号を名乗っても通った (2026-11-15)",
+    "file": CURRENT_DRAFT,
+    "find": "(errata E55)",
+    "replace": "(errata E55, E24)",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
