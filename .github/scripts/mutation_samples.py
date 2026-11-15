@@ -527,6 +527,14 @@ _MUTATIONS_TAIL.append({
     "replace": "§8.1 は *\"resulting from\"*",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 472n: QUESTIONS-FOR-PRACTITIONERS の草案の引用の 1 語を変える (automated → automatic) —— 英語で実務家に問う文書は"
+            "入口の面に入っておらず、草案の引用を変えてもどの Check も鳴らなかった (2026-11-15)",
+    "file": ROOT / "LICENSES" / "QUESTIONS-FOR-PRACTITIONERS.md",
+    "find": "any automated processing of the Work",
+    "replace": "any automatic processing of the Work",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

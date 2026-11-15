@@ -371,7 +371,9 @@ def entry_quotes(root="."):
 
     found = {}
     # register の英語の索引も、入口と同じく審査者が英語で最初に読む面 (portfolio-00 の提案・2026-11-08)
-    faces = [f for f in FACES if FIRST_READ.search(f)] + ["ACD-OSI-BOTTLENECKS.md"]
+    # 実務家に英語で問う QUESTIONS-FOR-PRACTITIONERS も入口と同じく英語で直接読まれる (2026-11-15・9b): 草案の引用を 1 語
+    #   変えても、どの Check も鳴らなかった (QUESTIONS-FOR-PRACTITIONERS は 1.4 草案の番号で書かれている)
+    faces = [f for f in FACES if FIRST_READ.search(f)] + ["ACD-OSI-BOTTLENECKS.md", "QUESTIONS-FOR-PRACTITIONERS.md"]
     for face in faces:
         with open(f"{root}/LICENSES/{face}", encoding="utf-8") as fh:
             for n, line in enumerate(fh, 1):
