@@ -143,7 +143,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 
 import json
 import re
-from _lib_dossier import against_text, is_against  # register (against) の file の一覧は 1 か所
+from _lib_dossier import against_text, counsel_question_count_misses, is_against  # register (against) の file の一覧は 1 か所
+from _lib_draft_counts import draft_length_claims  # face (x) の本体
 import sys
 from types import SimpleNamespace  # noqa: F401  (ctx の型を読者に示すためだけの import)
 
@@ -845,77 +846,17 @@ def run(ctx):
                             "(数を写さず、Check の OK 行に述べさせること)")
 
         # (w) 質問集を名指す行の問数 = `## N.` の実数 (bb / 25 提案)。行内の最後の数で判定 (468k と同じ・日付つき
-        #   追記で直した行を通す)。序数「第 N 問」と、その時点の記録である against.md は対象外。
-        _qfc460w = _L460 / "QUESTIONS-FOR-COUNSEL.md"
-        _nq460w = len(re.findall(r"(?m)^## \d+\.", _qfc460w.read_text(encoding="utf-8"))) if _qfc460w.exists() else 0
-        _W460 = dict(zip("one two three four five six seven eight nine ten eleven twelve".split(), range(1, 13)))
-        # 数の前の \b を (?<![0-9]) に (2026-11-12・監査 #135): 「全8問」の 全 と 8 はどちらも語の文字で \b が立たず、
-        #   数えなかった。質問集とその mirror の中では、名前を書かない「尋ねたい N 問」「全 N 問」の行も読む
-        _rx460w = re.compile(r"(?<!第)(?<!第 )(?<![0-9])(\d+) ?問|\b(" + "|".join(_W460) + r") questions\b|\ball (" + "|".join(_W460) + r")\b", re.I)
-        for _p460w in sorted(_L460.glob("*.md")) + sorted((ROOT / "docs/files/LICENSES").glob("*.md")):
-            if is_against(_p460w.name):
-                continue
-            for _n460w, _l460w in enumerate(_p460w.read_text(encoding="utf-8").splitlines(), 1):
-                _named460w = "QUESTIONS-FOR-COUNSEL" in _l460w or (
-                    _p460w.name.startswith("QUESTIONS-FOR-COUNSEL") and re.search(r"(?:全|尋ねたい|計) ?\d+ ?問", _l460w))
-                _h460w = list(_rx460w.finditer(_l460w)) if _named460w else []
-                _g = _h460w[-1] if _h460w else None
-                if _g and (int(_g.group(1)) if _g.group(1) else _W460[(_g.group(2) or _g.group(3)).lower()]) != _nq460w:
-                    _bad460.append(f"(w) {_p460w.name}:{_n460w} が質問集を {_g.group(0)!r} と述べる / 実数 {_nq460w}")
+        #   追記で直した行を通す)。序数「第 N 問」と against.md は対象外。本体は _lib_dossier.counsel_question_count_misses
+        for _msg460w in counsel_question_count_misses(_L460, ROOT / "docs/files/LICENSES"):
+            _bad460.append(_msg460w)
 
         # (x) 外向きの文書が「いまの草案」の長さとして述べる数 = 草案の実測 (2026-11-15・9b)。B3 の見出しと
-        #   SUBMISSION-MATERIALS の長さの行は「N.M 草案は題名から 5,555 語で GPL-3.0 より 89 語短く、条文では 597 語長い」と
-        #   現在形で述べ、後者は「Check 468 が実測と照合する」とまで書いていたが、468 が照合するのは草案冒頭の申告だけで、
-        #   この 2 行は誰も見ていなかった (1c の T61/T62 の +18 語で 3 つの数が黙って古くなるところだった)。長さは
-        #   審査者が最初に見る数の 1 つで、GPL-3.0 より短いかどうかは B3 の有利な事実なので、古い数は弁護を嘘にする。
-        #   読むのは「N.M 草案は」を含む行の、最初の日付つきの追記 (**2026- / （2026-) より前だけ (後ろは当時の記録)。
-        #   英語の "N words from the title to *END OF TERMS*" は読まない —— それは「1.0 から何が変わったか」の下書きで、
-        #   498 (j) が「切り替えの日に数え直す」ので CHANGELIST では ADVISORY と決めてある (11-15 に一度読み、二重に縛った)。数え方: 題名から = 区切り線の後
-        #   から END OF TERMS まで、条文 = `1.` の見出しから END OF TERMS の手前まで (SUBMISSION-MATERIALS の数え方)。
-        #   GPL-3.0 の数は reviewer-positions.md の表から読み、読めなければ RED (黙って定数にしない)
-        _drs460x = [_p for _p in sorted(_L460.glob("ACD-*-DRAFT.txt"))
-                    if "HAS BEEN FROZEN" not in _p.read_text(encoding="utf-8").split("\n", 1)[0]]
-        _gpl460x = re.search(r"^\| GPL-3\.0 \| \*\*([\d,]+)\*\* \| \*\*([\d,]+)\*\* \|",
-                             (_L460 / "ACD-1.0.reviewer-positions.md").read_text(encoding="utf-8"), re.M)
-        _n460x = 0
-        if len(_drs460x) != 1 or not _gpl460x:
+        #   SUBMISSION-MATERIALS の長さの行は現在形で語数と GPL-3.0 との差を述べるが、誰も照らしていなかった。
+        #   数え方と読む範囲は _lib_draft_counts.draft_length_claims (この module が予算 875 を越えたので本体を移した)
+        _n460x, _msgs460x = draft_length_claims(_L460, is_against)
+        for _msg460x in _msgs460x:
             # (x)
-            _bad460.append(f"(x) 作業中の草案がちょうど 1 つでない ({[_p.name for _p in _drs460x]}) か、"
-                           "reviewer-positions.md の GPL-3.0 の行 (題名から / 条文) を読めない")
-        else:
-            _ver460x = re.match(r"ACD-(\d+\.\d+)-DRAFT", _drs460x[0].name).group(1)
-            _b460x = _drs460x[0].read_text(encoding="utf-8").split("-" * 80, 1)[-1]
-            _e460x = _b460x.find("END OF TERMS")
-            _s460x = re.search(r"^1\.\s", _b460x, re.M)
-            _title460x = len(_b460x[:_e460x + len("END OF TERMS")].split())
-            _ops460x = len(_b460x[_s460x.start():_e460x].split()) if _s460x and _e460x > 0 else -1
-            _gt460x, _go460x = (int(_g.replace(",", "")) for _g in _gpl460x.groups())
-            _want460x = [  # (正規表現, 正しい値, 何の数か)
-                (r"題名から(?:は)? ?([\d,]+) ?語", _title460x, "題名からの語数"),
-                (r"GPL-3\.0[^。、]*?より ?([\d,]+) ?語短", _gt460x - _title460x, "題名からの GPL-3.0 との差"),
-                (r"END OF TERMS\*? ?(?:の手前)?までが ?([\d,]+) ?語", _ops460x, "条文の語数"),
-                (r"条文では ?([\d,]+) ?語長い", _ops460x - _go460x, "条文の GPL-3.0 との差"),
-                (r"同じ数え方で [\d,]+ ?語・\+([\d,]+)", _ops460x - _go460x, "条文の GPL-3.0 との差"),
-            ]
-            for _p460x in sorted(_L460.glob("*.md")) + sorted((ROOT / "docs/files/LICENSES").glob("*.md")):
-                if is_against(_p460x.name) or "CLARITY-TRIAL" in _p460x.name:
-                    continue
-                for _ln460x, _l460x in enumerate(_p460x.read_text(encoding="utf-8").splitlines(), 1):
-                    if f"{_ver460x} 草案は" not in _l460x:
-                        continue
-                    _seg460x = _l460x[_l460x.index(f"{_ver460x} 草案は"):]
-                    _cut460x = re.search(r"\*\*20\d\d-\d\d-\d\d|（20\d\d-\d\d-\d\d", _seg460x)
-                    _seg460x = _seg460x[:_cut460x.start()] if _cut460x else _seg460x
-                    for _rx, _v, _what in _want460x:
-                        for _m in re.finditer(_rx, _seg460x):
-                            _n460x += 1
-                            if int(_m.group(1).replace(",", "")) != _v:
-                                # (x)
-                                _bad460.append(f"(x) {_p460x.name}:{_ln460x} の{_what} {_m.group(0)!r} / 草案の実測から {_v}")
-            if not _n460x:
-                # (x)
-                _bad460.append("(x) 草案の長さを述べる行が 1 つも見つからない (B3 と SUBMISSION-MATERIALS の長さの行の形が"
-                               "変わったなら本 face を直すこと —— 無いと黙る gate にしない)")
+            _bad460.append(_msg460x)
 
         check(
             not _bad460,
