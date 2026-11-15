@@ -279,7 +279,7 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 
 ## What to open first
 
-**Reading order.** If you have ten minutes: the objection map, then the licence. If you are deciding: add what was actually sent, and the errata. **The case against is the full record and the longest document in this directory** — it is where the objection map points, not a substitute for it. Nothing in it is summarised away anywhere else, and **nothing in it will be shortened**: this directory treats a shrinking adverse list as erasure rather than improvement (`REVISION-PROTOCOL.md` §2).
+**Reading order.** If you have ten minutes: the table under *The new language* above (what is new, next to the nearest approved text), the objection map, then the licence. If you are deciding: add what was actually sent, and the errata. **The case against is the full record and the longest document in this directory** — it is where the objection map points, not a substitute for it. Nothing in it is summarised away anywhere else, and **nothing in it will be shortened**: this directory treats a shrinking adverse list as erasure rather than improvement (`REVISION-PROTOCOL.md` §2).
 
 | | File | Note |
 |---|---|---|
