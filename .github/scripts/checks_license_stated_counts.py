@@ -17,6 +17,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (j) 「1.0 から何が変わったか」の英文 (CHANGELIST の切り替えの日の節・切り替えた後は REVIEWERS) が述べる
        errata の件数・閉じた件数と版ごとの内訳・残る E-ID・節ごとの件数・語数と条の数が、
        prepare_version_freeze.py の errata_closures() / size() と一致すること (2026-11-11・portfolio-00 の依頼) /
+       (k) 草案の CHANGELIST の「## 語数の内訳」が述べる前版の語数と差・束の表の合計・名指した N 束の和・1.0 の語数と差が、
+       表と size() の実測に一致すること (2026-11-15・9b。50 が「増えた語の大半」の 263 ≠ 148 + 118 に気付いた) /
        (i) AS-OF の「答えていない問い」の行の「**N 件**」が、状態の欄の「**Q1**」「**Q2**」… の数と
        一致し、番号が 1 から N まで欠けず、各件が「；」で終わり、届いた日・`rounds/<file>`（実在）・§（私信の stub を
        指す件は § を書かず「—」）と、
@@ -237,12 +239,41 @@ def run(ctx):
                         f"(j) {p.name}: 語数と条の数 {mw.groups()} / 実測 {tp.name} {w1} 語 {c1} 条・1.0 {w0} 語 {c0} 条")
     if not hits_j:
         bad.append("(j) 「1.0 から何が変わったか」の英文 (Of the N defects recorded against 1.0 …) が CHANGELIST にも REVIEWERS にも読めない")
+
+    # (k) 草案の CHANGELIST の「語数の内訳」の数 (2026-11-15・9b。50 が気付いた): 束の表は 468s の範囲外で、
+    #   「増えた語の大半（+N）」は 2 束の和として手で作られ、main で既に 263 ≠ 148 + 118 だった。1c が束の名前を
+    #   文に書いたので (add2bdc4)、名指した束の和を表から導出して照合する。同じ節の「前版の N 語から +M 語」
+    #   「束の表の合計」「1.0 の N 語から見ると M 語長い」も size() の実測と照合する。束の中身 (どの変更をどの束に
+    #   入れるか) は判断なので照合しない
+    drafts_k = [p for p in sorted(L.glob("ACD-*-DRAFT.txt")) if "HAS BEEN FROZEN" not in text(p).split("\n", 1)[0]]
+    ver_k = re.match(r"ACD-(\d+\.\d+)-DRAFT", drafts_k[0].name).group(1) if len(drafts_k) == 1 else None
+    cl_k = text(L / f"ACD-{ver_k}-CHANGELIST.md") if ver_k and (L / f"ACD-{ver_k}-CHANGELIST.md").exists() else ""
+    sec_k = cl_k.split("\n## 語数の内訳", 1)[1].split("\n## ", 1)[0] if "\n## 語数の内訳" in cl_k else ""
+    m_k = re.search(r"(\d+\.\d+) の ([\d,]+) 語から " + re.escape(str(ver_k)) + r" 草案は ([+−-]\d+) 語", sec_k)
+    rows_k = re.findall(r"^\| ([^|]+?) ?\| ([+−-]\d+) \|", sec_k, re.M)
+    sum_k = re.search(r"（([^（）]+?)の (\d+) 束で ([+−-]\d+)）", sec_k)
+    old_k = re.search(r"1\.0 の ([\d,]+) 語から見ると (\d+) 語長い", sec_k)
+    sn = lambda s: int(s.replace("−", "-").replace(",", ""))
+    if not (m_k and rows_k and sum_k and old_k and (L / f"ACD-{m_k.group(1)}.txt").exists()):
+        bad.append(f"(k) ACD-{ver_k}-CHANGELIST.md の「## 語数の内訳」の文 (前版の語数と差・束の表・N 束の和・1.0 との差) が読めない")
+    else:
+        w_k, w_prev, w_10 = (size(text(p))[0] for p in (drafts_k[0], L / f"ACD-{m_k.group(1)}.txt", L / "ACD-1.0.txt"))
+        tab_k = {n.strip(): sn(v) for n, v in rows_k if n.strip() != "束"}
+        names_k = [n.strip() for n in re.split(r"、|，|,", sum_k.group(1)) if n.strip()]
+        picked_k = [k for k in tab_k if any(k.startswith(n) for n in names_k)]
+        for what, got, want in (("前版の語数", sn(m_k.group(2)), w_prev), ("前版からの差", sn(m_k.group(3)), w_k - w_prev),
+                                ("束の表の合計", sum(tab_k.values()), w_k - w_prev),
+                                ("名指した束の数", int(sum_k.group(2)), len(names_k)),
+                                ("名指した束の和", sn(sum_k.group(3)), sum(tab_k[k] for k in picked_k) if len(picked_k) == len(names_k) else None),
+                                ("1.0 の語数", sn(old_k.group(1)), w_10), ("1.0 からの差", int(old_k.group(2)), w_k - w_10)):
+            if got != want:
+                bad.append(f"(k) ACD-{ver_k}-CHANGELIST.md の語数の内訳: {what} {got} / 表と実測から {want}")
     check(not soft_j, "Check 498 (ADVISORY): 「1.0 から何が変わったか」の下書きの語数と条の数が草案と一致",
           f"Check 498 (ADVISORY): {soft_j}。下書きの語数は切り替えの日に prepare_version_freeze.py --report の値へ直す", blocking=False)
 
     check(
         not bad,
-        "Check 498: 自己申告の文の 2 つ目の数と繰り返しが実測と一致 (errata / comparison / faq mirror / §4c / register / 逐条 / 分冊 / 未読スレッドの和と一覧 / 答えていない問いの件数 / 1.0 からの変化の数)",
+        "Check 498: 自己申告の文の 2 つ目の数と繰り返しが実測と一致 (errata / comparison / faq mirror / §4c / register / 逐条 / 分冊 / 未読スレッドの和と一覧 / 答えていない問いの件数 / 1.0 からの変化の数 / 語数の内訳)",
         (f"Check 498: 自己申告の文の 2 つ目の数が実測と合わない: {bad}。1 つ目の数 (Check 460) だけを直すと、"
          "同じ文の 2 つ目と隣の繰り返しが偽のまま残る"),
         blocking=True,
