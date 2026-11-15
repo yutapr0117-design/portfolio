@@ -293,7 +293,7 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
 | **What we would ask a lawyer** | [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) | ACD has had no legal review. Nine questions on which a lawyer's reading would most change the text, ranked by consequence, each answerable on its own |
 | **What we would ask someone who builds ML systems** | [`QUESTIONS-FOR-PRACTITIONERS.md`](QUESTIONS-FOR-PRACTITIONERS.md) | The review record asks for this reader by name. Five questions on whether the machine-learning clauses (§1.7, §6.2, §6.3, §6.4, §8.4, §2.6) match a real pipeline, each answerable on its own |
-| **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 83 known imprecisions, all unrepaired in 1.0 while the freeze holds, with what the successor does (the Status column is authoritative) |
+| **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 84 known imprecisions, all unrepaired in 1.0 while the freeze holds, with what the successor does (the Status column is authoritative) |
 | Known weaknesses, longer form | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) | **Mostly Japanese.** Stated by us, before you have to find them |
 
 ## Disclosures you should not have to dig for
