@@ -227,6 +227,8 @@ the 1.0 text.
 
 **2026-11-15 に足した（4 つ目）—— 名前を持たない型板は、2003 年には運用として述べられていた（`review-readings-3.md` §1.306）。** Russell Nelson 氏 2003-04-23 *"For example, the Zope Public License contains the name of the Zope Corporation within it. If you want to use it, you need to create a derivative license, which in most cases will earn a rubber stamp."* ACD は本文に固有名詞を持たないので、この派生の手間が無い。**逆側**: 名前を変えただけの派生が通りやすい、という話で、新しいライセンスの名前（「Commons」「Dedication」）の審査には答えない。
 
+**2026-11-15 に足した（5 つ目）—— 「Autonomous」を名に持つ先行のライセンスが在った（`review-readings-2.md` §1.249・portfolio-2f）。** 2019-01 に Holo のために準備されたライセンスは、告知の文で "Autonomous Agent License" と呼ばれ（Bruce Perens 氏の通に引かれた形でアーカイブに残る）、のちに Cryptographic Autonomy License（CAL）として 2020 年に承認された。Perens 氏の批判は条項（API の実装への条件）に向けられ、名には向いていない。**逆側**: 改名の理由は記録の範囲では分からない。ACD の名がこの先行の名と混同されうるかも確かめていない。
+
 ## B8 —— §12 人格権。**同じ条項が「gap」と「mission creep」の両方で名指しされている**
 
 **この項目が難しいのは、賛否が割れているからではなく、賛否が同じ条項の別の面を見ているからである。**
