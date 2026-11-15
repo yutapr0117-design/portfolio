@@ -28,9 +28,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
   Changes in this draft, relative to ACD-1.3:
 
     * The Preamble now says that Section 3 surrenders "the Covered Rights",
-      where it said "the rights" (errata E55), and that the existing tools
-      "leave a gap" in the three places, a neutral word where it used a
-      stronger one. (0 words.)
+      where it said "the rights" (errata E55), and names the three places as
+      those "where that assumption fails", the assumption its first paragraph
+      states, instead of judging the existing tools. (-3 words.)
     * Section 1.2 now says that Moral Rights include any right of a personal
       character conferred on an author by law "now or in future", the words
       Sections 1.5 and 8.1 use (errata E50). (+4 words.)
@@ -238,7 +238,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5572 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5569 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -272,7 +272,7 @@ PREAMBLE (informative; not part of the operative terms)
   This Dedication is written for works that are meant to be learned from. It
   gives away, once and without conditions, every right it reaches -- and
   Section 11 names the ones it does not -- and it speaks in the three places
-  where the existing tools leave a gap: machine learning, patents, and machine
+  where that assumption fails: machine learning, patents, and machine
   authorship.
 
   It does so on three footings that stand side by side rather than in a queue.

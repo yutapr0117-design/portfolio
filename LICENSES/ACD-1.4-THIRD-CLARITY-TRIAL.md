@@ -123,6 +123,16 @@ Check 468y は 2 冊目とこの file の両方の「変えない」「退けた
 
 **⚠ 逆側**: (1) *gap* は B10 で我々が論じ、審査者が問う当の語で、前文がそれを当然のように述べると B10 の答えを先取りしていると読まれうる。中立の語の候補（*"where the existing tools say little"*）もあるが、特許を明示に留保する道具（CC0）を「言わない」とは言えないので、3 つを覆う語として *gap* を採った。(2) 前文の有利な面（*"written for works that are meant to be learned from"* が曖昧な条を受け手の側に読ませる）は変えない。(3) 2f の種の (2)（「本文を変えない」判断を、その読みを持つ本文の語と並べる）は、§14.x と §15.x の「変えない」節が既にその形（変えない理由に本文の語を引く）を持つので、別の表は作らない。
 
+### 15.9 T73: 前文の三つの場所を「その前提が崩れる所」と呼ぶ（−3 語・採った・2026-11-16）
+
+**見つけた経緯（portfolio-30 の T72 への反例）**: T72 で採った *"where the existing tools leave a gap"* は、前文の第 1 段落が道具を限って述べた正確な文を、限定の無い「既存の道具」一般の断定に広げていた。第 1 段落は、機械が作った素材の権利は未決（道具の話ではない）、*"Permissive licences are silent on whether a work may be used to train a model"*、*"dedications to the public domain either withhold patent rights expressly or say nothing about them at all"* と、場所ごとに道具を限っている。特許の許諾を持つ Apache-2.0・Blue Oak・UPL も既存の道具なので、審査者が B10（H1-g）を問うとき、前文が「特許について既存の道具に穴がある」と一般に言い切る形になる。
+
+**Before**: *"… it speaks in the three places where the existing tools leave a gap: machine learning, patents, and machine authorship."* **After**: *"… where that assumption fails: machine learning, patents, and machine authorship."*
+
+**30 の案から変えた点**: 30 は *"where those tools leave a gap"*（−1 語）を挙げ、逆側として *those* が第 1 段落の *"The legal tools in common use"*（一般）まで広がれば効かないこと、機械による著作の場所では第 1 段落が道具を名指していないことを書いた。*"that assumption"* は第 1 段落の *"That assumption now fails in three places at once"* を受けるので、3 つの場所がそのまま一致し、道具の良し悪しを何も言わない。
+
+**⚠ 逆側**: (1) 前文は非作用で、効くのは審査者が前文を意図の証拠として読むとき（Chestek 氏 2020・`review-readings-2.md` §1.251）だけ。(2) 2 回続けて同じ文を直した（T72・T73）—— 審査中の改訂を嫌う審査者（Berkus 氏 2018）の目には、確定の前の草案の中のことなので当たらないが、投稿の差には最後の形だけが出る。(3) 前文が「既存では足りない」と言わなくなったので、B10 の主張は入口と提出の材料が受け持つ。
+
 ## 16. 模擬委員会 —— 記録に立場が厚く残る審査者の目で 1.4 草案を通読する（2026-11-15〜）
 
 **仕組み**: オーナーの依頼（「5 人で話し合って、より良い案をガンガン実行して」）を受けて、portfolio-1c が出し 5 人で決めた。記録に立場が厚く残る 5 人の審査者を 1 人ずつ受け持ち（30 = Chestek 氏、50 = Fontana 氏、2f = Perens 氏、9b = Smith 氏、1c = Villa 氏）、その人の過去の文だけを根拠に、その人の目で 1.4 草案を頭から通読して「どこを突くか」を条番号つきで出す。根拠の無い推測は書かない（必ずその人の文を引く）。各節は表（基準と出典 | 当たる条 | 扱い済みの場所 | 残る点）と、条を変える指摘（試作の種）を持つ。**0 件でも表を残す** —— 審査者の基準を網羅して当てた記録になる。**この節が establish しないこと**: 模擬であって、その人が実際にそう言うことを意味しない。
