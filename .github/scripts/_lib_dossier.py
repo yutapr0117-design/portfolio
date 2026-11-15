@@ -324,7 +324,7 @@ def reflect_field_misses(licenses_dir: Path) -> tuple[int, list[str], list[str]]
 
 # ── 古い節の反映の表 (REFLECTION-BACKFILL.md・Check 501 の 2 つ目の面・2026-11-15) ─────────────────
 REFLECT_SCOPE_EXCLUDE = ("ACD-1.0.comparison.md", "REVISION-PROTOCOL.md")  # §1.N が読みの節でない文書 (CHANGELIST も外す)
-_BF_CELL = re.compile(r"^(?:`?(?P<file>[A-Za-z0-9.\-]+\.md)`?\s+)?(?P<num>1\.\d+)$")
+_BF_CELL = re.compile(r"^(?:`?(?P<file>[A-Za-z0-9.\-]+\.md)`?\s+|(?P<stem>[a-z][a-z0-9\-]+)\s+)?(?P<num>1\.\d+)$")
 
 
 def _reflect_targets(licenses_dir: Path, cell: str, ag_lines: dict[int, str], er_lines: dict[str, str]) -> list[str]:
@@ -372,12 +372,17 @@ def backfill_table_misses(licenses_dir: Path) -> tuple[int, list[str], list[str]
             #   つもりで照合だけ外れる (2026-11-15・50 の #3251 の「review-precedents 1.45」42 行・安全網の規律 (3))
             if cells and (cells[0] == "節" or re.fullmatch(r":?-{2,}:?", cells[0])):
                 continue
-            bad.append(f"REFLECTION-BACKFILL の行 {cells[0][:40]!r}: 番号のセルが「1.N」か「`<file>.md` 1.N」の形でない (照合から外れる)")
+            bad.append(f"REFLECTION-BACKFILL の行 {cells[0][:40]!r}: 番号のセルが「1.N」「`<file>.md` 1.N」「<名> 1.N」の形でない (照合から外れる)")
             continue
         n += 1
         num = int(m.group("num").split(".")[1])
         where = f"REFLECTION-BACKFILL の行 {cells[0]}"
-        hits = [k for k in heads if k[1] == num and (not m.group("file") or k[0] == m.group("file"))]
+        # 短い形「review-precedents 1.45」は ACD-1.0.<名>.md を指す (2026-11-15・5 人の表に 42 行がこの形で入った)。名が実在しなければ RED
+        fname = m.group("file") or (f"ACD-1.0.{m.group('stem')}.md" if m.group("stem") else None)
+        if fname and not (licenses_dir / fname).exists():
+            bad.append(f"{where}: 文書 {fname} が無い")
+            continue
+        hits = [k for k in heads if k[1] == num and (not fname or k[0] == fname)]
         if len(hits) != 1:
             bad.append(f"{where}: 見出し `## 1.{num}` が {len(hits)} 個に当たる" + ("" if hits else " (無い)") +
                        ("" if m.group("file") or len(hits) < 2 else " —— 床の下の番号は「`<file>` 1.N」と書く"))
