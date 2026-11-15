@@ -1,0 +1,469 @@
+Source: OSI license-review public archive, 2014-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 4 of 24 in "Sublicensing" (begun 2014-09-11)
+Senders: Pamela Chestek, Lawrence Rosen
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Thu Sep 11 13:21:30 2014
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Thu, 11 Sep 2014 09:21:30 -0400
+Subject: [License-review] Sublicensing
+In-Reply-To: <068001cfcc71$b8b341c0$2a19c540$@rosenlaw.com>
+References: <CE7A9790-D53E-46FA-8A5C-080F56AFB060@oracle.com>	<3972E81A-A83E-44D2-92BE-6843C3057C03@oracle.com>	<20140829071658.GA31436@sharpeleven.org>	<5402BF08.9090800@postgresql.org>	<461EC60F-18D9-4C9F-883E-BDD8137D71AA@oracle.com>	<54074FC5.20506@postgresql.org>	<43F8E0E7-EBF6-4DBF-AD7E-F9790B695827@oracle.com>	<5408B9F6.4040201@postgresql.org>	<C7B97045-726D-41E6-BB3F-478FE06568A7@oracle.com>	<065201cfcc68$3e7e8da0$bb7ba8e0$@rosenlaw.com>
+	<068001cfcc71$b8b341c0$2a19c540$@rosenlaw.com>
+Message-ID: <5411A1DA.5050908@chesteklegal.com>
+
+Changing subject line ...
+
+On 9/9/2014 5:04 PM, Lawrence Rosen wrote:
+> Once we agree on those basic principles, then it is fair to ask
+> whether "sublicensing" actually provides anything different or whether
+> it is an ancient commercial licensing word that was thrown into the
+> MIT and other licenses among the 17 USC 106 "copyright rights"
+> actually being licensed for no important purpose.
+
+I believe the difference will be whether the downstream recipient is
+obliged to satisfy the covenants of the license versus the conditions.
+One can only sublicense the rights one has, so if the original grant has
+conditions on the grant, then the sublicensee will also be obliged to
+satisfy the same conditions. However, to the extent the license has
+covenants, those are a creature of contract only, and since there is no
+privity between the original licensor and sublicensee, the sublicensee
+wouldn't be obliged to satisfy the covenants.
+
+Pam
+
+Pamela S. Chestek, Esq.
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+PGP key 246A430A
+
+
+
+From lrosen at rosenlaw.com  Thu Sep 11 15:49:35 2014
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Thu, 11 Sep 2014 08:49:35 -0700
+Subject: [License-review] Sublicensing
+In-Reply-To: <5411A1DA.5050908@chesteklegal.com>
+References: <CE7A9790-D53E-46FA-8A5C-080F56AFB060@oracle.com>	<3972E81A-A83E-44D2-92BE-6843C3057C03@oracle.com>	<20140829071658.GA31436@sharpeleven.org>	<5402BF08.9090800@postgresql.org>	<461EC60F-18D9-4C9F-883E-BDD8137D71AA@oracle.com>	<54074FC5.20506@postgresql.org>	<43F8E0E7-EBF6-4DBF-AD7E-F9790B695827@oracle.com>	<5408B9F6.4040201@postgresql.org>	<C7B97045-726D-41E6-BB3F-478FE06568A7@oracle.com>	<065201cfcc68$3e7e8da0$bb7ba8e0$@rosenlaw.com>	<068001cfcc71$b8b341c0$2a19c540$@rosenlaw.com>
+	<5411A1DA.5050908@chesteklegal.com>
+Message-ID: <0ddb01cfcdd7$fe506ca0$faf145e0$@rosenlaw.com>
+
+Hi Pam,
+
+ 
+
+You raise a good point. Why would we encourage sublicensing then, if there
+is no privity by which to enforce the covenants in the FOSS license?
+
+ 
+
+FOSS licenses are direct from the copyright owner to the ultimate licensee.
+For example, GPLv3 ? 10 expressly avoids sublicensing: "Each time you convey
+a covered work, the recipient automatically receives a license from the
+original licensors, to run, modify and propagate that work, subject to this
+License." [Emphasis added.]
+
+ 
+
+That give the licensor all the privity he needs to enforce his license
+against each and every licensee. No intermediary commercial distributor can
+then interfere with the freedoms or the obligations (conditions or
+covenants) associated with that license.
+
+ 
+
+IOW, sublicensing hurts. It doesn't help anyone except an intermediary
+distributor who can distribute commercial software with hidden FOSS
+components.
+
+ 
+
+/Larry
+
+ 
+
+-----Original Message-----
+From: Pamela Chestek [mailto:pamela at chesteklegal.com] 
+Sent: Thursday, September 11, 2014 6:22 AM
+To: license-review at opensource.org
+Subject: Re: [License-review] Sublicensing
+
+ 
+
+Changing subject line ...
+
+ 
+
+On 9/9/2014 5:04 PM, Lawrence Rosen wrote:
+
+> Once we agree on those basic principles, then it is fair to ask 
+
+> whether "sublicensing" actually provides anything different or whether 
+
+> it is an ancient commercial licensing word that was thrown into the 
+
+> MIT and other licenses among the 17 USC 106 "copyright rights"
+
+> actually being licensed for no important purpose.
+
+ 
+
+I believe the difference will be whether the downstream recipient is obliged
+to satisfy the covenants of the license versus the conditions.
+
+One can only sublicense the rights one has, so if the original grant has
+conditions on the grant, then the sublicensee will also be obliged to
+satisfy the same conditions. However, to the extent the license has
+covenants, those are a creature of contract only, and since there is no
+privity between the original licensor and sublicensee, the sublicensee
+wouldn't be obliged to satisfy the covenants.
+
+ 
+
+Pam
+
+ 
+
+Pamela S. Chestek, Esq.
+
+Chestek Legal
+
+PO Box 2492
+
+Raleigh, NC 27602
+
+919-800-8033
+
+ <mailto:pamela at chesteklegal.com> pamela at chesteklegal.com
+
+ <http://www.chesteklegal.com> www.chesteklegal.com
+
+PGP key 246A430A
+
+ 
+
+_______________________________________________
+
+License-review mailing list
+
+ <mailto:License-review at opensource.org> License-review at opensource.org
+
+ <http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review>
+http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20140911/2d794ebb/attachment.html>
+
+From pamela at chesteklegal.com  Fri Sep 12 15:02:19 2014
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Fri, 12 Sep 2014 11:02:19 -0400
+Subject: [License-review] Sublicensing
+In-Reply-To: <0ddb01cfcdd7$fe506ca0$faf145e0$@rosenlaw.com>
+References: <CE7A9790-D53E-46FA-8A5C-080F56AFB060@oracle.com>	<3972E81A-A83E-44D2-92BE-6843C3057C03@oracle.com>	<20140829071658.GA31436@sharpeleven.org>	<5402BF08.9090800@postgresql.org>	<461EC60F-18D9-4C9F-883E-BDD8137D71AA@oracle.com>	<54074FC5.20506@postgresql.org>	<43F8E0E7-EBF6-4DBF-AD7E-F9790B695827@oracle.com>	<5408B9F6.4040201@postgresql.org>	<C7B97045-726D-41E6-BB3F-478FE06568A7@oracle.com>	<065201cfcc68$3e7e8da0$bb7ba8e0$@rosenlaw.com>	<068001cfcc71$b8b341c0$2a19c540$@rosenlaw.com>	<5411A1DA.5050908@chesteklegal.com>
+	<0ddb01cfcdd7$fe506ca0$faf145e0$@rosenlaw.com>
+Message-ID: <54130AFB.3040700@chesteklegal.com>
+
+On 9/11/2014 11:49 AM, Lawrence Rosen wrote:
+>
+> Hi Pam,
+>
+>  You raise a good point. Why would we encourage sublicensing then, if
+> there is no privity by which to enforce the covenants in the FOSS license?
+>
+>  FOSS licenses are direct from the copyright owner to the ultimate
+> licensee. For example, GPLv3 ? 10 expressly avoids sublicensing: "Each
+> time you convey a covered work, the recipient automatically receives
+> _a license from the original licensors_, to run, modify and propagate
+> that work, subject to this License." [Emphasis added.]
+>
+>  That give the licensor all the privity he needs to enforce his
+> license against each and every licensee. No intermediary commercial
+> distributor can then interfere with the freedoms or the obligations
+> (conditions or covenants) associated with that license.
+>
+>  IOW, sublicensing hurts. It doesn't help anyone except an
+> intermediary distributor who can distribute commercial software with
+> hidden FOSS components.
+>
+I agree completely that it is not in the best interest of FOSS projects
+to encourage or allow sublicensing, which I believe is why the GPL took
+the position that it is a direct license. My recollection is, too, that
+until the GPL came along, the common perception was that the correct
+vehicle for serial downstream distribution was through sublicensing,
+which is why the earlier licenses specifically allowed for it--but I'm
+sure you have more historical knowledge of that than me. And I'll guess
+we have all encountered those who, less versed in FOSS, continue to have
+the misunderstanding that it works as a matter of sublicensing, not
+direct licensing.
+
+And you nailed on the head who it helps, who I suspect are all over the
+distinction.
+
+Pam
+
+Pamela S. Chestek, Esq.
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+PGP key 246A430A
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20140912/b6c88eff/attachment.html>
+
+From lrosen at rosenlaw.com  Fri Sep 12 16:45:52 2014
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Fri, 12 Sep 2014 09:45:52 -0700
+Subject: [License-review] Sublicensing
+In-Reply-To: <6E1FC664-B23B-463D-9A48-5C39813F0D00@oracle.com>
+References: <CE7A9790-D53E-46FA-8A5C-080F56AFB060@oracle.com>	<3972E81A-A83E-44D2-92BE-6843C3057C03@oracle.com>	<20140829071658.GA31436@sharpeleven.org>	<5402BF08.9090800@postgresql.org>	<461EC60F-18D9-4C9F-883E-BDD8137D71AA@oracle.com>	<54074FC5.20506@postgresql.org>	<43F8E0E7-EBF6-4DBF-AD7E-F9790B695827@oracle.com>	<5408B9F6.4040201@postgresql.org>	<C7B97045-726D-41E6-BB3F-478FE06568A7@oracle.com>	<065201cfcc68$3e7e8da0$bb7ba8e0$@rosenlaw.com>	<068001cfcc71$b8b341c0$2a19c540$@rosenlaw.com>
+	<5411A1DA.5050908@chesteklegal.com>
+	<0ddb01cfcdd7$fe506ca0$faf145e0$@rosenlaw.com>
+	<6E1FC664-B23B-463D-9A48-5C39813F0D00@oracle.com>
+Message-ID: <007601cfcea9$0571c250$105546f0$@rosenlaw.com>
+
+Jim Wright wrote:
+
+> And if you're a fan of strong copyleft, 
+> this might not be a preferred outcome.
+
+ 
+
+I am and remain a fan of copyleft. But I'm not a fan of overreach. If
+"strong copyleft" implies that someone else can change the license I impose
+on my works, then I'm not a fan of that.
+
+ 
+
+Nearly 20 years ago I had a conversation with RMS about this. We both
+understood that commercial companies frequently impose onerous conditions on
+the environments in which their software can be used. As Eben reminds us,
+even Nimmer approves the legality of such practices. It is possible to write
+copyright licenses that allow use of works only by those agile folks who can
+stand on their heads and whistle Dixie while running Java code under Linux.
+But that ain't FOSS! And even RMS understood that if he wrote a version of
+GPL that reached that far, he'd have no licensees.
+
+ 
+
+Further to the point of this thread: Sublicensing exists. It is explicit in
+some FOSS licenses, disallowed in others. Neither of us will affect that
+reality. But you're the one proposing a new license, so I think the real
+question for you is: Why do you want me to allow you (a distributor) to
+sublicense my work given that I've already directly granted you (and
+everyone downstream) all 17 U.S.C. 106 rights? Remember, as Pam Chestek
+noted, I'd be giving up privity for this, so you should make a better case
+than "I want it."
+
+ 
+
+/Larry
+
+Lawrence Rosen
+
+Rosenlaw & Einschlag ( <http://www.rosenlaw.com/> www.rosenlaw.com) 
+
+3001 King Ranch Rd., Ukiah, CA 95482
+
+Cell: 707-478-8932 
+
+LinkedIn:  <http://lnkd.in/D9CWhD> http://lnkd.in/D9CWhD 
+
+ 
+
+From: Jim Wright [mailto:jim.wright at oracle.com] 
+Sent: Friday, September 12, 2014 8:49 AM
+To: lrosen at rosenlaw.com; License submissions for OSI review
+Subject: Re: [License-review] Sublicensing
+
+ 
+
+I'm not sure why the fact that *some* FOSS licenses are always directly from
+the original copyright holder (because that is clearly stated in the license
+terms) necessarily dictates that this is the case for *all* FOSS licenses.
+MIT, by example, expressly states that sublicensing is permitted
+(sublicensing being defined as a new license issued by a licensee rather
+than the original copyright holder).  Others are silent on the issue and
+commonly interpreted to permit it.
+
+ 
+
+While a downstream recipient may be unable to avoid the conditions of the
+license if that's how it's drafted, the existence of conditions or
+pass-through terms in a license does not mean that permitted sublicenses
+must otherwise duplicate the entire set of terms and rights of the original
+license.  (In a commercial licensing context, sublicenses of more limited
+sets of rights are often expressly contemplated, this is commonplace and I
+don't think the point is controversial
+)
+
+ 
+
+So if it's the case that sublicensing is permitted at least in some cases,
+why is that a good thing rather than a bad thing?  Well, it seems to me to
+be what allows the mechanics of copyleft license compatibility to work at a
+fundamental level - if I cannot sublicense a copy of an MIT licensed header
+file to a subsequent recipient under the GPLv2, I don't know how I can
+include that header file in a GPLv2 licensed c file and then distribute the
+compiled object file and corresponding source, because the recipient of the
+combined module needs to get "each and every part" under the GPLv2.  If you
+can't sublicense, strong copyleft becomes materially more difficult to
+navigate, at least on some execution platforms. 
+
+ 
+
+I understand the perspective that as long as you're distributing the source
+and notices to everything, few will complain, but that doesn't mean no one
+will - and beyond that, if we foster an environment where copyleft
+requirements are not subject to strict compliance as long as all the source
+is released, maybe that's ok, but it seems to me this may cultivate a
+culture which weakens the strength of how copyleft licenses are interpreted
+and implemented generally, which will bleed over into commercial use as well
+to the extent it hasn't already.   And if you're a fan of strong copyleft,
+this might not be a preferred outcome.
+
+ 
+
+ Best,
+
+  J
+
+ 
+
+ 
+
+ 
+
+ 
+
+On Sep 11, 2014, at 8:49 AM, Lawrence Rosen <lrosen at rosenlaw.com
+<mailto:lrosen at rosenlaw.com> > wrote:
+
+
+
+
+
+Hi Pam,
+
+ 
+
+You raise a good point. Why would we encourage sublicensing then, if there
+is no privity by which to enforce the covenants in the FOSS license?
+
+ 
+
+FOSS licenses are direct from the copyright owner to the ultimate licensee.
+For example, GPLv3 ? 10 expressly avoids sublicensing: "Each time you convey
+a covered work, the recipient automatically receives a license from the
+original licensors, to run, modify and propagate that work, subject to this
+License." [Emphasis added.]
+
+ 
+
+That give the licensor all the privity he needs to enforce his license
+against each and every licensee. No intermediary commercial distributor can
+then interfere with the freedoms or the obligations (conditions or
+covenants) associated with that license.
+
+ 
+
+IOW, sublicensing hurts. It doesn't help anyone except an intermediary
+distributor who can distribute commercial software with hidden FOSS
+components.
+
+ 
+
+/Larry
+
+ 
+
+-----Original Message-----
+From: Pamela Chestek [mailto:pamela@ <http://chesteklegal.com/>
+chesteklegal.com] 
+Sent: Thursday, September 11, 2014 6:22 AM
+To:  <mailto:license-review at opensource.org> license-review at opensource.org
+Subject: Re: [License-review] Sublicensing
+
+ 
+
+Changing subject line ...
+
+ 
+
+On 9/9/2014 5:04 PM, Lawrence Rosen wrote:
+
+> Once we agree on those basic principles, then it is fair to ask
+
+> whether "sublicensing" actually provides anything different or whether
+
+> it is an ancient commercial licensing word that was thrown into the
+
+> MIT and other licenses among the 17 USC 106 "copyright rights"
+
+> actually being licensed for no important purpose.
+
+ 
+
+I believe the difference will be whether the downstream recipient is obliged
+to satisfy the covenants of the license versus the conditions.
+
+One can only sublicense the rights one has, so if the original grant has
+conditions on the grant, then the sublicensee will also be obliged to
+satisfy the same conditions. However, to the extent the license has
+covenants, those are a creature of contract only, and since there is no
+privity between the original licensor and sublicensee, the sublicensee
+wouldn't be obliged to satisfy the covenants.
+
+ 
+
+Pam
+
+ 
+
+Pamela S. Chestek, Esq.
+
+Chestek Legal
+
+PO Box 2492
+
+Raleigh, NC 27602
+
+919-800-8033
+
+ <mailto:pamela at chesteklegal.com> pamela at chesteklegal.com
+
+ <http://www.chesteklegal.com/> www.chesteklegal.com
+
+PGP key 246A430A
+
+ 
+
+_______________________________________________
+
+License-review mailing list
+
+ <mailto:License-review at opensource.org> License-review at opensource.org
+
+ <http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review>
+http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+_______________________________________________
+License-review mailing list
+ <mailto:License-review at opensource.org> License-review at opensource.org
+ <http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review>
+http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20140912/9b1ff8ed/attachment.html>
