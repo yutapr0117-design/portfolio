@@ -20,6 +20,8 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "License submission for approval for Moritz30-Projects Open Source License Version 1"（`license-review` 2016-06・21 通・決める側の通に絞った）を `review-readings.md` §1.209 へ（読めなければ適合しないと推定する・Fontana 氏、法律家への相談を提出の要件にするのは悪い考え・Fontana 氏、本物のライセンスが長いのは効くために要る語があるから・Berkus 氏）。
+
 - 2026-11-15 に `license-review` 2025-02 の "ModelGo Attribution-OpenSource License, Version 2.0" への Berkus 氏の 1 通を `review-readings.md` §1.210 へ（機械学習の条項に AI を作る実務家の読みを、英語に母語話者の編集者を）。portfolio-30 の依頼。`license-review` 側の ModelGo の会話は census の候補の母数の外（ドシエが既に多く引いていた）なので、READ-THREADS には足さない。
 
 - 2026-11-15 に "License incompatibility"（`license-discuss` 2013-08・26 通・決める側の通に絞った）を `review-readings.md` §1.202 の追記へ（法律上の語を定義するのはライセンスの役目ではない・Kuhn 氏、新しいライセンスは承認済みのすべてに欠けるものがあるときの最後の手段・Rosen 氏）。
