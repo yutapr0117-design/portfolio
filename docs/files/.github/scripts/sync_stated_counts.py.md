@@ -18,6 +18,8 @@ canonical-ref: .github/scripts/_lib_draft_counts.py (length_sites・場所の一
 - B3 の見出しのかっこ
 - SUBMISSION-MATERIALS の長さの行（後半の「条文では N 語長いまま」を含む）
 
+2026-11-15 に、ドシエの規模の数も足した（30 の依頼・`_lib_dossier.count_sites`）。不利な事実の件数（against の総括・REVIEWERS・READY-TO-SUBMIT・§4c）、errata の件数（against・REVIEWERS・READY-TO-SUBMIT・errata 冒頭の英語の数詞と閉じた番号の一覧）、worked entries の総数（REVIEWERS・QUESTION-INDEX）。不利な事実を 1 行足すたびに 6〜7 か所を手で直していた。これらは file 全体の位置で読む（Check 460 (e) と同じく、語の間の改行を越える）。書き換えたあとは `npm run status` で STATUS.md も作り直す。
+
 ## Why
 
 1c は草案の語数が変わるたびに 7 か所を手で直していた。2026-11-15 には、同じ日に 263→281 の誤りと 597 の直し忘れが起きた。Check は「書かれた数と実測が違う」と言えるが、直すのは人だった。照合（Check 460 (x)）と書き換え（この道具）は、同じ場所の一覧 `_lib_draft_counts.length_sites` を読む。別々の正規表現を持つと食い違うからである。

@@ -110,3 +110,96 @@ def counsel_question_count_misses(licenses_dir: Path, mirror_dir: Path) -> list[
             if g and (int(g.group(1)) if g.group(1) else words[(g.group(2) or g.group(3)).lower()]) != nq:
                 bad.append(f"(w) {p.name}:{n} が質問集を {g.group(0)!r} と述べる / 実数 {nq}")
     return bad
+
+
+# ── ドシエが自分の規模を述べる数の場所 (sync_stated_counts.py --apply が書き換える・2026-11-15・30 の依頼) ─────────
+_ONES = ("one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen "
+         "sixteen seventeen eighteen nineteen").split()
+_TENS = "twenty thirty forty fifty sixty seventy eighty ninety".split()
+
+
+def number_word(n: int, capital: bool = False) -> str:
+    """1〜99 を英語の数詞に ("eighty-two")。capital なら頭を大文字に。"""
+    w = _ONES[n - 1] if n < 20 else _TENS[n // 10 - 2] + ("" if n % 10 == 0 else "-" + _ONES[n % 10 - 1])
+    return w[:1].upper() + w[1:] if capital else w
+
+
+def _word_value(w: str) -> int | None:
+    w = w.lower()
+    for n in range(1, 100):
+        if number_word(n) == w:
+            return n
+    return None
+
+
+def dossier_counts(licenses_dir: Path) -> dict:
+    """ドシエの規模の実測: 不利な事実の行・errata の行・worked entries の総数 (Check 460 (f) と同じ数え方)。"""
+    ag = against_text(licenses_dir)
+    er = (licenses_dir / "ACD-1.0.errata.md").read_text(encoding="utf-8")
+    tot = 0
+    for f in sorted(licenses_dir.glob("*.md")):
+        ft = f.read_text(encoding="utf-8")
+        tot += len(re.findall(r"^\*\*Q\.|^### (?:Q|A|B)\d+[a-z]?(?:-\d+)?\.", ft, re.M))
+        if is_against(f.name):
+            tot += len(re.findall(r"^\| \d+ \|", ft, re.M))
+    closed = []
+    for line in er.split("\n"):
+        if re.match(r"^\|\s*\*{0,2}E\d+", line):
+            c = re.split(r"(?<!\\)\|", line)
+            if re.search(r"\d+\.\d+ 草案で閉じた", c[-2]):
+                closed.append(c[1].strip().strip("*"))
+    return {"against": len(re.findall(r"^\| \d+ \|", ag, re.M)),
+            "errata": len(re.findall(r"^\| E\d+ \|", er, re.M)),
+            "worked": tot, "closed": closed}
+
+
+def count_sites(licenses_dir: Path) -> list[dict]:
+    """ドシエが自分の規模を述べる数の場所 (_lib_draft_counts.length_sites と同じ形の dict)。
+
+    不利な事実を 1 行足すたびに 6〜7 か所を手で直していた (30・2026-11-15 は 2 回)。照らすのは Check 460 (e)(f)(g) と
+    §4c・errata 冒頭 (l)(v) で、ここはその申告を書き換える側である。照合の正規表現は Check 460 にあり、書き換えた後に
+    verify を回せば食い違いは RED で出る。
+    """
+    c = dossier_counts(licenses_dir)
+    rules = [  # (file 名, 正規表現, 各 group の値)
+        ("ACD-1.0.against.md", r"grown\s+from\s+\d+\s+entries\s+to\s+\*\*(\d+)\*\*", [c["against"]]),
+        ("ACD-1.0.against.md", r"produced\s+\*\*(\d+)\s+adverse\s+facts", [c["against"]]),
+        ("ACD-1.0.against.md", r"(\d+)\s+errata\b", [c["errata"]]),
+        ("REVIEWERS.md", r"(\d+) worked entries, indexed by the question", [c["worked"]]),
+        ("REVIEWERS.md", r"All (\d+) adverse facts", [c["against"]]),
+        ("REVIEWERS.md", r"(\d+) known imprecisions", [c["errata"]]),
+        ("READY-TO-SUBMIT.md", r"\*\*(\d+) 件の不利な事実\*\*と \*\*(\d+) 件の errata\*\*", [c["against"], c["errata"]]),
+        ("QUESTION-INDEX.md", r"There are \*\*(\d+)\*\* worked entries", [c["worked"]]),
+        ("ACD-1.0.submission-reference.md", r"\*\*(\d+) entries, 1–(\d+), no gaps", [c["against"], c["against"]]),
+    ]
+    sites = []
+    for name, rx, vals in rules:
+        p = licenses_dir / name
+        if not p.exists():
+            continue
+        text = p.read_text(encoding="utf-8")  # file 全体で読む (Check 460 (e) と同じく、語の間の改行を \s+ が越える)
+        for m in re.finditer(rx, text):
+            for gi, v in enumerate(vals, 1):
+                sites.append({"path": p, "line": text[:m.start(gi)].count("\n") + 1, "abs": True,
+                              "start": m.start(gi), "end": m.end(gi), "old": m.group(gi), "new": str(v),
+                              "what": f"{name} の {rx[:30]}"})
+    # errata 冒頭: "**Eighty-two items are recorded, and all eighty-two are unrepaired …** — **eighty of them (E1, …) are closed"
+    er = licenses_dir / "ACD-1.0.errata.md"
+    lines = er.read_text(encoding="utf-8").split("\n")
+    base = 0
+    for ln, line in enumerate(lines, 1):
+        off, base = base, base + len(line) + 1  # 行の頭の位置 (場所は file 全体の位置で持つ)
+        m = re.search(r"\*\*([A-Z][a-z]+(?:-[a-z]+)?) items are recorded, and all ([a-z]+(?:-[a-z]+)?) are unrepaired", line)
+        if m:
+            for gi, cap in ((1, True), (2, False)):
+                if _word_value(m.group(gi)):
+                    sites.append({"path": er, "line": ln, "abs": True, "start": off + m.start(gi), "end": off + m.end(gi),
+                                  "old": m.group(gi), "new": number_word(c["errata"], cap), "what": "errata 冒頭の件数の数詞"})
+        m = re.search(r"\*\*([a-z]+(?:-[a-z]+)?) of them \(((?:E\d+, )*E\d+)\) are closed", line)
+        if m and _word_value(m.group(1)):
+            ids = sorted(c["closed"], key=lambda e: int(e[1:]))
+            sites.append({"path": er, "line": ln, "abs": True, "start": off + m.start(1), "end": off + m.end(1),
+                          "old": m.group(1), "new": number_word(len(ids)), "what": "errata 冒頭の閉じた件数の数詞"})
+            sites.append({"path": er, "line": ln, "abs": True, "start": off + m.start(2), "end": off + m.end(2),
+                          "old": m.group(2), "new": ", ".join(ids), "what": "errata 冒頭の閉じた番号の一覧"})
+    return sites
