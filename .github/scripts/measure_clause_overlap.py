@@ -55,6 +55,10 @@ OPERATIVE = {
                "does not", "do not", "shall not", "neither", "nor", "unless", "limited to", "other than"],
     "条件・時点": ["if", "where", "when", "provided", "subject to", "notwithstanding", "to the extent",
                "regardless", "even if", "in the event", "until", "upon", "before", "after"],
+    # 約束 (§5・§8.6・§12) が「しない」と定める行為 (2026-11-15・9b): T64 が §5.2(a) から "apply, or" を外し、
+    #   DRM を「かけない」約束が消えたが、この語彙に無かったので --compare は減った語として出さなかった
+    "約束が止める行為": ["apply", "assert", "invoke", "impose", "enforce", "seek", "bring", "claim", "sue",
+                  "restrict", "require", "condition", "terminate", "revoke", "withdraw", "charge", "object"],
 }
 
 
@@ -525,6 +529,9 @@ def sync(before: Path, after: Path) -> int:
 
 
 def main(argv: list[str]) -> int:
+    if not argv or argv[0] in ("-h", "--help"):
+        print(__doc__)
+        return 0 if argv else 2
     if argv and argv[0] == "--guard" and len(argv) == 2:
         return guard(Path(argv[1]))
     if argv and argv[0] == "--uses" and len(argv) >= 3:
