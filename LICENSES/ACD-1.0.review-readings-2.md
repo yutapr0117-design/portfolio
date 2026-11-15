@@ -64,3 +64,19 @@ portfolio-50 の依頼（`REVISION-PROTOCOL.md` の 3.6 節の 6b で 1.4 を `l
 **逆側。** これらは `license-review` の提出（審査の続き）での形で、`license-discuss` の意見募集でどう受け取られるかは別の問いである。また、1.0 → 1.4 の変更は errata の数だけで数十件あり、Unicode の一覧（数件）とは量が違う。量が多い一覧は、それ自体が「審査の途中で大きく書き直した」（`against.md` #249 の費用）と読まれうる。AI の関与の開示への決める側の反応（portfolio-50 の依頼 (2)）は、2023 年以降の通で、開示した提出に決める側が答えた例を見つけられなかった（moderator の告知・`against.md` #292 の "AI slop"・§1.206 の Chestek 氏自身の AI の比較だけ）。
 
 **この節が establish しないこと。** 探索は語の照合で、言い換えた通は拾っていない。どの形が承認の確率に効くかは示していない。
+
+## 1.221 書いた本人が説明し、直す意思を示す —— 「代理人はうまくいかなかった」「受け入れるか否かなら否」（Chestek 氏 2020）と、3 年後の「審査は直す場ではない」（2023）（2026-11-15）
+
+"Resources to discourage governments from bespoke licenses?"（`license-discuss` 2020-02〜03・`rounds/2020-02-license-discuss-authors-explain-not-proxies-observed.txt` に 1 通）。米陸軍研究所の担当者が、政府の法律家は匿名のまま提出したいと述べたのに、当時の委員長が答えた。2024〜2026 年の照合で決める側の未引用の通に出た会話の 1 つ。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"The licenses are discussed publicly, so the people who wrote the license are ideally the ones explaining it to the license-review list because they know the ins and outs. We've had proxies participate in the past and it doesn't go well."* | Pamela Chestek 氏 2020-02-28（License Review Committee の委員長） | **不利な面（B14・B1）。** 審査で説明するのは書いた本人が望ましく、代理人はうまくいかなかった、という委員長の経験である。ACD の本文は AI が起草し、人間（オーナー）が設計と判断を担った。list で問われたとき、条の「ins and outs」を自分の言葉で答えるのはオーナーで、AI が答えの文を書いて送れば代理人の形になり、moderator の告知（B14）にも当たる。オーナーが自分で説明できる範囲が、審査で答えられる範囲になる |
+| *"There also needs to be some willingness to modify the license based on feedback. The license may last to perpetuity, so it needs to be really well written. If it's presented to license-review as "take it or leave it," the outcome for a newly written license is likely going to be "leave it.""* | Chestek 氏 2020-02-28 | **両面。** 直す意思が要る。ACD は凍結した版を審査中に変えない（`FROZEN.md`）が、欠陥は errata に記録して次の版で直し、1.1〜1.4 と版を重ねてきた。直す意思はこの記録で示せる（有利）。だが「凍結しているので直さない」とだけ読まれれば「受け入れるか否か」の形に見える（不利）。2026 年の Chestek 氏は、提出した文は変えられず取り下げと再提出になると書いた（§1.206）——直す意思は、審査中の本文の変更ではなく、版の出し直しで示す形が今の手順に合う |
+| *"The anonymous lawyers should think of the license-review process as a really great tool for improving their work product. … so that the ultimately approved license is much higher quality than the originally submitted license."* | Chestek 氏 2020-02-28 | **時点の違いに注意。** 2020 年の委員長は審査を本文を良くする道具と見ていた。同じ人が 2023-08-22 に *"The license review process is not for workshopping a license, it is for a go/no-go on a license."* と書いた（`against.md` #298）。審査の役割の読みは 3 年で「直す場」から「可否の場」へ移っている。ACD の手順（`license-discuss` で固めてから `license-review` へ・§1.206 の 30 日）は後者に合わせた形である |
+
+**読み。** 2020 年の委員長は、書いた本人が説明し、直す意思を示すことを求めた。2023 年以降は、直すのは `license-discuss` と版の出し直しの側で、`license-review` は可否の場になった。ACD はこの移り変わりの後の手順に合わせている（凍結・errata・次の版）。残る問いは「書いた本人」で、ACD ではそれがオーナーであり、オーナーが審査の問いに自分の言葉で答えられることが、代理人の形を避ける条件になる。
+
+**逆側。** 「書いた本人」を「設計と判断をした人」と読めばオーナーは本人だが、「本文の語を書いた人」と読めば AI である。後者の読みで審査者が問えば、ACD は代理人の形に見える（`ACD-OSI-BOTTLENECKS.md` B14）。開示はこの点を隠さないが、開示が懸念を消すとは限らない（§1.220 で開示への決める側の反応の例は見つからなかった）。
+
+**この節が establish しないこと。** 2020 年の文は匿名の政府の法律家についてで、AI の関与についてではない。「代理人」の範囲に AI の起草が入るかは、決める側の誰も述べていない。

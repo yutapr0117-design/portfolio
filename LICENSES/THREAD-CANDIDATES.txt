@@ -763,6 +763,7 @@
 2020-02-24	"Fairness" vs. mission objectives
 2020-02-24	Ethical open source licensing - Dual Licensing for Justice
 2020-02-26	Language, appropriateness, and ideas
+2020-02-27	Resources to discourage governments from bespoke licenses?
 2020-02-28	Moderation observations
 2020-02-28	exploring the attachment between the author and the code
 2020-02-29	Columbia S&T Law Review analysis of the OSI license-discuss mailing list
