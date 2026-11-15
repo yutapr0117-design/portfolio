@@ -545,13 +545,12 @@ PREAMBLE (informative; not part of the operative terms)
        every case (Section 2.7).
 
   6.4  No enforceable claim arises against You, under this Dedication or under
-       any Covered Right of the Dedicator, in respect of a model, parameter
-       set, weight, embedding, or output resulting from Computational Use of
-       the Work, and You owe nothing under this Dedication in respect of any
-       of them. Whether a right subsists in any such thing is not decided here
-       and does not need to be.
-       Nothing in this Dedication requires You to license, disclose, or
-       attribute any such thing.
+       any Covered Right of the Dedicator, in respect of a model, parameter set,
+       weight, embedding, or output resulting from Computational Use of the
+       Work, and You owe nothing under this Dedication in respect of any of
+       them. Whether a right subsists in any such thing is not decided here and
+       does not need to be. Nothing in this Dedication requires You to license,
+       disclose, or attribute any such thing.
 
   6.5  Section 6 states expressly what Sections 3 to 5 and 8 would in any
        event permit. It is stated expressly because silence on this subject has
@@ -858,20 +857,19 @@ PREAMBLE (informative; not part of the operative terms)
        under any identifier that contains "ACD-", regardless of case, followed
        by a digit, except by the Steward (Section 16.5). That exception reaches
        only a new version under a version number and identifier that no earlier
-       text the Steward or a former Steward has published,
-       other than a draft identified as such, has borne, so that each name and
-       identifier in this family continues to denote one fixed text.
-       Section 16.4 applies to a new version distributed under that exception as
-       it applies to this text. A modified text may be distributed under a
-       different name. A translation is not a
-       modified text for this purpose and may be distributed under the name and
-       the identifier if it is identified as a translation and states that the
-       English text prevails (Section 15.4). A re-encoding of the text into a
-       machine-readable form is likewise not a modified text for this purpose,
-       provided the words are unchanged and the form is identified as a
-       re-encoding; differences of line breaking, indentation, or markup are
-       not modifications. Both provisos are conditions upon distributing the
-       text, not upon any use of the Work (Section 10.5).
+       text the Steward or a former Steward has published, other than a draft
+       identified as such, has borne, so that each name and identifier in this
+       family continues to denote one fixed text. Section 16.4 applies to a new
+       version distributed under that exception as it applies to this text. A
+       modified text may be distributed under a different name. A translation is
+       not a modified text for this purpose and may be distributed under the
+       name and the identifier if it is identified as a translation and states
+       that the English text prevails (Section 15.4). A re-encoding of the text
+       into a machine-readable form is likewise not a modified text for this
+       purpose, provided the words are unchanged and the form is identified as a
+       re-encoding; differences of line breaking, indentation, or markup are not
+       modifications. Both provisos are conditions upon distributing the text,
+       not upon any use of the Work (Section 10.5).
 
   16.5 In Section 16.4, "the Steward" means the person or entity that first
        published this text under the name and the identifier it bears or, after
