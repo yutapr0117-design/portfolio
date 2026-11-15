@@ -113,3 +113,19 @@ portfolio-50 の依頼（`REVISION-PROTOCOL.md` の 3.6 節の 6b で 1.4 を `l
 **逆側。** 同じ会話の基準率は厳しい: 2012〜13 年の新しいライセンスは既存の新版を除いて全部退けられた。理由の (b) 起草の質と (c) 重複は、ACD の B1・B3・B13 と B10 にそのまま当たる。Villa 氏の「断る手段が無い」は、後に理事会が留め置きの形で手段を持ったことで解けており、その手段は ACD にも使われうる。
 
 **この節が establish しないこと。** 2013 年の Berkus 氏の多段階の案が正式な手順になったかは、この会話からは分からない。基準率は 2012〜13 年の 1 年の Berkus 氏の数え方で、我々は数え直していない。
+
+## 1.224 効果が重複するライセンスは、判例の新しい展開に応じるか明白な法的欠陥を解く場合を除いて受け入れない —— Perens 氏の「提出者への注意書き」（2018）（2026-11-15）
+
+"Some notes for license submitters"（`license-review` 2018-06・`rounds/2018-06-license-review-perens-notes-for-submitters-observed.txt` に 1 通）。ドシエは同じ会話の Allison Randal 氏の「法が変わるのでライセンスも変わる必要がある」を §1.195 で引いていたが、会話の起点になった Perens 氏の注意書きは引いていなかった。Perens 氏は冒頭で *"These are not OSI rules"* と断っている。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"licenses that are duplicative of other licenses in their effect should not be accepted any longer, unless it's to meet new developments in case law or solve an obvious legal deficit."* | Bruce Perens 氏 2018-06-12 | **有利な面（B10・基準の形）。** 重複の例外を 2 つ名指している ——判例（法）の新しい展開に応じること、明白な法的欠陥を解くこと。ACD の差の主張は、この 2 つの形で言える: 機械学習と TDM をめぐる法の新しい展開（EU の Art. 4(3) の留保・§6）、承認されなかった CC0 の明白な欠陥（特許の除外・§8）。§1.195 の Randal 氏の同じ日の文（法が変わるのでライセンスも変わる）と組で、「法の変化と欠陥に応じる新しいライセンス」の居場所を 2 人の決める側が認めている |
+| *"A license is a sort of program designed to be executed by the courts. If you have not made use of an attorney in drafting your license, you are very unlikely to understand how the courts would actually execute your license."* | Perens 氏 2018-06-12 | **不利な面（B1）。** §1.205（2026）・§1.213（2012）と同じ人の同じ向きの文で、2012・2018・2026 年と一貫している |
+| *"If your license doesn't consider the broader developer community and its needs, it's difficult to see why OSI should approve it."*、*"A whole category of licenses has been submitted to push the boundaries of Open Source beyond what was intended in the writing of the Open Source Definition."* | Perens 氏 2018-06-12 | ACD は何も制限せず、提出する組織の都合で受け手を縛らないので、「境界を押し広げる」類型（使用の制限・事業の方法）には入らない（有利）。受け手の側の必要（確かめずに学習に使える）を目的に書いている（§6.5） |
+
+**読み。** 2018 年の Perens 氏は、新しいライセンスを原則として要らないとしつつ、例外を「法の新しい展開」と「明白な法的欠陥」に置いた。ACD の差の言い方を、この 2 つの例外の語に合わせて書けば、審査者が既に持っている枠で読める。
+
+**逆側。** 例外は「判例の新しい展開」（case law）と書かれていて、ACD が依る EU 指令の留保は判例ではなく立法である。機械学習の著作権をめぐる判例はまだ固まっていない（§1.211 の Smith 氏・Villa 氏）。また Perens 氏は同じ通で法律家の関与を前提にしており、例外に当たるかを判断するのも法律家の読みだと考えている。
+
+**この節が establish しないこと。** Perens 氏の注意書きは OSI の規則ではない（本人が断っている）。2018 年以降、この 2 つの例外が委員会の理由書で使われたかは確かめていない。

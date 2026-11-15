@@ -1,0 +1,74 @@
+Source: OSI license-review public archive, 2018-June.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of the messages in "Some notes for license submitters" (2018-06-12)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From bruce at perens.com  Wed Jun 13 00:39:43 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 12 Jun 2018 17:39:43 -0700
+Subject: [License-review] Some notes for license submitters
+Message-ID: <CAK2MWOs1y7jKmcCCNdVP8sZMqaAqht4+Xo+G6jLKSe5=W-0g0Q@mail.gmail.com>
+
+These are not OSI rules, but they're some clues for license submitters
+about how I think the license review process should work.
+
+There are already too many Open Source licenses. If we never accepted
+another, that would not be a particularly bad thing. OSI can't prevent
+anyone from using such licenses, but some of us will make it clear if we
+don't believe your license is Open Source.
+
+A license is a sort of program designed to be executed by the courts. If
+you have not made use of an attorney in drafting your license, you are very
+unlikely to understand how the courts would actually execute your license.
+The result would generally be harmful to Open Source developers who depend
+on your license to work as they expect. I made up a name for these licenses
+some years ago: *Crayon Licenses,* from a Monty Python sketch in which a
+man has a cat license, with the word "dog" crossed out and "cat" written
+in, in crayon. Please don't submit crayon licenses, reviewers will not see
+them as a good deal for the Open Source developer community, and are likely
+to abandon the review process as soon as they understand that they're
+crayon.
+
+Many of the presently accepted and newly submitted licenses are duplicative
+of other accepted licenses in their effect, and exist solely because a
+particular lawyer at a particular establishment was happier with their own
+language. Our own attorneys may not concur that they are better. In
+general, licenses that are duplicative of other licenses in their effect
+should not be accepted any longer, unless it's to meet new developments in
+case law or solve an obvious legal deficit. The combinatorial problem of
+Open Source licenses has a cost for everyone.
+
+You are encouraged to withdraw or deprecate your own approved licenses.
+There is no shame attached to this and you will be thanked, the field has
+evolved and we've all learned since those licenses were submitted.
+
+Many of the licenses submitted cater to the needs of the submitting
+organization at the *expense *of the broader Open Source community. If your
+license doesn't consider the broader developer community and its needs,
+it's difficult to see why OSI should approve it. Some recently-submitted
+licenses propose to create precedents which would in general be harmful for
+the community.
+
+A whole category of licenses has been submitted to push the boundaries of
+Open Source beyond what was intended in the writing of the Open Source
+Definition. These are not generally well-received by the reviewers. Many of
+the proposed business methods result in something less than Open Source,
+and there is little reason to support them.
+
+Don't imply legal threats to the OSI or reviewers during the review
+process. It never works and doesn't make you friends.
+
+    Thanks
+
+    Bruce
+-- 
+Bruce Perens K6BP - CEO, Legal Engineering
+Standards committee chair, license review committee member, co-founder,
+Open Source Initiative
+President, Open Research Institute; Board Member, Fashion Freedom
+Initiative.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180612/9ec8312a/attachment.html>
