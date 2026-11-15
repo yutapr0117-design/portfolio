@@ -690,6 +690,7 @@
 2016-08-05	licenses for hosted services
 2016-08-22	The License Talking-About List
 2016-11-28	Using opensource in a company not in the software business
+2016-12-01	Views on React licensing?
 2016-12-22	Octopus License
 2017-01-05	Is the OBM License OSD compatible?
 2017-01-08	License Committee Report - January 2017
