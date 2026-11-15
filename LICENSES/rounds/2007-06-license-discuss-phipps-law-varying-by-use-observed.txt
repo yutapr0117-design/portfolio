@@ -1,0 +1,56 @@
+Source: OSI license-discuss public archive, 2007-June.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 18 in "Politics-Free Licence ;)" (2007-06-28)
+Senders: Simon Phipps
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From Simon.Phipps at Sun.COM  Thu Jun 28 22:11:20 2007
+From: Simon.Phipps at Sun.COM (Simon Phipps)
+Date: Thu, 28 Jun 2007 23:11:20 +0100
+Subject: Politics-Free Licence ;)
+In-Reply-To: <45441C4D-69C2-4061-A936-618DAE28E7BA@codefab.com>
+References: <a5c3d8350706272355r48e271c9t6bd0599da8ecbf73@mail.gmail.com>
+ <3409751E7375C346A743B321A33B40D00247B6CB@orsmsx416.amr.corp.intel.com>
+ <7d9492d90706280835w4a506bbdrbeace799d2e64863@mail.gmail.com>
+ <a5c3d8350706281103g791e3852u6933a2a3114f5601@mail.gmail.com>
+ <45441C4D-69C2-4061-A936-618DAE28E7BA@codefab.com>
+Message-ID: <B8AB68C4-8923-4A0F-B2E8-AE23BF0E5FE6@Sun.COM>
+
+
+On Jun 28, 2007, at 19:29, Chuck Swiger wrote:
+
+>> My mistake - I shouldn't have introduced the jurisdiction point into
+>> this discussion.  I'd borrowed the idea Creative Commons licences,  
+>> and
+>> I am aware of the (good) arguments against.  It's not really the  
+>> point
+>> I'm interested in.
+>
+> OK.  If you'd like to find a compromise, perhaps terms like the  
+> following would suit your preferences but avoid hard-coding a  
+> specific jurisdiction into the license:
+>
+>  * 3. Users of this Software agree that any legal matters  
+> pertaining to the
+>  *    Software or this License acknowledge the right of the author 
+> (s) to select
+>  *    a local "court of appropriate jurisdiction" and have any such  
+> matters
+>  *    adjudicated under the laws of the author's country, state, or  
+> province.
+
+I'm not sure if this doesn't make it worse, Chuck. If we don't know  
+what system of law is assumed in the interpretation of the license,  
+or if it varies from use to use, I believe the community uncertainty  
+it produces is worse, not better.
+
+S.
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 2494 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20070628/3d8052f7/attachment.p7s>
