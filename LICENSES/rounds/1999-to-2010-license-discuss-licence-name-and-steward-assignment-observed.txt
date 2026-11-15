@@ -1,0 +1,215 @@
+Source: OSI license-discuss public archive, 1999-September.txt, 2002-October.txt, 2007-March.txt and 2010-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 4 messages from four conversations (an Artistic-based licence for Frontier, Simplified Artistic License, Artistic License 2.0, Question About CPL and EPL)
+Senders: Bruce Perens, Lawrence E. Rosen, John Cowan, Richard Fontana
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Thu Sep 23 17:06:41 1999
+From: bruce at perens.com (bruce at perens.com)
+Date: 23 Sep 1999 17:06:41 -0000
+Subject: RFC: "Artistic license" for Frontier scripting (repost)
+Message-ID: <19990923170641.2811.qmail@perens.com>
+
+"Frontier" is most likely a registered trademark and your use of it in the
+name of a license probably needs authorization.
+
+If you've modified the Artistic license, you should probably not call it
+"ARTISTIC" at all, so that you avoid confusion with the unmodified Artistic
+license.
+
+I consider the original Artistic license to be a somewhat "sloppy"
+license in that it makes restrictions and then provides ways to trivially
+circumvent them. For example, I can not sell your program separately,
+but I can sell it if I aggregate it with a 5-line "hello_world.c" . There's
+a bit more about that in http://perens.com/OSD.html , close to the end.
+
+A short glance over it leads me to think that this license probably meets
+the OSD. I have one question you should consider:
+
+Are your changes significant enough that they justify the creation of yet
+another license? Every time we get another license that's more confusion
+regarding the conflicts between them, and it's more load on the programmer
+and distribution creator who has to learn yet another license. Could you not
+make life easier for everyone by using an existing, pre-certified license?
+
+	Thanks
+
+	Bruce
+
+
+From lrosen at rosenlaw.com  Tue Oct  8 19:45:22 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Tue, 8 Oct 2002 12:45:22 -0700
+Subject: Simplified Artistic License [osd]
+In-Reply-To: <001201c26ef7$2f4c4420$0100a8c0@Aamwwlgwhite00>
+Message-ID: <024f01c26f03$3dc4d510$927ba8c0@ROSENGARDEN>
+
+> - First and foremost, I want a license which is less 
+> complicated than the existing licenses.
+
+You're entitled to that, but we've warned you to consult an attorney.
+"Complexity" is related to "enforceability."  Attorneys will almost
+certainly not recommend your license to their clients because it is not
+a professionally-written license.  (Neither is my software
+professionally written -- as an attorney I expect programmers to write
+my software; as a programmer, you should expect an attorney to write
+your license.)
+
+> - Second, I want changes to my source code to be properly documented.
+
+Depending upon what constraints you place on derivative works, you may
+run afoul of the OSD with this goal.  But that is not intended as a
+criticism of your current license, which I don't have time right now to
+review.
+
+> - Third, I want to prevent my name and the name of my product 
+> from being used as an endorsement I did not give.  (On this 
+> point it is very similar to you wanting to prevent others 
+> from using OSI certification marks as endorsements you did 
+> not approve.)
+
+One more time, let me explain that OSI protects its certification marks
+by trademark law, not copyright licenses, and you should consider doing
+the same to protect the name of your product.
+
+> - And fourth, I want the license approved as a TEMPLATE so it 
+> can be FREELY USED BY ANY ONE.
+
+Commendable goal.  But don't get your hopes up that your license will be
+adopted by other projects.  
+
+/Larry Rosen
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From cowan at ccil.org  Wed Mar 14 06:23:53 2007
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 14 Mar 2007 02:23:53 -0400
+Subject: For Approval: Artistic License 2.0
+In-Reply-To: <45F78FC6.9080502@perl.org>
+References: <45F78FC6.9080502@perl.org>
+Message-ID: <20070314062353.GA1509@mercury.ccil.org>
+
+Allison Randal scripsit:
+
+> The Artistic License 2.0 is an updated version of the Artistic License
+
+Summary:  I think this license is clearly free and open source.  I
+have a few minor criticisms of the wording.
+
+> Definitions
+
+It's useful to alphabetize the definitions.
+
+>     "Original License" means this Artistic License as Distributed with
+>     the Standard Version of the Package, in its current version or as
+>     it may be modified by The Perl Foundation in the future.
+
+Rather than embedding "The Perl Foundation" into this definition, I
+suggest that you change this to "the License Steward" and then add the
+following definition:
+
+	"License Steward" means The Perl Foundation or its
+	assignee under clause 15.
+
+Clause 15 (which I've borrowed from the Common Public License)
+would look something like this:
+
+	(15) In order to avoid inconsistency this license is copyrighted
+	and may only be modified in the following manner. The License
+	Steward reserves the right to publish new versions (including
+	revisions) of this license from time to time. No one other than
+	the License Steward has the right to modify this license. The
+	Perl Foundation is the initial License Steward. The License
+	Steward may assign the responsibility to serve as the License
+	Steward to a suitable separate entity. Each new version of this
+	license will be given a distinguishing version number. A Package
+	may always be distributed subject to the version of this license
+	under which it was received. In addition, after a new version of
+	this license is published, a Contributor may elect to distribute
+	the Package under the new version.
+
+-- 
+Even the best of friends cannot                 John Cowan
+attend each others' funeral.                    cowan at ccil.org
+        --Kehlog Albran, The Profit             http://www.ccil.org/~cowan
+
+
+From rfontana at redhat.com  Mon Sep  6 21:58:58 2010
+From: rfontana at redhat.com (Richard Fontana)
+Date: Mon, 6 Sep 2010 17:58:58 -0400
+Subject: Question About CPL and EPL
+In-Reply-To: <20100906212113.GD16366@mercury.ccil.org>
+References: <AANLkTi=s+VDv+t90pDB3=-qyGPjJz04LavRcDOpkWgPM@mail.gmail.com>
+ <20100906212113.GD16366@mercury.ccil.org>
+Message-ID: <20100906215858.GA3661@redhat.com>
+
+On Mon, Sep 06, 2010 at 05:21:13PM -0400, John Cowan wrote:
+> David Dodini scripsit:
+> 
+> > Our company has a dependency on wsdl4j which is covered by the Common
+> > Public License. We have a customer who is concerned about using our
+> > software because of its requirement to distribute our source per its
+> > requirements even though we only rely on it as an external library
+> > w/o modification to the original source.
+> 
+> I'm rather confused why your customer has a problem with receiving source
+> (note that it's enough to tell them how they can get source from you,
+> you don't actually have to ship the source).  In any case, under the
+> terms of the CPL you only need to provide the source of the library,
+> not your own source.
+> 
+> > In our research we found on your site this page,
+> > http://www.opensource.org/licenses/cpl, which states that the CPL is
+> > deprecated and superseded by the Eclipse Public License. The EPL is
+> > not a concern of ours and our customer as we do not have to distribute
+> > our source for using it as an external library.
+> 
+> In fact, the CPL and the EPL are the same on this point, and differ only
+> in their "patent peace" clause (and the name, and who is the license
+> steward, etc.)
+> 
+> > Does the deprecation of the CPL and it being superseded by the EPL
+> > indemnify us from adherence to terms of the CPL in favor of those
+> > of the EPL even in the the case of a library like wsdl4j which is
+> > distributed under the CPL?
+> 
+> No.  If the CPL applied, it still applies unless the licensor says
+> otherwise.
+
+Actually, the CPL says:
+
+  The Agreement Steward reserves the right to publish new versions
+  (including revisions) of this Agreement from time to time. No one
+  other than the Agreement Steward has the right to modify this
+  Agreement. IBM is the initial Agreement Steward. IBM may assign the
+  responsibility to serve as the Agreement Steward to a suitable
+  separate entity. Each new version of the Agreement will be given a
+  distinguishing version number. The Program (including Contributions)
+  may always be distributed subject to the version of the Agreement
+  under which it was received. In addition, after a new version of the
+  Agreement is published, Contributor may elect to distribute the
+  Program (including its Contributions) under the new version.
+
+IBM says:
+  
+  IBM has assigned the Agreement Steward role for the CPL to the
+  Eclipse Foundation. Eclipse has designated the Eclipse Public
+  License (EPL) as the follow-on version of the CPL.
+
+http://www.ibm.com/developerworks/library/os-cpl.html
+
+Note that "Contributor" under the CPL (and EPL) includes a mere
+redistributor.		
+
+So his company can distribute the CPL-licensed library to others under
+(and the company's customer can be bound by) the EPL. However, I agree
+with what you say otherwise. The CPL and EPL have, I think,
+identically worded provisions relating to source code distribution
+obligations, and of course nothing the OSI says can affect what
+license governs.
+
+- RF

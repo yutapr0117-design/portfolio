@@ -20,6 +20,10 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に portfolio-1c の依頼で、名前の規律と Steward の譲渡を全期間の決める側の通で探し、`review-readings-2.md` §1.226 へ（MPL 2.0 §10.3・CPL-1.0／EPL-1.0 の Steward の譲渡が承認済みの先例、Rosen 氏「名前は商標で守る」）。会話を読んだのではないので READ-THREADS には足さない。同じ探索で、GPL-3.0 §3 型の条を持つ承認済みの permissive と、17 U.S.C. §205(e) を論じた決める側の通は見つからなかった（portfolio-1c へ）。
+
+- 2026-11-15 に "NOSA 2.0 and Government licensing"（`license-review` 2018-06）を `review-readings-2.md` §1.225 へ。
+
 - 2026-11-15 に "NOSA 2.0 and Government licensing"（`license-review` 2018-06・決める側の通に絞った・候補の外）を `review-readings-2.md` §1.225 へ（作品全体に許諾する、プログラムの一部は機械の仕事・Perens 氏、許諾は 1 つに統合された文書で・Cowan 氏）。
 
 - 2026-11-15 に "Some notes for license submitters"（`license-review` 2018-06）の Perens 氏の起点の通を `review-readings-2.md` §1.224 へ（効果の重複の 2 つの例外: 判例の新しい展開・明白な法的欠陥）。会話の残り（課題管理の道具・Randal 氏の「法が変わる」）は §1.195 と rounds の 2018-06 に既出。
