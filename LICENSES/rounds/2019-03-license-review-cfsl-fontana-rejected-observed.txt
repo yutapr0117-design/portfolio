@@ -1,0 +1,33 @@
+Source: OSI license-review public archive, 2019-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 1 in "For Approval: Convertible Free Software License, Version 1.4 (C-FSL v1.4)" (2019-03-14)
+Senders: Richard Fontana
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From richard.fontana at opensource.org  Thu Mar 14 17:30:32 2019
+From: richard.fontana at opensource.org (Richard Fontana)
+Date: Thu, 14 Mar 2019 13:30:32 -0400
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.4 (C-FSL v1.4)
+In-Reply-To: <7622c6f5-43a3-5fa4-0290-5abc4b1694ea@elstel.org>
+References: <7622c6f5-43a3-5fa4-0290-5abc4b1694ea@elstel.org>
+Message-ID: <CA+xoNzG=us4j=HH7-8PAAkxG0QJiUbMmk-TU4PyOVJCkAf=kCg@mail.gmail.com>
+
+On Tue, Jan 22, 2019 at 1:00 PM Elmar Stellnberger <estellnb at elstel.org> wrote:
+>
+> Full Name: Convertible Free Software License Version 1.4
+> Short Identifier: C-FSL v1.4
+> URL1: https://www.elstel.org/license/C-FSL-v1.4.pdf
+> URL2: https://www.elstel.org/license/C-FSL-v1.4.txt
+
+At its most recent board meeting, the OSI board decided to reject the
+Convertible Free Software License Version 1.4, in accordance with the
+consensus view of the community as expressed on this list, and because
+further constructive revision of the license to cause it to conform to
+the OSD does not seem likely.
+
+
+-- 
+Richard Fontana
+Open Source Initiative

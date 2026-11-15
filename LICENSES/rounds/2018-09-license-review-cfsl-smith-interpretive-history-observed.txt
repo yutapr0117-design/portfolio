@@ -1,0 +1,27 @@
+Source: OSI license-review public archive, 2018-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 45 in "For Approval: Convertible Free Software License, Version 1.1 (C-FSL v1.1)" (2018-09-26)
+Senders: Smith, McCoy
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From mccoy.smith at intel.com  Wed Sep 26 16:06:45 2018
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Wed, 26 Sep 2018 16:06:45 +0000
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <0c452d89-5d58-8666-be94-1b85349388b3@piana.eu>
+ <CAK2MWOsRYHafT-GoGU9tpFFKEYm3DHNnEzyfscCYjvJd1UY1ug@mail.gmail.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5197F76D972@FMSMSX108.amr.corp.intel.com>
+
+
+
+>>Other accepted licenses have "original contributor" language, but not granting so much power. OSI policy is they don't have to do something stupid because they've done it in the past. They would not be required to approve this language on the basis of usage in prior licenses.<<
+I think it would be very useful for the OSI to make this policy more explicit, perhaps by announcing it on the license submission page.  This is not the first time within the past year or so where a license has been submitted, to quite a bit of negative reaction, and the response from the submitter has been ?I?m just doing something that an already-approved OSI license is doing ? you can?t reject me for that reason, because of precedent?
+I tend to be of a more radical persuasion that there are some provisions of the OSD that can be a bit ambiguous in the way that they are currently drafted, and the practice around applying those definitions is more rigorous than the wording of the definitions themselves, which leads to submitters who rely much more on the words of the OSD than the interpretive history.  I believe there should be room for some clarification on the OSD wording (possibly even some revision of the OSD ? ?OSD 2.0,? perhaps?, or at least some more explicit interpretive history presented on the OSD, and license submission, webpages, so that current readers of the OSD, and future license drafters attempting to conform to the OSD, have better guidance.
+If I had the time, and the inclination, I might be motivated to write a paper on this topic ? taking the OSD, pulling apart the currently-presented language around it and analyzing how it has been interpreted over various years of license analysis (pre-, and perhaps post-, submission).  That?d take a lot of work (and would require some access to 20 years of submission history).  I?m wondering if anyone is interested in taking up such a task?  I know a law journal that would likely be interested in publishing something like that.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180926/f349d71d/attachment.html>
