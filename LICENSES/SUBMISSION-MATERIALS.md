@@ -73,6 +73,32 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 
 **答えが来たら**: 私信なので本文を公開しない。`rounds/` には日付・相手・向きの stub を置き、`build_private_phrase_hashes.py` を repo の外の本文に回す（Check 492）。分析は要約で書く。答えが否定なら期限で送らず、内容に当てて手順を決め直す。
 
+## 0d. `license-discuss` へ 1.4 の差を出す段の材料（文面ではない・`OSI-APPROVAL-PLAN.md` §4 の段 6b）
+
+**語はオーナーのもの**で、AI は送る文面を完成品として示さない（B14・`REVISION-PROTOCOL.md` ゲート 0）。ここに在るのは、何を添え、何を先に言っておくと読み違いを防げるかである。
+
+**添えるもの**:
+
+| もの | 作り方 | なぜ |
+|---|---|---|
+| 1.0 からの redline | `python3 .github/scripts/make_redline.py --changed-only LICENSES/ACD-1.0.txt LICENSES/ACD-1.4-DRAFT.txt`（投稿の日に作る） | list に出ているのは 1.0 で、審査者が求めたのは redline か新しいところだけの抜粋（Sado 氏 2026-01-24・§1.206） |
+| 新しい語と、最も近い承認済みの文 | `REVIEWERS.md` の "The new language, next to the nearest approved text" の表 | Perens 氏 2026-01-21 の求め（§1.205） |
+| 承認済み＋追加の許諾で足りない理由 | 同じ節の "Why not an approved licence plus an additional permission?" | Sado 氏の問いの後半。特許については「足りる」と認める形で答えている（B10 H1-g） |
+
+**差だけを読む人が「狭めた・条件を足した」と読みうる箇所と、その 1 行の注**（1c が 1.3 → 1.4 の削除 94 箇所を、50 が追加 87 箇所を読んだ・`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.42）:
+
+| 箇所 | 読み違い | 注の中身 |
+|---|---|---|
+| §9.2 から *"in full"* を外した | 一部しか当たらなくなった | この Dedication が当たる限りで当たる、の意。外したのは §11.4 と §12 の限りを越えて読まれうるから（E72） |
+| §8.4 の閾値の理由を替えた | 閾値を課すようになった | 閾値を課さないことは変わらない。理由を「越えたかを判定できない（§6.5）」へ替えただけ |
+| 理由・説明の文を外した（§2.8・§8.4・§8.6・§11.4・§12.4・−240 語） | 作用が減った | 作用の文は残し、理由だけを外した（Chestek 氏の *"I question whether they belong in the agreement at all."*・#295） |
+| §8.1 は *"derived from"*、§8.4・§6.4 は *"resulting from"* | 語の違いで §8.1 が狭まった | 2 つの許諾の対象の違い（§8.1 は Work とそこから派生したもの、§8.4 は計算的利用の結果）で、意図したもの。§8.4 は *"a grant in its own right"* |
+| §5.2(a) から *"apply"* を外した | Dedicator が DRM を掛けてよくなった | 掛けることは許すが、その手段について権利を主張せず、回避の法を向けない。GPL-3.0 §3 と同じ形（T64・E82） |
+
+**投稿版を記録する**: 投稿の日の草案の commit と日付を草案の冒頭と `FROZEN.md` の POSTING-NOTE に書き、以後の変更は草案の冒頭の別節に分ける（段 6b）。
+
+**⚠ 逆側**: 注を添えるほど投稿は長くなる（B3・B13）。注は「読み違えうる」と我々が判断した箇所だけで、審査者が別の箇所を読み違えることは防げない。1.1 の短い依頼が moderation で拒否された前例があり（`against.md` #215）、届くことは仮定しない（ゲート 10）。
+
 ## 1. OSI が求める項目と、我々の事実
 
 原典は `https://opensource.org/licenses/review-process`（`review-rules.md` §1.76 が 1 項目ずつ照合済み）。
