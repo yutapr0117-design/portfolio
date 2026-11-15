@@ -118,7 +118,13 @@ OSI が新規ライセンスの提出者に求めるのは、**最も近い承�
 > That is a judgement for the list, and the honest position is that the answer is not obviously
 > yes. What can be said is that the gap is real, that no approved licence closes it, and that
 > combining approved licences does not close it either (§5.5 addresses the CC0-plus-patent-pledge
-> construction directly).
+> construction directly). **It can be closed by an approved licence plus an additional permission
+> written for the purpose** — 0BSD with a patent grant on the terms of §8.1 and §8.4, for instance
+> (`ACD-OSI-BOTTLENECKS-B10.md`, H1-g; the committee asked exactly this of a 2026 submission,
+> `against.md` #325). What such a combination adds is itself a new, unreviewed legal text with no
+> identifier of its own, so the question becomes where the new text should sit, not whether one
+> is needed. *(Added 2026-11-15: the sentence above had stopped at "combining approved licences",
+> which is true and left out the form the committee now asks about.)*
 
 ---
 
