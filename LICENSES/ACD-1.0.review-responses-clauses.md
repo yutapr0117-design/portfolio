@@ -399,17 +399,19 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 
 > **English:**
 >
-> Because the question was put in 2015 and set aside, and the committee has
-> since named the property and approved a second licence with it. The Free
-> Public License (now 0BSD) was approved after the chair wrote that it did not
-> justify "special examination by the OSI". In 2020 the committee's rationale
-> for MIT-0 said that it and 0BSD "have the same modification to their origin
-> license, which is to remove the requirement that the copyright notice and
-> permission notice be included in copies of the software", recorded that "no
-> one raised a substantive objection to its approval", and recommended it; the
-> Unlicense was approved the same year. Section 10.2 has the same effect as all three; it differs only in
-> saying so in terms ("You need not ... reproduce any notice ... retain this
-> file"), so that no one has to infer it.
+> Two reasons, and neither is that other licences got through. First, the
+> question was put in 2015 and set aside, not decided: the chair wrote that
+> the licences then before the committee did not justify "special examination
+> by the OSI", and no board decision on it followed. Second, the Open Source
+> Definition does not require a licence to travel with the software, and the
+> committee has read it that way since: its 2020 rationale for MIT-0 named the
+> property ("remove the requirement that the copyright notice and permission
+> notice be included in copies of the software") and recorded that "no one
+> raised a substantive objection to its approval". I cite that as evidence of
+> how the Definition has been read, not as a claim that ACD should pass because
+> 0BSD, MIT-0 or the Unlicense did. Section 10.2 says in terms what those
+> licences do by omission ("You need not ... reproduce any notice ... retain
+> this file"), so that no one has to infer it.
 >
 > The cost is real and I state it rather than leave it to be found. A recipient
 > who receives a copy with the notice removed cannot tell where it came from,
@@ -420,7 +422,7 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 > and I would rather it were decided than deferred on the ground that a licence
 > is obscure.
 
-**逆側**: 「決めた記録が無い」は「問わないと決めた」ことではない（#326）。最後の段は、方針の判断を自分から求めることになり、承認の時期を延ばしうる。外すなら、その費用（先送りの条件に自分から触れない形になり #326 の合否を満たさない）を書いて外す。
+**逆側**: 「決めた記録が無い」は「問わないと決めた」ことではない（#326）。承認済みの 3 本を挙げることは、Piana 氏 2024-09-06 *"Please never use the "but license x does the same" argument."*（`review-readings.md` §1.212）の形に読まれうるので、答えの芯を「先送り」と「OSD の読み」に置き、3 本は読みの材料として後ろに置いた（portfolio-50 の反例・2026-11-15）。最後の段は、方針の判断を自分から求めることになり、承認の時期を延ばしうる。外すなら、その費用（先送りの条件に自分から触れない形になり #326 の合否を満たさない）を書いて外す。
 
 #### 帰属ゼロ + 明示特許の組み合わせへの反対（2026-10・`against.md` #276 / #277 から・審査者より先に自分で立てる）
 
