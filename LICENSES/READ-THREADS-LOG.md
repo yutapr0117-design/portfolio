@@ -20,6 +20,8 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "Some notes for license submitters"（`license-review` 2018-06）の Perens 氏の起点の通を `review-readings-2.md` §1.224 へ（効果の重複の 2 つの例外: 判例の新しい展開・明白な法的欠陥）。会話の残り（課題管理の道具・Randal 氏の「法が変わる」）は §1.195 と rounds の 2018-06 に既出。
+
 - 2026-11-15 に "License drafting quality and process"（`license-review` 2013-04〜06・32 通・決める側の通に絞った・候補の外）を `review-readings-2.md` §1.223 へ（多段階の承認とまず license-discuss・Berkus 氏、使用の数を要件にすれば萎縮・Fontana 氏、断る手段が無い・Villa 氏、新しいライセンスの基準率）。
 
 - 2026-11-15 に 2026 年の 2 つの提出（Modified 0BSD・ISC を基にしたロシア語のライセンス）への決める側の最初の返信を `review-readings-2.md` §1.222 へ（差・使用・手順・目的の 4 つの問い）。1 通ずつなので READ-THREADS には足さない。
