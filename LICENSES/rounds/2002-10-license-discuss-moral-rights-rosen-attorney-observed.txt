@@ -1,0 +1,31 @@
+Source: OSI license-discuss public archive, 2002-October.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 9 in "Moral Rights (was Simplified Artistic License (A Proposed Compromise))" (2002-10-03)
+Senders: Lawrence E. Rosen
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Mon Oct  7 00:00:14 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Sun, 6 Oct 2002 17:00:14 -0700
+Subject: Moral Rights (was Simplified Artistic License (A Proposed Compromise))
+In-Reply-To: <OE33t6vYvdZZZSJhC2D00006595@hotmail.com>
+Message-ID: <01e501c26d94$83622570$927ba8c0@ROSENGARDEN>
+
+> I don't know if this is quite what Larry was saying, but I 
+> for one consider it an unfair tactic to try to discourage RSW 
+> from seeking approval.  Russ and other board members may 
+> think he is misguided in believing that others will want to 
+> use his license, and might even be right, but that does not 
+> change your obligation to approve his license if it is OSD compliant.
+
+That certainly wasn't what I was saying, and I don't think it was what
+Russ and the other board members were saying.  We've all said many times
+that, if RSW's license is OSD-compatible, it will be approved.  I do
+recommend, however, that RSW seek an attorney's advice.  I recommend
+that to everyone who wants to "roll his own" license.
+
+/Larry
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
