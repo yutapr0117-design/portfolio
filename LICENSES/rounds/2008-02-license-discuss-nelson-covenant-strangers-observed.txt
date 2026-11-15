@@ -1,0 +1,110 @@
+Source: OSI license-discuss public archive, 2008-February.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 67 in "(OT) - NOT A Major Blow to Copyleft Theory" (2008-02-05)
+Senders: Russ Nelson
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Fri Feb  8 17:47:38 2008
+From: nelson at crynwr.com (Russ Nelson)
+Date: Fri, 8 Feb 2008 12:47:38 -0500
+Subject: (OT) - NOT A Major Blow to Copyleft Theory
+In-Reply-To: <e52efbe10802080856j6e05185ek623132659850d684@mail.gmail.com>
+References: <e52efbe10708240636y62d89afclb03e2af03094d3ff@mail.gmail.com>
+	<00af01c7e8c8$bd6aba20$6401a8c0@LROSENTOSHIBA>
+	<e52efbe10801220334k4c7443fdn12803d98a1ace86b@mail.gmail.com>
+	<e52efbe10801240119u5d29274dyb50efb602532dd08@mail.gmail.com>
+	<e52efbe10801251042v49f19941xaeaaf2608bbc5986@mail.gmail.com>
+	<018801c85f88$ffccec30$6601a8c0@LROSENTOSHIBA>
+	<e52efbe10801280100k2c8df2efv80626698df08e8f4@mail.gmail.com>
+	<18345.15505.69226.485658@desk.crynwr.com>
+	<e52efbe10802080402lefbfcd3v4a22e9bfd80555ed@mail.gmail.com>
+	<18348.30812.497008.225192@desk.crynwr.com>
+	<e52efbe10802080856j6e05185ek623132659850d684@mail.gmail.com>
+Message-ID: <18348.38330.28825.26901@desk.crynwr.com>
+
+You misunderstand.  There is no license TO REDISTRIBUTE without
+complying with the conditions.  A covenant exists only within the
+context of a license.  And, a covenant is a solemn promise.  Does a
+judge seriously expect that a covenant, bound with seal and oath,
+exists between an open source licensor and licensee, who have never
+communicated with each other and when the latter is unknown to the
+former?
+
+Yes, the license to use the copyrighted materials survives.  So what?
+That's not the issue before the court.
+
+Alexander Terekhov writes:
+ > On Feb 8, 2008 4:42 PM, Russ Nelson <nelson at crynwr.com> wrote:
+ > > Alexander Terekhov writes:
+ > >  > The terms of the license do impose certain covenants which are NOT
+ > >  > conditions (precedent). Translation: events "which must take place
+ > >  > before a party to a contract must perform or do their part"
+ > >  > (conditions precedent).  One just can't turn covenants into
+ > >  > conditions. Got it now?
+ > >
+ > > Agreed, but if something isn't a covenant in the first place, then it
+ > > *can* be a condition.  A covenant is a solemn promise.  The judge
+ > > construed this agreement to license all copyright rights, with
+ > > covenants concerning distribution.  Translation: the Defendant got a
+ > > license to do anything he wants, and he promised to make only certain
+ > > distributions.
+ > >
+ > > A correct interpretation would have said that the license to use is
+ >                                                     ^^^^^^^^^^^^^^^^^
+ > 
+ > > unconditional, but the license to redistribution is conditioned on the
+ >   ^^^^^^^^^^^^^
+ > 
+ > Notice "... the authority to use the copyrighted material" part below!
+ > 
+ > > attributes of the work being distributed.  For example, one set of
+ > > conditions applies to verbatim distribution.  A different set of
+ > > conditions applies to modified distributions.  Translation: each
+ > > redistribution is separately licensed.
+ > >
+ > > Basically, the judge wanted to rule against Jacobsen, so he did.
+ > 
+ > The Fifth Circuit in Fantastic Fakes, Inc. v. Pickwick Intl, Inc., 661
+ > F.2d 479 (5th Cir. 1981), a case cited favorably in several Ninth
+ > Circuit opinions, rejected an argument that a covenant can be recast
+ > as an affirmative grant defining the "scope" of a license agreement.
+ > In Fantastic Fakes, the plaintiff entered into a licensing agreement
+ > authorizing the defendant to distribute certain of its copyrighted
+ > material. The plaintiff claimed that the defendant was infringing its
+ > copyright by distributing the material without affixing a proper
+ > copyright notice thereto, as required by the license agreement.
+ > Section 2 of the agreement, entitled "Grant of Rights," contained the
+ > following affirmative license grant:
+ > 
+ > "LICENSOR" hereby grants to "LICENSEE" a nontransferable,
+ > nonassignable and nonexclusive License for a period of 2 (TWO) years
+ > from the date hereof, to use the "ORIGINAL MASTER RECORDINGS" listed
+ > and identified on the schedule incorporated by reference herewith.
+ > 
+ > Id. at 481. Section 2 further provided that the license was granted
+ > "subject to and in accordance with the following" :
+ > 
+ > (b) "LICENSEE" shall cause to appear on all sound recordings,
+ > including cartridge tapes, produced from "ORIGINAL MASTER RECORDINGS"
+ > a copyright notice such that said notice appears on the surface of the
+ > copies of the recording or on the label or container, in such a manner
+ > and location as to give reasonable notice ...
+ > 
+ > Id. at 481-82. The Fantastic Fakes court did not find that section
+ > 2(b) limited the scope of the license. See Id. at 483-84. Rather, the
+ > court held that the notice requirement was a covenant, the breach of
+ > which "may support a claim of damages for breach of contract but will
+ > not disturb the remaining rights and obligations under the license
+ > including the authority to use the copyrighted material." Id.
+ > 
+ > regards,
+ > alexander.
+ > 
+ > --
+ > "Notwithstanding Jacobsen's confused discussion of unilateral
+ > contracts, bilateral contracts, implied licenses, "licenses to the
+ > world" and "bare" licenses in his Appellant's Brief, the issue at hand
+ > is fairly simple."
+ > 
+ >  -- Brief of Appellees (CAFC 2008-1001).
