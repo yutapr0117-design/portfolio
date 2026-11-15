@@ -562,6 +562,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 498 (h): READ-THREADS.txt から読了の行を 1 つ消す —— AS-OF の 3 つの数は和が合ったまま残り、旧版 (同じ文の中の"
+            "算術だけ) は読了の一覧と AS-OF の食い違いを見なかった (2026-11-15・2f が気付き 50 が提案)",
+    "file": ROOT / "LICENSES" / "READ-THREADS.txt",
+    "find": "1999-04-24\tAPSL 1.1 certification...\n",
+    "replace": "",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

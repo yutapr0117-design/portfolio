@@ -12,7 +12,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (d) submission-reference §4c の "**X / Y**, no gaps either way" の両辺 / (e) register の
        集計行の「解消済み N」「構造的拒否候補 N」(分類の列の `12`) / (f) 逐条リファレンスが繰り返す「N 条すべてを収録」「抽出した N 条」/
        (g) submission.md の "across N files" と、そこで名指す分冊 / (h) AS-OF の「未読スレッドの残り」の
-       「候補 N 本のうち M 本を読んだ。K 本は読んでいない」が N = M + K であること /
+       「候補 N 本のうち M 本を読んだ。K 本は読んでいない」が N = M + K であり、N が THREAD-CANDIDATES.txt の
+       会話の数、M が READ-THREADS.txt のうちそこに在る会話の数であること (後者 2 つは 2026-11-15・9b) /
        (j) 「1.0 から何が変わったか」の英文 (CHANGELIST の切り替えの日の節・切り替えた後は REVIEWERS) が述べる
        errata の件数・閉じた件数と版ごとの内訳・残る E-ID・節ごとの件数・語数と条の数が、
        prepare_version_freeze.py の errata_closures() / size() と一致すること (2026-11-11・portfolio-00 の依頼) /
@@ -136,13 +137,28 @@ def run(ctx):
             bad.append(f"(g) submission.md が名指さない分冊: {unnamed}")
 
     # (h) AS-OF の未読スレッドの行: 候補・読了・残りを手で数えており、2026-11-08 に 362 / 409 を 368 / 403 へ
-    #   直した (portfolio-00)。候補の数は道具 (census_decision_statements.py threads) がアーカイブを読んで出すので
-    #   CI では再現できない。CI で守れるのは同じ文の中の算術だけである
+    #   直した (portfolio-00)。同じ文の中の算術に加えて、N と M を一覧の file から導出して照合する
+    #   (2026-11-15・9b。2f が気付き 50 が提案): 道具は 11-11 から候補を THREAD-CANDIDATES.txt に固定し
+    #   (一度候補になった会話は外さない)、読了を READ-THREADS.txt だけから数え、どちらの行も日付を会話の
+    #   始まりにそろえている。だから N = 候補の一覧の会話の数、M = 読了の行のうち候補の一覧に在る会話の数
+    #   (件名の key と日付の組・key は道具と同じ title_key) で、アーカイブ無しに再現できる (11-15 に 800 / 486 で一致)。
+    #   読了の行を足して AS-OF を直し忘れる形と、日付が会話の始まりでない行 (道具は会話に当て直すが、ここでは
+    #   外れる) の両方を RED にする。読了の 519 行のうち 33 行は候補の外の会話で、M に入らないのが正しい
     m = re.search(r"候補 (\d+) 本のうち (\d+) 本を読んだ。(\d+) 本は読んでいない", text(L / "AS-OF.md"))
     if not m:
         bad.append("(h) AS-OF.md: 「候補 N 本のうち M 本を読んだ。K 本は読んでいない」が読めない")
-    elif int(m.group(1)) != int(m.group(2)) + int(m.group(3)):
-        bad.append(f"(h) AS-OF.md の未読スレッド: 候補 {m.group(1)} ≠ 読んだ {m.group(2)} + 読んでいない {m.group(3)}")
+    else:
+        if int(m.group(1)) != int(m.group(2)) + int(m.group(3)):
+            bad.append(f"(h) AS-OF.md の未読スレッド: 候補 {m.group(1)} ≠ 読んだ {m.group(2)} + 読んでいない {m.group(3)}")
+        from census_decision_statements import _list_rows
+        cand = {(k, d) for k, d, _t in _list_rows(L / "THREAD-CANDIDATES.txt")}
+        read = {(k, d) for k, d, _t in _list_rows(L / "READ-THREADS.txt")}
+        if not cand or not read:
+            bad.append("(h) THREAD-CANDIDATES.txt か READ-THREADS.txt の行を読めない (導出できないなら照合は沈黙する)")
+        elif (int(m.group(1)), int(m.group(2))) != (len(cand), len(read & cand)):
+            bad.append(f"(h) AS-OF.md の未読スレッド: 候補 {m.group(1)} 本 / 読んだ {m.group(2)} 本 と述べるが、"
+                       f"THREAD-CANDIDATES.txt の会話は {len(cand)}、READ-THREADS.txt のうちそこに在る会話は "
+                       f"{len(read & cand)} (読了の行を足して AS-OF を直し忘れたか、行の日付が会話の始まりでない)")
 
     # (i) AS-OF の「答えていない問い」の行: 件数「**N 件**」を手で書き、問いが届くたびに状態の欄へ
     #   「**Qn** 届いた日・発言者・`rounds/<file>`・§N・未回答｜YYYY-MM-DD にオーナーが回答」を「；」で
@@ -226,7 +242,7 @@ def run(ctx):
 
     check(
         not bad,
-        "Check 498: 自己申告の文の 2 つ目の数と繰り返しが実測と一致 (errata / comparison / faq mirror / §4c / register / 逐条 / 分冊 / 未読スレッドの和 / 答えていない問いの件数 / 1.0 からの変化の数)",
+        "Check 498: 自己申告の文の 2 つ目の数と繰り返しが実測と一致 (errata / comparison / faq mirror / §4c / register / 逐条 / 分冊 / 未読スレッドの和と一覧 / 答えていない問いの件数 / 1.0 からの変化の数)",
         (f"Check 498: 自己申告の文の 2 つ目の数が実測と合わない: {bad}。1 つ目の数 (Check 460) だけを直すと、"
          "同じ文の 2 つ目と隣の繰り返しが偽のまま残る"),
         blocking=True,
