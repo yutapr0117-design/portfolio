@@ -60,14 +60,14 @@ Check 468y は 2 冊目とこの file の両方の「変えない」「退けた
 
 **⚠ 逆側**: 語を変えないので、採用者が「自分のサーバを攻撃されても不正アクセスの法を使えない」と読む余地は残る。答えは本文ではなく `ADOPTING.md`（50 が持つ）に「§5.2(a) が放棄するのは回避の法を You に向けることで、計算機への不正なアクセスを止める法がそれに含まれるかは法律家への問いとして開いている」と書く形になる。
 
-### 15.4 T69: §2.6 の識別を §16.2 の仕組みで果たせると書く（+7 語・採った・2026-11-15）
+### 15.4 T69: §2.6 の識別を §16.2 の仕組みで果たせると書く（+9 語・採った・2026-11-15）
 
 **見つけた経緯（portfolio-30 の候補）**: §2.6 は、寄与から外れる素材を Work に入れる Dedicator が *"identify it in a form that accompanies the Work, so that a person or an automated system reading the Work can determine what this Dedication does not cover"* と約束するが、どう識別するかを言わない。審査の側の語では、Piana 氏が *"In source code there are standards like SPDX and REUSE and that one is the (machine readable) way"* と書いた（2025-07-18・`review-readings.md` §1.203）。
 
-**Before**: *"… will identify it in a form that accompanies the Work, so that …"* **After**: *"… will identify it in a form that accompanies the Work, as a notice may under Section 16.2, so that …"*
+**Before**: *"… will identify it in a form that accompanies the Work, so that …"* **After**: *"… will identify it in a form that accompanies the Work, as a notice may identify material under Section 16.2, so that …"*（最初に採った *"as a notice may under Section 16.2"* は動詞を省き、*identify* と *accompany* のどちらを補うかで割れ、*may* が許可の声に数えられたので、同じ日に *identify material* を書いた・portfolio-9b の測定・+2 語）
 
 **最初の案と反例（portfolio-50）**: 最初は *"such as an SPDX expression or a REUSE file"*（+9 語・*license* の綴りは 468o とぶつかるので *SPDX license expression* は避けた）とした。50 の反例: (1) SPDX のライセンス式（*"LicenseRef-ACD-1.4 AND MIT"*）はパッケージの単位では「どのライセンスが混ざっているか」しか言わず、どのファイルが MIT かを言わない。例に挙げると、式を 1 つ書けば約束を果たしたと読ませる。(2) SPDX / REUSE を名指すと、*ejusdem generis* でソースのメタデータの類に読まれ、データセットのカードの YAML の license 欄が外されたと読める。(3) 実務家への問い 5 は「どの標準か」を尋ねていて、名指す形はその答えの前に標準を選ぶ。§16.2 は、注記がどの素材に掛かるかを、語・ファイル内の注記の位置・他の素材を指すファイル名・範囲を区切る印で決める語と、狭い注記が他の条件へ割り当てた素材にはこの Dedication を適用しないという規則を既に持つ。§2.6 の識別はその仕組みで果たせるので、それを指す。
 
-**⚠ 逆側**: §16.2 を指す形は抽象的で、実務の読み手には SPDX / REUSE の名の方が速く伝わる —— 標準の名は `ADOPTING.md` に例として置く（50 に依頼）。+7 語で、GPL-3.0 との余裕は 40 語から 33 語になる。
+**⚠ 逆側**: §16.2 を指す形は抽象的で、実務の読み手には SPDX / REUSE の名の方が速く伝わる —— 標準の名は `ADOPTING.md` に例として置く（50 に依頼）。+9 語で、GPL-3.0 との余裕は 40 語から 31 語になる。
 
 **審査記録（portfolio-2f・引用行を除く本文への正規表現の当て・弱い不在）**: 承認済みの CAL-1.0 は適用の文で *"SPDX-License-Identifier: CAL-1.0"* の札を名指している（委員会報告 2020-02-09・`rounds/2019-04-license-review-cal-approval-observed-52of61.txt`）。ACD の §16.2 も同じ札を名指すので、§16.2 を指す形はそれを含む。告知の形を本文で固定したライセンスは機械可読の慣行と衝突しうる、という指摘があり（Crane 氏 2021-09・AFL と REUSE / SPDX）、§2.6 が形を §16.2 の仕組みへ開くのはその衝突を避ける向きである。「標準を本文に書くと古びる」型の正面の異議は見つからなかった。審査者は SPDX の構文の正確さまで見る（Fontana 氏 2020-02-07）—— 本文に式の例を書かなかったことは、その費用も避ける。
