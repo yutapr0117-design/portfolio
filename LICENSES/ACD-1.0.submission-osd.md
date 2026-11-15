@@ -233,3 +233,44 @@ being appropriate for review is not approval.
 but to non-software artifacts like datasets, documentation, and model parameters"*, and the chair of the Committee
 said *"the documents may assure the necessary rights through the use of legal mechanisms other than a license"*
 (`license-review`, 2024-09-01 and 2024-09-10). That was said of OSAID terms, and it is not a published rule.
+
+### 3e. Pre-flight: would the FSF and Debian accept it as well? (2026-11-15)
+
+**Why this section exists.** Simon Phipps, then on the OSI board, `license-review` 2017-10-25: *"Seems to me
+any license that is approved by only one of {OSI, FSF, Debian} is an indicator of an unaddressed issue. So,
+simply as an exercise of reflection, asking if one's license will be approved by all is a great pre-flight
+check."* (`review-readings-2.md` §1.229). Neither the FSF nor Debian has looked at ACD. **What follows is our
+own reading of the 1.4 draft against their published tests, not their assessment**, and it should be
+weighed as such. Clause numbers are those of the 1.4 draft. The FSF's positions are taken from its licence list
+(`https://www.gnu.org/licenses/license-list.html`, read on 2026-11-15 through a summarising fetch; the wording is
+paraphrased here because it has not been checked word for word, and a copy has not been placed in `rounds/`).
+
+| Test | What it asks | ACD (1.4 draft) |
+|---|---|---|
+| FSF freedom 0 | Run the program for any purpose | §4.1 *"for any purpose whatsoever"*; §4.3 excludes conditions on field of use and on the user |
+| FSF freedoms 1 and 3 | Study and change it; distribute changed versions; access to source is a precondition | §4.2 includes study, adaptation and distribution *"in source form, in object form, or in any other form"*. ACD does not require anyone to provide source (§10.2), which the FSF accepts in permissive licences |
+| FSF freedom 2 | Redistribute copies | §4.2, §4.5 |
+| FSF: the stated reason it does not recommend CC0 for software | The FSF's licence list gives CC0's express exclusion of patent licences as the reason, and calls a program whose developer refuses patent licences a trap for users | **Does not apply.** §8.1 and §8.4 grant patent licences and §8.6 adds a covenant |
+| FSF: what it says of 0BSD | The same list says that if the copyright notice or licence notice is removed, a recipient cannot safely rely on the licence and may face liability, and recommends a short licence that keeps the notice instead | **Applies to ACD as much as to 0BSD.** §10.2 lets a recipient drop every notice. §2.3 holds that a recipient has every permission without knowing of the Dedication, and §16.2 makes an identifier sufficient notice, but neither helps a recipient who received a copy with nothing on it to show where it came from (`against.md` #41, #326) |
+| FSF: GPL compatibility | No condition that the GPL forbids adding | ACD imposes no condition (§10.1), and §4.5 lets a distributor apply any terms, including the GPL |
+| DFSG 1–3 | Free redistribution; source; derived works under the same terms allowed | §4.2, §4.5; no condition is imposed, so nothing prevents derived works under any terms |
+| DFSG 4 | Integrity of the author's source code (a licence may require patches) | ACD requires nothing; the only restriction is on distributing a modified **licence text** under its name (§16.4), which §16.6 keeps away from the Work, as the GPL's own text restriction is |
+| DFSG 5–6 | No discrimination against persons, groups or fields | §4.3 |
+| DFSG 7 | Rights apply to all to whom the program is redistributed | §1.6, §2.3, §4.6 |
+| DFSG 8 | Not specific to Debian | §16.3 |
+| DFSG 9 | Must not contaminate other software | No condition reaches other works; §12.3 confines the moral-rights covenant and consent to the Work |
+| Debian practice (desert island, dissident, tentacles-of-evil tests) | No obligation to send changes, to identify oneself, or that can be altered by a licensor later | §10.1 and §10.2 impose nothing; §2.2 makes the Dedication irrevocable and bars later terms on copies made available |
+
+**Where we expect a question rather than a refusal.** (1) The FSF discourages new licences that duplicate
+existing ones; whether it would treat ACD as a new licence or as a public-domain dedication with a patent grant
+is not ours to predict (`ACD-OSI-BOTTLENECKS-B10.md` H1-g). (2) Debian's reviewers have asked of dedications
+whether the surrender works where the author's country does not recognise it; ACD answers with §4 (an
+independent licence, §4.4), the same answer CC0 gives with its fallback licence. (3) §6.2 and §6.3, on
+reservations for text and data mining, have no counterpart in either test and would be read as statements, not
+conditions.
+
+**⚠ Converse.** The pre-flight cuts against us if it is run by them rather than by us: Phipps's test treats a
+licence approved by only one of the three as a sign of trouble, and if the FSF or Debian were to reach a
+different answer on any row above, that answer would itself be an adverse fact (`against.md` #328). A
+self-assessment is also the kind of statement that a reviewer may discount as the drafter's view of its own
+text.
