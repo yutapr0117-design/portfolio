@@ -1,0 +1,73 @@
+Source: OSI license-review public archive, 2019-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of the messages in "For approval: The Cryptographic Autonomy License" (2019-08)
+Senders: Josh Berkus
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From josh at berkus.org  Mon Aug 19 20:30:56 2019
+From: josh at berkus.org (Josh Berkus)
+Date: Mon, 19 Aug 2019 13:30:56 -0700
+Subject: [License-review] For approval: The Cryptographic Autonomy
+ License (Beta 2)
+In-Reply-To: <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com>
+References: <CAFQvZEPabzy-uJTOmqgtKMUCsET7wbSTmmH_3U2VMrkB9xeRdA@mail.gmail.com>
+ <cab0e8ad-5d6c-57a3-e388-243496f53201@berkus.org>
+ <CAFQvZENyQ=w5fDf8Lu3_aiPVCioi5txQ2T4T2YN9Nb_mDQxqYw@mail.gmail.com>
+Message-ID: <8a196fc8-a802-23e2-abff-3782b6c57ee3@berkus.org>
+
+Van,
+
+So, I'm tackling this for the perspective of "as a software developer,
+what are my questions about using anything under this license".  I'll
+admit to not having re-read the entirely of the original discussion, so
+if some of these questions were already covered, feel free to bounce me
+to the archives.
+
+Overall, the license is looking really good to me.
+
+### 2.2. Offer and Acceptance
+
+- I cannot make heads or tails of this paragraph.  What is it supposed
+to mean?  Would there be a way to state that in language that would be
+clearer to a layman?
+
+Patent Clauses:
+
+- These are very clear and well-stated.  I don't know how they do
+legall, but as a developer I find them very straightforwards.
+
+#### 4.2.1. No Withholding User Data
+
+- Again, I don't have any opinion on enforcability, but the meaning here
+is quite clear to me.
+- For my part, I find this clause a natural extension of copyleft
+principles, and as such not a violation of the OSD.
+- Even further, as a database geek, I would love to see more
+user-data-protection licenses.
+
+#### 4.2.2. No Technical Measures that Limit Access
+
+- This paragraph seems ripe for inadvertent violation.  For example, a
+strict interpretation of this seems to read that you're not allow to
+place any copy of the code under private-key encryption, even for your
+own organization's use.  I'd love to see some of the "withold" or other
+intent language here.
+
+#### 4.2.3. No Legal or Contractual Measures that Limit Access
+
+- Do we need an exemption here for government action? Not everyone has a
+choice about some of these laws (like anti-circumvention).
+
+### 5.3. Termination Due to Litigation
+
+- Do you want to limit this to patent infringement?  What about other
+types of legal action, such as claims for damages?
+
+### 7.2. Choice of Jurisdiction and Governing Law
+
+- This seems like it could be used to circumvent some of the provisions
+of the license.  Comment?
+
+-- 
+Josh Berkus
