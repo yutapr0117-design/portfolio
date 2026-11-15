@@ -1,0 +1,126 @@
+Source: OSI license-discuss public archive, 2002-August.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 9 in "why does allowing click-through licenses "just feel wrong" to me?" (2002-08-06)
+Senders: Brian Behlendorf
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From brian at collab.net  Wed Aug  7 04:33:53 2002
+From: brian at collab.net (Brian Behlendorf)
+Date: Tue, 6 Aug 2002 21:33:53 -0700 (PDT)
+Subject: why does allowing click-through licenses "just feel wrong" to me?
+Message-ID: <20020806194618.J38422-100000@yez.hyperreal.org>
+
+
+Maybe it was the initial Subject line, "Legal soundness comes to open
+source distribution", which did little to endear me to the topic - as if
+those of us distributing open source software today are not "legally
+sound".
+
+Partly it was visions of hundreds of click-throughs as I go through my day
+using and installing software; it's annoying enough when I have to do it
+to download a JVM from Sun.  With respect to Larry's click-wrap proposal:
+from my experience with corporate lawyers, none of them will feel that an
+omnibus click-wrap license will suffice; they'll all insist on agreement
+to their own.
+
+It also doesn't solve the issue for people releasing software but not part
+of a Linux distribution - how do they know if someone's already accepted
+the click-through?  And whether that previous click-through sufficiently
+disclaims warranties?  Bruce's suggestion of a single uniform agreement is
+the only workable solution there, though we'd also need agreement as to
+where new packages can look to see if that license has already been
+accepted.
+
+Though, a click for a warranty disclaimer is the least of my concerns;
+that someone would slide another term in there that was OSI-conformant but
+still really silly would be easy for me to miss.  Larry's proposed
+click-wrap license only disclaims warranties - my worry is that expanding
+the OSD to allow for non-copyright-based contracts (did I get that
+terminology correct, Larry?) opens a pandora's box by allowing licenses
+with terms that are OSD-conformant but clearly silly or unwise, but which
+OSI must certify anyways, diluting the value of the term "Open Source".
+We simply don't yet know what additional constraints to put in place to
+prevent that, and creating new ones in response to what is submitted is
+hardly fair.  Russ's proposal is a good start, but I don't know if it's
+enough; I'd need more time to think of examples.  Though, it's not fair
+for me to block a proposal when I can't think of good counter-examples.
+
+Maybe it feels wrong when one ponders: what if a developer lost a case
+because he couldn't provide *proof* that a licensee had accepted the
+click-through.  Far fetched?  Is it any more of a guess than the claim
+that click-through is required for warranty disclaimer?  If that were the
+case, it implies that someone somewhere has to maintain a registry of who
+accepted what disclaimers, to present as evidence in court if needed.
+The collection and management of such a database terrifies me.  Perhaps an
+unregistered click-through, where no record of that acceptance is kept
+anywhere, is enough - but that would be an interpretation based upon the
+history of relevant cases, whereas there is no case history today that
+suggests that a click-through agreement of any sort is either necessary or
+sufficient (as Rod Dixon put it) to disclaim warranties.  So there's an
+impedance mismatch in the logic somewhere...
+
+With a bit more time I might have come up with the same arguments around
+consideration and privity that Mahesh made, though surely I wouldn't have
+made them nearly as clearly.  Thank you, Mahesh - nice to have you around.
+
+I guess my reaction mostly has to do with a sense that it's not in the
+Open Source community's interests to increase the # and scope of licenses
+out there, and to force people to have to be aware of licenses to simply
+use the software.  Right now, people can by and large ignore open source
+licenses *unless* they intend to modify *and* redistribute.  That's an
+awfully nice aspect that would be a shame to lose.  The existance of
+licenses that OSI has certified with unenforceable use provisions
+notwithstanding.  :)  (see the P.S.)
+
+Furthermore, if there are legals trends that work against the Open Source
+community's interests, such as the ever expanding black hole of
+tort/liability law, the OSI Board should be showing leadership by opposing
+such a move, by establishing norms in the industry for a court to look at
+when trying to make a decision on a difficult case.  Right now, if a judge
+was asked to decide whether an open source developer is liable for damages
+incurred by an end-user, I'd be dollars to donuts he'd compare the
+"injurious reliance" against the lack of consideration and privity, and
+look at the *norm* in this industry where it's quite clear that open
+source developers are not responsible for the consequences of use of their
+work, and conclude that in no situation should such a developer be liable
+just because he didn't get explicit agreement to a warranty disclaimer.
+If such a decision came down, we'd have our precedent, and never have to
+worry about needing click-through warranty disclaimers again.  On the
+other hand, if the judge surveyed the open source landscape, and found
+lots of open source organizations with a click-through, yet the developer
+in this case did *not* require a click-through, seems like the judge would
+be much more likely to find against the developer.
+
+It's within our power, as the OSI Board and the community of people
+working on software and software licenses, to establish the norms in this
+industry that those asked to make a judgement call in a case will compare
+to.  In so far as we're not breaking the law, I believe it's in the
+interests of the community to make these norms as simple as possible for
+developers to manage.  Asking developers to get click-through, and require
+it from redistributors, seems like a small price, but the norm it
+establishes could end up being fairly regressive in the wrong context.
+
+To some people in the community there will be no distinction between OSI
+now allowing some new behavior, and encouraging it.
+
+Brian
+
+
+
+P.S.: OK, so I was wrong that current OSI licenses are only to be
+interpreted under copyright theory, rather than general contract law.
+Though I note that I downloaded and ran Mozilla recently without
+consenting to any license, so I don't see how they expect the use
+provisions in that license to apply to me.
+
+P.P.S.: Taking a stand against the expansion of liability in software is a
+Good Thing.  Medical doctors in the U.S. are leaving their profession in
+droves because the cost of malpractice insurance has skyrocketed in recent
+years.  A similar thing could happen to the software development industry
+if liability ever really does become a problem.  I'm all for a law that
+says you get your money back if software doesn't work...
+
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
