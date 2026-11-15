@@ -153,6 +153,14 @@ Bruce Perens 氏 2002-01-20 *"One of the goals of the OSD was to have software t
 
 Russell Nelson 氏 2005-09-01 *"Does OSI certify all licenses that comply with the OSD?"* と *"Does OSI certify all good licenses that comply with the OSD?"* を並べ、*"In other words, do we take into account the interests of the community?"* と問うた。Lawrence Rosen 氏は同じ日に *"my opinion has always been that OSI should approve licenses that comply with the OSD. Period."* と答え、理事の Eric S. Raymond 氏は同じ月に、3 つの基準（読める・再利用できる・重複しない）を *"supplemental to the OSD"* とし、*"we have to be more strict about what we allow in."* と書いた。上の 2001 年の段（新しさが無くても退けられない）から 2005 年のこの段を経て、差の問いは「優先度」から「承認の前の問い」へ移った。**逆側**: Raymond 氏の文は方針の説明で、理事会の議決の文ではない。Nelson 氏 2005-09-04 *"We can change our reasons for approval over time, but not over parties asking for approval."* —— 基準は時とともに変わるので、2005 年の基準も提出の日の運用とは限らない。
 
+### 2026-11-15 —— 2013 年の議論は、新しいライセンスの問いを「OSD に合うか」と「既存の全てと十分に違うか」に置いた（`review-readings-2.md` §1.223・9b が反映）
+
+新しいライセンスの承認を「まず `license-discuss`、問いは OSD と十分な差、形式の不備は門前で戻す」に寄せ、使用の数を要件にする案は鶏と卵として退けた議論である。B10 の問い（既存で足りるか）は、この 2 つ目の問いそのものである。**逆側**: 同じ会話の基準率は厳しく、2012〜13 年の新しいライセンスは既存の新版を除いて全部退けられた（Berkus 氏の数え方・我々は数え直していない）。
+
+### 2026-11-15 —— 効果が重複するライセンスの例外は「判例の新しい展開」と「明白な法的欠陥」だ、と Perens 氏が書いた（2018・`review-readings-2.md` §1.224・9b が反映）
+
+差の言い方をこの 2 つの例外の語に合わせれば、審査者が既に持っている枠で B10 を読める。**逆側**: 例外は判例（case law）と書かれていて、ACD が依る EU 指令の留保は立法である。また Perens 氏の注意書きは OSI の規則ではない（本人が断っている）。
+
 ### 2026-09-20 追記 —— gap の 1 本目に、**決着した裁判例が付いた**
 
 **§6 が扱う問いは仮想ではない。** ハンブルク上級地方裁判所 第 5 民事部は 2025-12-10 に
