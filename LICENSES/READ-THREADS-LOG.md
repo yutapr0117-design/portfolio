@@ -20,6 +20,10 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に、`review-precedents.md` §1.138（2026-11-07）が CC0 の審査の本体として読んだ 4 本のうち READ-THREADS に行が無かった 3 本（"Submitting CC0 for OSI approval" 2012-02-17、"Request for consultation with CC on patent issue" 2012-02-19、"Non-binding straw poll: Do you think CC0 should be approved?" 2012-03-02）の行を足した（portfolio-9b の指摘）。census は読んだ行の会話を候補に入れるので、`--pin` で THREAD-CANDIDATES に 3 会話が足され、候補が 800 → 803 になった（未読の数は変わらない）。
+
+- 2026-11-15 に 2024〜2026 年の `license-review` の決める側の通のうちドシエと語の重なりが無かった 74 通から、ADVPL・Mulan PSL v2・CingXaero・AI-MIT に付いた 6 通を `review-readings.md` §1.212 へ（前例を論拠にするな・Piana 氏、AI 生成の表示はファイル単位で・Berkus 氏、完全な許諾は全法域の動詞を持つ・Smith 氏）。
+
 - 2026-11-15 に "For Approval: OpenMDW License Agreement, versions 1.1"（`license-review` 2026-08）のうちドシエと語の重なりが無かった 3 通を `review-readings.md` §1.211 へ（ソフトウェアでないものに及ぶライセンスを「ソフトウェアなら」の基準だけで量らない・Piana 氏、素材をまたぐ提出は完全に適切・Fontana 氏、著作権の反訴による終了は公平・Berkus 氏）。
 
 - 2026-11-15 に "License submission for approval for Moritz30-Projects Open Source License Version 1"（`license-review` 2016-06・21 通・決める側の通に絞った）を `review-readings.md` §1.209 へ（読めなければ適合しないと推定する・Fontana 氏、法律家への相談を提出の要件にするのは悪い考え・Fontana 氏、本物のライセンスが長いのは効くために要る語があるから・Berkus 氏）。

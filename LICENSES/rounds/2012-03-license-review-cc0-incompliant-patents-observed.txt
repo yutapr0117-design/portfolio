@@ -1,0 +1,342 @@
+Source: OSI license-review and license-discuss public archives, 2012-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 5 of 94 in "CC0 incompliant with OSD on patents, [was: MXM compared to CC0]" (begun 2012-03-06; cross-posted to both lists)
+Senders: Carlo Piana, Lawrence Rosen, Bruce Perens
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From osi-review at piana.eu  Tue Mar  6 16:11:10 2012
+From: osi-review at piana.eu (Carlo Piana)
+Date: Tue, 06 Mar 2012 17:11:10 +0100
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>
+References: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <4F56371E.1060304@piana.eu>
+
+On 06/03/2012 16:24, Tzeng, Nigel H. wrote:
+> Frankly Carlo, it strikes me as sour grapes with you constantly bringing
+> up MXM.  Approval of new general purpose open source licenses should
+> probably consider/require explicit patent grants.  However, special
+> purpose licenses in the past have specifically limited patent grants and
+> received OSI approval.
+
+Not at all. I have brought it up only this time, then developed a
+discussion on it -- as some others have pointed out it is the most
+closely related example. I have said that I expressly agree with the
+evaluation of many in the list that MXM was not compliant, that's history.
+
+By the way, MXM was presented as a special purpose license too. But this
+discussion is not about MXM, it's about unbundling patents and copyright
+in a software license.
+
+> Folks appear to be forgetting that CC0 is first a public domain COPYRIGHT
+> dedication with a permissive fallback.  As such, it's another special
+> purpose license that fills a need within the community (PD dedication) not
+> met by another approved license.
+>
+> In many countries I would imagine that the fallback would not come into
+> play.  In which case you still only have copyright rights unless public
+> domain copyright dedications automatically come with trademark and patent
+> rights bundled together.
+
+I submit that if we start saying that a license that limits its scope to
+the copyright domain would qualify as "open source", then we will go
+down a very slippery slope, special purpose or not (but is it?)
+
+I would regard as "openly licensed" only something for which the
+licensor makes a good faith attempt at clearing the licensed thing under
+*all* applicable rights that could prevent software from being used,
+modified, distributed etc.
+
+If company X uses CC0 to distribute software and somebody happily uses
+it in their own application, and then company X says "wait a minute, you
+have a /copyright/ permission, now let's talk about patents", I would
+submit that this is not respecting most of the freedoms that are
+chartered in the OSD.
+
+So far I have not heard any convincing explanation to the contrary.
+
+> Note that the ODC PDDL also only dedicates copyright and data rights to
+> the public domain and not trademarks or patents.
+>
+> I'm going disagree with folks regarding deprecating licenses without
+> explicit patent grants.  If the OSI is dumb enough to deprecate the BSD
+> license I'll go ahead and deprecate the OSI as having lost touch with the
+> community and I don't think I'll be alone in doing so.
+
+As it has been discussed, BSD is an entirely different case and it does
+not make any attempt to separate copyright and patents.
+
+With best regards,
+
+Carlo
+
+
+
+From lrosen at rosenlaw.com  Thu Mar  8 23:19:32 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Thu, 8 Mar 2012 15:19:32 -0800
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+	patents, [was: MXM compared to CC0 ]
+In-Reply-To: <CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+References: <20312.3654.6344.712709@desk.crynwr.com>	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>	<20120308205117.GC15452@linuxmafia.com>
+	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+Message-ID: <039b01ccfd81$eba04720$c2e0d560$@com>
+
+[paring the distribution list]
+
+Thank you, Alexander, for a clear rejoinder to my essay arguing that the
+public domain is not effective. The case you referenced in your email,
+Hampton v. Paramount Pictures, 279 F.2d 100 (9th Cir. Cal. 1960), stands for
+the proposition that, at least in the Ninth Circuit, a person can indeed
+abandon his copyrights (counter to what I wrote in my article) -- but it
+takes the equivalent of a manifest license to do so. :-)
+
+   Rights gained under the Copyright Law, 17 U.S.C.A. 1 et seq., 
+   may be abandoned. Abandonment of such rights, however, must be 
+   manifested by some overt act indicative of a purpose to surrender 
+   the rights and allow the public to copy. National Comics 
+   Publications v. Fawcett Publications, 2 Cir., 191 F.2d 594, 598.
+
+In the Hampton v. Paramount case, by the way, the court concluded that
+Paramount had *not* abandoned its copyright despite numerous writings
+brought into evidence. Even the equitable doctrines of estoppel and laches
+were rejected by the court.
+
+For the record, I have already voted +1 to approve the CC0 public domain
+dedication and fallback license as OSD compliant. I admit that I have argued
+for years against the "public domain" as an open source license, but in
+retrospect, considering the minimal risk to developers and users relying on
+such software and the evident popularity of that "license", I changed my
+mind. One can't stand in the way of a fire hose of free public domain
+software, even if it doesn't come with a better FOSS license that I trust
+more.
+
+/Larry
+
+
+> -----Original Message-----
+> From: license-review-bounces at opensource.org [mailto:license-review-
+> bounces at opensource.org] On Behalf Of Alexander Terekhov
+> Sent: Thursday, March 08, 2012 1:41 PM
+> To: license-discuss at opensource.org; OSI License Review; OSI Board
+> Subject: Re: [License-review] [License-discuss] CC0 incompliant with
+> OSD on patents, [was: MXM compared to CC0 ]
+<snip>
+
+
+
+
+From lrosen at rosenlaw.com  Fri Mar  9 00:49:43 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Thu, 8 Mar 2012 16:49:43 -0800
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD
+	on	patents, [was: MXM compared to CC0 ]
+In-Reply-To: <039b01ccfd81$eba04720$c2e0d560$@com>
+References: <20312.3654.6344.712709@desk.crynwr.com>	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>	<20120308205117.GC15452@linuxmafia.com>	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<039b01ccfd81$eba04720$c2e0d560$@com>
+Message-ID: <03be01ccfd8e$852d65b0$8f883110$@com>
+
+After receiving a couple of private comments, I want to add something else.
+
+We can spend a large amount of time discussing the legal effects of a public
+domain copyright dedication. I think that would be a waste of our time. Can
+rights be abandoned? And then recaptured? Are there implied warranties or
+liabilities? What about express or implied patent grants? 
+
+This isn't a law school exam, folks!
+
+Suppose we give Alexander Terekhov and Prof. Bernstein the benefit of the
+doubt. The fact is that, in the two cases Alexander cited, and despite the
+courts' apparent approval of the existence of the public domain, the courts
+actually ruled *in these cases* that there was no effective public domain
+dedication! So the courts resorted to analyzing contracts and licenses!
+
+CC0 -- like most other of our FOSS licenses, I might add -- has never been
+tested in court. My guess is that CC0, like GPLv2 with all its known
+shortcomings and most other of our licenses, will work out just fine for
+lots of works and will not actually be challenged anyplace other than these
+hypothetical threads on this list. (Except for details like the linking
+controversy, which I'll never let die...!)
+
+So we're faced with the same decision: Should we approve the widely-admired
+CC0 license despite its known disadvantages in some situations for computer
+software -- particularly with respect to patents? (I know many people who
+feel the same way about the patent provisions in other already-approved
+licenses.) 
+
+Can we please decide this without doing a legal and business analysis of the
+glorious copyright public domain and the frightening world of patents?
+
+FWIW, I already voted +1.
+
+/Larry
+
+
+> -----Original Message-----
+> From: license-review-bounces at opensource.org [mailto:license-review-
+> bounces at opensource.org] On Behalf Of Lawrence Rosen
+> Sent: Thursday, March 08, 2012 3:20 PM
+> To: license-review at opensource.org
+> Subject: Re: [License-review] [License-discuss] CC0 incompliant with
+> OSD on patents, [was: MXM compared to CC0 ]
+> 
+> [paring the distribution list]
+> 
+> Thank you, Alexander, for a clear rejoinder to my essay arguing that
+> the
+> public domain is not effective. The case you referenced in your email,
+> Hampton v. Paramount Pictures, 279 F.2d 100 (9th Cir. Cal. 1960),
+> stands for
+> the proposition that, at least in the Ninth Circuit, a person can
+> indeed
+> abandon his copyrights (counter to what I wrote in my article) -- but
+> it
+> takes the equivalent of a manifest license to do so. :-)
+> 
+>    Rights gained under the Copyright Law, 17 U.S.C.A. 1 et seq.,
+>    may be abandoned. Abandonment of such rights, however, must be
+>    manifested by some overt act indicative of a purpose to surrender
+>    the rights and allow the public to copy. National Comics
+>    Publications v. Fawcett Publications, 2 Cir., 191 F.2d 594, 598.
+> 
+> In the Hampton v. Paramount case, by the way, the court concluded that
+> Paramount had *not* abandoned its copyright despite numerous writings
+> brought into evidence. Even the equitable doctrines of estoppel and
+> laches
+> were rejected by the court.
+> 
+> For the record, I have already voted +1 to approve the CC0 public
+> domain
+> dedication and fallback license as OSD compliant. I admit that I have
+> argued
+> for years against the "public domain" as an open source license, but in
+> retrospect, considering the minimal risk to developers and users
+> relying on
+> such software and the evident popularity of that "license", I changed
+> my
+> mind. One can't stand in the way of a fire hose of free public domain
+> software, even if it doesn't come with a better FOSS license that I
+> trust
+> more.
+> 
+> /Larry
+> 
+> 
+> > -----Original Message-----
+> > From: license-review-bounces at opensource.org [mailto:license-review-
+> > bounces at opensource.org] On Behalf Of Alexander Terekhov
+> > Sent: Thursday, March 08, 2012 1:41 PM
+> > To: license-discuss at opensource.org; OSI License Review; OSI Board
+> > Subject: Re: [License-review] [License-discuss] CC0 incompliant with
+> > OSD on patents, [was: MXM compared to CC0 ]
+> <snip>
+> 
+> 
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+
+From bruce at perens.com  Fri Mar  9 17:21:29 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 09 Mar 2012 09:21:29 -0800
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <20120309170344.GT15452@linuxmafia.com>
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+	<20120309170344.GT15452@linuxmafia.com>
+Message-ID: <4F5A3C19.5050203@perens.com>
+
+On 03/09/2012 09:03 AM, Rick Moen wrote:
+> In fact, if anything, OSI has occasionally let everyone down on 
+> occasion by approving really rather wretched (but thankfully now 
+> obscure) licences that it should not have. So, sorry Bruce, but are 
+> you smoking the funny stuff?
+Sigh.
+
+If you would address your comments to arguments rather than people it 
+would be helpful. Let's not encourage people to do otherwise, OK?
+
+Of course I know that OSI has accepted some absolutely horrid licenses. 
+Some of which never had the benefit of the work of an attorney before 
+they were approved. I've hardly been quiet in my opposition to that.
+
+In addition, there's no short-list. I think this lets developers down too.
+
+Is there something I'm missing?
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120309/18701046/attachment.vcf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4447 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120309/18701046/attachment.p7s>
+
+From bruce at perens.com  Thu Mar  8 21:06:19 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 08 Mar 2012 13:06:19 -0800
+Subject: [License-discuss] [License-review] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <20120308205117.GC15452@linuxmafia.com>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+Message-ID: <4F591F4B.8000603@perens.com>
+
+On 03/08/2012 12:51 PM, Rick Moen wrote:
+> the notion that anyone who thinks new licences ought to address patent 
+> issues in some way is logically obliged to try to revoke BSD licence's 
+> OSI Certified status (or formally deprecate the licence) is absurd, 
+> and we could have done without those and similar time-wasting polemics.
+And they should stop now, please.
+> (3) Irrespective of CC0's merits as a fallback permissive licence, the 
+> document's fundamental reason for existing is foolhardy: the 
+> delusional belief that creative works can be safely magicked into the 
+> public domain despite a worldwide copyright regime, and the equally 
+> delusional belief that it's even desirable to try (and thereby, among 
+> other problems, have no protection against warranty claims).
+Which makes it not tremendously worthy of the continuing effort to get 
+it approved, IMO.
+> most of us agree that it's useful for newly crafted licences to permit 
+> at least implicit patent defences if not explicit patent rights, and 
+> that modern licences that address such matters are, all other things 
+> being equal, a better idea than ones that don't
+DiBona called for it to be explicit in licenses going forward, I agree. 
+Let's not ignore how the times have changed and what we have learned 
+since starting with Open Source.
+> -- but that saying that is miles away from saying BSD should be 
+> formally deprecated. 
+To be put in whatever hole is reserved for all "if you do this, you must 
+also shoot yourself in the foot" arguments.
+
+     Thanks
+
+     Bruce
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20120308/fc3ea412/attachment.vcf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4447 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20120308/fc3ea412/attachment.p7s>

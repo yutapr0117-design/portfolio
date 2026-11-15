@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 536 subject lines. One thread appears under two subject spellings
+# Rows: 540 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -346,6 +346,8 @@
 2012-02-01	CDDL 1.1 and GPL 2 with CPE
 2012-02-01	OSI recognition for Creative Commons Zero License?
 2012-02-17	Section 203(a) copyright recapture
+2012-02-17	Submitting CC0 for OSI approval
+2012-02-19	Request for consultation with CC on patent issue
 2012-02-19	Request for consultation with CC on patent issue
 2012-02-21	Logo for an (O)pen (S)ource (Li)cense (C)ompendium
 2012-02-22	CC0 decision process, waiting for CC response, etc.
@@ -355,7 +357,9 @@
 2012-03-01	avoid gray areas?
 2012-03-02	Linking question
 2012-03-02	combining GPL and proprietary software -
+2012-03-02	Non-binding straw poll: Do you think CC0 should be approved?
 2012-03-05	SPDX License List v1.14 & OSI questions
+2012-03-06	CC0 incompliant with OSD on patents,
 2012-03-09	license committee
 2012-04-03	New OSI FAQ items posted about Public Domain and CC0.
 2012-04-04	CPOL 1.02

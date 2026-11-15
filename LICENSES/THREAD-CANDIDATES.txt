@@ -47,7 +47,7 @@
 1999-10-18	Free World Licence.
 1999-11-06	OpenDesk.com License Proposal
 1999-11-09	SOS license
-1999-11-13	moral rights
+1999-11-13	Moral Rights
 1999-11-15	Apple Public Source License - is it OSI certified?
 1999-11-15	Can you alter the MIT license?
 1999-11-15	Draft 1 of the OpenDesk.com Public Source License
@@ -552,6 +552,7 @@
 2012-01-22	Golan v. Holder
 2012-02-01	CDDL 1.1 and GPL 2 with CPE
 2012-02-01	OSI recognition for Creative Commons Zero License?
+2012-02-17	Submitting CC0 for OSI approval
 2012-02-19	Request for consultation with CC on patent issue
 2012-02-21	Logo for an (O)pen (S)ource (Li)cense (C)ompendium
 2012-02-22	CC0 decision process, waiting for CC response, etc.
@@ -560,8 +561,10 @@
 2012-02-27	CeCILL license V2.1 for Approval
 2012-03-01	avoid gray areas?
 2012-03-02	Linking question
+2012-03-02	Non-binding straw poll: Do you think CC0 should be approved?
 2012-03-02	combining GPL and proprietary software -
 2012-03-05	SPDX License List v1.14 & OSI questions
+2012-03-06	CC0 incompliant with OSD on patents,
 2012-03-09	license committee
 2012-04-03	New OSI FAQ items posted about Public Domain and CC0.
 2012-04-04	CPOL 1.02
