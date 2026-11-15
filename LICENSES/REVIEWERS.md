@@ -111,7 +111,7 @@ included"* and approved in 2017 as a licence of its own; we found no post in tha
 for BSD-2-Clause plus an exception instead (its stated reason was GPLv2 compatibility, which is
 not ours). The rest of ACD — the surrender (§3), the covenants (§5), moral rights (§12) — is not
 what the gap claim rests on; putting it in one instrument is a choice of form, not a claim of
-difference. The question is being asked now, and a 2017 precedent may weigh less than it.
+difference. The question is being asked now, and a 2017 precedent may weigh less than it; and a short exception is easier to review than a long licence, which argues the other way.
 ([`ACD-OSI-BOTTLENECKS-EXTERNAL.md`](ACD-OSI-BOTTLENECKS-EXTERNAL.md) B10, H1-g.)
 
 ## Which text you are looking at
