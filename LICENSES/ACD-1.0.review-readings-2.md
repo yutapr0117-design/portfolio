@@ -144,3 +144,20 @@ portfolio-50 の依頼（`REVISION-PROTOCOL.md` の 3.6 節の 6b で 1.4 を `l
 **逆側。** Perens 氏は「または」と書いた ——全体への許諾か放棄かの一方で足りる、という読みもでき、両方を持つ ACD は余分と見られうる（B3）。Cowan 氏の「切り離しうる 2 つの並びでなく」は、ACD の §2.4 の独立の書き方への疑問として当たりうる。NOSA 2.0 自体は長さと複雑さで止まった（#183）ので、この会話の 2 人の形を持っていても長さの問題は別に残る。
 
 **この節が establish しないこと。** Perens 氏の「機械の仕事」は 2018 年の文で、今の生成 AI を念頭に置いたものではない。「切り離しうる」が §2.4 の独立を指すかは、Cowan 氏は述べていない（NOSA の文脈）。
+
+## 1.226 改変した本文には名前を変えさせる、Steward の役割は譲れる —— 承認済みの MPL 2.0 §10.3 と CPL・EPL の形、名前の保護は商標の仕事という見方（1999〜2011）（2026-11-15）
+
+portfolio-1c の依頼（1.4 草案の §16.4 の名前と識別子の規律、§16.5 の Steward の定義に、承認済みの先例と審査者の文を当てる）で、全期間の決める側の通を探した。`rounds/1999-to-2010-license-discuss-licence-name-and-steward-assignment-observed.txt` に 4 通。
+
+| 発言・文 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| MPL 2.0 §10.3 *"If you create software not governed by this License, and you want to create a new license for such software, you may create and use a modified version of this License if you rename the license and remove any references to the name of the license steward (except to note that such modified license differs from this License)."*（Luis Villa 氏が 2010〜2011 に `license-review` で提出し、承認された本文。アーカイブの月 2011-August・2011-December） | Mozilla（Villa 氏の提出） | **有利な面（§16.4）。** 改変した本文に名前を変えさせる条は、承認済みのライセンスに在る。1.4 草案の §16.4 は改変した本文を *"Autonomous Commons Dedication"* を含む名や *"ACD-"* に数字が続く識別子で、大文字小文字を問わず頒布することを禁じる。**逆側**: ACD は MPL より広い（名前を含む任意の名・大小を問わない）。この広げ方を論じた決める側の通は見つからなかった |
+| *"If you've modified the Artistic license, you should probably not call it "ARTISTIC" at all, so that you avoid confusion with the unmodified Artistic license."* | Bruce Perens 氏 1999-09-23 | 改変した本文に元の名を使うなという、名前の規律の早い例。混同を避けるという理由は §16.4 の *"so that each name and identifier in this family continues to denote one fixed text"* と同じ向き |
+| *"One more time, let me explain that OSI protects its certification marks by trademark law, not copyright licenses, and you should consider doing the same to protect the name of your product."* | Lawrence E. Rosen 氏 2002-10-08 | **不利な面になりうる。** 名前は商標法で守り、著作権のライセンスで守るものではない、という見方である（対象は製品の名で、ライセンスの名ではない）。ACD の §16.4 は名前の規律をライセンスの本文（文書としての扱い・§16.6）に置く。MPL 2.0 も同じく本文に置いているので承認の妨げにはなっていないが、Rosen 氏の型の審査者には「商標の仕事を本文でしている」と見えうる |
+| CPL-1.0 *"IBM is the initial Agreement Steward. IBM may assign the responsibility to serve as the Agreement Steward to a suitable separate entity."*（Fontana 氏が引用）、Artistic 2.0 への提案 *""License Steward" means The Perl Foundation or its assignee under clause 15"*（Cowan 氏が CPL から借りて提案） | Richard Fontana 氏 2010-09-06・John Cowan 氏 2007-03-14 | **有利な面（§16.5・B12）。** Steward の役割を別の者へ譲れる形は、承認済みの CPL-1.0（と同型の EPL-1.0）に在り、決める側の 1 人が別の提出にその形を勧めた。1.4 草案の §16.5 は Steward を *"the person or entity to whom that role was last assigned by the person or entity then holding that role"* と定め、譲渡の形を持つ |
+
+**読み。** §16.4 と §16.5 の形は、どちらも承認済みのライセンスに先例が在る（MPL 2.0 §10.3・CPL-1.0 と EPL-1.0）。ACD はそれより広く書いている点（名前を含む任意の名、大小を問わない）だけが先例の外で、その広げ方を審査者が論じた記録は無い。
+
+**逆側。** 先例の MPL・CPL・EPL の Steward は大きな組織（Mozilla・IBM・Eclipse）で、ACD の Steward は個人である（B12）。譲渡の形が在っても、譲る相手がいるかは別の問いである。Rosen 氏の「名前は商標で守る」は、名前の規律を本文に置くこと自体への疑問として当たりうる。
+
+**この節が establish しないこと。** MPL 2.0 §10.3 の承認の過程でこの条が論じられたかは読んでいない。CPL・EPL の Steward の条が承認の理由に挙がったかも確かめていない。
