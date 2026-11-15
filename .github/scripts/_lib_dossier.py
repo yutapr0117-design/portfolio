@@ -272,3 +272,51 @@ def section_heading_duplicates(licenses_dir: Path) -> tuple[int, list[str]]:
                 seen.setdefault(int(m.group(1)), []).append(p.name)
     bad = [f"§1.{n}: {', '.join(v)}" for n, v in sorted(seen.items()) if len(v) > 1]
     return sum(len(v) for v in seen.values()), bad
+
+
+# ── 読んだ節の「反映」の欄 (Check 501 が使う・2026-11-15) ───────────────────────
+REFLECT_FROM = 242  # 5 人で未読を読む日 (2026-11-15) から書く節。それより前の節には欄が無い
+_REFLECT_LINE = re.compile(r"^\*\*反映\*\*[:：][ \t]*(.*)$", re.M)
+_REFLECT_VOCAB = re.compile(r"\bB\d+|against #\d+|errata E\d+|\b1c\b|THIRD|入口|なし（[^）]+）|未定")
+
+
+def reflect_field_misses(licenses_dir: Path) -> tuple[int, list[str], list[str]]:
+    """§1.242 以降の各節 (`## 1.N`) が「**反映**: …」の行を 1 つ持ち、行き先を語彙で述べること。
+
+    オーナーの前提「未読があり、未反映のまま本申請は出せない」(2026-11-15) を受けた 2f の提案 (A)。読んだ節が
+    どこへ効いたか (B の節・against の行・errata・1c への種・入口) を節ごとに書かせ、合成 (提案 (C)) の集計の鍵にする。
+    語彙: B# / against #N / errata E# / 1c / THIRD / 入口 / なし（理由） / 未定。against #N と errata E# は実在を照らす
+    (反映したと書いて行が無い形を止める)。返り値: (照らした節の数, RED の文, 未定の節 (ADVISORY))。
+    """
+    ag = against_text(licenses_dir)
+    ag_rows = {int(n) for n in re.findall(r"^\| (\d+) \|", ag, re.M)}
+    er = licenses_dir / "ACD-1.0.errata.md"
+    er_rows = set(re.findall(r"^\| (E\d+) \|", er.read_text(encoding="utf-8"), re.M)) if er.exists() else set()
+    n, bad, pending = 0, [], []
+    for p in sorted(licenses_dir.glob("*.md")):
+        t = p.read_text(encoding="utf-8")
+        heads = list(re.finditer(r"^## 1\.(\d+)\b", t, re.M))
+        for i, h in enumerate(heads):
+            num = int(h.group(1))
+            if num < REFLECT_FROM:
+                continue
+            n += 1
+            nxt = re.search(r"^## ", t[h.end():], re.M)
+            body = t[h.end(): h.end() + nxt.start()] if nxt else t[h.end():]
+            lines = _REFLECT_LINE.findall(body)
+            where = f"{p.name} §1.{num}"
+            if len(lines) != 1 or not lines[0].strip():
+                bad.append(f"{where}: 「**反映**: …」の行が {len(lines)} 行" + (" (空)" if lines and not lines[0].strip() else ""))
+                continue
+            v = lines[0]
+            if not _REFLECT_VOCAB.search(v):
+                bad.append(f"{where}: 反映の欄が語彙 (B# / against #N / errata E# / 1c / THIRD / 入口 / なし（理由） / 未定) で始まらない: {v[:60]}")
+            for a in re.findall(r"against #(\d+)", v):
+                if int(a) not in ag_rows:
+                    bad.append(f"{where}: 反映の欄の against #{a} が register に無い")
+            for e in re.findall(r"errata (E\d+)", v):
+                if e not in er_rows:
+                    bad.append(f"{where}: 反映の欄の errata {e} が errata に無い")
+            if "未定" in v:
+                pending.append(where)
+    return n, bad, pending
