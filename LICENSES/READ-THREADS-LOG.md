@@ -157,6 +157,107 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 - 2026-11-15 に "Copyright"（`license-discuss` 1999-04・決める側の通を全文、他の通を冒頭で読んだ）。著作権についての個別の質問。決める側の通は無く、ACD の論点も無かった（節は立てない）
 
 - 2026-11-15 に "Get ready...."（`license-discuss` 1999-04・決める側の通を全文、他の通を冒頭で読んだ）。匿名のライセンスを事前に見る会話（Nelson 氏・Behlendorf 氏）。名前を抜いた不変の型板を求めた Behlendorf 氏の通を `review-readings-3.md` §1.302 へ
+- 2026-11-15 に "Simplified BSD license"（2007-06・0 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "For Approval: TrueCrypt Collective License Version 2.0"（2006-07・0 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "Removal Re: Censure Re: Affero Licence/AGPL"（2008-03・3 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "Affero Licence/AGPL"（2008-03・9 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "OSI Logo - Terms of Use"（2008-02・4 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "Simplified BSD license"（2007-11・3 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "OSL 3.0 Explained"（2008-01・3 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "Question about the GPL v3"（2007-08・16 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "GPL issue at my work place"（2008-01・27 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "Open Source Newbie"（2008-08・21 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "Open Source Licenses and Embrace-Extend-Extinguish"（2008-02・14 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "jurisdiction and venue"（2007-07・7 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "encforceability of Open Source Licences (Re: (OT) - NOT A Major Blow to Copyleft Theory)"（2008-02・38 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を`review-readings-5.md` §1.400 へ
+
+- 2026-11-15 に "license categories,"（2007-11・33 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "For Approval: The Simplified BSD License"（2007-09・26 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "LGPL 2.1 + GPL 3 = problems?"（2007-07・19 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "EULA and Modifed BSD"（2007-12・16 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を`review-readings-5.md` §1.400 へ
+
+- 2026-11-15 に "MS-PL/GPL compatibility,"（2007-08・53 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "Policy for attribution"（2006-07・14 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を`review-readings-5.md` §1.401 へ
+
+- 2026-11-15 に "(OT) - Major Blow to Copyleft Theory"（2007-08・67 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "distributing GPL libreries"（2008-07・15 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "Censure Re: Affero Licence/AGPL"（2008-03・5 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "For Approval: Common Public Attribution License (CPAL)"（2007-06・24 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "why is taking open-source code closed expensive?"（2007-07・11 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "FOR APPROVAL: The license of Multics"（2007-11・16 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "SFLC will love the 7th Circuit"（2007-10・39 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "License issue with our customer]"（2006-05・19 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "AFL 3.0"（2007-04・5 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を`review-readings-5.md` §1.402 へ
+
+- 2026-11-15 に "OSL 3.0: informing licensees of their rights"（2006-02・9 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "Free Software Licenses not approved as Open Sourse License"（2006-04・8 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "License Discussion for the Broad Institute Public License (BIPL)"（2006-05・16 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を`review-readings-5.md` §1.403 へ
+
+- 2026-11-15 に "BitTorrent"（2006-04・11 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "Noise filter,"（2007-09・10 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "GPL v3 FUD,"（2007-11・14 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "(OT) - NOT A Major Blow to Copyleft Theory"（2008-01・34 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を`review-readings-5.md` §1.400 へ
+
+- 2026-11-15 に "When to evaluate dual licenses"（2007-12・46 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を`review-readings-5.md` §1.402 へ
+
+- 2026-11-15 に "The Rails Wheels licencing system and Open Source"（2008-09・38 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を`review-readings-5.md` §1.401 へ
+
+- 2026-11-15 に "Communication skills"（2007-11・51 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を`review-readings-5.md` §1.402 へ
+
+- 2026-11-15 に "a plea"（2007-09・47 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "Question Regarding GPL"（2006-01・30 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "Restriction on distribution by Novell?"（2006-09・87 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "Open Source Initiative Certification for GPL 3.0]"（2006-04・19 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "For Approval: Generic Attribution Provision"（2006-11・5 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を`review-readings-5.md` §1.401 へ
+
+- 2026-11-15 に "SocialText license discussion--call for closure of arguments"（2007-01・38 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "Followup on Exhibit B licences"（2007-03・33 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を`review-readings-5.md` §1.401 へ
+
+- 2026-11-15 に "DRAFT FAQ: Free vs. Open"（2008-01・65 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "Call for Votes: New OSI-Editors List"（2007-11・28 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "public? Re: Call for Votes: New OSI-Editors List"（2007-11・24 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "APL license - What about the enforced logos?"（2006-11・65 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
+
+- 2026-11-15 に "IETF IP Contribution Policy"（2007-01・8 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を`review-readings-5.md` §1.403 へ
+
+- 2026-11-15 に "InfoWorld: Pentaho opens up further (Exhibit B to real MPL)"（2007-01・18 通・決める側の通を条の語で当てて読み、語に掛からない会話は全文で読んだ）を論点無し（`review-readings-5.md` §1.403 に型だけ記録）
 
 - 2026-11-15 に "Issue on licenses pages"（`license-discuss` 2013-11・4 通を通読）を `review-readings-2.md` §1.240 へ（OSL と AFL は 1 人の起草者が版を重ねて複数の版が承認された、FOSS の許諾は永遠なので旧版を勧めなくても配った物は変わらない・Rosen 氏）
 

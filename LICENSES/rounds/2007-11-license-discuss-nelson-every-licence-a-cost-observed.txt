@@ -1,0 +1,53 @@
+Source: OSI license-discuss public archive, 2007-November.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 52 in "Communication skills" (2007-11-01)
+Senders: Russ Nelson
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Thu Nov 15 19:18:21 2007
+From: nelson at crynwr.com (Russ Nelson)
+Date: Thu, 15 Nov 2007 14:18:21 -0500
+Subject: Communication skills
+In-Reply-To: <ujrbq9vtmau.fsf@false.linpro.no>
+References: <ujrzlxy8kci.fsf@false.linpro.no>
+	<ujroddycx2r.fsf@false.linpro.no>
+	<ujrejervobq.fsf@false.linpro.no>
+	<18236.29542.813676.779506@desk.crynwr.com>
+	<ujrfxz7tqg3.fsf@false.linpro.no>
+	<18236.31617.798165.736924@desk.crynwr.com>
+	<ujrbq9vtmau.fsf@false.linpro.no>
+Message-ID: <18236.39805.779259.717438@desk.crynwr.com>
+
+Dag-Erling Sm?rgrav writes:
+ > Russ Nelson <nelson at crynwr.com> writes:
+ > > Dag-Erling Sm?rgrav writes:
+ > > > IIRC, the matter of the name of the license I did submit was brought
+ > > > up on license-discuss, and I pointed out that it is used by several
+ > > > projects, some of which are known for their animosity towards each
+ > > > other.  Naming the license after one of those projects would not be a
+ > > > smart move, especially when that project was not even the first to use
+ > > > it.
+ > > What do you suggest we do about it?
+ > 
+ > About what?  The license I submitted for approval is named "The
+ > Simplified BSD License".  Why are you trying to create a problem where
+ > none exists?
+
+I'm not sure you understand the problem, so I'll explain it again.
+Every license we approve imposes a cost on all software distributors,
+and on some software users.  A software distributor needs to read and
+understand every license for every software product they distribute.
+Some software users feel they need to read and understand every
+license for the software they use.  If there were two licenses which
+had *identical* terms, that doubles the cost of reading that license.
+
+A better solution would be to approve the "Simplified BSD / FreeBSD
+License".  I offer "SFBSD" as the short name.  Is that solution
+acceptable to you?
+
+-- 
+--my blog is at    http://blog.russnelson.com   | People have strong opinions
+Crynwr sells support for free software  | PGPok | about economics even though
+521 Pleasant Valley Rd. | +1 315-323-1241       | they've never studied it.
+Potsdam, NY 13676-3213  |     Sheepdog          | Curious how that is!
