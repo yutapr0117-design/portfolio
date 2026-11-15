@@ -326,7 +326,7 @@ MUTATIONS_ARCHIVE6 = [
 },
     {
     "name": 'Check 474: 番号を太字にした token の無い行を足す —— `| N |` の形しか読まず、集計から黙って落ちていた',
-    "file": ROOT / 'LICENSES' / 'ACD-1.0.against.md',
+    "file": ROOT / 'LICENSES' / 'ACD-1.0.against-2.md',  # 2026-11-15 に #223〜 を 2 冊目へ分けた
     "find": '\n| 296 | ',
     "replace": '\n| **900** | An adverse fact added with no state token at all | nothing here |\n| 296 | ',
 },
@@ -423,7 +423,7 @@ MUTATIONS_ARCHIVE6 = [
 },
     {
     "name": 'Check 474: 不利な事実の番号を 900 へ飛ばす —— 重複も欠番も無いまま最大だけが飛び、「最新 #N」を読む面が狂う',
-    "file": ROOT / 'LICENSES' / 'ACD-1.0.against.md',
+    "file": ROOT / 'LICENSES' / 'ACD-1.0.against-2.md',  # 2026-11-15 に #223〜 を 2 冊目へ分けた
     "find": '\n| 283 | ',
     "replace": '\n| 900 | ',
 },
