@@ -191,7 +191,16 @@ _SENT = re.compile(r"(?<=[.;:])\s+(?=[A-Z(])")
 #   書かれず 2 通りに読めた。T57 の "Such distribution by the Steward is permitted" は制限の例外から許可の付与へ声が変わった
 _COMPARE = re.compile(r"\b(?:the same|same|such|similar(?:ly)?|likewise|equally|correspondingly|to that extent|to the same extent|"
                       r"as aforesaid|thereof|therein|thereto)\b", re.I)
-_PERMIT = re.compile(r"\b(?:is|are) (?:permitted|allowed|entitled|authori[sz]ed)\b|\bmay\b", re.I)
+# may は許可を与える声だけを数える。比較の句 ("as a notice may identify …"・T69) と、関係節・名詞節の中の may
+#   ("what may be done with any copy"・T65 / "in which they hold or may hold rights"・§16.3) は何も許していないので数えない
+#   (2026-11-15・3 つとも誤検知だった。1.3 → 1.4 草案の全差分で 3 → 0 件、T57 の "is permitted" は引き続き数える)
+_PERMIT = re.compile(r"\b(?:is|are) (?:permitted|allowed|entitled|authori[sz]ed)\b|(?<!\bwhat )(?<!\bwhich )(?<!\bor )\bmay\b", re.I)
+_AS_MAY = re.compile(r"\bas (?:an? |the )?\w+(?: \w+)? may\b", re.I)
+
+
+def permit_count(s: str) -> int:
+    """許可の声の数。比較の句 "as <名詞句> may …" を先に外してから数える。"""
+    return len(_PERMIT.findall(_AS_MAY.sub(" ", s)))
 
 
 def changed_sentences(cb: dict[str, str], ca: dict[str, str]) -> list[tuple[str, str]]:
@@ -442,7 +451,7 @@ def compare(before: Path, after: Path, n: int) -> None:
     print(f"# 変わった文の比較・照応の句 (相手が書かれているか読む): {len(_cmp)}")
     for k, w, ctx in _cmp:
         print(f"#   ・ §{k} {w!r}: …{ctx}…")
-    _pv = [(k, len(_PERMIT.findall(cb.get(k, ""))), len(_PERMIT.findall(ca[k]))) for k in ca if cb.get(k) != ca[k]]
+    _pv = [(k, permit_count(cb.get(k, "")), permit_count(ca[k])) for k in ca if cb.get(k) != ca[k]]
     _pv = [x for x in _pv if x[2] > x[1]]
     print(f"# 許可の声 (is permitted / may / is entitled …) が増えた条: {len(_pv)} (制限の例外が許可の付与へ変わっていないか読む)")
     for k, b_, a_ in _pv:
