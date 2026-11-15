@@ -1,0 +1,41 @@
+Source: OSI license-discuss public archive, 2007-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 16 in "EULA and Modifed BSD" (2007-12-07)
+Senders: Russ Nelson
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Mon Dec 10 16:56:35 2007
+From: nelson at crynwr.com (Russ Nelson)
+Date: Mon, 10 Dec 2007 11:56:35 -0500
+Subject: EULA and Modifed BSD
+In-Reply-To: <16b3e7c70712071358n2923cf57r2d8c5af975e1d4b7@mail.gmail.com>
+References: <16b3e7c70712071358n2923cf57r2d8c5af975e1d4b7@mail.gmail.com>
+Message-ID: <18269.28611.325131.677623@desk.crynwr.com>
+
+Norman Young writes:
+ > We have a product that we're about to release under the Modified BSD
+ > license.  There is some confusion as to whether we also need a EULA of
+ > some kind as well, since Firefox seems to have both the MPL and a
+ > EULA.  Upon installation of the software, is it sufficient to just
+ > show the modified BSD license to the user?  Can anyone help?
+
+IANAL; take the following with a grain of salt.
+
+Once you've given a copy to someone, they only need a license in order
+to redistribute it.  Without the license, they don't have permission,
+so they'll go looking for the license; you don't need to take steps to
+make sure they've seen it.
+
+You *do* need to make sure that a contract is formed in order to
+disclaim warranty.  (As an aside, the GPL isn't a contract, so how can
+it effectively disclaim warranty?)
+
+Apart from disclaiming warranty, why would you care if a mere user of
+your software agrees with your license?
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Software that needs
+Crynwr sells support for free software  | PGPok | documentation is software
+521 Pleasant Valley Rd. | +1 315-323-1241       | that needs repair.
+Potsdam, NY 13676-3213  |     Sheepdog          | 

@@ -1,0 +1,67 @@
+Source: OSI license-discuss public archive, 2007-March.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 34 in "Followup on Exhibit B licences" (2007-03-05)
+Senders: Lawrence Rosen
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Wed Mar  7 05:07:33 2007
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Tue, 6 Mar 2007 21:07:33 -0800
+Subject: Followup on Exhibit B licences
+In-Reply-To: <20070307040239.GC31749@mercury.ccil.org>
+References: <20070306032356.GA25815@linuxmafia.com> <45ED4B33.8020608@valuecard.co.za> <20070306235925.GG28151@linuxmafia.com> <20070307040239.GC31749@mercury.ccil.org>
+Message-ID: <004201c76076$84421840$6701a8c0@LROSENTOSHIBA>
+
+John Cowan wrote:
+> I think this is an over-interpretation on your part.  In general,
+> if X compels Y to do Z, X is estopped from also enjoining Y from
+> doing Z, particularly in the same breath lik this.  In effect,
+> the requirement to use the trademarks is tantamount to a limited
+> license to use them.
+
+Whether it is an explicit or an implicit trademark license, this results in
+a very different legal problem. A trademark license that doesn't give the
+licensor control over the quality of the downstream goods bearing that
+trademark leads to loss of the trademark. Yet with open source, the licensor
+cannot control the quality of derivative works. Oops! Legal contradiction!
+
+An open source license cannot (should not!) contain a trademark license.
+
+/Larry Rosen
+
+
+> -----Original Message-----
+> From: John Cowan [mailto:cowan at ccil.org]
+> Sent: Tuesday, March 06, 2007 8:03 PM
+> To: Rick Moen
+> Cc: license-discuss at opensource.org
+> Subject: Re: Followup on Exhibit B licences
+> 
+> Rick Moen scripsit:
+> 
+> > TenderSystem Public Licence 1.1, like the other "Exhibit B" licences,
+> > (apparently by intention) impairs commercial reuse (thus violating
+> > OSD#6) by requiring a trademarked logo + company name on "every user
+> > interface screen" while simultaneously specifically denying a trademark
+> > licence.
+> 
+> I think this is an over-interpretation on your part.  In general,
+> if X compels Y to do Z, X is estopped from also enjoining Y from
+> doing Z, particularly in the same breath lik this.  In effect,
+> the requirement to use the trademarks is tantamount to a limited
+> license to use them.
+> 
+> Furthermore, there is an analogue of fair use for trademarks.
+> I can speak of drinking Coke, and a novelist can say that his
+> protagonist drives a Ford, without stepping on trademarks.
+> 
+> And as for intention, "the devil himself knoweth not the mind of man"
+> (Blackstone).  Legal intent must be judged by objective evidence.
+> 
+> --
+> John Cowan    http://ccil.org/~cowan  cowan at ccil.org
+> 'Tis the Linux rebellion / Let coders take their place,
+> The Linux-nationale / Shall Microsoft outpace,
+> We can write better programs / Our CPUs won't stall,
+> So raise the penguin banner of / The Linux-nationale.  --Greg Baker
