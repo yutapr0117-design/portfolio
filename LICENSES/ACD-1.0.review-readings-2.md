@@ -470,7 +470,7 @@ census の候補の外の未読の会話の 1 本（"License-review Digest, Vol 
 
 **読み。** 公有に置く単独の提出に、審査者は「なぜ CC0 ではないのか」「何の問題を解くのか」を返し、CC0 の長さと構造を「必要だから」「徹底しているから」と擁護した。ACD は CC0 と同じ放棄と代わりの許諾の構造に、CC0 が欠く特許の許諾を足した形で、この審査の線の上では「CC0 の承認を妨げた点を埋めたもの」として説明できる。
 
-**逆側。** 2012 年の Nelson 氏の「承認されないのは特許のため」は、CC0 の提出（2012-02）が取り下げられた事情の一つの見方で、委員会の判断の文ではない。Callaway 氏は Fedora の立場で書いており、OSI の決める側ではない。ACD の長さは「徹底」として読まれうるが、1.4 草案の語数が CC0 を大きく超えるなら、同じ審査者が「長すぎる」と言いうる（長さの比較は数えていない）。
+**逆側。** 2012 年の Nelson 氏の「承認されないのは特許のため」は、CC0 の提出（2012-02）が取り下げられた事情の一つの見方で、委員会の判断の文ではない。Callaway 氏は Fedora の立場で書いており、OSI の決める側ではない。ACD の長さは「徹底」として読まれうるが、CC0 よりずっと長い。CC0 1.0 の全文は 998 語、1.4 草案は前文から END OF TERMS まで 5,561 語（T72 の後）で、約 5.6 倍である（どちらも Python の `split()` で 2026-11-15 に数えた。CC0 の本文は npm の `mdn-data` が同梱する LICENSE の写し（116 行）で数えた。写しはアーカイブにも OSI の一覧にも無く、外部の取得は今回行っていない・portfolio-30 の指摘で数えた）。Callaway 氏の「長いのは徹底しているから」が CC0 の長さを擁護したものなので、その 5.6 倍の長さにまで同じ擁護が及ぶとは言えない。
 
 **この節が establish しないこと。** Svoboda の提出の帰結（取り下げか放置か）は確かめていない。
 
@@ -527,11 +527,12 @@ census の候補の外の未読の会話の 1 本（"License-review Digest, Vol 
 
 ## 1.249 「Autonomous」を名に持つ先行のライセンス —— 後の CAL の前身「Autonomous Agent License」（2019-01）（2026-11-15）
 
-"Developing a new open source license"（`license-discuss` 2019-01・7 通）を通読し、2 通を置いた（`rounds/2019-01-license-discuss-autonomous-agent-license-{lindberg,perens}-observed.txt`）。Van Lindberg 氏が Holo のために作っていた強いコピーレフトのライセンスの事前の告知で、Bruce Perens 氏はそれを "Autonomous Agent License" と呼んで条項を批判した。この提出は後に Cryptographic Autonomy License（CAL・2020 承認）として審査された（`rounds/2019-04-license-review-cal-approval-observed-*`）。
+"Developing a new open source license"（`license-discuss` 2019-01・7 通）を通読し、2 通を置いた（`rounds/2019-01-license-discuss-autonomous-agent-license-{lindberg,perens}-observed.txt`）。Van Lindberg 氏が Holo のために作っていた強いコピーレフトのライセンスの事前の告知で、その告知（Holo の文）が "Autonomous Agent License" と呼んでいた。Bruce Perens 氏はその文を自分の通に貼って条項を批判した。この提出は後に Cryptographic Autonomy License（CAL・2020 承認）として審査された（`rounds/2019-04-license-review-cal-approval-observed-*`）。
 
 | 発言 | 誰が | ACD への当たり方 |
 | :-- | :-- | :-- |
-| *"Unlike other current open source licenses, the Autonomous Agent License will require software that implements a compatible API or publicly performs the API to also be open source."* / *"So, unfortunately I really have to recommend in the strongest way that a license incorporating that term not be approved."* | Bruce Perens 氏 2019-01-31（Holo の告知の文を引いて） | **名の記録（B6・`against.md` #161）。** 「Autonomous」を名に持つライセンスが、ACD より前に審査の場に出ていた。批判は条項（API の実装への条件）に向けたもので、名には向いていない |
+| *"Unlike other current open source licenses, the Autonomous Agent License will require software that implements a compatible API or publicly performs the API to also be open source."* | Holo の告知の文（Bruce Perens 氏 2019-01-31 の通に「this part:」として貼られたもの。引用符も `>` も無いので、通の差出人の文と取り違えやすい） | **名の記録（B6・`against.md` #161）。** 「Autonomous」を名に持つライセンスが、ACD より前に審査の場に出ていた。名は提出者の側が付けたもの |
+| *"So, unfortunately I really have to recommend in the strongest way that a license incorporating that term not be approved."* | Bruce Perens 氏 2019-01-31 | **批判の向き。** 条項（API の実装への条件）に向けたもので、名には向いていない |
 
 **読み。** ACD の名の「Autonomous」は、審査の場で初めての語ではない。先行のライセンスは、名ではなく条項で批判され、名を変えて（Cryptographic Autonomy License）承認された。
 
@@ -563,16 +564,16 @@ census の候補の外の未読の会話の 1 本（"License-review Digest, Vol 
 
 | 発言 | 誰が | ACD への当たり方 |
 | :-- | :-- | :-- |
-| *"It is a misperception to think that there is any "non-binding" part of a legal document. Everything in there is there for a reason (or should be). There may be parts that don't describe an action, but contract interpretation often involves determining the intent of the parties. This is often the role of the recitals."*（同じ通で、GPLv2 の前文の意図の文は曖昧な条を利用者の自由の側に読むよう指示する、と続ける） | Pamela Chestek 氏 2020-12-28（個人のアドレスから） | **両面（ACD の前文）。** 1.4 草案の前文は *"PREAMBLE (informative; not part of the operative terms)"* と見出しを付け、*"Sections 1 to 16 are the operative terms. This preamble is not, and nothing in it qualifies them."* で終わる（1.0 にも同じ見出しの前文が在る）。Chestek 氏の線では、それでも前文は意図の判断に使われる。有利な面は、前文の *"This Dedication is written for works that are meant to be learned from."* が、曖昧な条を学ぶ側・受け手の側に読む方向に働くことである。逆側は、前文の他の道具への評価（*"silent or hostile"*）も意図の一部として読まれることである |
+| *"It is a misperception to think that there is any "non-binding" part of a legal document. Everything in there is there for a reason (or should be). There may be parts that don't describe an action, but contract interpretation often involves determining the intent of the parties. This is often the role of the recitals."*（同じ通で、GPLv2 の前文の意図の文は曖昧な条を利用者の自由の側に読むよう指示する、と続ける） | Pamela Chestek 氏 2020-12-28（個人のアドレスから） | **両面（ACD の前文）。** 1.4 草案の前文は *"PREAMBLE (informative; not part of the operative terms)"* と見出しを付け、*"Sections 1 to 16 are the operative terms. This preamble is not, and nothing in it qualifies them."* で終わる（1.0 にも同じ見出しの前文が在る）。Chestek 氏の線では、それでも前文は意図の判断に使われる。有利な面は、前文の *"This Dedication is written for works that are meant to be learned from."* が、曖昧な条を学ぶ側・受け手の側に読む方向に働くことである。逆側は、前文の他の道具への評価（*"silent or hostile"*）も意図の一部として読まれることである（この語は 2026-11-15 に portfolio-1c が T72 で *"leave a gap"* に変えた・`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.8） |
 | *"The GPL's preamble provides a non-legalese summary of the effect of the license, and explains the intent of the license."* / *"a much more neutral tone would have worked as well."*（間で、GPL の前文は価値を述べ強い語（threatened・surrender）を使っており、許される範囲の境の半ばまで来ている、と書く。原文の引用符とダッシュは写しで文字化けしているので、その部分は逐語で引かない） | Lukas Atkinson 氏 2020-12-27 | **点検の材料（前文の調子）。** 審査に近い参加者は、前文の調子を「許される範囲」の物差しで測る。ACD の前文の *"the existing tools are silent or hostile"* は、他のライセンスへの評価を含む強い語で、同じ物差しに掛かりうる |
 
 **読み。** ACD の前文を「informative」と明示しても、解釈では意図を示す文として読まれる。前文の意図（学ばれるための作品）は ACD に有利に働くが、他の道具への強い評価の語は、その分だけ審査の物差しに掛かる。
 
 **逆側。** Chestek 氏の文は契約の解釈の一般論で、許諾（ライセンス）が契約として読まれない法域では前文の役割は違いうる。「nothing in it qualifies them」は、前文が条の範囲を狭めも広げもしないという ACD の意図を述べており、意図の判断に使われること自体とは矛盾しない。
 
-**この節が establish しないこと。** ACD の前文のどの語が「強すぎる」と読まれうるかの点検はしていない。
+**この節が establish しないこと。** ACD の前文のどの語が「強すぎる」と読まれうるかの点検はしていない。同じ線の記録として、`ACD-1.0.review-readings-6.md` §1.450（Nelson 氏 2002「前文も別の解説も条文の解釈に使われる」）と `against.md` #124 の「逆向きの危険」の段を併せて読む。
 
-**反映**: 1c 種（前文の他の道具への評価の語（"hostile" など）を中立にできるかの試作・前文は解釈に使われるので、意図の文が受け手に有利に働くことは残す・1c へ）。
+**反映**: 1c THIRD §15.8（T72・PR 3249 で前文の "silent or hostile" を "leave a gap" へ変えた。前文の意図の文 "written for works that are meant to be learned from" は残した）。
 
 ## 1.252 米国では、ソフトウェアに法的に認められる人格権は無い（"exploring the attachment between the author and the code"・2020-02〜03）（2026-11-15）
 
@@ -582,7 +583,7 @@ census の候補の外の未読の会話の 1 本（"License-review Digest, Vol 
 | :-- | :-- | :-- |
 | *"There is no legally cognizable moral right in software in the US."* | Pamela Chestek 氏 2020-03-01（個人のアドレスから） | **§12 の範囲の確認。** ACD の §12（1.0 でも §12・人格権の放棄と不行使）は、米国では及ぶ対象がほとんど無い。§12 が効くのは、人格権を認める法域（日本・EU など）である。条が「米国では要らない」と読まれることは、§1.241 の Berkus 氏の二択の「要らない」側に当たるが、法域で違うから要る、という答えが立つ |
 
-**読み。** §12 は、人格権を持つ法域の作者が ACD を使うために要る条で、米国の審査者には要らない条に見えうる。
+**読み。** ソフトウェアについては、§12 は人格権を持つ法域の作者が ACD を使うために要る条で、米国の審査者には要らない条に見えうる。**ただし Work はソフトウェアに限らない**（§1.3 は視聴覚の素材も含む）。米国にも視覚芸術の作品の人格権（17 U.S.C. §106A・VARA）があり、その放棄には署名した書面が要る。§12.1 の放棄はその方式を満たさない（`against.md` #152 が「米国で直接効く 2 つの規定」の 1 つとして記録している）。Chestek 氏の文は *"in software"* と限っているので、文そのものは正しい。**訂正（2026-11-15・portfolio-30 の当て直し）**: 最初は「米国では §12 の及ぶ対象がほとんど無い」と書き、Work をソフトウェアに限った読みで有利に寄せていた。
 
 **逆側。** 同じ会話で Chestek 氏は、ソフトウェアの作者は作品への強い所有の感覚を持たないことが多い（機能的だから）という個人の経験を書いている。ACD が人格権を重く扱うことは、ソフトウェアの実務からは過剰に見えうる。
 
