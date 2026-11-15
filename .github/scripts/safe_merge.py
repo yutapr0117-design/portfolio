@@ -166,6 +166,11 @@ def reland(pr: str, info: dict) -> int:
                     run(["git", "add", str(log)], cwd=wt)
             run([sys.executable, ".github/scripts/sync_stated_counts.py", "--apply"], cwd=wt, check=False)
             run(["git", "add", "-u"], cwd=wt)
+            if run(["git", "diff", "--cached", "--quiet"], cwd=wt, check=False).returncode == 0:
+                # 件数だけの commit は、main 側を採って sync で導き直すと変更が残らない。--continue は "nothing to commit" で
+                #   落ちる (2026-11-15・50 が #3244 で再現)。sync が同じ数を導くので、その commit は落としてよい
+                run(["git", "cherry-pick", "--skip"], cwd=wt)
+                continue
             run(["git", "-c", "core.editor=true", "cherry-pick", "--continue"], cwd=wt)
         sync = run([sys.executable, ".github/scripts/sync_stated_counts.py", "--apply"], cwd=wt, check=False)
         if "書き換えた" in sync.stdout:
