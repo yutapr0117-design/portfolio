@@ -219,6 +219,8 @@ Phipps 氏は OSI の判断について *"to explain the discretion OSI always h
 | 機械生成物に権利を主張しない | §9.2 | *"asserts no right in Machine-Generated Material"* —— 権利の存否は決めず、受領者に判定させない（§9.3） | 承認済みで AI を名指す本は 0（gap (a) と同じ測定） | 権利が後に在るとされた部分には献呈が及ぶ（§9.2 第 3 文） |
 | 名前と識別子の族を 1 つの本文に結び、Steward だけが新しい版を出す | §16.4・§16.5 | *"so that each name and identifier in this family continues to denote one fixed text"* | 名前の保護は AFL / OSL の §16 と同じ向き（名前を変えれば改変した本文を使え、元の名前は使えない・§2 の steward の行）。Steward だけが新しい版を出す点は AFL / OSL に無く、MPL-2.0 §10 の *"Mozilla Foundation is the license steward."* が近い | AFL / OSL の §16 は本文の著作権（*"This License is Copyright © 2005 Lawrence Rosen"*）の上に立つ。ACD の本文は AI が起草したので著作権が無いかもしれず、そのとき §16.4 を強制できないかもしれない（`review-responses-meta.md` Q36）。識別子の扱いでは OSI が逆向きに働く場面も在る（`against.md` #210）。支えは 2 つとも弱い。「or later」が書けない費用は同 Q33 |
 
+**新しくない仕掛け（承認済みに先例があるもの・2026-11-15 追記）**: §2.6 の、寄与を既定でこの Dedication の下に置き、寄与者が別段を述べれば外れる形は、Apache-2.0 §5 *"Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License"* と同じ構造である（Behlendorf 氏が 2005-07 に *"not a common clause"* として紹介した・`review-readings-4.md` §1.353）。**逆側**: 同じ会話で Rosen 氏は署名の無い譲渡に頼るなと書いた。§2.6 は譲渡ではなく寄与者自身の適用だが、署名なしの放棄（§3）の効力は法律家の問いである。
+
 **この表が establish しないこと。** OSI が新しい仕掛けに裁量をどう使うかは、どの証拠でも決まらない（`board-decisions.md`・`against.md` #130）。理由を本文に書いたことは、理由が正しいことを示さない。
 
 ## 2. 先に自分から名指すと良い反論（審査者が見つける前に）

@@ -20,6 +20,8 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に 2004〜2005 年に始まる未読 54 本（53 会話・879 通・決める側の通に絞った）を portfolio-50 が読んだ（5 人の分担・30 の案）。論点のある会話は `review-readings-4.md` の 1.350〜1.353 の節へ（OVPL の否決と OSD 5・「死んだ」ライセンスの整理・本文の書き方・寄与の既定と同意）、それ以外は読了の記録だけにした（候補は 821 → 824・読んだので母数に入った）
+
 - 2026-11-15 に "License-review Digest, Vol 119, Issue 14"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
 
 - 2026-11-15 に "License-review Digest, Vol 97, Issue 8"（`license-review` 2020-12・候補の外・通読）を `review-readings-2.md` §1.244 へ（承認がなぜ大事か簡潔に説明してほしい・Phipps 氏）
