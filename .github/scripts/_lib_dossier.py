@@ -3,6 +3,14 @@
 against.md はバイトの予算 (Check 495) に近づいており、BLOCKING の手前で #N の番号を続けたまま 2 つ目の file へ分ける
 (portfolio-00 と portfolio-9b の合意・2026-11-12)。その日に読み手を何か所も直さずに済むよう、file の一覧をここだけに置く。
 分けた日は AGAINST_FILES に 2 つ目の file 名を足す (番号の範囲は file の順)。
+
+**分ける日の予行 (2026-11-15・9b)**: 使い捨ての worktree で後ろの表 (469〜609 行・393 KB) を `ACD-1.0.against-2.md` へ
+移し、AGAINST_FILES に足して consistency を回すと 7 件が RED だった。読み手の欠陥 2 件 (472e の除外が固定名の startswith・
+460 (g) の倍率の分子が 1 つ目の file だけ) と find_quote_retractions の固定名は、この予行の PR で against の一覧へ
+寄せた。残るのは分ける日の作業で、どれも RED が知らせる: (1) README の索引に行 (459)、(2) frontmatter に last-updated
+(461c) と `reachable-via: ACD-1.0.against.md` (459c)、(3) docs/files の mirror (108)、(4) BYTE-BUDGET-DATA に行 (495c)、
+(5) 動かした行に anchor を持つ mutation の "file" を 2 つ目へ付け替える (362・予行では #162 の 2 件)。474 / 491 / 460 (e)
+は against_text を読むので、行を動かしても黙らない (予行で確かめた)。
 """
 import re
 from pathlib import Path

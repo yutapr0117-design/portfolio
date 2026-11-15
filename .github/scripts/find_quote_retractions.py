@@ -22,6 +22,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _lib_dossier import is_against  # noqa: E402
 from verify_dossier_quotations import collect_quotes, norm  # noqa: E402
 
 if sys.version_info < (3, 10):
@@ -88,7 +89,8 @@ def main() -> int:
     pattern = CONCEDE if concessions else RETRACT
     quotes = collect_quotes(".")
     if concessions:
-        quotes = {q: p for q, p in quotes.items() if any(x.startswith("ACD-1.0.against.md") for x in p)}
+        # register の全 file (分けた日に 2 つ目を外さない・2026-11-15 の分割の予行)
+        quotes = {q: p for q, p in quotes.items() if any(is_against(x.split(":", 1)[0]) for x in p)}
     resolved, unresolved, hits, seen = 0, 0, 0, set()
     for q, places in quotes.items():
         where = ", ".join(sorted(places)[:3])

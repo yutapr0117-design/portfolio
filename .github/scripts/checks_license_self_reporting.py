@@ -393,7 +393,8 @@ def run(ctx):
             #   提出対象の版の本文 (SUBMISSION-TARGET を切り替えると比が 1.0 の 20.3 から 1.4 の約 17.7 へ動く・aa の指摘)
             _tg460g = re.search(r"<!--\s*SUBMISSION-TARGET:\s*(ACD-\d+\.\d+)\s*-->", (_L460 / "ACD-1.0.submission.md").read_text(encoding="utf-8"))
             _mx460 = re.search(r"([a-z]+|\d+) times the length of the licence", _rvt)
-            _rx460 = len(_agp460.read_text(encoding="utf-8").split()) / len((_L460 / f"{_tg460g.group(1) if _tg460g else 'ACD-1.0'}.txt").read_text(encoding="utf-8").split())
+            # 分子は register の全 file (1 つ目だけを読むと、分けた日に 20 倍が 10 倍に見えて RED・2026-11-15 の予行)
+            _rx460 = len(against_text(_L460).split()) / len((_L460 / f"{_tg460g.group(1) if _tg460g else 'ACD-1.0'}.txt").read_text(encoding="utf-8").split())
             _dx460 = _mx460 and (int(_mx460.group(1)) if _mx460.group(1).isdigit() else _NUM_WORDS.get(_mx460.group(1)))
             if _mx460 and (not _dx460 or abs(_dx460 - _rx460) > 0.15 * _rx460):
                 _bad460.append(f"REVIEWERS.md の against.md の長さ: 申告 {_mx460.group(1)} 倍 / 実測 {_rx460:.1f} 倍 (語数の比)")
