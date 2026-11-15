@@ -395,6 +395,29 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 > should be able to determine that from the licence rather than from my
 > temperament.
 
+**Q. §10.2 は、下流の写しからライセンスを剥がすことを許す。2015 年にこの性質は「理事会の方針判断を要する」と言われた。なぜもう 1 本承認すべきなのか。**（`against.md` #326 の合否・2026-11-15）
+
+> **English:**
+>
+> Because the question was put in 2015 and set aside rather than decided, and
+> the licences approved since then share the property. The Free Public License
+> (now 0BSD) was approved after the chair wrote that it did not justify
+> "special examination by the OSI"; the Unlicense and MIT-0 were approved in
+> 2020. Section 10.2 has the same effect as all three; it differs only in
+> saying so in terms ("You need not ... reproduce any notice ... retain this
+> file"), so that no one has to infer it.
+>
+> The cost is real and I state it rather than leave it to be found. A recipient
+> who receives a copy with the notice removed cannot tell where it came from,
+> and the warranty disclaimer is asserted against people who may never have
+> seen it (`against.md` #41). Section 2.3 means such a recipient still holds
+> every permission, but it does not tell them so. If the OSI wants to take up
+> the 2015 question as a matter of policy, ACD is a fair case to take it up on,
+> and I would rather it were decided than deferred on the ground that a licence
+> is obscure.
+
+**逆側**: 「決めた記録が無い」は「問わないと決めた」ことではない（#326）。最後の段は、方針の判断を自分から求めることになり、承認の時期を延ばしうる。外すなら、その費用（先送りの条件に自分から触れない形になり #326 の合否を満たさない）を書いて外す。
+
 #### 帰属ゼロ + 明示特許の組み合わせへの反対（2026-10・`against.md` #276 / #277 から・審査者より先に自分で立てる）
 
 **出どころ**: 2026-10-11〜16 の `license-discuss` で、ACD と同じ組み合わせ（§10.2 の帰属ゼロ + §8 の特許許諾）だけを
