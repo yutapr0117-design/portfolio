@@ -11,7 +11,9 @@ CHANGELIST の「前版の N 語から +N 語」「1.0 の N 語から見ると 
 "N words from the title to *END OF TERMS* against 1.0's N, in M clauses against M"、B3 の見出しのかっこ、
 SUBMISSION-MATERIALS の長さの行 (後半の「条文では N 語長いまま」を含む)。ドシエの規模の数 (2026-11-15・30 の依頼) —— 不利な事実の件数 (against の総括・REVIEWERS・READY-TO-SUBMIT・§4c)、
 errata の件数 (against・REVIEWERS・READY-TO-SUBMIT・errata 冒頭の英語の数詞と閉じた番号の一覧)、worked entries の総数
-(REVIEWERS・QUESTION-INDEX) (`_lib_dossier.count_sites`)。**判断の数は書き換えない**: 束の表の各行と、
+(REVIEWERS・QUESTION-INDEX) (`_lib_dossier.count_sites`)。runbook §9 の追跡ファイルの 5 つの数と実測日 (2f の依頼・
+`git ls-files` で数えるので、新しい file は git add してから回す)。「1.0 から何が変わったか」の英文の errata の数と § ごとの件数
+(Check 498 (j)・`>` の引用で行をまたいでも照らす)。**判断の数は書き換えない**: 束の表の各行と、
 草案冒頭の箇条の (+N words.) (どの変更に何語かは人が決め、Check 468n が照らす)。
 
 使い方:
@@ -20,6 +22,9 @@ errata の件数 (against・REVIEWERS・READY-TO-SUBMIT・errata 冒頭の英語
 """
 from __future__ import annotations
 
+import datetime
+import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -30,16 +35,109 @@ from _lib_draft_counts import apply_sites, length_sites  # noqa: E402
 ROOT = Path(__file__).resolve().parents[2]
 
 
+def repo_sites() -> list[dict]:
+    """runbook §9 の「追跡ファイル総数」の行の 6 つの数 (2026-11-15・2f の依頼)。
+
+    rounds/ に受領文を 1 つ足すたびに、総数・source・mirror・`= N`・Check 108 の OK 文の数を手で +2 / +1 していた。
+    数え方は行が名乗る権威のとおり: 総数 = `git ls-files`、source = `git -c core.quotepath=off ls-files` のうち
+    docs/files/ の外。mirror は Check 108 が bijection を強制するので source と同数。数が変わったら行の実測日も今日へ。
+    """
+    rb = ROOT / "docs" / "architecture" / "total-check-runbook.md"
+    files = subprocess.run(["git", "-c", "core.quotepath=off", "ls-files"], cwd=ROOT, text=True,
+                           capture_output=True, check=True).stdout.split("\n")
+    files = [f for f in files if f]
+    total, source = len(files), sum(1 for f in files if not f.startswith("docs/files/"))
+    text = rb.read_text(encoding="utf-8")
+    m_row = re.search(r"^\| 追跡ファイル総数 \|.*$", text, re.M)
+    if not m_row:
+        return []
+    row, off = m_row.group(0), m_row.start()
+    rules = [(r"^\| 追跡ファイル総数 \| \*\*(\d+)\*\*", total), (r"source file が \*\*(\d+)\*\*", source),
+             (r"mirror が \*\*(\d+)\*\*", source), (r"の \*\*2\*\* = \*\*(\d+)\*\*", total),
+             (r"all (\d+) tracked files have a 1-to-1", source)]
+    sites = []
+    for rx, v in rules:
+        for m in re.finditer(rx, row):
+            sites.append({"path": rb, "line": text[:off].count("\n") + 1, "abs": True, "start": off + m.start(1),
+                          "end": off + m.end(1), "old": m.group(1), "new": str(v), "what": "runbook §9 の追跡ファイルの数"})
+    if any(s["old"] != s["new"] for s in sites):
+        m = re.search(r"(\d{4}-\d{2}-\d{2}) 実測", row)
+        if m:
+            sites.append({"path": rb, "line": text[:off].count("\n") + 1, "abs": True, "start": off + m.start(1),
+                          "end": off + m.end(1), "old": m.group(1), "new": datetime.date.today().isoformat(),
+                          "what": "runbook §9 の実測日"})
+    return sites
+
+
+def defects_sites() -> list[dict]:
+    """「1.0 から何が変わったか」の英文の errata の数 (Check 498 (j) が照らす・2026-11-15・30 の検証から)。
+
+    "Of the N defects recorded against 1.0 …, N are closed: N in 1.1 to 1.3 (a, b and c) and N for the first time in 1.4."
+    は `>` の引用で行をまたぐので、引用の語を 1 列につないで照らし、数の位置を元の file の位置へ戻す。値は
+    prepare_version_freeze.errata_closures() (498 (j) と同じ)。§ ごとの件数の括弧も同じ関数の節の数で書き直す。
+    """
+    from prepare_version_freeze import errata_closures
+    total, closed, _unmarked, sections = errata_closures()
+    sites = []
+    for p in sorted((ROOT / "LICENSES").glob("ACD-*-CHANGELIST.md")) + [ROOT / "LICENSES" / "REVIEWERS.md"]:
+        text = p.read_text(encoding="utf-8")
+        toks = []  # (語, file の中の始まり)
+        for m in re.finditer(r"^>[ \t]?(.*)$", text, re.M):
+            for t in re.finditer(r"\S+", m.group(1)):
+                toks.append((t.group(0), m.start(1) + t.start()))
+        joined, starts = "", []
+        for w, s in toks:
+            starts.append((len(joined) + (1 if joined else 0), s))
+            joined += (" " if joined else "") + w
+
+        def orig(j):  # つないだ列の位置 → file の位置
+            k = max(i for i, (js, _s) in enumerate(starts) if js <= j)
+            return starts[k][1] + (j - starts[k][0])
+
+        rx = (r"Of the (\d+) defects recorded against 1\.0 .{0,80}?, (\d+) are closed: (\d+) in 1\.1 to (\d+\.\d+) "
+              r"\(([\d, and]+)\) and (\d+) for the first time in (\d+\.\d+)\.(.{0,900})")
+        for m in re.finditer(rx, joined):
+            tgt = m.group(7)
+            olds = sorted((v for v in closed if v != tgt), key=lambda x: tuple(map(int, x.split("."))))
+            per = [str(len(closed[v])) for v in olds]
+            per_s = ", ".join(per[:-1]) + " and " + per[-1] if len(per) > 1 else "".join(per)
+            vals = {1: str(total), 2: str(sum(map(len, closed.values()))), 3: str(sum(len(closed[v]) for v in olds)),
+                    5: per_s, 6: str(len(closed.get(tgt, [])))}
+            for gi, v in vals.items():
+                a, b = orig(m.start(gi)), orig(m.end(gi) - 1) + 1
+                if text[a:b] == m.group(gi):  # 語の間で改行していない数だけ書き換える (列の括弧は行をまたぎうる)
+                    sites.append({"path": p, "line": text[:a].count("\n") + 1, "abs": True, "start": a, "end": b,
+                                  "old": m.group(gi), "new": v, "what": "1.0 からの変化の英文の errata の数"})
+            rest_off = m.start(8)
+            for sm in re.finditer(r"§(\d+) \([^()]*?, (\d+)\)", m.group(8)):
+                if sm.group(1) in sections:
+                    a = orig(rest_off + sm.start(2))
+                    b = a + len(sm.group(2))
+                    if text[a:b] == sm.group(2):
+                        sites.append({"path": p, "line": text[:a].count("\n") + 1, "abs": True, "start": a, "end": b,
+                                      "old": sm.group(2), "new": str(sections[sm.group(1)]),
+                                      "what": f"1.0 からの変化の英文の §{sm.group(1)} の件数"})
+    return sites
+
+
 def main(argv: list[str]) -> int:
     if "-h" in argv or "--help" in argv:
         print(__doc__)
         return 0
     sites, bad = length_sites(ROOT / "LICENSES", is_against, "all")
-    sites += count_sites(ROOT / "LICENSES")
+    sites += count_sites(ROOT / "LICENSES") + repo_sites() + defects_sites()
     if bad:
         print("\n".join(f"ERROR: {b}" for b in bad))
         return 2
     diff = [s for s in sites if s["old"] != s["new"]]
+    # 書き換えない判断の文の知らせ (2026-11-15・30 の検証): errata 冒頭は、閉じていない行を閉じた番号の一覧の後で
+    #   名指す (Check 460 (v))。提案中か・持ち越しか・意図して残すかは人が書くので、名指されていない番号だけを出す
+    from prepare_version_freeze import errata_closures
+    head = next((ln for ln in (ROOT / "LICENSES" / "ACD-1.0.errata.md").read_text(encoding="utf-8").split("\n")
+                 if "items are recorded" in ln), "")
+    after = head.split(") are closed", 1)[-1]
+    for e in [e for e in errata_closures()[2] if not re.search(rf"\b{e}\b", after)]:
+        print(f"手で足す: errata 冒頭が閉じていない {e} を一覧の後で名指していない (Check 460 (v)・状態の句は人が書く)")
     for s in diff:
         print(f"{s['path'].relative_to(ROOT)}:{s['line']}  {s['what']}: {s['old']} -> {s['new']}")
     if "--apply" in argv and diff:
