@@ -78,6 +78,11 @@ def overlay_check(pr: str, head: str, base: str) -> tuple[bool, str]:
 _HUNK = re.compile(r"^<<<<<<< [^\n]*\n(.*?)^=======\n(.*?)^>>>>>>> [^\n]*\n", re.M | re.S)
 
 
+_ASOF_ROW = "| **未読スレッドの残り** |"
+_RECENT = re.compile(r"（直近の 1 件: (.*?)）。 \*\*それより前の")
+MOVED_RECENT: list[str] = []  # AS-OF の行の衝突で main 側を採ったとき、PR 側の「直近の 1 件」(LOG へ移す)
+
+
 def resolve_numbers_only(text: str) -> tuple[str | None, list[str]]:
     """衝突の塊を、数だけが違う塊 (main 側を採る) と、両側が行を足しただけの塊 (両方を残す) に限って解く。
 
@@ -93,8 +98,20 @@ def resolve_numbers_only(text: str) -> tuple[str | None, list[str]]:
         if not ours.strip() or not theirs.strip():
             return ours + theirs
         o, t = ours.splitlines(keepends=True), theirs.splitlines(keepends=True)
+        # AS-OF の「未読スレッドの残り」の行 (2026-11-15・50 の依頼): 5 人の record_read が毎回この 1 行を書き換える。
+        #   main 側を採り、PR 側の「直近の 1 件」は LOG の先頭へ移す (reland が書く)。件数は sync_stated_counts が
+        #   READ-THREADS と THREAD-CANDIDATES から導き直す (498 (h) と同じ数え方)
+        if len(o) == len(t) == 1 and o[0].startswith(_ASOF_ROW) and t[0].startswith(_ASOF_ROW):
+            mo, mt = _RECENT.search(o[0]), _RECENT.search(t[0])
+            if mt and (not mo or mo.group(1) != mt.group(1)):
+                MOVED_RECENT.append(mt.group(1))
+            return ours
         if all(ln.startswith("|") for ln in o + t) or all(re.match(r"\d{4}-\d{2}-\d{2}\t", ln) for ln in o + t):
             return ours + "".join(ln for ln in t if ln not in o)
+        # READ-THREADS-LOG の先頭の項目 (`- …` と空行): 5 人が同じ位置に 1 項目ずつ挿す。両方を残す (main → PR の順)
+        if all(ln.startswith("- ") or not ln.strip() for ln in o + t):
+            new = [ln for ln in t if ln.strip() and ln not in o and text.count(ln) < 2]  # main が既に持つ項目は足さない
+            return ours + "".join(ln + ("" if ln.endswith("\n\n") else "\n") for ln in new)
         bad.append(ours.splitlines()[0][:80] if ours.strip() else theirs.splitlines()[0][:80])
         return m.group(0)
 
@@ -139,6 +156,14 @@ def reland(pr: str, info: dict) -> int:
                     return 1
                 (wt / f).write_text(solved, encoding="utf-8")
                 run(["git", "add", f], cwd=wt)
+            while MOVED_RECENT:  # AS-OF の行で main 側を採ったので、PR 側の直近の 1 件を LOG の先頭の項目にする
+                log = wt / "LICENSES" / "READ-THREADS-LOG.md"
+                lt = log.read_text(encoding="utf-8")
+                h = re.search(r"^## \d{4}-\d{2}-\d{2} の読了[^\n]*\n\n", lt, re.M)
+                item = f"- {MOVED_RECENT.pop(0)}\n\n"
+                if h and item not in lt:
+                    log.write_text(lt[:h.end()] + item + lt[h.end():], encoding="utf-8")
+                    run(["git", "add", str(log)], cwd=wt)
             run([sys.executable, ".github/scripts/sync_stated_counts.py", "--apply"], cwd=wt, check=False)
             run(["git", "add", "-u"], cwd=wt)
             run(["git", "-c", "core.editor=true", "cherry-pick", "--continue"], cwd=wt)
@@ -194,8 +219,10 @@ def main(argv: list[str]) -> int:
         base = run(["git", "rev-parse", "origin/main"]).stdout.strip()
         ok, msg = overlay_check(pr, head, base)
         print(msg)
-        if not ok and "と衝突する" in msg and "--reland" in argv:
-            # 数の行だけの衝突なら、新しい branch へ載せ直して新しい PR を出す (merge はしない・50 の依頼)
+        if not ok and "--reland" in argv:
+            # 数の行だけの衝突なら、新しい branch へ載せ直して新しい PR を出す (merge はしない・50 の依頼)。
+            #   衝突しなくても、重ねた形が数の行で赤のこともある (AS-OF の件数が main 側のまま 498 (h) で赤・#3222・2f の依頼)。
+            #   reland は載せ直した後に sync_stated_counts --apply を回し、consistency が赤のままなら止まるので、どちらも渡す
             return reland(pr, info)
         if not ok:
             return 1
