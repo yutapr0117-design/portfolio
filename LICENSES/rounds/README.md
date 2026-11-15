@@ -145,6 +145,9 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2008-10 | `license-review` | **観測（AFL に論文の引用の義務を足したいという問いから 5 通・承認済みに似た条が在ることは新しい条を正当化しない）** | `2008-10-license-review-afl-citation-and-old-mistakes-observed.txt` |
 | 2007-08 | `license-discuss` | **観測（"Groklaw's OSI item" から 2 通・OSI は認証を取り消したことがない、提出者の素性で差別も優遇もしない）** | `2007-08-license-discuss-groklaw-certification-not-pulled-observed.txt` |
 | 2008-05・2009-02 | `license-review` | **観測（EUPL の承認の求めから 2 通・言語の版の食い違いは受領者に有利に決めるべきだという提案と、それは要件にならなかったこと）** | `2008-05-to-2009-02-license-review-eupl-ties-in-favor-of-licensee-observed.txt` |
+| 2008-05 | `license-review` | **観測（Perens 氏の 1 通・大きな問題で通らないと分かれば小さな問題は誰も見ない）** | `2008-05-license-review-iwl-perens-bigger-issues-observed.txt` |
+| 2008-05 | `license-review` | **観測（Nelson 氏の 1 通・既存のライセンスから始めて適合を求めるのは良くない）** | `2008-05-license-review-iwl-nelson-existing-license-observed.txt` |
+| 2008-05 | `license-review` | **観測（Nelson 氏の 1 通・承認は一語も変えない本文に対するもの、型板にすべき）** | `2008-05-license-review-iwl-nelson-not-one-word-observed.txt` |
 | 2011-03〜04 | `license-discuss` | **観測（"Announcing OWFa and CLA 1.0" から 3 通・寄与は同じライセンスで入れば足りる）** | `2011-03-license-discuss-owfa-cla-inbound-outbound-observed.txt` |
 | 2007-07〜08 | `license-discuss` | **観測（OSD 2 の不一致の問いから 2 通・OSD 2 はライセンスでなく配られる物について述べる）** | `2007-07-license-discuss-osd-2-inconsistency-observed.txt` |
 | 2007-03 | `license-discuss` | **観測（Socialtext Public License の審査から 2 通・承認済みの条から取ったので推定が働くべきだという主張と、それへの反論）** | `2007-03-license-discuss-stpl-presumption-from-approved-observed.txt` |

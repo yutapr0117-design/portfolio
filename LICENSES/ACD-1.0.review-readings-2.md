@@ -340,3 +340,19 @@ portfolio-1c の T69（1.4 草案の §2.6 に、除外する素材を示す形�
 **逆側。** Perens 氏の文は、クラウドの事業者に条件を課したい事業者の提出（SSPL とその支持者）への文で、承認が欲しい理由が事業上の利益だった。ACD の提出の理由は事業上の利益ではない（`against.md` #161 は「AI の自走の実験」と書く）が、承認を求める理由が採用ではない、とも言い切れない。B2 の解除の条件（`board-decisions.md` §2c の関心の表明）を承認の前に満たすことが、この疑いへのいちばん直接の答えになる。
 
 **この節が establish しないこと。** Perens 氏の見方が委員会の基準になったかは確かめていない（B2 には「使用は承認の基準ではない」という委員会の文が 3 本ある）。
+
+## 1.238 承認は「一語も変えない」本文に対するもので、他人の名を消して自分の名を入れれば承認は及ばない —— だから型板にすべきだ、と委員長は書いた（IWL・2008-05〜06）（2026-11-15）
+
+"Approval of IWL - Consolidated Response"（`license-review` 2008-05〜06・27 通）を通読し、3 通を置いた（`rounds/2008-05-license-review-iwl-nelson-not-one-word-observed.txt`・`rounds/2008-05-license-review-iwl-nelson-existing-license-observed.txt`・`rounds/2008-05-license-review-iwl-perens-bigger-issues-observed.txt`）。Open Kernel Labs が Sleepycat License を元に作った IWL の審査で、本題は API の向こうのプログラムまで条件を及ぼす条（1(c)(ii)）が OSD 6 と 9 に反するかだった。条件を置かない ACD には本題は当たらない。当たるのは次の 3 通である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"We've always taken the position that a license cannot be modified in any way (not one word).  We've always acted as if the license steward's published copy is the official copy, and that we are not empowered to change their license.  But I think that indeed, we should make templates of all of *our* copies of the licenses."* | Russ Nelson 氏 2008-05-29（同じ日の別の通では、他人の名を消して自分の名を入れることはできない、とも書いた） | **有利な面。** ACD の本文は特定の人や組織の名を持たず、"Dedicator" と "the Steward" を一般の語で定める。§16.3（1.0 でも §16.3）は *"This Dedication may be applied by anyone"* と書き、一語も変えずに誰でも自分の作品に当てられる。Nelson 氏が承認済みの本文に欠けているとした型板の性質を、ACD は最初から持つ |
+| *"It's definitely NOT a good idea to seek OSD compliance by starting with an existing license.  Our understanding of what is required by the OSD has changed over the years, and the community has come to realize that more Open Source licenses are not a good thing."* | Russ Nelson 氏 2008-05-29（承認済みに近いものを元に最小の変更で作った、という提出者への返答） | **両面。** 既存のライセンスを元にすれば適合する、という考えを退けた文で、ACD が既存の文を写していないことは不利ではない。一方で「ライセンスが増えるのは良くない」は B10 の定型の不利な面である |
+| *"I don't think anyone has bothered to focus on smaller issues of the license after seeing that the bigger ones would keep it from passing. These will have to be addressed once the larger problems are fixed."* | Bruce Perens 氏 2008-05-27（論点は 1 つの条だけか、という提出者の問いへ） | **見込みの材料。** 審査者は通らない理由を 1 つ見つけると小さな問題を見るのをやめる。最初の審査で指摘が少ないことは、残りが無いことを意味しない。ACD の審査で大きな論点（B4・B10）が片付いた後に、細部の指摘が新しく来ることを見込んでおく |
+
+**読み。** 2008 年の委員長は、承認済みの本文が型板でないことを問題と見て、名の付け替えに承認は及ばないと書いた。ACD は名を持たない型板の形で書いてあり、この点では審査者の望む形に合う。
+
+**逆側。** Nelson 氏の「一語も変えない」は、§16.4（名と識別子の下で本文を変えさせない）の考えと同じだが、ACD はその規則を本文の中に置いている（`against.md` #27 は §16.4 が「条件は課さない」という通知の文と食い違うと読んだ）。Behlendorf 氏は同じ日に、名を変えた承認済みのライセンスも承認済みと扱ってきたと反論しており、2008 年の運用は一つに定まっていない。Perens 氏の文は、我々の提出に最初の指摘が少なくても安心できないことを意味する。
+
+**この節が establish しないこと。** OSI がその後に承認済みの本文を型板にしたかは確かめていない。IWL の帰結は、この会話の範囲では確かめていない。

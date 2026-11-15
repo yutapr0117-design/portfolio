@@ -1,0 +1,47 @@
+Source: OSI license-review public archive, 2008-May.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 13 in "Approval of IWL - Consolidated Response" (2008-05-27)
+Senders: Russ Nelson
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Thu May 29 14:44:52 2008
+From: nelson at crynwr.com (Russ Nelson)
+Date: Thu, 29 May 2008 10:44:52 -0400
+Subject: Approval of IWL - Consolidated Response
+In-Reply-To: <20080528.165815.62683221.gernot@ok-labs.com>
+References: <483BBE21.9010605@opensourcelaw.biz>
+	<483C2F68.2060807@perens.com>
+	<20080528.165815.62683221.gernot@ok-labs.com>
+Message-ID: <18494.49508.529018.811864@desk.crynwr.com>
+
+Gernot Heiser writes:
+ > We really tried to do the right thing. We looked for an OSI-approved
+ > license to match our requirements, and the closest we could find was
+ > the SleepyCat license, which is not re-usable.
+ > 
+ > So we applied minimal changes (plus some clarifications) to make it
+ > re-usable. This would seem like the obvious approach.
+
+Unfortunately, no.  Not all licenses comply equally well with the Open
+Source Definition.  It's definitely NOT a good idea to seek OSD
+compliance by starting with an existing license.  Our understanding of
+what is required by the OSD has changed over the years, and the
+community has come to realize that more Open Source licenses are not a
+good thing.
+
+In particular, the Sleepycat license is an amalgam of licenses,
+required for historical purposes.  It should not be templatized and it
+should not be reused.
+
+ > It seems to me that arguments are boiling down to OSD compliance not
+ > being sufficient.
+
+You've been told that the license doesn't comply with the OSD, so I
+don't know why you would say this.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Software that needs
+Crynwr sells support for free software  | PGPok | documentation is software
+521 Pleasant Valley Rd. | +1 315-323-1241       | that needs repair.
+Potsdam, NY 13676-3213  |     Sheepdog          | 
