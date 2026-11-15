@@ -1,0 +1,88 @@
+Source: OSI license-discuss public archive, 2004-March.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 10 in "A must read for license law" (2004-03-13)
+Senders: John Cowan
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From cowan at ccil.org  Tue Mar 16 01:50:03 2004
+From: cowan at ccil.org (John Cowan)
+Date: Mon, 15 Mar 2004 20:50:03 -0500
+Subject: A must read for license law
+In-Reply-To: <40565398.4050801@insightbb.com>
+References: <40565398.4050801@insightbb.com>
+Message-ID: <20040316015002.GB25437@ccil.org>
+
+daniel wallace scripsit:
+
+> The FSF analogy of "public license" and the GPL is really what I was 
+> referring to. 
+
+I believe that the term "public license" in the GPL and other licenses
+refers to the fact that everyone -- every member of the public -- is a
+licensee.
+
+> The first paragraph quoted from the FSF describes the legislative 
+> "malefaction" (malum prohibitum) power to restrain what would be legal 
+> at common law.
+
+The status of copyright at common law is vexed, applied (if at all)
+only to unpublished works, and has been utterly moot since 1976, which
+almost certainly predates every piece of open-source software.  So nobody
+knows if copyright infringement is a classical malum prohibitum or not.
+
+> This confusion gives rise to the myth that a copyright license is not
+> a contract. Even a "bare license" is a unilateral contract and any
+> dispute in a court of law will be examined first under state common
+> law of contract prior to evaluating federal copyright claims.
+
+Some open-source licenses, like the OSL and AFL, are indeed unilateral
+contracts, but the GPL is not; it is a voluntary (though conditional)
+derogation by the copyright owner of his sovereignty over the copyright.
+Its nearest conventional analogue is a license to enter on land.  If I
+license you to cross my property provided you do no harm, you need not
+"accept" anything in order not to be a trespasser, and if you have no such
+license or do do harm (absent other circumstances), you are a trespasser,
+period, at common law (no question of malum prohibitum vs. in se here!)
+
+> copyright license may give rise to promissory estoppel claims.
+
+The whole point of promissory estoppel, as I understand it, is that you
+are in certain circumstances equitably entitled to rely on promises
+even if they do not amount to contractual obligations.
+
+> In a few weeks or months everything released under the GPL --- ~ 80%
+> of open source code will be in a state of quasi-public domain due to
+> promissory estoppel.
+
+Pooh.
+
+> 114.
+>   SCO made a clear and unambiguous promise to IBM and
+> others that SCO would copy, modify or distribute programs
+> distributed by IBM and others under the GPL only on the
+> terms set out in the GPL; and would not assert rights to
+> programs distributed by SCO under the GPL except on the
+> terms set out in the GPL.
+
+This is as much as to say that SCO (as Caldera) issued software under
+the GPL, and is now equitably estopped from revoking its license just
+when it happens to be convenient.  This covers any cases where SCO was
+the original author of the GPLed code.
+
+The FLOSS world has always treated its public licenses as irrevocable,
+though it tolerates new versions being issued under incompatible or
+even proprietary licenses.  Anyone who tries to revoke a public license
+outright with retroactive force is acting against community expectations,
+and IBM claims that this behavior not happening, when others have counted
+on it, is equitably estopped.
+
+Of course there is no question of common law here.
+
+-- 
+There is / One art                      John Cowan <jcowan at reutershealth.com>
+No more / No less                       http://www.reutershealth.com
+To do / All things                      http://www.ccil.org/~cowan
+With art- / Lessness                     -- Piet Hein
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

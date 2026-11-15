@@ -1,0 +1,128 @@
+Source: OSI license-discuss public archive, 2000-March.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 10 in "The position RMS takes..." (2000-03-28)
+Senders: John Cowan
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From cowan at locke.ccil.org  Wed Mar 29 04:34:31 2000
+From: cowan at locke.ccil.org (John Cowan)
+Date: Tue, 28 Mar 2000 23:34:31 -0500 (EST)
+Subject: The position RMS takes...
+In-Reply-To: <1mg2eskemd4q8lnt9n7d1c1cd5tgjvbo4m@4ax.com> from "W. Yip" at Mar 29, 0 01:25:06 am
+Message-ID: <200003290434.XAA02934@locke.ccil.org>
+
+W. Yip scripsit:
+
+> Please correct me if I am wrong, but I have the impression that only one
+> who owns the copyright can issue a license, hence in the case of
+> conventional licenses, the licensee cannot sublicense without express
+> permission from the licensor, since the licensee does not own the
+> copyright?
+
+Conventional licenses are in no way non-exclusive copyright licenses.
+I have just read over several Microsoft EULAs, and I think they are typical.
+They expressly forbid copying, distributing, and the making of derivative
+works.  They also forbid many other acts while permitting others.
+
+The EULA has all the earmarks of contract, except perhaps for actual
+agreement, and that is the defect which UCITA is intended to cure.
+
+The GNU GPL, however, is a non-exclusive copyright license; as such,
+no one but the copyright owner can issue it, so there are no sublicenses.
+However, since the GPL is a general permission to everyone, there is no
+need for any sublicensing either.
+
+> Not so if there is liability for defective software, particularly if the
+> software was sold as fit for a particular purpose.
+
+Again, all licenses known to me (free and proprietary) disclaim all warranties,
+including those of merchantability and fitness for any purpose.
+
+> >> Thus, I
+> >> would challenge the wording of the OSD on the grounds that it seems to
+> >> claim that rights subsist 'in rem' , that is, in the program itself.
+> >I think clause 7 (to which I suppose you refer) *is* badly drafted.
+> 
+> On the contrary, I think it was intentionally drafted this way by Perens to
+> directly challenge conventional understandings of copyright licensing. As I
+> said, this should get interesting if it ever reaches a court. The notion of
+> 'rights attaching to a program' (as opposed to a person) is a novel one in
+> law, but is entirely consistent with the Open Source creed.
+
+I guess we won't know until Perens tells us.
+
+> Is it still 'in personam' when the license is unilateral, made to all? I
+> question what practical difference there is between a unilateral license
+> and public domain.
+
+Plenty.  An *unconditional* public license like "Anyone may copy, distribute,
+publicly perform, and make derivative works, without restriction" might be
+taken as a dedication to the public domain.  But the various free licenses
+are conditional: they permit anyone to copy, distribute, etc. etc. only
+if certain conditions are met.  It is not clear to me if these conditions are
+to be taken as conditions precedent or not.
+
+> 'lawful acquisition' is another troublesome phrase. This seems circular
+> because what is 'lawful' almost certainly depends on the license being
+> valid?
+
+In part.  But acquisition of a copy by way of a crime, for example,
+would clearly not be lawful acquisition, so the circle can be broken.
+
+> There are two possibilities to the 'automatic license'. The license either 
+> 
+> (in a case where A[copyright holder] licenses to B licenses to C)
+> 
+> (i) automatically issues from the licensee(B) to the sublicensee(C)
+> (ii) automatically issues from the licensor (A) to the sublicensee (C)
+
+Has to be (ii) for a non-exclusive copyright license, since B can't
+license anything by way of copyright.
+
+> The GPL claims (ii) following s. 6 'Each time you distribute...the
+> recipient automatically receives a license from the original licensor
+> ....'. This is troublesome because A is entirely *outside* contractual
+> privity when B distributes to C? How does the automatic license emanate
+> from A who is entirely outside the picture where there is distribution from
+> B to C?
+
+A is the copyright owner, the only one who can issue such a license.
+The GPL, when adopted by A as a license for his copyright property, says
+that C gets such a license.
+
+> s.6 GPL entirely removes all control from A (original licensor and
+> copyright holder). This is because HIS ASSENT IS NO LONGER REQUIRED FOR
+> LICENSING. Thus there cannot be a contract between A and C, even though the
+> GPL mandates that A will give the license automatically. But there can be a
+> contract + license between B and C.
+
+A contract, certainly (e.g. the contract of sale between Red Hat and me
+for GPL-licensed software copyrighted by the FSF).  A license of some
+sort, perhaps.  But a non-exclusive copyright license?  No.
+Red Hat (B) has no right to issue such a license.  The FSF (A) licensed me
+(C) to copy/distribute/etc. as a consequence of Red Hat distributing to me.
+
+> So there are potentially concurrent licenses involved in the GPL?
+
+I'm not sure: concurrent in what way?
+
+> Don't you find it circular that the GPL allows distribution but yet enables
+> infringement through distribution?
+
+Distribution that violates the condition is infringing.  Since you
+don't like my previous example, suppose I license you to distribute
+my book, on condition that you include an erratum slip with it.
+Distribution without the erratum slip would be infringing.
+
+> I'm not quite so sure myself, actually. It seems to me that one is either
+> given permission to distribute or not to distribute. Having been given
+> permission to distribute, I think it impossible to infringe copyright,
+> particularly if the license can be seen in isolation from the act of
+> distribution of a copy.
+
+Why can't permission to distribute be conditional?
+
+-- 
+John Cowan                                   cowan at ccil.org
+       I am a member of a civilization. --David Brin
