@@ -320,3 +320,86 @@ def reflect_field_misses(licenses_dir: Path) -> tuple[int, list[str], list[str]]
             if "未定" in v:
                 pending.append(where)
     return n, bad, pending
+
+
+# ── 古い節の反映の表 (REFLECTION-BACKFILL.md・Check 501 の 2 つ目の面・2026-11-15) ─────────────────
+REFLECT_SCOPE_EXCLUDE = ("ACD-1.0.comparison.md", "REVISION-PROTOCOL.md")  # §1.N が読みの節でない文書 (CHANGELIST も外す)
+_BF_CELL = re.compile(r"^(?:`?(?P<file>[A-Za-z0-9.\-]+\.md)`?\s+)?(?P<num>1\.\d+)$")
+
+
+def _reflect_targets(licenses_dir: Path, cell: str, ag_lines: dict[int, str], er_lines: dict[str, str]) -> list[str]:
+    """反映のセルが名指す行き先の本文 (against の行・errata の行・B の文書・名指した file)。"""
+    out = [ag_lines.get(int(n), "") for n in re.findall(r"#(\d+)", cell)]
+    out += [er_lines.get(e, "") for e in re.findall(r"\b(E\d+)\b", cell)]
+    if re.search(r"\bB\d+\b", cell):
+        out += [p.read_text(encoding="utf-8") for p in sorted(licenses_dir.glob("ACD-OSI-BOTTLENECKS*.md"))]
+    for f in set(re.findall(r"`([A-Za-z0-9.\-]+\.md)`", cell)):
+        p = licenses_dir / f
+        if p.exists():
+            out.append(p.read_text(encoding="utf-8"))
+    return out
+
+
+def backfill_table_misses(licenses_dir: Path) -> tuple[int, list[str], list[str]]:
+    """REFLECTION-BACKFILL.md の表 (50 の依頼・2026-11-15): 行の番号が実在の `## 1.N` 見出しと 1 対 1 (重複なし・
+    REFLECT_FROM 以降なし)。番号のセルは「1.179」か、床 (70) の下で文書ごとの番号のときは「`<file>` 1.67」(50 の形)。
+    反映のセルは Check 501 の語彙で、against #N / errata E# は実在。「確かめ方」が grep と言う行は、名指した行き先の
+    どれかに「§1.N」が実在すること (反映したと書いて行き先が引いていない形を止める)。
+    返り値: (表の行の数, RED の文, 反映の無い節 (欄も行も無い・ADVISORY・0 になったら BLOCKING へ))。
+    """
+    ag = against_text(licenses_dir)
+    ag_lines = {int(m.group(1)): m.group(0) for m in re.finditer(r"^\| (\d+) \|.*$", ag, re.M)}
+    erp = licenses_dir / "ACD-1.0.errata.md"
+    er_lines = {m.group(1): m.group(0) for m in re.finditer(r"^\| (E\d+) \|.*$", erp.read_text(encoding="utf-8"), re.M)} if erp.exists() else {}
+    heads: dict[tuple[str, int], bool] = {}  # (file, N) -> 節の末尾に反映の欄が在るか
+    for p in sorted(licenses_dir.glob("*.md")):
+        if p.name in REFLECT_SCOPE_EXCLUDE or p.name.endswith("-CHANGELIST.md") or p.name == "REFLECTION-BACKFILL.md":
+            continue
+        t = p.read_text(encoding="utf-8")
+        hs = list(re.finditer(r"^## 1\.(\d+)\b", t, re.M))
+        for i, h in enumerate(hs):
+            body = t[h.end(): hs[i + 1].start() if i + 1 < len(hs) else len(t)]
+            heads[(p.name, int(h.group(1)))] = bool(_REFLECT_LINE.search(body))
+    bf = licenses_dir / "REFLECTION-BACKFILL.md"
+    rows = [r for r in re.findall(r"^\|(.+)\|\s*$", bf.read_text(encoding="utf-8"), re.M)] if bf.exists() else []
+    bad, covered = [], set()
+    n = 0
+    for r in rows:
+        cells = [c.strip() for c in re.split(r"(?<!\\)\|", r)]
+        m = _BF_CELL.match(cells[0]) if cells else None
+        if not m:
+            continue  # 見出しと区切りの行
+        n += 1
+        num = int(m.group("num").split(".")[1])
+        where = f"REFLECTION-BACKFILL の行 {cells[0]}"
+        hits = [k for k in heads if k[1] == num and (not m.group("file") or k[0] == m.group("file"))]
+        if len(hits) != 1:
+            bad.append(f"{where}: 見出し `## 1.{num}` が {len(hits)} 個に当たる" + ("" if hits else " (無い)") +
+                       ("" if m.group("file") or len(hits) < 2 else " —— 床の下の番号は「`<file>` 1.N」と書く"))
+            continue
+        k = hits[0]
+        if num >= REFLECT_FROM:
+            bad.append(f"{where}: §1.{REFLECT_FROM} 以降の節は節の末尾に欄を書く (表に置かない)")
+        if k in covered:
+            bad.append(f"{where}: 同じ節の行が 2 つ在る")
+        if heads[k]:
+            bad.append(f"{where}: 節の末尾にも反映の欄が在る (両方は置かない)")
+        covered.add(k)
+        v = cells[1] if len(cells) > 1 else ""
+        if not _REFLECT_VOCAB.search(v):
+            bad.append(f"{where}: 反映のセルが語彙で始まらない: {v[:50]}")
+        for a in re.findall(r"against #(\d+)", v) + re.findall(r"(?<=[・、/ ])#(\d+)", v):
+            if int(a) not in ag_lines:
+                bad.append(f"{where}: 反映のセルの #{a} が register に無い")
+        for e in re.findall(r"errata (E\d+)|\b(E\d+)\b", v):
+            e = e[0] or e[1]
+            if e not in er_lines:
+                bad.append(f"{where}: 反映のセルの {e} が errata に無い")
+        how = cells[2] if len(cells) > 2 else ""
+        if "grep" in how and not v.startswith(("なし", "未定")):
+            rx = re.compile(rf"§1\.{num}(?!\d)")
+            if not any(rx.search(x) for x in _reflect_targets(licenses_dir, v, ag_lines, er_lines)):
+                bad.append(f"{where}: 確かめ方は grep と言うが、名指した行き先のどれにも「§1.{num}」が無い")
+    missing = [f"{f} §1.{num}" for (f, num), has in sorted(heads.items(), key=lambda x: (x[0][1], x[0][0]))
+               if num < REFLECT_FROM and not has and (f, num) not in covered]
+    return n, bad, missing
