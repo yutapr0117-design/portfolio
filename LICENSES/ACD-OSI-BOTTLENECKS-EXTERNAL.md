@@ -303,6 +303,8 @@ are not present."* **この 1 文を落としてはならない。**
 
 **2026-11-15 に足した —— 承認は条項の有効性の意見ではない（`review-readings-6.md` §1.451・portfolio-9b）。** Lawrence Rosen 氏 2002-01-20 *"The OSI board of directors approves licenses if they are consistent with the OSD. The board renders no opinion about the validity or enforceability of specific clauses in specific licenses."* **両面**: B1（法律家の審査が無い）は承認の基準そのものではない、という読みを支える。同時に、承認されても §3 や §4 が各国で有効だとは誰も言わないので、有効性の問いは採用者の法律家に残る（B2 の費用）。
 
+**2026-11-15 に足した —— 2013 年の承認の規則の 4 項目めに、ACD は出せるものが無い（`review-readings-2.md` §1.246・portfolio-2f）。** Luis Villa 氏が挙げた規則 *"4. Provide results of any legal analysis available"*（"Akshar License 1.0 Final Draft"・2013-05）。ACD に法律家の分析は無い。**逆側**: 規則は「available なら」と書き、無い場合を不承認の理由にはしていない。ただし 2024 年以後の決める側は法律家の目の形跡を探している（上の段）。
+
 ### B2（実使用 1 件）——**作れない。制御できるのは discoverability だけ**
 
 **採用は捏造できない。** 存在しない採用を書けば、それは提出の失格事由であって弱点ではない
@@ -330,6 +332,8 @@ are not present."* **この 1 文を落としてはならない。**
 **2026-11-15 に足した（4 つ目）—— 使われないライセンスは何のためにあるのか（`review-readings-4.md` §1.351・portfolio-50）。** 当時の理事長 Russell Nelson 氏 2004-12-13 *"A "dead" license is one which is no longer used for any projects."*、2004-12-14 *"What purpose does a license serve if nobody uses it?"*（"pruning "dead" licenses"）。上の 2020 年の AAL の廃止の議論と同じ問いが、16 年前に理事長の言葉で在った。**逆側**: これは承認済みの一覧から外す提案の議論で、新しい提出の承認の基準ではない。採用者が 1 件の ACD にとっては、承認の後にもこの問いが残る、という読みになる。
 
 **2026-11-15 に足した（6 つ目）—— 2003 年の委員長は、沈黙を賛否のどちらにも読まず、明示の言葉を求めた（`review-readings-3.md` §1.307）。** Russell Nelson 氏 2003-09-26 *"Maybe it's because it's obviously open source, but as committee members, I'd like to hear it explicitly from your mouths (or keyboards rather) to report back to the board."* その後の 1 通の賛成で承認を勧めた。**逆側**: 短い修正 BSD 型の提出で、委員長が自ら中身を説明していた。長く新しい形の ACD に同じ運びは期待できない（上の Chestek 氏 2020）。
+
+**2026-11-15 に足した（7 つ目）—— 「承認されたら使う」という表明を並べた提出も、使用を制限する条件で止まった（`review-readings.md` §1.174・portfolio-2f）。** Educational Community License の提出文（2004-06-07）は *"Other universities and projects have indicated their interest in using the license if it receives OSI certification."* と書いたが、当時の委員長 Russell Nelson 氏は 2004-08-30 に *"We don't approve licenses that put restrictions on use."* と返し、止めた（承認は 2007 年）。ACD には関心の表明そのものが無い（窓口は `.github/ISSUE_TEMPLATE/acd-use.yml`）。**逆側**: 表明は承認の十分条件ではなかった、という記録でもある。ECL を止めたのは使用の制限で、ACD はそれを持たない（§10.1）。
 
 ### 🔴 2026-09-13 追記 —— 理事会は B2 に、否決ではない帰結を用意している
 
@@ -568,3 +572,5 @@ is considered program code and therefore copyrightable**."*
 **2026-11-15 に足した —— 委員会は、範囲の広いライセンスを「ソフトウェアだけのライセンス」として通読して確かめる（模擬委員会・portfolio-30）。** Pamela Chestek 氏 2023-08-15（`license-review`・法律事務所の署名）*"IIRC, the CERN OHLs were written specifically with software in mind, so that one license could be applied to the combination product of hardware and software."*、*"On my review, I walked through it as only a software license to make sure it didn't have any unintended consequences when applied that way."* 同氏は 2024-10-05（`license-discuss` の事前の議論・本人が *"in my personal capacity"* と署名）にも *"The licenses include "services," but open source licenses are for software, not for services. There also appear to be other areas covered that are inappropriate for a software-only license, such as personal information."* と書いた。**同じ通読を 1.4 草案に当てた（2026-11-15）。** ソフトウェアだけに当てると、§6（計算的利用）はコードを学習に使う場面で働き、§7（データベース権）は多くの場合に空振りし、どちらも受け手に何も課さない。§8.4 の「Work が教える機能」の非対称（文書だけを読んで人が実装した場合と、モデルに書かせた場合で特許の許諾の及び方が違う）は `gap-measurements.md` の表と `faq.md` A32 が扱い済みである。§1.5 と §11.4 は、データ保護・プライバシー・人格権・個人データに名前で触れるが、どれも「及ばない」と述べる限界の文である。**逆側**: 同氏が 2024 年に「ソフトウェアだけのライセンスにふさわしくない」とした「個人情報」の語は、限界の文としてであれ ACD の本文に在る。限界の文が、範囲の広さの印として読まれる危険は残る。この通読は我々自身のもので、委員会の通読ではない。
 
 **2026-11-15 に足した —— 我々が配っている Agent Skills も、この範囲の問いの中に在る（`reviewer-positions.md` §1.55・古い節の反映を表に揃える作業で見つけた）。** Richard Fontana 氏 2026-04-06（`license-discuss`）は、AI 支援への指示の集まりについて *"Instructions" can be copyrightable works.* と書いた（reviewer-positions §1.55 の引用）。このリポジトリは ACD をソース・文書・データ・メディア・`.well-known/` の Agent Skills の全体に当てている。§2.7 が許諾の範囲を Dedicator が持つ権利に閉じているので、スキルが著作物でなくても許諾は害にならない。**逆側**: ソフトウェアでない物に当てている実例が、提出者自身のリポジトリだということは、B15 の問い（ソフトウェアのライセンスか）を審査者に最初に見せる。
+
+**2026-11-15 に足した —— ソフトウェアとデータと文書を 1 つの道具で覆う需要は、CC0 の審査で利用者の側から述べられた（`review-readings.md` §1.169・portfolio-2f）。** Carl Boettiger 氏 2012-02-22 *"There are often not sharp divisions between software, code snippets and scripts, documentation, data files, figures, etc in scientific work"*、Kuno Woudt 氏 2012-02-24 *"Most free software, open source and free culture licenses do not consider database rights."* ACD の §1.3 の列挙と §7 は同じ需要に当たる。**逆側**: どちらも個人の発言で、CC0 は承認されずに取り下げられた —— この需要は承認の帰結を変えなかった。
