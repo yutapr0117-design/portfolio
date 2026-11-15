@@ -159,7 +159,9 @@ collect what the list says, fold it into a revised version, submit **that** to `
 and repeat on the review comments — is the plan the owner has held from the outset (his direct
 confirmation, 2026-09-09). The owner sent ACD-1.1 to `license-discuss` on 2026-09-17, and **that
 message was rejected by moderation** (`ACD-1.0.against.md` #215), so the list has not received
-that text. Work on the next version happens in `ACD-1.4-DRAFT.txt`, so no frozen text moves.
+that text. **The version to be submitted will itself go to `license-discuss` first, for at least
+30 days, before anything goes to `license-review`**, as Pamela Chestek advised another submitter
+in January 2026. Work on the next version happens in `ACD-1.4-DRAFT.txt`, so no frozen text moves.
 Freezing a text is a promise about its bytes, not a statement about which version a project uses.
 
 **AI drafting and the lists.** On 2026-09-09 the OSI Moderators posted to both lists that they
