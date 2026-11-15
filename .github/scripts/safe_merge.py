@@ -208,7 +208,20 @@ def main(argv: list[str]) -> int:
     # Architecture のパイプライン (validate-level-constraints) が起動しないことがある (trigger の取りこぼし・2026-11-15 に
     #   4 回)。CodeQL 系だけが緑だと「CI 緑」に見えるので、検査の本体が checks に無ければ止まる (50 の提案)
     if not any(c.get("name") == "validate-level-constraints" for c in info["statusCheckRollup"]):
-        print(f"STOP: #{pr} で Architecture pipeline が起動していない (validate-level-constraints が checks に無い)。"
+        # 起動しない理由の多くは衝突 (2026-11-15・50 の診断): base と衝突する PR には GitHub が merge の参照を作れず、
+        #   pull_request の workflow を起動しない。push の時点で main が先に動き、数の行で衝突していた (#3230・#3231 ほか・
+        #   空の commit が効かなかったのもこれ)。merge-tree で衝突を見て、衝突なら --reland へ回す
+        run(["git", "fetch", "-q", "origin", "main", info["headRefName"]])
+        mt = run(["git", "merge-tree", "--write-tree", "--name-only", "origin/main", info["headRefOid"]], check=False)
+        if mt.returncode == 1:
+            files = [ln for ln in mt.stdout.splitlines()[1:] if ln and not ln.startswith(("Auto-merging", "CONFLICT"))]
+            print(f"#{pr} は Architecture pipeline が起動していない —— いまの main と衝突している ({', '.join(files[:4])})。"
+                  "GitHub は衝突する PR の workflow を起動しない")
+            if "--reland" in argv:
+                return reland(pr, info)
+            print("STOP: --reland を付けて回すと、新しい branch へ載せ直す")
+            return 1
+        print(f"STOP: #{pr} で Architecture pipeline が起動していない (validate-level-constraints が checks に無い・main とは衝突しない)。"
               "空の commit を push するか、新しい branch へ載せ直す")
         return 1
     run(["git", "fetch", "-q", "origin", info["headRefName"]])
