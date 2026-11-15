@@ -18,6 +18,14 @@ PR を「いまの main に重ねた形」で consistency check に通してか�
 
 `--dry-run` は 4 の merge をしない。worktree は止まった場合も必ず消す。
 
+`--reland`（2026-11-15・50 の依頼）は、3 で衝突したときに、数の行だけの衝突を解いて出し直す。手順は次のとおり。
+
+1. いまの main から `<branch>-reland` を作り、PR の commit を cherry-pick する。
+2. 衝突の塊のうち、数だけが違う塊は main 側を採る（後で `sync_stated_counts.py --apply` が実測から書き直す）。両側が行を足しただけの塊（表の行・READ-THREADS の行）は両方を残す。それ以外の塊があれば何もしないで止まる。
+3. 載せ直した形で consistency を回し、緑なら push して新しい PR を出し、元の PR を閉じる。merge はしない。新しい PR の CI を待ってから、もう一度 safe_merge で入れる。
+
+その日、5 本が rounds/README の在庫・長さの行・AS-OF の件数だけで衝突し、そのたびに手で載せ直した。push 済みの branch は rebase しないので、新しい branch と新しい PR を作る。古い main から runbook の数だけを変えた commit を作り、push と gh を差し替えて、最後まで通ることを確かめた。
+
 ## Why
 
 2026-11-15、5 人が並行して PR を merge していた。rounds/ に受領文を足す 2 本は、どちらも README の在庫見出しを「444」にしてそれぞれ緑で merge された。その結果 main の Check 465 が 444 / 445 で赤になり、その後に出た無関係な PR（#3060）の CI まで落ちた。PR の CI は PR を出した時点の main と重ねて回るので、merge の直前の main とは重ねていない。
