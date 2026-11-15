@@ -495,6 +495,14 @@ _MUTATIONS_TAIL.append({
     "replace": "In Section 16.4, \"the Stewardship\" means",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 474 (474c): 提出の材料の §2 の表で #322 の直後の印を [CLOSED] にする —— register の状態と食い違う。#326 の行は "
+            "register が [CLOSED] になった後も数時間古いまま残った (2026-11-15・50 の提案)",
+    "file": ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md",
+    "find": "（#322・**[EXTERNAL]**）",
+    "replace": "（#322・**[CLOSED]**）",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
