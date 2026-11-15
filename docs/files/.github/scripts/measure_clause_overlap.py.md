@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/measure_clause_overlap.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-11-04
+last-updated: 2026-11-15
 canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (測る対象) / LICENSES/ACD-OSI-BOTTLENECKS.md (B3 / B13)
 ---
 
@@ -16,6 +16,8 @@ ACD の草案と試作文について、条の重複と「効果を運ぶ語」�
 - 比較では、先行詞の無い指示語（those / these / that / such + Section(s) / provision(s) …）の Before / After も出す。同じ条の中で、それより前に条番号が無ければ宙に浮いている（2026-11-04、§2.8 の理由の文だけを外した私の試算版で末文の "those Sections" が先行詞を失ったのを、25 が読んで見つけた —— 道具は見ていなかった）
 
 - 比較では、**外した語に依拠するドシエの箇所**も出す（`LICENSES/*.md`。`rounds/` と CHANGELIST / CLARITY-TRIAL / ADVERSARIAL-TRIAGE の作業記録は除く）。本文の中の参照だけを見ると、§6.5 の前半を外す試作 h1 は通るが、提出文 `submission.md` §B.0 はまさにその前半を根拠に *"for the reason §6.5 gives"* と引いていた（2026-11-04、bb の提案・25 が同意）。審査者向けの文書（submission* / review-responses* / clause-reference / faq / comparison / against / objection-map / REVIEWERS / SUBMISSION-MATERIALS / READY-TO-SUBMIT / QUESTIONS-FOR-COUNSEL / README）は「その版を対象にするなら書き換えが要る」として、errata / BLIND-SPOTS* / SELF-AUDIT / discussion-log / review-corpus などの記録は「当時の本文を引く」として分けて出す（記録を書き換えると履歴を偽る）。`against.md` はファイル単位で外向き: 入口が審査者に読ませる全ラウンド通しの一覧で、版を付けない現在形の行は出す版が変わると偽になる。日付の有無で行を分けると、日付を含む #133 を落とす
+
+- **そろえ残し**（2026-11-15）: `--compare` は、試作が「the A」を「the A and the B」/「neither the A nor the B」へ増やしたとき、変わった条を参照する文や、A を含む 3 つ以上の列挙で、A だけが残り B が無い文を出す。T67（§12.2 に consent）で 9b と 30 が人の目で見つけた §12.3 と §2.4 の 2 件を出し、1.3 → 1.4 草案の全差分では 0 件（冠詞を両方に持つ対に絞る前は 23 件の誤検知）。語を 1 か所だけ揃えると、揃えていない場所との対比が「B は含まれない」と読ませる。
 
 ## Why
 

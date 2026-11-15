@@ -13,6 +13,8 @@
     重なる 6-gram を条の組ごとに最長の連なりへまとめ、条番号の組・語数・本文を出す
   - 比較モード: 2 つの版の条ごとの語数の差と、**効果を運ぶ語** (主体・許諾の動詞・範囲・除外・条件) の
     出現回数の差。試作で消えた語は、元では許され試作では許されない (またはその逆の) 利用の候補になる
+  - 比較モード: **そろえ残し** —— 試作が A を「A and B」/「neither A nor B」へ増やしたとき、変わった条を参照する文や
+    A を含む 3 つ以上の列挙で、A だけが残り B が無い文 (2026-11-15・T67 で §12.3 と §2.4 を人が見つけた型)
   - 比較モード: 外した語に**ドシエの外向きの文書が依拠していないか** (LICENSES/*.md・rounds/ と作業記録を除く)。
     外した 5 語の連なりの引用と、「§N.N gives」「Section N.N's own text」「§N.N 自身が述べ」の形を拾い、
     審査者向けの文書 (その版を対象にするなら書き換えが要る) と記録 (当時の本文を引く) に分けて出す
@@ -379,6 +381,51 @@ def report(path: Path, n: int) -> None:
         print(f"- §{a} ⟷ §{b} ({ln} 語): {txt}")
 
 
+# 冠詞を両方に持つ対だけを見る ("the covenant and the consent" / "neither the covenant nor the consent")。冠詞の無い
+#   並び ("the scale of use, and the number of users") は偶然の隣り合わせで、1.3 → 1.4 草案で 23 件の誤検知を出した
+_PAIR = re.compile(r"\bthe ([a-z]+) (?:and|or|nor) the ([a-z]+)\b")
+_STOP = {"the", "a", "an", "any", "this", "that", "of", "to", "in", "or", "and", "nor", "by", "for", "is", "it", "its"}
+
+
+def coordination_gaps(cb: dict, ca: dict) -> list[tuple[str, str, str, str]]:
+    """試作が「A」を「A and B」/「neither A nor B」へ増やしたとき、本文の他の場所に A だけが残る文 (そろえ残し)。
+
+    2026-11-15、T67 は §12.2 に consent を足し §12.4 / §12.5 を "the covenant and the consent" に揃えたが、§12.3 の
+    "The covenant in Section 12.2 is limited to the Work" と §2.4 の列挙 "grant, permission, and covenant" が残った
+    (9b と 30 が人の目で見つけた)。語を 1 か所だけ揃えると、揃えていない場所との対比が「B は含まれない」と読ませる。
+    候補は 2 種: (i) A と、B を足した条への参照 ("Section 12.2") を同じ文に持ち B を持たない文、(ii) A を含む 3 つ以上の
+    列挙 ("x, y, and A") で B を持たない文。どちらも読む候補であって欠陥の証拠ではない。
+    返り値: [(条, A, B, 文の抜粋)]
+    """
+    new_pairs = set()
+    for k in ca:
+        if ca[k] == cb.get(k):
+            continue
+        for m in _PAIR.finditer(ca[k].lower()):
+            a, b = m.group(1), m.group(2)
+            if a in _STOP or b in _STOP or a == b:
+                continue
+            before = cb.get(k, "").lower()
+            if re.search(rf"\b{a}\b", before) and not re.search(rf"\b{a}\b (?:and|or|nor) (?:the |any )?{b}\b", before):
+                new_pairs.add((a, b, k))
+    out = []
+    changed = [k for k in ca if ca[k] != cb.get(k)]
+    for a, b in sorted({(a, b) for a, b, _k in new_pairs}):
+        # 試作で変わった条のどれかを参照する文 (B は §12.2 に動詞で入り、対の形は §12.4 / §12.5 に在った)
+        ref = re.compile(r"\bsections? (?:[\d.]+(?:, | and | or ))*(?:" + "|".join(re.escape(c) for c in changed) + r")\b")
+        for k, text in ca.items():
+            for s in re.split(r"(?<=[.;:])\s+(?=[A-Z(])", text):
+                sl = s.lower()
+                if not re.search(rf"\b{a}s?\b", sl) or re.search(rf"\b{b[:-1] if b.endswith('s') else b}", sl):
+                    continue
+                listed = re.search(rf"(?:\b[a-z]+, ){{2,}}(?:and |or )?{a}s?\b|\b{a}s?, (?:[a-z]+, )+(?:and |or )?[a-z]+\b", sl)
+                if (ref.search(sl) and not re.search(rf"\b{a}\b (?:and|or|nor) (?:the |any )?{b}", sl)) or listed:
+                    item = (k, a, b, " ".join(s.split())[:140])
+                    if item not in out:
+                        out.append(item)
+    return out
+
+
 def compare(before: Path, after: Path, n: int) -> None:
     cb, ca = clauses(before.read_text(encoding="utf-8")), clauses(after.read_text(encoding="utf-8"))
     tb, ta = sum(len(words(v)) for v in cb.values()), sum(len(words(v)) for v in ca.values())
@@ -413,6 +460,11 @@ def compare(before: Path, after: Path, n: int) -> None:
           "括弧の指し先も中身に依拠しうるので、全件を読む")
     for t, k, ctx, d in _all:
         print(f"#   {'⚠' if d else '・'} §{k} → §{t}: …{ctx}…")
+    _cg = coordination_gaps(cb, ca)
+    print(f"# そろえ残し (A を「A and B」へ増やした試作で、A だけが残る文): {len(_cg)} —— 揃えていない場所は"
+          "「B は含まれない」と読ませうる (2026-11-15・T67 の §12.3 と §2.4)")
+    for k, a, b, ctx in _cg:
+        print(f"#   ⚠ §{k} [{a} だけ・{b} が無い]: …{ctx}…")
     _xd = (external_reliance({c: (cb.get(c, ""), ca.get(c, "")) for c in _chg}, after.read_text(encoding="utf-8"))
            if _chg else [])
     _out = [x for x in _xd if _OUTWARD.search(x[0])]
