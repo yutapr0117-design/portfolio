@@ -83,7 +83,8 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | 「**そもそも投稿できるのか**」 | [`ACD-OSI-BOTTLENECKS-POSTING.md`](ACD-OSI-BOTTLENECKS-POSTING.md) —— **B14 のみ**。2026-09-09 に OSI Moderators が両リストへ「AI が全部または大半を書いた投稿は拒否する」と投稿して以降の経過。**instrument の中身ではなく手続きの問題**なので 2026-09-25 に分離した。**行動（投稿停止・本文凍結・リスト上でこの件を論じない）はここが単一の所在である** |
 | 既知の反論が当たるか（**英語・審査者が最初に読む**） | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) |
 | 審査者は主題について何と言っているか（人格権 / 特許 / 長さ / 構造 …） | [`ACD-1.0.reviewer-positions.md`](ACD-1.0.reviewer-positions.md) |
-| 未読のスレッドと審査の帰結を読んだ記録（§1.164 以降） | [`ACD-1.0.review-readings.md`](ACD-1.0.review-readings.md) —— `reviewer-positions.md` と `gap-measurements.md` が予算に近づいたので 2026-11-09 から新しい節をここに置く（既存の節は動かしていない） |
+| 未読のスレッドと審査の帰結を読んだ記録（§1.164〜§1.217） | [`ACD-1.0.review-readings.md`](ACD-1.0.review-readings.md) —— `reviewer-positions.md` と `gap-measurements.md` が予算に近づいたので 2026-11-09 から新しい節をここに置く（既存の節は動かしていない） |
+| 未読のスレッドと審査の帰結を読んだ記録（§1.218 以降） | [`ACD-1.0.review-readings-2.md`](ACD-1.0.review-readings-2.md) —— `review-readings.md` が 1,000 行に届いたので 2026-11-15 から新しい節をここに置く（既存の節は動かしていない） |
 | 読んだスレッドの件名の一覧（AS-OF の未読数の元） | [`READ-THREADS.txt`](READ-THREADS.txt) —— 1 行 1 件名。読んだら同じ commit で足す |
 | 未読数の母数になる候補のスレッドの一覧 | [`THREAD-CANDIDATES.txt`](THREAD-CANDIDATES.txt) —— 1 行 1 件名。一度候補になったら外さない。道具の `--pin` が足す |
 | **審査の場がどう働き、誰がそこで書いているか**（pre-review としての `license-discuss` / 沈黙の比較 / 書き手の記録 / moderator が引いた CoC） | [`ACD-1.0.review-venue.md`](ACD-1.0.review-venue.md) —— `reviewer-positions.md` から 2026-09-24 に切り出した（§1.67 以降・節番号は不変） |

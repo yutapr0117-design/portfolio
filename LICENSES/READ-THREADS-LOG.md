@@ -20,6 +20,12 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に portfolio-1c と portfolio-30 の依頼で、全期間の決める側の通を受益者・不行使の約束・privity の語で探し（63 通）、`review-readings-2.md` §1.219 へ（承認済みの受益者の条は licensee に守らせる向きで、受け手が約束に依拠する向きの先例は無い・Rosen 氏「知らない受益者」）。会話を読んだのではないので READ-THREADS には足さない。
+
+- 2026-11-15 に "[DISCUSS] PUWL v1.0"（`license-discuss` 2025-10）の決める側の人格権の通を `review-readings-2.md` §1.218 へ（放棄＋不行使の約束＋虚偽の著者表示の除外＋可分・Sado 氏の案が ACD の §12 と同じ構造）。件名が MIME で符号化されていて census の会話の key と照合できないので、READ-THREADS には足さない。
+
+- 2026-11-15 に "Blue OakModel License and the license reinvention dilemma"（`license-discuss` 2024-03・2 通）の Perens 氏の通を `review-readings.md` §1.217 へ（法律家の新しい permissive も採用されず、承認済みの数を増やしただけだった）。同じ日に候補の "For Approval: SSCL"（2010-06）を読了の記録だけにした。
+
 - 2026-11-15 に "Blue OakModel License and the license reinvention dilemma"（`license-discuss` 2024-03・2 通）の Perens 氏の通を `review-readings.md` §1.217 へ。2 通の会話は census の会話の閾値（3 通以上）に届かないので READ-THREADS には足さない。同じ日に "For Approval: SSCL"（`license-review` 2010-06）を読了の記録だけにした（Perens 氏の一般的な起草の所見で新しい論点を足さない・候補の会話なので行を足した）。
 
 - 2026-11-15 に "NASA requests help finding gov't use of standard OSS licenses."（`license-discuss` 2011-05・決める側の通に絞った）を `review-readings.md` §1.207 の追記へ（政府のコードがパブリックドメインなのは米国の中だけ・Cowan 氏）。

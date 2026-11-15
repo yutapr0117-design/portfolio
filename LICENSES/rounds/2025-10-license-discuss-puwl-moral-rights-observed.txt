@@ -1,0 +1,384 @@
+Source: OSI license-discuss public archive, 2025-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 4 of the messages in "[DISCUSS] PUWL v1.0" (2025-10)
+Senders: Bruce Perens, Pamela Chestek, Shuji Sado
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Mon Oct  6 16:31:05 2025
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 6 Oct 2025 09:31:05 -0700
+Subject: [License-discuss] =?utf-8?q?=5BDISCUSS=5D_PUWL_v1=2E0_?=
+	=?utf-8?q?=E2=80=93_P-EADCA_Universal_Waiver_License?=
+In-Reply-To: 
+ <CAFna2KF_PXqnx0jvm5HG=UogwxAOGp_bZGUsmW-oz_nM=dzbqA@mail.gmail.com>
+References: 
+ <CAFna2KEL-OyuMehxvXz5qdcT1i_UE78tMJSd3OUPYV2hvTFzMQ@mail.gmail.com>
+ <BY5PR02MB70909FFC022C2C4FCAEAAA39E1E6A@BY5PR02MB7090.namprd02.prod.outlook.com>
+ <CAFna2KFTN4vnkPZ-xzS-Sui8k6kH+dmrxENXud1gxteGT7QXNA@mail.gmail.com>
+ <202510030302.55554.johnny@solbu.net>
+ <CAFna2KF547K+ZD7JFBRweiY_4Gfjv6pL5DN7AZyjAOkZPw0Vvw@mail.gmail.com>
+ <CAFna2KF_PXqnx0jvm5HG=UogwxAOGp_bZGUsmW-oz_nM=dzbqA@mail.gmail.com>
+Message-ID: 
+ <CAK2MWOsosiUk9tpPP9gL0abDN65cQ_75xS8MSPpGkN5V6tmt=g@mail.gmail.com>
+
+This is in the right direction, although filtration by a legal professional
+would still be necessary before release. As has already been brought up,
+you have considered moral rights, copyright, but not really patent rights.
+This leaves the recipient having to defend their use rather indirectly
+through the estoppel doctrine if there is a patent lawsuit by one of the
+license or public domain grantors. You might look at text in other licenses
+that grant patent rights that are necessarily infringed to run the program.
+An affirmative grant would be a significant difference from cc0.
+
+Bruce Perens K6BP
+
+On Mon, Oct 6, 2025, 01:05 Balázs Hámorszky <balihb at gmail.com> wrote:
+
+> I know this is still crayon material, but plz have a look:
+>
+> https://github.com/balihb/PUWL/blob/main/LICENSE.v2draft01
+>
+> On Sat, Oct 4, 2025 at 11:59 PM Balázs Hámorszky <balihb at gmail.com> wrote:
+> >
+> > well, this is what I have for version 2. please spit on it:
+> >
+> > The author of this work dedicates all original material to the public
+> > domain wherever legally possible.
+> > If such dedication is not recognized or valid under applicable law,
+> > the author instead grants everyone, everywhere, a free, perpetual,
+> > non-exclusive, irrevocable license to use, copy, modify, distribute,
+> > or otherwise do anything with the material for any purpose, without
+> > restriction.
+> >
+> > In jurisdictions where attribution or other moral rights cannot be
+> > fully waived, the author does not require their name to be displayed
+> > beyond the minimal extent required by law, consents to any use without
+> > personal attribution wherever legally permitted, and waives any claim
+> > or legal action based solely on the absence of attribution, to the
+> > fullest extent allowed by applicable law.
+> >
+> > Use at your own risk. The author has no liability for any consequence
+> > of using, misusing, or modifying this work.
+> >
+> > On Fri, Oct 3, 2025 at 3:05 AM Johnny A. Solbu <johnny at solbu.net> wrote:
+> > >
+> > > On Thursday 02 October 2025 09:42, Balázs Hámorszky wrote:
+> > > > The idea behind PUWL is to provide the broadest possible "Universal
+> Waiver"
+> > > > in every jurisdiction.
+> > >
+> > > Just remember that in most of Europe there is no such thing as Public
+> Domain.
+> > > You cannot sign away your moral rights, which are your right to be
+> listed as author of what you create.
+> > >
+> > > In Creative Commons language, the «by» clause it mandatory.
+> > > No contract can change that.
+> > >
+> > >
+> > > --
+> > > Johnny A. Solbu
+> > > web site,   https://www.solbu.net
+> > > PGP key ID: 0x4F5AD64DFA687324
+> > > _______________________________________________
+> > > The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+> > >
+> > > License-discuss mailing list
+> > > License-discuss at lists.opensource.org
+> > >
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20251006/9fbdec17/attachment-0001.htm>
+
+From bruce at perens.com  Mon Oct  6 19:11:04 2025
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 6 Oct 2025 12:11:04 -0700
+Subject: [License-discuss] =?utf-8?q?=5BDISCUSS=5D_PUWL_v1=2E0_?=
+	=?utf-8?q?=E2=80=93_P-EADCA_Universal_Waiver_License?=
+In-Reply-To: <2c6dfbaa-271f-8f47-3373-2afaff5b999f@chesteklegal.com>
+References: 
+ <CAFna2KEL-OyuMehxvXz5qdcT1i_UE78tMJSd3OUPYV2hvTFzMQ@mail.gmail.com>
+ <BY5PR02MB70909FFC022C2C4FCAEAAA39E1E6A@BY5PR02MB7090.namprd02.prod.outlook.com>
+ <CAFna2KFTN4vnkPZ-xzS-Sui8k6kH+dmrxENXud1gxteGT7QXNA@mail.gmail.com>
+ <202510030302.55554.johnny@solbu.net>
+ <CAFna2KF547K+ZD7JFBRweiY_4Gfjv6pL5DN7AZyjAOkZPw0Vvw@mail.gmail.com>
+ <2c6dfbaa-271f-8f47-3373-2afaff5b999f@chesteklegal.com>
+Message-ID: 
+ <CAK2MWOss6GpYGT7AJ1WJ26v6ZhV_DouWETRrMKmfw9mO3005KA@mail.gmail.com>
+
+To answer Pam's question, this is the French declaration, highlights mine:
+
+Art. 5. The title of an intellectual work, always provided that it is
+original, enjoys the same protection as the work itself. No person may take
+the title of a work, even if that work is no longer protected under
+articles 21 and 22, to designate a work of the same type if the use of such
+title could give rise to confusion. Art. 6. The author has the right to
+respect for his name, his status and his works. This right is vested in his
+person. It is perpetual, inalienable and indefeasible. On the author's
+death it can be transmitted to his heirs. The exercise of this right can be
+transferred to a third person by testamentary disposition.
+
+An affirmative patent grant might be a useful differentiation from the
+other licenses, but he's not there yet.
+
+As I think we have made clear every time a newby approaches license-discuss
+the license _user_ community, the developers themselves, are in general
+poorly educated on license issues and for the most part uninterested in
+improving that education, they want to program or be users. Which is fine,
+we need that. But it means we should do a little more to make sure they
+understand some of the implications of the license, for example that they
+don't, or at least don't reliably get the right to claim authorship of the
+work.
+
+Thus, an explanatory text that is separate from the license but easily
+available might be of value.
+
+On Mon, Oct 6, 2025 at 11:47 AM Pamela Chestek <pamela at chesteklegal.com>
+wrote:
+
+>
+> On 10/4/2025 2:59 PM, Balázs Hámorszky wrote:
+> > In jurisdictions where attribution or other moral rights cannot be
+> > fully waived, the author does not require their name to be displayed
+> > beyond the minimal extent required by law,
+> Are there jurisdictions that do not allow you to waive attribution?
+>
+> I would also like to see an explanation of how all the other licenses
+> that attempt to achieve this fail, and how this license has remedied
+> their flaws.
+>
+> Pam
+>
+>
+> Pamela S. Chestek
+> Chestek Legal
+> 4641 Post St.
+> Unit 4316
+> El Dorado Hills, CA 95762
+> +1 919-800-8033
+> pamela at chesteklegal.com
+> www.chesteklegal.com
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens K6BP
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20251006/000f9f10/attachment-0001.htm>
+
+From pamela at chesteklegal.com  Mon Oct  6 18:45:47 2025
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 6 Oct 2025 11:45:47 -0700
+Subject: [License-discuss] =?utf-8?q?=5BDISCUSS=5D_PUWL_v1=2E0_?=
+ =?utf-8?q?=E2=80=93_P-EADCA_Universal_Waiver_License?=
+In-Reply-To: 
+ <CAFna2KF547K+ZD7JFBRweiY_4Gfjv6pL5DN7AZyjAOkZPw0Vvw@mail.gmail.com>
+References: 
+ <CAFna2KEL-OyuMehxvXz5qdcT1i_UE78tMJSd3OUPYV2hvTFzMQ@mail.gmail.com>
+ <BY5PR02MB70909FFC022C2C4FCAEAAA39E1E6A@BY5PR02MB7090.namprd02.prod.outlook.com>
+ <CAFna2KFTN4vnkPZ-xzS-Sui8k6kH+dmrxENXud1gxteGT7QXNA@mail.gmail.com>
+ <202510030302.55554.johnny@solbu.net>
+ <CAFna2KF547K+ZD7JFBRweiY_4Gfjv6pL5DN7AZyjAOkZPw0Vvw@mail.gmail.com>
+Message-ID: <2c6dfbaa-271f-8f47-3373-2afaff5b999f@chesteklegal.com>
+
+
+On 10/4/2025 2:59 PM, Balázs Hámorszky wrote:
+> In jurisdictions where attribution or other moral rights cannot be
+> fully waived, the author does not require their name to be displayed
+> beyond the minimal extent required by law,
+Are there jurisdictions that do not allow you to waive attribution?
+
+I would also like to see an explanation of how all the other licenses 
+that attempt to achieve this fail, and how this license has remedied 
+their flaws.
+
+Pam
+
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+From shujisado at gmail.com  Thu Oct 16 23:50:53 2025
+From: shujisado at gmail.com (Shuji Sado)
+Date: Fri, 17 Oct 2025 08:50:53 +0900
+Subject: [License-discuss] =?utf-8?q?=5BDISCUSS=5D_PUWL_v1=2E0_?=
+	=?utf-8?q?=E2=80=93_P-EADCA_Universal_Waiver_License?=
+In-Reply-To: 
+ <CAK2MWOss6GpYGT7AJ1WJ26v6ZhV_DouWETRrMKmfw9mO3005KA@mail.gmail.com>
+References: 
+ <CAFna2KEL-OyuMehxvXz5qdcT1i_UE78tMJSd3OUPYV2hvTFzMQ@mail.gmail.com>
+ <BY5PR02MB70909FFC022C2C4FCAEAAA39E1E6A@BY5PR02MB7090.namprd02.prod.outlook.com>
+ <CAFna2KFTN4vnkPZ-xzS-Sui8k6kH+dmrxENXud1gxteGT7QXNA@mail.gmail.com>
+ <202510030302.55554.johnny@solbu.net>
+ <CAFna2KF547K+ZD7JFBRweiY_4Gfjv6pL5DN7AZyjAOkZPw0Vvw@mail.gmail.com>
+ <2c6dfbaa-271f-8f47-3373-2afaff5b999f@chesteklegal.com>
+ <CAK2MWOss6GpYGT7AJ1WJ26v6ZhV_DouWETRrMKmfw9mO3005KA@mail.gmail.com>
+Message-ID: 
+ <CAAvo7O7_mzrokBdORZTdfAp3wXS6qOU+7c0AdAPhoeHLP7GpZw@mail.gmail.com>
+
+Hi Bruce-san, Pamela-san,
+
+Thanks for your thoughtful “belt-and-suspenders” take on moral rights
+(waive where possible + non-assertion + severability).
+Since this thread is largely about software, a few data points from Japan
+may help shape the clause:
+
+- Unlike France (which narrows software under CPI L121-7), Japan does not
+carve software out: the full triad—disclosure, attribution,
+integrity—remains inalienable for programs as well.
+- Under Japan’s work-made-for-hire rule for programs (Art. 15(2)), the
+corporation can be the author, and moral rights are understood to vest in
+that corporate author.
+- Where “natural persons” are the authors, practice relies on non-assertion
+covenants rather than blanket waivers.
+
+Net effect: in Japanese software practice, a pure “waiver” rarely bites on
+its own. Your pattern fits well. A compact, travel-ready clause could be:
+> Moral Rights:
+> To the maximum extent permitted by applicable law, each Licensor and
+Contributor waives and agrees not to assert any moral rights (including
+rights of attribution, integrity, and disclosure) in the Work and
+Contributions. Where such waiver is not permitted, each Licensor and
+Contributor irrevocably covenants not to assert such rights and consents to
+all acts that would otherwise infringe them, including modification,
+combination, and omission of attribution, provided there is no false
+attribution of authorship. This provision is severable and survives to the
+extent enforceable in any jurisdiction.
+
+This keeps your structure, tolerates jurisdictions that forbid waivers, and
+still works in Japan, where non-assertion is the operative tool for
+software.
+
+As you know, most OSI-style licenses are silent on moral rights. In
+Japanese practice, the broad permission to modify and create derivatives
+often functions in effect as a non-assertion of integrity-type claims, and
+we haven’t seen widespread disputes in day-to-day OSS use. That said,
+depending on the jurisdiction and facts, modifications that are prejudicial
+to an author’s honor or reputation could theoretically raise issues—even
+under permissive licenses like MIT or copyleft licenses like GPL.
+
+Best,
+
+2025/10/7 21:22 Bruce Perens via License-discuss <
+license-discuss at lists.opensource.org>:
+
+> To answer Pam's question, this is the French declaration, highlights mine:
+>
+> Art. 5. The title of an intellectual work, always provided that it is
+> original, enjoys the same protection as the work itself. No person may take
+> the title of a work, even if that work is no longer protected under
+> articles 21 and 22, to designate a work of the same type if the use of such
+> title could give rise to confusion. Art. 6. The author has the right to
+> respect for his name, his status and his works. This right is vested in his
+> person. It is perpetual, inalienable and indefeasible. On the author's
+> death it can be transmitted to his heirs. The exercise of this right can be
+> transferred to a third person by testamentary disposition.
+>
+> An affirmative patent grant might be a useful differentiation from the
+> other licenses, but he's not there yet.
+>
+> As I think we have made clear every time a newby approaches
+> license-discuss the license _user_ community, the developers themselves,
+> are in general poorly educated on license issues and for the most part
+> uninterested in improving that education, they want to program or be users.
+> Which is fine, we need that. But it means we should do a little more to
+> make sure they understand some of the implications of the license, for
+> example that they don't, or at least don't reliably get the right to claim
+> authorship of the work.
+>
+> Thus, an explanatory text that is separate from the license but easily
+> available might be of value.
+>
+> On Mon, Oct 6, 2025 at 11:47 AM Pamela Chestek <pamela at chesteklegal.com>
+> wrote:
+>
+>>
+>> On 10/4/2025 2:59 PM, Balázs Hámorszky wrote:
+>> > In jurisdictions where attribution or other moral rights cannot be
+>> > fully waived, the author does not require their name to be displayed
+>> > beyond the minimal extent required by law,
+>> Are there jurisdictions that do not allow you to waive attribution?
+>>
+>> I would also like to see an explanation of how all the other licenses
+>> that attempt to achieve this fail, and how this license has remedied
+>> their flaws.
+>>
+>> Pam
+>>
+>>
+>> Pamela S. Chestek
+>> Chestek Legal
+>> 4641 Post St.
+>> Unit 4316
+>> El Dorado Hills, CA 95762
+>> +1 919-800-8033
+>> pamela at chesteklegal.com
+>> www.chesteklegal.com
+>>
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not
+>> necessarily those of the Open Source Initiative. Official statements by the
+>> Open Source Initiative will be sent from an opensource.org email address.
+>>
+>> License-discuss mailing list
+>> License-discuss at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>
+>
+>
+> --
+> Bruce Perens K6BP
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Shuji Sado
+Chairman, Open Source Group Japan
+https://opensource.jp/
+English blog: https://shujisado.org/
+Japanese blog: https://shujisado.com/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20251017/e82ff3c8/attachment.htm>
