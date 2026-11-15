@@ -77,6 +77,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2005-03 | `license-discuss` | **観測（委員長が 3 つの基準を提案したスレッドから 11 通）** | `2005-03-license-discuss-three-proposed-osd-terms-observed.txt` |
 | 2007-07〜08 | `license-discuss` | **観測（2007 年 7 月の委員会報告と、承認の手続きをめぐる枝から 6 通）** | `2007-07-to-08-license-discuss-committee-report-and-approval-process-observed.txt` |
 | 2009-09〜11 | `license-review` | **観測（2009 年 9 月の委員会報告と Falcon の審査から 6 通）** | `2009-09-to-11-license-review-committee-report-and-falcon-observed.txt` |
+| 2009-11 | `license-review` | **観測（Piana 氏・起草の質と OSD 適合を分ける・1 通）** | `2009-11-license-review-piana-blackbox-drafting-vs-osd-observed.txt` |
 | 2007-09 | `license-discuss` | **観測（2007 年 8 月分の委員会報告と理事会の対応・オープンソースハードウェアを範囲に入れた答えを含む 4 通）** | `2007-09-license-discuss-committee-report-august-and-board-remit-observed.txt` |
 | 2026-03 / 2026-08 | `license-review` | **観測（本文を AI が書いたことは問題か —— AI-MIT の審査の 4 通と、承認が AI の著作権訴訟で引かれる懸念 —— OpenMDW の審査の 1 通）** | `2026-03-and-08-license-review-ai-drafting-and-endorsement-observed.txt` |
 | 2018-11 | `license-review` | **観測（SSPL の審査で Kuhn 氏が起草の時間について書いた 2 通）** | `2018-11-license-review-kuhn-sspl-drafting-time-observed.txt` |
@@ -200,6 +201,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2012-03 | `license-review` / `license-discuss` | **観測（"CC0 incompliant with OSD on patents" から 5 通・著作権だけのライセンスは滑りやすい坂、放棄の効果を論じるのは時間の無駄）** | `2012-03-license-review-cc0-incompliant-patents-observed.txt` |
 | 2020-02 | `license-discuss` | **観測（Persona non Grata の前文の会話から 2 通・採用の見込みは承認の基準ではなかった、拘束しない語は要らない）** | `2020-02-license-discuss-adoption-not-a-criterion-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
+| 2010-06 | `license-discuss` | **観測（Nelson 氏・オープンデータの定義・1 通）** | `2010-06-license-discuss-nelson-open-data-definition-observed.txt` |
 | 2010-10 | `license-review` | **観測（Phipps 氏の 1 通・特定の相手への通知を条件にすると、相手が消えれば許諾が使えなくなり OSD に合わない）** | `2010-10-license-review-netx-phipps-unreachable-observed.txt` |
 | 2010-10 | `license-review` | **観測（Perens 氏の 1 通・最善は承認済みのライセンスを使うこと）** | `2010-10-license-review-netx-perens-approved-license-observed.txt` |
 | 2010-10 | `license-review` | **観測（Perens 氏の 1 通・サイトが消えてもライセンスは続かなければならない）** | `2010-10-license-review-netx-perens-website-observed.txt` |
@@ -540,6 +542,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2004-09 | `license-discuss`（観測）| **Academic Citing License の相談 36 通 → 観測保存（2/3 部）** | **同じ束の 2/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2004-09 | `license-discuss`（観測）| **Academic Citing License の相談 36 通 → 観測保存（3/3 部）** | **同じ束の 3/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2009-02 | `license-review`（観測）| **IPA Font License v1.0 の承認審査 41 通（2025-09 の後日談を含む） → 観測保存（1/3 部）** | **`review-precedents.md` §1.105 が「記録に在る唯一の日本発の提出」と述べていたのは誤りで、これが 2 件目である —— しかも承認されている**（#242）。提出者は **Mori Hamada & Matsumoto の弁護士**が**IPA を代理**しており、**成功した日本の先例には弁護士が付いていた**。**Swiger 氏は "Non-reusable licenses" カテゴリへの収容を勧めたうえで承認を推している** ——**再利用の見込みの無さは却下ではなく分類で処理された** |
+| 2009-03 | `license-review` | **観測（Perens 氏・本気のライセンスは法律家の審査を経る・1 通）** | `2009-03-license-review-perens-serious-licence-legal-review-observed.txt` |
 | 2009-02 | `license-review`（観測）| **IPA Font License v1.0 の承認審査 41 通（2025-09 の後日談を含む） → 観測保存（2/3 部）** | **同じスレッドの 2/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2009-02 | `license-review`（観測）| **IPA Font License v1.0 の承認審査 41 通（2025-09 の後日談を含む） → 観測保存（3/3 部）** | **同じスレッドの 3/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2006-07 | `license-discuss`（観測）| **Broad Institute Public License（BIPL）の承認審査 28 通 → 観測保存（1/3 部）** | **特許について、我々に有利な発言と不利な発言が同じスレッドに在る。** Rosen 氏 *"many people hope that the old BSD- and MIT-style licenses have 'implicit patent licenses,' but that's **a thin reed** ... All modern, professionally-written open source licenses ... contain explicit patent grants."* に対し、提出者側弁護士 Rivard 氏 *"The requirements for OSI certification do not include a requirement that the originator of the software offer a license to originator owned patents."*（#236 の 4 人に続く 5 人目）。**Unlicense 先例への依拠に当たるもの**も在る —— Dillard 氏 *"there are some previously approved licenses that would not be approved if submitted today"*（#238 / #239） |

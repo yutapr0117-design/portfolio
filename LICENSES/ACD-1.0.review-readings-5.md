@@ -63,3 +63,39 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 残りの会話は、ACD の条や register に当たる論点を持たなかった。主な型は次のとおりで、件名は `READ-THREADS-LOG.md` に記録した: GPL の使い方の質問（"Question Regarding GPL"・"GPL issue at my work place"・"distributing GPL libreries"・"Question about the GPL v3"・"LGPL 2.1 + GPL 3 = problems?"）、表示を UI に求めるライセンスの論争（"APL license - What about the enforced logos?"・"InfoWorld: Pentaho opens up further"・"SocialText license discussion"・"Followup on Exhibit B licences" の他の通・"For Approval: Common Public Attribution License (CPAL)"）、OSI の運営（"Call for Votes: New OSI-Editors List"・"Noise filter"・"a plea"・"license categories"・"Censure / Removal Re: Affero Licence/AGPL"・"OSI Logo - Terms of Use"）、Jacobsen v. Katzer の論評（"Major Blow to Copyleft Theory"・"encforceability of Open Source Licences"・"SFLC will love the 7th Circuit"）、ほかの個別の質問。**2 点だけ記録する**: (1) IETF の寄与の方針について Rosen 氏は *"Of course a contributor can't give patent rights it doesn't own. BUT IT CAN GIVE IETF PATENT RIGHTS IT DOES OWN!"* と書いた（2007-01-19・"IETF IP Contribution Policy"）—— §2.7・§8.5（持つ・支配する請求項だけに及ぶ）と同じ線で、寄与者が特許を許諾する §2.6 の形（寄与者も Dedicator になる）を支える。(2) BIPL の審査で McCoy Smith 氏は、最初の開発者が特許を許諾せず後の寄与者だけが許諾する非対称を問題にした（2006-05-11・"License Discussion for the Broad Institute Public License (BIPL)"）—— ACD は寄与者を Dedicator にし（§2.6）、同じ §8 の許諾を負わせるので、非対称は無い。どちらも短い文なので `rounds/` には置かず、アーカイブの月を引く。
 
 **反映**: 1c（論点の 2 点は逐条リファレンスの §2.6・§8.5 の行へ・本文は変えない。残りの会話は論点が無い）。
+
+## 1.404 本気のライセンスなら法律家の審査を経る、起草の質と OSD への適合は別に問う —— Perens 氏・Piana 氏（2009）（2026-11-15）
+
+2009〜2010 の 15 本は portfolio-9b の帯で、portfolio-1c が引き受けた（9b は 2002〜2003 を読む）。"Serious Open Source (SOS) License -- Injunctive Relief clause"（`license-review` 2009-03・`rounds/2009-03-license-review-perens-serious-licence-legal-review-observed.txt`）と "Legacy Approval - BlackBox Component Builder Open Source License"（`license-review` 2009-11・`rounds/2009-11-license-review-piana-blackbox-drafting-vs-osd-observed.txt`）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"A really Serious License would have proper legal review by at least one qualified attorney. Can you get that? I'd like to hear from your attorney a credible explanation regarding the effectiveness of this language."*（2009-03-14・同じ人の次の通は *"What I asked you for was to have YOUR license reviewed by a lawyer."*）| Perens 氏 | **不利（B1）**。ACD は法律家の審査を経ていない。2007 年 12 月に提出の要件から法律家の分析が外れた後（`review-rules.md` §1.141）も、審査者の側には「本気なら法律家」の期待が残っていたことを示す |
+| *"Clearly those who have written it have a slack understanding of copyright and the concept of derivatives. I agree: stay away from this license because of the lack of predictability of the outcome of applying it to your software. Having said that, I don't see overly evident reasons why this should not qualify according to the OSD."*（2009-11-03）| Piana 氏 | 2009 年の Piana 氏は、起草の質への評価（使うな）と OSD への適合（不適合の明らかな理由は無い）を分けた。2026 年の委員会は *"Poor drafting"* を第 1 の理由として却下している（`board-decisions.md` §4a）—— **起草の質が適合の外の助言から却下の理由へ移った**ことの、時代の差の記録になる。ACD にとっては、OSD に合うだけでは足りず、起草の質（B1・B13）が却下に直結しうる |
+
+**逆側**: Perens 氏の通は、wtfpl.user と名乗る提出者の、差止めの同意を事前に受領者に求める条についてで、ACD のような条件の無いライセンスについてではない。Piana 氏は 2009 年には委員会の側ではなかった（記録上は `[OSI]` の付いた差出人）。
+
+**この節が establish しないこと**: 2009 年の個人の発言で、今の委員会の基準ではない。
+
+**反映**: B1（法律家の審査が無い）と B13（理解の費用）へ（portfolio-30 が受ける）。1c（本文は変えない —— 法律家の審査は本文の語では作れない）。
+
+## 1.405 オープンデータの定義を OSI が作ろうとした、ライセンスは一方的な付与 —— Nelson 氏・Mathur 氏（2010）（2026-11-15）
+
+"Open Data Definition at OSCON"（`license-discuss` 2010-06・`rounds/2010-06-license-discuss-nelson-open-data-definition-observed.txt`）と "GPL Issue"（`license-discuss` 2010-09）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"I'm running a BOF at OSCON on Wednesday night at 7PM, with the declared purpose of writing an Open Source Definition for Open Data. Safe enough to say that the OSD has been quite successful in laying out a set of criteria for what is, and what is not, Open Source. I think we can and should do the same thing for Open Data."*（2010-06-29・同じ日に *"the point of this exercise is not to create something from scratch, but instead for OSI to take a position on open data backed up by community input"*）| Nelson 氏（当時の理事） | **B15 に有利な材料**。2010 年の OSI の側に、データについて OSI が立場を取るべきだという考えがあった。Villa 氏は同じ日に opendefinition.org を挙げ、焦点は開かれたサービスだと返した |
+| *"Regardless of legal precedence or lack thereof, a software licence is not a bilateral or multilateral agreement -- it is a unilateral grant of privileges from the licensor to the licensee. There cannot be a contract between two parties, at least one of whom is unaware of the other's existence"*（2010-09-22）| Raj Mathur 氏 | §2.3（受諾を要しない）と同じ線。§1.400 の Nelson 氏 2008（見知らぬ者の間に約束は成り立つか）と組で読む —— ACD は許諾と放棄を一方的に与え、約束はその上に重ねる形で、どちらの読みにも足場を残す |
+
+**逆側**: Nelson 氏の BOF の後に OSI がオープンデータの定義を採った記録は、このスレッドには無い。データを OSI の範囲に入れることは、2023 年の Mulan の不承認の理由と向きが逆である（B15）。Mathur 氏の文は法律家の意見ではない。同じスレッドで Smith 氏は Jacobsen v. Katzer の控訴審の判決を *"Pretty leading case"* と挙げている。
+
+**この節が establish しないこと**: 2010 年の個人の発言で、OSI の方針ではない。
+
+**反映**: B15（データとソフトウェアの外の素材）へ（portfolio-30 が受ける）。1c（逐条の §2.3 の行に Mathur 氏の文を、本文は変えない）。
+
+## 1.406 2009〜2010 の残りの会話（11 本）（2026-11-15）
+
+WTFPL の承認の請求（"WTFPL approval, please?"・2009-02）は、Nelson 氏が承認しない理由（名前を変えないと改変できない）を述べた後、Michlmayr 氏に指摘されて *"Duh. Yes. Indeed."* と認めており、OSD 上の理由は残っていない。Nelson 氏は同じ通で、このライセンスを使うことを勧めないとも書いた（語の品位について）。同じ提出者の SOS の通で Perens 氏は *"Nothing associated with "wtf" is likely to be consdiered serious."* と書いた（2009-03-14）—— **名前は審査者の受け取り方に効く**（B6 の材料。ACD の名前は真面目に読まれる形）。残りは使い方の質問（"How do I choose a licence"・"combining software under different licenses"・"GPL with the Classpath exception"・"GNU GPL vs. source code fees"・"Licensing question"・"ARToolKit"・"question about AGPLv3, OSLv3, the keyword 'communicate'"・"What does "new" mean in Section 1.9 (b) of the MPL v 1.1.?"）、告知（"DISA to open source administrative software"）、雇用主から権利の放棄の書面を取ること（"Freeing my code... need some guidance"・Tiemann 氏 2009-01-15 —— §1.4 の Dedicator が権利を持つことの実務で、`ADOPTING.md` の材料）で、ACD の条に当たる論点は無い。
+
+**反映**: B6（名前の受け取り方）へ（portfolio-30）。入口（`ADOPTING.md` の雇用主の権利の確認・portfolio-50）。残りの会話は論点が無い。

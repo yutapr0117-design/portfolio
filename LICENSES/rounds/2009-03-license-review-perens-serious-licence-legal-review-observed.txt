@@ -1,0 +1,42 @@
+Source: OSI license-review public archive, 2009-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 17 in "[RFC] Serious Open Source (SOS) License -- Injunctive Relief clause" (2009-03-14)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From bruce at perens.com  Sun Mar 15 00:16:45 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 14 Mar 2009 17:16:45 -0700
+Subject: [RFC] Serious Open Source (SOS) License -- Injunctive Relief
+ clause
+In-Reply-To: <1ca85c8f0903141228jf4fd69cv7f8e64ff5318ca5c@mail.gmail.com>
+References: <1ca85c8f0903141228jf4fd69cv7f8e64ff5318ca5c@mail.gmail.com>
+Message-ID: <49BC48ED.1080804@perens.com>
+
+A really Serious License would have proper legal review by at least one 
+qualified attorney. Can you get that?
+I'd like to hear from your attorney a credible explanation regarding the 
+effectiveness of this language.
+
+Also, if you want to be serious, you should probably stop being 
+"wtfpl.user". Nothing associated with "wtf" is likely to be consdiered 
+serious.
+
+    Thanks
+
+    Bruce
+
+wtfpl user wrote:
+> Injunctive Relief. Licensee agrees that monetary damages alone would
+> be insufficient to compensate Lisensor and/or Third Party Beneficiary
+> for a breach of this Agreement. In addition to any other right or
+> remedy available at law or in equity, Licensee hereby consents to the
+> entering of an order for injunctive relief to prevent or stop any such
+> breach or threatened breach, and the entering of an order for specific
+> performance to compel performance of any obligations under this
+> Agreement, provided that the legal requirements for injunctive relief
+> and specific performance are met.
+>
+> What do you think?
+>   
