@@ -137,7 +137,7 @@ MUTATIONS_ARCHIVE6 = [
     {
     "name": "Check 496: CHANGELIST の表の見出しから「件数」の列を外す —— 行は 4 セルのままなので、GFM は 4 列目を描かずに捨てる (2026-11-08 まで実際にこの状態だった)",
     # 表は 1.4 の記録に在る。確定の道具が作る次版の CHANGELIST は空で始まるので、草案の版で引くと確定の日に Check 362 が RED になる (2026-11-08 の予行)
-    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
     "find": "| レンズ | やったこと | 結果 | 件数 |",
     "replace": "| レンズ | やったこと | 結果 |",
 },
@@ -720,7 +720,7 @@ MUTATIONS_ARCHIVE6 = [
 },
     {
     "name": 'Check 469: errata が閉じたと述べる E42 の、ただ 1 つの状態の行を「未着手」にする —— 状態の行が 1 つの E-ID は矛盾の組が作れず、errata とも照合していなかった',
-    "file": ROOT / 'LICENSES' / 'ACD-1.4-CHANGELIST.md',
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
     "find": '上の表の §8.6 行と同じ変更） | **反映済み**（2026-11-01）|',
     "replace": '上の表の §8.6 行と同じ変更） | **未着手**（2026-11-01）|',
 },
@@ -913,7 +913,7 @@ MUTATIONS_ARCHIVE6 = [
 },
     {
     "name": "Check 468w: 草案の前文の 1 語を変える (Covered Rights → Covered Right) —— errata が「1.4 draft」として引く逐語が、いまの草案に在るかを照合していなかった",
-    "file": ROOT / "LICENSES" / "ACD-1.4-DRAFT.txt",
+    "file": CURRENT_DRAFT,
     "find": "  Section 3 surrenders the Covered Rights. Section 4 grants a licence over the",
     "replace": "  Section 3 surrenders the Covered Right. Section 4 grants a licence over the",
 },

@@ -245,6 +245,22 @@ def run(ctx):
             f"Check 362: 草案の本文を打つ mutation の anchor が改行を含む ({len(_span362)} 件): {_span362[:5]}。"
             "語を変えない詰め直しでも切れるので、1 行に収まる短い句へ向け直せ (2026-11-15 に §6.4 / §16.4 の整形で 4 件が切れた)",
         )
+        # 作業中の草案の版の名を "file" に直書きしない (2026-11-15・9b): 確定の試走で、ACD-1.4-DRAFT.txt / ACD-1.4-CHANGELIST.md
+        #   を直書きした 12 件が、確定の日に pointer や空の CHANGELIST を指して的を外した (mutation_samples_common の注意書きは
+        #   在ったが守られていなかった)。CURRENT_DRAFT / f"ACD-{CURRENT_DRAFT_VER}-…" から組み立てる
+        _ver362 = _dr362[0].name.split("-")[1] if len(_dr362) == 1 else None
+        _hard362 = []
+        if _ver362:
+            _rx362 = re.compile(r'^\s*"file":.*ACD-' + re.escape(_ver362) + r'-(?:DRAFT\.txt|CHANGELIST\.md|CLAUSE-REFERENCE-DRAFT\.md)', re.M)
+            for _src362 in sorted((ROOT / ".github" / "scripts").glob("mutation_samples*.py")):
+                _hard362 += [f"{_src362.name}:{_src362.read_text(encoding='utf-8')[:_m.start()].count(chr(10)) + 1}"
+                             for _m in _rx362.finditer(_src362.read_text(encoding="utf-8"))]
+        check(
+            not _hard362,
+            f"Check 362: mutation の file に作業中の草案の版 ({_ver362}) の名を直書きしていない",
+            f"Check 362: mutation の file に作業中の草案の版の名を直書きしている ({len(_hard362)} 件): {_hard362[:5]}。"
+            "確定の日に pointer や空の CHANGELIST を指して的を外すので、CURRENT_DRAFT / f\"ACD-{CURRENT_DRAFT_VER}-…\" から組み立てる",
+        )
     except ImportError as _e362:
         warnings.append(f"Check 362: mutation_samples import failed ({_e362}) — anchor resolution skipped")
 
