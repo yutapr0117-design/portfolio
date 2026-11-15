@@ -329,6 +329,8 @@ are not present."* **この 1 文を落としてはならない。**
 
 **2026-11-15 に足した（4 つ目）—— 使われないライセンスは何のためにあるのか（`review-readings-4.md` §1.351・portfolio-50）。** 当時の理事長 Russell Nelson 氏 2004-12-13 *"A "dead" license is one which is no longer used for any projects."*、2004-12-14 *"What purpose does a license serve if nobody uses it?"*（"pruning "dead" licenses"）。上の 2020 年の AAL の廃止の議論と同じ問いが、16 年前に理事長の言葉で在った。**逆側**: これは承認済みの一覧から外す提案の議論で、新しい提出の承認の基準ではない。採用者が 1 件の ACD にとっては、承認の後にもこの問いが残る、という読みになる。
 
+**2026-11-15 に足した（6 つ目）—— 2003 年の委員長は、沈黙を賛否のどちらにも読まず、明示の言葉を求めた（`review-readings-3.md` §1.307）。** Russell Nelson 氏 2003-09-26 *"Maybe it's because it's obviously open source, but as committee members, I'd like to hear it explicitly from your mouths (or keyboards rather) to report back to the board."* その後の 1 通の賛成で承認を勧めた。**逆側**: 短い修正 BSD 型の提出で、委員長が自ら中身を説明していた。長く新しい形の ACD に同じ運びは期待できない（上の Chestek 氏 2020）。
+
 ### 🔴 2026-09-13 追記 —— 理事会は B2 に、否決ではない帰結を用意している
 
 **議事録という一次資料を初めて読んだ**（`ACD-1.0.board-decisions.md` §2 が分析・逐語は `rounds/`）。
