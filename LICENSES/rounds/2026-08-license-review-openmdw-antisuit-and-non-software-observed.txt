@@ -1,0 +1,187 @@
+Source: OSI license-review public archive, 2026-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 2 of the messages in "For Approval: OpenMDW License Agreement, versions 1.1" (2026-08)
+Senders: Josh Berkus, Carlo Piana
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From josh at berkus.org  Sat Aug 29 01:11:48 2026
+From: josh at berkus.org (Josh Berkus)
+Date: Fri, 28 Aug 2026 18:11:48 -0700
+Subject: [License-review] For Approval: OpenMDW License Agreement,
+ versions 1.1 (OpenMDW-1.1)
+In-Reply-To: <bd0fc092-4a3f-4e0a-a446-ccc1f344ee61@chesteklegal.com>
+References: 
+ <CAFV=PSG=bsLTemzjyCKYYz9j=rX9dcNo6=2T6htbxTRgervMrA@mail.gmail.com>
+ <CAC1cPGxE=ozAmGTfHt4k+SePQcstym_Kaq=w4Aj5_=hvkp15hA@mail.gmail.com>
+ <CAC1cPGyZf3indkwzeCHvodDFxyPmKhfRqGdbBx=+X+1wB9v86g@mail.gmail.com>
+ <CAFV=PSH_wNaPuPQi5i6-JZP2wfyx5UpudQsrjao3TCCSE4jb9w@mail.gmail.com>
+ <CAC1cPGzpjtL=UyGT=bzu+6JmohsY567PPU=0ZxGJOrM7vNDdyw@mail.gmail.com>
+ <CAFV=PSE7swjqNpbLqLFoJJJOnf03khMJHa_FL_bP9ow40c0E2Q@mail.gmail.com>
+ <4d892328-fe83-471b-8714-bb0b818c54d9@chesteklegal.com>
+ <CAFV=PSEyd7Ly8aWtkdcm9X96bpTXBFZToKW0pADpwrhNhXPtog@mail.gmail.com>
+ <bd0fc092-4a3f-4e0a-a446-ccc1f344ee61@chesteklegal.com>
+Message-ID: <f5ec169a-3f32-4631-a67b-075f18464ad0@berkus.org>
+
+On 8/26/26 4:59 PM, Pamela Chestek wrote:
+>>
+>> 2. On "someone whose code was infringed cannot bring a claim": that is 
+>> not what the provision does, and I want to be precise about it because 
+>> the distinction matters. B can bring the claim, including for willful 
+>> infringement, with every remedy intact, and A must defend it fully. 
+>> There is no immunity of any kind. What B cannot do is keep exercising 
+>> A's license to X while maintaining the suit.
+>>
+>> Practically, I have to look at the consequence of that choice for a 
+>> genuinely wronged developer. A developer who sues A asserting that X 
+>> was built by deliberately and unlawfully copying the developer's code 
+>> is asserting that X is itself unlawful. At the same time, many 
+>> alternative models are available to the developer – X is not even 
+>> remotely their only option. A developer with a genuine copyright claim 
+>> has no realistic need (and I would suspect… no desire) to keep 
+>> building on the very model they have told a court is the product of 
+>> copyright infringement. For that developer, the provision costs 
+>> nothing they actually want – why would they want to use or distribute 
+>> a model someone else created and published that infringes their copyright?
+
+> This may be the crux of the problem that I have (and some developers on 
+> social media and on this list have). I agree and apologize for 
+> mischaracterizing the legal effect, and thanks for calling me out on it 
+> (not for the first time either!). But I believe that "but there are 
+> other options!" is a red herring. I was thinking of the theoretical 
+> situation where the license is widely adopted. Assume for the sake of 
+> argument that all AI models have either proprietary licenses or this 
+> license. This puts the FOSS developer in the situation of either not 
+> using AI at all or being forced to use a proprietary model if they still 
+> want to have a claim against the open source model. I believe the fact 
+> that this license drives developers to a proprietary solution rather 
+> than an open source one is an indication that there is a systematic 
+> failure of the license to support the open source ecosystem.
+
+I got 99 problems, but a copyright antisuit clause ain't one.
+
+Before LLMs and the Anthropic suit, a copyright antisuit provision would 
+not have been controversial.  If someone had added a clause identical to 
+this to a license submitted 10 years ago, this forum would probably have 
+approved it without much argument as a simple extension of the patent 
+grant antisuit provision.  But, here we are.
+
+The thing is, the antisuit provision doesn't apply to all OpenMDW 
+models, it applies to the *specific model whose distributor you're 
+suing*.  So say this became the most popular AI and model license, and 
+there are 100 different models under the license.   If I sue the creator 
+of model #37 for copyright infringement, I lose my legal right to use 
+model #37 ... but not the 99 other models, even if some of those 99 
+other models belong to the same organization (at least as I read the 
+wording).
+
+To rephrase: as I read it, you don't lose access to all OpenMDW models 
+if you sue over just one of them.  Just the one you sued.
+
+As a developer who could be in either seat -- the downstream developer 
+contemplating a lawsuit or the model creator possibly being sued -- this 
+doesn't seem controversial to me.  It seems pretty fair, actually.  If I 
+was the open source developer of a new model, I would not want someone 
+facing me in a copyright lawsuit to be able to use the model I created, 
+for free, while suing me.
+
+So, thought experiment, when does this become a problem?
+
+Well, there's the hypothetical of "the Linux of models", where a single 
+OSS model becomes so industry-dominant that inability to use it is a 
+serious handicap to someone's ability to find employment. While that 
+doesn't seem likely right now, neither did Linux in 1995.  However, that 
+isn't different from a patent retaliation clause -- there was a time in 
+the industry (roughly 2003) when suing Apache would have made it 
+impossible to have a web business.  And we've approved lots of patent 
+antisuit clauses.
+
+Since we are talking about AI, this does create the weird quirk that an 
+OpenMDW legal help model cannot be used to help prepare a lawsuit 
+against its creator, which is a restriction on use.  But, again, not 
+different from patent clauses, and what seems like a reasonable carve-out.
+
+-- 
+Josh Berkus
+
+From carlo at piana.eu  Mon Aug 31 13:15:00 2026
+From: carlo at piana.eu (Carlo Piana)
+Date: Mon, 31 Aug 2026 15:15:00 +0200 (CEST)
+Subject: [License-review] For Approval: OpenMDW License Agreement,
+ versions 1.1 (OpenMDW-1.1)
+In-Reply-To: 
+ <CAFV=PSEBqNxDD5RLPMMCn1t747Y-U8Rr5x_6ScjnR-TK4BXOug@mail.gmail.com>
+References: 
+ <CAFV=PSG=bsLTemzjyCKYYz9j=rX9dcNo6=2T6htbxTRgervMrA@mail.gmail.com>
+ <84ff911e-31c4-4a07-99db-e51a3e0ff0a4@maffulli.net>
+ <10992f43-01cc-45d5-a4e3-6790cd407b0a@landley.net>
+ <39f2cc82-687f-42d8-a646-8d4feaa82604@maffulli.net>
+ <bd9eb42d-8e48-4f44-bba8-49ceadec2ffc@landley.net>
+ <32f4c773-b06b-4e59-989d-495c93cfa4e5@lexpan.law>
+ <CAC1cPGwK2rVxUp2B+gcHSXLV9PH+zs4JYo23ryLPHSAGE1vFmQ@mail.gmail.com>
+ <CAFV=PSEBqNxDD5RLPMMCn1t747Y-U8Rr5x_6ScjnR-TK4BXOug@mail.gmail.com>
+Message-ID: <1536652793.1577045.1788182100632.JavaMail.zimbra@piana.eu>
+
+> Da: "Michael Dolan" <mdolan at linuxfoundation.org>
+> A: "License submissions for OSI review" <license-review at lists.opensource.org>
+> Inviato: Venerdì, 28 agosto 2026 23:15:05
+> Oggetto: Re: [License-review] For Approval: OpenMDW License Agreement, versions
+> 1.1 (OpenMDW-1.1)
+
+> On Fri, Aug 28, 2026 at 5:06 PM Richard Fontana via License-review < [
+> mailto:license-review at lists.opensource.org |
+> license-review at lists.opensource.org ] > wrote:
+
+>> Yes. Incidentally, the OSI should bear in mind that OpenMDW-1.1
+>> functions as a "plain old software license" because it is designed in
+>> part to be used for software. I might view it somewhat differently if
+>> it was presented as, say, a "weights license" only (perhaps submitted
+>> as a special sort of "AI license" under what I gather was contemplated
+>> when the OSAID was adopted). I don't think the OSI should be
+>> classifying this as an "AI license" and adopting some new, presumably
+>> looser, standard of approval for it based on that classification. It
+>> is by design not a license just for models in a narrow sense, it is a
+>> license for code as well as other stuff. If it is approved, someone
+>> could conceivably use it in a completely non-AI-related context
+>> involving just code.
+
+> Richard, this is a good point, and I'd like to expand on it a bit. OpenMDW-1.1
+> was submitted for review as a software license, under the same standard as any
+> other license OSI has reviewed. We are not asking for an AI-specific
+> classification or a looser OSD interpretation. Your observation about non-AI
+> reuse is correct and by design: inference code, preprocessing tools, or other
+> software licensed under OpenMDW-1.1 as part of one release can be extracted and
+> reused by developers with entirely different model weights that are under other
+> licenses, or with no model at all. Each component published under the license
+> carries the OpenMDW grant, and the license needs to work as a plain software
+> license in that very scenario.
+
+> Mike
+
+Mike, Richard, all, 
+
+I hesitate chiming in here because I don't want to compromise my judgment by taking a too early position on the very clause under scrutiny, but this exchange is just too inviting to remain silent any longer. Caveat: this entire message is a tentative position and does not necessarily reflect what the Licensing Committee or the Board would decide. 
+
+I partially disagree with one premise. We cannot ignore that the license, even if applied to software, would have a direct legal/licensing impact on related material *outside* what we consider "software". Software and non software subject matters would have an impact on each other, even if each one can be extracted and reused under the same license in a different context. Therefore we cannot just pretend such a license is a pure software one and approve it on that basis alone. Nor can we apply a looser standard just because it's AI (which includes software, so this would be contradictory) but there seems to be no disagreement here. 
+
+As a general statement (I), I am really wary of porting the same reasoning we apply to software to an entirely new and broader category of artifacts. This would always require a "ceteris paribus" (= all other things being equal) premise. I would probably not have issues with this clause if applied to software in both source and object code. I am struggling to find a solution to the conundrum at hand, but one thing is clear to me: we cannot just simply apply the "would this be acceptable for software" test. 
+
+As a general statement (II), I would submit at least two requirements: 
+
+a) all downstream recipient of the Model Materials should not be affected by the termination of the license if they are not directly or indirectly part of the same litigation. This may be already clear to many, but the license does not address this and under many laws the termination of the license would risk to terminate the downstream relicensing, unless a clause similar to the GPLv2's §6 first period existed. I would personally suggest to add something to that effect so any doubt is removed. 
+b) while a litigation retaliation clause has in the past been considered by and large both compliant and ethical, IMVHO the retaliation must be proportionate; therefore it should not transform into a more or less general waiver of one's right to the licensor as a price to become a licensee. This is distilled from a ius gentium principle, if and how it applies to OSD can be discussed separately. 
+
+In the thread we have been submitted a lot of paradoxical situations discussing b) some of which probably too far fetched, but not all. I wonder therefore if there would be any way to restrict the effect of the termination to the subject matter of the litigation? Eg.: software is claimed to infringe, the license on the software and on the model that same software supports is terminated, but not the license of the documentation, of the training material and information, of other unrelated software artifacts and models etc.? 
+
+As a general statement (III), finally, the licensing is only a pre-condition for something being Open Source. More is required. Likewise, we must not include too many other hypotheticals: for sure me must exclude the intent of the drafter. Only the operation of the license if *per se* it violates OSD *and/or* impairs the Software Freedom principles. OSD is a means to an end, the end is Software Freedom, that at least is my take. I have a feeling in the AI realm licensing will have a much, much weaker impact than in the traditional software one, anyway. 
+
+Again, it is very hard to decide. Whichever decision we make we would probably err on one side, not that this would be a reason not to decide. 
+
+Thank you for a thought provoking submission causing a very lively discussion upon licensing -- something we haven't seen in years, I reckon. 
+
+Cheers 
+
+Carlo 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260831/1011c20b/attachment.htm>

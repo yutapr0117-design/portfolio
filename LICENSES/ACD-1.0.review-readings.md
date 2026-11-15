@@ -858,3 +858,21 @@ Project Tick General Public License の `license-review` 側の会話（v1 の�
 **この節から出た作業。** 「AI を作る実務家に §1.7・§6・§8.4 を読んでもらう」「英語を母語とする編集者に本文を読んでもらう」を、法律家のレビューと別の項目として register に足す（portfolio-30）。どちらも依頼の行為はオーナーのもので、AI は依頼の文を完成品として出さない。
 
 **この節が establish しないこと。** Berkus 氏の求めは ModelGo への 1 通で、委員会の要件ではない。ModelGo がその後どの読み手を得たかは、この節では確かめていない。
+
+## 1.211 ソフトウェアでないものに及ぶライセンスを「ソフトウェアなら受け入れられるか」だけで量らない、反訴の終了は比例的に —— OpenMDW の審査（2026-08）（2026-11-15）
+
+"For Approval: OpenMDW License Agreement, versions 1.1"（`license-review` 2026-08・`rounds/2026-08-license-review-openmdw-antisuit-and-non-software-observed.txt` に 2 通）。OpenMDW はモデルと関連する成果物（データ、文書、ソフトウェア）をまとめて覆うライセンスで、審査は 2026-08〜09 に続いた。Fontana 氏の「防御的な終了は OSD 9 の制限になりうる」はドシエに既出（`against.md` #46）で、この節はそれに答えた通のうち、ドシエと語の重なりが 1 つも無かった 2 通を読んだ（2024〜2026 年の `license-review` の決める側の通を 8 語連鎖で照合して見つけた 74 通の一部）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"We cannot ignore that the license, even if applied to software, would have a direct legal/licensing impact on related material *outside* what we consider "software"."*、*"Therefore we cannot just pretend such a license is a pure software one and approve it on that basis alone."*、*"I am really wary of porting the same reasoning we apply to software to an entirely new and broader category of artifacts."*、*"one thing is clear to me: we cannot just simply apply the "would this be acceptable for software" test."* | Carlo Piana 氏 2026-08-31（委員会や理事会の判断ではなく暫定の立場と明記） | **不利な面（B15・重い）。** B15 は、2021 年の委員会の基準（*"written such that they can be used for software"*）を ACD が文面で満たすことを有利な面にしている。2026 年の委員の 1 人は、ソフトウェアでないものに直接効くライセンスを「ソフトウェアなら受け入れられるか」だけで量れないと書いた。ACD の作品の定義（1.0 の §1.2・1.4 草案の §1.3）は *"data, metadata, audiovisual material"* を名指す。ACD は何も制限しないので、Piana 氏が問題にした「制限の効き方がソフトウェアの外へ及ぶ」形は持たないが、「ソフトウェアの基準で量ってよいか」という問いそのものは ACD にも当たる |
+| *"while a litigation retaliation clause has in the past been considered by and large both compliant and ethical, IMVHO the retaliation must be proportionate; therefore it should not transform into a more or less general waiver of one's right to the licensor as a price to become a licensee."* | Piana 氏 2026-08-31 | **有利な面（against #46 の逆側）。** ACD は反訴による終了を持たない（§10.4）。比例性を問われる条が無い |
+| *"Before LLMs and the Anthropic suit, a copyright antisuit provision would not have been controversial. If someone had added a clause identical to this to a license submitted 10 years ago, this forum would probably have approved it without much argument"*、*"If I was the open source developer of a new model, I would not want someone facing me in a copyright lawsuit to be able to use the model I created, for free, while suing me."* | Josh Berkus 氏 2026-08-28 | **不利な面（against #46 の側）。** 決める側の 1 人は、著作権の反訴による終了を公平と見た。ACD はモデルの作者を守るこの道具を持たず、`against.md` #46 の「訴えても許諾を全部持ち続ける」費用はそのまま残る。Fontana 氏（OSD 9）と Berkus 氏（公平）で決める側の読みが割れており、ACD の「終了なし」はどちらの読みでも OSD の問題を生まないが、モデルの作者にとっての魅力（B2）では Berkus 氏の側の費用を払う |
+
+**読み。** 2026 年 8 月の OpenMDW の審査で、委員会は 2 つの問いに分かれた。反訴による終了の範囲（Fontana 氏・Piana 氏は狭めたい、Berkus 氏は公平と見る）と、ソフトウェアでないものに及ぶライセンスをどの基準で量るか（Piana 氏）である。ACD は前者を持たないので審査の負担を生まない。後者は ACD にも当たる。
+
+**逆側。** Piana 氏の文の対象は、ソフトウェアでないものに**制限が**及ぶライセンスだった。ACD はソフトウェアにもソフトウェアでないものにも何も制限しないので、「ソフトウェアの基準で量れない」理由（制限の効き方が違う）は ACD では弱い。それでも、ソフトウェアでないものを名指すこと自体が「純粋なソフトウェアのライセンスではない」と読まれる入口になる（B15）。名指しを外せば Piana 氏の問いは立ちにくくなるが、機械学習の素材（データ）を明示する ACD の目的（§6.5）と引き換えになる。
+
+**この節から出た作業。** B15 の有利な面（2021 年の基準を文面で満たす）の隣に、Piana 氏 2026-08-31 の「ソフトウェアなら受け入れられるか、だけでは量れない」を置く（portfolio-30）。against #46 の逆側に Piana 氏の比例性、側に Berkus 氏の「10 年前なら議論なく承認された」を足す（portfolio-30）。
+
+**この節が establish しないこと。** Piana 氏は暫定の立場と明記している。OpenMDW の審査の帰結は、取得時点で公表されていない（`board-decisions.md`）。
