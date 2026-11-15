@@ -16,10 +16,19 @@ merge された main は赤になりうる。同じ日に実際に起きた: rou
 使い方:
     python3 .github/scripts/safe_merge.py 3060            # 確かめて merge する
     python3 .github/scripts/safe_merge.py 3060 --dry-run  # 確かめるだけ
+    python3 .github/scripts/safe_merge.py 3060 --reland   # 衝突したら、数の行だけなら新しい branch へ載せ直して新しい PR を出す
+
+**--reland (2026-11-15・50 の依頼)**: 同じ日に 5 本が「main 側も動かした数の行」(rounds/README の在庫・長さの行・AS-OF の
+件数) だけで衝突し、そのたびに手で載せ直した。--reland は、いまの main から `<branch>-reland` を作って PR の commit を
+cherry-pick し、衝突の塊を次の 2 つに限って解く: 数だけが違う塊 (main 側を採り、後で sync_stated_counts.py --apply が
+実測から書き直す) と、両側が行を足しただけの塊 (表の行・READ-THREADS の行。両方を残す)。それ以外の塊があれば何も
+しないで止まる。載せ直した形で consistency を回し、緑なら push して新しい PR を出し、元の PR を閉じる。merge はしない
+(新しい PR の CI を待ってから safe_merge.py で入れる)。push 済みの branch は rebase しない規則を守るための形である。
 """
 from __future__ import annotations
 
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -55,6 +64,90 @@ def overlay_check(pr: str, head: str, base: str) -> tuple[bool, str]:
         shutil.rmtree(tmp, ignore_errors=True)
 
 
+_HUNK = re.compile(r"^<<<<<<< [^\n]*\n(.*?)^=======\n(.*?)^>>>>>>> [^\n]*\n", re.M | re.S)
+
+
+def resolve_numbers_only(text: str) -> tuple[str | None, list[str]]:
+    """衝突の塊を、数だけが違う塊 (main 側を採る) と、両側が行を足しただけの塊 (両方を残す) に限って解く。
+
+    返り値: (解いた本文 か 解けなければ None, 解けなかった塊の頭)。数は後で sync_stated_counts.py --apply が実測から
+    書き直すので、main 側の数を採ってよい。行を足しただけの塊は在庫表の行・READ-THREADS の行の形で、順は main → PR。
+    """
+    bad = []
+
+    def fix(m):
+        ours, theirs = m.group(1), m.group(2)  # cherry-pick では ours = main 側 (HEAD)、theirs = PR の commit
+        if re.sub(r"\d", "0", ours) == re.sub(r"\d", "0", theirs):
+            return ours
+        if not ours.strip() or not theirs.strip():
+            return ours + theirs
+        o, t = ours.splitlines(keepends=True), theirs.splitlines(keepends=True)
+        if all(ln.startswith("|") for ln in o + t) or all(re.match(r"\d{4}-\d{2}-\d{2}\t", ln) for ln in o + t):
+            return ours + "".join(ln for ln in t if ln not in o)
+        bad.append(ours.splitlines()[0][:80] if ours.strip() else theirs.splitlines()[0][:80])
+        return m.group(0)
+
+    out = _HUNK.sub(fix, text)
+    return (None if bad else out), bad
+
+
+def reland(pr: str, info: dict) -> int:
+    """衝突した PR を、いまの main から新しい branch へ cherry-pick し、数の行だけの衝突を解いて新しい PR を出す。
+
+    50 の依頼 (2026-11-15): 同じ日に 5 本が「main 側も動かした数の行」(rounds/README の在庫・長さの行・AS-OF の件数) だけで
+    衝突し、そのたびに作者か 50 が手で載せ直した。push 済みの branch は rebase しない規則なので、新しい branch と新しい PR を
+    作り、元の PR は閉じる (merge はしない —— 新しい PR の CI を待って safe_merge で入れる)。数以外の衝突があれば何もしないで止まる。
+    """
+    run(["git", "fetch", "-q", "origin", "main", info["headRefName"]])
+    commits = run(["git", "rev-list", "--reverse", f"origin/main..{info['headRefOid']}"]).stdout.split()
+    new = f"{info['headRefName']}-reland"
+    tmp = Path(tempfile.mkdtemp(prefix=f"reland-{pr}-"))
+    wt = tmp / "wt"
+    ok = False
+    try:
+        run(["git", "worktree", "add", "-q", "-b", new, str(wt), "origin/main"])
+        for c in commits:
+            r = run(["git", "cherry-pick", c], cwd=wt, check=False)
+            if r.returncode == 0:
+                continue
+            files = [f for f in run(["git", "diff", "-z", "--name-only", "--diff-filter=U"], cwd=wt).stdout.split("\0") if f]
+            for f in files:
+                solved, bad = resolve_numbers_only((wt / f).read_text(encoding="utf-8"))
+                if solved is None:
+                    print(f"STOP: {f} に数以外の衝突がある ({bad})。手で載せ直す")
+                    run(["git", "cherry-pick", "--abort"], cwd=wt, check=False)
+                    return 1
+                (wt / f).write_text(solved, encoding="utf-8")
+                run(["git", "add", f], cwd=wt)
+            run([sys.executable, ".github/scripts/sync_stated_counts.py", "--apply"], cwd=wt, check=False)
+            run(["git", "add", "-u"], cwd=wt)
+            run(["git", "-c", "core.editor=true", "cherry-pick", "--continue"], cwd=wt)
+        sync = run([sys.executable, ".github/scripts/sync_stated_counts.py", "--apply"], cwd=wt, check=False)
+        if "書き換えた" in sync.stdout:
+            run(["git", "add", "-u"], cwd=wt)
+            run(["git", "commit", "-q", "-m", "chore: 載せ直しの後に、実測から導ける数を sync_stated_counts.py --apply で書き直す"],
+                cwd=wt)
+        c = run([sys.executable, ".github/scripts/check_repository_consistency.py"], cwd=wt, check=False)
+        errors = [ln[:200] for ln in c.stdout.splitlines() if ln.startswith("ERROR:")]
+        if errors:
+            print("STOP: 載せ直した形で consistency が赤。手で直す:\n" + "\n".join(errors))
+            return 1
+        run(["git", "push", "-q", "-u", "origin", new], cwd=wt)
+        title = json.loads(run(["gh", "pr", "view", pr, "--json", "title"]).stdout)["title"]
+        url = run(["gh", "pr", "create", "-B", "main", "-H", new, "-t", title, "-b",
+                   f"#{pr} をいまの main へ載せ直したもの (safe_merge.py --reland)。数の行だけの衝突は main 側を採り、"
+                   "sync_stated_counts.py --apply で実測から書き直した。行を足しただけの衝突は両方を残した。"]).stdout.strip()
+        run(["gh", "pr", "close", pr, "-c", f"いまの main と数の行で衝突したので {url} に載せ直しました (safe_merge.py --reland)。"])
+        print(f"RELANDED: #{pr} → {url} (CI を待ってから safe_merge.py で merge する)")
+        ok = True
+        return 0
+    finally:
+        run(["git", "worktree", "remove", "--force", str(wt)], check=False)
+        shutil.rmtree(tmp, ignore_errors=True)
+        if not ok:  # 途中で止まったら作りかけの branch を消す (worktree を外してからでないと消せない)
+            run(["git", "branch", "-D", new], check=False)
+
+
 def main(argv: list[str]) -> int:
     args = [a for a in argv if not a.startswith("--")]
     if len(args) != 1 or not args[0].isdigit() or "-h" in argv or "--help" in argv:
@@ -75,6 +168,9 @@ def main(argv: list[str]) -> int:
         base = run(["git", "rev-parse", "origin/main"]).stdout.strip()
         ok, msg = overlay_check(pr, head, base)
         print(msg)
+        if not ok and "と衝突する" in msg and "--reland" in argv:
+            # 数の行だけの衝突なら、新しい branch へ載せ直して新しい PR を出す (merge はしない・50 の依頼)
+            return reland(pr, info)
         if not ok:
             return 1
         if bad_ci:
