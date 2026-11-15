@@ -1,0 +1,42 @@
+Source: OSI license-discuss public archive, 2025-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 21 in "Contributor Clauses in Licenses" (2025-12-08)
+Senders: Josh Berkus
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From josh at berkus.org  Tue Dec  9 17:03:18 2025
+From: josh at berkus.org (Josh Berkus)
+Date: Tue, 9 Dec 2025 09:03:18 -0800
+Subject: [License-discuss] Contributor Clauses in Licenses
+In-Reply-To: <b24a3231-0b3c-47c9-894c-c07ac18eda80@chesteklegal.com>
+References: <94650bb3-6277-4249-adfc-6e693b087ad4@berkus.org>
+ <5b103b9a-7d6a-45c3-a2f5-271c9b1e65f0@david-woolley.me.uk>
+ <c7adc83f-97cd-430f-bbf0-927db20037fb@berkus.org>
+ <bc68460e-7a0b-4e57-b237-1c33465f59be@lexpan.law>
+ <6793a0cb-3398-d386-1268-6948da3922b4@chesteklegal.com>
+ <46b29473-a55a-4e41-9193-bf293653d778@berkus.org>
+ <8e3aaabd-6dbd-4289-be9f-0f8da6ca5f49@lexpan.law>
+ <3ce71f45-c0d2-26d0-8e0d-4eb831a53168@chesteklegal.com>
+ <034c4042-47ac-446f-9a70-5f29297ba02c@lexpan.law>
+ <8995f94e-c307-4c65-8b27-e7af2b9f4eb5@chesteklegal.com>
+ <bcba8be4-9d51-4281-a5ae-ab7876022728@lexpan.law>
+ <b24a3231-0b3c-47c9-894c-c07ac18eda80@chesteklegal.com>
+Message-ID: <bad6680a-0f6d-4477-a3cd-5cb00027b530@berkus.org>
+
+On 12/8/25 9:37 PM, Pamela Chestek wrote:
+> That was where we started, but I got discombobulated when we veered off 
+> into what kind of legal significance the clause has.
+
+That was actually one of the two things I wanted to discuss, so I don't 
+think it's a veer.
+
+The other is whether going beyond "inbound == outbound" in the license 
+is a good idea in terms of contributor policy.  But I don't think we 
+have the right people on this thread to discuss that aspect.
+
+In neither case is there an OSD violation *unless* the contributor 
+clauses specifically create an asymmetry.
+
+-- 
+Josh Berkus

@@ -244,3 +244,21 @@ portfolio-1c の T69（1.4 草案の §2.6 に、除外する素材を示す形�
 **逆側。** 例示した形式は本文の外の団体の管理下にあり、古びることも名前が変わることもある（Ombredanne 氏の URL、Fontana 氏の識別子と本文の区別）。REUSE を本文で名指した承認済みの例は見つからなかった（AI-MIT-1.0 の提出者が 2026-03 の改訂で REUSE の per-file header を採ると書いたが、未承認で、審査の反応は確かめていない）。"such as" の例示は要件ではないと読まれるのが自然だが、例示が古びたときに本文が古く見えることは残る。
 
 **この節が establish しないこと。** CAL-1.0 の本文が名指した 2 つ目の札（`CAL-1.0-With-Exception`）が、SPDX の一覧で実際に割り当てられた識別子と一致しているかは確かめていない（一致していなければ、本文が先に名指した識別子が一覧と食い違った実例になる。SPDX の一覧は外部の取得が要る）。「標準を本文に書くと古びる」という正面の異議は、この測り方では見つからなかった。
+
+## 1.232 貢献の条項を執行できる根拠は「外向きのライセンスを受諾したこと」だと Chestek 氏は書いた —— ACD は受諾を要しないので、その根拠は移らず、移るのは Smith 氏の「提出する行為が同意の表示」である（"Contributor Clauses in Licenses"・2025-12）（2026-11-15）
+
+`against.md` #286 が Berkus 氏と Chestek 氏の 2 文を引いた会話（`license-discuss` 2025-12-08〜09・21 通）を通読し、6 通を rounds に置いた（`rounds/2025-12-license-discuss-contributor-clauses-*-observed.txt`）。#286 は「貢献の条項はライセンスに場所が無い」という異議とその潰し方を書いた。この節は、潰し方の一つ（Chestek 氏の明示の inbound=outbound）が ACD にどこまで移るかを読む。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"1. Unless enforced by some other mechanism (CLA, repository TOS, etc.), it is not automatically true that contributions are under the license in the first place;"* / *"2. A license cannot reasonably contain the full multiple-page-long set of the various things that a contributor should comply with, leaving us with a very arbitrary selection."* | Josh Berkus 氏 2025-12-08（会話の最初の通） | **2 つ目には §2.6 が答えている。** §2.6（1.0 でも §2.6）は貢献者に求める「それ以外のこと」を *"a matter of project governance and is not addressed here"* として本文の外に置く。恣意的な選び方を本文に持ち込まない。1 つ目は下の Chestek 氏と Smith 氏の往復が扱う |
+| *"It doesn't violate the OSD, no.  But it also has zero effect.  It's a no-op."* / *"No text contained within the license can enforce that my PR is under that license."* | Josh Berkus 氏 2025-12-08 | **異議の芯。** 効果が無いという異議で、OSD の問題ではない。同じ人が翌日 *"In neither case is there an OSD violation *unless* the contributor clauses specifically create an asymmetry."* と書いた |
+| *"The bigger problem with these combined outbound license+inbound cla documents is they often attempt to impose non-reciprocal conditions"* / *"That makes the license discriminatory."* | McCoy Smith 氏 2025-12-08 | **有利な面。** 問題は非相互の形である。§2.6 の貢献者は全員に同じものを与え、維持者に特別な権利は残らない（#286 の判断と同じ） |
+| *"I am in favor of an express statement in the license and agree that the statement should be inbound=outbound."* / *"Since I accepted the project license, I therefore agreed to the terms for my contribution and the CLA within the license is enforceable against me as a contributor."* / *"If an express grant isn't enforceable against a contributor, then the implied grant is even less likely to be enforceable against them."* | Pamela Chestek 氏 2025-12-08（黙示の許諾は狭く解され、米国第 9 巡回区の判例も揺れる、と同じ通で） | **有利な面と、ACD に移らない根拠。** 明示の inbound=outbound に賛成する理由（黙示より確か）は ACD にも当たる。しかし執行の根拠として挙げたのは「貢献者は外向きのライセンスを受諾した」ことである。ACD の §2.3（1.0 でも §2.3）は *"This Dedication takes effect without any act of acceptance by You."* と書き、利用者に受諾を求めない。受諾が無ければ、Chestek 氏の経路は ACD には通らない |
+| *"If you're concern is manifestation of assent, the act of submitting a contribution and requesting it be accepted would be the manifestation."* | McCoy Smith 氏 2025-12-08 | **ACD に移る根拠。** 同意の表示を受諾ではなく提出する行為に置く読みで、§2.6 が *"unless they state otherwise at the time of submission"* と提出の時点に結びつけている形に合う |
+
+**読み。** Berkus 氏の異議は OSD の問題ではなく「効果が無い」という問題で、非対称を作らなければ OSD 違反ではないと本人が書いた。§2.6 は対称で、恣意的な条件を本文の外に置く。効果について、明示の条項が黙示より確かだという Chestek 氏の論は ACD にも当たるが、彼女が執行の根拠にした受諾は ACD には無い。ACD の §2.6 を支えるのは Smith 氏の「提出という行為」で、本文もすでに提出の時点に結びつけている。
+
+**逆側。** 受諾を要しない設計（§2.3）は利用者に有利だが、貢献の条項の執行の根拠を一つ減らす。提出を同意の表示と読むのは Smith 氏の一通で、どの法域で通るかは確かめていない。Berkus 氏の例（文書の文法の直し、翻訳、デザイン、依存の版の更新）のうち、Chestek 氏は依存の更新を著作物でないと退け、文書の直しは派生物だと答えたが、ライセンスを受諾せずに貢献する人がいることは否定しなかった。§2.6 の「受諾が無くても提出で結びつく」は、この隙間を埋める向きだが、埋まるかは法律家の問いである（`QUESTIONS-FOR-COUNSEL.md` の問 4）。
+
+**この節が establish しないこと。** 提出が同意の表示になるかの法的な評価はしていない。Chestek 氏と Berkus 氏の 2025-12-09 の往復（独占的なライセンスで手にした版から貢献する人）は、帰結が会話の中で定まっていないので、読みに使っていない。

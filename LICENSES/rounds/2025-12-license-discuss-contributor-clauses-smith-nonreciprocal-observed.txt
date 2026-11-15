@@ -1,0 +1,57 @@
+Source: OSI license-discuss public archive, 2025-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 21 in "Contributor Clauses in Licenses" (2025-12-08)
+Senders: McCoy Smith
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From mccoy at lexpan.law  Mon Dec  8 22:12:19 2025
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Mon, 8 Dec 2025 14:12:19 -0800
+Subject: [License-discuss] Contributor Clauses in Licenses
+In-Reply-To: <c7adc83f-97cd-430f-bbf0-927db20037fb@berkus.org>
+References: <94650bb3-6277-4249-adfc-6e693b087ad4@berkus.org>
+ <5b103b9a-7d6a-45c3-a2f5-271c9b1e65f0@david-woolley.me.uk>
+ <c7adc83f-97cd-430f-bbf0-927db20037fb@berkus.org>
+Message-ID: <bc68460e-7a0b-4e57-b237-1c33465f59be@lexpan.law>
+
+If the contribution is a (C) derivative, I'm not sure I'm seeing why 
+this is an issue. All OS licenses (other than the -0 ones) impose 
+conditions on derivatives.
+
+If the contribution is not a derivative, they're merely articulating the 
+conditions under which a contribution would be accepted by the project 
+maintainers, *not* a condition on how the non-derivative work can 
+otherwise be used. Again, I don't see how that is an issue.
+
+The bigger problem with these combined outbound license+inbound cla 
+documents is they often attempt to impose non-reciprocal conditions -- 
+i.e., outbound license has conditions -- attribution, source, etc., but 
+inbound CLA imposes no conditions on the project maintainers w/r/t the 
+submitted contributions. That makes the license discriminatory.
+
+One could solve this problem by simply saying license in=license out but 
+you don't need a separate clause in a license to do that.
+
+On 12/8/2025 1:57 PM, Josh Berkus wrote:
+> On 12/8/25 1:46 PM, David Woolley wrote:
+>>> 1. Unless enforced by some other mechanism (CLA, repository TOS, 
+>>> etc.), it is not automatically true that contributions are under the 
+>>> license in the first place;
+>>
+>> CLAs aren't licences to the contributor, but rather a licence from 
+>> the contributor to the initial developer, often allowing the initial 
+>> developer to use the contributions outside of open source licensing.  
+>> As such I don't see how they can be used to constrain someone 
+>> creating modifications to the code.
+>
+> Other way around.  The outgoing license is trying to put conditions on 
+> how you contribute to the upstream project.
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Official statements by the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
