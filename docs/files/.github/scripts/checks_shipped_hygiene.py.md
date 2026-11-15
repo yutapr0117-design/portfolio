@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/checks_shipped_hygiene.py
 audience: ai, human (新卒), 監査人, 学術研究者, 第三者全般
-last-updated: 2026-07-08
+last-updated: 2026-11-15
 canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK_SOURCE_FILES) / docs/incident-artifacts/decision-v80-phase4-bloat-reduction-1000-line-threshold.md (C-first split protocol) / docs/incident-artifacts/improvement-notes-claude-v80-phase4-checkpy-split-track-full-handoff.md
 ---
 
@@ -11,9 +11,11 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 
 `check_repository_consistency.py` 分割トラックの 22 個目の split module。index.html の inline-handler hygiene・日付・JSON-LD 構造妥当性・meta baseline を守る連続クラスタ Check **242-249** と、shipped JS h() prop の外部リンク hygiene Check **366**、shipped JS h('select') value attr 禁止 Check **367**、notes 上限マジックナンバー禁止 Check **368** を内包し、`run(ctx)` で monolith から呼ばれる。
 
-- 242(inline on*= allowlist) / 243(LAST_UPDATED + ai:last-modified 未来なし) / 244(JSON-LD @graph node @type) / 245(FAQPage mainEntity 構造) / 246(BreadcrumbList itemListElement 構造) / 247(ImageObject/AudioObject/VideoObject 必須 fields) / 248(charset utf-8) / 249(viewport mobile baseline) / 366(shipped JS target='_blank' ±2行以内で noreferrer あり) / 367(shipped JS h('select') attrs に value: キーなし・HTML 仕様違反 #7cbc4d9 class 構造封じ) / 368(apps.js・store.js が notes 上限 20000 をマジックナンバーとして直接持たない・CONSTANTS.LIMITS.NOTES_TEXT 経由必須)。
+- 242(inline on*= allowlist) / 243(LAST_UPDATED + ai:last-modified 未来なし) / 248(charset utf-8) / 249(viewport mobile baseline) / 366(shipped JS target='_blank' ±2行以内で noreferrer あり) / 367(shipped JS h('select') attrs に value: キーなし・HTML 仕様違反 #7cbc4d9 class 構造封じ) / 368(apps.js・store.js が notes 上限 20000 をマジックナンバーとして直接持たない・CONSTANTS.LIMITS.NOTES_TEXT 経由必須)。
 
 ## Why
+
+**2026-11-15**: 958 行で advisory（950）を越えたので、244〜247（JSON-LD の構造）を `checks_jsonld_structure.py` へ切り出した。
 
 owner 合意 C-first の check.py 段階分割（**Phase 25**）。242-249 は「shipped index.html hygiene + JSON-LD structural validity + meta baseline」テーマの **連続 self-contained クラスタ**。各 Check は index.html を自前で読み global content 依存なし。annotation+def-aware free-var 分析で外部依存ゼロ確認。**global→nonlocal 変換 3 箇所（245/246/247 の JSON-LD 走査 accumulator）。** 242-249 の mutation は shipped file を mutate ゆえ Check 362 anchor 追従不要。READ-ONLY ゆえ C6 対象外。
 
