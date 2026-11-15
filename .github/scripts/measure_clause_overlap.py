@@ -572,6 +572,20 @@ def sync(before: Path, after: Path) -> int:
             hit = [c for c in chg if line.startswith(f"| **{c}**")]
             if hit:
                 print(f"  逐条の下書き {f.name}:{ln} [§{hit[0]}] {line.strip()[:100]}")
+    # 変わった条を名指す、いまの草案を述べる外向きの文書の行 (2026-11-15・9b)。T67 で §12.2 を変えたあと、材料 §1b の
+    #   「§12.2（放棄できない法域での不行使）」が古いまま残り、50 が手で拾った (#3144)。条の中身の言い換えは機械で正誤を
+    #   決められないので、読み直す候補として出す。ACD-1.0.* は 1.0 を述べる文書なので出さない
+    cur = ("SUBMISSION-MATERIALS.md", "REVIEWERS.md", "READY-TO-SUBMIT.md", "QUESTIONS-FOR-PRACTITIONERS.md", "ADOPTING.md",
+           "OSI-APPROVAL-PLAN.md")
+    docs = [f for f in sorted((_ROOT / "LICENSES").glob("*.md")) if f.name in cur or f.name.startswith("ACD-OSI-BOTTLENECKS")]
+    rx = re.compile(r"(?:§|Section |Sections? (?:[\d.]+, )*)(" + "|".join(re.escape(c) for c in chg) + r")(?![\d.]\d)") if chg else None
+    hits = [(f.name, ln, line) for f in docs for ln, line in enumerate(f.read_text(encoding="utf-8").splitlines(), 1)
+            if rx and rx.search(line)]
+    print(f"  変わった条を名指す外向きの行 (読み直す候補・{len(hits)} 行): いまの草案を述べる文書だけ")
+    for name, ln, line in hits[:40]:
+        print(f"    {name}:{ln} {line.strip()[:110]}")
+    if len(hits) > 40:
+        print(f"    … ほか {len(hits) - 40} 行")
     pats = {f"{wb:,}", str(wb)}
     for f in sorted((_ROOT / "LICENSES").glob("*.md")):
         for ln, line in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
