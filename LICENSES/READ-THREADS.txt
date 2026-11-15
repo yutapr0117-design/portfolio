@@ -460,6 +460,7 @@
 2016-06-16	Approval request for ZENTAO PUBLIC LICENSE
 2016-08-22	The License Talking-About List
 2016-11-28	Using opensource in a company not in the software business
+2016-12-01	Views on React licensing?
 2017-01-08	License Committee Report - January 2017
 2017-01-10	notes on a systematic approach to "popular" licenses
 2017-02-28	Possible alternative
