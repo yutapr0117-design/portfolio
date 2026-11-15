@@ -258,6 +258,14 @@ def run(ctx):
         blocking=True,
     )
 
+    # 459c: 審査者向けの文書が英語の入口 (REVIEWERS.md) から辿れること (2026-11-15・50 の提案)。459 は README の索引しか見ず、
+    #   QUESTIONS-FOR-PRACTITIONERS.md が入口から辿れなかった。本体は _lib_dossier.reviewer_map_misses
+    from _lib_dossier import reviewer_map_misses as _rmm459c
+    _n459c, _bad459c = _rmm459c(ROOT / "LICENSES")
+    check(not _bad459c, f"Check 459c: 審査者向けの文書 {_n459c} 件がすべて REVIEWERS.md から辿れる",
+          f"Check 459c: {_bad459c}。**審査者は英語の入口から読む**ので、そこから辿れない英語の文書は審査者には無いのと同じ",
+          blocking=True)
+
     # ── 461b. LICENSES/*.md の last-updated が極端に古くないこと (ADVISORY) ──
     # **初版は BLOCKING で「git の最終更新日以上」を要求し、CI で落ちた。** 設計が誤って
     # いた —— 日付を直す commit 自身が git 日付を進めるので、**書いた瞬間に 1 日ずれる**。

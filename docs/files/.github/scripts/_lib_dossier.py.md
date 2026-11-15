@@ -18,6 +18,7 @@ canonical-ref: LICENSES/ACD-1.0.against.md (不利な事実の register) / docs/
 Check 460（(e) の規模の申告・行数・REVIEWERS の長さの倍率・(s) と (w) の除外）、474、491、467c の除外と、`generate_status.py`（STATUS.md の件数）がここから読む。
 
 - `dossier_counts(licenses_dir)` / `count_sites(licenses_dir)` —— ドシエの規模の実測（不利な事実の行・errata の行・worked entries の総数・閉じた errata）と、それを述べる場所の一覧。`sync_stated_counts.py --apply` が書き換える（2026-11-15・30 の依頼）。`number_word(n)` は 1〜99 の英語の数詞。
+- `reviewer_map_misses(licenses_dir)` —— Check 459c の本体。審査者向けの文書が REVIEWERS.md に名前を持つか、`reachable-via:` の親から辿れるか（2026-11-15）。
 - `counsel_question_count_misses(licenses_dir, mirror_dir)` —— Check 460 (w) の本体。QUESTIONS-FOR-COUNSEL を名指す行の問数を、見出し `## N.` の数と照らす（2026-11-15 に `checks_license_self_reporting.py` が予算 875 を越えたので移した）。
 
 ## Why

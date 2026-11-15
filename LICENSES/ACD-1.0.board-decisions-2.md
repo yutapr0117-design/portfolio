@@ -2,6 +2,7 @@
 file: LICENSES/ACD-1.0.board-decisions-2.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-review participants / 監査人
 last-updated: 2026-11-15
+reachable-via: ACD-1.0.board-decisions.md
 canonical-ref: LICENSES/ACD-1.0.board-decisions.md (§1〜§8・規律と「この文書が establish しないこと」はそちらに従う) / LICENSES/rounds/2026-09-13-osi-board-meeting-minutes-2025-06-to-2026-06.txt (逐語の一次資料)
 ---
 
