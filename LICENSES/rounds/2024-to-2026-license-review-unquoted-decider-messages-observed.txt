@@ -1,0 +1,371 @@
+Source: OSI license-review public archive, 2024-September.txt, 2025-January.txt, 2025-December.txt and 2026-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 6 messages from four submissions (ADVPL 1.0, Mulan Public License v2, CingXaero Open Source License, AI-MIT License 1.0)
+Senders: Carlo Piana, McCoy Smith, Josh Berkus
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline. These are messages by people who decide that no passage of this dossier quoted (no 8-word run in common) when they were found on 2026-11-15.
+
+----- begin verbatim -----
+From carlo at piana.eu  Thu Sep  5 15:57:12 2024
+From: carlo at piana.eu (Carlo Piana)
+Date: Thu, 5 Sep 2024 17:57:12 +0200 (CEST)
+Subject: [License-review] New License for review: ADVPL 1.0
+In-Reply-To: <CACZE8Y4LpOwHz5HMQ+FMm7AeWdKGv3dxZoWDRR1Ng5evkBBYWw@mail.gmail.com>
+References: <CACZE8Y4LpOwHz5HMQ+FMm7AeWdKGv3dxZoWDRR1Ng5evkBBYWw@mail.gmail.com>
+Message-ID: <492558048.24414765.1725551832755.JavaMail.zimbra@piana.eu>
+
+Dear Alisson, 
+
+you purport to have added "conditions", but in fact you have added general aspirational staments which technically do not consist of conditions. Therefore, the grant is conditioned to conditions which are not conditions and that have nothing to do with the interaction with software. At best, it is matter that would belong in a preamble. Please consider this as a technical remark, not as a remark on the principles (with which I seem to agree, but it's immaterial). 
+
+In addition, I think this submission does not fully comply with the submission guidelines. I doubt a lawyer has laid their eyes on this text and I can't find any such indication. 
+
+The conclusion IMHO should be "rejection". 
+
+With best regards, 
+
+Carlo (in his own personal capacity) 
+
+> Da: "? Alisson" <thelinuxlich at gmail.com>
+> A: "license-review at lists.opensource.org" <license-review at lists.opensource.org>
+> Inviato: Mercoled?, 4 settembre 2024 18:45:50
+> Oggetto: [License-review] New License for review: ADVPL 1.0
+
+> In accordance with the [ http://opensource.org/approval | License Review Process
+> ] , I'd like to submit for review the Adversary Public License 1.0 (ADVPL),
+> which is composed of the MIT license text + 7 tenets from the Temple of Satan.
+> It complies with all terms of the Open Source Definition, the suggested tag is
+> ADVPL. Currently no significant projects use it, although there is intent once
+> it's approved.
+
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily
+> those of the Open Source Initiative. Communication from the Open Source
+> Initiative will be sent from an opensource.org email address.
+
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20240905/5e77097f/attachment.htm>
+
+From carlo at piana.eu  Fri Sep  6 08:09:23 2024
+From: carlo at piana.eu (Carlo Piana)
+Date: Fri, 6 Sep 2024 10:09:23 +0200 (CEST)
+Subject: [License-review] New License for review: ADVPL 1.0
+In-Reply-To: <CACZE8Y4aVvkjgNsKnJMDJjMOjD_3KgpsEvP9VeCbJi4BRuNnAw@mail.gmail.com>
+References: <CACZE8Y4LpOwHz5HMQ+FMm7AeWdKGv3dxZoWDRR1Ng5evkBBYWw@mail.gmail.com>
+ <492558048.24414765.1725551832755.JavaMail.zimbra@piana.eu>
+ <CACZE8Y4aVvkjgNsKnJMDJjMOjD_3KgpsEvP9VeCbJi4BRuNnAw@mail.gmail.com>
+Message-ID: <123209215.24605948.1725610163102.JavaMail.zimbra@piana.eu>
+
+> Da: "? Alisson" <thelinuxlich at gmail.com>
+> A: "License submissions for OSI review" <license-review at lists.opensource.org>
+> Inviato: Gioved?, 5 settembre 2024 18:09:23
+> Oggetto: Re: [License-review] New License for review: ADVPL 1.0
+
+> The conditions having nothing to do with software is debatable.
+
+I beg to differ, it isn't, not quite! 
+
+Plus, they are *not* conditions. Please don't insist. 
+
+> There are examples like the [ https://www.json.org/license.html | JSON License ]
+> (The Software shall be used for Good, not Evil), the [
+> https://firstdonoharm.dev/ | Hippocratic License ] (probably not OSI-compliant,
+> but in the same ethical vein).
+
+This is immaterial to the discussion. Even if they were accepted as OSD-compliant licenses -- and they are not --, this would not make this license compliant even if it was identical. 
+
+Please never use the "but license x does the same" argument. If there was a mistake in approving one license, this does not mean the same mistake must be repeated over and over. 
+
+> By the License Review Process, is lawyer consultancy obligatory or just the
+> mentioning of it?
+
+McCoy has already answered, I defer to that answer. 
+
+I second the opinion that you should probably withdraw the submission and consider the valuable advice you have been provided with (for free). Given the kind of feedback you have received, this is probably the most convenient way to proceed. 
+
+All the best, 
+
+Carlo 
+
+> On Thu, Sep 5, 2024 at 12:58 PM Carlo Piana < [ mailto:carlo at piana.eu |
+> carlo at piana.eu ] > wrote:
+
+>> Dear Alisson,
+
+>> you purport to have added "conditions", but in fact you have added general
+>> aspirational staments which technically do not consist of conditions.
+>> Therefore, the grant is conditioned to conditions which are not conditions and
+>> that have nothing to do with the interaction with software. At best, it is
+>> matter that would belong in a preamble. Please consider this as a technical
+>> remark, not as a remark on the principles (with which I seem to agree, but it's
+>> immaterial).
+
+>> In addition, I think this submission does not fully comply with the submission
+>> guidelines. I doubt a lawyer has laid their eyes on this text and I can't find
+>> any such indication.
+
+>> The conclusion IMHO should be "rejection".
+
+>> With best regards,
+
+>> Carlo (in his own personal capacity)
+
+>>> Da: "? Alisson" < [ mailto:thelinuxlich at gmail.com | thelinuxlich at gmail.com ] >
+>>> A: " [ mailto:license-review at lists.opensource.org |
+>>> license-review at lists.opensource.org ] " < [
+>>> mailto:license-review at lists.opensource.org |
+>>> license-review at lists.opensource.org ] >
+>>> Inviato: Mercoled?, 4 settembre 2024 18:45:50
+>>> Oggetto: [License-review] New License for review: ADVPL 1.0
+
+>>> In accordance with the [ http://opensource.org/approval | License Review Process
+>>> ] , I'd like to submit for review the Adversary Public License 1.0 (ADVPL),
+>>> which is composed of the MIT license text + 7 tenets from the Temple of Satan.
+>>> It complies with all terms of the Open Source Definition, the suggested tag is
+>>> ADVPL. Currently no significant projects use it, although there is intent once
+>>> it's approved.
+
+>>> _______________________________________________
+>>> The opinions expressed in this email are those of the sender and not necessarily
+>>> those of the Open Source Initiative. Communication from the Open Source
+>>> Initiative will be sent from an [ http://opensource.org/ | opensource.org ]
+>>> email address.
+
+>>> License-review mailing list
+>>> [ mailto:License-review at lists.opensource.org |
+>>> License-review at lists.opensource.org ]
+>>> [
+>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>> |
+>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>> ]
+
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not necessarily
+>> those of the Open Source Initiative. Communication from the Open Source
+>> Initiative will be sent from an [ http://opensource.org/ | opensource.org ]
+>> email address.
+
+>> License-review mailing list
+>> [ mailto:License-review at lists.opensource.org |
+>> License-review at lists.opensource.org ]
+>> [
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>> |
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>> ]
+
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily
+> those of the Open Source Initiative. Communication from the Open Source
+> Initiative will be sent from an opensource.org email address.
+
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20240906/336ea495/attachment-0001.htm>
+
+From mccoy at lexpan.law  Wed Jan 22 17:55:07 2025
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Wed, 22 Jan 2025 09:55:07 -0800
+Subject: [License-review] 
+ =?utf-8?q?Submission_for_review_of_Mulan_Public?=
+ =?utf-8?q?_License=EF=BC=8CVersion_2?=
+In-Reply-To: <SA1PR22MB5540EBF57419D65E975450AD86E12@SA1PR22MB5540.namprd22.prod.outlook.com>
+References: <tencent_4FB8D61F741F7140184E397B@qq.com>
+ <0cf99d5d-b80b-77a9-9b79-509dfdbd5242@opensource.org>
+ <99b6c0de-4181-a6f3-e060-70ff1a064d5e@opensource.org>
+ <2c98e211.af86.194651cccae.Coremail.zhmh@pku.edu.cn>
+ <43a160f8-c967-cc6b-92d2-6e733b219ec3@opensource.org>
+ <acc748e9-ad89-4a74-bb7c-8b3430cd9dbb@lexpan.law>
+ <6afb129b-3a49-3152-eeb8-a6183aba1e51@chesteklegal.com>
+ <SA1PR22MB5540EBF57419D65E975450AD86E12@SA1PR22MB5540.namprd22.prod.outlook.com>
+Message-ID: <c5e3c703-8059-40f6-9506-6f29eee71490@lexpan.law>
+
+IMHO if you want to write a "perfect" license grant you'd include all 
+the verbs in Berne, and USA (C) law, and perhaps the EU (C) directive, 
+and you'd do the same for patent rights as well (USA, EU, and TRIPs, 
+although USA and TRIPS are essentially coextensive).
+
+I'm not sure there is any license that does that, although I haven't 
+tried to examine them all in that regard (although I've a mind to do a 
+project exactly on that point).
+
+And no, I'm not going to write and submit the PPL (perfect public license)
+
+On 1/22/2025 9:36 AM, Wayne Thornton wrote:
+> This is an interesting point that McCoy makes. Although admittedly not a lawyer myself, how can any international open source license be required to enumerate strictly US rights for approval by OSI? If a license is international in origin and nature, it most definitely should conform with the Berne formulation of copyright rights. Holding international licenses to a US copyright formulation would appear to me to be short-sighted and potentially problematic in the future. Although OSI is US-based, open source is a truly international affair. Would it not be best practice for OSI to require international open source licenses to conform to the Berne formulation as opposed to imposing potentially problematic US copyright formulations for approval of a license by OSI?
+>
+> -----Original Message-----
+> From: License-review <license-review-bounces at lists.opensource.org> On Behalf Of Pamela Chestek
+> Sent: Wednesday, January 22, 2025 10:02 AM
+> To: license-review at lists.opensource.org
+> Subject: Re: [License-review] Submission for review of Mulan Public License?Version 2
+>
+>
+> On 1/22/2025 7:57 AM, McCoy Smith wrote:
+>> If new licenses ought to include the full panoply of copyright rights,
+>> and are to conform to international standards, shouldn't they instead
+>> use the full Berne formulation of copyright rights rather than the US
+>> formulation? In many cases they are articulated the same, or very
+>> similarly, but in others there are distinct differences.
+> I think there's a difference between what is the better practice and what would be acceptable to be approved as an open source license. There are many approved licenses that enumerate US rights only.
+>
+> Pam (in my personal capacity)
+>
+> Pamela S. Chestek
+> Chestek Legal
+> PLEASE NOTE OUR NEW MAILING ADDRESS
+> 4641 Post St.
+> Unit 4316
+> El Dorado Hills, CA 95762
+> +1 919-800-8033
+> pamela at chesteklegal.com
+> www.chesteklegal.com
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+From carlo at piana.eu  Wed Dec 10 13:58:26 2025
+From: carlo at piana.eu (Carlo Piana)
+Date: Wed, 10 Dec 2025 14:58:26 +0100 (CET)
+Subject: [License-review] Review request for "CingXaero Open Source
+ License (COL)"
+In-Reply-To: <5ad73627-5037-4076-9404-a588152f7ca8@opensource.org>
+References: <tencent_5A72890431780D3D0938DFA00B9C628CA507@qq.com>
+ <5f5af808-deb6-4bab-bdba-43dc04645b81@berkus.org>
+ <1096409323.16086557.1765281315150.JavaMail.zimbra@piana.eu>
+ <5ad73627-5037-4076-9404-a588152f7ca8@opensource.org>
+Message-ID: <656780193.16939384.1765375106568.JavaMail.zimbra@piana.eu>
+
+
+
+----- Messaggio originale -----
+> Da: "Josh Berkus" <josh.berkus at opensource.org>
+> A: "license-review at lists.opensource.org" <license-review at lists.opensource.org>
+> Inviato: Martedì, 9 dicembre 2025 23:25:21
+> Oggetto: Re: [License-review] Review request for "CingXaero Open Source License (COL)"
+
+> On 12/9/25 3:55 AM, Carlo Piana via License-review wrote:
+>> Minor, point, in comparisons with McCoy's Kevin's and Simon, but "infectiveness"
+>> instead of copyleft is clearly a pejorative word that should be avoided, in
+>> favor of "propagation", "persistence", "inheritance" (all a bit wanting, but
+>> used) or the technically correct "copyleft" or "share alike".
+> 
+> That's why I was asking if the Chinese version was the canonical one.
+> 
+> Of course, if it is, we'll need a Chinese-language reviewer for it.
+> 
+
+Josh, 
+
+I agree both points are relevant. It would be worth reminding that use of appropriate and precise wording is a quality issue that can be taken into account, beside this particular submission. Being on the receiving end of poorly written licenses that I must deal with, it is imperative that freedom of expression recedes in front of strict conditions or covenants (?) that can be parsed and described in an algorithm (see https://gitlab.com/automated-foss-license-compliance/)
+
+However the puzzle is solved, though, the points made earlier would not warrant a fine detail analysis of the license, given the higher issues it raises upfront.
+
+Cheers
+
+Carlo
+
+From josh.berkus at opensource.org  Fri Mar 13 16:35:30 2026
+From: josh.berkus at opensource.org (Josh Berkus)
+Date: Fri, 13 Mar 2026 09:35:30 -0700
+Subject: [License-review] =?utf-8?q?=5BSUBMISSION=5D_AI-MIT_License_1?=
+ =?utf-8?q?=2E0_=E2=80=94_permissive_license_for_AI-generated_code?=
+In-Reply-To: 
+ <CALoGuP0cedKVm4_V-S0VBWUGjD-0r_G0JvkX72CSiosUh8f6QA@mail.gmail.com>
+References: 
+ <CALoGuP0cedKVm4_V-S0VBWUGjD-0r_G0JvkX72CSiosUh8f6QA@mail.gmail.com>
+Message-ID: <18108e57-6a6e-4930-814a-d84e30f4b27f@opensource.org>
+
+On 3/12/26 5:30 PM, Nik wrote:
+> I am submitting the AI-MIT License, Version 1.0 for OSI approval. The 
+> full license text is attached to this email as a plain text file (AI- 
+> MIT-License-1.0.txt).
+
+So this is interesting, but will need some iterations I think 
+(completely aside from any requirements the attorneys have).
+
+The first part is the name; we may not be able to call it MIT, which is 
+after all a trademark of the folks in Cambridge and this is not their 
+license.  So we might need to call it AI-Attribution or something (which 
+would be a good name considering the purpose of the license).
+
+The second, larger problem occurs in the actual construction of software 
+with AI assistance.  As written, this license targets only brand-new 
+projects which are created "from scratch" and never modified again. 
+This is fine for those, but I think project creators want to plan for 
+success.
+
+For any substantial project which has a history of development, there is 
+going to be a mix, including: files that are wholly AI-generated, files 
+which are AI-assisted, files which were written by humans, and files 
+which were inherited from other OSS projects whose licenses do not 
+require AI attribution so we don't know. Further, files which have been 
+modified several times are going to have been modified by several AI tools.
+
+If you want to follow this concept, I really think that some kind of 
+per-file attribution (ala APL2.0) is going to be necessary, rather than 
+a single statement of authorship over the whole project.
+
+-- 
+-- Josh Berkus
+OSI Board Member
+
+From josh at berkus.org  Sun Mar 15 23:55:01 2026
+From: josh at berkus.org (Josh Berkus)
+Date: Sun, 15 Mar 2026 16:55:01 -0700
+Subject: [License-review] =?utf-8?q?=5BSUBMISSION=5D_AI-MIT_License_1?=
+ =?utf-8?q?=2E0_=E2=80=94_permissive_license_for_AI-generated_code?=
+In-Reply-To: <d9725566-c3d5-4f8c-be05-80a705316820@chesteklegal.com>
+References: 
+ <CALoGuP0cedKVm4_V-S0VBWUGjD-0r_G0JvkX72CSiosUh8f6QA@mail.gmail.com>
+ <18108e57-6a6e-4930-814a-d84e30f4b27f@opensource.org>
+ <CALoGuP33x+Egm5aV6V0a52FgT=Xh-wjtp=g2w9P_yYZg2JzN8g@mail.gmail.com>
+ <CAAvo7O5EMkimhzQQEfoQ7hHQUd3s2mn4A9+AeoOZHdWV4raCQg@mail.gmail.com>
+ <CA+gCWQUpJv8GCQyvmP7Vs817m=K6EASPd3MJJuMu9UFyKk9TpA@mail.gmail.com>
+ <dfb73905-2660-4d5c-b160-d6082d75de4a@berkus.org>
+ <CA+gCWQV9e4FkNq7zkuv8HiW9WrfVP2OJP+TKxLzDTnb8fuMikg@mail.gmail.com>
+ <d9725566-c3d5-4f8c-be05-80a705316820@chesteklegal.com>
+Message-ID: <2e6e98c8-dc4f-42d1-bc5d-f80fbfb19a9f@berkus.org>
+
+On 3/15/26 3:43 PM, Pamela Chestek wrote:
+> 
+> That's very true, but it's not a new problem arising with AI, it's a 
+> challenge that has existed all along. I don't know any other way to cope 
+> with it. As Josh pointed out higher in the thread, even if it's clear on 
+> the first submission what the authorship is, that clarity very quickly 
+> disappears as the software gets modified.
+
+Yes, that's it.  File-level has definite limitations, but it still 
+better than one assertion for the entire project.
+
+Like, imagine a project with 300 files and you have a single COPYRIGHT 
+in the base folder that says
+
+"Some elements are AI-Assisted and some are Fully AI Generated"
+
+So now, if you want to copy a single module from this project, you don't 
+know what copyright applies.  Applying that on a 
+per-module/library/function/interface basis would be better, but nobody 
+has found a way to practically do that.
+
+-- 
+Josh Berkus
