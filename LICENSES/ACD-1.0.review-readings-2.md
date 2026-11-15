@@ -209,3 +209,20 @@ portfolio-1c の依頼（1.4 草案の §16.4 の名前と識別子の規律、�
 **逆側。** Phipps 氏の点検は「どれかにしか通らない」ことを問題の印とするので、FSF や Debian の側で ACD が通らないと分かれば、それ自体が不利な材料になる（ACD は §3 の放棄を持つ。FSF と Debian が放棄の型をソフトウェアについてどう扱ってきたかは、このドシエでは出典に当てていない —— 最初は「Debian と FSF は CC0 をソフトウェアに勧めない立場を取ってきた」と書いたが、出典が無く、少なくとも Debian の部分は疑わしいと portfolio-30 に指摘され、2026-11-15 に取り下げた。FSF の側の理由が CC0 の特許の除外なら、特許を許諾する ACD には当たらない可能性もある。どちらも確かめるまでは読みに使わない）。点検をすれば結果が記録に残る。Berkus 氏の文は L0-R（使用を条件にする型）への文で、ACD のような条件の無い型の審査が同じく長くなるかは分からない。
 
 **この節が establish しないこと。** FSF・Debian が ACD をどう見るかは確かめていない。L0-R の審査の帰結は §1.228 の範囲で、この節は扱わない。
+
+## 1.230 指摘に改訂版で答えない提出は判断を延ばされ、著者に代わって理事が論点を集めた —— 先例の主張は通らず、承認は一般の利用のためにある（C-FSL・2018〜2019）（2026-11-15）
+
+"For Approval: Convertible Free Software License"（`license-review` 2018-09〜2019-03・v1.1 から v1.4 まで）から、まだ置いていなかった 5 通のうち 4 通（`rounds/2018-10-license-review-cfsl-phipps-postponed-observed.txt`・`rounds/2018-10-license-review-cfsl-phipps-open-issues-observed.txt`・`rounds/2018-09-license-review-cfsl-smith-interpretive-history-observed.txt`・`rounds/2019-01-license-review-cfsl-phipps-general-use-observed.txt`）。同じ提出の「承認を保留する」の 2 通は 2026-09-28 に `rounds/2018-12-license-review-withhold-approval-observed.txt` へ置き、`against.md` #274 で読んである。この節はその前後である。帰結は Richard Fontana 氏 2019-03-14 の告知で、v1.4 を *"in accordance with the consensus view of the community as expressed on this list, and because further constructive revision of the license to cause it to conform to the OSD does not seem likely"* として却下した（`rounds/2019-03-license-review-cfsl-fontana-rejected-observed.txt`）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Since the discussion is still in progress, and since there are so many comments indicating problems -- including drafting issues and multiple conflicts with the OSD -- that have so far not been addressed in a revised version, the Board has postponed any decision on this license for another month. For the avoidance of doubt, no license is OSI Approved until the Board has stated that it is so."* | Simon Phipps 氏 2018-10-15（理事会の決定の報告） | **手順の材料。** 指摘が改訂版で扱われていることが、理事会が判断へ進む条件として働いた。`REVISION-PROTOCOL.md` の「受けた指摘を改訂版に取り込む」手順は、この運用に合う形である |
+| *"For the list's convenience, and in the absence of similar diligence by the author, I have attempted to accumulate the open issues."* / *"I believe a minimum of a revised license with the drafting issues addressed will be required to progress"* | Simon Phipps 氏 2018-10-15 | **有利な面と期待。** 理事は、未解決の論点を集めて一覧にすることを著者に期待される「勤勉さ」として扱った。ACD は欠陥を errata に、反論を `ACD-1.0.objection-map.md` に、不利な事実を `against.md` に自分で集めている。審査で同じことを求められたとき、すでに一覧を持っている |
+| *"the practice around applying those definitions is more rigorous than the wording of the definitions themselves, which leads to submitters who rely much more on the words of the OSD than the interpretive history."* | McCoy Smith 氏 2018-09-26（「承認済みのライセンスも同じことをしているから、先例で却下できない」という提出者の応答が繰り返されることへ） | **不利な面（先例の重み）。** 「承認済みの X も同じことをする」は、この 1 年で何度も出て否定的に受け取られた応答の型として名指しされた。ACD の文書は CC0・Unlicense・0BSD などの先例に依る箇所を持つ。先例は「論点が既に論じられた」ことを示す材料にはなるが、それだけで通る論拠としては書かない |
+| *"It may be worth reminding some folk that we approve licenses for general use. It should be possible for many users of the code to simply proceed knowing that a level playing field of rights delivering the four freedoms are ensured by OSI approved licenses."* | Simon Phipps 氏 2019-01-14（四つの自由は評価の前提だ、と同じ通で） | **有利な面。** C-FSL は「原著者」の集団に他の貢献者より強い権利を残したので、対等でないと読まれた（Piana 氏・Perens 氏）。ACD は全員に同じ許諾を与え（§2・§4）、他の人の改変や貢献について Dedicator に特権を残さない。「対等な権利」の基準に、型として合う |
+
+**読み。** C-FSL の審査は、指摘を受けた提出が改訂版を出さないと判断が延び、最後は「OSD に合う改訂が出そうにない」ことを理由に却下された。理事が求めたのは、論点の一覧と、それに答える改訂版である。ACD の側には一覧があり、全員に同じ権利を与える型である。
+
+**逆側。** 一覧を持っていることは、指摘に答えた改訂版を出したことではない。審査で出る指摘に答える改訂は、その時点で作るしかない（凍結した本文は直さず次版で直す、という我々の手順は、審査の途中では「改訂版がまだ無い」と見える時間を作りうる）。Smith 氏の文は、我々の比較の文書（`ACD-1.0.comparison.md`）が先例に頼るほど弱く読まれうることを示す。C-FSL は単独の著者で作文の質が問題にされた提出で、ACD の B1（単独の起草者）と同じ面を持つ。
+
+**この節が establish しないこと。** 2018 年の「1 か月延ばす」運用が今も同じかは確かめていない（2019 年以降の process の変更は `ACD-1.0.review-rules.md` の範囲）。ACD の比較の文書のどの文が「先例だけで通る」型になっているかは数えていない。
