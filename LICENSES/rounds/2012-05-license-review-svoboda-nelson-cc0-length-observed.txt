@@ -1,0 +1,46 @@
+Source: OSI license-review public archive, 2012-May.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 24 in "Svoboda for Approval" (2012-05-20)
+Senders: Russ Nelson
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Mon May 21 20:13:24 2012
+From: nelson at crynwr.com (Russ Nelson)
+Date: Mon, 21 May 2012 16:13:24 -0400
+Subject: [License-review] Svoboda for Approval
+In-Reply-To: <CAOPXC2n4J6kV5AS+AWs7JPdm1FJaS52q+vK+Rg2MOBjX3_1GPA@mail.gmail.com>
+References: <CAOPXC2mqRM0jV_10kkDJDad1rfWbDFXy6F1Dbk0Gecdnjf-T+A@mail.gmail.com>
+	<CAOPXC2mxEGXq+oQrJ0tkkM1yQcwtCfeZJU_hSd01sgRvaZVgvQ@mail.gmail.com>
+	<4FBA812C.3040101@redhat.com>
+	<CAOPXC2=Kfp+LAyySHir1RwBtkPkDd8GK0d743C71fgn88apfhA@mail.gmail.com>
+	<4FBA8709.9010503@redhat.com>
+	<CAOPXC2=suC2HjoXBACp9Lf3=5_i-BhTPVhxH=6oaJ5wx+o52uw@mail.gmail.com>
+	<20120521190122.GB4385@redhat.com>
+	<CAOPXC2n4J6kV5AS+AWs7JPdm1FJaS52q+vK+Rg2MOBjX3_1GPA@mail.gmail.com>
+Message-ID: <20410.41444.975582.962907@desk.crynwr.com>
+
+By the way, the OSI board has abolished the position of Board
+Observer, so I'm now an ordinary mortal! Huzzah! Long live the mortal!
+
+Gregor Pintar writes:
+ > 2012/5/21, Richard Fontana <rfontana at redhat.com>:
+ > > Why not use CC0?
+ > 
+ > It is not OSI approved and it is too long.
+
+It's only not OSI approved because it doesn't do what it can't do, and
+what people think it should do -- solve the problem of patents.
+
+It's only too long because that's what is needed to reliably disclaim
+copyright world-wide ... and failing that, it's a license that comes
+as close as possible to public domain.
+
+If the Creative Commons thought "This work has no copyright" was
+sufficient, they would have used it, no?
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
