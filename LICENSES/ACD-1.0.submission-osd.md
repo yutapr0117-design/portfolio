@@ -274,3 +274,10 @@ licence approved by only one of the three as a sign of trouble, and if the FSF o
 different answer on any row above, that answer would itself be an adverse fact (`against.md` #328). A
 self-assessment is also the kind of statement that a reviewer may discount as the drafter's view of its own
 text.
+
+**The step after a self-assessment is to ask them.** Mozilla did so when it submitted MPL 2.0: Luis Villa,
+for Mozilla, `license-review` 2010-11, *"Just as we're asking OSI, we're also asking FSF to be on
+their lists of Libre and compatible licenses, and have spoken with them to that end."* (`review-readings-2.md`
+§1.235). Asking the FSF's licensing team and `debian-legal` in parallel answers the discount above with their
+view rather than ours. Under the moderators' notice (register B14) the owner, not the AI, would send those
+questions.
