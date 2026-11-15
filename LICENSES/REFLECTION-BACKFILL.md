@@ -90,6 +90,21 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 | 1.205 | against #325 / B1・B10・B13（`ACD-OSI-BOTTLENECKS.md`・`ACD-OSI-BOTTLENECKS-B10.md`）/ 入口（`SUBMISSION-MATERIALS.md` §0d・`OSI-APPROVAL-PLAN.md` の段 6b・`ACD-1.0.board-decisions.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
 | 1.206 | B14（`ACD-OSI-BOTTLENECKS.md` の B14 の行）/ 入口（`REVISION-PROTOCOL.md` §3.6 の 6b・`SUBMISSION-MATERIALS.md` の 0b と §0d・`ACD-1.0.submission.md` §D・`OSI-APPROVAL-PLAN.md` の段 6b） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
 | 1.207 | 入口（`SUBMISSION-MATERIALS.md` §1c の新規ライセンスの基準 7 の行・§9 は既存のライセンスも及ばないだけで足りるので gap の理由に数えない） | この PR で反映先にこの節の番号を書き、grep で確かめた（2026-11-15・portfolio-50） |
+| 1.208 | 1c（`ACD-1.4-CLAUSE-REFERENCE-DRAFT.md` の §4.1・§8.1 の行・`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.38 の sublicensable）/ 入口（`REVISION-PROTOCOL.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-16・portfolio-1c） |
+| 1.209 | 1c（`ACD-1.4-THIRD-CLARITY-TRIAL.md` の冒頭の規則 (4)・明晰さの試作の根拠）/ B1・B3・B10・B13（同じ節の読みが register の各項目の材料） | この PR で反映先にこの節の番号を書き、grep で確かめた（2026-11-16・portfolio-1c） |
+| 1.210 | B1 / B14 / B2（`ACD-OSI-BOTTLENECKS.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-16・portfolio-1c） |
+| 1.211 | 1c（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.39 の §1.3）/ B10 / B15（`ACD-OSI-BOTTLENECKS.md`）/ against #46 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-16・portfolio-1c） |
+| 1.212 | B1 / B10 / B11 / B13 / B14 / B2 / B3（`ACD-OSI-BOTTLENECKS.md`）/ 入口（`ACD-1.0.review-responses-clauses.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-16・portfolio-1c） |
+| 1.213 | 1c（`ACD-1.4-CLAUSE-REFERENCE-DRAFT.md` の §8.1 の行・Piana 氏 2012 の滑りやすい坂）/ B4（Rosen 氏の放棄の効果） | この PR で反映先にこの節の番号を書き、grep で確かめた（2026-11-16・portfolio-1c） |
+| 1.214 | B1 / B14 / B2 / B3 / B4（`ACD-OSI-BOTTLENECKS.md`）/ against #270 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-16・portfolio-1c） |
+| 1.215 | 1c（`ACD-1.4-CLAUSE-REFERENCE-DRAFT.md` の §2.6 の行・`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.43） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-16・portfolio-1c） |
+| 1.216 | 1c（`ACD-1.4-CLAUSE-REFERENCE-DRAFT.md` の §10.2 の行・`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.43）/ against #326 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-16・portfolio-1c） |
+| 1.217 | B10 / B2（`ACD-OSI-BOTTLENECKS.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-16・portfolio-1c） |
+| 1.218 | 1c（`ACD-1.4-CHANGELIST.md` の §12.2 の行・`ACD-1.4-CLAUSE-REFERENCE-DRAFT.md` の §12.2 の行・`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.1・T67）/ 入口（`README.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-16・portfolio-1c） |
+| 1.219 | 1c（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.44・T66）/ against #327 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-16・portfolio-1c） |
+| 1.220 | 入口（`SUBMISSION-MATERIALS.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-16・portfolio-1c） |
+| 1.221 | B1 / B14（`ACD-OSI-BOTTLENECKS.md`）/ 入口（`REVISION-PROTOCOL.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-16・portfolio-1c） |
+| 1.222 | B2（`ACD-OSI-BOTTLENECKS-EXTERNAL.md`）/ 入口（`SUBMISSION-MATERIALS.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-16・portfolio-1c） |
 | `ACD-1.0.reviewer-positions.md` 1.49 | against #84・#104・#111 / 入口（`AS-OF.md` の Status） | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
 | `ACD-1.0.reviewer-positions.md` 1.50 | against #102 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
 | `ACD-1.0.reviewer-positions.md` 1.52 | against #1・#113・#163・#274 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |

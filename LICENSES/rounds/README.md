@@ -101,6 +101,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2015-05・08 | `license-discuss` | **観測（Apache の第三者ライセンス方針の 2 件名から 7 通・下流の一覧は各組織が決める、opensource.org からの返信）** | `2015-05-and-08-license-discuss-apache-third-party-policy-observed.txt` |
 | 2007-04 | `license-discuss` | **観測（"License Proliferation Dissatisfaction" から 5 通・分類の採択、理事会が何を却下するか、承認を閉じる案）** | `2007-04-license-discuss-license-proliferation-dissatisfaction-observed.txt` |
 | 2007-06 | `license-discuss` | **観測（Phipps 氏・準拠法は名前空間の宣言・1 通）** | `2007-06-license-discuss-phipps-choice-of-law-namespace-observed.txt` |
+| 2007-06 | `license-discuss` | **観測（Phipps 氏・準拠法が使うたびに変わる・1 通）** | `2007-06-license-discuss-phipps-law-varying-by-use-observed.txt` |
 | 2007-06 | `license-discuss` | **観測（DiBona 氏・新しいライセンスは混乱を増やす・1 通）** | `2007-06-license-discuss-dibona-every-new-licence-confusion-observed.txt` |
 | 2007-06 | `license-discuss` | **観測（Phipps 氏・法体系は書くか何も書かないか・1 通）** | `2007-06-license-discuss-phipps-fixed-law-or-none-observed.txt` |
 | 2007-04 | `license-discuss` | **観測（Rosen 氏・承認の指針は独自性の証明・1 通）** | `2007-04-license-discuss-rosen-uniqueness-observed.txt` |
