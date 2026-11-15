@@ -46,3 +46,21 @@ portfolio-1c（T66・§5.3 の受益者に §8.6 を入れるか）と portfolio
 **逆側。** 先例が無いことは B10 の「新しい効果」の側に数えられるが、法律家の確かめの無い新しい構成でもある（B1）。§5.3 に §8.6 の約束を入れる T66 は、この新しい構成を特許の約束にも広げる。Rosen 氏の「知らない受益者」の疑問は、広げるほど当たる面が増える。
 
 **この節が establish しないこと。** 63 通のうち決める側が受益者の向き（守る側か守らせる側か）を区別して論じた通は見つからなかった。探し方は語の照合で、言い換えた通は拾っていない。
+
+## 1.220 直した版の出し方と差分の示し方 —— 新しいスレッドで、1 つの完全な文書で、変更は番号つきの一覧で（2018〜2026）（2026-11-15）
+
+portfolio-50 の依頼（`REVISION-PROTOCOL.md` の 3.6 節の 6b で 1.4 を `license-discuss` に置くときの形、`SUBMISSION-MATERIALS.md` の「添えるもの」）で、2016 年以降の決める側の通を redline・差分・出し直し・新しいスレッド・変更の要約の語で探した（162 件の当たり）。`rounds/2023-to-2025-license-review-revised-versions-and-diffs-observed.txt` に 3 通。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"To avoid further delays, can you please start a new thread for the revised edition?"* | Josh Berkus 氏 2025-12-08（ModelGo の 2 度目の出し直し） | **形の指示。** 直した版は、前の版の会話への返信ではなく新しいスレッドで出す。1.4 を `license-discuss` に置くなら、1.0 の 2026-08-26 の投稿への返信でなく、新しい件名で出す形になる |
+| *"we much have the complete, correct version to be approved as one document. It is too confusing and the recordkeeping too difficult to have multiple documents that are supposed to represent a single license."*、*"That is one reason we much have in our records the exact version of what is to be approved, so others will have an immutable source of truth about the actual license text that was approved."* | Pamela Chestek 氏 2025-02-10（委員長・Mulan PSL v2） | **形の要件。** 差分（redline）だけでなく、完全な本文を 1 つの文書で出す。差分は添えるもので、本文の代わりにならない。ACD の凍結（`FROZEN.md`）と版ごとの 1 ファイルは「変わらない本文」の求めと同じ向き（有利） |
+| *"The license submitter summarized the changes as follows: 1. …"*（提出者が番号つきで書いた変更の一覧を、委員会の理由書がそのまま引いた） | Chestek 氏 2023-11-12（委員会の理由書・Unicode License v3） | **有利な先例。** 旧版の後継を出すとき、提出者が変更を番号つきの短い一覧で示すと、委員会の理由書にその一覧がそのまま入った。ACD の 1.4 草案の冒頭の変更一覧（errata の番号と語数つき）は同じ形で、1.0 → 1.4 の差として出せる |
+
+**同じ探索から、形について 3 つ（原文はアーカイブの月）。** (1) McCoy Smith 氏 2023-08-30（Unicode v3）は添付つきの通が一部の購読者に届かなかったとして再送し、*"I'm not including the attachments which might be the cause of the problem. If anyone is interested in a redline contact me directly."* と書いた ——添付は配信を妨げうる。ACD の 2026-09 の投稿が moderation で落とされた件（`FROZEN.md`）とは理由が別だが、添付に頼らず本文とリンクで示す方が届く。(2) Smith 氏 2026-09-07（ModelGo）は 2 つの版の redline を自分で作り、GitHub に置いてリンクで示した ——審査者自身が差分をリンクで配っている。(3) 2018-12 の委員会報告の要約（Lukas Atkinson 氏 2019-01-07）は SSPL について *"discussion will continue on the revised version"* と書いた ——直した版は審査の続きとして扱われた。
+
+**読み。** 決める側が直した版に求めた形は、新しいスレッド（Berkus 氏）、1 つの完全な本文（Chestek 氏）、変更の短い一覧（Unicode の理由書）、添付でなくリンク（Smith 氏）である。ACD が 1.4 を `license-discuss` に置くなら、件名を新しくし、本文の全文を 1 ファイルで示し、1.0 からの変更を番号つきの一覧で添え、redline はリンクで置く形が、これらの先例に合う。
+
+**逆側。** これらは `license-review` の提出（審査の続き）での形で、`license-discuss` の意見募集でどう受け取られるかは別の問いである。また、1.0 → 1.4 の変更は errata の数だけで数十件あり、Unicode の一覧（数件）とは量が違う。量が多い一覧は、それ自体が「審査の途中で大きく書き直した」（`against.md` #249 の費用）と読まれうる。AI の関与の開示への決める側の反応（portfolio-50 の依頼 (2)）は、2023 年以降の通で、開示した提出に決める側が答えた例を見つけられなかった（moderator の告知・`against.md` #292 の "AI slop"・§1.206 の Chestek 氏自身の AI の比較だけ）。
+
+**この節が establish しないこと。** 探索は語の照合で、言い換えた通は拾っていない。どの形が承認の確率に効くかは示していない。

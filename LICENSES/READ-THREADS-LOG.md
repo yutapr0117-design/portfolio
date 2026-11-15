@@ -20,6 +20,8 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に portfolio-50 の依頼で、2016 年以降の決める側の通を redline・差分・出し直し・新しいスレッドの語で探し、`review-readings-2.md` §1.220 へ（直した版は新しいスレッドで・Berkus 氏、1 つの完全な本文で・Chestek 氏、変更は番号つきの一覧で・Unicode の理由書）。会話を読んだのではないので READ-THREADS には足さない。
+
 - 2026-11-15 に portfolio-1c と portfolio-30 の依頼で、全期間の決める側の通を受益者・不行使の約束・privity の語で探し（63 通）、`review-readings-2.md` §1.219 へ（承認済みの受益者の条は licensee に守らせる向きで、受け手が約束に依拠する向きの先例は無い・Rosen 氏「知らない受益者」）。会話を読んだのではないので READ-THREADS には足さない。
 
 - 2026-11-15 に "[DISCUSS] PUWL v1.0"（`license-discuss` 2025-10）の決める側の人格権の通を `review-readings-2.md` §1.218 へ（放棄＋不行使の約束＋虚偽の著者表示の除外＋可分・Sado 氏の案が ACD の §12 と同じ構造）。件名が MIME で符号化されていて census の会話の key と照合できないので、READ-THREADS には足さない。
