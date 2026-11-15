@@ -1,0 +1,65 @@
+Source: OSI license-discuss public archive, 2024-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 2 in "Blue OakModel License and the license reinvention dilemma" (2024-03-15)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From bruce at perens.com  Fri Mar 15 18:13:08 2024
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 15 Mar 2024 11:13:08 -0700
+Subject: [License-discuss] Blue OakModel License and the license reinvention
+ dilemma
+In-Reply-To: <CAAvo7O7JBBRoM+vqj_4kpeMzREHMsS6vogDE6fXYtQfSL0HimA@mail.gmail.com>
+References: <CAAvo7O6Mab8FhGJ+b2_PBSFiJ_Bt1rbgJQqKK7q8bLyxg8=m3A@mail.gmail.com>
+ <61087598.matp6XCIr4@leza>
+ <CAAvo7O5YyQQGYeFQvCnh2JmMbY-zHcnpHS_CGTw4a1q8X9YVyA@mail.gmail.com>
+ <340c1705-d50c-4444-a6d7-431a6e61f5e8@david-woolley.me.uk>
+ <CAAvo7O7JBBRoM+vqj_4kpeMzREHMsS6vogDE6fXYtQfSL0HimA@mail.gmail.com>
+Message-ID: <CAK2MWOsp=j656nSW1emUGZ5OHV+AgUtqnxvxOSh0FuxAu0H6ww@mail.gmail.com>
+
+I would like to discuss the genesis of the Blue Oak Model License - which
+we have just been considering - and its problems. The Blue Oak Council was
+an ambitious effort by three lawyers who have all done more successful work
+in the Open Source space. They went to the trouble of forming a 501(c)3 for
+it. They produced the Model License and a list of OSI-approved licenses
+graded by legal quality, information that I wish OSI had adopted for their
+own site. OSI has approved some licenses which Blue Oak graded as "Lead"
+rather than Bronze or Gold, which is IMO really important information to
+developers who could use those licenses when better alternatives exist, and
+thus avoid a bad time in court. The Blue Oak list remained
+little-publicized.
+
+A long time ago Larry Rosen drafted several versions of Open Source
+licenses that he meant to improve upon our existing choices. It was a lot
+of work. And very few people were interested, leaving Larry somewhat bitter
+about the whole experience, which was amply communicated on OSI mailing
+lists.
+
+This, IMO, reoccurred with the Blue Oak Model License, intended to replace
+the gift-style licenses currently approved by OSI, BSD/MIT in particular.
+It seems that very few people cared enough to adopt it, and we did not see
+further visible activity by the Blue Oak Council, although their web site
+still solicits for donations today and maybe they answer emails usefully.
+
+So, what we ended up with was a legally good (except for the moral rights
+issue) license, by one lawyer I know to be excellent and two whom I have
+seen less of but are at least competent and perhaps much better. But its
+main effect was to increase the number of OSI-approved licenses and the
+combinatorial problem, rather than increase the quality of licenses that
+actually had significant use. This, I think, is also true for Larry's
+licenses.
+
+This is something that I think OSI should keep in mind regarding the
+license approval process. Even the submitters we could grade as most
+competent have licenses fall flat, and fail to achieve the community
+benefit they desire.
+
+And it's something I am keeping in my own thoughts.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20240315/5270d68d/attachment.html>

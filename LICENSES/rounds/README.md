@@ -512,6 +512,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2024-09-01 | `license-review`（観測）| **Stefano Maffulli 氏（事務局長）の問い → 観測保存** | *"non-software artifacts like datasets, documentation, and model parameters (aka weights)"*（`board-decisions.md` §2g）|
 | 2024-09-10 | `license-review`（観測）| **Pamela Chestek 氏（委員長）の 1 通 → 観測保存** | *"legal mechanisms other than a license"*（`board-decisions.md` §2g）|
 | 2024-09-10 | `license-review`（観測）| **Pamela Chestek 氏（委員長）の 1 通 → 観測保存** | *"This area needs room to develop"*。1 本か複数かを OSI が決めないと述べる（`board-decisions.md` §2g）|
+| 2024-03 | `license-discuss` | **観測（Blue Oak についての Perens 氏の 1 通・法律家の新しい permissive も採用されず承認済みの数を増やしただけ）** | `2024-03-license-discuss-blue-oak-reinvention-observed.txt` |
 | 2026-11-07 | 一次資料（OSI のサイト）| **記事 *Public Domain Is Not Open Source*（2017-07-28・署名 OSI Policy Team）→ スナップショット** | *"A solution would be"*、放棄できる法域では放棄し、できない法域のために許諾を与える形。CC0 が止まった理由は特許の議論だと述べ、結びは MIT を勧める（`board-decisions.md` §2f）|
 | 2026-11-07 | 一次資料（OSI のサイト）| **McCoy Smith 氏の記事 *Patents and Open Source*（2025-12-04）→ スナップショット** | *"(with or without defensive termination provisions)"* と、CC0 の特許の除外への懸念を述べる。同じ記事は Apache-2.0 の防御的終了を肯定する |
 

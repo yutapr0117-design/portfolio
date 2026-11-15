@@ -20,6 +20,10 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "Blue OakModel License and the license reinvention dilemma"（`license-discuss` 2024-03・2 通）の Perens 氏の通を `review-readings.md` §1.217 へ。2 通の会話は census の会話の閾値（3 通以上）に届かないので READ-THREADS には足さない。同じ日に "For Approval: SSCL"（`license-review` 2010-06）を読了の記録だけにした（Perens 氏の一般的な起草の所見で新しい論点を足さない・候補の会話なので行を足した）。
+
+- 2026-11-15 に "NASA requests help finding gov't use of standard OSS licenses."（`license-discuss` 2011-05・決める側の通に絞った）を `review-readings.md` §1.207 の追記へ（政府のコードがパブリックドメインなのは米国の中だけ・Cowan 氏）。
+
 - 2026-11-15 に読了の記録だけにした 2 本（どちらも決める側の通に絞った・候補の外）: "Intel's proposed BSD + Patent License"（`license-discuss` 2001-10〜11・GPL 系の OS に条件づけた特許許諾を OSD 6 で論じた。`review-doctrine.md` に既出で新しい論点を足さない。Nelson 氏「より多くの自由を与える条を外せば承認できる、というのは奇妙だ」）、"For Approval: Microsoft Permissive License"（2007-08・特許の許諾を持つ permissive の承認。Behlendorf 氏「既存のライセンスの条件や目的を重複させるだけの提出は退けられうるが、どれだけ違えばよいかは確立していない」・B10 に既出の線）。
 
 - 2026-11-15 に "Approval Request: Free Public License 1.0.0"（`license-review` 2015-08〜09・今の 0BSD）を `review-readings.md` §1.216 へ（写しからライセンスを剥がせることは方針の問いか・Berkus 氏、Fontana 氏、Cowan 氏）。
