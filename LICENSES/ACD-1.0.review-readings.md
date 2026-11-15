@@ -710,6 +710,8 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 
 **この節が establish しないこと。** TRPL は `license-review` に提出されておらず、この会話に審査の帰結は無い。Sado 氏は OSI の委員ではなく（Open Source Group Japan の代表）、氏の日本法の読みは ACD の法域の分析（`ACD-1.0.jurisdictions.md`）の代わりにならない。
 
+**2026-11-15 の追記 —— 同じ線は 2013 年にも在った。** "License incompatibility"（`license-discuss` 2013-08・26 通・`rounds/2013-08-license-discuss-incompatibility-statutory-terms-last-resort-observed.txt` に 2 通）で、Bradley Kuhn 氏は GPL が派生物を定義しない理由を *"It's not the job (nor is it really appropriate) for a copyright license to define statutory terms, so the GPL doesn't do that."* と書いた。2025 年の Chestek 氏の「自分の辞書」（上の表）と同じ向きで、ACD の §6.4 が権利の有無を決めずに置くことは、12 年離れた 2 人の基準の両方に合う。同じ会話で Lawrence Rosen 氏は、ライセンスを選ぶ人への勧めの最後に *"Invent a new license only as a very last resort and only when justified by something missing in all other approved licenses."* と書いた。これは B10 の問いそのもので、ACD はその「欠けているもの」を承認済みの全 141 本に当てて示す形を取っている（`REVIEWERS.md` の "In one screen"）。**逆側**: Kuhn 氏は同じ通で非互換が現実に月に一度は起きると書いた。ACD は条件を置かないので他のライセンスと非互換にならない（§4.5）が、それは新しいライセンスを足すこと自体の費用（増殖）を消さない。
+
 ## 1.203 名前だけが違うライセンスは承認しない、著作権者の表示はライセンスの外に置く —— PPPL BSD-3（2025）（2026-11-15）
 
 "OSI License Submission - PPPL BSD-3"（`license-review` 2025-07 と 2025-10 の 2 つの会話・16 通・`rounds/2025-07-to-10-license-review-pppl-same-license-new-name-observed.txt` に 4 通）。2021 年以降の未読を新しい順に読んだ 2 本目。DOE の国立研究所が、承認済みの BSD-3-Clause-LBNL の研究所名を自分の名に替えたものを提出した。提出文は *"The license has not been through legal review."* と自分で述べている。

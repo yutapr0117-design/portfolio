@@ -20,6 +20,10 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "Reverse Engineering and Open Source Licenses"（`license-discuss` 2015-03・47 通・決める側の通に絞った）を読了の記録だけにした。Rosen 氏は「逆解析を明示に禁じない "use" の許諾は米国では逆解析の許諾と同じ」と書き、Cowan 氏は「逆解析が合法であることは、それを禁じる契約が無効であることと同じではない」と書いた。ACD の §4.2 は *"reverse engineer"* を許諾の語に明示し、§5.2(b) は付随の契約で義務を足さないと約束するので、両方の向きに合う。§1.207（黙示の働きの明示）と同じ線で、新しい論点を足さない。
+
+- 2026-11-15 に "Sublicensing"（`license-review` 2014-09・24 通・決める側の通に絞った）を `review-readings.md` §1.208 へ（再許諾は中間の配布者を助けるだけ、FOSS は直接の許諾・Rosen 氏。ACD の §4.6 は直接の許諾を持つが、§4.1 の *sublicensable* の理由をどこにも書いていない）。
+
 - 2026-11-15 に読了の記録だけにした 2 本: "Blue Oak Model License 1.0.0"（`license-discuss` 2019-07・5 通。Perens 氏「法律家が平易な語を使おうとして自分の足を撃つかもしれない」、Smith 氏「起草したのは米国の法律家」。Blue Oak は `gap-measurements.md` などに既出で、新しい論点を足さない）、"free database licenses"（2001-11・6 通。決める側の通は無く、list の目的の外として打ち切られた）。
 
 - 2026-11-15 に "Government licenses"（`license-discuss` 2019-05・40 通・決める側の通に絞った）を `review-readings.md` §1.207 へ（著作権の無い部分には既存のライセンスが及ばないだけで足りる・Smith 氏。ACD の §9.2 はそれを明示する）。
