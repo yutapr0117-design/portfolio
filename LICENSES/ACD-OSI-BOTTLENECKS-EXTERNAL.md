@@ -323,6 +323,8 @@ are not present."* **この 1 文を落としてはならない。**
 
 **2026-11-15 に足した（3 つ目）—— 承認の後も、使われなくなれば廃止が論じられる。** Josh Berkus 氏 2020-03（`license-discuss`・AAL の廃止の議論）は理由として *"the license didn't have significant use anymore"* を挙げた（`review-readings-2.md` §1.239）。承認は使用の代わりにならず、承認の後にも使用の問いは残る（上の 2026-11-11 の段と同じ線）。**逆側**: 廃止は承認済みの一覧の整理で、承認の可否の基準ではない。
 
+**2026-11-15 に足した（5 つ目）—— 支持の無い版の見込みを、委員長が言葉にした（模擬委員会・portfolio-30）。** Pamela Chestek 氏 2020-12-28（`license-review`・当時の委員長・OIN License）*"It does not appear that anyone supports this version of the license, so the chances of it being approved appear quite slim."* 2024 年の OSPL の不承認の理由書も *"No reviewer was in favor of approving this license"* を最初に挙げた（`review-corpus.md`）。ACD は `license-discuss` で返信を得ていない。**逆側**: どちらの例も、OSD との衝突が別に指摘されていた提出である。支持が無いことだけを理由にした不承認は、まだ見つけていない。
+
 ### 🔴 2026-09-13 追記 —— 理事会は B2 に、否決ではない帰結を用意している
 
 **議事録という一次資料を初めて読んだ**（`ACD-1.0.board-decisions.md` §2 が分析・逐語は `rounds/`）。
@@ -556,3 +558,5 @@ is considered program code and therefore copyrightable**."*
 **"not approved" のまま留め置かれる第 3 の帰結**がこの instrument にも開いている。
 
 **2026-11-15 に足した —— 範囲の論点の最も古い記録（`review-readings-3.md` §1.305）。** Russell Nelson 氏 2001-09 *"OSI certifies software, not documentation, as open source. There are various documentation licenses out there. We're not decided on whether we want to certify documentation."* と、Lawrence Rosen 氏 2001-09-26 *"OSI *certifies* software. OSI *approves* licenses. This is a legally significant distinction."*。ライセンスを承認しソフトウェアを認証する、という区別は、上の CERN-OHL の理由書（2021）の「ソフトウェアに使えるように書かれている」と同じ線の 20 年前の形である。**逆側**: 2001 年は「決めていない」で、受け入れるとは書いていない。同じ会話で Nelson 氏は、ソースから機械的に作られた物には別の定義が要るかもしれないと書いた（モデルに近い問い）。
+
+**2026-11-15 に足した —— 委員会は、範囲の広いライセンスを「ソフトウェアだけのライセンス」として通読して確かめる（模擬委員会・portfolio-30）。** Pamela Chestek 氏 2023-08-15（`license-review`・法律事務所の署名）*"IIRC, the CERN OHLs were written specifically with software in mind, so that one license could be applied to the combination product of hardware and software."*、*"On my review, I walked through it as only a software license to make sure it didn't have any unintended consequences when applied that way."* 同氏は 2024-10-05（`license-discuss` の事前の議論・本人が *"in my personal capacity"* と署名）にも *"The licenses include "services," but open source licenses are for software, not for services. There also appear to be other areas covered that are inappropriate for a software-only license, such as personal information."* と書いた。**同じ通読を 1.4 草案に当てた（2026-11-15）。** ソフトウェアだけに当てると、§6（計算的利用）はコードを学習に使う場面で働き、§7（データベース権）は多くの場合に空振りし、どちらも受け手に何も課さない。§8.4 の「Work が教える機能」の非対称（文書だけを読んで人が実装した場合と、モデルに書かせた場合で特許の許諾の及び方が違う）は `gap-measurements.md` の表と `faq.md` A32 が扱い済みである。§1.5 と §11.4 は、データ保護・プライバシー・人格権・個人データに名前で触れるが、どれも「及ばない」と述べる限界の文である。**逆側**: 同氏が 2024 年に「ソフトウェアだけのライセンスにふさわしくない」とした「個人情報」の語は、限界の文としてであれ ACD の本文に在る。限界の文が、範囲の広さの印として読まれる危険は残る。この通読は我々自身のもので、委員会の通読ではない。

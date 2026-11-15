@@ -310,7 +310,11 @@ asked whether *"there can be oblivious third party beneficiaries (under contract
 2014). ACD's recipients need not know of the Dedication (§2.3). Can a person who never saw the text rely
 on a promise made to the public as an intended beneficiary, in the United States and in a civil-law
 jurisdiction, and does it matter that the promise is a covenant not to sue rather than a duty to perform
-(`ACD-1.0.against.md` #327)?
+(`ACD-1.0.against.md` #327)? Pamela Chestek, signing from her law practice in 2024, put the
+ordinary rule this way: *"Only the licensor can enforce the contract (unless the license has a third party
+beneficiary, in which case the third party can enforce it only insofar as that party's interest is
+impacted)."* If that rule applies, a recipient could hold the Dedicator to §5 only as to the recipient's own
+use, which is all §5.3 asks for; whether it applies to a promise that is not part of a contract is the question.
 
 The fifth question is about the second limb of §5.2(a). The Dedicator covenants not to *"invoke
 against You any law concerning the circumvention of such measures"*, where the measures are those
