@@ -804,6 +804,8 @@ Project Tick General Public License の `license-review` 側の会話（v1 の�
 
 **この節が establish しないこと。** 2019 年の Smith 氏は Intel の所属で書いており、委員としての文ではない。米国政府の作品の議論を機械が生成した素材へ移すのは我々の読みで、会話の中にその移しは無い。
 
+**2026-11-15 の追記 —— パブリックドメインは米国の中だけ（2011）。** "NASA requests help finding gov't use of standard OSS licenses."（`license-discuss` 2011-05・`rounds/2011-05-license-discuss-nasa-us-only-public-domain-observed.txt` に 2 通）で、John Cowan 氏は *"federal government code is in the public domain *only in the US*. Elsewhere it is in copyright, and needs a license."* と書いた。Karl Fogel 氏は NASA の独自ライセンス（NOSA）について *"how does NOSA get enforced on someone who didn't "agree" to it? That is, if the code itself is in the public domain, and I get a copy of it, then how are NOSA's terms binding on me?"* と問うた。前者は、ある法域で権利が無くても別の法域では在り、そこでは許諾が要るという形で、ACD が §3 の放棄と §4 の許諾を並べ、§4.4 で許諾を放棄から独立させる理由と同じである（有利）。後者は、権利の無いものに付けた条件が同意の無い人を縛らないという形で、上の表の Smith 氏・Cowan 氏の文と同じ線にあり、条件を置かない ACD には当たらない。**逆側**: Cowan 氏の文は政府の作品の法的地位の話で、私人が放棄を試みた作品の話ではない。私人の放棄が他国で効くかは別の問いで、ACD はその答えに依らない作り（§4.4）を取るが、答えそのものは持たない（`ACD-1.0.jurisdictions.md`）。
+
 ## 1.208 再許諾は中間の配布者を助けるだけか、受け手は許諾者から直接受け取るか —— "Sublicensing"（2014）（2026-11-15）
 
 "Sublicensing"（`license-review` 2014-09・24 通・決める側の通に絞って読んだ・`rounds/2014-09-license-review-sublicensing-privity-observed.txt` に 4 通）。census の論点の順位（B1・B10）から読んだ。新しいライセンスの提案の中で、再許諾（sublicensing）を許すかが論じられた。ACD の §4.1 は許諾を *"sublicensable"* とし、§4.5 は受け手が自分の受け手に条件を課すことを許し、§4.6 は受け手の受け手が Dedicator から直接の許諾を持つと書く。

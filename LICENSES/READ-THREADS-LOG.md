@@ -20,6 +20,10 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に読了の記録だけにした 2 本（どちらも決める側の通に絞った・候補の外）: "Intel's proposed BSD + Patent License"（`license-discuss` 2001-10〜11・GPL 系の OS に条件づけた特許許諾を OSD 6 で論じた。`review-doctrine.md` に既出で新しい論点を足さない。Nelson 氏「より多くの自由を与える条を外せば承認できる、というのは奇妙だ」）、"For Approval: Microsoft Permissive License"（2007-08・特許の許諾を持つ permissive の承認。Behlendorf 氏「既存のライセンスの条件や目的を重複させるだけの提出は退けられうるが、どれだけ違えばよいかは確立していない」・B10 に既出の線）。
+
+- 2026-11-15 に "Approval Request: Free Public License 1.0.0"（`license-review` 2015-08〜09・今の 0BSD）を `review-readings.md` §1.216 へ（写しからライセンスを剥がせることは方針の問いか・Berkus 氏、Fontana 氏、Cowan 氏）。
+
 - 2026-11-15 に "Submission of Orivex Syscall Note License (OSN-1.0) for OSI Approval"（`license-review` 2025-10）への Piana 氏の 1 通を `review-readings.md` §1.215 へ（licensor と貢献者を分けて扱うことは OSD 5 に触れうる・ACD の §1.4 は Dedicator を等しく扱う）。1 通だけなので READ-THREADS には足さない。同じ日に "discussion of L-R process"（`license-discuss` 2019-03・決める側の通 14 通）を読了の記録だけにした（Fontana 氏「多くの提出は否定的な反応を受けて提出者が自ら降りるので投票に至らない」・審査の運営の議論で、ACD に新しい論点を足さない）。
 
 - 2026-11-15 に "veto against Unlicence" / "veto against Unlicense"（`license-review` 2020-04〜06・決める側の通に絞った）を `review-readings.md` §1.214 へ（法律の論点では法律家の声が数えられる・Berkus 氏、危険は他のライセンスと量的に違わない・Chestek 氏）。

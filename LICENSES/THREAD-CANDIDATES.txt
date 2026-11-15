@@ -113,6 +113,7 @@
 2001-09-28	News. was[Re: forums]
 2001-10-18	fileset without makefiles Open Source?!
 2001-10-30	Article on open-source licenses (and the OSI)
+2001-10-30	Intel's proposed BSD + Patent License
 2001-10-31	Response to comments on Intel's proposed BSD+Patent license
 2001-11-05	Wonka Public Licence
 2001-11-07	CMGPL licence
@@ -385,6 +386,7 @@
 2007-07-31	what *is* the approval process?
 2007-08-01	GPLv3, again Re: what *is* the approval process?
 2007-08-10	For Approval: Microsoft Community License
+2007-08-10	For Approval: Microsoft Permissive License
 2007-08-16	Question about the GPL v3
 2007-08-21	MS-PL/GPL compatibility,
 2007-08-22	Groklaw's OSI item

@@ -194,6 +194,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2014〜2024 | `license-discuss` | **観測（公有・特許・AI の 3 本から引いた 11 通）** | `2014-to-2024-license-discuss-public-domain-patents-ai-cited-observed.txt` |
 | 2011〜2017 | `license-discuss` / `license-review` | **観測（waive all rights と BSD + Patent から引いた 16 通・2 分割の 1/2 部）** | `2011-to-2017-license-lists-cc0-patents-and-bsd-patent-cited-observed-1of2.txt` |
 | 2011〜2017 | `license-discuss` / `license-review` | **観測（waive all rights と BSD + Patent から引いた 16 通・2 分割の 2/2 部）** | `2011-to-2017-license-lists-cc0-patents-and-bsd-patent-cited-observed-2of2.txt` |
+| 2011-05 | `license-discuss` | **観測（NASA の依頼の会話から 2 通・政府のコードがパブリックドメインなのは米国の中だけ、同意の無い人に条件はどう及ぶか）** | `2011-05-license-discuss-nasa-us-only-public-domain-observed.txt` |
 | 1999〜2026 | `license-review` / `license-discuss` | **観測（未読スレッドから引いた 57 通・5 分割の 1/5 部）** | 長い 2 通は署名までで切り、ヘッダにそう書いた。`1999-to-2026-license-lists-unread-threads-cited-observed-1of5.txt` |
 | 1999〜2026 | `license-review` / `license-discuss` | **観測（未読スレッドから引いた 57 通・5 分割の 2/5 部）** | 長い 2 通は署名までで切り、ヘッダにそう書いた。`1999-to-2026-license-lists-unread-threads-cited-observed-2of5.txt` |
 | 1999〜2026 | `license-review` / `license-discuss` | **観測（未読スレッドから引いた 57 通・5 分割の 3/5 部）** | 長い 2 通は署名までで切り、ヘッダにそう書いた。`1999-to-2026-license-lists-unread-threads-cited-observed-3of5.txt` |
