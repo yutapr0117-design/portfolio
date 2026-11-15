@@ -83,3 +83,30 @@ def dossier_draft_quote_misses(licenses_dir: Path, version: str, draft_text: str
                 if not _PAST_468A.search(line[max(0, m.start() - 200):m.end() + 300]):
                     miss.append(f"{f.name}:{i} {qm.group(1)[:50]!r}")
     return n, miss
+
+
+# ── 質問集の問数 (Check 460 (w) が使う・2026-11-15 に checks_license_self_reporting.py から移した) ──────────────
+def counsel_question_count_misses(licenses_dir: Path, mirror_dir: Path) -> list[str]:
+    """QUESTIONS-FOR-COUNSEL を名指す行の問数が、その file の見出し `## N.` の数と合わない箇所。
+
+    11-01 に問 9 を足したのに REVIEWERS.md が「Eight questions」のまま残った。数の前の \\b を (?<![0-9]) に
+    したのは「全8問」の 全 と 8 がどちらも語の文字で \\b が立たず数えなかったため (2026-11-12・監査 #135)。
+    質問集とその mirror の中では、名前を書かない「尋ねたい N 問」「全 N 問」の行も読む。
+    """
+    qfc = licenses_dir / "QUESTIONS-FOR-COUNSEL.md"
+    nq = len(re.findall(r"(?m)^## \d+\.", qfc.read_text(encoding="utf-8"))) if qfc.exists() else 0
+    words = dict(zip("one two three four five six seven eight nine ten eleven twelve".split(), range(1, 13)))
+    rx = re.compile(r"(?<!第)(?<!第 )(?<![0-9])(\d+) ?問|\b(" + "|".join(words) + r") questions\b|\ball ("
+                    + "|".join(words) + r")\b", re.I)
+    bad = []
+    for p in sorted(licenses_dir.glob("*.md")) + sorted(mirror_dir.glob("*.md")):
+        if is_against(p.name):
+            continue
+        for n, line in enumerate(p.read_text(encoding="utf-8").splitlines(), 1):
+            named = "QUESTIONS-FOR-COUNSEL" in line or (
+                p.name.startswith("QUESTIONS-FOR-COUNSEL") and re.search(r"(?:全|尋ねたい|計) ?\d+ ?問", line))
+            hits = list(rx.finditer(line)) if named else []
+            g = hits[-1] if hits else None
+            if g and (int(g.group(1)) if g.group(1) else words[(g.group(2) or g.group(3)).lower()]) != nq:
+                bad.append(f"(w) {p.name}:{n} が質問集を {g.group(0)!r} と述べる / 実数 {nq}")
+    return bad

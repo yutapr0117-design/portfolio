@@ -83,6 +83,7 @@ import re
 
 from _lib_draft_markers import EFFECT_MARKERS_468U, state_hits  # 一覧は _lib_draft_markers.py (measure_clause_overlap.py --guard と共有)
 from _lib_dossier import errata_draft_quote_misses, dossier_draft_quote_misses  # 草案の逐語の照合 (468w / 468a)
+from _lib_draft_counts import bullet_components, changelist_table_total, defined_term_uses  # 468n / 468s / 定義語
 
 def run(ctx):
     ROOT = ctx.ROOT
@@ -102,7 +103,7 @@ def run(ctx):
     if _dr468.exists():
         _t468 = _dr468.read_text(encoding="utf-8")
         _bad468 = []
-        _comps468nb = []  # 468n (箇条ごと) のまとまり。OK の行に数を出す
+        _comps468nb, _uses468d = [], {}  # 468n (箇条ごと) のまとまりと定義語の使用回数。OK の行に数を出す
         for _phrase in ("NOT IN FORCE", "NOT SUBMITTED", "NOT APPLIED"):
             if _phrase not in _t468:
                 _bad468.append(f"冒頭に {_phrase!r} が無い (草案は自分の身分を述べること)")
@@ -598,70 +599,28 @@ def run(ctx):
                     if _sum468n != _diff468n:
                         _bad468.append(f"468n: 変更一覧の語数申告の合計 {_sum468n:+d} が、申告語数 − ACD-{_pv468n} の本文語数 "
                                        f"({_diff468n:+d}) と一致しない (箇条の書き落とし・申告の誤り)")
-                    # ── 468n (箇条ごと): 申告は合計だけでなく、箇条のまとまりごとにも本文の差に一致する ──
-                    #   2026-11-15 (9b)。上の照合は 1 本の等式なので、ある箇条の +5 と別の箇条の +4 を
-                    #   取り違えても、2 つの誤りが打ち消し合っても緑のまま (実測: §1.2 と §4.2 の申告を
-                    #   入れ替えても緑だった)。箇条は「変更」ごとに語を数えるので、文を §8.1 から §8.3 へ
-                    #   移した変更は §8.3 の箇条に両側の差を載せる —— 条ごとの差とは 1 対 1 に対応しない。
-                    #   そこで、箇条が名指す変わった条を辺にして箇条をまとめ (union-find)、まとまりごとに
-                    #   「申告の和 = その条たちの本文の差の和」を見る。条でない本文 (前文・見出し) を述べる
-                    #   箇条は、条の外の差にまとめる。「the words Sections 8.1 and 8.4 use」の形は語の出所を
-                    #   引くだけで差を運ばないので辺にしない (含めると 19 箇条が 1 つにつながり、照合が
-                    #   ほぼ合計と同じになる)。申告の無い箇条は 0 扱いにせず RED にする。
-                    _chg468nb = set(_changed468n)
-                    _dl468nb = {k: len(_dc468n.get(k, "").split()) - len(_pc468n.get(k, "").split()) for k in _chg468nb}
-                    _out468nb = (len(_dbody468n.split()) - len(_pbody468n.split())) - sum(_dl468nb.values())
-                    _comps468nb = []
-                    #   読むのは「Changes in this draft」の後の箇条だけ (その前の箇条は草案の状態を述べる)。
-                    _chs468nb = _hdr468n.split("Changes in this draft", 1)
-                    if len(_chs468nb) < 2:
-                        _bad468.append("468n (箇条ごと): 冒頭に「Changes in this draft」が無く、変更の箇条を区切れない")
-                    for _b in (" ".join(_b.split()) for _b in re.split(r"\n    \* ", _chs468nb[-1])[1:]):
-                        if "This draft:" in _b:
-                            continue
-                        _md = re.search(r"\((?:([+-])(\d+)|0) words?\.?\)", _b)
-                        if not _md:
-                            _bad468.append(f"468n (箇条ごと): 語数の申告 (+N / -N / 0 words.) が無い箇条: {_b[:60]!r}")
-                            continue
-                        _dec = int(_md.group(1) + _md.group(2)) if _md.group(1) else 0
-                        _bb = re.sub(r"the words? (?:that )?Sections? (?:\d+\.\d+|[^,.()])*? uses?\b", "", _b)
-                        _s = {k for k in re.findall(r"\b(\d+\.\d+)\b", _bb) if k in _chg468nb} or {"<条の外>"}
-                        _new = [_dec, set(_s), 1]
-                        for _c in [_c for _c in _comps468nb if _c[1] & _s]:
-                            _comps468nb.remove(_c)
-                            _new = [_new[0] + _c[0], _new[1] | _c[1], _new[2] + _c[2]]
-                        _comps468nb.append(_new)
-                    for _dec, _s, _n in _comps468nb:
-                        _act = sum(_dl468nb.get(k, 0) for k in _s) + (_out468nb if "<条の外>" in _s else 0)
-                        if _act != _dec:
-                            _bad468.append(f"468n (箇条ごと): {_n} 箇条のまとまり {sorted(_s)} の申告 {_dec:+d} が、"
-                                           f"それらの条の ACD-{_pv468n} からの本文の差 {_act:+d} と一致しない "
-                                           "(箇条間の取り違え・打ち消し合う 2 つの誤り)")
+                    # ── 468n (箇条ごと): 申告は箇条のまとまりごとにも本文の差に一致する (2026-11-15・9b) ──
+                    #   合計の 1 本の等式は、§1.2 と §4.2 の申告を入れ替えても緑だった。数え方と理由は
+                    #   _lib_draft_counts.bullet_components (この module が予算 900 を越えたので本体を移した)
+                    _comps468nb, _b468nb = bullet_components(_hdr468n, _pc468n, _dc468n, set(_changed468n),
+                                                             _pbody468n, _dbody468n, _pv468n)
+                    _bad468.extend(_b468nb)
                     # ── 468s: CHANGELIST の変更表の「費用（語）」列の合計も同じ差に一致する ─────────
                     #   portfolio-25 の提案 (2026-11-03)。468n は草案冒頭の申告しか見ず、変更表は
                     #   手で足し引きされる (同日だけで行 6 つ追加・既存行 1 つの値変更) ので、書き忘れると
-                    #   黙ってずれる。対象は「## 表」から「## errata 由来」まで。右から 2 列目の先頭の
-                    #   符号付き整数を読み、**読めないセルは 0 扱いにせず error にする** (黙らせない)。
+                    #   黙ってずれる。対象は「## 表」から「## errata 由来」まで。読めないセルは error にする
                     _cl468s = ROOT / "LICENSES" / f"ACD-{_dvs468n}-CHANGELIST.md"
-                    _ct468s = _cl468s.read_text(encoding="utf-8") if _cl468s.exists() else ""
-                    _i468s, _j468s = _ct468s.find("\n## 表"), _ct468s.find("\n## errata 由来")
-                    if _i468s < 0 or _j468s < _i468s:
+                    _t468s = changelist_table_total(_cl468s)
+                    if _t468s is None:
                         _bad468.append(f"468s: {_cl468s.name} に「## 表」〜「## errata 由来」の区間が無い (変更表を照合できない)")
-                    else:
-                        _rows468s = [_l for _l in _ct468s[_i468s:_j468s].split("\n")
-                                     if _l.startswith("|") and not _l.startswith(("| 対象", "| :--"))]
-                        _tot468s, _unread468s = 0, []
-                        for _l in _rows468s:
-                            _cells = [_c.strip() for _c in re.split(r"(?<!\\)\|", _l.strip().strip("|"))]
-                            _mc = re.match(r"([+\-−]?)\s*(\d+)", _cells[-2]) if len(_cells) >= 2 else None
-                            if not _mc:
-                                _unread468s.append(_cells[0][:30])
-                                continue
-                            _tot468s += -int(_mc.group(2)) if _mc.group(1) in ("-", "−") else int(_mc.group(2))
-                        if _unread468s or _tot468s != _diff468n:
-                            _bad468.append(f"468s: {_cl468s.name} の変更表 {len(_rows468s)} 行の語数合計 {_tot468s:+d} が "
-                                           f"申告語数 − ACD-{_pv468n} の本文語数 ({_diff468n:+d}) と一致しない、または"
-                                           f"語数を読めない行がある {_unread468s} (行の書き忘れ・値の更新漏れ)")
+                    elif _t468s[2] or _t468s[1] != _diff468n:
+                        _bad468.append(f"468s: {_cl468s.name} の変更表 {_t468s[0]} 行の語数合計 {_t468s[1]:+d} が "
+                                       f"申告語数 − ACD-{_pv468n} の本文語数 ({_diff468n:+d}) と一致しない、または"
+                                       f"語数を読めない行がある {_t468s[2]} (行の書き忘れ・値の更新漏れ)")
+                    # ── 468 (定義語): 定義した語が、定義した条の外で使われている (2026-11-15・9b) ──────
+                    #   語を外す試作が続くので、使い先の無い定義が残りうる。本体は _lib_draft_counts.defined_term_uses
+                    _uses468d, _b468d = defined_term_uses(_dc468n)
+                    _bad468.extend(_b468d)
 
         # ── 468m: §16.4 が「1 識別子 = 1 固定本文」を Steward 例外の中でも保つこと ─────────────
         #   2026-11-01、外部 AI の敵対的レビュー (against.md #279) が、§16.4 の Steward 例外は版番号の
@@ -902,7 +861,8 @@ def run(ctx):
              f"({sum(1 for _p in _parsed468x if _p[3])} 行)・468y 試作と逐条の組 {_pairs468y} 件・"
              f"468z 記述子の下書きの参照 "
              f"{'—' if _n468z is None else f'{_n468z} 件 (異なる条 {len(_u468z)})'}・"
-             f"468n 箇条のまとまり {len(_comps468nb)} (最大 {max((_c[2] for _c in _comps468nb), default=0)} 箇条))"),
+             f"468n 箇条のまとまり {len(_comps468nb)} (最大 {max((_c[2] for _c in _comps468nb), default=0)} 箇条)・"
+             f"定義語 {len(_uses468d)} (定義の外の最少 {min(_uses468d.values(), default=0)} 回))"),
             (f"Check 468: 次版草案に問題がある: {_bad468}。**草案は 1.0 と書式が同じで条番号だけ"
              "ずれているので、取り違えると凍結中の提出物について誤った条番号を引くことになる。**"
              "自分が何であるかを本文に述べ、1.0 について測っている性質を同じ形で保つこと"),

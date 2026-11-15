@@ -329,8 +329,8 @@ _MUTATIONS_TAIL.append({
     "name": "Check 469 (a): face (w) の唯一の _bad460.append を pass にする —— コメント `# (w)` は残るので、旧版 (コメントで実装を数える) は"
             "検査が消えても緑だった (2026-11-12・監査 #145)",
     "file": ROOT / ".github" / "scripts" / "checks_license_self_reporting.py",
-    "find": "                    _bad460.append(f\"(w) {_p460w.name}:{_n460w} が質問集を {_g.group(0)!r} と述べる / 実数 {_nq460w}\")",
-    "replace": "                    pass",
+    "find": "            _bad460.append(_msg460w)",
+    "replace": "            pass",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
@@ -576,6 +576,14 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
     "find": "| その他の明瞭化 | +",
     "replace": "| その他の明瞭化 | +1",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 468 (定義語): §16.5 が定義する語を \"the Stewardship\" に変える —— 定義だけが残り、本文はどこもその語を使わない。"
+            "語を外す試作が続く中で、使い先の無い定義を誰も見ていなかった (2026-11-15)",
+    "file": CURRENT_DRAFT,
+    "find": "In Section 16.4, \"the Steward\" means",
+    "replace": "In Section 16.4, \"the Stewardship\" means",
     "check": CHECK,
 })
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL

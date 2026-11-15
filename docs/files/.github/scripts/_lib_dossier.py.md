@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/_lib_dossier.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-11-12
+last-updated: 2026-11-15
 canonical-ref: LICENSES/ACD-1.0.against.md (不利な事実の register) / docs/architecture/file-size-budget.md (Check 495 のバイトの予算)
 ---
 
@@ -16,6 +16,8 @@ canonical-ref: LICENSES/ACD-1.0.against.md (不利な事実の register) / docs/
 - `is_against(name)` —— file 名が register の file か。
 
 Check 460（(e) の規模の申告・行数・REVIEWERS の長さの倍率・(s) と (w) の除外）、474、491、467c の除外と、`generate_status.py`（STATUS.md の件数）がここから読む。
+
+- `counsel_question_count_misses(licenses_dir, mirror_dir)` —— Check 460 (w) の本体。QUESTIONS-FOR-COUNSEL を名指す行の問数を、見出し `## N.` の数と照らす（2026-11-15 に `checks_license_self_reporting.py` が予算 875 を越えたので移した）。
 
 ## Why
 
