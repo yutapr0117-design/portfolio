@@ -13,7 +13,7 @@ SUBMISSION-MATERIALS の長さの行 (後半の「条文では N 語長いまま
 errata の件数 (against・REVIEWERS・READY-TO-SUBMIT・errata 冒頭の英語の数詞と閉じた番号の一覧)、worked entries の総数
 (REVIEWERS・QUESTION-INDEX) (`_lib_dossier.count_sites`)。runbook §9 の追跡ファイルの 5 つの数と実測日 (2f の依頼・
 `git ls-files` で数えるので、新しい file は git add してから回す)。「1.0 から何が変わったか」の英文の errata の数と § ごとの件数
-(Check 498 (j)・`>` の引用で行をまたいでも照らす)。REVIEWERS 冒頭のドシエ全体の語数・倍率・実測日 (Check 472m・
+(Check 498 (j)・`>` の引用で行をまたいでも照らす)。AS-OF の未読スレッドの候補・読了・残り (Check 498 (h) と同じ数え方)。REVIEWERS 冒頭のドシエ全体の語数・倍率・実測日 (Check 472m・
 実測と 5% を越えて違うときだけ)。**判断の数は書き換えない**: 束の表の各行と、
 草案冒頭の箇条の (+N words.) (どの変更に何語かは人が決め、Check 468n が照らす)。
 
@@ -105,6 +105,26 @@ def reviewers_size_sites() -> list[dict]:
                             (3, new_x, "倍率 (書いた語数 ÷ 表の the licence の語数)"))]
 
 
+def asof_sites() -> list[dict]:
+    """AS-OF の「候補 N 本のうち M 本を読んだ。K 本は読んでいない」(Check 498 (h) と同じ数え方・2026-11-15・50 の依頼)。
+
+    N = THREAD-CANDIDATES の会話の数、M = READ-THREADS の行のうち候補に在る会話 (件名の key と日付の組)、K = N - M。
+    safe_merge --reland が AS-OF の行の衝突で main 側を採った後、件数をここで実測へ戻す。アーカイブ無しに再現できる。
+    """
+    from census_decision_statements import _list_rows
+    asof = ROOT / "LICENSES" / "AS-OF.md"
+    text = asof.read_text(encoding="utf-8")
+    m = re.search(r"候補 (\d+) 本のうち (\d+) 本を読んだ。(\d+) 本は読んでいない", text)
+    if not m:
+        return []
+    cand = {(k, d) for k, d, _t in _list_rows(ROOT / "LICENSES" / "THREAD-CANDIDATES.txt")}
+    read = {(k, d) for k, d, _t in _list_rows(ROOT / "LICENSES" / "READ-THREADS.txt")} & cand
+    vals = (len(cand), len(read), len(cand) - len(read))
+    line = text[:m.start()].count("\n") + 1
+    return [{"path": asof, "line": line, "abs": True, "start": m.start(i + 1), "end": m.end(i + 1), "old": m.group(i + 1),
+             "new": str(v), "what": f"AS-OF の未読スレッドの{w}"} for i, (v, w) in enumerate(zip(vals, ("候補", "読了", "残り")))]
+
+
 def defects_sites() -> list[dict]:
     """「1.0 から何が変わったか」の英文の errata の数 (Check 498 (j) が照らす・2026-11-15・30 の検証から)。
 
@@ -161,7 +181,7 @@ def main(argv: list[str]) -> int:
         print(__doc__)
         return 0
     sites, bad = length_sites(ROOT / "LICENSES", is_against, "all")
-    sites += count_sites(ROOT / "LICENSES") + repo_sites() + defects_sites() + reviewers_size_sites()
+    sites += count_sites(ROOT / "LICENSES") + repo_sites() + defects_sites() + reviewers_size_sites() + asof_sites()
     if bad:
         print("\n".join(f"ERROR: {b}" for b in bad))
         return 2
