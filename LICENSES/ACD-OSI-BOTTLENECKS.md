@@ -223,6 +223,8 @@ the 1.0 text.
 
 **2026-11-15 に足した（2 つ目）—— 名前を Steward に結ぶことの両側。** **有利な面**: 当時の委員長 Russ Nelson 氏 2008-05-29（`license-review`・IWL の審査）*"We've always taken the position that a license cannot be modified in any way (not one word). We've always acted as if the license steward's published copy is the official copy, and that we are not empowered to change their license."*（`review-readings-2.md` §1.238）—— Steward が公表した写しを正とする運用で、§16.4・§16.5 の形である。同じ通で同氏は、承認した写しを型板にすべきだとも書いた。ACD は本文に固有名詞を持たず、§16.3 で誰でも 1 語も変えずに当てられるので、その型板の形をしている。**不利な面**: Josh Berkus 氏 2020-03（`license-discuss`・"Thoughts on AAL and OSS vs FOSS"）*"I don't see how an original license author has any moral right to the name. Once the license is released, it belongs to the whole community."*（§1.239）—— Steward だけが名前の下で新しい版を出せる規則（§16.4）は、この立場からは問われうる。**逆側**: GPL と MPL は Steward が新しい版を出す形のまま承認されてきた。Berkus 氏の文は廃止の議論の中の 1 人の立場で、規則ではない。
 
+**2026-11-15 に足した（3 つ目）—— 名前を持つ本文の規律は最初の数年から在った（`review-readings-3.md` §1.302）。** Russell Nelson 氏 2001-11-07（GPL の改変版の提出へ）*"Please either use the GPL as written, adopt another approved license, or write your own license (which we will be glad to consider for approval)."*、Brian Behlendorf 氏 1999-04-14 は名前と固有名詞を抜いた不変の型板を求め（*"genericize them"*）、2000-09-11 には *"changing names on a license doesn't affect OSD conformance"* と書いた。§16.3（誰でも 1 語も変えずに当てられる）と §16.4（改変した本文は別の名で）の形である。**逆側**: どれも承認済みのライセンスの整理か、他人の本文の改変についての文で、新しいライセンスの名前の選び方（「Commons」「Dedication」の 2 語）には答えない。
+
 ## B8 —— §12 人格権。**同じ条項が「gap」と「mission creep」の両方で名指しされている**
 
 **この項目が難しいのは、賛否が割れているからではなく、賛否が同じ条項の別の面を見ているからである。**
@@ -529,6 +531,8 @@ separate entity"*・SPDX の canonical text で逐語確認）。
 
 
 **2026-11-15 に足した —— 許可が特定の主体に連絡が取れることに依れば、その主体が消えたとき許可も危うくなる、と理事が書いた。** Simon Phipps 氏 2010-10（`license-review`・netX の審査）*"Any requirement that a specifically identified entity (e.g. the original author) must receive notification in any form (including a code submission) in order for the license conditions to be satisfied creates an onerous accumulating burden"*、*"may invalidate the license grant if the entity becomes unreachable or ceases to exist"*、*"would therefore constitute a failure to satisfy the OSD"*（*"I believe this represents the prior conclusions of OSI in the matter"* とも・`review-readings-2.md` §1.236・portfolio-2f）。**B12 の有利な面**: ACD の許可は Dedicator にも Steward にも連絡が取れることに依らない（§2.3・§10.1・§10.2）。Steward が要るのは §16.4 の、本文を名前の下で改変して配ることの扱いだけで、Steward が消えても Work の利用者の許可は何も変わらない（§16.6）。**逆側**: Steward が消えれば新しい版を出す者がいなくなる（承継先が未定のまま）。それは Work の許可の問題ではなく、ライセンスの本文の保守の問題である。同じ審査で Bruce Perens 氏は提出者に承認済みのものを探すよう勧めた —— B10 の同じ線の文は 2010 年まで遡る。
+
+**2026-11-15 —— 2f の §1.242 で B12 の材料として挙がったものを当てた。判断は動かない。** John Cowan 氏 2003-05-07 *"if the author transfers the copyright to a corporation whose chartered purpose is to maintain the license, then the corporation would be unable to revoke it through lack of appropriate powers."* —— これは著作権者（Dedicator）の撤回を防ぐ形で、steward の承継（この項目）ではない。ACD はこの形を取らず、撤回には §2.2・§2.5・§3.1 で答える（`QUESTIONS-FOR-COUNSEL.md` 問 1 (i)）。**逆側**: 個人の Dedicator の撤回を構造で防ぐ手段が ACD に無いことは、この形と比べると見える。それは B12 ではなく問 1 (i) の側の論点である。
 
 ## 更新規約
 

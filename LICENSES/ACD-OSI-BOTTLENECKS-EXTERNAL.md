@@ -299,6 +299,8 @@ are not present."* **この 1 文を落としてはならない。**
 
 **2026-11-15 に足した —— 法律家が起草した文書に、ACD の 3 つの条と同じ並びが在る（起草の先例・承認の先例ではない）。** Open Web Foundation Agreement 1.0 は、約束が後継者を縛ること（3.1.3）、倒産法 365(n) の目的で約束を許諾として扱うこと（3.1.4）、約束を迂回しないこと（6）を持ち、ACD の §2.8（承継）・§2.9（倒産で止まらない）・§5.1（訴えない約束）とほぼ同じ並びである（Lawrence Rosen 氏の `license-discuss` 2013-08-18 の引用・`review-readings-2.md` §1.227・portfolio-2f）。B1 に対して言えるのは「法律家の確認は無いが、同じ問題に法律家が出した答えの形をなぞっている」までである。**逆側**: OWFa は仕様への貢献のための合意で OSI が承認したライセンスではなく、3.1.4 の「約束を許諾として扱う」文を ACD は持たない（本文が法の分類を決める形を避けた・`QUESTIONS-FOR-COUNSEL.md` 問 8 の 2 つ目の問い）。形が似ていることは、効果が同じことの証拠ではない。
 
+**2026-11-15 に足した —— OSD そのものも法律家の手を経ていない（`review-readings-3.md` §1.304）。** 当時の理事 Russell Nelson 氏 2001-09 *"Of course, a big problem with the OSD is that it talks about legal requirements, and yet was not touched by a lawyer before being cast into stone."* **逆側（同じ通）**: 同氏は続けて、大きく書き直すなら法律の経験のある人がすべきだと書いた。法律家の関与が無くてよい、の材料にはならない —— むしろ B1 の不利な側を補う。
+
 ### B2（実使用 1 件）——**作れない。制御できるのは discoverability だけ**
 
 **採用は捏造できない。** 存在しない採用を書けば、それは提出の失格事由であって弱点ではない
@@ -472,6 +474,7 @@ ACD-1.0 の中核はまさにその並置である（§2.4 / §4.4）。CC0 の�
 
 そして **比較対象を初めて置いた（`comparison.md` §1.7・SPDX の機械可読テキストで確認）** ——**BSD-3-Clause の第 3 条は受領者に課された条件**で、**Apache-2.0 §6 は reach の限界**、**どちらも OSI 承認済み**。**我々が置いているのは、承認済みの最も強い形より弱い。**ただしこれは B4 を解決しない（適合はライセンスごとに判断される）。
 
+**2026-11-15 に足した —— 放棄が効くかで、決める側の 2 人が 2 年の間に逆を言った（`review-readings-3.md` §1.300）。** Bruce Perens 氏 1999-11-15 *"If you place on your work the notice "I place this work in the public domain", you abandon your copyright rights entirely."*、Lawrence Rosen 氏 2001-06-21（当時の事務局長）*"Nobody can "do away" with their copyright "by providing a notice that places the work in the public domain." Please don't perpetuate this myth."* と *"And suppose you later retract your abandonment? What's to prevent that?"*。§3＋§4 の並存はこの割れを前提にした形で、Rosen 氏の 3 つの問い（放棄は効くか・撤回できるか・実は許諾ではないか）には §3・§2.2・§4.4 が別々に答える。**逆側**: Rosen 氏は「普通のライセンスを使え」とも書いた —— 並存の形そのものを勧めたのではない。同じ日に Cowan 氏が「明示の放棄は他の財産権と同じようにできる」と返したが、当時は決める側ではない。 同じ型は 2015 年にも普通のものとして描かれた —— David Woolley 氏 2015-01-07 *"There is no such thing as a public domain licence. The documents are combinations of an attempt to abandon copyright, meaning you can't licence, and a, fallback, licence that attempts to give away as many rights as possible, even though you still own the copyright and moral rights."*（`review-readings-2.md` §1.243・portfolio-2f）。**逆側**: 同じ文は「放棄が効けば許諾するものが無い」という内側の緊張も指す（B5・E11 の問い）。ACD を「公有のライセンス」と紹介すると、この反論を呼ぶ。
 ---
 
 §B10（gap が本当に残っているか）の本体は `ACD-OSI-BOTTLENECKS-B10.md` に在る。2026-11-15 にこの file が advisory（800 行）を越えたので、
@@ -551,3 +554,5 @@ is considered program code and therefore copyrightable**."*
 理事会は否決を *"only if it violates the OSD"* に狭めている・§B2 節）。
 **ただしそれは「否決されにくい」であって「承認される」ではない** ——
 **"not approved" のまま留め置かれる第 3 の帰結**がこの instrument にも開いている。
+
+**2026-11-15 に足した —— 範囲の論点の最も古い記録（`review-readings-3.md` §1.305）。** Russell Nelson 氏 2001-09 *"OSI certifies software, not documentation, as open source. There are various documentation licenses out there. We're not decided on whether we want to certify documentation."* と、Lawrence Rosen 氏 2001-09-26 *"OSI *certifies* software. OSI *approves* licenses. This is a legally significant distinction."*。ライセンスを承認しソフトウェアを認証する、という区別は、上の CERN-OHL の理由書（2021）の「ソフトウェアに使えるように書かれている」と同じ線の 20 年前の形である。**逆側**: 2001 年は「決めていない」で、受け入れるとは書いていない。同じ会話で Nelson 氏は、ソースから機械的に作られた物には別の定義が要るかもしれないと書いた（モデルに近い問い）。

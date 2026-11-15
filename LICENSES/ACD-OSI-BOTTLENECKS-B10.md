@@ -135,6 +135,10 @@ running the Program"* は**著作権の話であって特許ではない**）。
 
 同じ線の文は 2008 年にも在る —— 当時の委員長 Russ Nelson 氏 2008-05-29 *"the community has come to realize that more Open Source licenses are not a good thing."*（§1.238）。**逆側**: L0-R は使用を条件にする型で、Berkus 氏の文が割れを予告した中身（条件の新しさ）は ACD に無い。ACD の新しさは許諾と約束の範囲（§8.4・§5・§6）で、割れるとすれば H1-g（既存＋追加の許諾で足りるか）の側である。
 
+### 2026-11-15 —— 2001 年には「新しさが無くても OSD に合えば退けられない」と書かれていた（`review-readings-3.md` §1.301）
+
+当時の理事 Russell Nelson 氏 2001-08-05 *"Some of the licenses ARE innovative, and it's not clear that we can reject the ones which aren't so innovative given that they comply with the open source definition."*、事務局長 Lawrence Rosen 氏 2001-09-26 *"OSI approves licenses if and only if the license is consistent with the provisions of the published Open Source Definition."*。同じ年に Rosen 氏は、審査の優先度として差・使用・起草の質・必要性の説明の明確さ・共同体の関心を挙げた（2001-01-19・本人の提案）。**逆側**: これは今の基準ではない。2008 年の委員長（上の Nelson 氏の同じ人）は *"more Open Source licenses are not a good thing"* と書き、委員会は後に差を問うようになった。古い基準を有利に引くなら、それが今の基準でないことを同じ文で言う。2001 年の記録が示すのは、差の問いが承認の可否ではなく優先度として始まった、という経過だけである。
+
 ### 2026-09-20 追記 —— gap の 1 本目に、**決着した裁判例が付いた**
 
 **§6 が扱う問いは仮想ではない。** ハンブルク上級地方裁判所 第 5 民事部は 2025-12-10 に
