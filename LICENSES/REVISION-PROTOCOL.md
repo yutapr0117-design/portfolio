@@ -1,7 +1,7 @@
 ---
 file: LICENSES/REVISION-PROTOCOL.md
 audience: 次のセッションの実装者（一次読者） / OSI license-discuss・license-review の参加者（§0 の英文）
-last-updated: 2026-11-01
+last-updated: 2026-11-15
 canonical-ref: LICENSES/FROZEN.md (凍結と venue の単一ソース) / LICENSES/ACD-1.0.discussion-log.md (指摘の記録) / LICENSES/ACD-1.0.errata.md (既知の欠陥)
 ---
 
@@ -184,7 +184,9 @@ the basis of this response, I wrote everything else myself"*）。**これを毎
     **リストの側からは「送れていない」と「応答しない」は区別がつかず**、理事会議事録には
     *"lack of communication with their submitters"* だけを理由に取り下げられた提出が 2 件あり、
     2026-05-22 以降、委員会は応答しない提出者を**理事会の議決なしに**却下できる
-    （`ACD-1.0.board-decisions.md` §4）。**届かなかった提出は、送らなかった提出より悪い**
+    （`ACD-1.0.board-decisions.md` §4）。**2026-09-24 の議事録で最初の行使が記録された ——
+    4 本を *"Poor drafting"* で却下し、うち 2 本の理由は *"argument without revision"*
+    （応答はしたが直さずに反論した）だった（§4a）。指摘には説明だけでなく、直した版で応える。****届かなかった提出は、送らなかった提出より悪い**
     ——時計は進み、沈黙はこちらの責に帰される。**確認できないうちは「提出済み」と書かない。**
 
     **⚠ このゲートの逆側（2026-09-13・同日に書いた）。** これは**送信後**の確認であって
