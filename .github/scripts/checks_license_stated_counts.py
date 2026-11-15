@@ -34,7 +34,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        帯を越えた重複を止める (本体は _lib_dossier.section_heading_duplicates)。
   501. **§1.242 以降の各節が「**反映**: …」の行を 1 つ持ち、行き先を語彙で述べること** (BLOCKING・2026-11-15・2f の提案 (A)):
        オーナーの前提「未読があり、未反映のまま本申請は出せない」。against #N と errata E# は実在を照らす。「未定」は ADVISORY
-       (本体は _lib_dossier.reflect_field_misses)。
+       (本体は _lib_dossier.reflect_field_misses)。**501b** (2026-11-15・30 の案 (B)・50 の依頼): §1.242 より前の節は
+       REFLECTION-BACKFILL.md の表の 1 行で満たしてよい。行は見出しと 1 対 1・語彙・番号の実在・grep と言うなら行き先が
+       §1.N を引くこと (BLOCKING)。反映の無い古い節の数は ADVISORY (0 になったら BLOCKING へ)。
 """
 import datetime
 import re
@@ -335,5 +337,16 @@ def run(ctx):
     check(not _bad501, f"Check 501: §1.{REFLECT_FROM} 以降の {_n501} 節がすべて反映の欄を語彙で持つ",
           (f"Check 501: 反映の欄が欠けるか誤る: {_bad501}。節の末尾に「**反映**: B# / against #N / errata E# / 1c 種 / 入口 / "
            "なし（理由）」を 1 行書く。**未反映のまま本申請は出せない** (オーナー・2026-11-15)"), blocking=True)
+    # 501b: 古い節の反映の表 (REFLECTION-BACKFILL.md・30 の案 (B) と 50 の依頼・2026-11-15)。§1.242 より前の節は、節の末尾の欄か
+    #   表の 1 行で満たす。表の行は見出しと 1 対 1・語彙・番号の実在・grep と言うなら行き先が §1.N を引く。反映の無い節の数は
+    #   ADVISORY で毎回出し、0 になった日に BLOCKING へ上げる (提出のゲート 6c の (ii) を機械で測る)
+    from _lib_dossier import backfill_table_misses
+    _nb501, _badb501, _miss501 = backfill_table_misses(L)
+    check(not _badb501, f"Check 501b: REFLECTION-BACKFILL の {_nb501} 行が見出しと 1 対 1 で、反映先を語彙で名指す",
+          (f"Check 501b: 反映の表の行が誤る: {_badb501[:8]}。行は「| 1.N | 反映 | 確かめ方 |」(床 70 の下は「| `<file>` 1.N | …」)。"
+           "**未反映のまま本申請は出せない** (6c)"), blocking=True)
+    check(not _miss501, "Check 501b (ADVISORY): §1.242 より前の節はすべて欄か表の行で反映を述べる",
+          f"Check 501b (ADVISORY): 反映の無い古い節 {len(_miss501)} 件 (先頭: {_miss501[:6]})。帯の分担で表に行を足す (6c)",
+          blocking=False)
     check(not _pend501, f"Check 501 (ADVISORY): 反映が「未定」の節は無い",
           f"Check 501 (ADVISORY): 反映が「未定」の節 {len(_pend501)} 件: {_pend501[:8]}。提出の前に決める", blocking=False)

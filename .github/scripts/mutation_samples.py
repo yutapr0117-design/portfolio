@@ -551,6 +551,14 @@ _MUTATIONS_TAIL.append({
     "replace": "で読了だけを記録する。\n\n## 1.499 反映の欄の無い節\n\n本文だけを書いた。\n",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 501b: REFLECTION-BACKFILL の行の番号を実在しない節へ変える —— 表の行が見出しと 1 対 1 でないまま、"
+            "古い節を反映済みと数える形 (提出のゲート 6c・2026-11-15)",
+    "file": ROOT / "LICENSES" / "REFLECTION-BACKFILL.md",
+    "find": "\n| 1.179 | ",
+    "replace": "\n| 1.1799 | ",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

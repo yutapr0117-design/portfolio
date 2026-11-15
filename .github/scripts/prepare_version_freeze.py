@@ -359,15 +359,48 @@ def report(version: str) -> int:
     return 0
 
 
+def gate_6c() -> list[str]:
+    """提出のゲート 6c (REVISION-PROTOCOL.md §3.6・SUBMISSION-MATERIALS §0 の 0a): 未読が 0 で、読んだ節がすべて反映されている。
+
+    オーナーの前提 (2026-11-15)「OSI スレッドに未読が有り、未反映で本申請なんて出せないでしょ。全て読んで反映してこそ、
+    出せるクオリティになるはずです。」。確定 (この道具) は提出する版を作る手順なので、満たさなければ止まる。数え方は
+    Check 498 (h) と Check 501 / 501b と同じ関数。**逆側** (6c の行と同じ): census の候補の外は未読 0 に入らない。
+    """
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _lib_dossier import backfill_table_misses, reflect_field_misses
+    from census_decision_statements import _list_rows
+    cand = {(k, d) for k, d, _t in _list_rows(L / "THREAD-CANDIDATES.txt")}
+    read = {(k, d) for k, d, _t in _list_rows(L / "READ-THREADS.txt")} & cand
+    out = []
+    if len(cand) - len(read):
+        out.append(f"未読のスレッドが {len(cand) - len(read)} 本ある (候補 {len(cand)} 本のうち {len(read)} 本を読んだ)")
+    _n, bad, pending = reflect_field_misses(L)
+    if bad or pending:
+        out.append(f"§1.242 以降の節の反映の欄が欠けるか未定: {len(bad)} 件・未定 {len(pending)} 件")
+    _n, bad_b, missing = backfill_table_misses(L)
+    if bad_b or missing:
+        out.append(f"古い節の反映: 表の誤り {len(bad_b)} 件・反映の無い節 {len(missing)} 件")
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", help="確定の日 (YYYY-MM-DD)")
+    ap.add_argument("--not-for-submission", action="store_true",
+                    help="提出しない版を確定する (提出のゲート 6c を見ない・1.1〜1.3 のように作業の区切りで凍結するとき)")
     ap.add_argument("--report", metavar="VERSION", help="提出対象を切り替える日に読む行を出す (確定はしない)")
     args = ap.parse_args()
     if args.report:
         return report(args.report)
     if not args.date:
         ap.error("--date か --report が要る")
+    if not args.not_for_submission:
+        unmet = gate_6c()
+        if unmet:
+            print("STOP: 提出のゲート 6c を満たしていない (REVISION-PROTOCOL.md §3.6・オーナーの前提「全て読んで反映してこそ」):")
+            print("\n".join(f"  - {x}" for x in unmet))
+            print("提出しない版を作業の区切りで凍結するなら --not-for-submission を付ける")
+            return 2
     draft_path = working_draft()
     v = re.match(r"ACD-(\d+\.\d+)-DRAFT\.txt$", draft_path.name).group(1)
     major, minor = v.split(".")
