@@ -524,6 +524,9 @@ separate entity"*・SPDX の canonical text で逐語確認）。
 
 ---
 
+
+**2026-11-15 に足した —— 許可が特定の主体に連絡が取れることに依れば、その主体が消えたとき許可も危うくなる、と理事が書いた。** Simon Phipps 氏 2010-10（`license-review`・netX の審査）*"Any requirement that a specifically identified entity (e.g. the original author) must receive notification in any form (including a code submission) in order for the license conditions to be satisfied creates an onerous accumulating burden"*、*"may invalidate the license grant if the entity becomes unreachable or ceases to exist"*、*"would therefore constitute a failure to satisfy the OSD"*（*"I believe this represents the prior conclusions of OSI in the matter"* とも・`review-readings-2.md` §1.236・portfolio-2f）。**B12 の有利な面**: ACD の許可は Dedicator にも Steward にも連絡が取れることに依らない（§2.3・§10.1・§10.2）。Steward が要るのは §16.4 の、本文を名前の下で改変して配ることの扱いだけで、Steward が消えても Work の利用者の許可は何も変わらない（§16.6）。**逆側**: Steward が消えれば新しい版を出す者がいなくなる（承継先が未定のまま）。それは Work の許可の問題ではなく、ライセンスの本文の保守の問題である。同じ審査で Bruce Perens 氏は提出者に承認済みのものを探すよう勧めた —— B10 の同じ線の文は 2010 年まで遡る。
+
 ## 更新規約
 
 - 新しい問題は**必ずこの表へ入れ、分類を付ける**。分類が付かないものはボトルネックではなく
