@@ -1,0 +1,258 @@
+Source: OSI license-discuss public archive, 2003-January.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 61 in ""Derivative Work" for Software Defined" (2003-01-05)
+Senders: Lawrence E. Rosen
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Tue Jan 14 17:23:37 2003
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Tue, 14 Jan 2003 09:23:37 -0800
+Subject: "Derivative Work" for Software Defined
+In-Reply-To: <D40B270649ACD3118E2800A0C9E319F3116CA8A2@xatl01.atl.hp.com>
+Message-ID: <028301c2bbf1$ae065c00$927ba8c0@ROSENGARDEN>
+
+Scott,
+
+I never suggested that a software license (speaking generally, now)
+"only requires a determination of whether A is a derivative of B."
+Contracts set their own law, and definitions matter.  Theoretically one
+can write a license that sets reciprocity conditions that apply to works
+that link to each other in any way at all, or that merely coexist on the
+same medium.  I won't prejudge whether such a license would be
+compatible with the OSD, but at least it would be legally effective to
+do so.
+
+But when a license purports NOT to be a contract and intends to be
+interpreted in the same way worldwide under copyright law alone, then I
+don't understand how you can go beyond what that law provides.  Does the
+"legal rule of construction" that you refer to have any application
+outside of contract law?  For a copyright license that is to be
+interpreted under copyright law, why would a court construct anything
+more than what the statutory or case law requires?  How can a licensee
+be bound to interpretive language in a *mere* copyright license?
+
+I don't think it is true that "if A+B is one work under copyright law,
+then it is a derivative work of both A and B."  (I'm not quoting you
+precisely because your email is slightly garbled; have I misquoted you?)
+What does the "+" mean in your mathematical expression "A+B"?  Suppose A
+is Windows and B is Excel.  Are either of those programs derivative
+works of the other simply because thay are "plussed" together onto the
+same disk, or even link to each other in the course of their execution
+on a computer?  
+
+What SHOULD the courts do with the language you quoted from section 2 of
+the GPL?  I'm not really sure.  Perhaps a broader interpretation of the
+term "derivative works" as applied to software will be accepted
+ultimately by the courts because of a community concensus that such an
+interpretation is appropriate.  But I'd sure like to offer more than
+precatory language in a copyright license itself to support such an
+interpretation, such as one or more decisions by one or more federal
+courts.  Nobody, including the most fervent advocates of the GPL, have
+ever provided such authority.  
+
+/Larry
+
+> -----Original Message-----
+> From: PETERSON,SCOTT K (HP-USA,ex1) [mailto:scott.k.peterson at hp.com] 
+> Sent: Tuesday, January 14, 2003 6:52 AM
+> To: 'lrosen at rosenlaw.com'
+> Cc: dravicher at pbwt.com; license-discuss at opensource.org; 
+> 'Andre Hedrick'; 'Ian Lance Taylor'
+> Subject: RE: "Derivative Work" for Software Defined
+> 
+> 
+> Larry --
+> 
+> I want to become a believer that the appropriate analysis 
+> only requires determination of whether A is a derivative of 
+> B. But I just don't see how that analysis squares with that 
+> paragraph of section 2. I am stuck on that legal rule of 
+> construction that says that in judging various possible 
+> interpretations, one should weigh more heavily those 
+> interpretations that give meaning to all of the provisions. 
+> 
+> Is this a point on which you think that the authors of the 
+> GPL were wrong in their understanding of copyright law? Or, 
+> what is your understanding of the meaning of the paragraph of 
+> section 2 that I quoted?
+> 
+> I am not assuming that the GPL does more than leverage the 
+> copyright law. If
+> A+B is one work under the copyright law, then A+B is a 
+> derivative of B 
+> A+and
+> requires B's permission for distribution. Thus, it is 
+> unnecessary to find a contractual obligation to restrict the 
+> distribution of A+B. 
+> 
+> -- Scott
+> ______________________________
+> Scott K. Peterson
+> Corporate Counsel
+> Hewlett-Packard Company
+> One Cambridge Center
+> Cambridge, MA 02142
+> scott.k.peterson at hp.com
+> 
+> 
+> -----Original Message-----
+> From: Lawrence E. Rosen [mailto:lrosen at rosenlaw.com]
+> Sent: Monday, January 13, 2003 11:13 PM
+> To: 'PETERSON,SCOTT K (HP-USA,ex1)'; 'Andre Hedrick'; 'Ian 
+> Lance Taylor'
+> Cc: dravicher at pbwt.com; license-discuss at opensource.org
+> Subject: RE: "Derivative Work" for Software Defined
+> 
+> 
+> Scott,
+> 
+> I think your response would be appropriate if the GPL were a 
+> contract rather than a mere copyright license.  The GPL is 
+> intended by its authors to be interpreted and enforced under 
+> copyright law.  There is no basis in that law for the 
+> definition of "derivative work" that is implied by the GPL 
+> language you quoted.  How can you assume that a licensee 
+> accepted such a broadened definition of "derivative work" 
+> absent his assent to a contract?
+> 
+> The MPL also attempts to apply to more than derivative works. 
+>  While I don't particularly understand its reach, at least it 
+> is to be enforced as a contract and thus the definitions in 
+> that contract are relevant. That, for me, is the essential 
+> difference between a copyright license and a contract.
+> 
+> The GPL can't do more than copyright law allows -- because 
+> that's how its authors want it to be treated.  I don't 
+> understand how GPL licensors can benefit from contract provisions.
+> 
+> /Larry
+> 
+> > -----Original Message-----
+> > From: PETERSON,SCOTT K (HP-USA,ex1) [mailto:scott.k.peterson at hp.com]
+> > Sent: Monday, January 13, 2003 10:30 AM
+> > To: 'lrosen at rosenlaw.com'; 'Andre Hedrick'; 'Ian Lance Taylor'
+> > Cc: dravicher at pbwt.com; license-discuss at opensource.org
+> > Subject: RE: "Derivative Work" for Software Defined
+> > 
+> > 
+> > Larry --
+> > 
+> > I think that you place too much emphasis on the concept of
+> > "derivative work". It seems clear that section 2 of the GPL 
+> > is about more than merely derivative works. If all that 
+> > matters is whether something is a derivative work, then what 
+> > does the following paragraph from section 2 mean:
+> > 
+> > "These requirements apply to the modified work as a whole.
+> > If identifiable sections of that work are not derived from 
+> > the Program, and can be reasonably considered independent and 
+> > separate works in themselves, then this License, and its 
+> > terms, do not apply to those sections when you distribute 
+> > them as separate works.  But when you distribute the same 
+> > sections as part of a whole which is a work based on the 
+> > Program, the distribution of the whole must be on the terms 
+> > of this License, whose permissions for other licensees extend 
+> > to the entire whole, and thus to each and every part 
+> > regardless of who wrote it."
+> > 
+> > -- Scott
+> > ______________________________
+> > Scott K. Peterson
+> > Corporate Counsel
+> > Hewlett-Packard Company
+> > One Cambridge Center
+> > Cambridge, MA 02142
+> > scott.k.peterson at hp.com
+> > 
+> > 
+> > -----Original Message-----
+> > From: Lawrence E. Rosen [mailto:lrosen at rosenlaw.com]
+> > Sent: Monday, January 06, 2003 7:36 PM
+> > To: 'Andre Hedrick'; 'Ian Lance Taylor'
+> > Cc: dravicher at pbwt.com; license-discuss at opensource.org
+> > Subject: RE: "Derivative Work" for Software Defined
+> > 
+> > 
+> > I continue to believe that these confusing messages about
+> > "derivative works" entirely miss the mark.  Where in the 
+> > statutory or case law can one find support for such 
+> > conclusions as are reflected in these messages? 
+> > 
+> > If you don't create "a work based upon one or more
+> > preexisting works" then you have simply not created a 
+> > derivative work.  17 U.S.C. ?101. How in the world does an 
+> > independently-written piece of software that communicates 
+> > with another independently-written piece of software through 
+> > a published API ever become a derivative work of that other 
+> > software?  Where in the GPL does it say that it can become a 
+> > derivative work?  
+> > 
+> > Nothing in the Copyright Act addresses the *use* of software
+> > in this way.  If the GPL is enforced under the copyright law, 
+> > then how could a court ever conclude that it reaches to such 
+> > API-connected pre-existing works that merely get used together?
+> > 
+> > /Larry Rosen
+> > 
+> > > > > One of the questions about "Derivative Work" as it
+> > > relates to binary
+> > > > > only loadable objects, is the creation of a boundary layer of 
+> > > > > execution. Specifically, the design and publishing an 
+> API which 
+> > > > > properly glues into an open source gpl program or
+> > > kernel(ie loadable
+> > > > > modules services) designed to provide an execution layer
+> > > between the
+> > > > > GPL and Commerial private code. Where as no GPL code in
+> > > any form is
+> > > > > allowed to touch the Commerial code. The converse is true, 
+> > > > > obviously.  The execution layer or boundary. Now using this 
+> > > > > reference from 1995, many companies have gotten legal 
+> positions 
+> > > > > about binary modules.
+> > > > > 
+> > > > > 
+> > > http://groups.google.com/groups?as_umsgid=4b0rbb%245iu%40klaav
+> > a.hels
+> > > > inki.fi
+> > > 
+> > > What Linus says presumably is valid for Linux.  RMS 
+> agrees with that 
+> > > in the message you forwarded.  It doesn't necessarily 
+> apply to any 
+> > > program other than Linux.  Note in particular the last 
+> paragraph in 
+> > > Linus's message.
+> > 
+> > If all one is using are headers or .h files and everything
+> > else is from scratch, does using the headers under the 
+> > statement above comply with the intent?
+> > 
+> > I am not seeking an opinion without paying for it.
+> > 
+> > > > I ship and sell binary only products, so I have an 
+> interest in not 
+> > > > restricting people.
+> > > 
+> > > Other than your customers, presumably.  Restrictions cut 
+> both ways.
+> > 
+> > In what way would a restrict cut both ways here?
+> > 
+> > I am a little naive, but always try to do the right thing.
+> > 
+> > Regards,
+> > 
+> > Andre
+> > 
+> > --
+> > license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+> > 
+> > --
+> > license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+> > 
+> 
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
