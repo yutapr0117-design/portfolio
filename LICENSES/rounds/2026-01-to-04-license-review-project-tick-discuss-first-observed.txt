@@ -1,0 +1,169 @@
+Source: OSI license-review public archive, 2026-January.txt and 2026-February.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 2 of the messages in the Project Tick General Public License submissions (v1 2026-01-18; v2 2026-01-24)
+Senders: Pamela Chestek, Josh Berkus
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline. The reviewers' other messages cited in review-readings.md 1.206 (Sado and Chestek 2026-01-24, Chestek 2026-04-10, -11 and -14) each quote the whole draft and run to 740-1,000 lines; they are cited from the archive months and not copied here (rounds/README.md rule 6).
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Wed Jan 21 17:29:04 2026
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Wed, 21 Jan 2026 09:29:04 -0800
+Subject: [License-review] [License Review] Project Tick General Public
+ License v1.0
+In-Reply-To: <18953FBC-E90B-4BCE-9321-7073C1CD07BB@icloud.com>
+References: <8DCD6B5C-39F1-4E01-B066-D2868E247AE3@icloud.com>
+ <CAAvo7O7RXQYOo5JtYA4Z0fFOcskTtBhansDXssxDVOSAnk4X+g@mail.gmail.com>
+ <DF2A6757-DDA9-49A1-8CF5-C49AC1008D50@icloud.com>
+ <0640ed8c-22bd-4966-a79c-94c37d49759c@app.fastmail.com>
+ <AC8AAC95-CE30-4EC4-8D28-1AA5A16A3F52@icloud.com>
+ <52082437-8113-ff71-e836-8c06c1b5dd34@chesteklegal.com>
+ <18953FBC-E90B-4BCE-9321-7073C1CD07BB@icloud.com>
+Message-ID: <8c21fe41-293b-e64c-6e86-25f524f98d1a@chesteklegal.com>
+
+I would suggest that you submit the license to license-discuss before 
+submitting it to license-review.  License-discuss is meant for working 
+on the kinks in a work in progress and license-review is when the 
+license is finalized and begins the formal process of approval. Once a 
+license has been submitted to license-review it can't change and instead 
+will have to be withdrawn and resubmitted, withdrawn and resubmitted, if 
+you want to make changes. This is very challenging for the 
+license-review committee to manage. So it's best to have the language as 
+final as possible before submitting it for approval.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+On 1/21/2026 9:17 AM, M.samet Duman via License-review wrote:
+>
+> Hello Pamela,
+>
+> Yes, I am withdrawing this draft from formal review.
+>
+> The text discussed was an early draft, and I will resubmit only after 
+> Version 2 is finalized and formally published.
+>
+> Thank you for the clarification.
+>
+> Best regards,
+> Mehmet Samet Duman
+> Author of Project Tick
+>> Pamela Chestek <pamela at chesteklegal.com> şunları yazdı (21 Oca 2026 
+>> 19:56):
+>>
+>> So I assume you are withdrawing this license?
+>>
+>> Pam
+>>
+>> Pamela S. Chestek
+>> Chestek Legal
+>> 4641 Post St.
+>> Unit 4316
+>> El Dorado Hills, CA 95762
+>> +1 919-800-8033
+>> pamela at chesteklegal.com
+>> www.chesteklegal.com
+>>
+>> On 1/21/2026 8:23 AM, M.samet Duman via License-review wrote:
+>>> Thank you for your honest feedback. It's accurate to say so.
+>>>
+>>> I should have made it clear from the outset that the text under 
+>>> discussion was a draft and that a revised version was already 
+>>> planned for publication. It was my mistake not to state this from 
+>>> the beginning, and I understand how frustrating that can be in a 
+>>> review context.
+>>>
+>>> The aim was not to waste reviewers' time, but to verify that the 
+>>> direction of the changes was consistent with the Open Source 
+>>> Definition before publication. However, I fully agree that the 
+>>> correct approach would have been to wait for the text to be 
+>>> finalized or to explicitly label it as a draft in the initial 
+>>> submission.
+>>>
+>>> Nevertheless, thank you for your time and attention, and I will be 
+>>> more careful about timing and framing in future submissions.
+>>>
+>>> Sincerely,
+>>> Mehmet Samet Duman
+>>> Author of Project Tick
+>>>
+>>>> Kevin P. Fleming <lists.osi-license-review at kevin.km6g.us> şunları 
+>>>> yazdı (21 Oca 2026 19:12):
+>>>>
+>>>> On Wed, Jan 21, 2026, at 10:32, M.samet <http://m.samet/> Duman via 
+>>>> License-review wrote:
+>>>>> I wanted to clarify that the license version you reviewed is an 
+>>>>> earlier draft. The revised Version 2 of the Project Tick General 
+>>>>> Public License will be released on February 2, 2026, and will 
+>>>>> explicitly address the concerns you raised.
+>>>>
+>>>> Since you didn't mention this in your submission, you've now asked 
+>>>> people in this group to review a license which you plan to replace 
+>>>> in less than two weeks. This will not make you any friends in the 
+>>>> review group, to say the least.
+>>>>
+>>>
+>>>
+>>> _______________________________________________
+>>> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>>>
+>>> License-review mailing list
+>>> License-review at lists.opensource.org
+>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not 
+>> necessarily those of the Open Source Initiative. Communication from 
+>> the Open Source Initiative will be sent from an opensource.org email 
+>> address.
+>>
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260121/f62cf63d/attachment-0001.htm>
+
+From josh.berkus at opensource.org  Sat Feb 14 22:02:51 2026
+From: josh.berkus at opensource.org (Josh Berkus)
+Date: Sat, 14 Feb 2026 14:02:51 -0800
+Subject: [License-review] Submission: Project Tick General Public License
+ v2 for OSI License Review
+In-Reply-To: <A34A7FDB-750E-4639-AEDA-F4CD073E52D3@icloud.com>
+References: <C27C3F9A-3B63-49B1-8542-7396B6C4FA65@icloud.com>
+ <CAAvo7O4v2_X9xbWvxUu6RXU0UiZuVrOPWruYHdcqerG0f7QF1A@mail.gmail.com>
+ <A34A7FDB-750E-4639-AEDA-F4CD073E52D3@icloud.com>
+Message-ID: <3fdef22b-1988-4f1a-a969-413911570fc6@opensource.org>
+
+License Submitter:
+
+After discussion on this list, the License Committee has made a 
+recommendation to the Board.  It should be voted on in the February or 
+March meetings.
+
+The License Committee recommends that we reject the Project Tick GPL
+because ambiguities in drafting make it impossible to determine
+whether or not it complies with the OSD.
+
+We encourage you to either review the over 200 approved licenses already 
+in the OSI catalog to find one that suits your needs, or to obtain help 
+from an attorney to draft an improved version of this license.
+
+-- 
+-- Josh Berkus
+OSI Board Member

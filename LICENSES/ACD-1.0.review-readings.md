@@ -763,3 +763,25 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **この節から出た作業。** `REVIEWERS.md` に、ACD の新しい 3 つの効果（§8.4 のモデルと出力に及ぶ特許の許諾、§10.1 の無条件、§7.2 のデータベース権の動詞）の文を逐語で置き、いちばん近い承認済みのライセンスの文と並べる表を足す。本文と入口の担当（portfolio-1c）へ渡した。
 
 **この節が establish しないこと。** Perens 氏の文は 1 人の参加者の意見で、委員会の基準ではない。理事会の否決の理由は起草の曖昧さで、法律家を使わなかったことではない（理由の文に法律家の語は無い）。`license-review` の側の会話（2026-01 と 2026-04・22 通）は、この節では読んでいない。
+
+## 1.206 `license-discuss` で少なくとも 30 日、提出した文は変えられない、「新しいところだけ」の抜粋と既存のライセンスに例外を足せない理由 —— Project Tick の提出（2026）（2026-11-15）
+
+Project Tick General Public License の `license-review` 側の会話（v1 の提出 2026-01-18、v2 の提出 2026-01-24、v2 の再提出 2026-04-07・`rounds/2026-01-to-04-license-review-project-tick-discuss-first-observed.txt` に 2 通）。§1.205 で読んだ `license-discuss` 側と同じ草案で、理事会は 2026-02-20 に否決した。審査者の通の多くは草案の全文を引用していて 740〜1,000 行になるので、rounds には短い 2 通だけを置き、残りはアーカイブの月（2026-January・2026-April）を引く。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"License-discuss is meant for working on the kinks in a work in progress and license-review is when the license is finalized and begins the formal process of approval. Once a license has been submitted to license-review it can't change and instead will have to be withdrawn and resubmitted"*、*"So it's best to have the language as final as possible before submitting it for approval."* | Pamela Chestek 氏 2026-01-21 | **有利な面。** ACD は版を確定するたびに凍結し（`FROZEN.md`・Check 453）、出す版を申請の日に確定する（`SUBMISSION-MATERIALS.md` §0）。審査中に文を変えない運用は、Chestek 氏の求める形と同じである |
+| *"This was quite premature and I suggest withdrawing it."*、*"I suggest allowing at least 30 days for feedback on license-discuss before submitting to license-review. At the moment I am a hard "no" on approval"* | Chestek 氏 2026-01-23 | **不利な面（分岐 B の手順に直接当たる）。** `license-discuss` に出したのは 1.0 だけで（2026-08-26）、1.1 の短い依頼は moderation で拒否された（`FROZEN.md`）。1.2〜1.4 は list に出ていない。出す版が 1.4 なら、その版は 1 日も `license-discuss` に置かれていない。Chestek 氏の 30 日は規則ではなく助言だが、早すぎる提出を「hard no」と組にして述べている |
+| *"Before a full OSD review, it would help to provide either a redline against GPLv3/AGPLv3 or a short "innovations only" excerpt, along with a brief explanation of why existing OSI-approved licenses plus additional permissions/exceptions or guidance cannot achieve the same goals."* | Shuji Sado 氏 2026-01-24 | **B10・B13 に直接当たる。** 求められたのは (1) 一番近い承認済みのライセンスとの差分か「新しいところだけ」の抜粋、(2) 承認済みのライセンスに追加の許諾や例外を足しても同じことができない理由、の 2 つである。(2) について ACD は *"Would 0BSD plus a separate patent grant do? No."* と答えている（`ACD-1.0.submission-reference.md`）。(1) は入口に無く、portfolio-50 へ渡した（§1.205 の作業と同じもの） |
+| *"The License Committee recommends that we reject the Project Tick GPL because ambiguities in drafting make it impossible to determine whether or not it complies with the OSD."*、*"We encourage you to either review the … approved licenses already in the OSI catalog to find one that suits your needs, or to obtain help from an attorney to draft an improved version of this license."*（省いたのは承認済みのライセンスの概数で、ドシエの実測値〔Check 476〕と取り違えないために落とした） | Josh Berkus 氏 2026-02-14 | **不利な面（B1）。** 委員会が否決の勧告に添えた道は 2 つで、既存のライセンスを使うか、法律家の助けを得るかである。否決の理由は起草の曖昧さで、法律家の不在は理由ではなく次の道として出てくる |
+| *"As required by the license submission guidelines, can you please: Submit a copy of the license as an attachment in simple text format; Affirmatively state that the license complies with the Open Source Definition, including specifically affirming it meets OSD 3, 5, 6 and 9?"* | Chestek 氏 2026-04-10 | 提出の形式の要件は 2026 年も同じ 2 つである。ACD の `submission.md` は OSD 3・5・6・9 の確認を持ち、本文は ASCII の 1 ファイルである |
+| *"Here is an AI-generated comparison to the AGPLv3 that might be helpful."* | Chestek 氏 2026-04-11 | B14 の脇の事実。審査者自身が、比較の資料を AI で作って list に出した。moderator の告知（AI が大半を書いた投稿を拒否する）は投稿の文についてで、この通はそれを変えない。だが、AI で作った比較の資料を AI で作ったと明示して添えることは、審査の場で使われた形である |
+| 草案に改変の許諾が見当たらない、定義が重なる、内部で食い違う（`against.md` #291 に引用済み） | Chestek 氏 2026-04-14 | ACD の §4.2 は *"modify, create derivative and collective works from"* を明示する。定義の重なりと内部の食い違いは、portfolio-50 の整合監査と portfolio-1c の試作が見ている面である |
+
+**読み。** 2026 年の委員会は、単独の非法律家の提出に 3 つの順序を求めた。`license-discuss` で文を固め（少なくとも 30 日）、提出した文は変えず、新しいところを差として示す。ACD は 2 つ目を既に満たし、3 つ目は入口に表を足せば満たす。1 つ目は、出す版を `license-discuss` に置く日をどう取るかの問題になる。
+
+**逆側。** 30 日の助言は、v1 を `license-discuss` に出して 3 日で `license-review` に出した提出者へのものだった。ACD の 1.0 は `license-discuss` に 80 日以上置かれ、返信は無い。次版の差だけを `license-discuss` に置いて 30 日待つことが、沈黙の続く list で何を足すかは分からない。それでも、出す版が list に一度も出ていないまま `license-review` へ移れば、Chestek 氏の文の形に当たる。また、`license-discuss` に置くにはオーナーが自分の言葉で書く必要がある（B14・`REVISION-PROTOCOL.md` ゲート 0）。
+
+**この節から出た作業。** `REVISION-PROTOCOL.md` §3.6 の「移る前に真であること」の表に、出す版（または前の版との差）が `license-discuss` に少なくとも 30 日置かれていること、の行を足した。
+
+**この節が establish しないこと。** 30 日は委員会の規則ではなく、Chestek 氏の 1 通の助言である。審査の規則（`review-rules.md`）が定める日数は、決定までの日数であって提出前の日数ではない。

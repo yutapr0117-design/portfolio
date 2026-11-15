@@ -20,6 +20,8 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "Project Tick General Public License v1.0"（`license-discuss` 2026-01・11 通）を `review-readings.md` §1.205 へ（新しい文そのものを既存のライセンスとの差として示せ、提出の前に法律家を使え・Perens 氏）。
+
 - 2026-11-15 に "Submission: CNRI-Python-GPL-Compatible"（`license-review` 2026-03・5 通）を読み `review-readings.md` §1.204 へ（clickwrap の文と OSD 10。ACD の §2.3 は同意を求めない。clickwrap の文を持ったまま承認された）。
 
 - 2026-11-15 に "OSI License Submission - PPPL BSD-3"（`license-review` 2025-07 と 2025-10 の 2 つの会話・16 通）を読み `review-readings.md` §1.203 へ（名前だけが違うライセンスは承認しない、著作権者の表示はライセンスの外に置く、名は steward が決める）。

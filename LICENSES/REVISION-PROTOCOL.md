@@ -273,6 +273,7 @@ the basis of this response, I wrote everything else myself"*）。**これを毎
 | 4 | 外部の事実がすべて移動時点で再確認済み | `AS-OF.md` の各行の日付 |
 | 5 | `license-review` 宛の文面が、discuss で起きたことの要約を織り込んでいる | `submission.md` §B ＋ `discussion-log.md` §3（沈黙で終わったなら「反応は無かった」と書く） |
 | 6 | 実務要件のうち**満たしていないもの**が本文に隠さず書いてある | `review-responses-meta.md` Q32b（採用実績 1 件 / SPDX 未登録 / 外部支持なし） |
+| 6b | **出す版（または直前に list へ出た版との差）が `license-discuss` に少なくとも 30 日置かれている** | `license-discuss` のアーカイブで、配信された形とその日付を確かめる（送信控えでなく）。根拠は Chestek 氏 2026-01-23 の *"I suggest allowing at least 30 days for feedback on license-discuss before submitting to license-review"* で、早すぎる提出を *"hard "no""* と組にしている（`review-readings.md` §1.206）。**規則ではなく助言**であり、1.0 は 80 日以上置かれて返信が無い。それでも、出す版が list に一度も出ていないまま移れば、この文の形に当たる。list へ出す文はオーナーが書く（B14・ゲート 0） |
 | 7 | `npm run verify` = 0 | CI |
 | 7b | **パケット中の URL がすべて解決する** | 実際に取得して確認する。2026-07 の実例では、審査者の最初の返信 2 通のうち 1 通が「**your links are broken**」だった —— 中身を読まれる前に信用を削る種類の欠陥である |
 | 8 | **OSI が提出時に求める項目がすべて埋まっている** | 一次資料は OSI の review-process ページ（隣のスレッドの観察で代用しない —— #77 でそれをやって 3 件落とした）。**New License** として: 本文の text 添付 / **OSD 準拠の積極的な言明** / 使用プロジェクトの特定 / steward の連絡先 / 名称と版 / **SPDX・ScanCode の識別子（無いなら「無い」と書く）** / **提案する tag（無いなら「無い」と書く）**、加えて **既存で埋まらない gap** / **最近似の承認済ライセンスとの比較** / **法的レビューの有無** |
