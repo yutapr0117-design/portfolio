@@ -1,0 +1,64 @@
+Source: OSI license-review public archive, 2010-October.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 28 in "For Approval: The netX Public License" (2010-10-04)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Sat Oct 30 23:29:36 2010
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 30 Oct 2010 16:29:36 -0700
+Subject: AW: For Approval: The netX Public Lisense (in plain text)
+In-Reply-To: <8571F7783FE5ED488D0FD4119BB601BA02559C883A@SBS-WBSLAWNET.intranet.wb-law.org>
+References: <8571F7783FE5ED488D0FD4119BB601BA023AB2000A@SBS-WBSLAWNET.intranet.wb-law.org> <4CACA7FB.2000803@postgresql.org> <4CACC5D7.6040107@perens.com> <EDC0E76513226749BFBC9C3FB031318FEAEE9D48@orsmsx508.amr.corp.intel.com> <4CACE838.8000303@perens.com> <EDC0E76513226749BFBC9C3FB031318FEAF63985@orsmsx508.amr.corp.intel.com> <E6A2D16012EEC64FADD012E5E5A77FAA4F8518EA12@GBMK-EXCH6.eu.uis.unisys.com> <20101007134504.GA18776@mercury.ccil.org> <E6A2D16012EEC64FADD012E5E5A77FAA4F851CD2FA@GBMK-EXCH6.eu.uis.unisys.com> <EDC0E76513226749BFBC9C3FB031318FEE91BBF5@orsmsx508.amr.corp.intel.com> <20101007164250.GA31969@mercury.ccil.org> <8571F7783FE5ED488D0FD4119BB601BA02559C883A@SBS-WBSLAWNET.intranet.wb-law.org>
+Message-ID: <4CCCAA60.4070900@perens.com>
+
+Hi Christian,
+
+On 10/29/2010 10:55 AM, Christian Solmecke wrote:
+> 1. Technology-Neutral
+> As we have seen, in particular the special treatment of the kernel interface is partially considered as a violation of # 10 (License must be Technology-Neutral) of the Open Source Definition. This is why we would clarify, that the purpose of the License is not aim to create a special treatment of the kernel interface. Rather, the aim is the porting of the licensed software to other operating systems in order to guarantee the distribution of the software throughout the Community.
+The folks on this mailing list have very long experience with Open 
+Source. For example, I started working with BSD in 1981. In general our 
+goal is to facilitate operation of the Open Source developer community, 
+who are not lawyers and do not always have access to counsel. Thus, we 
+will in general look askance at a new license simply because it 
+increases the legal burden on developers both through its own terms and 
+through the license-combinatorial problem, while doing similar things to 
+the set of licenses that are already approved.
+
+Thus, I must stress: The very best thing you could do for the Open 
+Source developer community would be to find an already-approved license 
+to use.
+
+Over a long history with Open Source licenses and projects, we have 
+found that the upload requirement in your license ?4(2) simply is not 
+necessary to achieve the distribution you desire. We've already 
+explained to you why it's a problem, I assume it's not necessary for me 
+to repeat that. I don't believe that the netX license should be approved 
+while it retains this provision. In addition the text regarding kernel 
+interfaces is problematical, and unnecessary should the upload 
+requirement be removed.
+> According to # 4 Open Source Definition the License can request the documentation of changes and modifications to the Program in order to preserve the integrity of the author?s source code.
+>    
+This documentation should be a component of the source code. No part of 
+the text of OSD#4 should be interpreted as requiring that licensees go 
+to some arbitrary length to submit documentation.
+
+?3, the portion regarding third party rights, is implicit in copyright 
+law. If the licensor is /knowingly/ inciting others to infringe upon 
+some patent without informing them of the issue, that should be the 
+legal responsibility of the licensor, and I hope it's not your intent to 
+avoid that. It would be better simply to remove the text or to state 
+that the licensor does not offer rights belonging to third parties.
+
+Once the above are addressed, the major difference in the netX license 
+is a sort of badgeware requrement in ?4(1), that there be a mention of a 
+URL in source code and the license. I would hope that attribution of the 
+licensor would be sufficient. In any case, this requirement does not 
+seem a sufficient reason to approve yet another license.
+
+     Thanks
+
+     Bruce Perens
+     (creator of the OSD)

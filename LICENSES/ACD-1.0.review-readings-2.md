@@ -309,3 +309,19 @@ portfolio-1c の T69（1.4 草案の §2.6 に、除外する素材を示す形�
 **逆側。** Mozilla は大きな組織で、FSF と事前に話せる立場にあった。個人の提出者が同じ経路を取れるかは別の問題で、FSF に当たって否定的な見解が出れば、それは記録に残る（§1.229 の逆側）。また ACD は 1.0 から 1.4 まで版を重ねており、Perens 氏の「変種が多すぎる」は、名の下の不変性とは別に、同じ家族の版の数として読まれうる（`against.md` #320 の「3 か月足らずで 5 つの本文」と合わせて読む）。
 
 **この節が establish しないこと。** FSF が MPL 2.0 をどう扱ったかは、この会話では確かめていない。FSF が ACD をどう見るかも確かめていない。
+
+## 1.236 特定の相手に届けることを条件にしたライセンスは、その相手が消えると使えなくなるので OSD に合わない —— ACD は誰にも何も届けさせない（netX Public License・2010-10）（2026-11-15）
+
+"For Approval: The netX Public Lisense (in plain text)"（`license-review` 2010-10〜11・27 通）を通読し、3 通を置いた（`rounds/2010-10-license-review-netx-phipps-unreachable-observed.txt`・`rounds/2010-10-license-review-netx-perens-website-observed.txt`・`rounds/2010-10-license-review-netx-perens-approved-license-observed.txt`）。ドシエは 2010-12-01 の委員長の報告の 1 文（*"The requirement to submit changes directly to the licensor is a technology-specific term"*・`review-readings.md` §1.192 の表）だけを持っていた。netX は改変を許諾者のサイトへ上げることを条件にしていた。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Any requirement that a specifically identified entity (e.g. the original author) must receive notification in any form (including a code submission) in order for the license conditions to be satisfied creates an onerous accumulating burden on downstream participants and additionally may invalidate the license grant if the entity becomes unreachable or ceases to exist."* / *"I believe this burden unreasonably restricts the freedoms of anyone but the copyright holder and would therefore constitute a failure to satisfy the OSD."* | Simon Phipps 氏 2010-10-31（*"I believe this represents the prior conclusions of OSI in the matter"* と同じ通で） | **有利な面。** ACD は誰にも何も届けさせない（§10.1・1.0 でも §10.1）。許諾は Dedicator に連絡が付くかに依らず、取り消せない（§2.2）。Phipps 氏が OSD 違反とした形を、ACD は持たない |
+| *"And licenses that have been predicated on a particular upload site have previously been rejected. The language must continue the license once the web site goes away, as they so often do."* | Bruce Perens 氏 2010-10-06 | **有利な面。** ACD の §16.2（1.0 でも §16.2）は、識別子や名前の参照があれば *"the terms apply in full whether or not a copy of this text accompanies the work"* と書く。§16.1 の通知は本文の場所（`Full text: <location of this file>`）を書かせるが、その場所が消えても条件の効力は変わらない |
+| *"Thus, I must stress: The very best thing you could do for the Open Source developer community would be to find an already-approved license to use."* | Bruce Perens 氏 2010-10-30（新しいライセンスは、承認済みと似たことをしながら開発者の法的な負担と組み合わせの問題を増やすので、一般に疑いの目で見る、と同じ通で） | **不利な面（B10）。** 承認済みのものを使え、という定型の応答で、§1.217 の Blue Oak への同じ人の文（2024）と同じ線である。ACD は承認済みに無い効果を主張して答える（B10 の G1） |
+
+**読み。** netX は改変を特定のサイトへ上げることを条件にして、OSD に合わないとされた。理由は、特定の相手やサイトに依る条件は、相手が消えると許諾を使えなくするからである。ACD は利用者に何も課さず、本文の場所が消えても条件の効力が変わらない形に書いてある。
+
+**逆側。** ACD の §2.6（1.0 でも §2.6）は、別段を述べた素材を示すことを Dedicator に約束させる。利用者に課すものではないが、「誰かが何かをしなければならない」文が本文にあることは、netX の型を探す審査者の目に留まりうる（§2.6 は *"imposes nothing upon You"* と書いて答えている）。Perens 氏の「承認済みのものを使え」は、効果の差（G1）が読まれなければ、そのまま ACD に当たる。
+
+**この節が establish しないこと。** netX の審査の帰結（却下か取り下げか）は、この会話の中では確かめていない。

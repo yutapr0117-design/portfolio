@@ -1,0 +1,41 @@
+Source: OSI license-review public archive, 2010-October.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 28 in "For Approval: The netX Public License" (2010-10-04)
+Senders: Simon Phipps
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From webmink at gmail.com  Sun Oct 31 10:56:05 2010
+From: webmink at gmail.com (Simon Phipps)
+Date: Sun, 31 Oct 2010 11:56:05 +0100
+Subject: AW: For Approval: The netX Public Lisense (in plain text)
+In-Reply-To: <4CCBC3D2.4010308@piana.eu>
+References: <8571F7783FE5ED488D0FD4119BB601BA023AB2000A@SBS-WBSLAWNET.intranet.wb-law.org> <4CACA7FB.2000803@postgresql.org> <4CACC5D7.6040107@perens.com> <EDC0E76513226749BFBC9C3FB031318FEAEE9D48@orsmsx508.amr.corp.intel.com> <4CACE838.8000303@perens.com> <EDC0E76513226749BFBC9C3FB031318FEAF63985@orsmsx508.amr.corp.intel.com> <E6A2D16012EEC64FADD012E5E5A77FAA4F8518EA12@GBMK-EXCH6.eu.uis.unisys.com> <20101007134504.GA18776@mercury.ccil.org> <E6A2D16012EEC64FADD012E5E5A77FAA4F851CD2FA@GBMK-EXCH6.eu.uis.unisys.com> <EDC0E76513226749BFBC9C3FB031318FEE91BBF5@orsmsx508.amr.corp.intel.com> <20101007164250.GA31969@mercury.ccil.org> <8571F7783FE5ED488D0FD4119BB601BA02559C883A@SBS-WBSLAWNET.intranet.wb-law.org> <4CCBC3D2.4010308@piana.eu>
+Message-ID: <4421DA39-76B7-4F17-8040-E68DA5400A54@gmail.com>
+
+
+On Oct 30, 2010, at 09:05, Carlo Piana wrote:
+
+> On 10/29/2010 07:55 PM, Christian Solmecke wrote:
+>> 
+>> 2. Mandatory Upload on a website
+>> Furthermore we ask ourselves, which provision of the OS-Definition is infringed by the mandatory upload of the changes of the Program, which is demanded by the NetX-Public License.  To our mind, the reference duties concerning any changes and modifications of the Program (in particular concerning the Kernel) according to ? 4 clause 1 and 2 netX Public License do not infringe the Open Source Definition. According to # 4 Open Source Definition the License can request the documentation of changes and modifications to the Program in order to preserve the integrity of the author?s source code. 
+>> Perhaps we can overcome your concerns, if the licensor engages himself to provide another suitable website, in case the website www.industrialNETworX goes away. 
+>> 
+> 
+> I respectfully submit that any obligations to provide changes and
+> documentation to the upstream is contrary to the OSD. 
+:
+> If the license remains unchanged in this respect, I urge OSI to reject it.
+
+I agree completely with Carlo here, and I believe this represents the prior conclusions of OSI in the matter. Indeed, the discussion has just arisen on the mailing list for the Mozilla licence revision (aside: I have not seen comment of MPL on this list yet).
+
+Any requirement that a specifically identified entity (e.g. the original author) must receive notification in any form (including a code submission) in order for the license conditions to be satisfied creates an onerous accumulating burden on downstream participants and additionally may invalidate the license grant if the entity becomes unreachable or ceases to exist.
+
+To expand the two points:
+*  Making notification easier today does not make things better. Long term, it is almost certain that a named entity will become unreachable, and at that point the licence will mean continued reuse of the code becomes impossible
+*  It's important to look beyond the single project. Software freedom means code can be used in unexpected ways by unexpected developers. If OSI were to start accepting these sorts of clauses, innovative development would involve the burden of maintaing a list of all the parties needing notification and fulfilling the obligation every time a change is committed (since open source software is always "released" the action can't reasonably be conditioned on anything but a commit)
+
+I believe this burden unreasonably restricts the freedoms of anyone but the copyright holder and would therefore constitute a failure to satisfy the OSD.
+
+S.
