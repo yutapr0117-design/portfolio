@@ -16,6 +16,21 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 
 | 節 | 反映 | 確かめ方 |
 | :-- | :-- | :-- |
+| 1.164 | 未定（B10 の G1 の説明の出典・2012 年の CC0 の審査で特許の明示の除外が論点だったことの一次資料・30 へ） | この節の番号を引く反映先は grep で 0 件だった（2026-11-15・portfolio-2f）。送り先を書いた |
+| 1.165 | なし（ACD は §4 と §8 で著作権と特許を同じ文書で許諾し、著作権の無いものに特許だけを許諾する場面を持たない） | 節の読みを当て直して判断した（2026-11-15・portfolio-2f） |
+| 1.166 | against #316 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| 1.167 | B2・B10・B15（`ACD-OSI-BOTTLENECKS.md`）/ against #302・#323 / 入口（`SUBMISSION-MATERIALS.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| 1.168 | B10（`ACD-1.0.board-decisions.md` の追加テストの段が出典として引く） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| 1.169 | 未定（データベース権の枝は B15 の材料、提出者の名前の枝は B6 の材料・30 へ） | この節の番号を引く反映先は grep で 0 件だった（2026-11-15・portfolio-2f）。送り先を書いた |
+| 1.170 | 入口（`ACD-1.0.review-responses-meta.md` の SimPL の段・立証の責任は提出者にある） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| 1.171 | against #318 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| 1.172 | against #302・#309・#318 / 入口（`SUBMISSION-MATERIALS.md` の手順 6） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| 1.173 | B15（`ACD-OSI-BOTTLENECKS.md`）/ 入口（`SUBMISSION-MATERIALS.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| 1.174 | 未定（B2・採用の表明があっても使用を制限する条件で止まった例・30 へ） | この節の番号を引く反映先は grep で 0 件だった（2026-11-15・portfolio-2f）。送り先を書いた |
+| 1.175 | B15（`ACD-OSI-BOTTLENECKS.md`）/ 入口（`SUBMISSION-MATERIALS.md` の主題の行） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| 1.176 | against #257 / 入口（`SUBMISSION-MATERIALS.md` の手順 7） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| 1.177 | 未定（B10・§1.168 と同じ線の「OSD に適合するものを全部か良いものだけか」・30 へ） | この節の番号を引く反映先は grep で 0 件だった（2026-11-15・portfolio-2f）。送り先を書いた |
+| 1.178 | THIRD（`ACD-1.4-THIRD-CLARITY-TRIAL.md`）/ 入口（`SUBMISSION-MATERIALS.md` の OSI の FAQ の段） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
 | 1.179 | against #312（審査の 4 つの問い） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
 | 1.180 | against #321（契約でないライセンスの保証の否認）/ 入口（`SUBMISSION-MATERIALS.md` §2 の先に名指す反論・`ACD-1.0.faq.md` A24） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
 | 1.181 | B2（`ACD-OSI-BOTTLENECKS.md` の B2 の行・`ACD-OSI-BOTTLENECKS-EXTERNAL.md` の B2 の節）/ against #322 / 入口（`SUBMISSION-MATERIALS.md` §2） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
