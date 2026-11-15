@@ -869,7 +869,8 @@ def run(ctx):
         #   この 2 行は誰も見ていなかった (1c の T61/T62 の +18 語で 3 つの数が黙って古くなるところだった)。長さは
         #   審査者が最初に見る数の 1 つで、GPL-3.0 より短いかどうかは B3 の有利な事実なので、古い数は弁護を嘘にする。
         #   読むのは「N.M 草案は」を含む行の、最初の日付つきの追記 (**2026- / （2026-) より前だけ (後ろは当時の記録)。
-        #   英語の "N words from the title to *END OF TERMS*" は版の名が無いので全行を読む。数え方: 題名から = 区切り線の後
+        #   英語の "N words from the title to *END OF TERMS*" は読まない —— それは「1.0 から何が変わったか」の下書きで、
+        #   498 (j) が「切り替えの日に数え直す」ので CHANGELIST では ADVISORY と決めてある (11-15 に一度読み、二重に縛った)。数え方: 題名から = 区切り線の後
         #   から END OF TERMS まで、条文 = `1.` の見出しから END OF TERMS の手前まで (SUBMISSION-MATERIALS の数え方)。
         #   GPL-3.0 の数は reviewer-positions.md の表から読み、読めなければ RED (黙って定数にしない)
         _drs460x = [_p for _p in sorted(_L460.glob("ACD-*-DRAFT.txt"))
@@ -900,11 +901,6 @@ def run(ctx):
                 if is_against(_p460x.name) or "CLARITY-TRIAL" in _p460x.name:
                     continue
                 for _ln460x, _l460x in enumerate(_p460x.read_text(encoding="utf-8").splitlines(), 1):
-                    for _m in re.finditer(r"([\d,]+) words from the title to \*END OF TERMS\*", _l460x):
-                        _n460x += 1
-                        if int(_m.group(1).replace(",", "")) != _title460x:
-                            # (x)
-                            _bad460.append(f"(x) {_p460x.name}:{_ln460x} が {_m.group(0)!r} と述べる / 草案の実測 {_title460x}")
                     if f"{_ver460x} 草案は" not in _l460x:
                         continue
                     _seg460x = _l460x[_l460x.index(f"{_ver460x} 草案は"):]
