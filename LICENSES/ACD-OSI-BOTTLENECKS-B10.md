@@ -155,7 +155,7 @@ Russell Nelson 氏 2005-09-01 *"Does OSI certify all licenses that comply with t
 
 ### 2026-11-16 —— 許可型の変種の増殖に、元の事務局長が「もう断るべき」と書いた（`review-readings-3.md` §1.311）
 
-Lawrence Rosen 氏 2020-08-18（`license-discuss`）は、承認済みの BSD 型のライセンスが増えていることを *"ludicrous"* と呼び、*"OSI should simply refuse to do it anymore!"* と書いた。Josh Berkus 氏は 2020-08-21 に *"For such a short license, BSD has an awful lot of variations."* と添えた。ACD は条件の無い許可型の文書として、0BSD・MIT-0・Unlicense と同じ棚に置かれうるので、差が認められなければこの線に当たる。**逆側**: 文は同じ効果の言い換え（BSD の変種）に向けたもので、G1 の差が立てば当たらない。同じ Rosen 氏が 2005 年には「OSD に合えば承認すべき」と書いており（上の 2005 年の段）、2020 年の文はそこから動いた記録である —— 決める側の線が、時とともに増殖に厳しくなった向きを示す。
+Lawrence Rosen 氏 2020-08-18（`license-discuss`）は、承認済みの BSD 型のライセンスが増えていることを *"ludicrous"* と呼び、*"OSI should simply refuse to do it anymore!"* と書いた。Josh Berkus 氏は 2020-08-21 に *"For such a short license, BSD has an awful lot of variations."* と添えた。ACD は条件の無い許可型の文書として、0BSD・MIT-0・Unlicense と同じ棚に置かれうるので、差が認められなければこの線に当たる。**逆側**: 文は同じ効果の言い換え（BSD の変種）に向けたもので、G1 の差が立てば当たらない。同じ Rosen 氏が 2005 年には「OSD に合えば承認すべき」と書いており（上の 2005 年の段）、2020 年の文は Rosen 氏個人の立場が動いた記録である（2020 年の同氏は OSI の役職に無く、委員会や理事会の運用が変わったことは示さない）。文は、Nelson 氏の付け替えの提案（無承諾の付け替えは法に反する、が通の主題）に反対する通の中で *"Although I do agree that ..."* と付け加えた一文である。Berkus 氏の文は *"Gotta be the bikeshed problem."* と続く軽い一言で、重くは使わない。
 
 ### 2026-09-20 追記 —— gap の 1 本目に、**決着した裁判例が付いた**
 
