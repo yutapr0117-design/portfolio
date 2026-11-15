@@ -382,7 +382,8 @@ equivalent law in any foreign jurisdiction, this promise will be treated as if i
 §365(n)-type protection where a licence would not, would a sentence of that kind in §2.9 help? And
 would it harm, by appearing to decide a legal classification that the text otherwise leaves to the
 law (the same objection that led us to remove sentences asserting legal results, errata E23 and
-E79)? The 1.4 draft does not add such a sentence, for that second reason.
+E79)? The 1.4 draft does not add such a sentence, for that second reason
+(`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.2).
 
 ## 9. Does the limitation of liability reach a breach of the Dedicator's own covenants? (§14.1, §5, §8.6, §12.2)
 
