@@ -879,7 +879,7 @@ Project Tick General Public License の `license-review` 側の会話（v1 の�
 
 **この節が establish しないこと。** Piana 氏は暫定の立場と明記している。OpenMDW の審査の帰結は、取得時点で公表されていない（`board-decisions.md`）。
 
-## 1.212 ドシエが一度も引いていなかった 2024〜2026 年の決める側の通から 5 点 —— 前例を論拠にしない、精確な語は品質の問題、AI 生成の表示はファイル単位で、完全な許諾は全法域の動詞を持つ、非操作的な前文（2026-11-15）
+## 1.212 ドシエが一度も引いていなかった 2024〜2026 年の決める側の通から 5 点 —— 前例を論拠にしない、精確な語は品質の問題、AI 生成の表示はファイル単位で、完全な許諾は全法域の動詞を持つ（2026-11-15）
 
 2024〜2026 年の `license-review` の決める側の通を 8 語連鎖でドシエに照合し、重なりが 1 つも無かった 74 通のうち、OpenMDW（§1.211）と ModelGo（§1.210）の外で ACD に当たる 6 通を読んだ（`rounds/2024-to-2026-license-review-unquoted-decider-messages-observed.txt`）。4 つの別の提出に付いた通で、提出そのものの帰結はこの節では扱わない。
 
@@ -898,3 +898,21 @@ Project Tick General Public License の `license-review` 側の会話（v1 の�
 **この節から出た作業。** `REVIEWERS.md` の "What the record already says in its favour" の表が「同じだから承認せよ」と読まれないかの確認（portfolio-50）。§4.2・§7.2・§8.1 の動詞を Berne・米国法・EU 指令の動詞と突き合わせる表（Smith 氏の「完全な許諾」の測定）は、作れば B10 の (iii) を数で言えるが、未着手。
 
 **この節が establish しないこと。** 4 つの提出の帰結は扱わない（AI-MIT は 2026-03-19 に取り下げ・`AS-OF.md`）。Piana 氏の 2024-09 の 2 通は個人の立場と明記されている。
+
+## 1.213 著作権の範囲だけのライセンスを「オープンソース」とするのは滑りやすい坂、パブリックドメインの効果を論じるのは時間の無駄 —— "CC0 incompliant with OSD on patents"（2012）（2026-11-15）
+
+"CC0 incompliant with OSD on patents, [was: MXM compared to CC0]"（`license-review` と `license-discuss` に同時に送られた 2012-03 の会話・94 通・決める側の通に絞って読んだ・`rounds/2012-03-license-review-cc0-incompliant-patents-observed.txt` に 5 通）。`review-precedents.md` §1.138 は CC0 の審査の本体として 4 本を読んだが、この会話はその 4 本に入っておらず、決める側の未引用の通が 26 通在った（portfolio-9b が census に足した通単位の面で見つけた）。CC0 の §4(a)（特許を許諾しない）が OSD に適合するかを論じた、ACD の §8 に最も近い議論である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"I submit that if we start saying that a license that limits its scope to the copyright domain would qualify as "open source", then we will go down a very slippery slope, special purpose or not"* | Carlo Piana 氏 2012-03-06（今の委員） | **有利な面（§8・B10）。** 著作権だけに範囲を限るライセンスをオープンソースと呼ぶことに、今の委員が 14 年前に反対している。ACD は §8.1 で特許を許諾し、§8.3 は *"A dedication that gives away copyright while withholding patent rights leaves the recipient exposed"* とその理由を書く。CC0 を止めた理由の側に ACD は立たない |
+| *"We can spend a large amount of time discussing the legal effects of a public domain copyright dedication. I think that would be a waste of our time."*、*"This isn't a law school exam, folks!"*、引いた判例では *"the courts actually ruled *in these cases* that there was no effective public domain dedication! So the courts resorted to analyzing contracts and licenses!"* | Lawrence Rosen 氏 2012-03-08 | **有利な面（B4・§4.4）。** 放棄が効くかを論じるのは時間の無駄で、裁判所は放棄が効かなかったときにライセンスと契約を読んだ、という見方である。ACD の §4.4 は §4 の許諾を §3 から独立させ、*"You are not required to determine whether Section 3 is effective in any jurisdiction"* と書く。放棄の効果を審査者が論じなくても、許諾が立つ作りである |
+| *"Rights gained under the Copyright Law … may be abandoned. Abandonment of such rights, however, must be manifested by some overt act"*（Hampton v. Paramount を引いて）、*"it takes the equivalent of a manifest license to do so"* | Rosen 氏 2012-03-08 | 放棄には明白な行為が要る。ACD の §3 は放棄を明示し、§16 は適用を通知で示す。放棄の明白さを本文で満たす作りだが、効くかは法域による（`ACD-1.0.jurisdictions.md`） |
+| *"DiBona called for it to be explicit in licenses going forward, I agree."* | Bruce Perens 氏 2012-03-08 | 特許を明示すべきだという DiBona 氏の求め（`board-decisions.md` §6(3) の議事録）に、Perens 氏も同意している。§8 の明示と同じ向き |
+| *"Of course I know that OSI has accepted some absolutely horrid licenses. Some of which never had the benefit of the work of an attorney before they were approved. I've hardly been quiet in my opposition to that."* | Perens 氏 2012-03-09 | **不利な面（B1）。** 法律家の手を経ずに承認されたライセンスを「ひどい」と呼び、それに反対してきたと書く。§1.205 の 2026 年の文と同じ人の、14 年前の同じ向きの文である |
+
+**読み。** 2012 年の CC0 の議論で、後に委員になる Piana 氏は著作権だけのライセンスに反対し、Rosen 氏は放棄の効果を論じるのは無駄でライセンスが読まれると書いた。ACD は特許を許諾し（§8）、放棄と独立に許諾を立てる（§4.4）ので、2 人の文の両方に合う。CC0 を止めた 2 つの論点（特許の除外、放棄が効くかの不確かさ）に、ACD はそれぞれ別の条で答えている。
+
+**逆側。** Rosen 氏の「放棄の効果を論じるのは時間の無駄」は、CC0 を承認すべきだという文脈で書かれた（*"Should we approve the widely-admired CC0 license despite its known disadvantages"*）。それでも CC0 は承認されなかった。審査者が放棄の効果を論じないことは、承認を保証しない。また、Piana 氏の「滑りやすい坂」は特許を含むことを求めるが、ACD の §8.4 のように作品の外（モデルと出力）まで特許を及ぼす形を支持する文ではない（B7・B10）。
+
+**この節が establish しないこと。** この会話は CC0 の撤回（2012-02-24）の後に続いたもので、CC0 の審査の帰結を変えていない（Nelson 氏 2012-03-10 *"We're not reviewing a license anymore since CC0 has been withdrawn"*）。Piana 氏の 2012 年の役職は、この通からは確かめていない。
