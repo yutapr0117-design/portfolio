@@ -453,3 +453,40 @@ census の候補の外の未読の会話の 1 本（"License-review Digest, Vol 
 **この節が establish しないこと。** ACD の提出で何と答えるべきかは、この節では決めない（オーナーの言葉の線）。
 
 **反映**: against #161（提出の理由が審査の入力になる・その補強・30 へ）/ 入口（「承認がなぜ大事か」に答える用意を `OSI-APPROVAL-PLAN.md` に置く・答えはオーナーの言葉で B14 の下・50 へ）。
+
+## 1.245 「なぜ CC0 を使わないのか」—— CC0 が長いのは世界中で確実に手放すためで、承認されないのは特許のためだ（"Svoboda for Approval"・2012-05）（2026-11-15）
+
+`license-review` 2012-05 の会話（24 通）を通読し、5 通を置いた（`rounds/2012-05-license-review-svoboda-*-observed.txt`）。個人が WTFPL に似た短い公有の文を出し、どの法域でも公有に置きたいと述べた提出である。ACD と同じく、作品を公有に置く単独の起草者の提出で、審査者の返しは ACD にそのまま来うる。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Why not use CC0?"* | Richard Fontana 氏 2012-05-21 | **B10 の定型の問い。** 公有に置きたい提出者に、承認済みでない CC0 を勧めた。ACD は同じ問いに、CC0 が持たない特許の許諾と TDM の明示（B10 の G1）で答えることになる |
+| *"It's only not OSI approved because it doesn't do what it can't do, and what people think it should do -- solve the problem of patents. It's only too long because that's what is needed to reliably disclaim copyright world-wide ... and failing that, it's a license that comes as close as possible to public domain. If the Creative Commons thought "This work has no copyright" was sufficient, they would have used it, no?"* | Russ Nelson 氏 2012-05-21（CC0 は承認されておらず長すぎる、という提出者の返答へ） | **有利な面（長さと構造・B10）。** 世界中で確実に手放すには長さが要り、それが効かなければ公有に限りなく近い許諾になる、という CC0 の構造（放棄と代わりの許諾・§1.243）を、長さの理由として擁護した。CC0 が承認されない理由を特許に置いた点は、特許の許諾を持つ ACD と CC0 の差そのものである |
+| *"If you must do this, at least state the problem you're trying to address that isn't already addressed by an OSI license. Heck, I'd argue that step should be a mandatory prerequisite for _any_ new license submission at this point."* | Tom Callaway 氏 2012-05-21（Fedora） | **期待（B10）。** 既存で解けない問題を述べることは、翌年には承認の規則の「新しいライセンスの理由」として明文になっている（§1.246）。ACD の提出は、この問いに最初の一画面で答える必要がある |
+| *"The fact that "Public Domain" means so many different things in so many different jurisdictions should tip you off that what you want to do is not trivial. CC-0 (aside from its patent issues) makes an admirable attempt to "workaround" this fact to achieve extremely permissive end-results when it is not possible to abandon copyright. If there was an "easy" way to universally place works in the Public Domain (for all meanings of PD), it would already have been done. The fact that CC-0 is long is because it is thorough."* | Tom Callaway 氏 2012-05-21 | **有利な面（長さ）と期待。** 公有に置く文が長いことは、徹底していることの印として読まれた。ACD の長さ（1.4 草案の語数の議論）にとって、「短くすべき」とは逆向きの、審査者の側の文である |
+| *"That sort of thing would qualify as a "crayon license"."* | Bruce Perens 氏 2012-05-21（短い公有の文について） | **逆側（B1）。** 短く、法律家の手を経ない公有の文は、crayon license と呼ばれた。ACD は短くはないが、単独の起草者の文である点で同じ型に見られうる |
+
+**読み。** 公有に置く単独の提出に、審査者は「なぜ CC0 ではないのか」「何の問題を解くのか」を返し、CC0 の長さと構造を「必要だから」「徹底しているから」と擁護した。ACD は CC0 と同じ放棄と代わりの許諾の構造に、CC0 が欠く特許の許諾を足した形で、この審査の線の上では「CC0 の承認を妨げた点を埋めたもの」として説明できる。
+
+**逆側。** 2012 年の Nelson 氏の「承認されないのは特許のため」は、CC0 の提出（2012-02）が取り下げられた事情の一つの見方で、委員会の判断の文ではない。Callaway 氏は Fedora の立場で書いており、OSI の決める側ではない。ACD の長さは「徹底」として読まれうるが、1.4 草案の語数が CC0 を大きく超えるなら、同じ審査者が「長すぎる」と言いうる（長さの比較は数えていない）。
+
+**この節が establish しないこと。** Svoboda の提出の帰結（取り下げか放置か）は確かめていない。
+
+**反映**: B10（G1 の説明に「CC0 の承認を妨げた特許の点を埋める」を足す候補・30 へ）/ 入口（最初の一画面で「既存で解けない問題」に答えているかの点検・50 へ）/ 1c 種（長さを「徹底」として説明できるかを語数の議論の逆側に・1c へ）。
+
+## 1.246 2013 年の承認の規則 —— 確定前に出す、新しいライセンスの理由、最も近い承認済みとの比較、法的な分析、増殖の区分（"Akshar License 1.0 Final Draft"・2013-05）（2026-11-15）
+
+`license-discuss` 2013-05 の会話（8 通）を通読し、2 通を置いた（`rounds/2013-05-license-discuss-akshar-{fogel-discourage,villa-approval-rules}-observed.txt`）。Apache-2.0 に近い新しいライセンスの事前の相談である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"We generally very strongly discourage the creation of new open source licenses.  There are too many already, and each new license increases the burden on developers and legal departments.  There should be a convincing reason why no existing license will even come close to serving your purposes before you try creating a new license, IMHO."* | Karl Fogel 氏 2013-05-03（提出の動機を尋ねた同じ通で） | **B10 の定型。** 新しいライセンスへの基本の姿勢で、2008 年の Nelson 氏（§1.238）、2010 年の Perens 氏（§1.236）と同じ線 |
+| *"1. Submit before final, whenever possible, to allow for revisions based on feedback"* / *"**2. Clearly state rationale for a new license**"* / *"**3. Compare to and contrast with the most similar OSI-approved license(s)**"* / *"4. Provide results of any legal analysis available"* / *"**5. Recommend which license proliferation category is appropriate**"* | Luis Villa 氏 2013-05-07（承認の規則の頁を示して） | **手順の材料（規則の過去の版）。** 2013 年の規則は、確定の前に出して意見で改訂できるようにすることを第一に挙げた。ACD は版を確定して凍結し、指摘は次の版で直す手順を取る（`REVISION-PROTOCOL.md`）。審査に出す版は凍結されるが、次の版で改訂できるので、「意見で改訂できる」という趣旨とは食い違わない。2〜5 は現行の提出の文書（`submission-reference.md` の増殖の区分の推薦など）が答えている |
+
+**読み。** 2013 年の規則の 5 項目のうち、2・3・5 は太字で示され、提出の必須として扱われていた。ACD の提出の文書はこの 3 つに答える形を持つ。1 の「確定前に出す」は、ACD が `license-discuss` に先に出した経路（2026-08）と、次の版で改訂する手順に合う。
+
+**逆側。** 4 の「法的な分析の結果」は、ACD には出せるものが無い（B1）。また、規則の 1 を「審査中の本文を直接直す」と読む審査者には、凍結して次の版で直す手順は遅く見えうる（§1.230 の C-FSL で、指摘が改訂版で扱われないことが延期の理由になった）。
+
+**この節が establish しないこと。** 2013 年の規則が現行の規則とどう違うかの全文の比較はしていない（`review-rules.md` の範囲）。
+
+**反映**: 入口（2013 年の規則の 5 項目に、提出の文書のどこが答えるかの対照の点検・50 へ）/ B1（規則の 4 に出せるものが無いことの記録・30 へ）。

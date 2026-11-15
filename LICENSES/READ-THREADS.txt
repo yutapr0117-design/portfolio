@@ -402,6 +402,7 @@
 2011-04-11	Pending OSI License Committee work?
 2011-04-14	Towards an OSI-approved "waive all rights" software license
 2011-04-16	New OSL for "official Intelligence"
+2011-04-17	Multi-license - won't it conflict?
 2011-04-18	Unique identifier for licenses
 2011-04-26	openbravo license: another variant of the MPL
 2011-04-28	NASA Open Source Agreement v1.3
@@ -409,22 +410,30 @@
 2011-05-10	GPL revokability
 2011-05-24	FOR APPROVAL - Python License Changes
 2011-06-03	Cecill License
+2011-06-05	My mail about Python licensing did not go through?
 2011-06-07	The Python licensing situation.
 2011-07-28	IP Clearance
+2011-07-29	Which DUAL Licence should I choose.
+2011-08-08	commercial distribution
 2011-08-15	MPL RC1 posted to license-review
 2011-08-15	Which list?
 2011-08-16	Terekhov
 2011-08-28	FOR APPROVAL - Python License Changes
 2011-09-07	Can OSI specify that public domain is open source?
 2011-09-07	EPICS Open License (U.S. gov't DOE / ANL project).
+2011-11-23	TCPDF license: LGPLv3 + a special clause: is this still considered "Open Source"?
 2011-12-09	Updating the License List
 2011-12-19	Greetings, Earthlings! Need quotes for article
 2011-12-20	Reply to various recent postings on the crayon license issue
+2011-12-20	GPL and proprietary WebAPIs
 2011-12-28	Special clauses added to OSI-approved licenses: are they OK, and if not, what can/should w
+2011-12-28	Special clauses added to OSI-approved licenses: are they OK, and if not, what can/should we do about it?
 2012-01-03	MPL 2.0 released, approved as an open source license by OSI.
 2012-01-03	Invite Creative Commons to submit CC0 Dedication.
 2012-01-03	Small Suggestion
+2012-01-12	GPL and non-GPL binaries in one distribution
 2012-01-14	a GPLv3 compatible attribution for MIT/BSD?
+2012-01-22	Golan v. Holder
 2012-02-01	CDDL 1.1 and GPL 2 with CPE
 2012-02-01	OSI recognition for Creative Commons Zero License?
 2012-02-17	Section 203(a) copyright recapture
@@ -448,22 +457,31 @@
 2012-04-04	Draft of new OSI licenses landing page; please review.
 2012-04-05	BSD, MIT
 2012-04-30	license for code used for scientific results?
+2012-05-20	Svoboda for Approval
 2012-06-02	proposal to revise and slightly reorganize the OSI licensing pages
 2012-06-04	revising/updating the license categorization
 2012-06-05	Alternative Proposal: The OSI licensing pages
+2012-06-08	Request for Approval of NO NONSENSE OPEN SOURCE LICENSE
 2012-07-02	GPL linking exceptions
 2012-07-24	Legacy Approval: APL AROS Public License.
 2012-08-01	New source license
+2012-08-06	Idea for time-dependent license, need comments
 2012-08-14	Can copyrights be abandoned to the public domain?
+2012-09-02	relationship between opensource code and the copyrighted works it produces?
 2012-09-04	plain text license versions?
+2012-09-23	Request for Approval : Modular Open-source Software License (MOSL)
 2012-10-03	License Stewards
 2012-11-11	proposal to revise and slightly reorganize the OSI licensing page [revisited]
 2012-11-12	objective criteria for license evaluation
 2012-11-26	Boilerplate license text for permissive licenses?
 2012-11-28	Organizing the FAQ into categories.
 2012-12-06	Making the PHP FAQ generic
+2012-12-17	License which requires watermarking? (Attribution Provision)
 2013-01-02	Published revised opensource.org/licenses page
+2013-01-02	Differences between GPL and LGPL
 2013-01-05	web forums for license-*
+2013-01-06	Is <some PHP program> Open Source?
+2013-01-30	Request for Approval : Modular Open Software License (MOSL)
 2013-02-14	OSI and SPDX license list
 2013-03-05	call for volunteers: getting rid of comments on OSI licenses
 2013-03-05	CeCILL license V2.1 for Approval
@@ -478,8 +496,10 @@
 2013-04-05	Copyright Free Software Foundation, but license not GPL
 2013-04-07	License drafting quality and process
 2013-04-27	New license submission
+2013-05-03	Akshar License 1.0 Final Draft
 2013-05-05	Some suggested writing projects to improve opensource.org: call for volunteers
 2013-06-07	For Approval: NASA Open Source Agreement 2.0
+2013-06-25	License compatibility - reg
 2013-07-07	further license presentation improvements? (inc. call for help)
 2013-07-08	FAQ entry for slight variations in licenses?
 2013-07-15	Open source license chooser choosealicense.com launched.
