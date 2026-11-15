@@ -15,6 +15,8 @@
     出現回数の差。試作で消えた語は、元では許され試作では許されない (またはその逆の) 利用の候補になる
   - 比較モード: **そろえ残し** —— 試作が A を「A and B」/「neither A nor B」へ増やしたとき、変わった条を参照する文や
     A を含む 3 つ以上の列挙で、A だけが残り B が無い文 (2026-11-15・T67 で §12.3 と §2.4 を人が見つけた型)
+  - 比較モード: **前文の変化** —— 前文は作用しないが意図の判断に使われうるので、変わった文と、外した語を引くドシエの
+    箇所を条と同じに出す (2026-11-15・T72 は前文だけを変え、条の比較が全部 0 になった)
   - 比較モード: **新しく入った全称の句** ("every other provision" など) と、同じ条が名指す条 —— 全称は同じ条が
     限定している条も呑む (2026-11-15・T70 の §5.3 で、50 が反例で見つけた型)
   - 比較モード: 外した語に**ドシエの外向きの文書が依拠していないか** (LICENSES/*.md・rounds/ と作業記録を除く)。
@@ -72,6 +74,13 @@ def body(text: str) -> str:
 
 def clauses(text: str) -> dict[str, str]:
     return {k: " ".join(v.split()) for k, v in CLAUSE_RX.findall(body(text))}
+
+
+def preamble(text: str) -> str:
+    """本文の区切り線の後、最初の節の見出し (`1. DEFINITIONS`) の前 —— 題名と前文 (空白を 1 つに)。"""
+    b = body(text)
+    m = re.search(r"^1\. [A-Z]", b, re.M)
+    return " ".join((b[:m.start()] if m else "").split())
 
 
 def words(s: str) -> list[str]:
@@ -528,8 +537,19 @@ def compare(before: Path, after: Path, n: int) -> None:
         mark, why = universal_mark(w, named, exc)
         print(f"#   {mark} §{k} {w!r} (同じ条が名指す条: {', '.join('§' + x for x in named) or '無し'}"
               f"{'・除外の句あり' if exc else ''}{'・' + why if why else ''}): …{ctx}…")
-    _xd = (external_reliance({c: (cb.get(c, ""), ca.get(c, "")) for c in _chg}, after.read_text(encoding="utf-8"))
-           if _chg else [])
+    # 前文 (2026-11-15・1c の T72 で見えた穴): 前文は作用の条ではない (*"This preamble is not, and nothing in it qualifies
+    #   them"*) が、意図の判断に使われる (review-readings-6 §1.450・Nelson 氏 2002)。条だけを比べると、T72 のように前文だけを
+    #   変えた試作は全項目 0 になり、前文の語を引くドシエの箇所も出なかった。前文を擬似の条「前文」として比べる
+    pb, pa = preamble(before.read_text(encoding="utf-8")), preamble(after.read_text(encoding="utf-8"))
+    if pb != pa:
+        _sb = set(_SENT.split(pb))
+        _new = [s for s in _SENT.split(pa) if s and s not in _sb]
+        print(f"# 前文が変わった: {len(words(pb))} → {len(words(pa))} 語・変わった文 {len(_new)} (前文は作用しないが、意図の判断に使われうる)")
+        for s in _new:
+            print(f"#   ・ 前文: …{s[:150]}…")
+    _pre = {"前文": (pb, pa)} if pb != pa else {}
+    _xd = (external_reliance({**{c: (cb.get(c, ""), ca.get(c, "")) for c in _chg}, **_pre}, after.read_text(encoding="utf-8"))
+           if _chg or _pre else [])
     _out = [x for x in _xd if _OUTWARD.search(x[0])]
     print(f"# 外した文に依拠するドシエの箇所 (LICENSES/*.md・rounds/ と作業記録を除く): {len(_xd)}"
           f" —— 外向き {len(_out)} (この版を対象にするなら書き換えが要る) / 記録 {len(_xd) - len(_out)}")
