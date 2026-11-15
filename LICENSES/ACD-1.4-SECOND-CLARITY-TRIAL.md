@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.4-SECOND-CLARITY-TRIAL.md
 audience: 次のセッションの実装者（一次読者）/ 監査人
-last-updated: 2026-11-12
+last-updated: 2026-11-15
 canonical-ref: LICENSES/ACD-1.4-CLARITY-TRIAL.md (§1〜§9・規則はそちらに従う) / LICENSES/ACD-1.4-DRAFT.txt (試作の対象・この file は草案を上書きしない) / LICENSES/ACD-1.4-CHANGELIST.md (採用した変更の記録先)
 ---
 
@@ -984,3 +984,5 @@ After: It does not apply this Dedication to material that a narrower notice the 
 **変えない理由**: Dedicator が識別子を残すよう頼むことは、§10.3 の *"any request, preference, custom, or expectation … including a request for attribution or citation, is a request and not a condition"* に既に入る。受領者が確かめる手段は §16.2（識別子かタグだけで十分な通知）が持つ。明示の一文は §10.3 と重なり、B3 に効く。**⚠ 逆側**: 0BSD の前例は弱い理由で通っており、剥がせることへの異議（Cowan 氏）に本文は答えない —— Dedicator が頼めるだけで、受領者が確かめられることを本文は保証しない。条件を置かない献呈の代償で、§10.1 と引き換えである。
 
 **(2) §2.6（2f・§1.215）**: Berkus 氏は貢献の扱いの条に *"Shouldn't it be part of the project's Contributing Guide?"* と書いた（`license-review` 2024-10-07）。§2.6 の最後の 2 文（貢献者の他の扱いは *"a matter of project governance and is not addressed here"*、誰にも提出も受け入れも義務づけない）がその答えで、ライセンスが置くのは寄与が同じ献呈の下に入ることと、入らない素材を示す Dedicator 自身の約束だけである。答えは逐条リファレンスの §2.6 の行に書いた。**⚠ 逆側**: 寄与が同じ献呈の下に入るという第 1 文自体が、Berkus 氏の問いの対象（貢献の扱い）であり、それは本文に残る。
+
+§15 からは `ACD-1.4-THIRD-CLARITY-TRIAL.md` に続く（この file が 1,000 行の BLOCKING に届いたため・2026-11-15）。
