@@ -191,7 +191,8 @@ press, and if so, is a covenant by the Dedicator not to cause an affiliate to as
 ## 3. Are the moral-rights covenants enforceable where waiver is not? (§12.1 to §12.5)
 
 **The clauses.** §12.1 waives Moral Rights to the extent the law permits. §12.2 replaces the waiver,
-where moral rights are inalienable, with a covenant not to exercise them against You. §12.3 limits
+where moral rights are inalienable, with a covenant not to exercise them against You; the 1.4 draft adds, in a
+sentence of its own, the Dedicator's consent to the acts the rights would otherwise forbid ((e) below). §12.3 limits
 the covenant to the Work. §12.4 binds successors and *"any person entitled to exercise or enforce
 Moral Rights in the Work after the Dedicator's death"*. §12.5 keeps false attribution outside the
 covenant.
