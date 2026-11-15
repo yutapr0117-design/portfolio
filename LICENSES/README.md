@@ -37,7 +37,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | 「**この条は何を言われるか**」 | [`ACD-1.0.review-doctrine.md`](ACD-1.0.review-doctrine.md) —— リスト上の法理を **ACD-1.0 の特定の条へ当てた**読み（§6.3 / OSD 5 と §10.4 / 学習のための複製と TDM / §8 と §5）。**2026-09-25 に `review-precedents.md` から主題で分離した** ——あちらは「他の提出に何が起きたか」、ここは「その法理を我々の条に当てるとどうなるか」|
 | 「アーカイブ全体では何が起きているのか」 | [`ACD-1.0.review-corpus.md`](ACD-1.0.review-corpus.md) —— **アーカイブを全部取得して測った**こと（承認の基準 8 条 / 委員会が述べた規則 / 決議の分布 / 提出から決定までの所要 / 手続きの実態・§1.67〜）。**前者は読み、後者は測定である** |
 | 「OSI が**公表している規則**は何と書いてあるのか」 | [`ACD-1.0.review-rules.md`](ACD-1.0.review-rules.md) —— **公表ページを原典で読んだ**記録（承認基準 8 条 / 提出の要件リスト / Code of Conduct の逐条 / 本文を変えたい提出者への手続き・§1.70 / §1.76 / §1.81 / §1.82 / §1.86）。**公表ページは規則を、リストは議論を、理事会は決定を残す** ——資料の種類で分けてある |
-| 「**理事会は実際に何を決めたのか**」 | [`ACD-1.0.board-decisions.md`](ACD-1.0.board-decisions.md) —— **公開議事録という別の一次資料**から読める決定（承認 8・否決 9・取り下げ 2／公開 12 回の範囲）。**最も重いのは、公表されていない第 3 の帰結** ——*reject* ではなく *"not approved … if it is **duplicative and not used by a project**"*。**リストは議論を、理事会は決定を残す** |
+| 「**理事会は実際に何を決めたのか**」 | [`ACD-1.0.board-decisions.md`](ACD-1.0.board-decisions.md) —— **公開議事録という別の一次資料**から読める決定（承認 8・否決 9・取り下げ 2／公開 12 回の範囲）。**最も重いのは、公表されていない第 3 の帰結** ——*reject* ではなく *"not approved … if it is **duplicative and not used by a project**"*。**リストは議論を、理事会は決定を残す** §9 からは [`ACD-1.0.board-decisions-2.md`](ACD-1.0.board-decisions-2.md) に続く（2026-11-15・advisory を越えたため）。 |
 | 「うちの国では効かないのでは」 | [`ACD-1.0.jurisdictions.md`](ACD-1.0.jurisdictions.md) |
 | **使ってよいか / どう使うか / 法務に何を見せるか** | [`ACD-1.0.faq.md`](ACD-1.0.faq.md) |
 | レビューで来るであろう指摘への回答（総論・OSD・認める弱点） | [`ACD-1.0.review-responses.md`](ACD-1.0.review-responses.md) |
@@ -79,7 +79,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | 提出文の背後にある参考資料（**貼らない**・§1〜§5） | [`ACD-1.0.submission-reference.md`](ACD-1.0.submission-reference.md) |
 | その参考資料のうち OSD の節（§3〜§3d・**貼らない**） | [`ACD-1.0.submission-osd.md`](ACD-1.0.submission-osd.md) |
 | **承認阻害ボトルネックの一覧（canonical）** | [`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) |
-| 「**外の答えを待っている項目は何か**」 | [`ACD-OSI-BOTTLENECKS-EXTERNAL.md`](ACD-OSI-BOTTLENECKS-EXTERNAL.md) —— 我々の作業では動かせない 8 項目（7 節）の深い分析（法的レビュー / 実使用 / 献呈と許諾の並存 / §4.4（起草は 1.1 で閉じ設計の問いが外部）/ 特許射程 / gap / SPDX / 主題適格 —— B1・B2・B4・B5・B7・B10・B11・B15。**2026-09-28 訂正**: 旧文は「7 項目」で B4 が列挙から落ちていた）。**索引と集計は上の register が canonical** |
+| 「**外の答えを待っている項目は何か**」 | [`ACD-OSI-BOTTLENECKS-EXTERNAL.md`](ACD-OSI-BOTTLENECKS-EXTERNAL.md) —— 我々の作業では動かせない 8 項目（7 節）の深い分析（法的レビュー / 実使用 / 献呈と許諾の並存 / §4.4（起草は 1.1 で閉じ設計の問いが外部）/ 特許射程 / gap / SPDX / 主題適格 —— B1・B2・B4・B5・B7・B10・B11・B15。**2026-09-28 訂正**: 旧文は「7 項目」で B4 が列挙から落ちていた）。**索引と集計は上の register が canonical** B10 の本体は 2026-11-15 から [`ACD-OSI-BOTTLENECKS-B10.md`](ACD-OSI-BOTTLENECKS-B10.md) に在る（この file が advisory を越えたので丸ごと移した）。 |
 | 「**そもそも投稿できるのか**」 | [`ACD-OSI-BOTTLENECKS-POSTING.md`](ACD-OSI-BOTTLENECKS-POSTING.md) —— **B14 のみ**。2026-09-09 に OSI Moderators が両リストへ「AI が全部または大半を書いた投稿は拒否する」と投稿して以降の経過。**instrument の中身ではなく手続きの問題**なので 2026-09-25 に分離した。**行動（投稿停止・本文凍結・リスト上でこの件を論じない）はここが単一の所在である** |
 | 既知の反論が当たるか（**英語・審査者が最初に読む**） | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) |
 | 審査者は主題について何と言っているか（人格権 / 特許 / 長さ / 構造 …） | [`ACD-1.0.reviewer-positions.md`](ACD-1.0.reviewer-positions.md) |
