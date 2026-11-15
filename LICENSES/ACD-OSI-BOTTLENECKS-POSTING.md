@@ -292,3 +292,4 @@ a latin parody of my name."*（逐語は `rounds/2026-09-09-license-discuss-pere
 
 **同じ審査の場に、逆の記録もある（#292）。** Chestek 氏は 2025-08-14 に AFN-License について *"Looks like AI slop to me and is clearly not OSD-compliant from the description"*、*"I will be ignoring."* と書いた。通知の 13 か月前で、投稿ではなくライセンスの本文についての発言である。OSD の不適合も理由に挙げている。
 
+**2026-11-15 に足した —— 提出者の名前が審査の扱いに使われた記録（`review-readings.md` §1.169・portfolio-2f）。** Russ Nelson 氏 2009-01-24 *"One of the filters for frivolity is whether someone submits the license using a pseudonym, or their real name."* これに Bruce Perens 氏は同じ日に、提出者ではなく提出物を見るべきだと返した。ACD はオーナーが本名で出し、AI が大半を書いた経緯も開示している。**逆側**: 審査する人が提出物でなく提出者を見ることがある、という記録でもあり、2026-09 の moderator の宣言（AI が大半を書いた投稿を拒否する）はその現在の形である。
