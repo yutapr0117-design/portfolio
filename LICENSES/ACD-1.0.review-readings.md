@@ -726,3 +726,21 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **逆側。** 違いが在ることは、違いが新しいライセンスに値することを意味しない（B10 の題そのもの）。Piana 氏が並べた費用は違いの大きさに関わらず掛かり、ACD の違いが特許の範囲と機械学習の明示に集まっていることは、既存のライセンスに例外や注記を足せば済む、という返答を招く。また、法律家のレビューの不在に誰も触れなかったのは、重複で退けるのに足りたからで、レビューが要らないことを示さない（`review-rules.md` §1.141 はこの提出を「不在を自分で述べた提出」に数えている）。
 
 **この節が establish しないこと。** 理事会の一般化の決定が、この会話のどの通にどう依ったかは議事録の側（`board-decisions.md`）の記録で、この節は確かめていない。Smith 氏は個人として書いたと明記している。
+
+## 1.204 同意の手順をライセンスが求めること —— CNRI-Python の clickwrap と OSD 10（2026）（2026-11-15）
+
+"Submission: CNRI-Python-GPL-Compatible"（`license-review` 2026-03・5 通・`rounds/2026-03-license-review-cnri-python-clickwrap-osd10-observed.txt` に 4 通）。2021 年以降の未読を新しい順に読んだ 3 本目。Python のライセンスの束の CNRI の部分を、承認済みの旧版の後継として承認するよう求めた提出で、本文は *"BY CLICKING ON "ACCEPT" WHERE INDICATED BELOW, OR BY COPYING, INSTALLING OR OTHERWISE USING PYTHON 1.6.1 SOFTWARE, YOU ARE DEEMED TO HAVE AGREED"* と書く。2002 年の click-wrap の議論（§1.180 の追記）の、今の審査者による続きである。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"The CNRI is written as a clickwrap agreement, rather than as a license. Does this make it problematic to approve?"* | Josh Berkus 氏 2026-03-20 | 審査者は、同意の手順を求める形を、それだけで問いにする。ACD の §2.3 は *"This Dedication takes effect without any act of acceptance by You."* と書き、問いの対象にならない |
+| *"A "clickwrap" requirement would violate the OSD, and this was the point of the only amendment to the OSD ever made, OSD 10"*、続く通で *"I don't think a "clickwrap or usewrap" clause as we have here violates OSD 10 but I suppose it's debatable."* | Richard Fontana 氏 2026-03-20 | **有利な面。** OSD 10 の唯一の改正は同意の手順を狙ったもので、ACD は手順を一切求めない（`ACD-1.0.submission-osd.md` の OSD 10 の行と同じ根拠）。Fontana 氏は「使えば同意したとみなす」型（usewrap）も議論の余地ありとした。ACD はみなしの同意も置かない |
+| *"I would say it doesn't because the clickwrap is in the alternative, "or by copying ...." … since there is a way to agree to the license, GUI or not, I would say it doesn't violate OSD10."* | Pamela Chestek 氏 2026-03-20 | Chestek 氏の基準は「GUI に依らない同意の道が在るか」である。ACD は同意そのものを要らないとするので、この基準の外に在る |
+
+**読み。** 2026 年の 3 人は、同意の手順を求めるライセンスに OSD 10 を当てた。結論は割れたが（Fontana 氏は「議論の余地あり」、Chestek 氏は「別の道が在るので反しない」）、問いが立つのは本文が同意を求めるからである。ACD は §2.3 で同意を求めないと書き、ACD の許諾は受け手が知らなくても在る。OSD 10 の行（`submission-osd.md`）は 2002 年と 2026 年の両方の議論に支えられる。
+
+**逆側。** CNRI の本文は clickwrap の文を持ったまま承認された（下の帰結）。審査者は同意の文を問いにはしたが、退ける理由にはしなかったので、§2.3 の差は承認を左右する差ではなく、問いを 1 つ減らす差にとどまる。また、同意を求めないことは、契約として成り立たせる道を自分で閉じることでもある。§1.202 の Sado 氏の文（出力への条件は契約でしか働かず、同意した者しか縛らない）が示すとおり、ACD は条件を置かないのでこの費用を払わない。ただし §2.5 の estoppel（Dedicator が撤回や対価の欠如を主張しない）は、受け手の同意でなく Dedicator の側の約束に依っていて、法域によっては同意の無い約束の効き方が問われうる（`ACD-1.0.jurisdictions.md`）。
+
+**帰結。** 提出者自身が 2026-09-09 の別の提出（"Submission: PSF-2.0"・`license-review` 2026-09）で *"After OSI has approved Python-2.0.1 and one of its components (CNRI-Python-GPL-Compatible)"* と書いている。clickwrap の文を持ったまま承認されたことになる。
+
+**この節が establish しないこと。** 承認の日付と理由は、提出者の文の外（OSI の告知や議事録）では確かめていない。旧版の後継としての承認で、新しいライセンスの審査とは重さが違う。

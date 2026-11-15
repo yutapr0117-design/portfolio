@@ -1,0 +1,210 @@
+Source: OSI license-review public archive, 2026-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 4 of 5 in "Submission: CNRI-Python-GPL-Compatible" (begun 2026-03-20)
+Senders: Josh Berkus, Richard Fontana, Pamela Chestek
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From josh at berkus.org  Fri Mar 20 16:38:32 2026
+From: josh at berkus.org (Josh Berkus)
+Date: Fri, 20 Mar 2026 09:38:32 -0700
+Subject: [License-review] Submission: CNRI-Python-GPL-Compatible
+In-Reply-To: 
+ <AS8PR06MB7527721C63239B3B5DAFD7FEFB4CA@AS8PR06MB7527.eurprd06.prod.outlook.com>
+References: 
+ <AS8PR06MB7527721C63239B3B5DAFD7FEFB4CA@AS8PR06MB7527.eurprd06.prod.outlook.com>
+Message-ID: <fc8565d3-bcd0-4615-92fa-2d6ae179c7be@berkus.org>
+
+On 3/20/26 9:13 AM, Max Mehl wrote:
+> Following a discussion on license-discuss@ <https:// 
+> lists.opensource.org/pipermail/license- 
+> discuss_lists.opensource.org/2026-March/022526.html> and a quick 
+> coordination with Deb from the Python Software Foundation (in Cc), I 
+> would like to propose that CNRI-Python-GPL-Compatible be considered an 
+> officially approved (legacy) Open Source license. In the same step, I 
+> propose to mark CNRI-Python as either Superseded or Voluntarily Retired.
+
+The CNRI is written as a clickwrap agreement, rather than as a license. 
+Does this make it problematic to approve?
+
+-- 
+Josh Berkus
+
+From fontana at sharpeleven.org  Fri Mar 20 17:34:27 2026
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Fri, 20 Mar 2026 13:34:27 -0400
+Subject: [License-review] Submission: CNRI-Python-GPL-Compatible
+In-Reply-To: <fc8565d3-bcd0-4615-92fa-2d6ae179c7be@berkus.org>
+References: 
+ <AS8PR06MB7527721C63239B3B5DAFD7FEFB4CA@AS8PR06MB7527.eurprd06.prod.outlook.com>
+ <fc8565d3-bcd0-4615-92fa-2d6ae179c7be@berkus.org>
+Message-ID: 
+ <CAGT84B0vBCP9pg=XqpxBpPNqf9y4QPSWrUPuujrtTuVaYY6Txg@mail.gmail.com>
+
+"
+
+On Fri, Mar 20, 2026 at 12:39 PM Josh Berkus <josh at berkus.org> wrote:
+>
+> On 3/20/26 9:13 AM, Max Mehl wrote:
+> > Following a discussion on license-discuss@ <https://
+> > lists.opensource.org/pipermail/license-
+> > discuss_lists.opensource.org/2026-March/022526.html> and a quick
+> > coordination with Deb from the Python Software Foundation (in Cc), I
+> > would like to propose that CNRI-Python-GPL-Compatible be considered an
+> > officially approved (legacy) Open Source license. In the same step, I
+> > propose to mark CNRI-Python as either Superseded or Voluntarily Retired.
+>
+> The CNRI is written as a clickwrap agreement, rather than as a license.
+> Does this make it problematic to approve?
+
+The relevant phrasing is:
+
+BY CLICKING ON "ACCEPT" WHERE INDICATED BELOW, OR BY COPYING,
+INSTALLING OR OTHERWISE USING PYTHON 1.6.1 SOFTWARE, YOU ARE DEEMED TO
+HAVE AGREED TO THE TERMS AND CONDITIONS OF THIS LICENSE AGREEMENT.
+
+Some other OSI-approved licenses have similar sorts of "usewrap"
+language. This arguably includes the GPL, though the provision I'm
+thinking of (GPLv2 section 5) is careful to refer only to "modifying
+or distributing", and it seems to have gotten reinterpreted by people
+in the GPL community.
+
+A "clickwrap" requirement would violate the OSD, and this was the
+point of the only amendment to the OSD ever made, OSD 10 ("No
+provision of the license may be predicated on any individual
+technology or style of interface").
+
+Richard
+
+From fontana at sharpeleven.org  Fri Mar 20 17:41:21 2026
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Fri, 20 Mar 2026 13:41:21 -0400
+Subject: [License-review] Submission: CNRI-Python-GPL-Compatible
+In-Reply-To: 
+ <CAGT84B0vBCP9pg=XqpxBpPNqf9y4QPSWrUPuujrtTuVaYY6Txg@mail.gmail.com>
+References: 
+ <AS8PR06MB7527721C63239B3B5DAFD7FEFB4CA@AS8PR06MB7527.eurprd06.prod.outlook.com>
+ <fc8565d3-bcd0-4615-92fa-2d6ae179c7be@berkus.org>
+ <CAGT84B0vBCP9pg=XqpxBpPNqf9y4QPSWrUPuujrtTuVaYY6Txg@mail.gmail.com>
+Message-ID: 
+ <CAGT84B0WB9EjB5QMyreJUjrLGL5_dc8othPuSAdtmfJaKBW+Xw@mail.gmail.com>
+
+On Fri, Mar 20, 2026 at 1:34 PM Richard Fontana <fontana at sharpeleven.org> wrote:
+>
+> "
+>
+> On Fri, Mar 20, 2026 at 12:39 PM Josh Berkus <josh at berkus.org> wrote:
+> >
+> > On 3/20/26 9:13 AM, Max Mehl wrote:
+> > > Following a discussion on license-discuss@ <https://
+> > > lists.opensource.org/pipermail/license-
+> > > discuss_lists.opensource.org/2026-March/022526.html> and a quick
+> > > coordination with Deb from the Python Software Foundation (in Cc), I
+> > > would like to propose that CNRI-Python-GPL-Compatible be considered an
+> > > officially approved (legacy) Open Source license. In the same step, I
+> > > propose to mark CNRI-Python as either Superseded or Voluntarily Retired.
+> >
+> > The CNRI is written as a clickwrap agreement, rather than as a license.
+> > Does this make it problematic to approve?
+>
+> The relevant phrasing is:
+>
+> BY CLICKING ON "ACCEPT" WHERE INDICATED BELOW, OR BY COPYING,
+> INSTALLING OR OTHERWISE USING PYTHON 1.6.1 SOFTWARE, YOU ARE DEEMED TO
+> HAVE AGREED TO THE TERMS AND CONDITIONS OF THIS LICENSE AGREEMENT.
+>
+> Some other OSI-approved licenses have similar sorts of "usewrap"
+> language. This arguably includes the GPL, though the provision I'm
+> thinking of (GPLv2 section 5) is careful to refer only to "modifying
+> or distributing", and it seems to have gotten reinterpreted by people
+> in the GPL community.
+>
+> A "clickwrap" requirement would violate the OSD, and this was the
+> point of the only amendment to the OSD ever made, OSD 10 ("No
+> provision of the license may be predicated on any individual
+> technology or style of interface").
+
+To clarify since I realize I didn't really answer Josh's question, I
+don't think a "clickwrap or usewrap" clause as we have here violates
+OSD 10 but I suppose it's debatable. I assume there never was anything
+to "click" in historical versions of Python and this is just ignorant
+license lawyer drafting, and I hope that there are no present-day
+official versions of Python for Windows or whatever where you have to
+click accept in a GUI installer or something like that.
+
+Richard
+
+From pamela at chesteklegal.com  Fri Mar 20 20:51:48 2026
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Fri, 20 Mar 2026 13:51:48 -0700
+Subject: [License-review] Submission: CNRI-Python-GPL-Compatible
+In-Reply-To: 
+ <CAGT84B0WB9EjB5QMyreJUjrLGL5_dc8othPuSAdtmfJaKBW+Xw@mail.gmail.com>
+References: 
+ <AS8PR06MB7527721C63239B3B5DAFD7FEFB4CA@AS8PR06MB7527.eurprd06.prod.outlook.com>
+ <fc8565d3-bcd0-4615-92fa-2d6ae179c7be@berkus.org>
+ <CAGT84B0vBCP9pg=XqpxBpPNqf9y4QPSWrUPuujrtTuVaYY6Txg@mail.gmail.com>
+ <CAGT84B0WB9EjB5QMyreJUjrLGL5_dc8othPuSAdtmfJaKBW+Xw@mail.gmail.com>
+Message-ID: <0d06201a-cc5e-4e1a-9a1e-bcfb0736f008@chesteklegal.com>
+
+
+On 3/20/2026 10:41 AM, Richard Fontana wrote:
+> On Fri, Mar 20, 2026 at 1:34 PM Richard Fontana<fontana at sharpeleven.org> wrote:
+>> "
+>>
+>> On Fri, Mar 20, 2026 at 12:39 PM Josh Berkus<josh at berkus.org> wrote:
+>>> On 3/20/26 9:13 AM, Max Mehl wrote:
+>>>> Following a discussion on license-discuss@<https:// lists.opensource.org/pipermail/license- 
+>>>> discuss_lists.opensource.org/2026-March/022526.html> and a quick
+>>>> coordination with Deb from the Python Software Foundation (in Cc), I
+>>>> would like to propose that CNRI-Python-GPL-Compatible be considered an
+>>>> officially approved (legacy) Open Source license. In the same step, I
+>>>> propose to mark CNRI-Python as either Superseded or Voluntarily Retired.
+>>> The CNRI is written as a clickwrap agreement, rather than as a license.
+>>> Does this make it problematic to approve?
+>> The relevant phrasing is:
+>>
+>> BY CLICKING ON "ACCEPT" WHERE INDICATED BELOW, OR BY COPYING,
+>> INSTALLING OR OTHERWISE USING PYTHON 1.6.1 SOFTWARE, YOU ARE DEEMED TO
+>> HAVE AGREED TO THE TERMS AND CONDITIONS OF THIS LICENSE AGREEMENT.
+>>
+>> Some other OSI-approved licenses have similar sorts of "usewrap"
+>> language. This arguably includes the GPL, though the provision I'm
+>> thinking of (GPLv2 section 5) is careful to refer only to "modifying
+>> or distributing", and it seems to have gotten reinterpreted by people
+>> in the GPL community.
+>>
+>> A "clickwrap" requirement would violate the OSD, and this was the
+>> point of the only amendment to the OSD ever made, OSD 10 ("No
+>> provision of the license may be predicated on any individual
+>> technology or style of interface").
+> To clarify since I realize I didn't really answer Josh's question, I
+> don't think a "clickwrap or usewrap" clause as we have here violates
+> OSD 10 but I suppose it's debatable. I assume there never was anything
+> to "click" in historical versions of Python and this is just ignorant
+> license lawyer drafting, and I hope that there are no present-day
+> official versions of Python for Windows or whatever where you have to
+> click accept in a GUI installer or something like that.
+>
+> Richard
+
+I would say it doesn't because the clickwrap is in the alternative, "or 
+by copying ...." It doesn't even say that /if/ there is a clickwrap you 
+must assent that way. So, since there is a way to agree to the license, 
+GUI or not, I would say it doesn't violate OSD10. And I appreciate the 
+historical context to OSD10.
+
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260320/d2c253f2/attachment-0001.htm>
