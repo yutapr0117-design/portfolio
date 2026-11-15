@@ -18,6 +18,14 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 **新しく読んだら**: この一覧の先頭に 1 件を足し、`AS-OF.md` のセルの「直近の 1 件」と件数を入れ替える。
 件名は同じ commit で `READ-THREADS.txt` にも足す（census が「読んだ」と数えるのはそちらだけ）。
 
+## 2026-11-15 の読了（新しいものが上）
+
+- 2026-11-15 に "Submission: CNRI-Python-GPL-Compatible"（`license-review` 2026-03・5 通）を読み `review-readings.md` §1.204 へ（clickwrap の文と OSD 10。ACD の §2.3 は同意を求めない。clickwrap の文を持ったまま承認された）。
+
+- 2026-11-15 に "OSI License Submission - PPPL BSD-3"（`license-review` 2025-07 と 2025-10 の 2 つの会話・16 通）を読み `review-readings.md` §1.203 へ（名前だけが違うライセンスは承認しない、著作権者の表示はライセンスの外に置く、名は steward が決める）。
+
+- 2026-11-15 に 2021 年以降の未読 8 本を新しい順に読み始め、"Total Reciprocity Public License (TRPL v1.0)"（2025-12・20 通・決める側の通に絞った）を `review-readings.md` §1.202 へ（出力を派生物とみなす条と、権利の有無を決めずに置く ACD の §6.4）。
+
 ## 2026-11-12 以前の読了（新しいものが上）
 
 - 2026-11-12 に "Ethical open source licensing - Persona non Grata Preamble"（2020-02・47 通・決める側の通に絞った）を読み `review-readings.md` §1.201 へ（採用の見込みは、増殖と重複を除けば承認の基準ではなかった・元理事。拘束しない語はライセンスに要らない・Nelson 氏）。
