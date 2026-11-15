@@ -153,6 +153,22 @@ strength is entitled to ask about it. Our answer there is the subject-matter lim
 that the difference exists. *(Corrected 2026-09-24: this paragraph and the row above had
 attributed 1.1's Steward exception to ACD-1.0, whose §16.4 has none — `against.md` #160.)*
 
+**The closest decided case is the OVPL, and it draws the line where the Steward exception stays
+clear.** The board declined the OVPL on 2005-11-11 because its grant-back to the initial developer
+*"creates a situation that discriminates against parties who wish to make their own distribution
+of OVPL-licensed code"* (Russell Nelson's announcement). The same year, Mark Radcliffe wrote that
+*"such differences in rights is not discrimination under the OSD"*, and Bruce Perens put the test
+as whether *"the parties to whom the rights are NOT granted are still getting sufficient rights for
+it to otherwise be considered an Open Source license."* The Steward exception burdens nobody's
+distribution of the Work and asks nothing of contributors (§16.6); it concerns only who may issue
+a new text under the name. Two remarks from the same years support keeping the text fixed at all:
+*"You cannot change a single word of a license without losing approval"* (Nelson, 2005-11-01) and
+*"most Open Source licenses are themselves not subject to modification without the consent of the
+author of the licenses"* (Brian Behlendorf, 2004-11-07). Against this: a reviewer may recall the
+OVPL from the shape alone, "one party holds a right others do not", and Lawrence Rosen, who thought
+the OVPL approvable, also wrote *"I don't like such special privileges in open source licenses"*
+(`ACD-1.0.review-readings-4.md` §1.350, §1.352).
+
 **⚠ And the converse.** Under the wide reading this instrument is *unusually* well placed in the
 vulnerable place — it has no termination provision at all (§10.4: no permission
 "terminates for any reason") and a non-terminable patent licence (§8.2), so there is no trigger
