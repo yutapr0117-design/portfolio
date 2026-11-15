@@ -140,14 +140,18 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2003-08 | `license-discuss` | **観測（"Open Source Licensing" の全 3 通・OSL の perpetual と 17 U.S.C. §203、法はどのみち勝つので書く必要は無いという文の引用）** | `2003-08-license-discuss-osl-perpetual-and-section-203-observed.txt` |
 | 2007-07〜08 | `license-discuss` | **観測（GPLv3 の審査の進め方から 2 通・審査を OSD だけに絞る主張と、その前提だった採用と検討）** | `2007-07-license-discuss-gplv3-review-scope-observed.txt` |
 | 2018-06 | `license-review` | **観測（"moving to an issue tracker" から 5 通・理事会が変更を求める 2 つの場面と、独自の価値の問い）** | `2018-06-license-review-board-change-requests-and-unique-value-observed.txt` |
+| 2018-09 | `license-review` | **観測（Smith 氏の 1 通・先例の主張への否定的な反応、運用は OSD の文言より厳しい）** | `2018-09-license-review-cfsl-smith-interpretive-history-observed.txt` |
 | 2018-06 | `license-review` | **観測（Perens 氏の 1 通・ライセンスに関心を持つ人を紹介してほしい）** | `2018-06-license-review-l0r-perens-interest-observed.txt` |
 | 2018-06 | `license-review` | **観測（Cowan 氏の 1 通・RPL は不透明でも善意だから承認したが誤りだった）** | `2018-06-license-review-l0r-cowan-rpl-observed.txt` |
 | 2026-06 | `license-review` | **観測（The Mutualist License の審査から 3 通・語の正確さ、解釈の規則は語の不明確さを補わない、専門家の読み）** | `2026-06-license-review-mutual-drafting-and-canons-observed.txt` |
 | 2019-01〜2020-03 | `license-discuss` | **観測（2 つの会話から 4 通・意図は明確に、ただし曖昧で広すぎる語でなく。倫理的なライセンスは OSD と両立しない。moderation で落とされた通）** | `2019-01-to-2020-03-license-discuss-intent-precision-and-moderation-observed.txt` |
+| 2019-01 | `license-review` | **観測（Phipps 氏の 1 通・四つの自由は評価の前提、一般の利用のための承認、対等な権利）** | `2019-01-license-review-cfsl-phipps-general-use-observed.txt` |
 | 2015-01 | `license-discuss` | **観測（"FAQ entry on CLAs" から 3 通・OSI は外向きのライセンスだけを審査する）** | `2015-01-license-discuss-osi-reviews-outbound-only-observed.txt` |
 | 2005-08 | `license-discuss` | **観測（OVPL の会話から 6 通・委員長の逐語の再利用の要求と、認証の要件は OSD に限るべきだという理事の反対）** | `2005-08-license-discuss-ovpl-verbatim-reuse-observed.txt` |
 | 2002-08 | `license-discuss` | **観測（"A new "use" clause in the OSD" から 4 通・許される制限だけを列挙する OSD の条の案）** | `2002-08-license-discuss-osd-use-clause-observed.txt` |
 | 2018-10 | `license-review` | **観測（SSPL と OSD 9 の会話から 3 通・OSD は別の時代のために書かれた、承認済みのライセンスは OSD の隙を整えられる）** | `2018-10-license-review-osd9-written-for-another-time-observed.txt` |
+| 2018-10 | `license-review` | **観測（Phipps 氏の 1 通・著者に代わって未解決の論点を集めた、改訂版が要る）** | `2018-10-license-review-cfsl-phipps-open-issues-observed.txt` |
+| 2018-10 | `license-review` | **観測（Phipps 氏の 1 通・指摘が改訂版で扱われていないので理事会は判断を延ばした）** | `2018-10-license-review-cfsl-phipps-postponed-observed.txt` |
 | 2019-06 | `license-discuss` | **観測（"Copyright on APIs" から 2 通・在るか分からない権利を主張すること、名指すことが権利の拡張の例になること）** | `2019-06-license-discuss-api-copyright-claiming-rights-observed.txt` |
 | 2025-12 | `license-discuss` | **観測（"Total Reciprocity Public License (TRPL v1.0)" から 3 通・出力を派生物とみなす条は使用の制限か、ライセンスが法の語を作り直すこと）** | `2025-12-license-discuss-trpl-functional-output-observed.txt` |
 | 2025-12 | `license-discuss` | **観測（同じ会話から 2 通・同じ誤解がほぼ月に一度来ること、出力への条件は契約でしか働かず同意した者しか縛らないこと）** | `2025-12-license-discuss-trpl-once-a-month-and-contract-observed.txt` |
@@ -192,6 +196,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2011-09 | `license-discuss` | **観測（Can OSI specify that public domain is open source?・4 通）** | `2011-09-license-discuss-can-osi-specify-public-domain-observed.txt` |
 | 2018〜2019 | `license-discuss` | **観測（審査の手順の 2 本から引いた 4 通）** | `2018-to-2019-license-discuss-review-process-cited-observed.txt` |
 | 2019-03 | `license-discuss` | **観測（The per se license constructor・全 15 通）** | `2019-03-license-discuss-per-se-license-constructor-observed.txt` |
+| 2019-03 | `license-review` | **観測（Fontana 氏の 1 通・v1.4 を共同体の合意と改訂の見込みの無さを理由に却下）** | `2019-03-license-review-cfsl-fontana-rejected-observed.txt` |
 | 2020-04 | `license-discuss` | **観測（Certifying MIT-0・3 通）** | `2020-04-license-discuss-certifying-mit0-observed.txt` |
 | 2025-03 | `license-review` | **観測（ModelGo の出力の通知の条項・4 通）** | `2025-03-license-review-modelgo-output-notice-observed.txt` |
 | 2014〜2024 | `license-discuss` | **観測（公有・特許・AI の 3 本から引いた 11 通）** | `2014-to-2024-license-discuss-public-domain-patents-ai-cited-observed.txt` |

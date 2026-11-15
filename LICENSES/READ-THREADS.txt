@@ -476,6 +476,7 @@
 2018-06-19	Consensus on L0-R
 2018-06-20	NOSA 2.0 and Government licensing
 2018-08-07	License-discuss Digest, Vol 78, Issue 4
+2018-09-26	For Approval: Convertible Free Software License, Version 1.1 (C-FSL v1.1)
 2018-10-03	"Shall" in open source licenses
 2018-10-17	Mandatory meta OSI process thread
 2018-10-23	OSD #9 would not make SSPL OSD-incompliant
@@ -485,6 +486,7 @@
 2018-12-04	Open source license with obligation to display an attribution?
 2018-12-07	International licenses redux
 2018-12-07	Proposed license decision process
+2019-01-08	For Approval: Convertible Free Software License, Version 1.3 (C-FSL v1.3)
 2019-01-18	Intimacy in open source (SSPL and AGPL)
 2019-02-05	For Approval: Twente License
 2019-03-08	Fw: #905674: parallel: move to nonfree

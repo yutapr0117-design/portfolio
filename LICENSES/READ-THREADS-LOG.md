@@ -20,6 +20,10 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "For Approval: Convertible Free Software License, Version 1.3 (C-FSL v1.3)"（`license-review` 2019-01〜03・決める側の通に絞った）を `review-readings-2.md` §1.230 へ（OSI は一般の利用のために承認する・対等な権利・Phipps 氏、v1.4 の却下・Fontana 氏）（候補は 819 → 820・読んだので母数に入った）
+
+- 2026-11-15 に License Zero Reciprocal の審査（2017）から 3 通を部分的に読んだ（会話としては読んでいない・`review-readings-2.md` §1.229・新しい効果を主張するほど審査は長く割れる、使う人の法的負担を 0 に、OSI・FSF・Debian の全部に通るかを事前点検に）
+
 - 2026-11-15 に "Consensus on L0-R"（`license-review` 2018-06・決める側の通に絞った・候補の外）を `review-readings-2.md` §1.228 へ（RPL は不透明でも善意だから承認したが誤りだった・Cowan 氏、関心を持つ人を紹介してほしい・Perens 氏）（候補は 815 → 816・読んだので母数に入った）
 
 - 2026-11-15 に "Does the LinShare "attribution" notice violate OSD?"（`license-discuss` 2022-09・決める側の通に絞った・候補の外）を読了の記録だけにした。AGPL に足した過大な帰属表示（badgeware）を、Berkus 氏は OSD 10（6・8 も）、Phipps 氏・Chestek 氏は改名を禁じて fork を妨げると論じた。ACD は表示も文書の保持も求めない（§10.2）ので当たらない。Chestek 氏の *"The duty to keep the notice is a contractual duty."*（米国では表示の除去は侵害を誘う・隠すと知ってする場合だけ違法）は、表示を求めない §10.2 の有利な側の文になる程度で、新しい論点は足さない（候補は 817 → 818・読んだので母数に入った）
