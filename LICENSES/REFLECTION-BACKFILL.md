@@ -110,48 +110,6 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 | `ACD-1.0.reviewer-positions.md` 1.158 | against #313 | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
 | `ACD-1.0.reviewer-positions.md` 1.159 | 入口（`QUESTIONS-FOR-PRACTITIONERS.md` の問い 2） | 反映先の文書が、この文書の名を挙げてこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
 | `ACD-1.0.objection-map.md` 1.62 | 入口（この節そのものが入口の面で、審査者が当たる反論の一覧である） | `objection-map.md` が `REVIEWERS.md` から入口として引かれていることを確かめた（2026-11-15・portfolio-30） |
-| review-precedents 1.45 | 入口（`SUBMISSION-MATERIALS.md` §1c の新規ライセンスの基準 7 の行・AI-MIT が受けた 3 つの反論は条件を課さない ACD では発火しない、と逆側） | この PR で反映先にこの節の番号を書き、grep で確かめた（2026-11-15・portfolio-50） |
-| review-precedents 1.46 | against #99 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-precedents 1.47 | 1c（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.40・§2.2 の撤回不能の語） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-precedents 1.48 | against #87・#102（Modified 0BSD の却下と、Landley 氏の「権利はそれぞれ別の物」） | 反映先の行が同じ会話（日付と発言者）を引いていることを確かめた。行は節の番号を引いていない（2026-11-15・portfolio-50） |
-| review-precedents 1.51 | against #271 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-precedents 1.53 | 入口（`SUBMISSION-MATERIALS.md` §1c の新規ライセンスの基準 2 の行・撤回不能と自動終了の同居）/ against #114・#149（PUWL の同じ会話） | 入口はこの PR で節の番号を書き grep で確かめた。against の 2 行は同じ会話を引くが節の番号は引いていない（2026-11-15・portfolio-50） |
-| review-precedents 1.54 | against #105（AIAL v2 への Chestek 氏の「1 つの文書で 3 つのこと」） | 反映先の行が同じ会話（日付と発言者）を引いていることを確かめた。行は節の番号を引いていない（2026-11-15・portfolio-50） |
-| review-precedents 1.57 | 入口（`SUBMISSION-MATERIALS.md` §2・`ACD-1.0.submission.md` の B.0） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-precedents 1.63 | against #112 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-precedents 1.66 | なし（PSF-2.0 との比較は提出の形の完全さだけで、PSF-2.0 は数十年使われた既存の構成要素なので類型が違い、審査の論点を運ばない。提出物の項目は `ACD-1.0.submission.md` §D と `SUBMISSION-MATERIALS.md` §1 が持つ） | 反映先が無いことを、節の番号と「PSF-2.0」で grep して確かめた（2026-11-15・portfolio-50） |
-| review-precedents 1.105 | against #200・#242 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-precedents 1.110 | against #242 / B15（`ACD-OSI-BOTTLENECKS-EXTERNAL.md` の B15 の節）/ 1c（`ACD-1.4-CLARITY-TRIAL.md` §7.4） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-precedents 1.115 | against #253 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-precedents 1.131 | against #243・#280 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-precedents 1.132 | against #243 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-precedents 1.138 | B3・B4・B6（`ACD-OSI-BOTTLENECKS.md`・`ACD-OSI-BOTTLENECKS-EXTERNAL.md`）/ against #288 / 入口（`SUBMISSION-MATERIALS.md` §1c・`OSI-APPROVAL-PLAN.md` §2・`ACD-1.0.review-responses.md` Q2）/ 1c（`ACD-1.4-CHANGELIST.md`・`ACD-1.4-SECOND-CLARITY-TRIAL.md` §13.7） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-labels 1.98 | against #157・#164 / B1（`ACD-OSI-BOTTLENECKS-EXTERNAL.md` の 2026-09-19 の節）。`ACD-1.1-SELF-AUDIT.md` §3l も引く | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-labels 1.99 | against #160・#161・#164・#208 / 入口（`ACD-1.0.review-responses-meta.md` Q32c） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-corpus 1.67 | against #127・#186・#188 / B1・B2（`ACD-OSI-BOTTLENECKS-EXTERNAL.md` の B1 + B2 の節・`ACD-OSI-BOTTLENECKS.md` の 2026-09-11 の節） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-corpus 1.68 | against #128 / 入口（`ACD-1.0.submission.md` の B.0） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-corpus 1.69 | against #128 / 入口（`REVISION-PROTOCOL.md` §1・`ACD-1.0.submission-reference.md` 4c） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-corpus 1.71 | 入口（`REVISION-PROTOCOL.md` の分岐 B） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-corpus 1.72 | against #186 / B2（`ACD-OSI-BOTTLENECKS-EXTERNAL.md` の 2026-09-13 の追記）/ 入口（`ACD-1.0.submission.md` §D） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-corpus 1.74 | 入口（`ACD-1.0.submission-reference.md` 4c） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-corpus 1.75 | against #200 / 入口（`SUBMISSION-MATERIALS.md` §1） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-corpus 1.77 | against #133 / 入口（`ACD-1.1-CHANGELIST.md` §0.7 の直さないと決めた errata） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-corpus 1.78 | against #134・#266 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-corpus 1.79 | against #135 / 入口（`ACD-1.0.submission-reference.md` 4c） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-corpus 1.80 | against #208・#214 / 入口（`SUBMISSION-MATERIALS.md` の「メールの長さと順序の目安」の節） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-corpus 1.83 | against #148 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-corpus 1.85 | B10（`ACD-OSI-BOTTLENECKS-B10.md` の (2)）。`ACD-1.1-SELF-AUDIT.md` も引く | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-corpus 1.87 | 入口（`PEER-REVIEW-WATCH.md` の観測の窓）。帰結の数は review-corpus 1.90 と against #149 が持つ | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-corpus 1.90 | against #149 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-venue 1.67 | against #117（2024-09-30 の pre-review の会話と McCoy Smith 氏の同日の返信） | 反映先の行が同じ会話（日付と発言者）を引いていることを確かめた。行は節の番号を引いていない（2026-11-15・portfolio-50） |
-| review-venue 1.68 | against #149 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-venue 1.69 | B7（`ACD-OSI-BOTTLENECKS-EXTERNAL.md` の B7 の節） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-venue 1.73 | なし（委員の謝辞が何を示さないかを節自身が書く。入口に置けば謝辞を支持と読ませることになり、沈黙を支持と読ませない線と同じ理由で置かない） | 反映先が無いことを、節の番号と謝辞の原文の語で grep して確かめた（2026-11-15・portfolio-50） |
-| review-venue 1.89 | B10（`ACD-OSI-BOTTLENECKS-B10.md` の「測ったが、答えには使わない材料」） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-venue 1.92 | なし（ドシエが返信者の立場を記録しているかの測定で、ACD への論点を持たない。抜けていた 1 人は `ACD-1.0.reviewer-positions.md` に埋めた） | `ACD-1.0.reviewer-positions.md` がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-venue 1.106 | against #204 / 1c（`ACD-1.2-CHANGELIST.md` の我々宛でない議論からの採用候補） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-venue 1.107 | against #206 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
-| review-venue 1.113 | against #248 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
 | `ACD-1.0.review-precedents.md` 1.45 | 入口（`SUBMISSION-MATERIALS.md` §1c の新規ライセンスの基準 7 の行・AI-MIT が受けた 3 つの反論は条件を課さない ACD では発火しない、と逆側） | この PR で反映先にこの節の番号を書き、grep で確かめた（2026-11-15・portfolio-50） |
 | `ACD-1.0.review-precedents.md` 1.46 | against #99 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
 | `ACD-1.0.review-precedents.md` 1.47 | 1c（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.40・§2.2 の撤回不能の語） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
