@@ -335,13 +335,45 @@ def run(ctx):
             _bad474.append(
                 f"`EXTERNAL` / `TRADE` なのに「我々に何ができるか」が書かれていない: {_bad474b}"
                 " —— **書かれていない外部依存は、記録の形をした「待ち」である**")
+        # ── 474c: 提出の材料の「先に自分から名指す反論」の表は、引く #N の今の状態を、参照の直後に印で持つこと ──
+        #   50 の提案 (2026-11-15)。#3091 で §2 の表に足した #326 の行は、数時間後に 30 が #326 を [CLOSED] にした
+        #   (反論の読みが外れていた) ことで古くなり、手で気づいて #3115 で直した。「閉じたら印」だけでは足りない ——
+        #   register の [CLOSED] は「本文で答えた」(#110・#133) の意味でも使うので、印の有無では古さを区別できない。
+        #   そこで、表の行が引く #N (1 列目の括弧の #N と 3 列目の `against.md` #N) の直後に `・**[状態]**` を置き、
+        #   それが register の今の状態と一致することを見る。状態が変われば行が RED になり、行を読み直す合図になる。
+        #   REVIEWERS の表は有利な記録の表で、#N の閉じ方の意味が違うので対象外 (50 の判断)
+        _sm474c = ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md"
+        _st474c = _sm474c.read_text(encoding="utf-8") if _sm474c.exists() else ""
+        _sec474c = re.search(r"^## 2\. 先に自分から名指す.*?(?=^## )", _st474c, re.M | re.S)
+        _kind474c = {_n: _k for _n, _k, _st in _rows474}
+        _n474c = 0
+        if not _sec474c:
+            _bad474.append("474c: SUBMISSION-MATERIALS.md の「## 2. 先に自分から名指す…」の節を読めない")
+        else:
+            for _l in _sec474c.group(0).splitlines():
+                if not _l.startswith("|") or _l.startswith(("| 反論", "| :--")):
+                    continue
+                _c = _cells474(_l)
+                _hits = [(_m, _c[0]) for _m in re.finditer(r"#(\d+)(?!\d)", _c[0])]
+                if len(_c) > 2:
+                    _hits += [(_m, _c[2]) for _m in re.finditer(r"against\.md`?\s*#(\d+)(?!\d)", _c[2])]
+                for _m, _cell in _hits:
+                    _n474c += 1
+                    _r, _k = _m.group(1), _kind474c.get(_m.group(1))
+                    _tok = re.match(r"(?:・| )\*\*\[([A-Z]+)\]\*\*", _cell[_m.end():])
+                    if _k is None:
+                        _bad474.append(f"474c: SUBMISSION-MATERIALS §2 の表が register に無い #{_r} を引く: {_c[0][:40]!r}")
+                    elif not _tok or _tok.group(1) != _k:
+                        _bad474.append(f"474c: SUBMISSION-MATERIALS §2 の表の #{_r} の直後の印が "
+                                       f"{'無い' if not _tok else '[' + _tok.group(1) + ']'} / register は [{_k}] —— "
+                                       f"状態が変わったなら行の答えを読み直してから印を直す: {_c[0][:40]!r}")
         _cnt474 = {k: sum(1 for v in _seen474.values() if v == k) for k in _V474}
         _open474 = sum(v for k, v in _cnt474.items() if k != "CLOSED")
         check(
             not _bad474 and _seen474,
             ("Check 474: register が backlog として機械可読 —— "
              + " / ".join(f"{k} {_cnt474[k]}" for k in _V474)
-             + f" (閉じていない = {_open474} / 全 {len(_seen474)})"),
+             + f" (閉じていない = {_open474} / 全 {len(_seen474)}・474c 材料の表が引く #N {_n474c})"),
             (f"Check 474: {_bad474}。**この register は記録ではなく潰すための backlog である**"
              "（steward 2026-09-23）。**各 entry は `Status` 欄の先頭に state token を"
              "ちょうど 1 つ持つこと。** 分類できないものを勝手に `CLOSED` にせず "
