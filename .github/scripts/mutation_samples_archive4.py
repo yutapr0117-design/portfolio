@@ -789,8 +789,8 @@ MUTATIONS_ARCHIVE4 = [
     {
     "name": 'Check 468o: 草案 §6.4 の動詞 "license" を名詞形 "licence" に変える —— 1.1〜1.3 はこの形のまま凍結された。同じ語数の綴り違いは差分のレンズも語数照合も拾わない',
     "file": CURRENT_DRAFT,
-    "find": "Nothing in this Dedication requires You to license, disclose",
-    "replace": "Nothing in this Dedication requires You to licence, disclose",
+    "find": "requires You to license,",
+    "replace": "requires You to licence,",
     "check": CHECK,
 },
     {
@@ -803,8 +803,8 @@ MUTATIONS_ARCHIVE4 = [
     {
     "name": 'Check 468m: §16.4 の草案の例外を広げる (a draft → a draft or a corrected text) —— 目印は 2 つとも残るので、存在だけを見る形では 1 識別子 = 1 固定本文が崩れても通った',
     "file": CURRENT_DRAFT,
-    "find": "other than a draft identified as such, has borne",
-    "replace": "other than a draft or a corrected text, has borne",
+    "find": "identified as such, has borne",
+    "replace": "identified as such or a corrected text, has borne",
     "check": CHECK,
 },
     {
