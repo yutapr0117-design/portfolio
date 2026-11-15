@@ -58,6 +58,106 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 - 2026-11-15 に "Simple Public License, draft"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
 
+- 2026-11-15 に "Discussion: ADPL"（`license-discuss` 2001-12・決める側の通を全文、他の通を冒頭で読んだ）。ArsDigita Public License の審査の依頼（Nelson 氏）。ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "license-ish vs. Bill of Rights-ish"（`license-discuss` 2001-12・決める側の通を全文、他の通を冒頭で読んだ）。GPL を今書くならどう書くかの会話（Mallett 氏）。ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "Does "modification" include translation to another HLL?"（`license-discuss` 2001-12・決める側の通を全文、他の通を冒頭で読んだ）。「改変」に別の言語への翻訳が含まれるかの会話。改変と翻訳の両方を言うなら「二次的著作物」と書け、という Rosen 氏の通を `review-readings-3.md` §1.305 へ（1.4 草案の §4.2 は語がそろっている）
+
+- 2026-11-15 に "Please discuss the PSF license"（`license-discuss` 2001-11・決める側の通を全文、他の通を冒頭で読んだ）。PSF ライセンスの審査の依頼（Nelson 氏）。ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "OSD/OpenSource.org Translations"（`license-discuss` 2001-11・決める側の通を全文、他の通を冒頭で読んだ）。OSD の翻訳の質の会話（Mallett 氏）。ACD の §15.4（英語が正文）に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Fails OSD #1. [Re: OSD compliant shareware]"（`license-discuss` 2001-11・決める側の通を全文、他の通を冒頭で読んだ）。シェアウェアが OSD 1 に反するかの会話。文字どおり合っても精神に反するライセンスは作れる、OSD は宣言として優れるが機械的に当てるのは愚か、という Perens 氏の通を `review-readings-3.md` §1.304 へ
+
+- 2026-11-15 に "Spirit of OSD - was[Fails OSD #1.]"（`license-discuss` 2001-11・決める側の通を全文、他の通を冒頭で読んだ）。OSD の精神をめぐる Mallett 氏の問いと、法の文の形の定義は宣言として働かない、という Perens 氏の返事。同氏の「Fails OSD #1」の通（`review-readings-3.md` §1.304）と同じ線なので節は立てない
+
+- 2026-11-15 に "CMGPL licence"（`license-discuss` 2001-11・決める側の通を全文、他の通を冒頭で読んだ）。GPL の改変版の提出。GPL をそのまま使うか、承認済みを使うか、自分のライセンスを書け、という Nelson 氏の通を `review-readings-3.md` §1.302 へ
+
+- 2026-11-15 に "Wonka Public Licence"（`license-discuss` 2001-11・決める側の通を全文、他の通を冒頭で読んだ）。依頼の文をライセンスに入れた提出の会話。法的な意味が無いなら承認はなぜ要るのか、という Nelson 氏の通を `review-readings-3.md` §1.304 へ
+
+- 2026-11-15 に "Article on open-source licenses (and the OSI)"（`license-discuss` 2001-10・決める側の通を全文、他の通を冒頭で読んだ）。ライセンスについての記事をめぐる会話。BSD をソースの無いバイナリに使える抜け穴を Nelson 氏が認めた。ACD の新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "fileset without makefiles Open Source?!"（`license-discuss` 2001-10・決める側の通を全文、他の通を冒頭で読んだ）。Makefile の無いファイルの集まりをオープンソースと呼べるかの会話（Nelson 氏）。ACD はソースの頒布を求めないので当たらない（節は立てない）
+
+- 2026-11-15 に "News. was[Re: forums]"（`license-discuss` 2001-09・決める側の通を全文、他の通を冒頭で読んだ）。ニュースサイトの案の会話（Mallett 氏）。ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "forums"（`license-discuss` 2001-09・決める側の通を全文、他の通を冒頭で読んだ）。リストに代わる掲示板の試験の会話（Mallett 氏）。ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "click, click, boom"（`license-discuss` 2001-09・決める側の通を全文、他の通を冒頭で読んだ）。MIT と OSD の不明確さの会話。承認は OSD への適合だけで決まる、ライセンスを承認しソフトウェアを認証する、の Rosen 氏の通を `review-readings-3.md` §1.301 と §1.305 へ
+
+- 2026-11-15 に "Section 2 source distribution terms"（`license-discuss` 2001-09・決める側の通を全文、他の通を冒頭で読んだ）。OSD 2 の書き直しの会話。OSD が法律家の手を経ていないという Nelson 氏の通を `review-readings-3.md` §1.304 へ、ソフトウェアを認証し文書は決めていないという同氏の通を §1.305 へ
+
+- 2026-11-15 に "YAPL is bad"（`license-discuss` 2001-09・決める側の通を全文、他の通を冒頭で読んだ）。ライセンスの乱立をめぐる会話（40 通）。APSL 1.0 の米国特許法の要求を Nelson 氏が説明した。B10 の論点は §1.301 で扱った（節は立てない）
+
+- 2026-11-15 に "Backlog assistance?"（`license-discuss` 2001-09・決める側の通を全文、他の通を冒頭で読んだ）。審査の滞留を減らす道具の会話（Nelson 氏）。ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "OSI mark. was[Re: Backlog assistance?]"（`license-discuss` 2001-09・決める側の通を全文、他の通を冒頭で読んだ）。OSI の認証マークの有用性の会話（Mallett 氏）。ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "License backlog - OSI is making itself irrellevant"（`license-discuss` 2001-08・決める側の通を全文、他の通を冒頭で読んだ）。審査の滞留への苦情と、Tiemann 氏の「次の理事会で採決を」、Rosen 氏の「承認は自分が決めるのではない」。手続きの記録で、ACD の新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Quick Reference For Choosing a Free Software License"（`license-discuss` 2001-08・決める側の通を全文、他の通を冒頭で読んだ）。ライセンス選びの早見表の会話。IANAL の断りは助言に法的な意味を与えかねない、という Nelson 氏の通。ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "VENTURE CAPITAL"（`license-discuss` 2001-08・決める側の通を全文、他の通を冒頭で読んだ）。リストへのスパムと投稿の制限の運営の会話。ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "X.Net, Inc. License"（`license-discuss` 2001-08・決める側の通を全文、他の通を冒頭で読んだ）。X.Net のライセンスの審査。管轄の指定と提出の書式（HTML）の会話で、ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "approved licenses web page not being updated"（`license-discuss` 2001-07・決める側の通を全文、他の通を冒頭で読んだ）。承認済みの一覧の更新の遅れの会話。新しさが無くても OSD に合えば退けられないとした Nelson 氏の通を `review-readings-3.md` §1.301 へ
+
+- 2026-11-15 に "License for approval"（`license-discuss` 2001-07・決める側の通を全文、他の通を冒頭で読んだ）。承認を求める 1 通。決める側の通は無く、ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "Interesting Microsoft license clause re open source"（`license-discuss` 2001-06・決める側の通を全文、他の通を冒頭で読んだ）。Microsoft の EULA の条項とシュリンクラップの拘束力の会話（Rosen 氏）。ACD は受諾を要しないので当たらない（節は立てない）
+
+- 2026-11-15 に "Copyright & License Questions"（`license-discuss` 2001-06・決める側の通を全文、他の通を冒頭で読んだ）。公有の宣言をめぐる会話。「それは神話だ」「撤回を防ぐものは何か」の Rosen 氏の通と Cowan 氏の返事を `review-readings-3.md` §1.300 へ
+
+- 2026-11-15 に "APSL 1.2"（`license-discuss` 2001-04・決める側の通を全文、他の通を冒頭で読んだ）。APSL 1.2 の審査の依頼と、私的な使用の開示の要求をめぐる会話（Nelson 氏）。ACD は開示を求めないので当たらない（節は立てない）
+
+- 2026-11-15 に "Apache vs. BSD licenses"（`license-discuss` 2001-03・決める側の通を全文、他の通を冒頭で読んだ）。Apache と BSD の帰属の要求の比較。帰属の費用は小さいとした Behlendorf 氏の通を `review-readings-3.md` §1.303 へ
+
+- 2026-11-15 に "trademarked logos and GPL"（`license-discuss` 2001-01・決める側の通を全文、他の通を冒頭で読んだ）。商標の付いたロゴと GPL の質問。非法律家は法的助言を避けよという Rosen 氏の通と Coar 氏の反論。B1 の材料としては §1.304 の Nelson 氏の通の方が直接なので、節は立てない
+
+- 2026-11-15 に "Cherry-picking license proposals"（`license-discuss` 2001-01・決める側の通を全文、他の通を冒頭で読んだ）。審査の順番をめぐる会話。Rosen 氏の優先度 6 項と Nelson 氏の「一度承認したら取り消せない」を `review-readings-3.md` §1.301 へ
+
+- 2026-11-15 に "revised GPL?"（`license-discuss` 2000-10・決める側の通を全文、他の通を冒頭で読んだ）。GPL の次の版の噂を尋ねた通。ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "License List -- as of 9-11-00"（`license-discuss` 2000-09・決める側の通を全文、他の通を冒頭で読んだ）。Rosen 氏の承認済みと提出中の一覧。名前を変えただけでは OSD への適合は変わらない、差分での提出を歓迎する、の Behlendorf 氏の通を `review-readings-3.md` §1.302 へ
+
+- 2026-11-15 に "Qt and the GPL"（`license-discuss` 2000-09・決める側の通を全文、他の通を冒頭で読んだ）。Qt の GPL での公開をめぐる会話。ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "The LaTeX Project Public License"（`license-discuss` 2000-05・決める側の通を全文、他の通を冒頭で読んだ）。LPPL 1.2 の審査の依頼（Nelson 氏）。名前を変えた改変版の頒布の扱いが論点だが、ACD の §16.4 の側は §1.302 で扱った（節は立てない）
+
+- 2026-11-15 に "License Approval Process"（`license-discuss` 2000-02・決める側の通を全文、他の通を冒頭で読んだ）。承認の手続きについての 34 通。決める側の通は無く、手続きの論点は後の記録（2001 年の Rosen 氏）で読んだ（節は立てない）
+
+- 2026-11-15 に "Dual Licensing"（`license-discuss` 1999-11・決める側の通を全文、他の通を冒頭で読んだ）。Sun の Jini と二重ライセンスの会話（Perens 氏・Behlendorf 氏）。ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "3dfx license"（`license-discuss` 1999-11・決める側の通を全文、他の通を冒頭で読んだ）。3dfx の GLIDE のライセンスの紹介（Perens 氏）。ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "Can you alter the MIT license?"（`license-discuss` 1999-11・決める側の通を全文、他の通を冒頭で読んだ）。MIT に条件を足せるかの会話。公有の宣言で著作権を手放せるとした Perens 氏の通を `review-readings-3.md` §1.300 へ
+
+- 2026-11-15 に "Moral Rights"（`license-discuss` 1999-11・決める側の通を全文、他の通を冒頭で読んだ）。人格権についての 2 通。決める側の通は無く、ACD の §12 の論点として新しいものは無かった（節は立てない）
+
+- 2026-11-15 に "Free World Licence."（`license-discuss` 1999-10・決める側の通を全文、他の通を冒頭で読んだ）。Free World Licence を Perens 氏が論評した会話（非自由の部品と集約）。ACD は条件を持たないので当たらない（節は立てない）
+
+- 2026-11-15 に "GNU License for Hardware"（`license-discuss` 1999-10・決める側の通を全文、他の通を冒頭で読んだ）。ハードウェアの GPL と Linux の呼び名をめぐる会話（125 通）。決める側の通は呼び名の話で、ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "advertising clauses"（`license-discuss` 1999-09・決める側の通を全文、他の通を冒頭で読んだ）。BSD の広告条項の会話。帰属を外せることを「悪いこと」と書いた Behlendorf 氏の通を `review-readings-3.md` §1.303 と against #326 へ
+
+- 2026-11-15 に "RFC soon on essay "Does Free Software Production in a Bazaarobey the Law of Diminishing Returns?""（`license-discuss` 1999-08・決める側の通を全文、他の通を冒頭で読んだ）。同じ論文の続き。企業には 4 つの古典的なライセンスを勧める、という Raymond 氏の文があったが、B10 は既出の論点（節は立てない）
+
+- 2026-11-15 に "Essay RFC delayed."（`license-discuss` 1999-08・決める側の通を全文、他の通を冒頭で読んだ）。Raymond 氏と Stallman 氏の運動の呼び名をめぐる応酬（103 通）。ライセンスの審査の論点は無かった（節は立てない）
+
+- 2026-11-15 に "RFC soon on essay "Does Free Software Production in a Bazaar obey the Law of Diminishing Returns?""（`license-discuss` 1999-08・決める側の通を全文、他の通を冒頭で読んだ）。Raymond 氏の論文の予告と FSF との応酬。ライセンスの審査の論点は無かった（節は立てない）
+
+- 2026-11-15 に "IBM Public License"（`license-discuss` 1999-07・決める側の通を全文、他の通を冒頭で読んだ）。IBM Public License の転送（Nelson 氏）。ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "A new open source license"（`license-discuss` 1999-05・決める側の通を全文、他の通を冒頭で読んだ）。NPL を基にした匿名のライセンスの転送（Nelson 氏）。ACD の論点は無かった（節は立てない）
+
+- 2026-11-15 に "APSL 1.1 available for comment."（`license-discuss` 1999-04・決める側の通を全文、他の通を冒頭で読んだ）。理事会が APSL 1.1 を公開の意見募集にかけた告知（Behlendorf 氏 1999-04-19・意見は現行の OSD への適合に限る）。手続きの記録で、ACD の新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Copyright"（`license-discuss` 1999-04・決める側の通を全文、他の通を冒頭で読んだ）。著作権についての個別の質問。決める側の通は無く、ACD の論点も無かった（節は立てない）
+
+- 2026-11-15 に "Get ready...."（`license-discuss` 1999-04・決める側の通を全文、他の通を冒頭で読んだ）。匿名のライセンスを事前に見る会話（Nelson 氏・Behlendorf 氏）。名前を抜いた不変の型板を求めた Behlendorf 氏の通を `review-readings-3.md` §1.302 へ
+
 - 2026-11-15 に "Issue on licenses pages"（`license-discuss` 2013-11・4 通を通読）を `review-readings-2.md` §1.240 へ（OSL と AFL は 1 人の起草者が版を重ねて複数の版が承認された、FOSS の許諾は永遠なので旧版を勧めなくても配った物は変わらない・Rosen 氏）
 
 - 2026-11-15 に "Thoughts on AAL and OSS vs FOSS"（`license-discuss` 2020-03〜04・33 通を通読）を `review-readings-2.md` §1.239 へ（承認済みの AAL の作者は法律家ではないと OSI のサイトが書く、使われなくなった承認済みは廃止が論じられる・Berkus 氏、公開されたライセンスの名は共同体のもの・同）
