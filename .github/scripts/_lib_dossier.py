@@ -398,8 +398,14 @@ def backfill_table_misses(licenses_dir: Path) -> tuple[int, list[str], list[str]
         how = cells[2] if len(cells) > 2 else ""
         if "grep" in how and not v.startswith(("なし", "未定")):
             rx = re.compile(rf"§1\.{num}(?!\d)")
-            if not any(rx.search(x) for x in _reflect_targets(licenses_dir, v, ag_lines, er_lines)):
-                bad.append(f"{where}: 確かめ方は grep と言うが、名指した行き先のどれにも「§1.{num}」が無い")
+            # 床 (70) の下の番号は文書ごとの番号で、行き先の「§1.49」が別の文書の §1.49 のことがある (30 の指摘・50 経由・2026-11-15)。
+            #   その範囲は、同じ行が文書の名 (`reviewer-positions` など) も持つときだけ当たりとする
+            stem = k[0].removeprefix("ACD-1.0.").removesuffix(".md")
+            ok = any(rx.search(ln) and (num >= SECTION_SERIES_FLOOR or stem in ln)
+                     for x in _reflect_targets(licenses_dir, v, ag_lines, er_lines) for ln in x.split("\n"))
+            if not ok:
+                bad.append(f"{where}: 確かめ方は grep と言うが、名指した行き先のどれにも「§1.{num}」が無い"
+                           + ("" if num >= SECTION_SERIES_FLOOR else f" (床の下の番号は同じ行に「{stem}」も要る)"))
     missing = [f"{f} §1.{num}" for (f, num), has in sorted(heads.items(), key=lambda x: (x[0][1], x[0][0]))
                if num < REFLECT_FROM and not has and (f, num) not in covered]
     return n, bad, missing
