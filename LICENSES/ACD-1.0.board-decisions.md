@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.board-decisions.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-review participants / 監査人
-last-updated: 2026-11-12
+last-updated: 2026-11-15
 canonical-ref: LICENSES/rounds/2026-09-13-osi-board-meeting-minutes-2025-06-to-2026-06.txt (逐語の一次資料) / LICENSES/ACD-1.0.review-corpus.md (アーカイブ全体の測定) / LICENSES/ACD-OSI-BOTTLENECKS.md (B2 / B10)
 ---
 
@@ -440,6 +440,29 @@ of communication with their submitters**."*
 **だが我々の 2 通はリストに現れておらず、リストの記録だけを見る人には沈黙と同じに見える。**
 **これは「不当に扱われる」という主張ではない**（誰も我々をそう扱ったという証拠は無い）。
 **述べているのは、我々の側の記録と、リスト側から見える像が食い違っているという事実だけである。**
+
+## 4a. 🔴 委任の最初の行使 —— 4 本を「起草の質」で却下し、うち 2 本は「直さずに反論した」ことが理由だった（2026-09-24・2026-11-15 に取り込み）
+
+一次資料は `rounds/2026-11-15-osi-board-minutes-2026-09-24-snapshot.txt`（オーナーがブラウザから写した本文・無改変）。議事録の承認は 2026-10-23、頁の日付は 2026-11-13。
+
+> *"The License Committee informed the board that according to the enabling motion to reject licenses under certain conditions passed in May 2026, the committee rejected the four following licenses:*
+> *Project Tick General Public License, Version 3 (Poor drafting; no response)*
+> *CompanioNation Public Licence, version 1.0 (Poor drafting; no response)*
+> *Milenium License 1.0 (Poor drafting; argument without revision)*
+> *Mutualist License (MutuaL) v1.2 (Poor drafting; argument without revision)"*
+
+**§4 の読みを 2 点で直す。**
+
+1. **却下の理由は「応答しない」だけではない。** 2026-05-22 の動議は *"does not respond to requests for information or explain how they have responded to constructive feedback"* だった。§4 は前半（応答しない）だけを我々の危険として書き、**後半（指摘にどう応えたかを説明しない）を読んでいなかった。** 4 本のうち 2 本の理由は *"argument without revision"* —— 応答はしたが、直さずに反論した。**応答しているから安全、ではない。**
+2. **4 本すべての第 1 の理由が *"Poor drafting"* である。** 委任は手続きの不履行についての権限だが、行使された記録では、起草の質が先に書かれ、応答の形が後に書かれている。**起草の質の低い提出が、指摘に直した版で応えないとき**に、理事会の議決を待たずに却下される、というのが記録の読みである。
+
+**ACD への当たり方。**
+
+- **我々の凍結の規律と擦れる。** ACD は審査中の本文を直さず、欠陥を errata に記録して次版で直す（`FROZEN.md`）。提出した本文は変えられないという審査の側の規則（Chestek 氏 2026-01-23・`REVISION-PROTOCOL.md` のゲート 6b の根拠）とは合うが、**指摘に対して説明（`review-responses*.md`）だけを返し、直した版を出さなければ、記録の上では *"argument without revision"* と同じ形になる。** 直した版を出す経路（次版の確定と再提出）を、指摘を受けてから組むのでは遅い。
+- **B1（法的レビュー）と B3（長さ）は、この経路で効く。** 却下の第 1 の理由が起草の質で、ACD は法律家の関与が無い（B1）。理事会の議決を経ない却下があるので、「理事会で議論されれば」という望みは置けない。
+- **有利な面**: 4 本はどれも、応答しないか、直さずに反論した提出である。ACD の側は errata・試作・次版の草案という「直す」記録を公開で持っており、*"explain how they have responded to constructive feedback"* に答える材料は厚い。却下された 4 本と同じ形にならないことは、我々の側で選べる。
+
+**この節が establish しないこと。** 4 本の本文や審査を我々は読んでいない（Project Tick の v2 までは `review-readings.md` §1.205・§1.206）。*"Poor drafting"* が何を指したかは議事録に無い。ModelGo / OpenMDW の決定はこの議事録に無い —— 載らなかったことは、決まらなかったことを意味しない（§0 と同じ規律）。
 
 ## 5. 公開 12 回で読める決定（告知メールより多い）
 

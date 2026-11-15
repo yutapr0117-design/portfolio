@@ -1,7 +1,7 @@
 ---
 file: LICENSES/PEER-REVIEW-WATCH.md
 audience: 次のセッションの実装者（一次読者）
-last-updated: 2026-11-07
+last-updated: 2026-11-15
 canonical-ref: LICENSES/ACD-1.0.comparison.md §1.5 (比較の本体) / LICENSES/ACD-1.0.against.md #28-#31 (不利な材料) / LICENSES/REVISION-PROTOCOL.md (改訂サイクル)
 ---
 
@@ -626,6 +626,7 @@ https://opensource.org/meeting-minutes/minutes<YYYYMMDD>  # 2005〜2020 の綴�
 **次に見るときの手順**: API を取り直し、**`approval_date` が前回より新しい entry**だけを見る。
 新しい承認があれば、その `board_minutes` を開く ——**動議は理由つきで記録されている。**
 （2026-09-20 時点の最新承認は 2026-06-29 の 2 件。）
+**2026-11-15: 2026-09-24 の理事会の議事録が公開された**（頁の日付 2026-11-13・承認 2026-10-23・オーナーが写した本文を `rounds/2026-11-15-osi-board-minutes-2026-09-24-snapshot.txt` に無改変で置いた）。**ModelGo（MG0-2.0 / MG-BY-2.0）と OpenMDW の名前は無い** —— 委員会の報告は、2026-05 の委任による 4 本の却下だけだった（`board-decisions.md` §4a）。McCoy Smith 氏が 2026-08-27 に「9 月の議題に載っている」と書いた 2 本の行き先は、この議事録からは分からない。**決まらなかったとも、否決されたとも書かない。** 議事録の索引から次の頁へのリンクは 2026-06-29 を指しており、承認の動議にある 2026-07-24 の議事録は、この取り込みの時点で我々は見ていない。
 
 ### 読み方の規律
 
