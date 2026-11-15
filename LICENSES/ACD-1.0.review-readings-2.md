@@ -277,3 +277,20 @@ portfolio-1c の T69（1.4 草案の §2.6 に、除外する素材を示す形�
 **逆側。** 適用先のリポジトリは、`LICENSE` 自身が *"This repository is a public experiment in AI orchestration"* と書き、README も「experiment」と書く。ライセンスの本文と提出の文書（`submission.md`・`REVIEWERS.md`）には「experiment」の語は無いが（2026-11-15 に grep で 0 件）、リポジトリを開いた審査者は「実験の一部として作られたライセンス」と読みうる。OSI の moderators が 2026-09-09 にこのリストを *"proof-of-concept"* に使われていると書いたこと（`against.md` #161・B14）と重なると、Chestek 氏の「思考実験」の線に読まれる危険がある。実使用が 1 リポジトリだけであること（B2）も、この読みを強める。
 
 **この節が establish しないこと。** 2026 年の委員会が Chestek 氏の 2020 年の運用を引き継いでいるかは確かめていない。ACD を「本物のライセンス」と示す材料として、適用の事実のほかに何が要るか（他のプロジェクトの使用、B2）は、この節では扱わない。
+
+## 1.234 承認を取り下げる理由として、法律家なしに書かれたことは挙げられ、そして退けられた —— OSD の解釈は法律家と非法律家が等しくでき、起草の質の評価は主観的だ（"what would de-listing of licenses look like?"・2013-03）（2026-11-15）
+
+`license-discuss` 2013-03 の会話（18 通）を通読し、5 通を置いた（`rounds/2013-03-license-discuss-delisting-*-observed.txt`・Fontana 氏の *"approved "in haste""* は `delisting-villa-opener` の引用行に在る）。発端は Richard Fontana 氏が Frameworx License を *"approved "in haste""* と書き、取り下げの手続きがあれば見直しを勧める、と述べたことで、Luis Villa 氏がその手続きの形を尋ねた。ドシエは 2026 年の *"The OSI does not currently have a process for de-listing"*（`review-outcomes.md`・against #146 / #209）を持つが、取り下げの理由を何に置くかを論じたこの会話は読んでいなかった。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"1. They are ambiguous or likely to perform in court in unexpected ways, should they ever be litigated. ... These would be the "crayon" licenses, mostly, those written without legal counsel."* / *"3. They are both redundant /and /rarely used."* | Bruce Perens 氏 2013-03-06（取り下げの理由として 3 つを挙げた。2 つ目は OSD に合わず誤って承認されたもの） | **不利な面（B1・B2）。** 法律家なしに書かれたことと、重複して使われないことを、承認を取り下げる理由に挙げた。ACD は法的レビューを受けておらず（B1）、実使用は 1 リポジトリ（B2） |
+| *"It isn't the least bit difficult to diagnose when no lawyer was involved in drafting a license."* | Bruce Perens 氏 2013-03-06（Villa 氏の「評価は難しい」への返答） | **不利な面（B1）。** 法律家が関わったかは本文から読み取れる、という見方である。ACD は起草の経緯を開示している（B14）ので、読み取られる前に書いてある |
+| *"In my view, Bruce's justification 2 is the only justification: the license does not comply with the OSD and was accepted in error."* / *"my view is that the OSD should be the basis for an argument for delisting, and you don't need to be, or to get, a lawyer to interpret the OSD (more precisely, lawyers and non-lawyers are equally competent to interpret the OSD)."* | Richard Fontana 氏 2013-03-07 | **有利な面（B1）。** Perens 氏の 1 つ目（法律家なしの起草）と 3 つ目（重複と不使用）を、取り下げの理由として退けた。理由は OSD に置くべきで、OSD の解釈に法律家は要らない、と書いた。ACD の OSD 逐条（`submission-osd.md`）は、この基準では法律家でなくても行える作業である |
+| *"That said, as Richard pointed out, this is an extremely difficult issue to evaluate. It is inherently subjective, and a matter requiring expertise. Given that, I see  no evidence that OSI (or anyone) could perform it in a reasonable, objective, efficient manner, so I'm not very interested in pursuing it."* | Luis Villa 氏 2013-03-06 | **有利な面（B1）。** 起草の質の評価は主観的で、OSI が客観的に行えるとは思えない、と書いた。審査の基準が起草の質そのものに置かれないことの、決める側に近い人の文である |
+
+**読み。** 2013 年の会話は、法律家なしに書かれたことを取り下げの理由に挙げる人（Perens 氏）と、それを退けて OSD だけを理由とする人（Fontana 氏・Villa 氏）に分かれた。後者の線では、ACD の審査で問われるのは OSD への適合で、起草者が法律家かではない。
+
+**逆側。** 会話は取り下げについてで、承認の基準についてではない。承認の審査では、法律家の目が通ったかを審査者が最初に探す記録がある（B1 の Piana 氏 2024、Berkus 氏 2020 の「法律家の声を数える」）。Fontana 氏自身が同じ会話の発端で Frameworx を *"approved "in haste""* と書いており、急いだ承認を悔やむ記録は、新しい単独起草のライセンスの審査を慎重にする向きに働く。Perens 氏の「診断は易しい」は、ACD の本文が法律家の書き方に見えない箇所があれば、それが最初に読まれることを意味する。
+
+**この節が establish しないこと。** 2013 年の Fontana 氏・Villa 氏の文が、その後の承認の審査の運用になったかは確かめていない。Frameworx が取り下げられたかは、この会話では分からない。

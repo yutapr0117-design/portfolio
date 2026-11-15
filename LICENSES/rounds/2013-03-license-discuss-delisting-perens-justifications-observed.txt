@@ -1,0 +1,66 @@
+Source: OSI license-discuss public archive, 2013-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 18 in "what would de-listing of licenses look like?" (2013-03-06)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Thu Mar  7 04:49:37 2013
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 06 Mar 2013 20:49:37 -0800
+Subject: [License-discuss] what would de-listing of licenses look like?
+In-Reply-To: <CAFPTOkU8WjZ+6xx2QFyjHoy+dJdFqPifh3-OKayvTFQvWqG-Wg@mail.gmail.com>
+References: <CAFPTOkU8WjZ+6xx2QFyjHoy+dJdFqPifh3-OKayvTFQvWqG-Wg@mail.gmail.com>
+Message-ID: <51381C61.4020205@perens.com>
+
+The justification for de-listing presently accepted licenses is that:
+
+1. They are ambiguous or likely to perform in court in unexpected ways, 
+should they ever be litigated. And thus they are harmful to their users. 
+De-listing is a prompt to the organization that originally created the 
+license to replace it with an accepted license or to submit a new 
+version with greater legal competence in its construction. These would 
+be the "crayon" licenses, mostly, those written without legal counsel.
+
+2. They don't comply with the OSD and were accepted in error.
+
+3. They are both redundant /and /rarely used.
+
+Those are the only justifications. You don't get to de-list something 
+because you don't like its politics.
+
+I think you need to have a committee review a proposal to de-list, with 
+arguments from the submitter regarding the problems in the license, and 
+with advice from an attorney on whether the suggested problems are 
+really problems.
+
+     Thanks
+
+     Bruce
+
+On 03/06/2013 08:23 PM, Luis Villa wrote:
+> On Wed, Mar 6, 2013 at 11:48 AM, Richard Fontana
+> <fontana at sharpeleven.org> wrote:
+>> The Frameworx license is one of those OSI-approved licenses that I
+>> believe was approved "in haste". If OSI had such a procedure, I would
+>> recommend that the Frameworx license be reviewed for de-listing.
+> Any recommendations on what such a process would look like, Richard?
+> I'm not super-enthused about the idea, but don't want to rule out
+> anything without at least some discussion.
+>
+> Luis
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20130306/6161d8ed/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20130306/6161d8ed/attachment.vcf>
