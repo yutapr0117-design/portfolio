@@ -691,3 +691,21 @@ canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録) / 
 **逆側。** Behlendorf 氏の文は 2020 年の元理事の見解で、2025 年の理事会は採用の欠如を重複と組にして保留の理由にしている。B2 の重さはこの組み合わせで決まり、採用が基準でないという文だけで軽くはならない。
 
 **この節が establish しないこと。** Persona non Grata の前文の案は審査に出された提出ではない。同じ会話の Fontana 氏の文（特定の相手を名指す前文は OSD に適わない見込みが高い）は、ACD が前文で特定の相手を名指さないので、この節では引いていない。
+
+## 1.202 出力を派生物と「みなす」ライセンスと、決めずに置くライセンス —— TRPL の機能的な出力（2025）（2026-11-15）
+
+"Total Reciprocity Public License (TRPL v1.0)"（`license-discuss` 2025-12・20 通・決める側の通に絞って読んだ・`rounds/2025-12-license-discuss-trpl-functional-output-observed.txt` に 3 通、`rounds/2025-12-license-discuss-trpl-once-a-month-and-contract-observed.txt` に 2 通）。2021 年以降の未読の会話から、日付の新しい順に読んだ（今の審査者が今何を論じるかを先に知るため）。TRPL の §4.1 は、コンパイラの出力や学習器が作るモデルの重み（*"Functional Output"*）をプログラムの派生物と「みなし」、同じライセンスか互換のライセンスで出すことを求めた。ACD は同じ対象（モデル、重み、出力）を逆の向きで扱う。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"the use restriction here is that the program can not be used to process any input intended to be under another license than that of the program itself."*、*"This doesn't mean the license would be a bad idea, if it had legal solidity presently lacking. Only that the community developed around it should be called something other than Open Source."* | Bruce Perens 氏 2025-12-03 | **有利な面。** 問題にされたのは、出力に条件を課すことである。ACD の §6.4 は出力について *"You owe nothing under this Dedication in respect of any of them"* と書き、§10.1 は条件を一切課さない |
+| *"Where a work isn't actually a derivative work of the compiler, but the license says it is, we have a significant interpretation problem with the scope of the license. Has the license author acted as their own lexicographer and redefined "derivative work" for the purpose of their license"*、*"Certainly an interpretation problem for the license, but arguably not inconsistent with the OSD."* | Pamela Chestek 氏 2025-12-03（opensource.org のアドレスから。この時点の役職はこの通からは確かめていない） | **有利な面。** ACD は出力やモデルを派生物と呼ばず、権利が在るかも決めない。§6.4 は *"Whether a right subsists in any such thing is not decided here and does not need to be."* と書く。法の語を作り直さないので、Chestek 氏の言う解釈の問題が生じない |
+| *"any attempt to enforce software freedom beyond the limits of the AGPL is gonna require a lot of legal support."* | Josh Berkus 氏 2025-12-03 | ACD は何も強制しないので、この費用の外に在る。ただし「法的な裏付け」が要るという見方は、法律家のレビューの不在（B1）を審査者が気にする理由と同じ根から出ている |
+| *"We get approached with essentially the same misconceptions, behind different drafts, about once a month."* | Perens 氏 2025-12-03 | **不利な面（B10・B13）。** 新しい草案に対する審査者の初期値は、ほぼ毎月来る同じ誤解の 1 つとして読むことである。ACD がこの初期値から外れて読まれるには、最初の数行で「出力に条件を課さない」「権利の存在を主張しない」ことが見えなければならない |
+| *"contract obligations bind only parties who actually received the artifact and the license text (and can be shown to have assented)."*、*"In Japan, licenses are generally understood as a form of contract, but they are still analyzed primarily through copyright as the common baseline."* | Shuji Sado 氏 2025-12-13 | **有利な面。** 出力への条件は、著作権が及ばなければ契約でしか働かず、契約は同意した者しか縛らない。ACD は同意を求めず（§2.3）条件も無いので、同意の有無で効き方が変わらない。日本の読み（契約だが著作権を基準に分析する）でも、ACD の許諾は著作権の側で完結する |
+
+**読み。** 2025 年の会話で、審査者たちは TRPL の欠陥を 2 つに分けた。出力に条件を課すこと（Perens 氏は使用の制限と呼び、Chestek 氏はそれだけでは OSD に反しないとした）と、法の語を作り直すこと（Chestek 氏の「自分の辞書」）である。ACD はどちらもしない。モデルと出力を名指すのは許諾と免除の向きだけで、権利の有無は決めずに置く。これは §1.200（在るか分からない権利を主張しない）と同じ線で、2019 年と 2025 年の別の審査者が同じ形を求めている。
+
+**逆側。** 審査者は TRPL を数通で退けた（Perens 氏は *"I dismissed the license quickly"* と自分で書いた）。新しいライセンスを読む初期値が「毎月の誤解」であるなら、ACD の長さ（B3）は、その初期値を覆す前に読む気を失わせる方向に働く。また、Chestek 氏は出力に互恵を課すことを OSD に反しないと読んでおり、「ACD は出力に条件を課さないので有利」という比較は、OSD の適合ではなく、読みやすさと解釈の費用の差にとどまる。§1.7 の "Computational Use" が出力の利用まで定義に含めることは、派生物とみなすことではないが、審査者が §6.4 まで読まずに §1.7 だけを読めば、同じ型の定義として読まれうる。
+
+**この節が establish しないこと。** TRPL は `license-review` に提出されておらず、この会話に審査の帰結は無い。Sado 氏は OSI の委員ではなく（Open Source Group Japan の代表）、氏の日本法の読みは ACD の法域の分析（`ACD-1.0.jurisdictions.md`）の代わりにならない。

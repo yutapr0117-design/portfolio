@@ -1,7 +1,7 @@
 # Threads on license-review / license-discuss that this dossier has read, one subject line per row.
 # Format: <date of the first message><TAB><subject as the archive gives it>. Sorted by date.
 # Source of the candidates: census_decision_statements.py threads (771 candidates on 2026-11-07).
-# Rows: 520 subject lines. One thread appears under two subject spellings
+# Rows: 521 subject lines. One thread appears under two subject spellings
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
@@ -31,8 +31,8 @@
 1999-08-30	Oversimplifications in HtN
 1999-09-01	The Essay is Done.
 1999-09-09	ATT SOURCE CODE AGREEMENT Version 1.2C
-1999-09-19	Who gets stuck with advocacy?
 1999-09-19	Oversimplifications in HtN -- Philosophy and biology
+1999-09-19	Who gets stuck with advocacy?
 1999-09-23	license-review mailing list
 1999-10-10	Question about GNU/Linux & the advertising clause of BSD
 1999-10-12	GPL + advertising clause
@@ -43,8 +43,8 @@
 1999-11-06	OpenDesk.com License Proposal
 1999-11-09	SOS license
 1999-11-15	Apple Public Source License - is it OSI certified?
-1999-11-15	MIT license vs Dynamic Linking
 1999-11-15	Draft 1 of the OpenDesk.com Public Source License
+1999-11-15	MIT license vs Dynamic Linking
 1999-11-18	OSI Certification Process
 1999-11-26	the skinny -- a LEGAL *nightmare*
 1999-11-30	Proprietary software for Linux
@@ -54,8 +54,8 @@
 2000-04-04	Simple Public License, Please Review
 2000-04-05	OSI board asleep at the switch?
 2000-04-11	Apache v. GPL
-2000-07-22	prohibiting use that would result in death or personal injury
 2000-07-22	Plan 9 license
+2000-07-22	prohibiting use that would result in death or personal injury
 2000-08-07	Public Domain and liability
 2000-08-07	The different between GPL and non-license
 2000-08-08	License Approval Process
@@ -118,8 +118,8 @@
 2004-01-27	Public domain mistake?
 2004-02-12	For Approval: NASA Open Source Agreement Version 1.1
 2004-02-17	License Committee report
-2004-03-12	disclosure of known defects
 2004-03-12	Revisions to NASA Open Source Agreement (NOSA)
+2004-03-12	disclosure of known defects
 2004-03-12	proposal: DotGNU Trademark License
 2004-05-24	For approval: wxWindows-to-wxWidgets license name change
 2004-06-04	Creative Commons Attribution
@@ -146,8 +146,8 @@
 2005-03-01	Question Regarding Derived Works
 2005-03-02	Three new proposed OSD terms
 2005-03-03	Three new proposed OSD terms (next steps?)
-2005-03-04	Should the three new criteria be in the OSD?
 2005-03-04	Comparing OSI to OASIS and W3C
+2005-03-04	Should the three new criteria be in the OSD?
 2005-03-08	An explanation of the difficulty of solving license proliferation in one sentence
 2005-03-09	An explanation of the difficulty of solving licenseproliferation in one sentence
 2005-03-21	Which license is recommended?
@@ -164,8 +164,8 @@
 2005-04-28	NPO Developers License
 2005-08-21	Bruce Perens rejected from license-proliferation committee.
 2005-08-22	License proliferation committee
-2005-08-23	more info on license proliferation committe members
 2005-08-23	Change ot topic, back to OVPL
+2005-08-23	more info on license proliferation committe members
 2005-08-31	License Proliferation
 2005-09-06	When can licenses be revoked?
 2005-09-08	License Committee Report for September 2005
@@ -212,8 +212,8 @@
 2007-03-15	For Approval: Simple Public License (SimPL)
 2007-04-13	What exactly is "redistribution?"
 2007-04-21	Creative Commons style open source licenses?
-2007-04-22	Radical Suggestion
 2007-04-22	License Proliferation Dissatisfaction
+2007-04-22	Radical Suggestion
 2007-05-10	Choosing a license
 2007-05-14	Patent Liability Insurance
 2007-05-21	For Approval: ECL 2.0
@@ -224,9 +224,9 @@
 2007-07-23	License Committee Report for July 2007
 2007-07-30	OSI approves CPAL at OSCON 2007
 2007-07-31	GPLv3, LGPLv3 Review
-2007-07-31	what *is* the approval process?
-2007-07-31	inconsistency in OSD- software (#2) v. licenses/rights (every other plank)
 2007-07-31	conducting a sane and efficient GPLv3, LGPLv3 Review
+2007-07-31	inconsistency in OSD- software (#2) v. licenses/rights (every other plank)
+2007-07-31	what *is* the approval process?
 2007-08-01	GPLv3, again Re: what *is* the approval process?
 2007-08-10	For Approval: Microsoft Community License
 2007-08-22	Groklaw's OSI item
@@ -306,11 +306,11 @@
 2010-06-04	WebM license resolution.
 2010-10-24	Legacy Approval - CodeIgniter License Agreement
 2010-12-01	Defenestrating the GPL
-2010-12-01	OT Discussions
 2010-12-01	License Committee Report for November 2010
+2010-12-01	OT Discussions
 2010-12-06	MPL Beta 1 Section 10 is an additional permission, not a restriction
-2011-03-08	Updating the Python License
 2011-03-08	Updating the License List
+2011-03-08	Updating the Python License
 2011-03-12	Administrivia
 2011-03-24	Request for Approval -- Chicken Dance License
 2011-03-31	Announcing OWFa and CLA 1.0
@@ -337,8 +337,8 @@
 2011-12-19	Greetings, Earthlings! Need quotes for article
 2011-12-20	Reply to various recent postings on the crayon license issue
 2011-12-28	Special clauses added to OSI-approved licenses: are they OK, and if not, what can/should w
-2012-01-03	MPL 2.0 released, approved as an open source license by OSI.
 2012-01-03	Invite Creative Commons to submit CC0 Dedication.
+2012-01-03	MPL 2.0 released, approved as an open source license by OSI.
 2012-01-03	Small Suggestion
 2012-01-14	a GPLv3 compatible attribution for MIT/BSD?
 2012-02-01	CDDL 1.1 and GPL 2 with CPE
@@ -376,8 +376,8 @@
 2013-01-02	Published revised opensource.org/licenses page
 2013-01-05	web forums for license-*
 2013-02-14	OSI and SPDX license list
-2013-03-05	call for volunteers: getting rid of comments on OSI licenses
 2013-03-05	CeCILL license V2.1 for Approval
+2013-03-05	call for volunteers: getting rid of comments on OSI licenses
 2013-03-06	FAQ entry for slight variations in licenses?
 2013-03-06	License Committee Report - 2013-03-06
 2013-03-07	further license presentation improvements? (inc. call for help)
@@ -519,8 +519,8 @@
 2023-10-29	OSI's purely-neutral policy position on production of proprietary software
 2023-11-09	How to submit a licence request
 2024-02-25	Volunteers for tagging licenses
-2024-05-18	Updating the PHP license
 2024-05-18	Curious about derived works and AI...
+2024-05-18	Updating the PHP license
 2024-05-22	Setup Tooling License 1.3
 2024-07-09	Request for feedback: public specification licensing
 2024-08-08	Request for clarification: OSI approved GPLV2 SPDX identifiers
@@ -530,6 +530,7 @@
 2025-06-20	OpenMDW license
 2025-07-14	A new kind of badgeware license?
 2025-08-15	Dear OSI License Review Committee,
+2025-12-03	Total Reciprocity Public License (TRPL v1.0)
 2025-12-07	Review request for "CingXaero Open Source License (COL)"
 2025-12-28	Request for License Review - BarrerSoftware License (BSL)v1.0
 2025-12-30	Withdrawal of License Submission - Barrer Free Software License (BFSL) formerly BOSL and B

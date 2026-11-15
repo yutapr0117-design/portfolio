@@ -1,0 +1,434 @@
+Source: OSI license-discuss public archive, 2025-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 2 of 20 in "Total Reciprocity Public License (TRPL v1.0)" (begun 2025-12-03)
+Senders: Bruce Perens, Shuji Sado
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Thu Dec  4 05:23:22 2025
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 3 Dec 2025 21:23:22 -0800
+Subject: [License-discuss] Total Reciprocity Public License (TRPL v1.0)
+In-Reply-To: 
+ <CALGuDAqpU4aRunCyXSDr6_TCKRLw-Ua0P=HY1dxxhpkZ5QLjJQ@mail.gmail.com>
+References: 
+ <CABnE4++my4TwU0Tq3LeDVWBYkd9MSATnX5Ejh+bGJC28SJ4eZQ@mail.gmail.com>
+ <AFB279EB-5CDF-4708-9232-E2F82064FCD4@gmail.com>
+ <CAK2MWOt=wFZF4kdUGj6gcXPCaxkCOUACyC_Ecf=0ELDi4q1TsQ@mail.gmail.com>
+ <CALGuDAqpU4aRunCyXSDr6_TCKRLw-Ua0P=HY1dxxhpkZ5QLjJQ@mail.gmail.com>
+Message-ID: 
+ <CAK2MWOt9CuT2AJztYL7DPQy2+6tCB7fiuu=YXnf8n+33837QAw@mail.gmail.com>
+
+It just struck me as odd, because I _always_ use just those words:
+"including, but not limited to", out of fear that some court somewhere will
+think otherwise.
+
+I agree that the present license discussion is academic. We get approached
+with essentially the same misconceptions, behind different drafts, about
+once a month.
+
+On Wed, Dec 3, 2025 at 5:06 PM Gil Yehuda <tenorgil at gmail.com> wrote:
+
+> Bruce,
+> This was a minor comment relative to the larger point. There is nothing
+> fundamentally wrong with a list of examples. It did, however, cause me to
+> pause and see if I could understand what was in or out. I was unsure. That
+> seemed worth mentioning as feedback to the OP.
+>
+> Let that not interfere with my larger points. I think this license can’t
+> be complied with, even if fixed, offers little to the open source industry,
+> and seems like it would make software licensed this way very unattractive
+> to use. At most hopeful, if this is supposed to improve AGPL, I’d start
+> with AGPL’s text and explore where and why improvements could be made.
+>
+> Gil
+>
+> On Wed, Dec 3, 2025 at 7:19 PM Bruce Perens via License-discuss <
+> license-discuss at lists.opensource.org> wrote:
+>
+>> Gil wrote:
+>>
+>> when licenses say “This includes, but is not limited to” that
+>> automatically creates a speed bump where a reader (and their lawyer) have
+>> to imagine if this includes something surprisingly not intended. It creates
+>> a very broad scope
+>>
+>> Really? I would have thought that it only did just what it said: to make
+>> clear that inclusion did not imply limitation. I don't see why that broad
+>> scope would not exist before any such statement and would be activated by
+>> that text.
+>>
+>> Are there any actual cases where this was debated?
+>>
+>>     Thanks
+>>
+>>     Bruce
+>>
+>> On Wed, Dec 3, 2025 at 8:23 AM Gil Yehuda <tenorgil at gmail.com> wrote:
+>>
+>>> Jay,
+>>> If you intend to ask for critique, there’s quite a bit — from nitpicking
+>>> details to fundamental flaws. I’ll list some of the apparent ones below as
+>>> I read the license text.
+>>> If you intend to suggest this as a new open source license that would
+>>> meet the OSD, I don’t think this will do.
+>>>
+>>> As I read the license:
+>>>
+>>>    - Preamble: Licenses are documents that grant rights under
+>>>    conditions. This text suggests that the license can guarantee freedom,
+>>>    indeed “radical” freedom (I’m not sure of the difference) in software
+>>>    architecture (not just code?). Licenses should articulate the rights they
+>>>    grant and the conditions under which those rights are granted. Preambles
+>>>    are great to convey intent which helps when trying to interpret ambiguity;
+>>>    but they also reveal cases where the intent is to express a wish for how
+>>>    things ought to be in the world. That’s better expressed in a manifesto,
+>>>    not a legal document.
+>>>    - “Intimate Communication” is one of my favorite terms found in
+>>>    software licenses since it makes people think we’re also dabbling in
+>>>    marriage counseling. My constructive comment here is that when licenses say
+>>>    “This includes, but is not limited to” that automatically creates a speed
+>>>    bump where a reader (and their lawyer) have to imagine if this includes
+>>>    something surprisingly not intended. It creates a very broad scope — and
+>>>    that’s going to warn me to stay away from using code under this license
+>>>    because I might intent to comply only to learn that the scope was even
+>>>    broader than assumed.
+>>>    - “Content Output” is defined with two terms “human consumption or
+>>>    data storage” — I understand the first to exclude non-human uses and the
+>>>    second to exclude the use of data that is not stored. I note this because
+>>>    of the next phrase...
+>>>    - “Deployment” is defined with a curious inclusion of the term
+>>>    “internally or externally” which I assume means in the context of a
+>>>    corporation (not of “human consumption” in the above clause — right?!) If
+>>>    so, then “internally” suggests that if I deploy my application onto my work
+>>>    computer for use by my work colleagues, then the copyright license
+>>>    considers this to be “deployment’ subject to copyright protection. I do not
+>>>    believe that would hold up in the current interpretation of copyright laws.
+>>>    - “Consequently” (line 40) is where this becomes quite challenging.
+>>>    If I create a system with code licensed under TRPL 1.0 that shares data
+>>>    with any proprietary software to achieve a unified functional goal — this
+>>>    license declares that the proprietary software becomes part of a "Combined
+>>>    Work” that I must release its source code under the terms of this license.
+>>>    But what if that proprietary software is not mine to release? I might not
+>>>    even have the source code? Let’s say I license the proprietary edition of
+>>>    Postman and use it to make an API call to software under TRPL 1.0 —
+>>>    internally (to my corporation, not in my body). I now have to acquire and
+>>>    release Postman’s proprietary source code under the TRPL 1.0 license? How
+>>>    would I go about doing that? Since there’s no definition of “release” here,
+>>>    can I assume that if I deploy internally, then I can release internally
+>>>    too? You see that would not help promote your intent. This section of the
+>>>    license seems to convey how you wish software would work — but it does not
+>>>    clarify how I, a potential user of software licensed under this license,
+>>>    needs to do to make the world work that way.
+>>>
+>>>
+>>> I’m concerned there is little practical use of this license since any
+>>> software licensed this way, no matter how appealing that software may be,
+>>> is automatically going to pose a threat to the rest of my software. Given
+>>> that software is subject to copyright, and that as a user of software, I
+>>> seek to honor other people’s copyrights, this license would make it nearly
+>>> impossible to do so. I’d always have to limit my use of this software to
+>>> ensure I don’t inadvertently infringe other people’s rights.
+>>>
+>>> Rather than a license, maybe we can collectively imagine what the past
+>>> 40-50 years of technology would have been like had there been no copyright
+>>> on source code. I imagine it would be different — better in some ways,
+>>> worse in others. This license appears to invoke that imagination. But since
+>>> source code is subject to copyright laws, I think the licenses should do
+>>> their best to work within that context, granting rights that the grantor
+>>> wishes to grant, and imposing conditions that the users of the software
+>>> wish to, and can, comply with. This text falls short on the second part, at
+>>> least for me.
+>>>
+>>> Gil
+>>>
+>>>
+>>>
+>>> On Dec 3, 2025, at 12:59 AM, Jay Patel <jaypatel.ani at gmail.com> wrote:
+>>>
+>>> I am reaching out to community to collect feedback on the proposed
+>>> license.
+>>>
+>>> Here is text of License:
+>>>
+>>> https://github.com/trplfoundation/trpl-license/blob/main/LICENSE
+>>>
+>>> Thanks,
+>>>
+>>> Jay
+>>>
+>>> _______________________________________________
+>>> The opinions expressed in this email are those of the sender and not
+>>> necessarily those of the Open Source Initiative. Official statements by the
+>>> Open Source Initiative will be sent from an opensource.org email
+>>> address.
+>>>
+>>> License-discuss mailing list
+>>> License-discuss at lists.opensource.org
+>>>
+>>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>>
+>>>
+>>> _______________________________________________
+>>> The opinions expressed in this email are those of the sender and not
+>>> necessarily those of the Open Source Initiative. Official statements by the
+>>> Open Source Initiative will be sent from an opensource.org email
+>>> address.
+>>>
+>>> License-discuss mailing list
+>>> License-discuss at lists.opensource.org
+>>>
+>>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>>
+>>
+>>
+>> --
+>> Bruce Perens K6BP
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not
+>> necessarily those of the Open Source Initiative. Official statements by the
+>> Open Source Initiative will be sent from an opensource.org email address.
+>>
+>> License-discuss mailing list
+>> License-discuss at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens K6BP
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20251203/97b14247/attachment.htm>
+
+From shujisado at gmail.com  Sat Dec 13 06:05:15 2025
+From: shujisado at gmail.com (Shuji Sado)
+Date: Sat, 13 Dec 2025 15:05:15 +0900
+Subject: [License-discuss] Total Reciprocity Public License (TRPL v1.0)
+In-Reply-To: 
+ <CABnE4++RaNA1yiTGxRGsjgQ9WNUwLqPGym4n7KumKjOJmpEj7w@mail.gmail.com>
+References: 
+ <CABnE4++my4TwU0Tq3LeDVWBYkd9MSATnX5Ejh+bGJC28SJ4eZQ@mail.gmail.com>
+ <AFB279EB-5CDF-4708-9232-E2F82064FCD4@gmail.com>
+ <CABnE4+LuLgn6Xvp4cTQn9vVKJ02E+fzo2uZwyF8EcN+9Vh5sjw@mail.gmail.com>
+ <CABnE4++RaNA1yiTGxRGsjgQ9WNUwLqPGym4n7KumKjOJmpEj7w@mail.gmail.com>
+Message-ID: 
+ <CAAvo7O7dsNPwLToDrp6xVHCYNw7JtxvZ7kF5g9oE=w9L2KBSmA@mail.gmail.com>
+
+Hi Jay, Josh, and all,
+
+https://discuss.opensource.org/t/distillation-and-oss-licensing/1333
+I just noticed that Josh-san’s Discourse thread on distillation and
+copyleft-style model licensing is closely related to TRPL’s Section 4.1
+“Functional Output”, especially where it treats “ML trainer generating
+Model Weights” as a derivative work and tries to impose reciprocity on that
+output.
+
+My main point is about enforceability and scope.
+
+1) If the “functional output” (including weights) is not a derivative work
+under copyright law in a given jurisdiction, then Section 4.1 cannot be
+enforced as a copyright condition in the usual Open Source license sense.
+At that point, the only realistic mechanism is contract (a promise by the
+downloader).
+2) But contract obligations bind only parties who actually received the
+artifact and the license text (and can be shown to have assented). This is
+a weak fit for distillation via API access or output scraping, where the
+distiller may never have agreed to anything in the first place.
+3) Also, relying heavily on contract increases jurisdictional uncertainty.
+In Japan, licenses are generally understood as a form of contract, but they
+are still analyzed primarily through copyright as the common baseline.
+Moving the center of gravity to pure contract makes cross-border
+predictability much worse.
+
+So I think reciprocity on “things that look technically derivative but are
+legally uncertain” may be possible in a narrow, symbolic sense, but it is
+unlikely to achieve the practical deterrence people hope for (and it risks
+drifting toward the kind of “tool controls the output” problem that Josh
+raised under OSD9).
+
+If the goal is an Open Source license, it may be safer to narrow 4.1 to
+situations where identifiable portions of the Program are actually
+incorporated into the output (for example runtime libraries), rather than
+deeming all functional output to be a derivative work by definition.
+
+Shuji
+
+
+2025/12/10 0:09 Jay Patel <jaypatel.ani at gmail.com>:
+
+>
+> Modified original Licence text into this draft from Feedbacks:
+>
+> https://github.com/trplfoundation/trpl-license/blob/main/Draft
+>
+> On Wed, Dec 3, 2025, 10:17 PM Jay Patel <jaypatel.ani at gmail.com> wrote:
+>
+>> Thank You Gil for feedback.You identified a critical logical loop (the
+>> 'Postman problem') that would have made compliance impossible.
+>>
+>> Maybe adding this address your poins:
+>> 1. Adding a 'System Library/Standard Tool' exception: To ensure generic
+>> tools (OS, Browsers, API clients) are not infected, targeting only specific
+>> functional wrappers.
+>>
+>> 2. Tightening 'Intimate Communication': Removing 'not limited to' and
+>> defining specific dependency types to reduce legal ambiguity.
+>>
+>> 3. Clarifying Deployment: Explicitly exempting personal/study use,
+>> focusing 'Deployment' on organizational/commercial utility.
+>>
+>> My goal is 'Stronger than AGPL,' not 'Impossible to Run.' Your feedback
+>> helps bridge that gap.
+>>
+>> Regards,
+>> Jay
+>>
+>> On Wed, Dec 3, 2025, 9:52 PM Gil Yehuda <tenorgil at gmail.com> wrote:
+>>
+>>> Jay,
+>>> If you intend to ask for critique, there’s quite a bit — from nitpicking
+>>> details to fundamental flaws. I’ll list some of the apparent ones below as
+>>> I read the license text.
+>>> If you intend to suggest this as a new open source license that would
+>>> meet the OSD, I don’t think this will do.
+>>>
+>>> As I read the license:
+>>>
+>>>    - Preamble: Licenses are documents that grant rights under
+>>>    conditions. This text suggests that the license can guarantee freedom,
+>>>    indeed “radical” freedom (I’m not sure of the difference) in software
+>>>    architecture (not just code?). Licenses should articulate the rights they
+>>>    grant and the conditions under which those rights are granted. Preambles
+>>>    are great to convey intent which helps when trying to interpret ambiguity;
+>>>    but they also reveal cases where the intent is to express a wish for how
+>>>    things ought to be in the world. That’s better expressed in a manifesto,
+>>>    not a legal document.
+>>>    - “Intimate Communication” is one of my favorite terms found in
+>>>    software licenses since it makes people think we’re also dabbling in
+>>>    marriage counseling. My constructive comment here is that when licenses say
+>>>    “This includes, but is not limited to” that automatically creates a speed
+>>>    bump where a reader (and their lawyer) have to imagine if this includes
+>>>    something surprisingly not intended. It creates a very broad scope — and
+>>>    that’s going to warn me to stay away from using code under this license
+>>>    because I might intent to comply only to learn that the scope was even
+>>>    broader than assumed.
+>>>    - “Content Output” is defined with two terms “human consumption or
+>>>    data storage” — I understand the first to exclude non-human uses and the
+>>>    second to exclude the use of data that is not stored. I note this because
+>>>    of the next phrase...
+>>>    - “Deployment” is defined with a curious inclusion of the term
+>>>    “internally or externally” which I assume means in the context of a
+>>>    corporation (not of “human consumption” in the above clause — right?!) If
+>>>    so, then “internally” suggests that if I deploy my application onto my work
+>>>    computer for use by my work colleagues, then the copyright license
+>>>    considers this to be “deployment’ subject to copyright protection. I do not
+>>>    believe that would hold up in the current interpretation of copyright laws.
+>>>    - “Consequently” (line 40) is where this becomes quite challenging.
+>>>    If I create a system with code licensed under TRPL 1.0 that shares data
+>>>    with any proprietary software to achieve a unified functional goal — this
+>>>    license declares that the proprietary software becomes part of a "Combined
+>>>    Work” that I must release its source code under the terms of this license.
+>>>    But what if that proprietary software is not mine to release? I might not
+>>>    even have the source code? Let’s say I license the proprietary edition of
+>>>    Postman and use it to make an API call to software under TRPL 1.0 —
+>>>    internally (to my corporation, not in my body). I now have to acquire and
+>>>    release Postman’s proprietary source code under the TRPL 1.0 license? How
+>>>    would I go about doing that? Since there’s no definition of “release” here,
+>>>    can I assume that if I deploy internally, then I can release internally
+>>>    too? You see that would not help promote your intent. This section of the
+>>>    license seems to convey how you wish software would work — but it does not
+>>>    clarify how I, a potential user of software licensed under this license,
+>>>    needs to do to make the world work that way.
+>>>
+>>>
+>>> I’m concerned there is little practical use of this license since any
+>>> software licensed this way, no matter how appealing that software may be,
+>>> is automatically going to pose a threat to the rest of my software. Given
+>>> that software is subject to copyright, and that as a user of software, I
+>>> seek to honor other people’s copyrights, this license would make it nearly
+>>> impossible to do so. I’d always have to limit my use of this software to
+>>> ensure I don’t inadvertently infringe other people’s rights.
+>>>
+>>> Rather than a license, maybe we can collectively imagine what the past
+>>> 40-50 years of technology would have been like had there been no copyright
+>>> on source code. I imagine it would be different — better in some ways,
+>>> worse in others. This license appears to invoke that imagination. But since
+>>> source code is subject to copyright laws, I think the licenses should do
+>>> their best to work within that context, granting rights that the grantor
+>>> wishes to grant, and imposing conditions that the users of the software
+>>> wish to, and can, comply with. This text falls short on the second part, at
+>>> least for me.
+>>>
+>>> Gil
+>>>
+>>>
+>>>
+>>> On Dec 3, 2025, at 12:59 AM, Jay Patel <jaypatel.ani at gmail.com> wrote:
+>>>
+>>> I am reaching out to community to collect feedback on the proposed
+>>> license.
+>>>
+>>> Here is text of License:
+>>>
+>>> https://github.com/trplfoundation/trpl-license/blob/main/LICENSE
+>>>
+>>> Thanks,
+>>>
+>>> Jay
+>>>
+>>> _______________________________________________
+>>> The opinions expressed in this email are those of the sender and not
+>>> necessarily those of the Open Source Initiative. Official statements by the
+>>> Open Source Initiative will be sent from an opensource.org email
+>>> address.
+>>>
+>>> License-discuss mailing list
+>>> License-discuss at lists.opensource.org
+>>>
+>>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>>
+>>>
+>>> _______________________________________________
+>>> The opinions expressed in this email are those of the sender and not
+>>> necessarily those of the Open Source Initiative. Official statements by the
+>>> Open Source Initiative will be sent from an opensource.org email
+>>> address.
+>>>
+>>> License-discuss mailing list
+>>> License-discuss at lists.opensource.org
+>>>
+>>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>>
+>> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Shuji Sado
+Chairman, Open Source Group Japan
+https://opensource.jp/
+English blog: https://shujisado.org/
+Japanese blog: https://shujisado.com/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20251213/b7bc3b60/attachment.htm>
