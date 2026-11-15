@@ -1,0 +1,75 @@
+Source: OSI license-discuss public archive, 2013-November.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 4 in "Issue on licenses pages" (2013-11-22)
+Senders: Lawrence Rosen
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Wed Nov 27 01:06:55 2013
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Tue, 26 Nov 2013 17:06:55 -0800
+Subject: [License-discuss] Issue on licenses pages
+In-Reply-To: <528E87E6.4010108@gmail.com>
+References: <528E87E6.4010108@gmail.com>
+Message-ID: <0f6601ceeb0c$fb007850$f10168f0$@rosenlaw.com>
+
+Engel Nyst wrote:
+> It seems that OSL 1.1, 2.0, and AFL 1.0, 1.1, 1.2, 2.1 are not accessible
+at 
+> http://opensource.org/licenses/[SPDX name]. As far as I know/find, they 
+> have been approved.
+
+Not only were they approved, they were originally written at the behest of
+the same OSI board of directors that approved those early licenses. Those
+board members were experimenting with provisions that sought to protect open
+source from patents. I worked with them to implement what they then wanted.
+As you can tell, we went through several iterations.
+
+The early attempts were objected to by certain large companies who had
+patent portfolios to protect. They did not want to tie a copyright license
+for FOSS software to a reciprocal patent license, particularly one that
+opened their entire portfolios to such licenses for open source. I find it
+interesting that, nearly 10 years later, some large patent owners are
+writing their own broad non-asserts for open source software that accomplish
+some of the same goals. Open source and patent policies have come a long
+way....
+
+In any event, those early OSL and AFL licenses have been "deprecated" by its
+author, me, now that nearly everyone has stopped fighting over patent
+provisions and has grown accustomed to OSL/AFL/NOSL 3.0.
+
+It has been frustrating to watch people here try to place licenses in broad
+categories without understanding fully the subtle differences in their legal
+provisions that can have enormous financial impacts.
+
+/Larry
+
+Lawrence Rosen
+Rosenlaw & Einschlag, a technology law firm (www.rosenlaw.com)
+3001 King Ranch Rd., Ukiah, CA 95482
+Office: 707-485-1242
+Linkedin profile: http://linkd.in/XXpHyu 
+
+
+-----Original Message-----
+From: Engel Nyst [mailto:engel.nyst at gmail.com] 
+Sent: Thursday, November 21, 2013 2:24 PM
+To: license-discuss at opensource.org
+Subject: [License-discuss] Issue on licenses pages
+
+Hello license-discuss,
+
+It seems that OSL 1.1, 2.0, and AFL 1.0, 1.1, 1.2, 2.1 are not accessible at
+http://opensource.org/licenses/[SPDX name]. As far as I know/find, they have
+been approved.
+
+A number of discussions on OSI mailing lists archives reference their
+approval.
+
+They are also not listed in superseded category.
+
+Is the text intended to no longer be accessible?
+_______________________________________________
+License-discuss mailing list
+License-discuss at opensource.org
+http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss

@@ -423,6 +423,7 @@
 2013-11-13	Proposal to revise (and move?) the CC0 FAQ
 2013-11-17	Continued discussion of the Scripting FSL
 2013-11-18	Old submissions
+2013-11-22	Issue on licenses pages
 2013-12-18	Machine readable source of OSI approved licenses?
 2013-12-28	changing wiki.os.o to xwiki
 2014-02-23	compliance resources

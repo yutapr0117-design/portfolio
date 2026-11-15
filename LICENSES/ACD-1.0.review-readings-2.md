@@ -372,3 +372,18 @@ portfolio-1c の T69（1.4 草案の §2.6 に、除外する素材を示す形�
 **逆側。** AAL の承認は古い時期のもので（この会話の時点で既に「もはや大きく使われていない」）、その後の審査は法律家の目を探すようになった記録がある（B1 の Berkus 氏 2020・Piana 氏 2024）。Berkus 氏の「名は共同体のもの」は、§16.4 の Steward の規則が審査で問われうることを意味する。AAL の作者が型板を公有に置いたことは、ACD の本文自身の扱い（§16.4 は改変した本文を別の名でなら配れると書く）と比べて読む必要がある。
 
 **この節が establish しないこと。** AAL が承認された年と、そのときの審査の記録は確かめていない。AAL 2.0 が出されたか、AAL が廃止されたかは、この会話の範囲では分からない。
+
+## 1.240 OSL と AFL は 1 人の起草者が何度も版を重ね、その多くが承認された —— 作者は後に旧版を勧めないとしたが、「FOSS の許諾は永遠」なので既に配った物は変わらない（"Issue on licenses pages"・2013-11）（2026-11-15）
+
+"Issue on licenses pages"（`license-discuss` 2013-11・4 通）を通読し、2 通を置いた（`rounds/2013-11-license-discuss-osl-afl-rosen-iterations-observed.txt`・`rounds/2013-11-license-discuss-osl-afl-rosen-forever-observed.txt`）。OSL 1.1・2.0 と AFL 1.0・1.1・1.2・2.1 が OSI のサイトから見えなくなっている、承認されたはずだ、という Engel Nyst 氏の問いに、起草者の Lawrence Rosen 氏が答えた。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Not only were they approved, they were originally written at the behest of the same OSI board of directors that approved those early licenses."* / *"As you can tell, we went through several iterations."* | Lawrence Rosen 氏 2013-11-26 | **有利な面（版の数・`against.md` #320）。** 1 人の起草者のライセンスが、版を重ねながら複数の版で承認された。ACD が 1.0 から 1.4 まで版を重ねていることは、それだけで承認の妨げになった前例を持たない |
+| *"As I understand it, however, FOSS licensing is forever, so deprecation wasn't supposed to mean any licensing changes to FOSS software that had already been distributed voluntarily under those licenses."* | Lawrence Rosen 氏 2013-11-27（旧版を勧めないとしたのは作者の意向で、OSI のサイトから消すことではなかった、と同じ通で） | **有利な面。** 版を改めても既に配った物の許諾は変わらない、という考えで、ACD の §2.2（1.0 でも §2.2・取り消せない）と、このリポジトリの `LICENSE` が書く *"Everything ACD-1.0 gave away stays given away"* と同じ線である |
+
+**読み。** 版を重ねることそのものは、承認の記録の上では異例でない。OSL と AFL は、理事会の求めに応じて 1 人の起草者が書き直しを重ね、複数の版が承認された。旧版を勧めなくなっても、既に配った物の許諾は残る。
+
+**逆側。** Rosen 氏は法律家で、OSL と AFL の初期の版は理事会の求めで書かれた。ACD は法律家でない者の起草で（B1）、理事会の求めで書いたものではない。また OSL と AFL の版の改めは数年にわたり、ACD は 3 か月足らずで 5 つの本文を出している（`against.md` #320 の Kuhn 氏 2018 は、35 日での置き換えを手続きの問題とした）。版の数ではなく、版を改める速さが問われうる点は、この先例では答えられない。
+
+**この節が establish しないこと。** OSL と AFL のどの版がいつ承認されたかは、この会話の範囲では確かめていない（Engel Nyst 氏は「承認されたはず」と書き、Rosen 氏が承認を認めた）。

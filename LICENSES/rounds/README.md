@@ -68,6 +68,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2002〜2005 | `license-discuss` | **観測（著作権を伴わない特許の許諾と、標準の特許方針・3 通）** | `2002-to-2005-license-discuss-standalone-patent-licences-observed.txt` |
 | 2012-02 | `license-review` | **観測（CC0 の審査から、特許について述べた 7 通）** | `2012-02-license-review-cc0-submission-patent-statements-observed.txt` |
 | 2013-10〜12 | `license-review` | **観測（Tidepool Open Access to Health Data Software License の審査から 13 通・2 部の 1）** | `2013-10-to-12-license-review-tidepool-health-data-observed-1of2.txt` |
+| 2013-11 | `license-discuss` | **観測（Rosen 氏の 1 通・OSL と AFL は版を重ねて承認された）** | `2013-11-license-discuss-osl-afl-rosen-iterations-observed.txt` |
+| 2013-11 | `license-discuss` | **観測（Rosen 氏の 1 通・FOSS の許諾は永遠、旧版を勧めなくても配った物は変わらない）** | `2013-11-license-discuss-osl-afl-rosen-forever-observed.txt` |
 | 2013-10〜12 | `license-review` | **観測（同・2 部の 2。取り下げの通と、同じ報告のスレッドの NOSA 2.0 についての 1 通を含む）** | `2013-10-to-12-license-review-tidepool-health-data-observed-2of2.txt` |
 | 2008-07〜09 | `license-review` / `license-discuss` | **観測（MirOS Licence の審査と、承認を勧めた 2008-09 の委員会報告・8 通）** | `2008-07-to-09-license-review-miros-licence-approval-observed.txt` |
 | 2005-09 | `license-discuss` | **観測（2005 年 9 月の委員会報告・改訂版・理事会の対応と返信。3 つの基準をめぐる 9 通）** | `2005-09-license-discuss-committee-report-three-criteria-observed.txt` |
