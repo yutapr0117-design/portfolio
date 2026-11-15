@@ -420,6 +420,8 @@ the basis of this response, I wrote everything else myself"*）。**これを毎
 | #135 | 献呈か契約か | 本文の直しは無い。§4.4 の独立の許諾が答えで、直す対象が無い | — | 説明で足りる（構造） |
 | #171 | 配布の場の措置 | 本文の直しは無い。Dedicator の権利と行為の外（§2.7・§11.4 と同じ形） | — | 説明で足りる（射程） |
 
+**見込み —— 細部の指摘は 2 波目に来る。** Bruce Perens 氏 2008-05-27（`license-review`・IWL の審査）*"I don't think anyone has bothered to focus on smaller issues of the license after seeing that the bigger ones would keep it from passing."*（`review-readings-2.md` §1.238）。最初の指摘が少ないことは細部に問題が無いことを意味しない。大きな論点に改訂版で答えた後に、細部の指摘が来ると見込む —— この表は 1 波目向けで、2 波目の指摘は errata と次版の手順（§2）で受ける。
+
 **⚠ 逆側**: (1) 撤退線を先に書くと、審査者に「押せば下がる」と読まれる。だが議事録の基準では、下がる用意の無い反論の方が危ない。(2) 語数は 2026-11-15 の草案で `split()` で数えた。試作の採否はそのときの反例で決まり、この表は採否を先取りしない。(3) 13 件は `[TRADE]` のうち本文に関わるものだけで、残り 16 件（審査の時間・SPDX・ドシエの書き方など）は本文の直しでは答えられない。
 
 ## 4. やってはいけないこと

@@ -220,6 +220,9 @@ the 1.0 text.
 
 **2026-11-15 に足した —— 名前が 1 つの本文を指すことを、決める側が良いこととして求めた記録。** Bruce Perens 氏 2010-11（`license-review`・MPL 2.0 の審査）*"I submit that Mozilla would be doing the community a service if they were to make their license invariant."*（`review-readings-2.md` §1.235・portfolio-2f）。ACD の §16.4（1.0 でも §16.4）は、名前と識別子が 1 つの本文を指し続けるように、改変した本文をその名の下で配ることを禁じる —— Perens 氏の求めた不変の形である。**逆側**: ACD は 1.0 から 1.3 まで 4 つの本文を確定し、1.4 を作っている（`against.md` #320）。1 つの名前の下の版の数そのものが、不変を求める読み手には別の問いになりうる。
 
+
+**2026-11-15 に足した（2 つ目）—— 名前を Steward に結ぶことの両側。** **有利な面**: 当時の委員長 Russ Nelson 氏 2008-05-29（`license-review`・IWL の審査）*"We've always taken the position that a license cannot be modified in any way (not one word). We've always acted as if the license steward's published copy is the official copy, and that we are not empowered to change their license."*（`review-readings-2.md` §1.238）—— Steward が公表した写しを正とする運用で、§16.4・§16.5 の形である。同じ通で同氏は、承認した写しを型板にすべきだとも書いた。ACD は本文に固有名詞を持たず、§16.3 で誰でも 1 語も変えずに当てられるので、その型板の形をしている。**不利な面**: Josh Berkus 氏 2020-03（`license-discuss`・"Thoughts on AAL and OSS vs FOSS"）*"I don't see how an original license author has any moral right to the name. Once the license is released, it belongs to the whole community."*（§1.239）—— Steward だけが名前の下で新しい版を出せる規則（§16.4）は、この立場からは問われうる。**逆側**: GPL と MPL は Steward が新しい版を出す形のまま承認されてきた。Berkus 氏の文は廃止の議論の中の 1 人の立場で、規則ではない。
+
 ## B8 —— §12 人格権。**同じ条項が「gap」と「mission creep」の両方で名指しされている**
 
 **この項目が難しいのは、賛否が割れているからではなく、賛否が同じ条項の別の面を見ているからである。**

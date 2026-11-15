@@ -133,7 +133,7 @@ running the Program"* は**著作権の話であって特許ではない**）。
 
 当時の委員の Josh Berkus 氏は、法律家が単独で出した新しいライセンスの審査で、提出者に *"a license which does several things which no license previously approved by the OSI does. If you thought that reviewing such a license was going to be either fast or straightforwards, or that committee members would be unanimous in our evaluation of criteria or recommendations, then I'm sorry."* と書いた（`license-review` 2017-11-13・`review-readings-2.md` §1.229・portfolio-2f）。**B10 で gap を強く言えるほど、審査の時間と割れ方は大きくなる** —— gap の主張は承認されるべき理由であると同時に、審査を長くする理由でもある。同じ審査で Bruce Perens 氏は *"those who make use of the Open Source software and do not modify or redistribute it, there should be as close to *no legal load* as possible"* と書いた（2017-10-24）。ACD は使う人に何も課さない（§10.1・§2.3）ので、新しさの側で時間がかかっても、決める側が掲げる価値の側では争点を作らない。
 
-**逆側**: L0-R は使用を条件にする型で、Berkus 氏の文が割れを予告した中身（条件の新しさ）は ACD に無い。ACD の新しさは許諾と約束の範囲（§8.4・§5・§6）で、割れるとすれば H1-g（既存＋追加の許諾で足りるか）の側である。
+同じ線の文は 2008 年にも在る —— 当時の委員長 Russ Nelson 氏 2008-05-29 *"the community has come to realize that more Open Source licenses are not a good thing."*（§1.238）。**逆側**: L0-R は使用を条件にする型で、Berkus 氏の文が割れを予告した中身（条件の新しさ）は ACD に無い。ACD の新しさは許諾と約束の範囲（§8.4・§5・§6）で、割れるとすれば H1-g（既存＋追加の許諾で足りるか）の側である。
 
 ### 2026-09-20 追記 —— gap の 1 本目に、**決着した裁判例が付いた**
 
