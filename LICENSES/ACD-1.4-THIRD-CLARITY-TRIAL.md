@@ -76,6 +76,6 @@ Check 468y は 2 冊目とこの file の両方の「変えない」「退けた
 
 **見つけた経緯**: portfolio-30 が T66（§14.44・errata E83）の逆側に記録していた。T66 で §5.3 の主語に §8.6（特許の約束）を入れた後も、末文 *"Sections 3 and 4 operate in their favour independently of this Section"* は著作権の足場（§3 の放棄・§4 の許諾）しか名指さない。特許の約束の受益者について、§8.1・§8.4 の許諾が §5.3 と独立に働くことを言わないので、「§8.6 には §8.1・§8.4 が独立に働かない」と裏読みされうる —— T67 の §12.3・§2.4 と同じ「そろえ残し」の型（主語を「A」から「A and B」へ増やしたとき、A だけを名指す文が残る）。
 
-**Before**: *"Sections 3 and 4 operate in their favour independently of this Section."* **After**: *"Sections 3, 4, 8.1, and 8.4 operate in their favour independently of this Section."*
+**Before**: *"Sections 3 and 4 operate in their favour independently of this Section."* **After**: *"Every other provision of this Dedication operates in their favour independently of this Section."*（最初の案 *"Sections 3, 4, 8.1, and 8.4 operate …"* は、受け手のために独立に働く他の足場 —— §6.1・§7.2 の許可、§12.1 の放棄、§12.2 の同意、§9 —— が列挙に無いことを新しい対比にした・portfolio-50。50 の一般形 *"Sections 3 and 4, and every other grant, permission, waiver, and consent in this Dedication, operate …"* は +11 語で、*waiver* が §3 の *surrender* を呼び替えると読まれうるので、列挙をやめた短い形にした。一般形は §16 のような文書の規律まで「受け手のために働く」と述べる形になるが、害は無いと読む）
 
 **⚠ 逆側**: §8.6 第 2 文（*"does not wait for either licence to be held ineffective"*）と §2.4（独立の一般則）が許諾と約束の独立を既に述べているので、欠陥は弱い。30 は最初「逆側の記録で足りる」と読み、私も T66 では変えなかった。採ったのは、9b の「そろえ残し」の検出が T66 の時点では無く、同じ型を T67 で 2 か所直した後で、残す理由が語数だけになったからである。+2 語で、GPL-3.0 との余裕は 31 語から 29 語になる（`split()` で数えた —— 最初は +3 と書き、Check 468n が箇条の申告と本文の差の食い違いで捕まえた）。

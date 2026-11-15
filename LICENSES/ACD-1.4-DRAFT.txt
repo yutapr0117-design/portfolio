@@ -110,8 +110,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 5.3 now also names the covenant in Section 8.6, so that the
       patent covenant may be relied upon by anyone who receives the Work from
       You as an intended beneficiary, as the covenants in Section 5 may
-      (errata E83), and it says that Sections 8.1 and 8.4, as well as 3 and 4,
-      operate in their favour independently of it. (+3 words.)
+      (errata E83), and it says that every other provision of this Dedication,
+      not only Sections 3 and 4, operates in their favour independently of it.
+      (+3 words.)
     * Section 6.1 now permits Computational Use as to the patent claims
       Section 8 reaches, where it named the patent claims of the Dedicator and
       so went beyond Section 8. (+4 words.)
@@ -528,8 +529,8 @@ PREAMBLE (informative; not part of the operative terms)
        extent the law permits the Dedicator to bind them, and may be relied upon
        by You and by anyone who receives the Work from You, directly or
        indirectly, as an intended beneficiary, to the extent a jurisdiction
-       gives effect to such reliance. Sections 3, 4, 8.1, and 8.4 operate in
-       their favour independently of this Section.
+       gives effect to such reliance. Every other provision of this Dedication
+       operates in their favour independently of this Section.
 
 6. MACHINE LEARNING, TEXT AND DATA MINING, AND MODEL TRAINING
 
