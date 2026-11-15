@@ -1,0 +1,82 @@
+Source: OSI license-review public archive, 2018-June.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 14 in "Consensus on L0-R" (2018-06-19)
+Senders: John Cowan
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From cowan at ccil.org  Wed Jun 20 21:51:17 2018
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 20 Jun 2018 17:51:17 -0400
+Subject: [License-review] Consensus on L0-R
+In-Reply-To: <20180620211311.GF14837@dev.kemitchell.com>
+References: <CAK2MWOv6d2ZPzaUNJO4S0Y-7Advw4xF7idp7iqwyoRZuQaVU6Q@mail.gmail.com>
+ <20180620043144.GL18555@dev.kemitchell.com>
+ <CAK2MWOuYfeHdCKonwm0ZFwff6PNTGmJQpqCh1ss-1E3aSrZoYQ@mail.gmail.com>
+ <20180620090834.GO18555@dev.kemitchell.com>
+ <CAK2MWOsdYLQFgMWOsY-twbOXpu4wgKFdDP1jEtN0nUQcjerQiw@mail.gmail.com>
+ <20180620211311.GF14837@dev.kemitchell.com>
+Message-ID: <CAD2gp_QoDE4aA=nafxnk=yjhZi+EHJ90TqaYngKhDg2X0KMvpA@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 5:13 PM, Kyle Mitchell <kyle at kemitchell.com> wrote:
+
+
+> > Either the RPL passes the OSD or the folks on the board at the time
+> thought
+> > that it did. This does not, however, give any reason that LR-0 should
+> also
+> > pass the OSD.
+>
+> It demonstrates that OSD#6 is not a blanket prohibition on
+> use restrictions.  RPL contains an explicit use-based
+> restriction.  It was approved.
+>
+
+I believe that RPL's certification was wrongly decided, although it is
+probably
+too late to reverse it now.  I remember thinking at the time that the
+license
+was very hard to understand (I don't find it so now, particularly), but
+that it
+meant well and we probably should approve it despite its opacity.  I wish
+now that I'd made more fuss then.
+
+
+> > You missed 1201, and if I took more than a minute I could probably find
+> > more.
+>
+> That's DMCA, not core Copyright Act.
+
+
+"The law of the land is the law."
+
+> Your license is not Open Source.
+>
+> You will not be able to convince anyone that it's Open Source with
+> language
+> > implementing a use restriction. No amount of argument will change that.
+>
+> I read and understand that you believe open source licenses
+> cannot impose any use restrictions whatsoever
+>
+
+I don't think you'll find anyone other than yourself (and the long-ago
+authors of the RPL) who believe otherwise.
+
+
+> You're promoting a rule for software licenses that objective
+> readings of OSD against the approved license list don't
+> require.  The rules that do follow, plus the rule you
+> propose, is "permissive open source", a subspecies.
+>
+
+The GPL is obviously reciprocal and imposes no use restriction.
+If it did, it would contradict Freedom 0 from the same organization.
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+There are three kinds of people in the world:
+those who can count, and those who can't.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/cc1d5613/attachment.html>

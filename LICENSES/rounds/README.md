@@ -140,6 +140,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2003-08 | `license-discuss` | **観測（"Open Source Licensing" の全 3 通・OSL の perpetual と 17 U.S.C. §203、法はどのみち勝つので書く必要は無いという文の引用）** | `2003-08-license-discuss-osl-perpetual-and-section-203-observed.txt` |
 | 2007-07〜08 | `license-discuss` | **観測（GPLv3 の審査の進め方から 2 通・審査を OSD だけに絞る主張と、その前提だった採用と検討）** | `2007-07-license-discuss-gplv3-review-scope-observed.txt` |
 | 2018-06 | `license-review` | **観測（"moving to an issue tracker" から 5 通・理事会が変更を求める 2 つの場面と、独自の価値の問い）** | `2018-06-license-review-board-change-requests-and-unique-value-observed.txt` |
+| 2018-06 | `license-review` | **観測（Perens 氏の 1 通・ライセンスに関心を持つ人を紹介してほしい）** | `2018-06-license-review-l0r-perens-interest-observed.txt` |
+| 2018-06 | `license-review` | **観測（Cowan 氏の 1 通・RPL は不透明でも善意だから承認したが誤りだった）** | `2018-06-license-review-l0r-cowan-rpl-observed.txt` |
 | 2026-06 | `license-review` | **観測（The Mutualist License の審査から 3 通・語の正確さ、解釈の規則は語の不明確さを補わない、専門家の読み）** | `2026-06-license-review-mutual-drafting-and-canons-observed.txt` |
 | 2019-01〜2020-03 | `license-discuss` | **観測（2 つの会話から 4 通・意図は明確に、ただし曖昧で広すぎる語でなく。倫理的なライセンスは OSD と両立しない。moderation で落とされた通）** | `2019-01-to-2020-03-license-discuss-intent-precision-and-moderation-observed.txt` |
 | 2015-01 | `license-discuss` | **観測（"FAQ entry on CLAs" から 3 通・OSI は外向きのライセンスだけを審査する）** | `2015-01-license-discuss-osi-reviews-outbound-only-observed.txt` |

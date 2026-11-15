@@ -177,3 +177,18 @@ portfolio-1c の依頼（1.4 草案の §16.4 の名前と識別子の規律、�
 **逆側。** OWFa は仕様への貢献のための合意（CLA に近い文書）で、OSI が承認したライセンスではない。承認の先例ではなく起草の先例である。また OWFa は 365(n) を名指して約束を許諾として扱い、ACD はそれを書かない ——ACD の §2.9 の一般の語が米国の倒産手続きで同じ効果を持つかは、法律家に当てていない（`QUESTIONS-FOR-COUNSEL.md` の候補）。
 
 **この節が establish しないこと。** Moglen 氏の主張の全体と、会話の帰結は読んでいない。決める側の通に §205(e) の議論が無かったことは、語の照合による。
+
+## 1.228 不透明でも善意だから通したのは誤りだった、関心を持つ人を紹介してほしい —— License Zero Reciprocal の審査の後で（2018）（2026-11-15）
+
+"Consensus on L0-R"（`license-review` 2018-06・14 通・`rounds/2018-06-license-review-l0r-cowan-rpl-observed.txt` と `rounds/2018-06-license-review-l0r-perens-interest-observed.txt` に 1 通ずつ）。法律家の Kyle Mitchell 氏が単独で提出した License Zero Reciprocal（L0-R）の審査が止まった後の会話で、通単位の未引用の会話の上位に出た。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"I believe that RPL's certification was wrongly decided, although it is probably too late to reverse it now. I remember thinking at the time that the license was very hard to understand (I don't find it so now, particularly), but that it meant well and we probably should approve it despite its opacity. I wish now that I'd made more fuss then."* | John Cowan 氏 2018-06-20 | **不利な面（B3・B13）。** 分かりにくくても善意なら通す、という過去の判断を、通した側の 1 人が誤りだったと書いた。決める側は不透明さに過去より厳しくなっている、と読める。ACD の長さと理由の文の多さ（B3）は「分かりにくい」の側に読まれうる。2016 年の Fontana 氏の「読めなければ適合しないと推定する」（§1.209）、2026 年の理事会の Project Tick の否決（§1.205）と同じ向き |
+| *"However, when I asked you to introduce me to someone who was interested in the license, no names were forthcoming. So, I have to believe this is only theoretical."* | Bruce Perens 氏 2018-06-19 | **不利な面（B2）。** 審査者の 1 人が、提出者に「関心を持つ人を紹介して」と頼み、名前が出なかったので「理論上のもの」と見た。ACD も今は関心の表明を示せない。2026 年の Piana 氏の「使う、または使うと表明するプロジェクトはあるか」（§1.222）と同じ問いの形で、オーナーが関心の表明を集める窓口（`.github/ISSUE_TEMPLATE/acd-use.yml`）の意味がここにも在る |
+
+**読み。** 2018 年の 2 人の文は、B3 と B2 を決める側の経験から裏づける。分かりにくいライセンスを善意で通した後悔（Cowan 氏）と、関心を持つ人を示せない提出を「理論上」と見る目（Perens 氏）である。
+
+**逆側。** Cowan 氏が「今は分かりにくくない」とも書いているとおり、分かりにくさは読み手の慣れで変わる。ACD の理由の文は分かりやすさのために置いているが、長さとして数えられる。Perens 氏の問いは L0-R（使用を制限する独自の型）への問いで、委員会の理由書は使用を基準にしていない（§1.201・§1.223）。
+
+**この節が establish しないこと。** L0-R の審査の帰結（提出者が実質的に取り下げた・2019-01 の要約）はこの節では読んでいない。
