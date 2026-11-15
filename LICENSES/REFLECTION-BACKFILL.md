@@ -29,3 +29,19 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 | 1.189 | 入口（`SUBMISSION-MATERIALS.md` の OSD 10 条の表・ACD は利用に条件を課さない）。不利な事実ではないので against には行を立てていない | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
 | 1.190 | against #321（本文を添えずに配ることへの懸念）/ 入口（`SUBMISSION-MATERIALS.md` §0 と §2・OSD 10 条の表、`ACD-1.0.faq.md` A24） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
 | 1.191 | errata E79（§2.8 の第 2 文・譲受人への効力）/ against #41・#152・#324 / 入口（`SUBMISSION-MATERIALS.md` §2・`ACD-1.0.review-responses-clauses.md` §2・`ACD-1.0.jurisdictions.md` 5d） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
+| 1.192 | 入口（`SUBMISSION-MATERIALS.md` §1c の新規ライセンスの基準 4 の行・法律家を入れるよう勧めた提出と、何でもしてよい式の差し戻し）。B1 と B3 の不利な面として読んだが、register には行を立てていない（法律家の不在は B1 が、短さの論点は B3 が既に持つ） | この PR で反映先にこの節の番号を書き、grep で確かめた（2026-11-15・portfolio-50） |
+| 1.193 | against #239・#248 / 入口（`SUBMISSION-MATERIALS.md` §2 の「出力に触れるのは曖昧さを生む」の行と §3） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
+| 1.194 | 入口（`SUBMISSION-MATERIALS.md` §1c の OSD 2 の行・配られる物が source の形かは ACD を何に付けるかで決まり、重みの問いは B15 の側） | この PR で反映先にこの節の番号を書き、grep で確かめた（2026-11-15・portfolio-50） |
+| 1.195 | 入口（`SUBMISSION-MATERIALS.md` §1c の新規ライセンスの基準 3 と 7 の行・Randal 氏の変更を求める 2 つの場合と独自の価値、Perens 氏の「3 つだけ」を不利な面として） | この PR で反映先にこの節の番号を書き、grep で確かめた（2026-11-15・portfolio-50） |
+| 1.196 | 入口（`SUBMISSION-MATERIALS.md` §2 の「解釈の規則に頼る時点で負けている」の行） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
+| 1.197 | 入口（`SUBMISSION-MATERIALS.md` §1c の基準 3 の行に Rosen 氏の「意図を明確に」、OSD 2 の行の逆側に Nelson 氏の承認の効き目）。moderation の先例は B14 の行が moderator の 2026-09-09 の宣言で持つので、ここからは引いていない | この PR で反映先にこの節の番号を書き、grep で確かめた（2026-11-15・portfolio-50） |
+| 1.198 | 入口（`SUBMISSION-MATERIALS.md` §0d の材料の表の「新しい語と、最も近い承認済みの文」の行・委員長の逐語の再利用） | この PR で反映先にこの節の番号を書き、grep で確かめた（2026-11-15・portfolio-50） |
+| 1.199 | 入口（`SUBMISSION-MATERIALS.md` §1c の基準 7 の行・承認済みのライセンスが OSD の明示しないことを整えてよい、ただし挙げた例は許す側の明示） | この PR で反映先にこの節の番号を書き、grep で確かめた（2026-11-15・portfolio-50） |
+| 1.200 | 入口（`SUBMISSION-MATERIALS.md` §2 の「出力に触れるのは曖昧さを生む」の行・「在るなら」の形と、その逆側） | この PR で反映先にこの節の番号を書き、grep で確かめた（2026-11-15・portfolio-50） |
+| 1.201 | 入口（`SUBMISSION-MATERIALS.md` §1 の「使うと表明しているプロジェクト」の行の逆側・委員会の理由書は使用を基準にしない） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
+| 1.202 | B13（`ACD-OSI-BOTTLENECKS.md` の B13 の行）/ 入口（`ACD-1.4-CLAUSE-REFERENCE-DRAFT.md` の §1.7 の行）。§1.7 の定義の試作は `ACD-1.4-SECOND-CLARITY-TRIAL.md` の (2) が起点にした | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
+| 1.203 | THIRD（§2.6 の識別の形・T69）/ B1・B10（`ACD-OSI-BOTTLENECKS.md` の行）/ 入口（`ACD-1.4-CHANGELIST.md` の §2.6 の行） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
+| 1.204 | 入口（`SUBMISSION-MATERIALS.md` §1c の OSD 10 の行・CNRI の審査での Fontana 氏と Chestek 氏の読みと、§2.3 の差は問いを 1 つ減らす差という逆側） | この PR で反映先にこの節の番号を書き、grep で確かめた（2026-11-15・portfolio-50） |
+| 1.205 | against #325 / B1・B10・B13（`ACD-OSI-BOTTLENECKS.md`・`ACD-OSI-BOTTLENECKS-B10.md`）/ 入口（`SUBMISSION-MATERIALS.md` §0d・`OSI-APPROVAL-PLAN.md` の段 6b・`ACD-1.0.board-decisions.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
+| 1.206 | B14（`ACD-OSI-BOTTLENECKS.md` の B14 の行）/ 入口（`REVISION-PROTOCOL.md` §3.6 の 6b・`SUBMISSION-MATERIALS.md` の 0b と §0d・`ACD-1.0.submission.md` §D・`OSI-APPROVAL-PLAN.md` の段 6b） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |
+| 1.207 | 入口（`SUBMISSION-MATERIALS.md` §1c の新規ライセンスの基準 7 の行・§9 は既存のライセンスも及ばないだけで足りるので gap の理由に数えない） | この PR で反映先にこの節の番号を書き、grep で確かめた（2026-11-15・portfolio-50） |
