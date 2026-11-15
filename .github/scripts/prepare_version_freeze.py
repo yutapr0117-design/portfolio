@@ -18,7 +18,8 @@ mirror / 適用する面の版と日付 / binary の権利表示 / SPDX XML / �
 「1.5 草案は」の行が無くなる。出す版の名で書き直す。(2) 444m: 適用中の版を述べる行 (README・REVIEWERS・材料・1.0 の文書の
 一部) を、適用する版を決めてから読み直す。(3) Check 362: 作業中の CHANGELIST の中身を打つ mutation (468x・498 (j) など
 16 件) は、新しい CHANGELIST が空なので的を外す。確定した版の CHANGELIST を読む Check が無いので、付け替えずに退役させる
-(archive へ移すか消す)。
+(archive へ移すか消す)。退役の候補の名前は、この道具が最後に一覧で出す (orphan_mutations)。退役させた後、その Check の面に
+mutation が残るか (Check 479c / 479d) も確かめる。
 
 ⚠ 作業ツリーを書き換える。commit の前に差分を読むこと。LICENSE と llms 系は版を置換するだけなので、
 過去の経緯を述べる文まで変わる (`ACD-1.1-CHANGELIST.md` §0.13「改名は一括置換しない」)。AIO 層の編集は
@@ -439,7 +440,28 @@ def main() -> int:
     finish(v, prev, nxt, args.date, c)
     print(f"ACD-{v} を確定した ({w:,} 語・{c} 条)。次の草案は ACD-{nxt}-DRAFT.txt。git add のあと consistency の RED を順に直す。")
     print(f"提出対象を切り替える日に読む行は `prepare_version_freeze.py --report {v}` が出す。")
+    orphan_mutations()
     return 0
+
+
+def orphan_mutations() -> None:
+    """確定したあと、anchor が見つからなくなった mutation の名前を出す (退役させる候補・2026-11-15 の試走から)。
+
+    作業中の CHANGELIST の中身を打つ mutation (468x・498 (j) など) は、新しい CHANGELIST が空なので的を外す。確定した版の
+    CHANGELIST を読む Check は無いので、付け替えずに退役させる。mutation_samples は別の process で読み直す (この process は
+    確定の前の CURRENT_DRAFT を import していないが、念のため子 process で数える)。
+    """
+    code = ("import mutation_samples as m\n"
+            "for x in m.MUTATIONS + m.E2E_MUTATIONS:\n"
+            "    t = x['file'].read_text(encoding='utf-8') if x['file'].exists() else ''\n"
+            "    print(x['name'][:100]) if x['find'] not in t else None\n")
+    r = subprocess.run([sys.executable, "-c", code], cwd=Path(__file__).resolve().parent, text=True, capture_output=True)
+    names = [ln for ln in r.stdout.splitlines() if ln.strip()]
+    if names:
+        print(f"anchor が見つからなくなった mutation {len(names)} 件 (退役させる候補・Check 362 が RED にする)。"
+              "退役させた Check の面に mutation が残るか (Check 479c / 479d) も確かめる:")
+        for n in names:
+            print(f"  - {n}")
 
 
 if __name__ == "__main__":
