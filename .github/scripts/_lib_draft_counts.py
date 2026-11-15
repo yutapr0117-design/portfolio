@@ -247,3 +247,32 @@ def defined_term_uses(clauses: dict) -> tuple[dict, list[str]]:
     if not defs:
         bad.append("468 (定義語): 草案から定義を 1 つも読めない (定義の形が変わったなら関数を直すこと)")
     return uses, bad
+
+
+def errata_list_mismatch(pre: str, ver: str, errata: Path) -> list[str]:
+    """468i: 草案冒頭の変更一覧と、errata の「N.M 草案で閉じた」の印の両向きの照合。
+
+    順向き (2026-09-28): errata が「この草案で閉じた」とする番号が冒頭の一覧に無い —— E34 が 3 日間載っていなかった。
+    冒頭は「a list with entries in it is the whole of the difference」と自分で宣言している。
+    逆向き (2026-11-15・9b): 変更の箇条が「(errata E24)」と名乗る番号が、この草案で閉じた印を持たない —— 別の版で閉じた
+    番号・存在しない番号・印の付け忘れ。どの変更がどの欠陥を閉じたかの記録が偽になる。「Still open in this draft」の行
+    (E6 / E10) は 468e が見るので、逆向きは箇条の区間 (「Changes in this draft」から「This draft:」まで) だけを読む。
+    """
+    if not errata.exists():
+        return []
+    listed = set(re.findall(r"\bE\d+\b", pre))
+    closed = set()
+    for ln in errata.read_text(encoding="utf-8").splitlines():
+        m = re.match(r"\|\s*\*{0,2}(E\d+)\*{0,2}\s*\|", ln)
+        if m and (ver + " 草案で閉じた") in ln:
+            closed.add(m.group(1))
+    bad = []
+    miss = sorted(closed - listed, key=lambda e: int(e[1:]))
+    if miss:
+        bad.append(f"468i: errata が「{ver} 草案で閉じた」とする {miss} が冒頭の変更一覧に無い (冒頭は一覧が差分のすべてだと宣言している)")
+    chg = pre.split("Changes in this draft", 1)[-1].split("This draft:", 1)[0]
+    wrong = sorted(set(re.findall(r"\bE\d+\b", " ".join(chg.split()))) - closed, key=lambda e: int(e[1:]))
+    if wrong:
+        bad.append(f"468i: 変更の箇条が名乗る errata {wrong} が「{ver} 草案で閉じた」の印を持たない "
+                   "(別の版で閉じた番号・存在しない番号・印の付け忘れ)")
+    return bad

@@ -83,7 +83,7 @@ import re
 
 from _lib_draft_markers import EFFECT_MARKERS_468U, state_hits  # 一覧は _lib_draft_markers.py (measure_clause_overlap.py --guard と共有)
 from _lib_dossier import errata_draft_quote_misses, dossier_draft_quote_misses  # 草案の逐語の照合 (468w / 468a)
-from _lib_draft_counts import bullet_components, changelist_table_total, defined_term_uses  # 468n / 468s / 定義語
+from _lib_draft_counts import bullet_components, changelist_table_total, defined_term_uses, errata_list_mismatch  # 468n / 468s / 定義語 / 468i
 
 def run(ctx):
     ROOT = ctx.ROOT
@@ -330,21 +330,11 @@ def run(ctx):
         # 変更一覧に無く、**3 日間、草案が自分と 1.1 の差について偽の宣言を持っていた**。
         # 468e は「まだ open」の側しか照合せず、閉じた側の記録漏れは見ていなかった (対になる face)。
         # **版番号を決め打ちしない** —— 草案の file 名から導出する (468e と同じ規律)。
+        #   本体 (両向き・2026-11-15 に逆向きを足した) は _lib_draft_counts.errata_list_mismatch
         _mv468i = re.match(r"ACD-(\d+\.\d+)-DRAFT\.txt$", _dr468.name)
-        _er468i = ROOT / "LICENSES" / "ACD-1.0.errata.md"
-        if _mv468i and _er468i.exists():
-            _pre468i = _t468.split(_sep468, 1)[0]
-            _listed468i = set(re.findall(r"\bE\d+\b", _pre468i))
-            _closed468i = set()
-            for _ln468i in _er468i.read_text(encoding="utf-8").splitlines():
-                _m468i = re.match(r"\|\s*\*{0,2}(E\d+)\*{0,2}\s*\|", _ln468i)
-                if _m468i and (_mv468i.group(1) + " 草案で閉じた") in _ln468i:
-                    _closed468i.add(_m468i.group(1))
-            _miss468i = sorted(_closed468i - _listed468i, key=lambda _e: int(_e[1:]))
-            if _miss468i:
-                _bad468.append(
-                    f"468i: errata が「{_mv468i.group(1)} 草案で閉じた」とする {_miss468i} が冒頭の変更一覧に無い "
-                    f"(冒頭は一覧が差分のすべてだと宣言している)")
+        if _mv468i:
+            _bad468.extend(errata_list_mismatch(_t468.split(_sep468, 1)[0], _mv468i.group(1),
+                                                ROOT / "LICENSES" / "ACD-1.0.errata.md"))
 
         # ── 468h: 版ごとの機械可読 descriptor が、この instrument の*唯一の制限*を述べること ──
         #   **`against.md` #59 / errata E10。** `reservationsAndLimits` は「しないこと」を 6 つ
