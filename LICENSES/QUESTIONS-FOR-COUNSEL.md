@@ -101,7 +101,10 @@ The same lawyer wrote in 2003, a day after advising *"Grant an irrevocable licen
 participant (not a lawyer, by his own account) put it as *"no harm, no estoppel."*
 (`gap-measurements.md` §1.146). So a narrower form of the question is whether §2.5, §4.1 or §5
 protects a person who first meets the Work after the Dedicator has purported to revoke it, and has
-notice of that.
+notice of that. John Cowan (not a lawyer, by his own account) wrote in the same year of a licence that declared
+itself irrevocable: *"All that is, is a promise to yourself, and it's not binding, any more than your
+publishing a promise never to tell a lie is."* (`review-readings-2.md` §1.242). That is the view under
+which §2.2 alone would do nothing, and §2.5 and §3.1 are what the text adds to it.
 (j) A transfer after the Dedication. Under 17 U.S.C. section 205(e), a nonexclusive licence prevails over a
 conflicting transfer of copyright ownership only if it is evidenced by a written instrument signed by
 the owner of the rights licensed or the owner's agent, and was taken before the transfer was executed,
