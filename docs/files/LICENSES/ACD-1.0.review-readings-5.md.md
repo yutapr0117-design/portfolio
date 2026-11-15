@@ -9,7 +9,7 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/AS-OF.md
 
 ## What
 
-未読の OSI スレッドのうち 2006〜2008 に始まるものを読んだ記録（§1.400 から）。書き手は portfolio-1c（2026-11-15 の割り振り）。
+未読の OSI スレッドのうち 2006〜2008 に始まるものを読んだ記録（節 1.400 から）。書き手は portfolio-1c（2026-11-15 の割り振り）。
 
 ## Why
 
@@ -24,7 +24,7 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/AS-OF.md
 
 ## Constraints
 
-- 節番号は §1.400 からの帯の中で使う。他の帯と重なると Check 500 が RED にする。
+- 節番号は 節 1.400 からの帯の中で使う。他の帯と重なると Check 500 が RED にする。
 - 逐語の引用は `rounds/` か入口の manifest で解決できる形で置く（Check 472n / 476）。
 
 ## Change impact
