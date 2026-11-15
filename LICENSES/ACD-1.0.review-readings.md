@@ -968,3 +968,18 @@ Project Tick General Public License の `license-review` 側の会話（v1 の�
 **逆側。** Fontana 氏の理由は「目立たないから問わない」で、性質そのものの是認ではない。ACD が CC0 と同じ型の提出として目立つ形で出れば、問いが開き直される余地がある。また Cowan 氏の「確かめられない」は、ACD の §2.3（知らなくても持つ）がむしろ強める面がある。ACD の側の答えは「印を残すことを求めないが、残すことを妨げない（§10.3 の依頼は条件でない）」で、§16.2 の識別子だけでの通知が残りやすさを助けるが、残ることを保証しない。
 
 **この節が establish しないこと。** 2015 年のもう 1 つの提出（NCCL）の中身は読んでいない。理事会がこの問いを議事録で扱ったかは確かめていない（`board-decisions.md` の 2015-10-14 の行は承認の理由を持つ）。
+
+## 1.217 優れた法律家の新しい permissive も採用されず、承認済みの数を増やしただけだった —— Blue Oak についての Perens 氏（2024）（2026-11-15）
+
+"Blue OakModel License and the license reinvention dilemma"（`license-discuss` 2024-03・2 通・`rounds/2024-03-license-discuss-blue-oak-reinvention-observed.txt` に Perens 氏の 1 通）。2024〜2026 年の `license-discuss` の決める側の通のうち、ドシエと 8 語連鎖が重ならなかった通の 1 つ。Blue Oak Model License は 2019 年に承認された、法律家 3 人が起草した新しい permissive である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"This, IMO, reoccurred with the Blue Oak Model License, intended to replace the gift-style licenses currently approved by OSI, BSD/MIT in particular. It seems that very few people cared enough to adopt it"*、*"its main effect was to increase the number of OSI-approved licenses and the combinatorial problem, rather than increase the quality of licenses that actually had significant use."* | Bruce Perens 氏 2024-03-15 | **不利な面（B2・B10・重い）。** BSD や MIT を置き換えるつもりの新しい permissive が、法律家が書いても採用されず、承認済みの数と組み合わせの問題を増やしただけだった、という評価である。ACD も permissive の側（条件を置かない）の新しいライセンスで、同じ評価を当てられうる |
+| *"This is something that I think OSI should keep in mind regarding the license approval process. Even the submitters we could grade as most competent have licenses fall flat, and fail to achieve the community benefit they desire."* | Perens 氏 2024-03-15 | **不利な面（B2）。** 採用の見込みは委員会の基準ではない（`REVIEWERS.md` の "Use" の行・§1.201）が、決める側の 1 人は承認の過程で「採用されずに終わる」ことを考慮すべきだと書いている。ACD の使用はこのリポジトリ 1 件である |
+
+**読み。** 2024 年の Perens 氏は、Blue Oak の承認を「数を増やしただけ」の例とし、承認の過程で採用の見込みを考えるべきだと書いた。規則（採用は基準でない）と、決める側の 1 人の考え（採用されないライセンスは数を増やすだけ）が食い違う場所で、ACD は後者に当たる。
+
+**逆側。** Blue Oak は BSD・MIT と同じ効果を別の文で書いたライセンスで、承認済みのものに無い効果を持たなかった（Perens 氏の言う「質」の改善だけ）。ACD は承認済みのどれにも無い効果（`REVIEWERS.md` の "In one screen" の 3 つ）を主張しており、同じ「置き換え」の型ではない。また、Perens 氏の評価は承認の 5 年後の振り返りで、承認の時点の基準ではない。それでも、ACD の差が審査者にとって「承認済みのものに無い効果」として読まれなければ、Blue Oak と同じ型に見える（B10）。
+
+**この節が establish しないこと。** Blue Oak の実際の採用の数は測っていない。Perens 氏の文は 1 人の参加者のもので、委員会の基準ではない。
