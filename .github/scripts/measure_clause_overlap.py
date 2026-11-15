@@ -464,6 +464,24 @@ def universal_scope(cb: dict[str, str], ca: dict[str, str]) -> list[tuple[str, s
     return out
 
 
+_ALL_PROVISIONS = re.compile(r"\b(?:every|each|all)(?: other)? (?:provision|section)s?\b", re.I)
+
+
+def universal_mark(w: str, named: list[str], exc: bool) -> tuple[str, str]:
+    """全称の句の印。⚠ は肯定の全称 (every / each / all) が
+    "provision" / "Section" という**型を問わない名詞**を量化する —— 除外の句があっても、免責 (§13)・責任の制限 (§14)・
+    文書の規律 (§16.4) まで入る (1c の提案・2026-11-15。T70 の 3 つ目の形 "Every provision … other than those
+    covenants operates in their favour" は除外の句を持ったまま §13・§14・§16.4 を「受領者のために働く」と述べ、30 の反例で
+    退けた・#3196)。除外の句が無く同じ条が名指す条があれば、それも入ることを添える (T70 の 2 つ目の形)。否定の全称
+    ("Nothing in this Dedication …"・"any other Section" が "Nothing" の下にある形) は「減らさない」「求めない」を
+    述べるので「・」。1.0〜1.3 と 2026-11-15 の草案に ⚠ の形は 0 件。"""
+    if _ALL_PROVISIONS.fullmatch(w.split(" of this")[0].strip()):
+        return "⚠", "全条を量化 —— 免責・責任の制限・文書の規律も含む" + ("" if exc else "・同じ条が名指す条も入る" if named else "")
+    # (a) は肯定の全称だけに当てる: 草案の 121 commit を照らすと、否定の下の any (§11.1 "Nothing in this Section reduces
+    #   what any other Section … gives"・b9966b06) が (a) の唯一の ⚠ で、1c の見立てどおり無害だった
+    return "・", ""
+
+
 def compare(before: Path, after: Path, n: int) -> None:
     cb, ca = clauses(before.read_text(encoding="utf-8")), clauses(after.read_text(encoding="utf-8"))
     tb, ta = sum(len(words(v)) for v in cb.values()), sum(len(words(v)) for v in ca.values())
@@ -504,12 +522,12 @@ def compare(before: Path, after: Path, n: int) -> None:
     for k, a, b, ctx in _cg:
         print(f"#   ⚠ §{k} [{a} だけ・{b} が無い]: …{ctx}…")
     _us = universal_scope(cb, ca)
-    print(f"# 新しく入った全称の句 (every other provision / nothing in this Dedication …): {len(_us)} —— 全称は同じ条が"
-          "限定している条も呑む。名指した条がその全称に入ってよいかを読む (2026-11-15・T70 の §5.3)")
+    print(f"# 新しく入った全称の句 (every other provision / nothing in this Dedication …): {len(_us)} —— 肯定の全称が"
+          "条を量化すると、免責・責任の制限・文書の規律と、同じ条が限定する条も呑む (2026-11-15・T70 の §5.3)")
     for k, w, named, exc, ctx in _us:
-        mark = "・" if exc or not named else "⚠"
+        mark, why = universal_mark(w, named, exc)
         print(f"#   {mark} §{k} {w!r} (同じ条が名指す条: {', '.join('§' + x for x in named) or '無し'}"
-              f"{'・除外の句あり' if exc else ''}): …{ctx}…")
+              f"{'・除外の句あり' if exc else ''}{'・' + why if why else ''}): …{ctx}…")
     _xd = (external_reliance({c: (cb.get(c, ""), ca.get(c, "")) for c in _chg}, after.read_text(encoding="utf-8"))
            if _chg else [])
     _out = [x for x in _xd if _OUTWARD.search(x[0])]
