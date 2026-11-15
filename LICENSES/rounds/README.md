@@ -100,6 +100,9 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2014-04 | `license-discuss` | **観測（"why standard licenses" の FAQ の下書きから 4 通・承認は受け入れの床か信頼か）** | `2014-04-license-discuss-why-standard-licenses-observed.txt` |
 | 2015-05・08 | `license-discuss` | **観測（Apache の第三者ライセンス方針の 2 件名から 7 通・下流の一覧は各組織が決める、opensource.org からの返信）** | `2015-05-and-08-license-discuss-apache-third-party-policy-observed.txt` |
 | 2007-04 | `license-discuss` | **観測（"License Proliferation Dissatisfaction" から 5 通・分類の採択、理事会が何を却下するか、承認を閉じる案）** | `2007-04-license-discuss-license-proliferation-dissatisfaction-observed.txt` |
+| 2007-06 | `license-discuss` | **観測（Phipps 氏・準拠法は名前空間の宣言・1 通）** | `2007-06-license-discuss-phipps-choice-of-law-namespace-observed.txt` |
+| 2007-06 | `license-discuss` | **観測（DiBona 氏・新しいライセンスは混乱を増やす・1 通）** | `2007-06-license-discuss-dibona-every-new-licence-confusion-observed.txt` |
+| 2007-06 | `license-discuss` | **観測（Phipps 氏・法体系は書くか何も書かないか・1 通）** | `2007-06-license-discuss-phipps-fixed-law-or-none-observed.txt` |
 | 2007-04 | `license-discuss` | **観測（Rosen 氏・承認の指針は独自性の証明・1 通）** | `2007-04-license-discuss-rosen-uniqueness-observed.txt` |
 | 2019-08 | `license-discuss` | **観測（"For Public Comment: The Libre Source License" から 4 通・個人の起草者に示された順序、list に出すことの適否）** | `2019-08-license-discuss-libre-source-license-observed.txt` |
 | 2008-03・2012-04 | `license-discuss`・`license-review` | **観測（公有化の 2 スレッドから 7 通・公有のソフトウェアは open source か、FAQ の公有化と CC0 の答えの受け取られ方）** | `2008-03-and-2012-04-license-lists-public-domain-faq-observed.txt` |
