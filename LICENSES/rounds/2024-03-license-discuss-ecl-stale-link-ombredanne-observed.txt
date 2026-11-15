@@ -1,0 +1,47 @@
+Source: OSI license-discuss public archive, 2024-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 2 in "stale link in license terms" (2024-03-15)
+Senders: Philippe Ombredanne
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From pombredanne at nexb.com  Wed Mar 20 08:11:27 2024
+From: pombredanne at nexb.com (Philippe Ombredanne)
+Date: Wed, 20 Mar 2024 09:11:27 +0100
+Subject: [License-discuss] stale link in license terms
+In-Reply-To: <CAA0uMefKA8nbJirCY3Cb+PgrR+BZLxKy3hB0jvbDChXkp1dKOw@mail.gmail.com>
+References: <CAA0uMefKA8nbJirCY3Cb+PgrR+BZLxKy3hB0jvbDChXkp1dKOw@mail.gmail.com>
+Message-ID: <CAOFm3uFUz5QBzGmsctiXwcMRDpibAGYb1qohF3jsQL51ryJO_A@mail.gmail.com>
+
+Hi Geoffrey:
+
+On Sat, Mar 16, 2024 at 1:45?PM Geoffrey Coram <gjcoram at gmail.com> wrote:
+>
+> I work on some industry standards that are license under the Educational Community License, version 2.0. A copy of that license can be found here:
+> https://opensource.org/license/ecl-2-0
+>
+> The appendix "How to apply ..." says
+> "You may obtain a copy of the License at http://www.osedu.org/licenses/ECL-2.0"
+>
+> However, that link takes me to a page that says "No Results Found." The site seems to have gotten out of the business of hosting licenses.
+>
+> Wikipedia provides this link: https://spdx.org/licenses/ECL-2.0.html
+> which also points to the osedu.org site.
+>
+> Is it "legal" to change the appendix of the license to supply a valid URL?
+
+Legal or not, this is IMHO a bad idea in general as some tools that
+compute exact checksums on the license text will get fooled (not my
+tools). Feel free to draft a notice to use in code header comments
+with a proper URL; or even better, bypass the URL entirely and use an
+SPDX-License-Identifier: ECL-2.0 tag.
+
+FWIW, the web archive is your friend:
+https://web.archive.org/web/20100617144451/http://www.osedu.org/licenses/ECL-2.0/
+and the domain osedu.org was likely abandoned then taken over by a
+squatter circa 2015.
+
+Other URL to consider: https://opensource.org/license/ecl-2-0
+-- 
+Cordially
+Philippe Ombredanne

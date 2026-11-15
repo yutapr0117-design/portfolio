@@ -20,6 +20,8 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "For Approval: Convertible Free Software License, Version 1.1 (C-FSL v1.1)"（`license-review` 2018-09〜10・決める側の通に絞った）を `review-readings-2.md` §1.230 へ（指摘が改訂版で扱われないので理事会は判断を延ばした・著者に代わって論点を集めた・Phipps 氏、先例の主張は否定的に受け取られる・Smith 氏）（候補は 818 → 819・読んだので母数に入った）
+
 - 2026-11-15 に "For Approval: Convertible Free Software License, Version 1.3 (C-FSL v1.3)"（`license-review` 2019-01〜03・決める側の通に絞った）を `review-readings-2.md` §1.230 へ（OSI は一般の利用のために承認する・対等な権利・Phipps 氏、v1.4 の却下・Fontana 氏）（候補は 819 → 820・読んだので母数に入った）
 
 - 2026-11-15 に License Zero Reciprocal の審査（2017）から 3 通を部分的に読んだ（会話としては読んでいない・`review-readings-2.md` §1.229・新しい効果を主張するほど審査は長く割れる、使う人の法的負担を 0 に、OSI・FSF・Debian の全部に通るかを事前点検に）
