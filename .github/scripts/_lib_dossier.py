@@ -203,3 +203,38 @@ def count_sites(licenses_dir: Path) -> list[dict]:
             sites.append({"path": er, "line": ln, "abs": True, "start": off + m.start(2), "end": off + m.end(2),
                           "old": m.group(2), "new": ", ".join(ids), "what": "errata 冒頭の閉じた番号の一覧"})
     return sites
+
+
+# ── 審査者向けの文書が英語の入口から辿れること (Check 459c が使う・2026-11-15) ───────────────────────
+_REVIEWER_AUDIENCE = re.compile(r"participants|licen[cs]e reviewers", re.I)
+
+
+def reviewer_map_misses(licenses_dir: Path) -> tuple[int, list[str]]:
+    """audience が審査者 (`… participants` / `licence reviewers`) の LICENSES/*.md が、REVIEWERS.md に名前を持つこと。
+
+    名前を持たない文書は、frontmatter の `reachable-via: <file>` で、REVIEWERS.md に名前を持ち本文がこの文書を名指す
+    親を宣言する (続きの冊・切り出した節)。50 の提案: Check 459 は LICENSES/README の索引への到達しか見ず、英語で
+    審査者向けに書かれた QUESTIONS-FOR-PRACTITIONERS.md が入口 (REVIEWERS.md) から辿れなかった (#3149 で手で足した)。
+    返り値: (照らした文書の数, 誤りの文の list)。
+    """
+    rv = licenses_dir / "REVIEWERS.md"
+    rvt = rv.read_text(encoding="utf-8") if rv.exists() else ""
+    n, bad = 0, []
+    for p in sorted(licenses_dir.glob("*.md")):
+        if p.name in ("REVIEWERS.md", "README.md"):
+            continue
+        head = p.read_text(encoding="utf-8").split("\n---", 1)[0]
+        aud = re.search(r"^audience:(.*)$", head, re.M)
+        if not aud or not _REVIEWER_AUDIENCE.search(aud.group(1)):
+            continue
+        n += 1
+        if p.name in rvt:
+            continue
+        via = re.search(r"^reachable-via:\s*(\S+)", head, re.M)
+        parent = licenses_dir / via.group(1) if via else None
+        if not via:
+            bad.append(f"459c: {p.name} は審査者向け (audience) なのに REVIEWERS.md に名前が無い。"
+                       "地図の表に行を足すか、frontmatter に `reachable-via: <親の file>` を書く")
+        elif not parent.exists() or parent.name not in rvt or p.name not in parent.read_text(encoding="utf-8"):
+            bad.append(f"459c: {p.name} の reachable-via: {via.group(1)} が、REVIEWERS.md に名前を持ちこの文書を名指す親になっていない")
+    return n, bad

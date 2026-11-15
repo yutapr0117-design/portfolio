@@ -511,6 +511,14 @@ _MUTATIONS_TAIL.append({
     "replace": "(errata E55, E24)",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 459c: review-readings-2 の reachable-via を消す —— 審査者向けの続きの冊が英語の入口 (REVIEWERS.md) から辿れなくなる。"
+            "459 は README の索引しか見ず、QUESTIONS-FOR-PRACTITIONERS.md は入口から辿れなかった (2026-11-15・50 の提案)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.review-readings-2.md",
+    "find": "reachable-via: ACD-1.0.review-readings.md\n",
+    "replace": "",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

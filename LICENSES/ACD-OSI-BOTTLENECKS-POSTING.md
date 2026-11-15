@@ -1,7 +1,8 @@
 ---
 file: LICENSES/ACD-OSI-BOTTLENECKS-POSTING.md
 audience: OSI license-discuss / license-review participants, licence reviewers, 監査人
-last-updated: 2026-11-07
+last-updated: 2026-11-15
+reachable-via: ACD-OSI-BOTTLENECKS-EXTERNAL.md
 canonical-ref: LICENSES/ACD-OSI-BOTTLENECKS.md (索引・分類・集計の単一 canonical) / LICENSES/ACD-1.0.against.md #119 / #125 / #126
 ---
 

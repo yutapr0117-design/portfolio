@@ -2,6 +2,7 @@
 file: LICENSES/ACD-OSI-BOTTLENECKS-B10.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-review participants / 監査人
 last-updated: 2026-11-15
+reachable-via: ACD-OSI-BOTTLENECKS-EXTERNAL.md
 canonical-ref: LICENSES/ACD-OSI-BOTTLENECKS.md (索引・分類・集計はあちらが canonical) / LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (切り出し元・他の外部依存の項目) / LICENSES/ACD-1.0.gap-measurements.md
 ---
 
