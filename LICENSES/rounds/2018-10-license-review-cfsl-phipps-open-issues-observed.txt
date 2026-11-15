@@ -1,0 +1,85 @@
+Source: OSI license-review public archive, 2018-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 38 in "For Approval: Convertible Free Software License, Version 1.1 (C-FSL v1.1)" (2018-10-01)
+Senders: Simon Phipps
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From webmink at opensource.org  Mon Oct 15 21:19:31 2018
+From: webmink at opensource.org (Simon Phipps)
+Date: Mon, 15 Oct 2018 22:19:31 +0100
+Subject: [License-review] For Approval: Convertible Free Software
+ License, Version 1.1 (C-FSL v1.1)
+In-Reply-To: <415197c4-c6cb-06c5-006c-a3d149c39a21@elstel.org>
+References: <dad62e18-ea60-90ab-64a0-f871d40a6b0f@elstel.org>
+ <CAA4ffp9ED=_+GQBFfxuduSB1RdCsXYs9A1np39++E+eo93ARDQ@mail.gmail.com>
+ <415197c4-c6cb-06c5-006c-a3d149c39a21@elstel.org>
+Message-ID: <CAA4ffp-66NsQKEU549C8DX6duHD1zzVk7s_yojJKycJb0usdNg@mail.gmail.com>
+
+For the list's convenience, and in the absence of similar diligence by the
+author, I have attempted to accumulate the open issues. My apologies if I
+have missed or misunderstood any. They would probably benefit from a
+further digest.
+
+I believe a minimum of a revised license with the drafting issues addressed
+will be required to progress, although I believe the stated issues related
+to OSD #3 and OSD #5 also need serious attention. As it stands I would not
+vote to approve although naturally I can't speak for the full Board on this.
+
+S.
+
+
+*Carlo Piano on 26-Sep-18:*
+"I remain quite puzzled by the main feature of the license, namely, the
+right of *some* copyright holders in the initial work to decide on the
+licensing of the *other* follow-on developers who are also copyright
+holders. Isn't it a sort of discrimination, therefore against #5? My
+initial and non meditated reaction is that this license should be rejected
+as long as Section 7 is concerned." *(issue addressed with opinion)*
+"restricting others from doing something that the initial developers can
+do, siphoning in the formers' code and copyright, that does not seem
+acceptable." (issue not addressed)
+"The "Original contributor" language exposes a kind of fallacy, that the
+contribute by the originator is more "important" than the one of the other
+contributors." *(issue accepted by author but not remedied)*
+
+*Bruce Perens on 26-Sep-18:*
+"The main reason to reject is that this license allows an arbitrarily
+chosen group (the original licensors are not necessarily the ones who do
+the most work, etc.) to take the work of others private and release it
+under a non-open-source licence, without using the more legally sound
+process of a contributor license agreement." *(issue addressed with opinion
+without resolution)*
+"Despite the stated involvement of an attorney in _evaluating_ the license,
+the language construction is sometimes vague and contradictory. Perhaps
+this is due to an effort to make it simpler for non-attorneys. But it is
+not clear to me that this is a work of authorship of a lawyer, or is that
+an attorney, understanding the other tools available, would have felt this
+licence is necessary." *(issue not addressed)*
+
+*Brendan Hickey on 26-Sep-18:*
+"the entire choice of law clause is farcical. It enables some very
+adventurous jurisdiction shopping." *(issue rejected without sufficient
+rationale by author)*
+
+*Rick Moen on 02-Oct-18:*
+"Wildly developed different forks are always inherently permitted by open
+source licensing (OSD #3).  Given that you apparently wish to prevent forks
+you disapprove of, I would suggest that you basically prefer proprietary
+development."* (issue not understood by author)*
+"The problems in C-FSL 1.1 are IMO so vast one scarce knows where to begin
+-- perhaps with its many odd, convoluted, and poorly defined turns of
+phrase.  As a copyeditor, I was so struck with the need to  red-pencil
+(among many others) the section 5 phrase 'there only needs to be one marker
+by the party which is at the end of the chain as long as that chain remains
+to be documented in some place where it is shipped with your software' that
+I only barely noticed that the crucial term 'marker' is completely unclear,
+even though the preceding sentence purports to define it." *(Issue not
+addressed)*
+
+-- 
+Simon Phipps*, President, The Open Source Initiative*
+www.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20181015/0309e843/attachment.html>
