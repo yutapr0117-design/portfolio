@@ -120,6 +120,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 import hashlib
 import re
 
+from _lib_dossier import is_against  # register (against) の file の一覧は 1 か所
+
 
 def run(ctx):
     ROOT = ctx.ROOT
@@ -682,8 +684,10 @@ def run(ctx):
     _files472e = sorted((ROOT / "LICENSES").glob("*.md")) + sorted(
         (ROOT / "docs" / "files" / "LICENSES").glob("*.md"))
     for _f472e in _files472e:
-        if _f472e.name.startswith(("ACD-1.0.against.md", "BLIND-SPOTS-LOG", "AUDIT-LEDGER",
-                                   "MACHINE-SURFACES-AUDIT")):
+        # register は全 file を外す (mirror は `<名>.md`)。startswith の固定名は、分けた 2 つ目の file を外さず
+        #   placeholder の記録を RED にした (2026-11-15 の分割の予行)
+        if is_against(_f472e.name) or is_against(_f472e.name[:-3]) or _f472e.name.startswith((
+                "BLIND-SPOTS-LOG", "AUDIT-LEDGER", "MACHINE-SURFACES-AUDIT")):
             continue
         _s472e = _f472e.read_text(encoding="utf-8")
         for _m in _pat472e.finditer(_s472e):
