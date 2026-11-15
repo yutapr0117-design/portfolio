@@ -88,6 +88,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        閉じていない行 (E6 / E10) は一覧の後の同じ文で名指しされることも求める。判定語の誤検出は 46 行で 0 件を実測。
        (w) **QUESTIONS-FOR-COUNSEL を名指す行の問数 ↔ その file の見出し `## N.` の数** (行内の最後の数で判定・
        序数「第 N 問」と against.md は対象外)。11-01 に問 9 を足したのに REVIEWERS.md が「Eight questions」のまま残った。
+       (x) **外向きの文書が「いまの草案」の長さとして述べる数 ↔ 草案の実測** (題名から / 条文 / GPL-3.0 との差・
+       GPL-3.0 の数は reviewer-positions.md の表から読む)。B3 の見出しと SUBMISSION-MATERIALS の長さの行は
+       「Check 468 が実測と照合する」と書いていたが、468 が見るのは草案冒頭の申告だけだった (2026-11-15)。
        (s) **散文の「Check 463 は N 項目を強制する」 ↔ その Check の実装から導出した数**。
        実測 (2026-09-26): `READY-TO-SUBMIT.md` が「**10 項目**」と述べ、実装は **12**。
        **同じ file の 4 行の中で、これと (r) の §B.0 語数が同時に古くなっていた** ——
@@ -860,10 +863,69 @@ def run(ctx):
                 if _g and (int(_g.group(1)) if _g.group(1) else _W460[(_g.group(2) or _g.group(3)).lower()]) != _nq460w:
                     _bad460.append(f"(w) {_p460w.name}:{_n460w} が質問集を {_g.group(0)!r} と述べる / 実数 {_nq460w}")
 
+        # (x) 外向きの文書が「いまの草案」の長さとして述べる数 = 草案の実測 (2026-11-15・9b)。B3 の見出しと
+        #   SUBMISSION-MATERIALS の長さの行は「N.M 草案は題名から 5,555 語で GPL-3.0 より 89 語短く、条文では 597 語長い」と
+        #   現在形で述べ、後者は「Check 468 が実測と照合する」とまで書いていたが、468 が照合するのは草案冒頭の申告だけで、
+        #   この 2 行は誰も見ていなかった (1c の T61/T62 の +18 語で 3 つの数が黙って古くなるところだった)。長さは
+        #   審査者が最初に見る数の 1 つで、GPL-3.0 より短いかどうかは B3 の有利な事実なので、古い数は弁護を嘘にする。
+        #   読むのは「N.M 草案は」を含む行の、最初の日付つきの追記 (**2026- / （2026-) より前だけ (後ろは当時の記録)。
+        #   英語の "N words from the title to *END OF TERMS*" は版の名が無いので全行を読む。数え方: 題名から = 区切り線の後
+        #   から END OF TERMS まで、条文 = `1.` の見出しから END OF TERMS の手前まで (SUBMISSION-MATERIALS の数え方)。
+        #   GPL-3.0 の数は reviewer-positions.md の表から読み、読めなければ RED (黙って定数にしない)
+        _drs460x = [_p for _p in sorted(_L460.glob("ACD-*-DRAFT.txt"))
+                    if "HAS BEEN FROZEN" not in _p.read_text(encoding="utf-8").split("\n", 1)[0]]
+        _gpl460x = re.search(r"^\| GPL-3\.0 \| \*\*([\d,]+)\*\* \| \*\*([\d,]+)\*\* \|",
+                             (_L460 / "ACD-1.0.reviewer-positions.md").read_text(encoding="utf-8"), re.M)
+        _n460x = 0
+        if len(_drs460x) != 1 or not _gpl460x:
+            # (x)
+            _bad460.append(f"(x) 作業中の草案がちょうど 1 つでない ({[_p.name for _p in _drs460x]}) か、"
+                           "reviewer-positions.md の GPL-3.0 の行 (題名から / 条文) を読めない")
+        else:
+            _ver460x = re.match(r"ACD-(\d+\.\d+)-DRAFT", _drs460x[0].name).group(1)
+            _b460x = _drs460x[0].read_text(encoding="utf-8").split("-" * 80, 1)[-1]
+            _e460x = _b460x.find("END OF TERMS")
+            _s460x = re.search(r"^1\.\s", _b460x, re.M)
+            _title460x = len(_b460x[:_e460x + len("END OF TERMS")].split())
+            _ops460x = len(_b460x[_s460x.start():_e460x].split()) if _s460x and _e460x > 0 else -1
+            _gt460x, _go460x = (int(_g.replace(",", "")) for _g in _gpl460x.groups())
+            _want460x = [  # (正規表現, 正しい値, 何の数か)
+                (r"題名から(?:は)? ?([\d,]+) ?語", _title460x, "題名からの語数"),
+                (r"GPL-3\.0[^。、]*?より ?([\d,]+) ?語短", _gt460x - _title460x, "題名からの GPL-3.0 との差"),
+                (r"END OF TERMS\*? ?(?:の手前)?までが ?([\d,]+) ?語", _ops460x, "条文の語数"),
+                (r"条文では ?([\d,]+) ?語長い", _ops460x - _go460x, "条文の GPL-3.0 との差"),
+                (r"同じ数え方で [\d,]+ ?語・\+([\d,]+)", _ops460x - _go460x, "条文の GPL-3.0 との差"),
+            ]
+            for _p460x in sorted(_L460.glob("*.md")) + sorted((ROOT / "docs/files/LICENSES").glob("*.md")):
+                if is_against(_p460x.name) or "CLARITY-TRIAL" in _p460x.name:
+                    continue
+                for _ln460x, _l460x in enumerate(_p460x.read_text(encoding="utf-8").splitlines(), 1):
+                    for _m in re.finditer(r"([\d,]+) words from the title to \*END OF TERMS\*", _l460x):
+                        _n460x += 1
+                        if int(_m.group(1).replace(",", "")) != _title460x:
+                            # (x)
+                            _bad460.append(f"(x) {_p460x.name}:{_ln460x} が {_m.group(0)!r} と述べる / 草案の実測 {_title460x}")
+                    if f"{_ver460x} 草案は" not in _l460x:
+                        continue
+                    _seg460x = _l460x[_l460x.index(f"{_ver460x} 草案は"):]
+                    _cut460x = re.search(r"\*\*20\d\d-\d\d-\d\d|（20\d\d-\d\d-\d\d", _seg460x)
+                    _seg460x = _seg460x[:_cut460x.start()] if _cut460x else _seg460x
+                    for _rx, _v, _what in _want460x:
+                        for _m in re.finditer(_rx, _seg460x):
+                            _n460x += 1
+                            if int(_m.group(1).replace(",", "")) != _v:
+                                # (x)
+                                _bad460.append(f"(x) {_p460x.name}:{_ln460x} の{_what} {_m.group(0)!r} / 草案の実測から {_v}")
+            if not _n460x:
+                # (x)
+                _bad460.append("(x) 草案の長さを述べる行が 1 つも見つからない (B3 と SUBMISSION-MATERIALS の長さの行の形が"
+                               "変わったなら本 face を直すこと —— 無いと黙る gate にしない)")
+
         check(
             not _bad460,
             f"Check 460: ドシエの自己申告件数が実測と一致 "
-            f"(想定問答 {_entries460} + 短答 {_short460} / FAQ {_fa460}+{_fb460} / 本文 {_secs460} 節 {_cls460} 条)",
+            f"(想定問答 {_entries460} + 短答 {_short460} / FAQ {_fa460}+{_fb460} / 本文 {_secs460} 節 {_cls460} 条 / "
+            f"(x) 草案の長さを述べた箇所 {_n460x})",
             (f"Check 460: 自己申告と実測がずれている: {_bad460}。**読み手は数字を根拠に"
              "「網羅されている」と判断する**ので、古い数字は網羅の主張を嘘にする。"
              "文書を足したら申告も直せ (実測 2026-08-27: FAQ に 9 問足した結果、索引と mirror が"

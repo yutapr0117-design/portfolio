@@ -552,6 +552,15 @@ _MUTATIONS_TAIL.append({
                "the scale of use,\n      and the number of users served among the things the licence is not\n      conditioned on. (+12 words.)",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (x): B3 の見出しが述べる「いまの草案の題名からの語数」の先頭に 1 を足す —— 草案の長さを述べる外向きの行は、"
+            "SUBMISSION-MATERIALS が「Check 468 が照合する」と書いていたのに誰も見ていなかった (2026-11-15)。anchor に数を含めないのは、"
+            "草案を動かすたびに anchor が外れないため",
+    "file": ROOT / "LICENSES" / "ACD-OSI-BOTTLENECKS.md",
+    "find": f"（**{CURRENT_DRAFT_VER} 草案は題名から ",
+    "replace": f"（**{CURRENT_DRAFT_VER} 草案は題名から 1",
+    "check": CHECK,
+})
 
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
