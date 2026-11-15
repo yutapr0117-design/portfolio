@@ -418,12 +418,11 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 > who receives a copy with the notice removed cannot tell where it came from,
 > and the warranty disclaimer is asserted against people who may never have
 > seen it (`against.md` #41). Section 2.3 means such a recipient still holds
-> every permission, but it does not tell them so. If the OSI wants to take up
-> the 2015 question as a matter of policy, ACD is a fair case to take it up on,
-> and I would rather it were decided than deferred on the ground that a licence
-> is obscure.
+> every permission, but it does not tell them so. The board has never made the
+> general policy decision that was asked for in 2015; if the OSI wants to make
+> it, ACD is a fair case to make it on, because it states the property openly.
 
-**逆側**: 理事会が方針として一般に決めた文は無く、2015 年の報告が例に引いた CC0 は承認されていない（#326 の残る逆側）。承認済みの 3 本を挙げることは、Piana 氏 2024-09-06 *"Please never use the "but license x does the same" argument."*（`review-readings.md` §1.212）の形に読まれうるので、答えの芯を「先送り」と「OSD の読み」に置き、3 本は読みの材料として後ろに置いた（portfolio-50 の反例・2026-11-15）。最後の段は、方針の判断を自分から求めることになり、承認の時期を延ばしうる。外すなら、その費用（先送りの条件に自分から触れない形になり #326 の合否を満たさない）を書いて外す。
+**逆側**: 理事会が方針として一般に決めた文は無く、2015 年の報告が例に引いた CC0 は承認されていない（#326 の残る逆側）。承認済みの 3 本を挙げることは、Piana 氏 2024-09-06 *"Please never use the "but license x does the same" argument."*（`review-readings.md` §1.212）の形に読まれうるので、答えの芯を「先送り」と「OSD の読み」に置き、3 本は読みの材料として後ろに置いた（portfolio-50 の反例・2026-11-15）。最後の段は、方針の判断を自分から求めることになり、承認の時期を延ばしうる。（2026-11-15 訂正: 最後の段は「目立たないことを理由に先送りされた」を前提にしていたが、#326 の訂正どおり 2015-10-13 の報告は中身で答えていたので、「理事会が一般の方針として決めたことは無い」へ直した。）
 
 #### 帰属ゼロ + 明示特許の組み合わせへの反対（2026-10・`against.md` #276 / #277 から・審査者より先に自分で立てる）
 
