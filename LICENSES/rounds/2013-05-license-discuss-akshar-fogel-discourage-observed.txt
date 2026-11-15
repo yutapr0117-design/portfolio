@@ -1,0 +1,37 @@
+Source: OSI license-discuss public archive, 2013-May.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 8 in "Akshar License 1.0 Final Draft" (2013-05-03)
+Senders: Karl Fogel
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From kfogel at red-bean.com  Fri May  3 17:08:47 2013
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Fri, 03 May 2013 12:08:47 -0500
+Subject: [License-discuss] Akshar License 1.0 Final Draft
+In-Reply-To: <CAD6i1fJZJz5ODdsxErsu4qE9Um3-=KK28DWZT-p+xdgDD4Pw7Q@mail.gmail.com>
+	(Prashant Shah's message of "Fri, 3 May 2013 21:14:17 +0530")
+References: <CAD6i1fJZJz5ODdsxErsu4qE9Um3-=KK28DWZT-p+xdgDD4Pw7Q@mail.gmail.com>
+Message-ID: <878v3whty8.fsf@kwarm.red-bean.com>
+
+Prashant Shah <pshah.mumbai at gmail.com> writes:
+>I am submitting final draft for a software license called Akshar
+>License for review on this list.
+>
+>https://github.com/octabrain/akshar/blob/master/LICENSE-1.0.txt
+>
+>https://raw.github.com/octabrain/akshar/master/LICENSE-1.0.txt
+>
+>Mainly it differs from Apache License 2.0 in sections 3 (patent grants
+>to derivative works) and 4 (more relaxed terms)
+
+What is the motivation for this license?
+
+We generally very strongly discourage the creation of new open source
+licenses.  There are too many already, and each new license increases
+the burden on developers and legal departments.  There should be a
+convincing reason why no existing license will even come close to
+serving your purposes before you try creating a new license, IMHO.
+
+Best,
+-Karl
