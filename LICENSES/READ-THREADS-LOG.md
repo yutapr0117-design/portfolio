@@ -20,6 +20,8 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に 2026 年の 2 つの提出（Modified 0BSD・ISC を基にしたロシア語のライセンス）への決める側の最初の返信を `review-readings-2.md` §1.222 へ（差・使用・手順・目的の 4 つの問い）。1 通ずつなので READ-THREADS には足さない。
+
 - 2026-11-15 に "Resources to discourage governments from bespoke licenses?"（`license-discuss` 2020-02〜03・決める側の通に絞った）を `review-readings-2.md` §1.221 へ（書いた本人が説明し、代理人はうまくいかなかった、直す意思が要る・Chestek 氏 2020。3 年後の「審査は直す場ではない」と並べた）。
 
 - 2026-11-15 に portfolio-50 の依頼で、直した版の出し方と差分の示し方を `review-readings-2.md` §1.220 へ。

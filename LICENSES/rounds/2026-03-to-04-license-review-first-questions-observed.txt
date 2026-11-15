@@ -1,0 +1,138 @@
+Source: OSI license-review public archive, 2026-March.txt and 2026-April.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 2 messages from two submissions (Modified 0BSD License (Maintenance-Required), a Russian-language licence based on ISC)
+Senders: Josh Berkus, Carlo Piana
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From carlo at piana.eu  Fri Apr 17 08:28:34 2026
+From: carlo at piana.eu (Carlo Piana)
+Date: Fri, 17 Apr 2026 10:28:34 +0200 (CEST)
+Subject: [License-review] New permissive license for review, russian
+ language, OpenBSD's ISC based
+In-Reply-To: <20260416024941.b8ab4105c0b50653c3e565bb@openbsd.org.ru>
+References: <20260416024941.b8ab4105c0b50653c3e565bb@openbsd.org.ru>
+Message-ID: <1061426062.21490458.1776414514919.JavaMail.zimbra@piana.eu>
+
+Dear Slava, 
+
+thank you for your submission.
+
+Just a preliminary clarification. Other than translating the ISC text and changing the license name, is there is any difference from the originating license? Would you please discuss the substantive changes, if any? 
+
+Also, is there any project actually using or signalling it will be using the license if/when approved? 
+
+Finally, have you checked all the boxes in https://opensource.org/licenses/review-process, is there an part missing other than than the two queries above?
+
+All the best,
+
+Carlo
+
+
+
+
+----- Messaggio originale -----
+> Da: "Slava Voronzoff via License-review" <license-review at lists.opensource.org>
+> A: "license-review at lists.opensource.org" <license-review at lists.opensource.org>
+> Cc: "Slava Voronzoff" <nerfur at openbsd.org.ru>
+> Inviato: Giovedì, 16 aprile 2026 1:49:41
+> Oggetto: [License-review] New permissive license for review, russian language, OpenBSD's ISC based
+
+> Dear OSI board, license reviewers and mailing list readers!
+> 
+> With this email I submit new Open Source license for review.
+> 
+> This license based on OpenBSD's variant of ISC license, but translated to
+> russian language.
+> 
+> This license complies with OSD 3,5,6, and 9 as it is ISC based.
+> 
+> Why?
+> To provide russian-speaking countries and communities with OSI approved
+> permissive license that is easy to understand and use.
+> 
+> To raise awareness of open source in russian-speaking countries and communities
+> (language is in top-10 of most spoken language).
+> 
+> Easier advocating of open source in non-tech population.
+> 
+> Provide "vendor"-neutral named license (To remove questions like "What is
+> Berkeley? ISC? MIT? Why use licenses with their names?")
+> 
+> License Name is "Открытый Пакет ПО" - "ОПаПО"
+> 
+> ("Open Package of Software" or "Open Software Distribution" translating to
+> english, "Otkritiy Paket PO" or "OPaPO" in latin as transliteration)
+> 
+> I had consultation with IP/Opensource lawyer regarding this license.
+> 
+> You can contact me using email:
+> 
+> Slava Voronzoff nerfur at openbsd.org.ru
+> 
+> (fullname is Viacheslav Vorontsov)
+> 
+> Happy to answer any questions!
+> 
+> 
+> --
+> Slava Voronzoff <nerfur at openbsd.org.ru>
+> 
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily
+> those of the Open Source Initiative. Communication from the Open Source
+> Initiative will be sent from an opensource.org email address.
+> 
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+From josh at berkus.org  Tue Mar 17 23:37:46 2026
+From: josh at berkus.org (Josh Berkus)
+Date: Tue, 17 Mar 2026 16:37:46 -0700
+Subject: [License-review] Official Submission: Modified 0BSD License
+ (Maintenance-Required)
+In-Reply-To: 
+ <CAFqiHzX2yam99pd-pn_PtSZdNMEZ35ESmLiFKChBiY=QP_=U6w@mail.gmail.com>
+References: 
+ <CAFqiHzVo5At=eoo875LKfV-UOw_svZzUifbdjHjvUunV=fC46g@mail.gmail.com>
+ <5a04a8be-d4fb-4463-9a8a-6ea37a48197c@lexpan.law>
+ <CAFqiHzV1o0e-j8F_0vzLiej=h8_r6KvSG8fMvnBgsgLRtqcpzw@mail.gmail.com>
+ <f1678aa6-ab30-408d-aa37-889389d1089d@lexpan.law>
+ <CAFqiHzX2yam99pd-pn_PtSZdNMEZ35ESmLiFKChBiY=QP_=U6w@mail.gmail.com>
+Message-ID: <87add696-6a73-4aea-aa8c-9e066dbebc68@berkus.org>
+
+On 3/17/26 3:03 PM, Vicentte Felipe wrote:
+> ​Contractual Condition: The "Maintenance Obligation" is a condition 
+> precedent to the license grant. While the user is not required to 
+> provide attribution, the Author's right to distribute the software is 
+> contingent upon their commitment to the "Duty to Repair."
+> ​Binding Nature: If the maintainer fails to provide "best efforts" to 
+> address defects (such as breaking changes in the underlying React 
+> framework), they are in breach of the license conditions.
+
+I don't understand what you're expecting to accomplish with this license.
+
+"The Original Author(s) and/or those who explicitly claim to provide a 
+supported version of this software accept an affirmative obligation to:
+​Review and address reported technical defects."
+
+First, "original author" is meaningless given that you haven't defined 
+it in the license.
+
+If distributors are "claiming to provide support", surely addressing 
+technical defects is a matter for the support contract?  How would you 
+define, or prove, "claiming to provide support"?  Who judges whether 
+defects have been "addressed"?  Who defines a "defect"?
+
+If your goal is to build a stronger React framework community by 
+pledging to address defect reports yourself, surely there are more 
+effective, and easier, ways to do that than a license?
+
+Licenses aren't tools for social engineering.  If you're trying to build 
+a commercially and technically successful community, clever license 
+terms aren't going to do that for you.  You have to do the actual 
+community-building work.
+
+-- 
+Josh Berkus

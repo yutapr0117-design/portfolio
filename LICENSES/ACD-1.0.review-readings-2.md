@@ -80,3 +80,18 @@ portfolio-50 の依頼（`REVISION-PROTOCOL.md` の 3.6 節の 6b で 1.4 を `l
 **逆側。** 「書いた本人」を「設計と判断をした人」と読めばオーナーは本人だが、「本文の語を書いた人」と読めば AI である。後者の読みで審査者が問えば、ACD は代理人の形に見える（`ACD-OSI-BOTTLENECKS.md` B14）。開示はこの点を隠さないが、開示が懸念を消すとは限らない（§1.220 で開示への決める側の反応の例は見つからなかった）。
 
 **この節が establish しないこと。** 2020 年の文は匿名の政府の法律家についてで、AI の関与についてではない。「代理人」の範囲に AI の起草が入るかは、決める側の誰も述べていない。
+
+## 1.222 2026 年の新しい提出が最初に受ける問い —— 元のライセンスと何が違うか、使う（使うと表明する）プロジェクトはあるか、手順の項目は揃っているか（2026）（2026-11-15）
+
+2026 年の `license-review` の 2 つの提出に付いた決める側の通（`rounds/2026-03-to-04-license-review-first-questions-observed.txt` に 2 通）。どちらも 2024〜2026 年の照合で決める側の未引用の通に出た。ACD を `license-review` に出したときに最初に来る問いの、今の形の実例として置く。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Other than translating the ISC text and changing the license name, is there is any difference from the originating license? Would you please discuss the substantive changes, if any?"*、*"Also, is there any project actually using or signalling it will be using the license if/when approved?"*、*"Finally, have you checked all the boxes in https://opensource.org/licenses/review-process, is there an part missing other than than the two queries above?"* | Carlo Piana 氏 2026-04-17（委員・ISC を基にしたロシア語のライセンスの提出への最初の返信） | **最初の 3 つの問いの実例。** (1) 元のライセンスとの実質的な差（ACD は「承認済みのどれとも違う効果」を `REVIEWERS.md` の "In one screen" と §1.205〜§1.206 の逐語の比較で答える）、(2) 使う、または使うと表明しているプロジェクト（ACD はこのリポジトリ 1 件・B2。「表明する」も数えると書いてあるので、オーナーが関心の表明を集める窓口〔`.github/ISSUE_TEMPLATE/acd-use.yml`〕の意味がここに在る）、(3) 審査手順の項目の充足（`SUBMISSION-MATERIALS.md`・REVISION-PROTOCOL の表の 8） |
+| *"I don't understand what you're expecting to accomplish with this license."*、*"Licenses aren't tools for social engineering. If you're trying to build a commercially and technically successful community, clever license terms aren't going to do that for you."* | Josh Berkus 氏 2026-03-17（理事・Modified 0BSD への返信。Chestek 氏が同日 *"IMO this license should be rejected for the reasons that Josh gives."*） | **目的の問い。** 何を達成したいかを最初に問われ、ライセンスは社会的な目的の道具ではないと言われた。ACD の目的（学ばれるための作品に、確かめなくてよい許諾を与える・§6.5）は条件で人を動かすものではないが、「何を達成したいか」に 1 文で答えられる形が要る（`REVIEWERS.md` の "In one screen" の最初の行） |
+
+**読み。** 2026 年の新しい提出への最初の返信は、差・使用・手順の 3 点と、目的の 1 点を問うた。ACD の入口はこの 4 点に答える場所を持つが、(2) の使用だけは「このリポジトリ 1 件」以外の答えを持たない。Piana 氏の問いは「使うと表明している」プロジェクトも数えるので、承認の前に関心の表明を集めることは、問いの形そのものに合う。
+
+**逆側。** 2 つの提出はどちらも退けられた側（ISC の翻訳はほぼ同じ文、Modified 0BSD は Chestek 氏が否決を勧めた）で、最初の問いが同じでも ACD の扱いが同じになるとは限らない。使用の問いは、委員会の理由書が「基準ではない」とした問い（§1.201、MIT-0・Jam）を委員が最初に訊いていることを示し、規則と実際の問いの順の間にずれがある（B2）。
+
+**この節が establish しないこと。** 2 つの提出の帰結は扱わない。Piana 氏の 3 つの問いが毎回同じ形で来るかは、この 1 通からは分からない。
