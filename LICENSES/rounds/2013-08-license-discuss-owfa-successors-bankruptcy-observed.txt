@@ -1,0 +1,181 @@
+Source: OSI license-discuss public archive, 2013-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 68 in "Open Source Eventually License Development" (2013-08-14)
+Senders: Lawrence Rosen
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Sun Aug 18 18:03:11 2013
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Sun, 18 Aug 2013 11:03:11 -0700
+Subject: [License-discuss] Open Source Eventually License Development
+In-Reply-To: <9325-Sun18Aug2013121655-0400-eben@harlan.sflc-vpn>
+References: <CACmAiqacb05nebw4afz+FFMTOBxNTEe8y93p-qPtPBz4yc7SJg@mail.gmail.com>	<00d201ce990e$960cb490$c2261db0$@rosenlaw.com>	<E1V9iXX-0001sa-Ai@fencepost.gnu.org>	<014301ce993a$c27c6c10$47754430$@rosenlaw.com>	<4234-Wed14Aug2013184416-0400-eben@harlan.sflc-vpn>	<03d901ce9acc$47cdd240$d76976c0$@rosenlaw.com>	<5590-Fri16Aug2013184708-0400-eben@harlan.sflc-vpn>	<03f101ce9adb$80c45970$824d0c50$@rosenlaw.com>	<4367-Fri16Aug2013203300-0400-eben@harlan.sflc-vpn>	<20130818070127.GC31983@mercury.ccil.org>
+	<9325-Sun18Aug2013121655-0400-eben@harlan.sflc-vpn>
+Message-ID: <051801ce9c3d$350bffc0$9f23ff40$@rosenlaw.com>
+
+I'll elect to focus on Eben's legal arguments rather than his ad hominem
+attacks. I do so with the intent of alerting the rest of this list to his
+misstatements of the law, not to try to educate him. 
+
+Eben is right that a license can terminate before its terms are completely
+executed, for reasons of bankruptcy or perhaps some form of contractual
+breach. But talented lawyers have dealt with these concerns many times and
+have potential solutions available.
+
+For example, the Open Web Foundation Agreement ("OWFa") [1] deals directly
+with the fact that copyrights and patents can change ownership (voluntarily
+or involuntarily). The licensors in that OWFa in section 1 grant a
+"perpetual" copyright license and, in section 2, "on behalf of myself and my
+successors in interest and assigns, irrevocably promise" not to assert their
+patent claims. Lest that irrevocable patent license not be clear enough, we
+repeat in section 3.1.3:
+
+    "Notwithstanding the personal nature of my promise, this promise is
+     intended to be binding on any future owner, assignee or exclusive
+     licensee who has been given the right to enforce any Granted Claims
+     against third parties."
+
+Then, because of the quite reasonable fear of potential bankruptcy of the
+licensor, we locked the license in with the following provision in 3.1.4:
+
+     "Solely for purposes of Section 365(n) of Title 11, United States
+Bankruptcy
+     Code and any equivalent law in any foreign jurisdiction, this promise
+will 
+     be treated as if it were a license and you may elect to retain your
+rights 
+     under this promise if I (or any owner of any patents or patent
+applications
+     referenced herein), as a debtor in possession, or a bankruptcy trustee,
+
+     reject this non-assert."
+
+And then, because some of us are still paranoid, we added this section 6:
+
+     "I agree that I will not intentionally take or willfully assist any
+third party
+      to take any action for the purpose of circumventing my obligations
+under
+      this CLA."
+
+Could a court invalidate this license? Yes, it would have the authority to
+do so. 
+
+Is that likely? No.
+
+/Larry
+
+[1] http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0 
+
+
+-----Original Message-----
+From: Eben Moglen [mailto:moglen at softwarefreedom.org] 
+Sent: Sunday, August 18, 2013 9:17 AM
+To: cowan at mercury.ccil.org
+Cc: license-discuss at opensource.org; lrosen at rosenlaw.com; mark.atwood at hp.com;
+karen at gnome.org; rms at gnu.org; nathan at gonzalezmosier.com; monty at askmonty.org
+Subject: Re: [License-discuss] Open Source Eventually License Development
+
+On Sunday, 18 August 2013, John Cowan wrote:
+
+  That surely won't work, but it's not what I take Larry to be describing.
+  Rather, he is talking about a contract which grants the right *to the
+  licensee* to distribute copies of his copy under the GPL, provided
+  he does so not earlier than one year (or whatever) after the contract
+  is formed.  This is no more objectionable than for me to sell you the
+  right to publish my book, provided that you don't do so before 2015.
+  When 2015 rolls around, you can go ahead and publish with no further
+  action on my part, though if you publish in 2014 you are violating
+  my copyright.
+  
+  So there is no question of the licensee suing the licensor for failing
+  to license.  The license already exists.  Rather, the licensor would have
+  to sue the licensee for copyright violation, in which case the licensee
+  would point to the terms of the contract.
+
+No, Mr Cowan.  The license only exists if the precedent license hasn't been
+terminated or revoked during the term.  If it has, then the right to
+distribute under free license has also terminated.  No one should take the
+code in reliance on the free license after notice of termination, because
+the free license is deceptive: the distributor is infringing.  If the free
+license promised is GPL, then GPLv2 sect.  7 or GPLv3 sect.  12 would
+prevent the presumptive GPL distributor from releasing under those
+circumstances, while ensuring that any downstream recipients had protection;
+more permissive and in this sense less careful licenses would allow the
+creation of the resulting menace to navigation, but the apparent free
+license wouldn't in fact exist.
+
+So the presumptive GPL distributor who was terminated before the right to
+free sublicensing vested *will* have to sue on the (wrongfully, from her
+perspective) terminated agreement.  And here the issue of remedy, as I have
+said all along, becomes fatally relevant.
+
+This is not speculative.  The intended mode of use is to postpone the free
+period to the term of a commercial proprietary license, which must allow,
+for example, for termination for non-payment.  Termination may happen
+unjustly, but if it happens the free license is destroyed, The remedy in
+suit, even if the wrongful termination is proved, lies in damages.  Also,
+please note that the free license promised in future is an executory
+interest that will become voidable in bankruptcy, if the party using the
+freedom postponement license goes broke during the commercial term.  This is
+a particularly bad failure mode, because free release in the event of
+commercial failure is one of the few reasons to pay for the postponed
+freedom license.
+  
+[This is also the answer to RMS's question.  Yes, an "ordinary"
+contract will work, except that the legal system will tend (in
+Anglo-American jurisdictions in particular, at least) to award the "wrong"
+remedy for breach, in that it will not require the issuance of the free
+license.  One can fix that problem, and insure the availability of the right
+remedy, by structuring the transaction with the intermediary correctly.
+That's what the conversation has been about, net of confusion.]
+
+  > But the resemblance is hardly accidental.
+  
+  Saying that Larry's resemblance to a first-year law student is "hardly
+  accidental" is hardly civil; in fact, it's downright insulting.
+  
+I don't see why.  I think you're insulting first-year law students.
+The people I spend my life with are among the smartest and most capable
+young people in the States.  Many of them are young superbrights, as are
+some of the street kids I have taught in Bangalore, one or two of whom are
+much smarter than Larry Rosen, you, or me.
+
+Their resemblance to Larry (the US 1Ls, not the Bangalore street kids)
+*is* more than accidental.  He was them once, they will be him later.
+In twenty-six years of teaching at Columbia, Harvard and Virginia, as well
+as abroad in several places, I have taught slightly more than
+6,000 lawyers.  Many of them--now working in positions of high esteem with
+great distinction--still show prominent intellectual and emotional habits
+that have not changed over the course of their entire professional lives,
+and which I remember vividly from a time when they and I were much more
+young.
+
+Raffaelo could draw a perfect circle freehand, Georgio Vasari says.
+Freehand license drafting is a bad habit for those not so supernaturally
+skilled, at whatever time of life.  Among the many students I have taught, I
+have known a few who were hampered in life by their inability to accept the
+advice of those who had thought more deeply.
+That's also a bad trait for a lawyer, because all of us use the advice of
+those more expert all the time.  As lawyers, and as teachers, we sell
+judgment.  We are in turn judged on the judgment we show in those whose
+advice and teaching we seek out as the basis for our own.
+
+			      * * * * *
+
+Another rule of the classroom with good application to mailing lists (for
+the same reason in both cases: to acknowledge and respect the patience of
+the others being subjected to the colloquy) is that when it's over, it's
+over.  People can decide for themselves now what these arguments and emotive
+behaviors add up to.
+
+Regards to all.
+Eben
+
+-- 
+ Eben Moglen                            v: 212-461-1901 
+ Professor of Law, Columbia Law School  f: 212-580-0898       moglen@
+ Founding Director, Software Freedom Law Center            columbia.edu
+ 1995 Broadway (68th Street), fl #17, NYC 10023        softwarefreedom.org
+ 

@@ -20,6 +20,8 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に portfolio-1c の依頼 (4) の探索で、"Open Source Eventually License Development"（`license-discuss` 2013-08）の Rosen 氏の通を `review-readings-2.md` §1.227 へ（OWFa の後継者を縛る約束・倒産法 365(n)・迂回しない約束が ACD の §2.8・§2.9・§5.1 と同じ並び）。通だけを引いたので READ-THREADS には足さない。
+
 - 2026-11-15 に portfolio-1c の依頼で、名前の規律と Steward の譲渡を全期間の決める側の通で探し、`review-readings-2.md` §1.226 へ（MPL 2.0 §10.3・CPL-1.0／EPL-1.0 の Steward の譲渡が承認済みの先例、Rosen 氏「名前は商標で守る」）。会話を読んだのではないので READ-THREADS には足さない。同じ探索で、GPL-3.0 §3 型の条を持つ承認済みの permissive と、17 U.S.C. §205(e) を論じた決める側の通は見つからなかった（portfolio-1c へ）。
 
 - 2026-11-15 に "NOSA 2.0 and Government licensing"（`license-review` 2018-06）を `review-readings-2.md` §1.225 へ。
