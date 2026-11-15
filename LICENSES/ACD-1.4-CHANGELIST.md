@@ -126,6 +126,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §5.2(b)（*it*・T61） | 末尾の *"and it imposes none (Section 10.1)"* を *"and this Dedication imposes none (Section 10.1)"* へ | 項の主語は柱書の Dedicator で、等位の節の *it* は文法の既定では主語を指し、草案は Dedicator を *it* / *itself* で受けてきた。Dedicator と読むと「Dedicator は付随の手段で何も課さない」という事実の表明になり、自社の素材とサービスの条件を §5 の外に置く §5.2 末文と食い違う。1.0 から在る文なので errata E81 に記録した。**逆側**: 同じ項に *this Dedication* が 2 回並ぶ。*any obligation* へ縮める代案（−11 語）は約束の範囲の語を動かすので採らない（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.34） | +1 | 反映済 |
 | §16.4（新しい版・T62） | 例外の限りの文の次に *"Section 16.4 applies to a new version distributed under that exception as it applies to this text."* を足す | 例外は配る人に付き、配られる本文に付いていない。前の版から見れば後の版は改変した本文で、§16.5 の譲渡の後は、前の版の権利者 A の §16.4 は Steward（= B）による頒布しか外さないので、採用者・SPDX・OSI が B の新版を名前の下で配ると A の本文の禁止に当たる（portfolio-30・errata E80）。EPL は例外を改変する行為に付けており同じ穴が無い。最初の案 *"… may be distributed verbatim by anyone"* は新しい版の翻訳と再符号化（OSI の HTML・SPDX の XML）を拾わない（30 の反例）。30 の案 A *"unless it is a version the Steward has published"* は譲渡の後に A が出した版を外し、A′（*or a former Steward*）は譲渡の後に A が出す新しい本文を例外に入れる。**逆側**: 役割の譲渡は起きておらず、裁判所は各版の許可がその版を覆うと読むだろう（Low）。新しい版の改変は新しい版自身の §16.4 と二重に止まる（同じ向き）（§14.34） | +17 | 反映済 |
 | §5.2(a)（*apply*・T64） | *"(a) apply, or assert rights in respect of, any technological measure"* を *"(a) assert rights in respect of any technological measure"* へ | 語どおりなら Dedicator 自身の配布サーバのレート制限・proof-of-work・UA の遮断（AI クローラの負荷対策）、有料のダウンロード窓口、App Store の DRM まで止め、自前の forge を持つ採用者が採れない（portfolio-30・errata E82）。§5.1 の *"a payment You agreed to make"* とも食い違っていた。GPL-3.0 §3 と同じく、手段を掛けることは許し、権利の主張と回避の法の行使だけを放棄する形。最初の案（目的語を *"a copy of the Work that You hold"* に絞る・+5 語）はストアの DRM が手元の写しに掛かるので残った（30 の反例）。除外を足す形（約 +22 語）は名指さないサーバ側の手段を (a) に入れると読ませる。**逆側**: DRM 付きの写ししか出さない Dedicator も許される（回避は Dedicator に対して自由）。T31 の「写しを渡す入口を (a)(b) に残す」選択を覆し、登録も条件も無い API キーだけのゲートは (a) の外に出る（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.36） | −2 | 反映済 |
+| §2.2（後付けの制限・T65） | *"and, in respect of any copy of the Work that has been made available, may not impose any further term, condition, or restriction"* を *"and may not impose any further term, condition, or restriction on what may be done with any copy of the Work that has been made available"* へ | T64 で §5.2(a) が技術的な手段を許したので、§2.2 の *restriction* を技術的と読むと、既に配っているサーバに後から負荷対策を足すことを §2.2 が閉じ直す（1.3 までは (a) が技術的な手段を別に禁じていたので、*restriction* を法的と読む支えがあった）。最初の案 *legal restriction*（+1）と 50 の代案 *enforceable restriction* は、phone-home で後から写しを止める形まで §2.2 の外に出す（30 の反例・T64 の後に残った唯一の歯止め）。制限を「配った写しで何をするか」に掛けると、窓口の負荷対策は外、遠隔停止・後付けの DRM・後からの規約は内に残る。E27 の語順（限定句は *withdraw* に掛からない）は保った。**逆側**: *in respect of* より狭まり、写しで何かをすることへの制限でない後付けの義務は §2.2 の外に出る（§5.2(b) が止める）。T64 と同じく「サーバを守ってよい」は本文に書かず `ADOPTING.md` に書く（50）。T64 が持ち込んだので `ACD-1.1-SELF-AUDIT.md` §3za（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.37） | +3 | 反映済 |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
@@ -178,18 +179,18 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
-1.3 の 5,443 語から 1.4 草案は +128 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
+1.3 の 5,443 語から 1.4 草案は +131 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
 
 | 束 | 増減 | 何のための語か |
 | :-- | --: | :-- |
 | 適用と通知（§1.9・§2.3・§2.6・§16.1〜§16.3）| +148 | タグや識別子だけの適用、通知が名指す素材、優先、大小の区別、寄与の宛先。採用者がファイル単位・パッケージ単位で使うときに、意図しない素材を撤回不能に出さないための語 |
 | 不行使と付随の約束（§5）| +117 | 商標と虚偽の表示、合意した支払い、特許の除外、Dedicator 自身のモデルとサービス。データだけを出す組織や、重みと API を両方出す組織が採用できるための語 |
 | 名前の保護（§16.4〜§16.6）| +64 | 1 つの名前と識別子が 1 つの本文を指し、Steward が出した新しい版を誰でもその名の下で配れるための語 |
-| その他の明瞭化 | +43 | 定義、承継（§2.8 の *to that extent*・T59）、§4、§9 などの語の付き先 |
+| その他の明瞭化 | +46 | 定義、承継（§2.8 の *to that extent*・T59）、撤回不能（§2.2 の後付けの制限・T65）、§4、§9 などの語の付き先 |
 | 特許（§6.1・§8）| −4 | 行為を目的語にし、*reach* を 1 回で定め、三つの足場の説明と §8.6 の *alongside them*（T56）を外した |
 | 理由・説明の文を外したもの | −240 | §2.8・§11.4・§12.4・§8.4（T54）の理由の文と、§2.7・§8.5 の案内（Chestek 氏 *"I question whether they belong in the agreement at all."*・#295）|
 
-**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +265）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 675 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
+**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +265）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 678 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
 
 ## 外部資料・OSAID 1.0・opensource.org のページを当てた記録（2026-10-28）は別の file へ移した
 
@@ -359,7 +360,7 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 > §2 (scope and effect, 11) and §1 (definitions, 8); seven name the preamble or several clauses at
 > once. Further changes came from our own sweeps of the
 > later drafts and are listed, with their reasons, in each version's change list. The text is
-> longer: 5,571 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
+> longer: 5,574 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
 
 **⚠ 逆側**: 短い経路の語数が約 170 語増える（`REVIEWERS.md` の短い経路の表と Check 472m の値を同じ日に直す）。*"The direction is unchanged"* は、1.0 から変わらなかったものを 3 つだけ挙げる文で、ほかに変わらなかったものが無いとは言っていない。逆に、変わったものを errata の件数で数えるので、errata に載らない 1.4 生まれの変更（T34〜T52 の多く）は *"Further changes"* の 1 文にまとまる。数を当日に数え直すのは、草案が確定まで動くからである（2026-11-11 の時点でも 1.4 の閉鎖は 39 件で、まだ動きうる。**同日の訂正**: 最初の下書きは 1.3 で 5・1.4 で 38 と書いた。状態の列の版の語の最初の一致を数えていて、閉鎖の印でない語を拾っていた。portfolio-00 が印の正規表現で 4 と 39 を出し、同じ数え方で確かめた）。
 
