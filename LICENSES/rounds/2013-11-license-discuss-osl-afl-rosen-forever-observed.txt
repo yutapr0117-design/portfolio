@@ -1,0 +1,83 @@
+Source: OSI license-discuss public archive, 2013-November.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 4 in "Issue on licenses pages" (2013-11-22)
+Senders: Lawrence Rosen
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Thu Nov 28 00:16:04 2013
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Wed, 27 Nov 2013 16:16:04 -0800
+Subject: [License-discuss] Issue on licenses pages
+In-Reply-To: <CAFPTOkUxjFZ1YNhYQRgXqm2mez+uR8amXLpFU0vV_9yj0obSsg@mail.gmail.com>
+References: <528E87E6.4010108@gmail.com>
+	<CAFPTOkUxjFZ1YNhYQRgXqm2mez+uR8amXLpFU0vV_9yj0obSsg@mail.gmail.com>
+Message-ID: <109a01ceebcf$0844fe60$18cefb20$@rosenlaw.com>
+
+Hi Luis,
+
+I've no idea what happened to those early licenses on the OSI website. I
+lost track of OSI website updates after a while. 
+
+Several years ago in an email to someone here I specifically "deprecated"
+early versions of my OSL/AFL licenses, as that term was then understood,
+meaning that their author had no desire to recommend those license any
+longer for new software. As I understand it, however, FOSS licensing is
+forever, so deprecation wasn't supposed to mean any licensing changes to
+FOSS software that had already been distributed voluntarily under those
+licenses. Erasure of those licenses from the OSI website wasn't my
+intention.
+
+All that old, previously licensed OSL/AFL software remains FOSS! Continue to
+use it as the licenses allow.
+
+I'm waiting for you to stabilize your website template for license
+descriptions and I'll be glad to post complete documentation (including
+perhaps some history) for all of my licenses. I noticed recently, however,
+that the link to an extensive FAQ I wrote about OSL/AFL no longer works on
+your website, so I'm waiting for you to clean that up first. 
+
+And you also need to promise me in return that you won't waste my
+documentation effort by continuing to classify OSL 3.0 under
+"Other/Miscellaneous licenses"; AFL 3.0 under "Licenses that are redundant
+with more popular licenses"; and NOSL 3.0 under "Uncategorized Licenses".
+All such categories mean is that you don't understand the licenses, which is
+a shame to say about OSI.
+
+These licenses were a serious attempt by your predecessors as OSI board
+members to include good patent provisions in their FOSS copyright licenses.
+Lots of licenses have since made similar transitions and they also deserve
+accurate historical and legal footnotes on your website. 
+
+Thanks for your efforts. I know from my own history how much of a challenge
+this is.
+
+/Larry
+
+Lawrence Rosen
+Rosenlaw & Einschlag, a technology law firm (www.rosenlaw.com)
+3001 King Ranch Rd., Ukiah, CA 95482
+Office: 707-485-1242
+Linkedin profile: http://linkd.in/XXpHyu 
+
+
+-----Original Message-----
+From: Luis Villa [mailto:luis at lu.is] 
+Sent: Wednesday, November 27, 2013 9:10 AM
+To: License Discuss; Lawrence Rosen
+Subject: Re: [License-discuss] Issue on licenses pages
+
+[I've been on vacation, and/or preparing for vacation; apologies for my slow
+responses here, which will continue through Sunday.]
+
+On Thu, Nov 21, 2013 at 2:23 PM, Engel Nyst <engel.nyst at gmail.com> wrote:
+> Is the text intended to no longer be accessible?
+
+As far as I know, this is not intentional; as Larry hinted at, there was
+certainly heavy politics around those licenses, but I don't believe they
+were intentionally removed from the website. Larry, is that the case? If
+they were not removed at your request, Larry, I'm happy to have them
+re-added. (If they were removed at the request of someone other than Larry,
+I'm more than happy to fix/clarify the historical record.)
+
+Luis

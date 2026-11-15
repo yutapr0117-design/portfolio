@@ -20,6 +20,8 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "Thoughts on AAL and OSS vs FOSS"（`license-discuss` 2020-03〜04・33 通を通読）を `review-readings-2.md` §1.239 へ（承認済みの AAL の作者は法律家ではないと OSI のサイトが書く、使われなくなった承認済みは廃止が論じられる・Berkus 氏、公開されたライセンスの名は共同体のもの・同）
+
 - 2026-11-15 に "Orphan Works: Summary of proposed 17 USC 514"（`license-discuss` 2015-12・7 通を通読）。米国の孤児著作物の立法案の紹介で、決める側の文も ACD の新しい論点も無かった（節は立てない）
 
 - 2026-11-15 に "Approval of IWL - Consolidated Response"（`license-review` 2008-05〜06・27 通を通読）を `review-readings-2.md` §1.238 へ（承認は一語も変えない本文に対するもの、型板にすべき・Nelson 氏、既存のライセンスから始めて適合を求めるのは良くない・同、大きな問題で通らないと分かれば小さな問題は誰も見ない・Perens 氏）
