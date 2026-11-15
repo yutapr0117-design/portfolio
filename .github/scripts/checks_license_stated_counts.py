@@ -1,4 +1,4 @@
-"""checks_license_stated_counts.py — 自己申告の文が持つ 2 つ目の数 (498) と、入口の「最後に読んだ時刻」(499)
+"""checks_license_stated_counts.py — 自己申告の文が持つ 2 つ目の数 (498) と、入口の「最後に読んだ時刻」(499)、§1.N の重複 (500)
 
 2026-11-08 に足した。Check 460 は自己申告の文の最初の数を実測と照合する面を多く持つが、同じ文の
 2 つ目の数と、隣の文が繰り返す同じ数は読んでいなかった（Check の監査 findings #114〜#123）。
@@ -29,6 +29,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        と述べ、取得のたびに書き換えないと、古い時刻のまま「返信は無い」と言い続ける。記録の無い取得
        (最新の取得より後の時刻) と、最新の取得より 48 時間以上古い時刻を RED、48 時間以内の遅れを ADVISORY にする
        (取得の当日に入口を直す余裕を残す)。
+  500. **ドシエの §1.N 見出し (N >= 70) が全体で 1 か所にしか無いこと** (BLOCKING・2026-11-15・30 の問い):
+       §1.70 以降は通し番号として文書の名を添えずに引かれる。未読の 285 本を 5 人で読むため節番号を帯で分けた日に、
+       帯を越えた重複を止める (本体は _lib_dossier.section_heading_duplicates)。
 """
 import datetime
 import re
@@ -308,3 +311,16 @@ def run(ctx):
             f"Check 499 (ADVISORY): 入口の最後に読んだ時刻が最新の取得より {_lag499:.0f} 時間古い (48 時間を越えると RED)",
             blocking=False,
         )
+
+    # ── 500. ドシエの §1.N 見出しが全体で 1 か所にしか無いこと (BLOCKING) ──────────────────
+    # 5 人が年の帯で別々の文書 (review-readings-2〜6) に節を足す (2026-11-15)。名を添えない「§1.N」の引用は
+    #   見出しが 1 つでないと解決しない
+    from _lib_dossier import SECTION_SERIES_FLOOR, section_heading_duplicates
+    _n500, _bad500 = section_heading_duplicates(L)
+    check(
+        _n500 >= 100 and not _bad500,
+        f"Check 500: ドシエの §1.N 見出し (N >= {SECTION_SERIES_FLOOR}) {_n500} 個がすべて 1 か所にしか無い",
+        (f"Check 500: 同じ §1.N の見出しが 2 か所に在る: {_bad500 or f'見出しが {_n500} 個しか読めない'}。"
+         "名を添えない「§1.N」の引用がどちらの節かを決められない。自分の帯 (review-readings-N の冒頭) の番号を使え"),
+        blocking=True,
+    )

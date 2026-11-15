@@ -250,3 +250,25 @@ def reviewer_map_misses(licenses_dir: Path) -> tuple[int, list[str]]:
         elif not parent.exists() or parent.name not in rvt or p.name not in parent.read_text(encoding="utf-8"):
             bad.append(f"459c: {p.name} の reachable-via: {via.group(1)} が、REVIEWERS.md に名前を持ちこの文書を名指す親になっていない")
     return n, bad
+
+
+# ── ドシエの §1.N 見出しの重複 (Check 500 が使う・2026-11-15) ───────────────────────
+SECTION_SERIES_FLOOR = 70  # これより小さい §1.N は文書ごとの番号 (comparison §1.3 と CHANGELIST §1.3 など・通し番号ではない)
+
+
+def section_heading_duplicates(licenses_dir: Path) -> tuple[int, list[str]]:
+    """LICENSES/*.md の `## 1.N` 見出し (N >= SECTION_SERIES_FLOOR) が、ドシエ全体で 1 か所にしか無いこと。
+
+    §1.70 以降はドシエ全体の通し番号として、文書の名を添えずに引かれる (「§1.241」)。2026-11-15、未読の 285 本を
+    5 人で読むため節番号を帯で分けた (2f §1.242〜・30 §1.300〜・50 §1.350〜・1c §1.400〜・9b §1.450〜)。帯を越えて
+    同じ番号を 2 人が使うと、名を添えない引用がどちらの節かを決められなくなる。それより前の重複 (§1.67〜§1.69 が
+    review-corpus と review-venue の両方に在る) は通し番号になる前の分割の名残で、床の下に在る。
+    返り値: (照らした見出しの数, 重複の文の list)。
+    """
+    seen: dict[int, list[str]] = {}
+    for p in sorted(licenses_dir.glob("*.md")):
+        for m in re.finditer(r"^## 1\.(\d+)\b", p.read_text(encoding="utf-8"), re.M):
+            if int(m.group(1)) >= SECTION_SERIES_FLOOR:
+                seen.setdefault(int(m.group(1)), []).append(p.name)
+    bad = [f"§1.{n}: {', '.join(v)}" for n, v in sorted(seen.items()) if len(v) > 1]
+    return sum(len(v) for v in seen.values()), bad
