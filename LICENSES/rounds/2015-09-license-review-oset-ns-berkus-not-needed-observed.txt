@@ -1,0 +1,31 @@
+Source: OSI license-review public archive, 2015-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 16 in "[Was: Submission of OSET Public License for Approval] -- National Security and Public Policy (3.5B and 4)" (2015-09-15)
+Senders: Josh Berkus
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From josh at postgresql.org  Thu Sep 17 19:36:56 2015
+From: josh at postgresql.org (Josh Berkus)
+Date: Thu, 17 Sep 2015 14:36:56 -0500
+Subject: [License-review] [Was: Submission of OSET Public License for
+ Approval] -- National Security and Public Policy (3.5B and 4)
+In-Reply-To: <CAF4JVJByp=8FDJZRC0YAmo=CZNssycrg89xPa+tu3e0J3GK4sQ@mail.gmail.com>
+References: <588CF6CE14FFAB47AF5CEC6660C350764F26E838@USHTMB1X.firm.omm.com>
+ <55F830FB.3090206@postgresql.org>
+ <588CF6CE14FFAB47AF5CEC6660C350764F272817@USHTMB1X.firm.omm.com>
+ <55FADF49.4020000@postgresql.org> <20150917171211.GB25663@mercury.ccil.org>
+ <CAF4JVJByp=8FDJZRC0YAmo=CZNssycrg89xPa+tu3e0J3GK4sQ@mail.gmail.com>
+Message-ID: <55FB1658.8050003@postgresql.org>
+
+On 09/17/2015 01:11 PM, Simon Phipps wrote:
+> 
+> If this is the case the clauses in question aren't needed so could be
+> dropped. We would surely be foolish to set the precedent that building
+> inequality into a license is acceptable?
+
+Precisely.  If governments already have immunity, the clause is not
+needed; if they don't, then the clause is bad.  Either way, it is not
+something OSI should be endorsing.
+
+--Josh Berkus

@@ -449,6 +449,7 @@
 2015-09-01	Submission of OSET Public License for Approval]
 2015-09-09	OSET Foundation
 2015-09-10	Discussing proposed new licenses
+2015-09-15	-- National Security and Public Policy (3.5B and 4)
 2015-09-17	Sovereign Immunity
 2015-09-28	GPLv3 for elections software
 2015-10-14	OSET Public License
