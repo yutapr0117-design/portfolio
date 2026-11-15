@@ -708,6 +708,7 @@
 2018-03-02	ESA Permissive PL 2.3
 2018-03-02	ESA-PL Weak 2.3
 2018-06-18	OSL and AFL
+2018-06-19	Consensus on L0-R
 2018-06-19	moving to an issue tracker
 2018-06-20	NOSA 2.0 and Government licensing
 2018-06-20	Pritunl "open source"

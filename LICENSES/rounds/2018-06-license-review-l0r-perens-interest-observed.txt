@@ -1,0 +1,38 @@
+Source: OSI license-review public archive, 2018-June.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 14 in "Consensus on L0-R" (2018-06-19)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Wed Jun 20 00:28:15 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 19 Jun 2018 17:28:15 -0700
+Subject: [License-review] Consensus on L0-R
+Message-ID: <CAK2MWOv6d2ZPzaUNJO4S0Y-7Advw4xF7idp7iqwyoRZuQaVU6Q@mail.gmail.com>
+
+*> 5. If you run this software to analyze, modify, or generate> software,
+you must release source code for that software.*
+
+At the time, around November 11, I pointed out that this really obviously
+and inarguably violated OSD #6, and I wasn't the only one pointing this
+out. As far as I am aware, the consensus was that it wasn't an Open Source
+license.
+
+The discussion devolved to topics not connected with the license after
+that, eventually requiring intervention by OSI's president.
+
+I understand that you want to create a business method for people who don't
+have one now. One that OSI is not obligated to approve as Open Source. But
+you really could be out creating a user community for this as a
+non-Open-Source license. Lots of people use non-Open-Source licenses.
+However, when I asked you to introduce me to someone who was interested in
+the license, no names were forthcoming. So, I have to believe this is only
+theoretical.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180619/308911ed/attachment-0001.html>
