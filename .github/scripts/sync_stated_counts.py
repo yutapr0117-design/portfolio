@@ -47,13 +47,14 @@ def repo_sites() -> list[dict]:
                            capture_output=True, check=True).stdout.split("\n")
     files = sorted({f for f in files if f})  # 衝突中は同じ file を stage 1〜3 で 3 回出すので重複を除く (2026-11-15 に 2 多く数えた)
     total, source = len(files), sum(1 for f in files if not f.startswith("docs/files/"))
+    mirror = total - source - 2  # docs/files の README と _template を除いた数。mirror の無い file がある途中でも行の算術を保つ
     text = rb.read_text(encoding="utf-8")
     m_row = re.search(r"^\| 追跡ファイル総数 \|.*$", text, re.M)
     if not m_row:
         return []
     row, off = m_row.group(0), m_row.start()
     rules = [(r"^\| 追跡ファイル総数 \| \*\*(\d+)\*\*", total), (r"source file が \*\*(\d+)\*\*", source),
-             (r"mirror が \*\*(\d+)\*\*", source), (r"の \*\*2\*\* = \*\*(\d+)\*\*", total),
+             (r"mirror が \*\*(\d+)\*\*", mirror), (r"の \*\*2\*\* = \*\*(\d+)\*\*", total),
              (r"all (\d+) tracked files have a 1-to-1", source)]
     sites = []
     for rx, v in rules:
