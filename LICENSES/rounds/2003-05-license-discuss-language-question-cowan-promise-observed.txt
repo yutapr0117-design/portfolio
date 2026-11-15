@@ -1,0 +1,31 @@
+Source: OSI license-discuss public archive, 2003-May.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 18 in "Language question" (2003-05-06)
+Senders: John Cowan
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From jcowan at reutershealth.com  Thu May  8 21:36:50 2003
+From: jcowan at reutershealth.com (John Cowan)
+Date: Thu, 8 May 2003 17:36:50 -0400
+Subject: Language question
+In-Reply-To: <00a501c315a5$af67abe0$a9a074d5@oemcomputer>
+References: <000501c31407$000bb640$4aa274d5@oemcomputer> <Pine.LNX.4.50.0305061215420.26260-100000@deepone.dagon.net> <006101c314c2$35f0f2a0$347c74d5@oemcomputer> <Pine.LNX.4.50.0305071109460.6670-100000@deepone.dagon.net> <20030507195529.GR31473@skunk.reutershealth.com> <00a501c315a5$af67abe0$a9a074d5@oemcomputer>
+Message-ID: <20030508213650.GT1891@skunk.reutershealth.com>
+
+Abe Kornelis scripsit:
+
+> **** Well, in my case the license proposal text explicitly states that the
+> grants are non-revokable. Will that suffice?
+
+All that is, is a promise to yourself, and it's not binding, any more than
+your publishing a promise never to tell a lie is.  You may look bad if
+you break it, but there can't be any legal liability.
+
+-- 
+One art / There is                      John Cowan <jcowan at reutershealth.com>
+No less / No more                       http://www.reutershealth.com
+All things / To do                      http://www.ccil.org/~cowan
+With sparks / Galore                     -- Douglas Hofstadter
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

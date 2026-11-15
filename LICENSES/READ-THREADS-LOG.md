@@ -20,6 +20,44 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "License-review Digest, Vol 119, Issue 14"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "License-review Digest, Vol 97, Issue 8"（`license-review` 2020-12・候補の外・通読）を `review-readings-2.md` §1.244 へ（承認がなぜ大事か簡潔に説明してほしい・Phipps 氏）
+
+- 2026-11-15 に "Yet another question about using libraries with different licensed in OSS"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Public domain license - Public Domain Customized"（`license-discuss` 2014-12・候補の外・通読）を `review-readings-2.md` §1.243 へ（公有のライセンスは放棄の試みと代わりの許諾の組み合わせ・Woolley 氏）
+
+- 2026-11-15 に "Question on OSI position on BSD/MIT licenses"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "GPL v3"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "OVPL and open ownership"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Are implicit dual-licensing agreements inherently anti-open?"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "For Approval: Open Vendor Public License (OVPL) and Open Vendor Lesser Public License (OVLPL)"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "For Approval: mindmason license (MML)"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "KDE violates IBM patent"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "A must read for license law"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Promotion of software patents == opposition to Open Source."（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Clarification of GPL"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Language question"（`license-discuss` 2003-05・候補の外・通読）を `review-readings-2.md` §1.242 へ（取り消せないと書いても自分への約束・Cowan 氏）
+
+- 2026-11-15 に "Request for approval: IPL 1.0"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Proposal for OSI Certification: The SteelBlue License"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "The position RMS takes..."（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Simple Public License, draft"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
 - 2026-11-15 に "Issue on licenses pages"（`license-discuss` 2013-11・4 通を通読）を `review-readings-2.md` §1.240 へ（OSL と AFL は 1 人の起草者が版を重ねて複数の版が承認された、FOSS の許諾は永遠なので旧版を勧めなくても配った物は変わらない・Rosen 氏）
 
 - 2026-11-15 に "Thoughts on AAL and OSS vs FOSS"（`license-discuss` 2020-03〜04・33 通を通読）を `review-readings-2.md` §1.239 へ（承認済みの AAL の作者は法律家ではないと OSI のサイトが書く、使われなくなった承認済みは廃止が論じられる・Berkus 氏、公開されたライセンスの名は共同体のもの・同）

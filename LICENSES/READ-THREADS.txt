@@ -31,6 +31,7 @@
 1999-08-16	RFC soon on essay "Does Free Software Production in a Bazaarobey the Law of Diminishing Re
 1999-08-30	Oversimplifications in HtN
 1999-09-01	The Essay is Done.
+1999-09-01	Simple Public License, draft
 1999-09-09	ATT SOURCE CODE AGREEMENT Version 1.2C
 1999-09-19	Who gets stuck with advocacy?
 1999-09-19	Oversimplifications in HtN -- Philosophy and biology
@@ -51,6 +52,7 @@
 1999-11-30	Proprietary software for Linux
 2000-02-21	Dominion Games needs help
 2000-03-28	Licenses versus contracts
+2000-03-28	The position RMS takes...
 2000-03-29	Wired Article on the GPL
 2000-04-04	Simple Public License, Please Review
 2000-04-05	OSI board asleep at the switch?
@@ -70,8 +72,10 @@
 2000-09-04	NASM Public Licence - What do you guys think?
 2000-09-05	The "M" word...money.
 2000-09-06	NASM Licence
+2000-09-08	Proposal for OSI Certification: The SteelBlue License
 2000-11-28	Modifying existing licenses in minor ways
 2000-12-09	Directory for open-source software
+2001-01-15	Request for approval: IPL 1.0
 2001-01-18	OSI compliance requiring software to be "free beer"?
 2001-01-18	OpenDivX license
 2001-01-19	To the keepers of the holy grail of Open Source
@@ -109,6 +113,7 @@
 2003-03-14	What about LGPL? Re: Compatibility of the AFL with the GPL
 2003-03-17	What happens when the copyright expires ?
 2003-03-21	Defense against Patents
+2003-05-06	Language question
 2003-07-16	Academic Free License version 2.0
 2003-08-05	proposal: DotGNU Trademark License
 2003-08-06	Apple Public Source License 2.0 submitted for OSI approval
@@ -117,20 +122,25 @@
 2003-09-07	Selecting an open source license
 2003-11-07	For Approval: HAL, Hermes Attribution License
 2003-12-06	Court Forces SCO to Show Code Within 30 Days
+2003-12-13	Clarification of GPL
 2004-01-14	IBM's open patent licensing policy
+2004-01-16	Promotion of software patents == opposition to Open Source.
 2004-01-27	Public domain mistake?
 2004-02-12	For Approval: NASA Open Source Agreement Version 1.1
 2004-02-17	License Committee report
 2004-03-12	disclosure of known defects
 2004-03-12	Revisions to NASA Open Source Agreement (NOSA)
 2004-03-12	proposal: DotGNU Trademark License
+2004-03-13	A must read for license law
 2004-05-24	For approval: wxWindows-to-wxWidgets license name change
 2004-06-04	Creative Commons Attribution
 2004-06-07	For Approval: Educational Community License
+2004-06-11	KDE violates IBM patent
 2004-06-28	testing kit conformance as a condition of distribution
 2004-07-22	Creative Commons 2.0 license suite
 2004-07-23	Help Selecting License
 2004-08-11	License for Massively Multiplayer Games?
+2004-09-02	For Approval: mindmason license (MML)
 2004-10-15	ISC copyright for BIND
 2004-11-05	License question: Open Software License 2.1
 2004-11-08	License Committee Report
@@ -166,6 +176,9 @@
 2005-04-26	Aharonian's theory of non-copyrightability of software
 2005-04-26	Patent Act of 2005
 2005-04-28	NPO Developers License
+2005-06-03	For Approval: Open Vendor Public License (OVPL) and Open Vendor Lesser Public License (OVLPL)
+2005-07-12	Are implicit dual-licensing agreements inherently anti-open?
+2005-07-22	OVPL and open ownership
 2005-08-21	Bruce Perens rejected from license-proliferation committee.
 2005-08-22	License proliferation committee
 2005-08-23	more info on license proliferation committe members
@@ -189,6 +202,7 @@
 2005-11-14	Questions to OSI Board quorum
 2005-11-16	License in question
 2005-11-25	Open Source and Contributor Agreements
+2005-11-30	GPL v3
 2005-12-09	For Approval: Microsoft Community License
 2006-02-14	Help in choosing appropriate open-source license...
 2006-03-11	Looking for license stewards
@@ -238,6 +252,7 @@
 2007-09-04	License Committee Report for August 2007
 2007-09-11	RPL 1.5 discussion
 2007-09-15	For Approval: Boost Software License - Version 1.0 - August 17th, 2003
+2007-09-30	Question on OSI position on BSD/MIT licenses
 2007-10-02	For Approval: Microsoft Public License
 2007-10-02	For Approval: Microsoft Reciprocal License
 2007-10-11	BSD-like licenses and the OSI approval process
@@ -435,6 +450,7 @@
 2014-09-11	Sublicensing
 2014-09-15	GPL exceptions, eCos, and wxwindows
 2014-11-14	Why CAVO Recommends GPLv3
+2014-12-04	Public domain license - Public Domain Customized
 2014-12-30	Approval request for GG License 1.0
 2015-01-16	FAQ entry on CLAs
 2015-03-04	Reverse Engineering and Open Source Licenses
@@ -471,6 +487,7 @@
 2016-12-01	Views on React licensing?
 2017-01-08	License Committee Report - January 2017
 2017-01-10	notes on a systematic approach to "popular" licenses
+2017-01-18	Yet another question about using libraries with different licensed in OSS
 2017-02-28	Possible alternative
 2017-03-06	patent rights and the OSD
 2017-03-08	code.mil update
@@ -541,6 +558,7 @@
 2020-07-27	Feedback about fair-code model
 2020-10-16	License-review Digest, Vol 95, Issue 10
 2020-10-16	License-review Digest, Vol 95, Issue 7
+2020-12-11	License-review Digest, Vol 97, Issue 8
 2021-02-11	Approval submission for the Qlovatech License
 2021-06-03	Licence-review request
 2021-08-26	Zope Public License v2.1 is up!
@@ -555,6 +573,7 @@
 2023-08-16	Request for Open Constitution License v1 for Approval
 2023-08-21	License pages cleanup project underway - status update
 2023-08-22	License-review Digest, Vol 119, Issue 8
+2023-08-26	License-review Digest, Vol 119, Issue 14
 2023-09-01	Request for OSI Certification
 2023-10-25	Zenin License
 2023-10-29	OSI's purely-neutral policy position on production of proprietary software

@@ -1,0 +1,56 @@
+Source: OSI license-discuss public archive, 2003-May.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 18 in "Language question" (2003-05-06)
+Senders: John Cowan
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From jcowan at reutershealth.com  Wed May  7 19:55:29 2003
+From: jcowan at reutershealth.com (John Cowan)
+Date: Wed, 7 May 2003 15:55:29 -0400
+Subject: Language question
+In-Reply-To: <Pine.LNX.4.50.0305071109460.6670-100000@deepone.dagon.net>
+References: <000501c31407$000bb640$4aa274d5@oemcomputer> <Pine.LNX.4.50.0305061215420.26260-100000@deepone.dagon.net> <006101c314c2$35f0f2a0$347c74d5@oemcomputer> <Pine.LNX.4.50.0305071109460.6670-100000@deepone.dagon.net>
+Message-ID: <20030507195529.GR31473@skunk.reutershealth.com>
+
+Mark Rafn scripsit:
+
+> This is correct.  Because you've granted permissions on these works 
+> already, you no longer have the exclusive right to do certain things, and 
+> so that right will not transfer.  Rights which you DO retain can be 
+> transferred.
+
+It's *far* from clear that the licenses you have already granted are somehow
+irrevocable.  I'd be interested to know under what theory you think they are.
+
+> Nope.  Company B can release new work under proprietary licenses, and can
+> stop distributing the open-source version, but any copies of the
+> open-source work are still there,
+
+Indeed.
+
+> and can be freely copied and further
+> modified by anyone who wishes.
+
+On what theory?  If the sovereign copyright owner no longer grants permission
+for these activities, then they cannot be done, AFAICS.
+
+> Likewise, the copyright holder of an open-source work is not making an 
+> obligation to the community or to any recipient.  He only grants 
+> permission to do things which would otherwise not be allowed.
+
+Again, what makes you think that this grant is in any way irrevocable?
+Even if we suppose that existing licensees (those who have already copied
+or distributed) are grandfathered, I see no possibility that new licensees can
+come into existence based on a grant that the grantor (or his successor
+in title) has explicitly revoked.
+
+IANAL, TINLA, despite the use of jargon above.
+
+-- 
+LEAR: Dost thou call me fool, boy?      John Cowan
+FOOL: All thy other titles              http://www.ccil.org/~cowan
+             thou hast given away:      jcowan at reutershealth.com
+      That thou wast born with.         http://www.reutershealth.com
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
