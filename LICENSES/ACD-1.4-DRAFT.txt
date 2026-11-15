@@ -58,8 +58,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       that material with the Work, or causes it to be included", where any
       inclusion in the Work bound every Dedicator, and it gives the undertaking
       and whom it binds as two sentences. The material is now identified "as
-      a notice may under Section 16.2", by its place, a file name, or markers.
-      (+13 words.)
+      a notice may identify material under Section 16.2", by its place, a file
+      name, or markers. (+15 words.)
     * Section 2.7 now limits the rights reached to those the Dedicator holds
       "now or in future", the words Sections 8.1 and 8.4 use (errata E60), and
       no longer points to Section 13.2. (-4 words.)
@@ -234,7 +234,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5611 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5613 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -390,15 +390,15 @@ PREAMBLE (informative; not part of the operative terms)
        material is excluded from being a Contribution by Section 1.9, a
        Dedicator who includes that material with the Work, or causes it to be
        included, will identify it in a form that accompanies the Work, as a
-       notice may under Section 16.2, so that a person or an automated system
-       reading the Work can determine what this Dedication does not cover. This
-       undertaking binds that Dedicator and imposes nothing upon You, and
-       Section 6.5 states why it matters. No separate instrument, assignment, or
-       agreement is needed to place a Contribution under this Dedication.
-       Whether the Dedicator asks a contributor for anything else is a matter of
-       project governance and is not addressed here. Nothing in this Section
-       obliges anyone to submit anything, or obliges the Dedicator to accept
-       anything.
+       notice may identify material under Section 16.2, so that a person or an
+       automated system reading the Work can determine what this Dedication does
+       not cover. This undertaking binds that Dedicator and imposes nothing upon
+       You, and Section 6.5 states why it matters. No separate instrument,
+       assignment, or agreement is needed to place a Contribution under this
+       Dedication. Whether the Dedicator asks a contributor for anything else is
+       a matter of project governance and is not addressed here. Nothing in this
+       Section obliges anyone to submit anything, or obliges the Dedicator to
+       accept anything.
 
   2.7  This Dedication reaches only rights the Dedicator holds, now or in
        future. Where the Work incorporates material in which another person
