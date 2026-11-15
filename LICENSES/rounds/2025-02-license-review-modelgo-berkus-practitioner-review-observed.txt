@@ -1,0 +1,88 @@
+Source: OSI license-review public archive, 2025-February.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 message in "ModelGo Attribution-OpenSource License, Version 2.0" (2025-02)
+Senders: Josh Berkus
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From josh at berkus.org  Tue Feb 25 20:17:24 2025
+From: josh at berkus.org (Josh Berkus)
+Date: Tue, 25 Feb 2025 12:17:24 -0800
+Subject: [License-review] ModelGo Attribution-OpenSource License,
+ Version 2.0
+In-Reply-To: <8043D0AF-08C0-4712-812C-3DEEF2359F6A@gmail.com>
+References: <8043D0AF-08C0-4712-812C-3DEEF2359F6A@gmail.com>
+Message-ID: <857df202-18cf-4c98-ad11-a6f6563c3dfc@berkus.org>
+
+Moming,
+
+Commentary on the MG A-OS License 2.0.  This is non-attorney commentary, 
+as I am not a lawyer; I am examining strictly whether the license 
+appears to be consistent with the OSD from a layman's (software 
+developer's) perspective, and whether it has other problems.
+
+I will also add that while I am an AI/ML user I am not an AI/ML system 
+developer, and we probably need some feedback from someone with that 
+expertise.  I call that out below.
+
+My comments follow.  These are comments, some of them aimed at other 
+reviewers in this group.  Where I see things that need correction I'll 
+be clear.
+
+In summary, this feels like a good start on a copyleft model license, 
+and I look forward to getting it into good enough shape to approve.
+
+Definitions:
+
+1. Before these licenses are final, you should have an editor who is a 
+native English speaker review them as there are many typos and 
+grammatical issues.
+
+2. I'd like someone who works in-depth on building AI systems to comment 
+on the following clauses to see if they are likely to be sufficiently 
+clear and effective:
+?Complementary Materials?
+"Derivative Materials"
+
+3. FYI: This license does rely on "Hosted service/API" licensing, as per 
+the AGPL.
+
+4. FYI: This license specifically excludes training data.
+
+Sections:
+
+2.1.a: "a
+non-exclusive, non-transferable, sublicensable, irrevocable, 
+royalty-free, worldwide right and license"  What does it mean for a 
+license to be "non-transferable and sublicensable"?
+
+2.3.a.i: this is another "all applicable laws" section.  Again, these 
+are wholly unnecessary, and are debatably a minor OSD violation.
+
+2.4.b.:  "You may Distribute the Output to third parties provided that 
+You indicate as part of the Distribution that any Output generated 
+through the use of the Licensed Materials and/or Derivative Materials 
+may contain AI-generated content."
+... this is a pretty novel notice requirement, with no parallel in 
+accepted non-AI licenses; can you explain the motivation behind it and 
+intended effect?
+
+2.5.b.:  It feels like this clause needs to be modified to make it clear 
+that you can refer to the Licensor's trademark in order to identify the 
+software.
+
+5.2.: You may want to have the license auto-terminate instead of saying 
+that the licensor MAY terminate.
+
+6. This third-party materials clause is new to me, and seems apt for 
+model licensing.
+
+7.1. The wording here is problematic when combined with 2.3.a.i.  It 
+effectively says that the software must be used under the laws of 
+Singapore regardless of where any author of derivative works and their 
+users reside.  This would be highly problematic, and is probably a 
+violation of OSD5 due to effectively preventing large sections of the 
+world from using it.
+
+-- 
+Josh Berkus

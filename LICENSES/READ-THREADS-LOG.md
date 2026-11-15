@@ -20,6 +20,10 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に `license-review` 2025-02 の "ModelGo Attribution-OpenSource License, Version 2.0" への Berkus 氏の 1 通を `review-readings.md` §1.210 へ（機械学習の条項に AI を作る実務家の読みを、英語に母語話者の編集者を）。portfolio-30 の依頼。`license-review` 側の ModelGo の会話は census の候補の母数の外（ドシエが既に多く引いていた）なので、READ-THREADS には足さない。
+
+- 2026-11-15 に "License incompatibility"（`license-discuss` 2013-08・26 通・決める側の通に絞った）を `review-readings.md` §1.202 の追記へ（法律上の語を定義するのはライセンスの役目ではない・Kuhn 氏、新しいライセンスは承認済みのすべてに欠けるものがあるときの最後の手段・Rosen 氏）。
+
 - 2026-11-15 に "Reverse Engineering and Open Source Licenses"（`license-discuss` 2015-03・47 通・決める側の通に絞った）を読了の記録だけにした。Rosen 氏は「逆解析を明示に禁じない "use" の許諾は米国では逆解析の許諾と同じ」と書き、Cowan 氏は「逆解析が合法であることは、それを禁じる契約が無効であることと同じではない」と書いた。ACD の §4.2 は *"reverse engineer"* を許諾の語に明示し、§5.2(b) は付随の契約で義務を足さないと約束するので、両方の向きに合う。§1.207（黙示の働きの明示）と同じ線で、新しい論点を足さない。
 
 - 2026-11-15 に "Sublicensing"（`license-review` 2014-09・24 通・決める側の通に絞った）を `review-readings.md` §1.208 へ（再許諾は中間の配布者を助けるだけ、FOSS は直接の許諾・Rosen 氏。ACD の §4.6 は直接の許諾を持つが、§4.1 の *sublicensable* の理由をどこにも書いていない）。
