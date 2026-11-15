@@ -5,7 +5,8 @@
 #   ("question about copying small amounts of code from BSD, MIT o[ ]r Apache"), so the rows
 #   are one more than the threads. The counts in LICENSES/AS-OF.md are the tool's output.
 # Where each was read: reviewer-positions.md 1.142 (344 threads, 2026-11-07) and the sections
-#   named in AS-OF.md, "未読スレッドの残り". Add a row when a thread is read, in the same commit.
+#   named in READ-THREADS-LOG.md (moved out of AS-OF.md on 2026-11-15) and the latest one in AS-OF.md,
+#   "未読スレッドの残り". Add a row when a thread is read, in the same commit.
 # 2026-11-10: this list became the only source of "read" for the census (rounds/ no longer counts).
 #   18 rows came from the tool's list of candidates found only in rounds/: 14 whose every message
 #   is in rounds/, and 4 short ones read in full that day. 5 were left out because rounds/ holds
