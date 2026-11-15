@@ -130,7 +130,6 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §5.3（受益者・T66） | *"The covenants in Sections 5.1 and 5.2"* を *"The covenants in Sections 5.1, 5.2, and 8.6"* へ | 約束は 3 つ（§5・§8.6・§12.2）あり、下流が受益者として依拠できることを明示するのは §5.3 だけだった。§8.6 は *"on the same footing as the covenants in Section 5"* に頼り、*footing* を約束という法的な性格と読めば §5.3 は運ばれない —— §5.3 だけが明示するので、*expressio unius* で §8.6 には無いと読む余地が立つ（portfolio-30・errata E83）。特許の約束を下流が依拠できるかは採用者にとって重い。§12.2 は加えない —— §12.2 は相手（*"any person who receives the Work from You"*）を自分で名指し、承継は §12.4 が §5.3 と違う広い列挙（死後に人格権を行使できる者）で持つので、§5.3 に入れると承継の列挙が 2 つ重なる。**逆側**: §12.2 に *intended beneficiary* の語が無いことは残る。§5.3 の第 2 文 *"Sections 3 and 4 operate in their favour"* は §8 を挙げないが、§8.1・§8.4 は §5.3 と別に働く（§2.4）。承継は §2.8 が Dedication 全体について持つので、§8.6 の承継は §2.8 と §5.3 の 2 か所に書かれる（§2.8 末文が狭めないことを述べる）（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.44） | +1 | 反映済 |
 | §12.2（同意・T67） | 約束の文の次に *"The Dedicator also consents to any act by You or by any such person that would otherwise infringe those rights."* を足し、§12.4 を *"The covenant and the consent in Section 12.2 bind"*、§12.5 を *"Neither the covenant nor the consent in Section 12.2 extends to conduct falling within Section 11.3, so the interest that Moral Rights protect against false attribution survives both."* へ。§12.3 を *"The covenant and the consent in Section 12.2 are limited to the Work. They extend …"*、§2.4 を *"every other grant, permission, consent, and covenant"* へ | §12.2 が働くのは人格権を放棄できない法域で、そこで不行使の約束は契約の効果にとどまる。日本の著作権法 20 条 1 項は「意に反して」の改変を侵害とし、同意があれば侵害そのものが成り立たない。英国の CDPA s.87(1) も同意した行為を侵害でないとする。死後の保護（日本 60 条）も「著作者の意を害しない」場合を除くので、生前の同意は遺族の差止め（116 条）に約束より直接に効く（portfolio-50）。Sado 氏は `license-discuss` の PUWL の会話（2025-10-17・`review-readings-2.md` §1.218）で、日本の事情を踏まえた条として不行使の約束と同意を並べる形を示した —— 後に委員会の側で書く人が個人として示した形で、PUWL は審査に出ていない（portfolio-30）。**同意が約束より強く効くという読みは我々のもの**で、Sado 氏の通は同意の理由を書いておらず（日本の実務は不行使の約束に頼る、と書くだけ）、文献にも法律家にも当てていない（portfolio-2f）。同意は約束と別の文にした: 包括的な事前同意を無効とする法域で裁判所が同意だけを外すとき、§15.2 の切り分けが文の単位で効く（50）。*"of theirs"* は先行詞の数が揺れるので避けた（50）。1.0〜1.3 に欠陥があったのではなく効果を足す変更なので errata には入れない。**逆側**: 日本 113 条 11 項（名誉声望を害する利用）と予見できない程度の改変には、包括的な事前同意が及ばないという読みがあるので、同意は約束を置き換えず並べる。Sado 氏の通自身が日本の実務の道具は不行使の約束だと書いており、同意は「約束が契約として効かない場面でも、行為がそもそも侵害にならない」側の補強である。+29 語で、GPL-3.0 より題名から短い余裕は 69 語から 40 語になる。§12.3 は 9b と 30 の反例で足した（§12.4・§12.5 だけが同意を名指すと、§12.3 との対比で同意が他の著作物に及ぶと読める）。§2.4 は 30 の反例で足した（独立を述べる 3 つの種類に同意の名が無いと、*also* が約束に結んで同意を約束に従属させ、約束が契約として効かない法域で同意も落ちる —— T67 の目的と逆）（`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.1） | +29 | 反映済 |
 | §2.6（識別の形・T69） | *"will identify it in a form that accompanies the Work, so that"* を *"… in a form that accompanies the Work, as a notice may identify material under Section 16.2, so that"* へ | §2.6 は除外される素材を識別すると約束するが、どう識別するかを言わなかった（審査の側の語では Piana 氏 2025-07-18 *"In source code there are standards like SPDX and REUSE and that one is the (machine readable) way"*・`review-readings.md` §1.203）。§16.2 は、注記がどの素材に掛かるかを、語・ファイル内の注記の位置・他の素材を指すファイル名・範囲を区切る印で決める語を既に持ち、狭い注記が他の条件へ割り当てた素材にはこの Dedication を適用しないと述べる —— §2.6 の識別はその仕組みで果たせる。最初の案 *"such as an SPDX expression or a REUSE file"*（+9）は、SPDX のライセンス式がパッケージの単位では混ざったライセンスしか言わず、どのファイルかを言わないので、式を 1 つ書けば足りると読ませる。ソースのメタデータの類へ寄り、データセットのカードが外されたとも読める。実務家への問い 5（どの標準か）の答えを待たずに標準を選ぶことにもなる（portfolio-50）。標準の名は `ADOPTING.md` に例として置く。**逆側**: §16.2 を指す形は抽象的で、実務の読み手には SPDX / REUSE の名の方が速く伝わる。最初に採った *"as a notice may under Section 16.2"* は動詞を省いていて、*identify* と *accompany* のどちらを補うかで割れ、*may* が §2.6 で何かを許すと読む余地もあったので、*identify material* を書いた（portfolio-9b）（`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.4） | +9 | 反映済 |
-| §5.3（足場の列挙・T70） | 末文 *"Sections 3 and 4 operate in their favour independently of this Section."* を *"Every provision of this Dedication other than those covenants operates in their favour independently of this Section."* へ（**同日に再改**: 最初に採った *"Every other provision …"* は *other* が「§5.3 以外」なので §5.3 の主語の約束まで含み、第 1 文の *"to the extent a jurisdiction gives effect to such reliance"* を空にした・portfolio-50） | T66 で §5.3 の主語に §8.6（特許の約束）を入れた後も、末文は著作権の足場（§3・§4）しか名指さず、特許の約束の受益者について §8.1・§8.4 が独立に働くことを言わないので、「§8.6 には §8.1・§8.4 が独立に働かない」と裏読みされうる（portfolio-30 が E83 の逆側に記録していた・T67 の「そろえ残し」と同じ型）。最初の案 *"Sections 3, 4, 8.1, and 8.4"* は、受け手のために独立に働く他の足場（§6.1・§7.2 の許可、§12.1 の放棄、§12.2 の同意、§9）が列挙に無いことを新しい対比にした（portfolio-50）。列挙をやめて一般形にした。50 の案 *"Sections 3 and 4, and every other grant, permission, waiver, and consent …"*（+11）は §2.4 の語の型にそろうが語数が重く、*waiver* が §3 の *surrender* を呼び替えると読まれうる。**逆側**: §8.6 第 2 文と §2.4 が許諾と約束の独立を既に述べており、欠陥は弱い。一般形は §16 のような文書の規律まで「受け手のために働く」と述べる形になる。+5 語（`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.5） | +5 | 反映済 |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
@@ -184,19 +183,19 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
-1.3 の 5,443 語から 1.4 草案は +175 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
+1.3 の 5,443 語から 1.4 草案は +170 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
 
 | 束 | 増減 | 何のための語か |
 | :-- | --: | :-- |
 | 適用と通知（§1.9・§2.3・§2.6・§16.1〜§16.3）| +157 | タグや識別子だけの適用、通知が名指す素材、優先、大小の区別、寄与の宛先。採用者がファイル単位・パッケージ単位で使うときに、意図しない素材を撤回不能に出さないための語 |
-| 不行使と付随の約束（§5）| +123 | 商標と虚偽の表示、合意した支払い、特許の除外、Dedicator 自身のモデルとサービス。データだけを出す組織や、重みと API を両方出す組織が採用できるための語 |
+| 不行使と付随の約束（§5）| +118 | 商標と虚偽の表示、合意した支払い、特許の除外、Dedicator 自身のモデルとサービス。データだけを出す組織や、重みと API を両方出す組織が採用できるための語 |
 | 名前の保護（§16.4〜§16.6）| +64 | 1 つの名前と識別子が 1 つの本文を指し、Steward が出した新しい版を誰でもその名の下で配れるための語 |
 | その他の明瞭化 | +46 | 定義、承継（§2.8 の *to that extent*・T59）、撤回不能（§2.2 の後付けの制限・T65）、§4、§9 などの語の付き先 |
 | 人格権（§12）| +29 | 人格権を放棄できない法域での同意（T67・§2.4 の独立の列挙を含む）。約束が契約として効かない場面でも、行為がそもそも侵害にならないための語 |
 | 特許（§6.1・§8）| −4 | 行為を目的語にし、*reach* を 1 回で定め、三つの足場の説明と §8.6 の *alongside them*（T56）を外した |
 | 理由・説明の文を外したもの | −240 | §2.8・§11.4・§12.4・§8.4（T54）の理由の文と、§2.7・§8.5 の案内（Chestek 氏 *"I question whether they belong in the agreement at all."*・#295）|
 
-**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +280）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 722 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
+**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +275）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 717 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
 
 ## 外部資料・OSAID 1.0・opensource.org のページを当てた記録（2026-10-28）は別の file へ移した
 
@@ -368,7 +367,7 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 > §2 (scope and effect, 11) and §1 (definitions, 8); seven name the preamble or several clauses at
 > once. Further changes came from our own sweeps of the
 > later drafts and are listed, with their reasons, in each version's change list. The text is
-> longer: 5,618 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
+> longer: 5,613 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
 
 **⚠ 逆側**: 短い経路の語数が約 170 語増える（`REVIEWERS.md` の短い経路の表と Check 472m の値を同じ日に直す）。*"The direction is unchanged"* は、1.0 から変わらなかったものを 3 つだけ挙げる文で、ほかに変わらなかったものが無いとは言っていない。逆に、変わったものを errata の件数で数えるので、errata に載らない 1.4 生まれの変更（T34〜T52 の多く）は *"Further changes"* の 1 文にまとまる。数を当日に数え直すのは、草案が確定まで動くからである（2026-11-11 の時点でも 1.4 の閉鎖は 39 件で、まだ動きうる。**同日の訂正**: 最初の下書きは 1.3 で 5・1.4 で 38 と書いた。状態の列の版の語の最初の一致を数えていて、閉鎖の印でない語を拾っていた。portfolio-00 が印の正規表現で 4 と 39 を出し、同じ数え方で確かめた）。
 
