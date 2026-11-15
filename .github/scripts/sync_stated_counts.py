@@ -92,13 +92,17 @@ def reviewers_size_sites() -> list[dict]:
     said = int(m.group(2).replace(",", ""))
     line = text[:m.start()].count("\n") + 1
     if abs(said - real) <= real * 0.05:
-        new_n, new_x, new_d = m.group(2), m.group(3), m.group(1)
+        new_n, new_d = m.group(2), m.group(1)
     else:
-        new_n, new_x = f"{real:,}", str(round(real / int(lic.group(1).replace(",", ""))))
-        new_d = datetime.date.today().isoformat()
+        new_n, new_d = f"{real:,}", datetime.date.today().isoformat()
+    # 倍率は書いた語数と表の分母から毎回導く。語数の 5% の幅に関わらない: 提出の版を切り替える日は 472h が表の分母を
+    #   1.4 へ替えるので、語数が幅の内でも倍率だけがずれて 472m が RED になる (50 の問い・2026-11-15)
+    lw = int(lic.group(1).replace(",", ""))
+    new_x = m.group(3) if abs(int(m.group(3)) - int(new_n.replace(",", "")) / lw) <= 1 else str(round(int(new_n.replace(",", "")) / lw))
     return [{"path": rv, "line": line, "abs": True, "start": m.start(i), "end": m.end(i), "old": m.group(i), "new": v,
-             "what": f"REVIEWERS のドシエ全体の{w} (差が 5% を越えたときだけ)"}
-            for i, v, w in ((1, new_d, "実測日"), (2, new_n, "語数"), (3, new_x, "倍率"))]
+             "what": f"REVIEWERS のドシエ全体の{w}"}
+            for i, v, w in ((1, new_d, "実測日 (語数の差が 5% を越えたときだけ)"), (2, new_n, "語数 (差が 5% を越えたときだけ)"),
+                            (3, new_x, "倍率 (書いた語数 ÷ 表の the licence の語数)"))]
 
 
 def defects_sites() -> list[dict]:
