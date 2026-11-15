@@ -219,7 +219,7 @@ enough is yours to judge.
 
 **What the record already says in its favour.** These are quoted from the lists, the Committee's
 rationale documents, the Board's minutes and OSI's site. None of them binds anyone: *"Approval of a license with the same or similar terms in the
-past does not bind the OSI"*, and a list message is its author's own view.
+past does not bind the OSI"*, and a list message is its author's own view. Nor are the rows an argument that ACD should pass because an approved licence did the same: Carlo Piana, 2024-09-06, *"Please never use the "but license x does the same" argument. If there was a mistake in approving one license, this does not mean the same mistake must be repeated over and over."* Each row shows how the OSD or a criterion has been read; ACD has to meet them on its own text.
 
 | On this point | What was said | Where it meets ACD |
 |---|---|---|
