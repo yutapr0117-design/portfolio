@@ -590,17 +590,18 @@ MUTATIONS_ARCHIVE5 = [
     "check": CHECK,
 },
     {
-    "name": "Check 472g: \"In one screen\" の節へ 120 語足す —— 位置は変わらず、節だけが黙って伸びる",
+    "name": "Check 472g: \"In one screen\" の節へ 120 語足す —— 位置は変わらず、節だけが黙って伸びる (2026-11-15: 次の節の見出しを"
+            " anchor にしていたので、間に新しい節 (The new language …) が入った日から詰め物がその節に入り vacuous だった。節の内側へ向け直した)",
     "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "## Which text you are looking at\n",
-    "replace": " ".join(["padding"] * 120) + "\n\n## Which text you are looking at\n",
+    "find": "## In one screen\n\n- **What it is.**",
+    "replace": "## In one screen\n\n" + " ".join(["padding"] * 120) + "\n\n- **What it is.**",
     "check": CHECK,
 },
     {
-    "name": "Check 472g: \"Status\" の節へ 120 語足す",
+    "name": "Check 472g: \"Status\" の節へ 120 語足す (2026-11-15: 次の節の見出しではなく節の見出しの直後へ —— 間に節が入ると vacuous になる)",
     "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "## The case, and the strongest thing against each part of it\n",
-    "replace": " ".join(["padding"] * 120) + "\n\n## The case, and the strongest thing against each part of it\n",
+    "find": "\n## Status\n",
+    "replace": "\n## Status\n\n" + " ".join(["padding"] * 120) + "\n",
     "check": CHECK,
 },
     {
