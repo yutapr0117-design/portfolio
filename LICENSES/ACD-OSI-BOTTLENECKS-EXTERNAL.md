@@ -560,6 +560,23 @@ running the Program"* は**著作権の話であって特許ではない**）。
 #### B15（主題適格）とのトレードオフ
 **G1 を強めても B15 は悪化しない、と判断する。** 理由: §8.4 の対象は**Work（ソフトウェア）の計算的利用と、その結果**で、モデルのパラメータそのものを許諾の対象に加えるものではない。Chestek 氏の境界 *"cross over into data … when tied to software"* の内側にある。 **⚠ 逆側**: (i) Fontana 氏は *"the OSI contemplates that things other than OSI-approved licenses might be suitable for model parameters"* と述べており、§8.4 がモデルを名指すこと自体が「モデルについてのライセンス」と読まれる余地がある。(ii) **1.4 で §1.3 に「機械学習モデルのパラメータ・重み・設定」を足したこと**（CHANGELIST §1.3 行）は、Work の形としてモデルを名指すので、**こちらは B15 を自分から出す側**に働く（25 が逆側として記録済み）。**G1 の根拠は §8.4 で足り、§1.3 の追加には依らない** —— B10 を立てるのに B15 を悪化させる変更は要らない。
 
+### 2026-11-15 —— 委員会の問いは「既存のライセンスで」ではなく「既存＋追加の許諾で」だった（H1-g・against #325）
+
+**きっかけ**: Shuji Sado 氏 2026-01-24（`license-review`・Project Tick v2 への返信）*"Before a full OSD review, it would help to provide either a redline against GPLv3/AGPLv3 or a short "innovations only" excerpt, along with a brief explanation of why existing OSI-approved licenses plus additional permissions/exceptions or guidance cannot achieve the same goals."*（`review-readings.md` §1.205・portfolio-2f）。上の 2026-11-04 の立証は H1-f（承認済みライセンス＋別の特許の誓約）を「ライセンスでは、を外したときにだけ成り立つ」として退けた。**誓約は Work と一緒に移らないが、追加の許諾（例外）はライセンスの通知と一緒に移る**ので、H1-f の反証はこの形には届かない。
+
+| 敵対仮説 | 反証の試み | 判定 |
+|---|---|---|
+| **H1-g: 0BSD に追加の許諾（§8.1・§8.4・§8.2 の形の特許許諾）を足せば G1 は足りる** | 追加の許諾は許諾を足す文なので、モデル・出力に及び、条件も終了も無い特許許諾を書ける。0BSD の *"for any purpose"* は計算的利用に及び、§6.2・§6.3 の合図の扱いは通知（ガイダンス）で述べられる。足すのに要る語は G1 だけなら §8.1・§8.2・§8.4 の作用の文で約 150〜400 語（どこまで写すかで変わる・語数は数えていない見積もり）| **反証できない。** G1 は「既存のライセンスでは」作れないが、「既存＋追加の許諾では」作れる |
+| H1-g′: §3・§5・§12 も追加できる | 文書としては足せる。ただし §3 を足すと許諾ではなく献呈の文になり、OSI の FAQ が審査の対象外とする公有化の側に入る。§5・§12 は G2〜G4 の判定どおり、既存の文（EUPL など）が近い作用を持つ | **反証できない**（量が増えるだけ）|
+
+**この問いへの答えの形（書けること・書けないこと）**:
+- **書けない**: 「§8.4 の射程は追加の許諾では作れない」。追加の許諾にはどんな射程の特許許諾も書ける（portfolio-1c の最初の見立てを 30 が退けた・2026-11-15）。
+- **書ける (1) 先例**: BSD-2-Clause-Patent は「BSD-2＋明示の特許許諾」を 1 本の新しいライセンスとして出し、2017-04-05 に承認された（`gap-measurements.md` §1.137 の追記・against #235）。提出文は *"a simple permissive license that is compatible with the GNU General Public License (GPL), version 2, but which also has an express patent grant included"* で、スレッドに「BSD-2＋別の例外にせよ」という投稿は見つからない（2016-01 と 2017 の `license-review` の件名に BSD+Patent を持つ投稿を *addendum / rider / separate patent / patent pledge / instead of a new license / just use* で grep・引用行を除く・2026-11-15）。ただし承認の理由は GPLv2 との両立で、ACD の理由とは違う（#235）。
+- **書ける (2) 識別子**: *"0BSD WITH <新しい例外>"* も、例外を SPDX の例外一覧に載せなければ走査器に読まれず、B11 の費用は消えない。例外の文そのものも審査されない法的な文で、B1 を小さな文へ移すだけである。
+- **書ける (3) 量**: ACD の残り（§3・§5・§12・§9・§2）は G2〜G4 と「除外したもの」で独自 gap の根拠にしていない部分で、それを含めて 1 本にするかは差の主張ではなく形の選択である、と認める。
+
+**⚠ 逆側**: (i) 2026 年の委員会がこの問いを立てているので、2016 年の先例は「当時は問われなかった」以上の意味を持たないかもしれない。(ii) (2) の「B1 を小さな文へ移す」は、小さな文の方が審査しやすいと読まれれば、かえって既存＋例外を勧める理由になる（B3・B13）。(iii) 宛先は GPL を写した互恵型の草案で、例外の型は GPL の linking exception を念頭に置いている。許容型の土台に特許の許諾を例外として足す形が実務で受け入れられるかは、この立証の外にある。
+
 ### 2026-09-20 追記 —— gap の 1 本目に、**決着した裁判例が付いた**
 
 **§6 が扱う問いは仮想ではない。** ハンブルク上級地方裁判所 第 5 民事部は 2025-12-10 に
