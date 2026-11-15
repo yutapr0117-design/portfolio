@@ -20,6 +20,8 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に 2004〜2005 年に始まる未読 54 本（53 会話・879 通・決める側の通に絞った）を portfolio-50 が読んだ（5 人の分担・30 の案）。論点のある会話は `review-readings-4.md` の 1.350〜1.353 の節へ（OVPL の否決と OSD 5・「死んだ」ライセンスの整理・本文の書き方・寄与の既定と同意）、それ以外は読了の記録だけにした
+
 - 2026-11-15 に "request for approval of APPOSL - going by the numbers."（`license-discuss` 2002-03・6 通・決める側の通と最初の通を読んだ）は新しい論点なし（ライセンスの形をした政治的な主張は承認を拒んできた・Nelson 氏）
 
 - 2026-11-15 に "Off topic question re Export controls"（`license-discuss` 2002-03・8 通・決める側の通と最初の通を読んだ）は新しい論点なし（OSI の理事は法的助言をしない、理事に法律家はいない・Rosen 氏 2002、B1 の背景）
