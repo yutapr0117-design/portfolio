@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.1-SELF-AUDIT.md
 audience: a future drafter (the current draft is 1.4), OSI license-review participants, licence reviewers
-last-updated: 2026-11-12
+last-updated: 2026-11-15
 canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (the current draft; ACD-1.2.txt frozen 2026-10-17, ACD-1.3.txt frozen 2026-10-25 and applied to this repository) / LICENSES/ACD-1.1.txt (frozen 2026-09-17) / LICENSES/ACD-1.4-CHANGELIST.md (all other changes for the current draft; ACD-1.1〜1.3-CHANGELIST.md are the closed records for those versions) / LICENSES/ACD-1.0.errata.md (defects in 1.0)
 ---
 
@@ -836,3 +836,21 @@ T48（2026-11-09）は、*"Paragraphs (a) and (b) do not reach a service through
 **読み**: 最初の案 *legal restriction* と 50 の代案 *enforceable restriction* は、技術的な後付けの制限をまとめて §2.2 の外に出すので、Work に入れた phone-home で後から写しを止める形（30 の反例）を止める語が本文から消える。制限を「何に」掛けるかで切ると、窓口の負荷対策は外、遠隔停止は内に分かれる。
 
 **一般形**: **ある条から禁止を外すと、その禁止が別の条の語を狭く読む支えになっていた場合、別の条の語が広がる。** 外した禁止は、自分の条で何を許すかだけでなく、隣の条の語を何と読ませていたかも運んでいた。禁止を外す修正は、同じ対象（ここでは技術的な手段）を語で述べる他の条を全部読み直す。§3z（修正が代名詞の先行詞を変える）と同じく「単独では正しい修正が他の条の読みを変える」族で、こちらは語の意味の支えが消える型である。
+
+## 3zb. 重なる条の組を、組ごとに射程・相手・限定の語で比べた（`against.md` #280 の方法・2026-11-15）
+
+**なぜ**: #280 は、2026-11-01 の監査で見つかった 3 組の食い違いが別々のレンズで偶然に見つかったことを記録し、確定の前の読みで「重なる組を列挙して組ごとに比べる」ことを求めていた。T64・T65 で §5.2 と §2.2 が動いたので、その日の草案で 1 回やった。portfolio-30 が読み、比べたのは各組の **射程**（何に及ぶか）・**相手**（誰が依拠できるか）・**限定**（法が許す限り等）・**承継**（誰を縛るか）・**終了**の 5 つである。
+
+| 組 | 射程 | 相手 | 限定・承継・終了 | 結果 |
+|---|---|---|---|---|
+| §3 / §4 / §5（著作権の 3 つの足場） | §3.1 *"all Covered Rights in the Work"*・§4.1 同じ・§5.1 *"any Covered Right … in respect of any use of the Work"* | §3 は相手を持たない・§4 は You・§5 は You と下流（§5.3） | §3.1 *"to the fullest extent permitted by the law of each jurisdiction"*・§4 は限定なし（§4.4 で独立）・§5.3 は承継と依拠をそれぞれ法の限りで。承継は §2.8 が全体に | **食い違い 0** —— 差はそれぞれの足場の性格（放棄・許諾・約束）から来る |
+| §8.1 / §8.4 / §8.6（特許） | §8.6 は *"the patent claims that Sections 8.1 and 8.4 reach, in respect of any act that those Sections describe"* と参照で揃う | §8.1・§8.4 は You・§8.6 は *"against You"* | 終了しないことは §8.2 が許諾 2 つについて述べ、約束（§8.6）は §8.2 第 2 文（報復条項を持たない）と §2.2（撤回不能）に頼る。承継は §2.8 | **候補 1**（下の (1)） |
+| §12.1 / §12.2（人格権） | どちらも *"Moral Rights in the Work"* | §12.1 は相手を名指さない・§12.2 は *"against You or against any person who receives the Work from You"* | 承継は §12.4（死後の行使者まで）・§2.8 は §12.4 を狭めない | **候補 1 の対象に入れたが、T66 では外した**（下の (1)） |
+| §11.4 / §5.2(d) / §16（届かないもの・人格権・文書） | §11.4 は到達の文、§5.2(d) は Dedicator 自身の行為の約束、§16 は文書としての本文 | —— | §11.4 第 2 文が *"the covenants in Section 5 are promises about the Dedicator's own conduct and are not limited by this sentence"* と明示 | **食い違い 0** |
+| §2.2 / §4.3 / §5.2(b) / §10.1（条件を足さない網・T65 の後） | §2.2 は *"on what may be done with any copy of the Work that has been made available"*・§5.2(b) は *"an obligation in respect of the Work"*・§10.1 は *"in respect of the Work"* | You | §2.2 は献呈の文、§5.2 は約束で、足場が違う（§3za・T65 の逆側に記録済み） | **食い違い 0**（§3za で記録済みの差のみ） |
+
+**(1) 約束の依拠の語がそろっていない（T66 で §8.6 について閉じた）。** §5.3 だけが *"may be relied upon by You and by anyone who receives the Work from You, directly or indirectly, as an intended beneficiary, to the extent a jurisdiction gives effect to such reliance"* と明示する。§8.6 は *"against You"* だけで、下流が依拠できることは §1.6（実施する者は You）と *"on the same footing as the covenants in Section 5"* に頼る。§12.2 は相手を名指すが *intended beneficiary* の語は無い。1.0〜1.3 で *intended beneficiary* は 1 回だけ出る。E71 の重さの列は *"Every covenant in Section 5 stands on the footing §5.3 states"* と読んで §5.3 を §8.6 へ運んでいるが、*footing* を「約束という法的な性格」と読めば運ばれず、§5.3 だけが明示していることから *expressio unius* の読みが立つ。**重さは Low** —— §12.2 は相手を名指しているので受益者であることは語から明らかで、§8.6 の *"same footing"* は E71 の読みが普通に立つ。**portfolio-1c が T66 として採った**（§5.3 の主語を *"The covenants in Sections 5.1, 5.2, and 8.6"*・+1 語・errata E83）。§12.2 は入れない —— 相手を自分で名指し、承継は §12.4 が §5.3 と違う広い列挙で持つので、§5.3 に入れると承継の列挙が 2 つ重なる。
+
+**この掃引が establish しないこと**: 5 組は #280 が挙げた 4 組に §2.2 の網を足したもので、重なる組の全数ではない。比べた 5 つの観点も全部ではない（発動の時点・法域の扱いは見ていない）。確定の前の読み（`OSI-APPROVAL-PLAN.md` §4 の段 7）でもう一度やる。
+
+**一般形**: **同じ働きの文が複数あるとき、明示を 1 つだけに足すと、明示の無い方が「無い」と読まれる。** 依拠・承継・終了のような横断の性質は、1 か所で全体に掛けるか（§2.8 の形）、全部に書くかのどちらかにする。§5.3 と §12.4 は承継を別々に書き、§2.8 が全体に掛けて両方を狭めないと言う —— 依拠にはその全体の文が無い。
