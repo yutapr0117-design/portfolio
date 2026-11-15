@@ -1,0 +1,41 @@
+Source: OSI license-review public archive, 2008-May.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 13 in "Approval of IWL - Consolidated Response" (2008-05-27)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Tue May 27 15:57:28 2008
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 27 May 2008 08:57:28 -0700
+Subject: Approval of IWL - Consolidated Response
+In-Reply-To: <483BBE21.9010605@opensourcelaw.biz>
+References: <483BBE21.9010605@opensourcelaw.biz>
+Message-ID: <483C2F68.2060807@perens.com>
+
+Brendan Scott wrote:
+> To that end, OKL is operating from the understanding that all of the substantive issues with the licence relate to clause 1(c)(ii) of the licence text.  If this is not the case, please let me know.
+>   
+I don't think anyone has bothered to focus on smaller issues of the 
+license after seeing that the bigger ones would keep it from passing. 
+These will have to be addressed once the larger problems are fixed.
+> Further, comments on clause 1(c)(ii) have related to OSD #6 and OSD #9 (by Mr Perens and Mr Flaschen).  Despite Mr Perens' subsequent post it is not clear to OKL that clause 1(c)(ii) results in an issue with either OSD #6 or OSD #9.  More importantly, if it does result in an issue, why  - if it is to be remedied OKL will need to understand the cause of the concern.  Is the main issue here the one raised by Mr Rosen (that the licence may overstep the bounds of (US) copyright law)?
+>   
+It's not just the law. An OSD-compliant license should not encumber 
+programs that just _use_ it, and the OSD provisions noted read against 
+that sort of use.
+> In addition there have been some comments about the use of a program licensed under the IWL.  The licence permits the use of the program.  Each of the conditions 1(a)-(d) in the licence is preconditioned on there being a "redistribution".
+Yes, but this is a redistribution containing 1) the IWL program, and 2) 
+a program that just makes use of it but is to be encumbered.
+
+So, I think it's not a problem with the license text, so much as it is 
+that what you are trying to do just doesn't work in an Open Source 
+license. You are not the first to hit this issue, it's been a problem 
+for MySQL, because their main product was a server and there were 
+non-GPL libraries that could access it. I think you can write some sort 
+of shared-source or proprietary license that does what you want. As 
+Rosen said, it has to be through contract law.
+
+    Thanks
+
+    Bruce

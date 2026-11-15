@@ -20,6 +20,8 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "Support for SSPL v2"（`license-review` 2018-12・通読）を `review-readings-2.md` §1.237 へ（問題は承認の欠如ではなく関心の欠如・提出者は承認の妖精の粉を期待する・Perens 氏、誰でも法律家なしに目的を問わず動かせる）
+
 - 2026-11-15 に "For Approval: The netX Public Lisense (in plain text)"（`license-review` 2010-10・27 通を通読）を `review-readings-2.md` §1.236 へ（特定の相手への通知を条件にすると相手が消えれば許諾が使えなくなり OSD に合わない・Phipps 氏、サイトが消えてもライセンスは続かなければならない・Perens 氏、承認済みを使え・Perens 氏）
 
 - 2026-11-15 に "MPL 2 section 11"（`license-review` 2010-11〜12・49 通を通読）を `review-readings-2.md` §1.235 へ（OSI と同時に FSF にも一覧への掲載を求めた・Villa 氏、追加の許可は本文の外で、ライセンスは不変に・Perens 氏）

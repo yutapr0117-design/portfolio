@@ -1,0 +1,40 @@
+Source: OSI license-review public archive, 2008-May.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 13 in "Approval of IWL - Consolidated Response" (2008-05-27)
+Senders: Russ Nelson
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Thu May 29 19:25:06 2008
+From: nelson at crynwr.com (Russ Nelson)
+Date: Thu, 29 May 2008 15:25:06 -0400
+Subject: Approval of IWL - Consolidated Response
+In-Reply-To: <alpine.DEB.1.00.0805291158140.8161@fez>
+References: <483BBE21.9010605@opensourcelaw.biz>
+	<483C2F68.2060807@perens.com>
+	<20080528.165815.62683221.gernot@ok-labs.com>
+	<483EBBAE.5090601@gatech.edu>
+	<18494.48797.896594.266287@desk.crynwr.com>
+	<483EC1AC.7030603@gatech.edu>
+	<18494.54993.722726.382597@desk.crynwr.com>
+	<alpine.DEB.1.00.0805291158140.8161@fez>
+Message-ID: <18495.786.422582.462583@desk.crynwr.com>
+
+Brian Behlendorf writes:
+ > Did I miss an announcement or specific instance where OSI made such
+ > a position official? If so, I would have expected it to correlate
+ > with an OSI effort to templatize the major licenses.
+
+We've always taken the position that a license cannot be modified in
+any way (not one word).  We've always acted as if the license
+steward's published copy is the official copy, and that we are not
+empowered to change their license.  But I think that indeed, we should
+make templates of all of *our* copies of the licenses.
+
+I'll add it to the agenda for the board meeting next week.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Software that needs
+Crynwr sells support for free software  | PGPok | documentation is software
+521 Pleasant Valley Rd. | +1 315-323-1241       | that needs repair.
+Potsdam, NY 13676-3213  |     Sheepdog          | 
