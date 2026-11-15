@@ -25,7 +25,7 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 
 **この節が establish しないこと**: 2007〜2008 年の個人の見解で、委員会や理事会の判断ではない。約束が見知らぬ者の間に成り立つかは法域で違い、Nelson 氏の疑いが今の審査者に共有されているかは確かめていない。
 
-**反映**: 逐条リファレンスの §5.3 と §13.1 の行に不利な材料として（本文は変えない —— ACD は約束だけに頼らず §3・§4 を独立に立てる）。保証の否認は法律家への問い 1 (f) の裏づけとして portfolio-30 が足す。register の B4・B5（約束と放棄の構成）へ（30）。
+**反映**: 1c（逐条リファレンスの §5.3 と §13.1 の行に不利な材料として・本文は変えない —— ACD は約束だけに頼らず §3・§4 を独立に立てる）。B4・B5 と法律家への問い 1 (f)（30）。保証の否認は法律家への問い 1 (f) の裏づけとして portfolio-30 が足す。register の B4・B5（約束と放棄の構成）へ（30）。
 
 ## 1.401 表示は保存より偽らないことが芯、ライセンスに商標の許諾を入れない —— Tiemann 氏と Rosen 氏（2006〜2008）（2026-11-15）
 
@@ -40,7 +40,7 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 
 **この節が establish しないこと**: Tiemann 氏の文は Red Hat の立場として書かれている。OSD 4 の読みとして委員会が確認したものではない。
 
-**反映**: 逐条リファレンスの §11.1・§11.3 の行に有利な材料として（本文は変えない）。入口（REVIEWERS）で §11 を説明するときの材料。
+**反映**: 1c（逐条リファレンスの §11.1・§11.3 の行に有利な材料として・本文は変えない）。入口（REVIEWERS）で §11 を説明するときの材料。
 
 ## 1.402 承認はどれも費用を課す、承認の指針は独自性の証明、or later は範囲外 —— Nelson 氏・Rosen 氏・Tiemann 氏（2007）（2026-11-15）
 
@@ -56,10 +56,10 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 
 **この節が establish しないこと**: 3 つとも 2007 年の個人の発言で、今の委員会の基準ではない。
 
-**反映**: register の B10・B2（承認の費用と独自性）と B12（or later の不在）へ（portfolio-30 が受ける）。逐条リファレンスの §16.5 の行に Tiemann 氏の or later の文を有利な材料として（本文は変えない）。
+**反映**: B10・B2（承認の費用と独自性）・B12（or later の不在）（portfolio-30 が受ける）。逐条リファレンスの §16.5 の行に Tiemann 氏の or later の文を有利な材料として（本文は変えない）。
 
 ## 1.403 論点の無かった会話（2006〜2008・48 本）（2026-11-15）
 
 残りの会話は、ACD の条や register に当たる論点を持たなかった。主な型は次のとおりで、件名は `READ-THREADS-LOG.md` に記録した: GPL の使い方の質問（"Question Regarding GPL"・"GPL issue at my work place"・"distributing GPL libreries"・"Question about the GPL v3"・"LGPL 2.1 + GPL 3 = problems?"）、表示を UI に求めるライセンスの論争（"APL license - What about the enforced logos?"・"InfoWorld: Pentaho opens up further"・"SocialText license discussion"・"Followup on Exhibit B licences" の他の通・"For Approval: Common Public Attribution License (CPAL)"）、OSI の運営（"Call for Votes: New OSI-Editors List"・"Noise filter"・"a plea"・"license categories"・"Censure / Removal Re: Affero Licence/AGPL"・"OSI Logo - Terms of Use"）、Jacobsen v. Katzer の論評（"Major Blow to Copyleft Theory"・"encforceability of Open Source Licences"・"SFLC will love the 7th Circuit"）、ほかの個別の質問。**2 点だけ記録する**: (1) IETF の寄与の方針について Rosen 氏は *"Of course a contributor can't give patent rights it doesn't own. BUT IT CAN GIVE IETF PATENT RIGHTS IT DOES OWN!"* と書いた（2007-01-19・"IETF IP Contribution Policy"）—— §2.7・§8.5（持つ・支配する請求項だけに及ぶ）と同じ線で、寄与者が特許を許諾する §2.6 の形（寄与者も Dedicator になる）を支える。(2) BIPL の審査で McCoy Smith 氏は、最初の開発者が特許を許諾せず後の寄与者だけが許諾する非対称を問題にした（2006-05-11・"License Discussion for the Broad Institute Public License (BIPL)"）—— ACD は寄与者を Dedicator にし（§2.6）、同じ §8 の許諾を負わせるので、非対称は無い。どちらも短い文なので `rounds/` には置かず、アーカイブの月を引く。
 
-**反映**: 論点の 2 点は逐条リファレンスの §2.6・§8.5 の行へ（本文は変えない）。残りは無し（論点が無い）。
+**反映**: 1c（論点の 2 点は逐条リファレンスの §2.6・§8.5 の行へ・本文は変えない。残りの会話は論点が無い）。
