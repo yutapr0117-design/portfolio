@@ -1,0 +1,52 @@
+Source: OSI license-discuss public archive, 2007-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 46 in "When to evaluate dual licenses (was: license categories, was: I'm not supposed to use the ECL v2?)" (2007-12-03)
+Senders: Michael Tiemann
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From tiemann at opensource.org  Sat Dec 15 13:54:45 2007
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Sat, 15 Dec 2007 08:54:45 -0500
+Subject: When to evaluate dual licenses
+In-Reply-To: <4761BD88.4050404@gatech.edu>
+References: <CFC8CCBFB0D386448DE64EE85BA15C8D05A5E450@orsmsx419.amr.corp.intel.com>
+	 <20071204171317.GU8528@mercury.ccil.org>
+	 <20071204181913.GA29100@stack.nl>
+	 <CFC8CCBFB0D386448DE64EE85BA15C8D05A9D4D3@orsmsx419.amr.corp.intel.com>
+	 <f5cca7ed0712041621h109c0c44tef9ebd9bfdf4edd4@mail.gmail.com>
+	 <4761B3C4.3070204@gatech.edu>
+	 <f5cca7ed0712131441o77ce406bo951d4740836a86b0@mail.gmail.com>
+	 <4761B85C.3020308@gatech.edu>
+	 <f5cca7ed0712131513x750cbb08n782cbe5ce2c79b5d@mail.gmail.com>
+	 <4761BD88.4050404@gatech.edu>
+Message-ID: <6cca531e0712150554s6dacb64bxad61f5f15f6a96dd@mail.gmail.com>
+
+On Dec 13, 2007 6:17 PM, Matthew Flaschen <matthew.flaschen at gatech.edu>
+wrote:
+
+>
+> But, again, "GPLv2 or later" is not a software license and is outside
+> OSI's scope.
+
+
+You make a fascinating point.  I would agree that "GPLv2 or later" is
+outside our scope, because we cannot predict whether future versions of the
+GPL will be OSD-compliant or not.  However, in a different case, such as
+"GPLv2 or any other OSI-approved, copyleft license", may well be within our
+scope.  The OSI does not see itself as exclusively limited to discussing
+only the 0-1 question of whether a license is open source.  Our mission
+includes education and advocacy, and things like our logo are important to
+people who wish to show their affiliation with our cause.  A license choice,
+as opposed a strict license, can be within the OSI's scope as long as all
+the choices remain within the OSI's scope.  And in fact, a license that
+permits one to escape outside the world of open source (such as the BSD
+license, which permits proprietary forks) is still within our scope, so
+maybe we should consider such a license choice to be within our larger
+scope, recognizing that some things within our scope are not within our
+strict terms of approval.
+
+M
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20071215/df6fdb2a/attachment.html>

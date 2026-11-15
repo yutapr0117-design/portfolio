@@ -93,6 +93,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2014-04 | `license-discuss` | **観測（"why standard licenses" の FAQ の下書きから 4 通・承認は受け入れの床か信頼か）** | `2014-04-license-discuss-why-standard-licenses-observed.txt` |
 | 2015-05・08 | `license-discuss` | **観測（Apache の第三者ライセンス方針の 2 件名から 7 通・下流の一覧は各組織が決める、opensource.org からの返信）** | `2015-05-and-08-license-discuss-apache-third-party-policy-observed.txt` |
 | 2007-04 | `license-discuss` | **観測（"License Proliferation Dissatisfaction" から 5 通・分類の採択、理事会が何を却下するか、承認を閉じる案）** | `2007-04-license-discuss-license-proliferation-dissatisfaction-observed.txt` |
+| 2007-04 | `license-discuss` | **観測（Rosen 氏・承認の指針は独自性の証明・1 通）** | `2007-04-license-discuss-rosen-uniqueness-observed.txt` |
 | 2019-08 | `license-discuss` | **観測（"For Public Comment: The Libre Source License" から 4 通・個人の起草者に示された順序、list に出すことの適否）** | `2019-08-license-discuss-libre-source-license-observed.txt` |
 | 2008-03・2012-04 | `license-discuss`・`license-review` | **観測（公有化の 2 スレッドから 7 通・公有のソフトウェアは open source か、FAQ の公有化と CC0 の答えの受け取られ方）** | `2008-03-and-2012-04-license-lists-public-domain-faq-observed.txt` |
 | 2015-10 | `license-discuss` | **観測（"Short permissive no attribution required open source license" から 4 通・公有化の献呈と帰属を求めない fallback の提案、「十分すぎるほど在る」）** | `2015-10-license-discuss-short-permissive-no-attribution-observed.txt` |
@@ -143,7 +144,11 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2012-06 | `license-discuss` | **観測（ライセンスの頁の再編の議論から 1 通・open source でも OSI に承認されない理由 3 つ）** | `2012-06-license-discuss-open-source-but-not-osi-approved-observed.txt` |
 | 2005-12〜2007-10 | `license-discuss` | **観測（Microsoft Community License と Reciprocal License の審査から 13 通・弁護士が指摘し提出者が認めた曖昧さが、本文を変えないまま承認された）** | `2005-12-to-2007-10-license-discuss-ms-cl-and-ms-rl-observed.txt` |
 | 2007-11 | `license-discuss` | **観測（"Question on OSD #5" から 3 通・合衆国の取り戻しの規定があるので本当に perpetual なライセンスは無い）** | `2007-11-license-discuss-question-on-osd-5-perpetual-observed.txt` |
+| 2007-11 | `license-discuss` | **観測（Nelson 氏・承認はどれも費用を課す・1 通）** | `2007-11-license-discuss-nelson-every-licence-a-cost-observed.txt` |
+| 2007-12 | `license-discuss` | **観測（Nelson 氏・保証の否認と契約・1 通）** | `2007-12-license-discuss-nelson-warranty-contract-observed.txt` |
+| 2007-12 | `license-discuss` | **観測（Tiemann 氏・or later は範囲外・1 通）** | `2007-12-license-discuss-tiemann-or-later-scope-observed.txt` |
 | 2008-01〜02 | `license-review` | **観測（GNU Affero GPLv3 の提出から 7 通・分類の基準をめぐる意見の違い）** | `2008-01-license-review-agpl-category-observed.txt` |
+| 2008-02 | `license-discuss` | **観測（Nelson 氏・約束は見知らぬ者の間に成り立つか・1 通）** | `2008-02-license-discuss-nelson-covenant-strangers-observed.txt` |
 | 2009-01〜02 | `license-review` | **観測（caGrid License の legacy approval の求めから 5 通・数百の配備は広い分類に足りない）** | `2009-01-license-review-cagrid-legacy-approval-observed.txt` |
 | 2011-05〜08 | `license-review` | **観測（Python のライセンスの改訂の承認の求めから 3 通・先例は参考であって拘束しない、古い版を非推奨にしても効かない）** | `2011-05-to-08-license-review-python-license-changes-observed.txt` |
 | 2008-10 | `license-review` | **観測（AFL に論文の引用の義務を足したいという問いから 5 通・承認済みに似た条が在ることは新しい条を正当化しない）** | `2008-10-license-review-afl-citation-and-old-mistakes-observed.txt` |
@@ -155,6 +160,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2011-03〜04 | `license-discuss` | **観測（"Announcing OWFa and CLA 1.0" から 3 通・寄与は同じライセンスで入れば足りる）** | `2011-03-license-discuss-owfa-cla-inbound-outbound-observed.txt` |
 | 2007-07〜08 | `license-discuss` | **観測（OSD 2 の不一致の問いから 2 通・OSD 2 はライセンスでなく配られる物について述べる）** | `2007-07-license-discuss-osd-2-inconsistency-observed.txt` |
 | 2007-03 | `license-discuss` | **観測（Socialtext Public License の審査から 2 通・承認済みの条から取ったので推定が働くべきだという主張と、それへの反論）** | `2007-03-license-discuss-stpl-presumption-from-approved-observed.txt` |
+| 2007-03 | `license-discuss` | **観測（Rosen 氏・ライセンスに商標の許諾を入れない・1 通）** | `2007-03-license-discuss-rosen-no-trademark-licence-observed.txt` |
 | 2003-08 | `license-discuss` | **観測（"Open Source Licensing" の全 3 通・OSL の perpetual と 17 U.S.C. §203、法はどのみち勝つので書く必要は無いという文の引用）** | `2003-08-license-discuss-osl-perpetual-and-section-203-observed.txt` |
 | 2007-07〜08 | `license-discuss` | **観測（GPLv3 の審査の進め方から 2 通・審査を OSD だけに絞る主張と、その前提だった採用と検討）** | `2007-07-license-discuss-gplv3-review-scope-observed.txt` |
 | 2018-06 | `license-review` | **観測（"moving to an issue tracker" から 5 通・理事会が変更を求める 2 つの場面と、独自の価値の問い）** | `2018-06-license-review-board-change-requests-and-unique-value-observed.txt` |
@@ -526,6 +532,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2006-07 | `license-discuss`（観測）| **Broad Institute Public License（BIPL）の承認審査 28 通 → 観測保存（2/3 部）** | **同じスレッドの 2/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
 | 2006-07 | `license-discuss`（観測）| **Broad Institute Public License（BIPL）の承認審査 28 通 → 観測保存（3/3 部）** | **同じスレッドの 3/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
 | 2006-11 | `license-discuss`（観測）| **Biological Open Source（BiOS）の非ソフトウェア特許ライセンス相談 11 通 → 観測保存（1/6 部）** | **Rosen 氏の、特許条項そのものに向けられた proliferation 反対** —— *"I don't think there's much enthusiasm to come up with yet another way to say these things about patents."* **ACD-1.0 §8.4 は「特許について言う、もう一つの言い方」そのものである**（#239） |
+| 2006-11 | `license-discuss` | **観測（Tiemann 氏・表示は偽らないことが芯・1 通）** | `2006-11-license-discuss-tiemann-attribution-misrepresented-observed.txt` |
 | 2006-11 | `license-discuss`（観測）| **Biological Open Source（BiOS）の非ソフトウェア特許ライセンス相談 11 通 → 観測保存（2/6 部）** | **同じスレッドの 2/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
 | 2006-11 | `license-discuss`（観測）| **Biological Open Source（BiOS）の非ソフトウェア特許ライセンス相談 11 通 → 観測保存（3/6 部）** | **同じスレッドの 3/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
 | 2006-11 | `license-discuss`（観測）| **Biological Open Source（BiOS）の非ソフトウェア特許ライセンス相談 11 通 → 観測保存（4/6 部）** | **同じスレッドの 4/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |

@@ -1,0 +1,154 @@
+Source: OSI license-discuss public archive, 2006-November.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 4 in "For Approval: Generic Attribution Provision" (2006-11-27)
+Senders: Michael Tiemann
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From tiemann at opensource.org  Wed Nov 29 15:42:04 2006
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Wed, 29 Nov 2006 10:42:04 -0500
+Subject: For Approval: Generic Attribution Provision
+In-Reply-To: <1164788296.12710.127.camel@kl.nicholasgoodman.com>
+References: <cf976cd50611271848q3f939edau2dc5d446eb6c74db@mail.gmail.com>
+	 <1164788296.12710.127.camel@kl.nicholasgoodman.com>
+Message-ID: <1164814925.7079.63.camel@localhost.localdomain>
+
+Ross,
+
+I'd like to echo Nick's appreciation for submitting your license for
+discussion on this list.  I welcome your showing of good faith.  I also
+think you have done a great credit to your own efforts by presenting
+your position in such detail.
+
+Nick,
+
+I find myself agreeing almost completely with everything you have said
+in response--both with respect to the substance and tone.  Thanks for
+your contribution!  I especially like your edited generic attribution
+clause.
+
+Rather than quote the whole response and just at +1s everywhere, I'd
+like to focus on what I consider to be the key issue at hand:
+
+On Wed, 2006-11-29 at 00:18 -0800, Nicholas Goodman wrote:
+
+> Ross Mayfield wrote:
+> > [...] For example,
+> > the incorporation of application programs anonymously into
+> > distributions by large companies could destroy the market for open
+> > source application software.
+
+> Again: consider using a copyleft license if you want to prevent this.
+> This force you claim can destroy the market can be mitigated by a
+> license which makes it difficult, if not impossible to embed.  Why
+> does GPL not meet this need? 
+
+I believe that the principal driving force of this discussion is the
+assumption that without some sort of control point over the use of the
+software, the change from software-as-application (which the GPL was
+designed to address) to software-as-service invalidates the beneficial
+protections of free and open source licenses and leads to the calamity
+long claimed by proprietary software proponents, namely a ruined
+business and lack of incentive to invest in innovation.
+
+As a person who looked at the GPL /before/ there were any companies
+commercializing GPL software (and certainly before companies like Red
+Hat were reporting ~ $100M/quarter in revenues derived predominantly
+from GPL-licensed software) I can say that I do not see any difference
+at all between software-as-an-application in 1989 and software-as-a-
+service in 2006.  Let me explain...
+
+In 1989 there was no Linux OS and BSD remained entangled in AT&T's
+claims about Unix.  (Those claims would later become the basis of a
+lawsuit that was ultimately dismissed, but would sufficiently handicap
+BSD that Linux could become the preferred kernel for free and open
+source software developers.)  There were GNU compilers and I had become
+quite proficient at porting and enhancing those compilers, so I co-
+founded Cygnus in order to commercialize the potential I saw around that
+market.
+
+It turned out that our major customers were not large IT shops with
+1000s of developers writing applications who would in turn create large
+secondary markets based on servicing their software for other users, but
+rather vendors of embedded systems who did everything in their power to
+limit their customers' exposure to software itself.  These customers
+created video game consoles (SONY, SEGA, Nintendo), network switches and
+routers (Cisco, Nortel, Alcatel, Lucent, etc), control software for
+terrestrial and extra-terrestrial satellites (pick your favorite US
+Gov't contractor and/or NASA lab), etc.  The embedding of software in
+these devices, coupled with the creation of the LGPL (which was
+specifically designed to disentangle embedded software developers from
+the make-a-distribution-share-the-source requirement of the GPL) gave us
+*zero* leverage over the primary revenue generation mechanism of our
+customer base.  Yet Cygnus grew, self-funded, to more than 100 people
+(the great majority of which were top-class developers) and ultimately
+sold to Red Hat for a then-significant amount of stock.  (When the VCs
+invested we ballooned to nearly 200 people, many of whom were, to my
+shock and chagrin, hired to develop a proprietary layer of software that
+lay on top of the GNU tools.)
+
+Prior to the VC investment there was no precedent we could use to
+rationalize how "our situation was different, hence we needed to
+maintain a control point".  We were the first, and so our choice was
+framed in very simple terms: we're either a free software company or
+we're not a free software company.  And every time we visited that
+question over the years (until the founders sold stock to the VCs), we
+always, always, always, settled on remaining a free software company.
+(To Red Hat's credit, upon acquiring Cygnus, the first thing they did
+was to jettison all the proprietary stuff the VC investment had brought
+under our roof.)
+
+Now somehow the argument is being advanced that because somebody else
+can grab Software X, run it on their own hardware and offer it as a
+service, this is somehow different than being able to download a
+compiler from the net, build a new cellphone, and sell it by the
+millions without payment to the developers who created such a fantastic
+toolkit.  I don't see it.  I do know that at Cygnus we were always open
+to questioning why the heck we committed such talented people to such a
+crazy business plan.  And I can say that most of the new managers we
+hire at Red Hat go through a process of "but if we could just restrict
+this one part of product Z..." before they fully grok the open source
+thing.  So I understand the enormous pressure to accept a
+rationalization about one should or should not conduct their own
+business.  And I lived through the experience of working with VCs
+who /claimed/ to understand open source before embarking on a decidedly
+non-open source strategy.  But through it all I don't need the need or
+the benefit to confound proprietary control and open source licensing or
+to claim that open source licensing is now irrelevant because ASPs can
+offer software as a service.
+
+Here's the nature of the game as I see it:
+
+Company A develops a hosted application B and offers it under license C.
+
+If license C is truly an open source license, then hosting provider D
+can freely download it, run it, and encourage customers to use their
+service.  Hosting provider E (which could be a business unit of B) can
+also do the same, differentiating themselves by offering a lower price,
+better service, more features, or whatever.  Customers exercise their
+choice, and either, both, or neither D and E are successful.
+
+If license C contains onerous conditions that disadvantage the technical
+function of the freely downloaded B as compared with a commercially
+acquired B, then C is not open source.  That it may expand the
+competitive differences between D and E is not relevant to the question
+of whether C is open source or not.  Those competitive differences may
+or may not justify whether open source is a better or worse strategy for
+A, the application B, or the providers D and E, but it has no bearing on
+the is-ness of whether C is open source or not.
+
+For Red Hat, this is not a theoretical question: Oracle has announced
+that it now offers Red Hat's bits stripped of Red Hat's marks for half
+price with better service.  The GPL allows this and Red Hat is firm in
+its belief that there's value beyond the zero cost of the bits that
+cannot be copied.  In Red Hat's case, the operative aspect of
+attribution is not that it be preserved, but that it not be
+misrepresented, which OSD #4 covers.
+
+I think it is very interesting to consider whether and how attribution
+should be preserved, but as a means to protect the integrity of
+authorship, not as a mechanism to exert a proprietary control point that
+the open source model and philosophy forbids.
+
+M

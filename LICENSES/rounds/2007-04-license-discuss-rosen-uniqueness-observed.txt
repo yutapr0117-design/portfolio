@@ -1,0 +1,97 @@
+Source: OSI license-discuss public archive, 2007-April.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 5 in "AFL 3.0" (2007-04-04)
+Senders: Lawrence Rosen
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Thu Apr  5 02:50:46 2007
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Wed, 4 Apr 2007 19:50:46 -0700
+Subject: AFL 3.0
+In-Reply-To: <20070404220311.GG4056@mercury.ccil.org>
+References: <005301c776ff$9d0e0bf0$0202fea9@LROSENTOSHIBA> <20070404220311.GG4056@mercury.ccil.org>
+Message-ID: <007701c7772d$36f359a0$0202fea9@LROSENTOSHIBA>
+
+ [LR:] John, I think what you just wrote is hogwash. My only concern is how
+much time I want to spend arguing with you about this. 
+
+I know you served on the License Proliferation Committee, but perhaps
+(because hardly anybody's been listening for a while at OSI) you weren't
+fully aware of my public and private objections at the time to both the
+committee process and its result. 
+
+Perhaps you allowed the other participants on the committee, a self-selected
+bunch of people some with their own corporate or business motivations, to
+convince you that open source licenses are all about "ecological niches" and
+"social purposes," or about who's "winning"--just so they could get their
+own licenses on the approved list. Because other participants on the
+committee talked to me, I know that the decisions of the committee were
+political compromises just to get some kind of agreement to demonstrate that
+OSI could "solve the license proliferation problem" (whatever that meant!).
+I also know that there was no legal analysis of any of the licenses on the
+list to determine which had current value under the law and which are
+obsolete licenses from our distant past. 
+
+You're talking pseudo-law, utterly irrelevant to the choice or understanding
+of FOSS licenses. 
+
+One of the guiding principles in recent years for OSI's approval of open
+source licenses has been the demonstration of uniqueness. I long ago
+demonstrated that on this list for the companion OSL and AFL 3.0 licenses.
+Placing AFL 3.0 on a "redundant" list is just plain wrong.
+
+/Larry
+
+P.S. I know that others will have comments about other licenses on this OSI
+list. If you write about those other licenses, please change the email
+topic. I'm narrowing my focus to my own license, which at least some of the
+people on the License Proliferation Committee obviously didn't read
+carefully and understand. 
+
+P.P.S. There is a growing amount of software under AFL 3.0. I'm doing my
+best to educate the community why it makes an excellent contributor
+agreement to open source projects and companies. But that's another thread,
+for people who really care about open source licenses that serve important
+purposes. 
+
+
+
+
+> -----Original Message-----
+> From: John Cowan [mailto:cowan at ccil.org]
+> Sent: Wednesday, April 04, 2007 3:03 PM
+> To: Lawrence Rosen
+> Cc: license-discuss at opensource.org
+> Subject: Re: AFL 3.0
+> 
+> Lawrence Rosen scripsit:
+> 
+> > Can anyone name for me the license with which it is redundant? Remember,
+> > in law as in software, close isn't enough!!!!
+> 
+> Note the phrase "completely or partially redundant" in the description of
+> this license group.  There are terms in the AFL that address questions
+> such as choice of law that aren't in the Apache 2.0 license.  Likewise,
+> there are matters that are addressed differently.  But the AFL is
+> competing with Apache 2.0, BSD, and MIT for the same ecological niche --
+> simple permissive licenses -- and it is not winning.  I think that's a
+> pity, but I also see that it's a fact.
+> 
+> Likewise, the OSL wound up in the catchall category because it's a
+> copyleft license that's incompatible with the GPL (not in your reading
+> of the GPL, I know, but for social purposes it's the FSF's reading that
+> counts), and we don't need yet another separate copyleft commons.
+> 
+> > The categories of licenses that OSI has created are, for the most part,
+> > legally meaningless for purposes of choosing or understanding a license.
+> 
+> Probably so, but that doesn't mean they are meaningless in practice.
+> 
+> --
+> John Cowan    <cowan at ccil.org>     http://www.ccil.org/~cowan
+> But no living man am I!  You look upon a woman.  Eowyn I am, Eomund's
+> daughter.
+> You stand between me and my lord and kin.  Begone, if you be not
+> deathless.
+> For living or dark undead, I will smite you if you touch him.
