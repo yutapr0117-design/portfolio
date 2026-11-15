@@ -1,0 +1,51 @@
+Source: OSI license-discuss public archive, 2021-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 13 in "Status of earlier AFL licenses?" (2021-09-07)
+Senders: Sebastian Crane
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From seabass-labrax at gmx.com  Wed Sep  8 20:57:37 2021
+From: seabass-labrax at gmx.com (Sebastian Crane)
+Date: Wed, 8 Sep 2021 21:57:37 +0100
+Subject: [License-discuss] Status of earlier AFL licenses?
+In-Reply-To: <195501d7a4e3$73456c60$59d04520$@lexpan.law>
+References: <0aa3b3f6-0e8b-a278-0af5-c9311aa3209b@vmbrasseur.com>
+ <157b01d7a46d$c3d05580$4b710080$@lexpan.law>
+ <39cc01d7a4c3$42b3b310$c81b1930$@rosenlaw.com>
+ <174c01d7a4d5$60111300$20333900$@lexpan.law>
+ <78fd7331-5dfb-a797-cead-12f89436b4ab@vmbrasseur.com>
+ <195501d7a4e3$73456c60$59d04520$@lexpan.law>
+Message-ID: <20210908205737.GA3075@localhost.localdomain>
+
+Dear McCoy,
+
+> This would be a relatively elementary task if the mailing list were
+> more easily searchable....
+
+I've searched the mailing list archives already. Alas, it is not that
+elementary; I couldn't find any mention of previous versions of the AFL!
+
+In case you'd like to have a look yourself, I've attached the script I
+used to download the archives (assuming this mailing list allows
+attachements, that is.)
+
+When run, it creates a folder called 'osi-mailing-list-archives'
+containing the emails in 'mbox' format, which can be opened in either an
+email client or in a text editor. Please note that it overwrites a few
+files inside that folder, if it already exists.
+
+I had a little fun with the license of that script! Unfortunately, it
+seems as though the wording of the AFL precludes its use with REUSE and
+SPDX license identifiers, so the script is under MIT-0 in any case :)
+
+Best wishes,
+
+Sebastian
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: download-osi-archives.tar.gz
+Type: application/gzip
+Size: 3022 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20210908/09864d1f/attachment.gz>

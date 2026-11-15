@@ -1,0 +1,64 @@
+Source: OSI license-discuss public archive, 2024-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 3 in "Request for clarification: OSI approved GPLV2 SPDX identifiers" (2024-08-08)
+Senders: Richard Fontana
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From rfontana at redhat.com  Fri Aug  9 18:53:56 2024
+From: rfontana at redhat.com (Richard Fontana)
+Date: Fri, 9 Aug 2024 14:53:56 -0400
+Subject: [License-discuss] Request for clarification: OSI approved GPLV2
+ SPDX identifiers
+In-Reply-To: <bd1f12b247184403a017a01e19433f97@foss.st.com>
+References: <bd1f12b247184403a017a01e19433f97@foss.st.com>
+Message-ID: <CAC1cPGygCyXRiHqqqFboQj609m+LPUr5eaAOr_eShzo42108cw@mail.gmail.com>
+
+On Fri, Aug 9, 2024 at 12:29?PM Erwan LE-RAY - foss
+<erwan.leray at foss.st.com> wrote:
+>
+> Hello,
+>
+>
+> I would like to get clarification on OSI approved GPLV2 SPDX identifiers.
+>
+> OSI website (https://opensource.org/licenses?ls=GPL-2) indicates that only GPL-2.0 is approved by OSI (GPL2.0+, GPL2.0-only and GPL2.0-or-later are not listed), whereas SPDX website (https://spdx.org/licenses/) indicates that GPL-2.0 and GPL-2.0+ are deprecated, replaced by GPL-2.0-only and GPL-2.0-or-later.  GPL-2.0-only and GPL-2.0-or-later identifiers are tagged as approved by OSI (last column).
+>
+>
+> Could you please clarify if GPL-2.0-only and GPL-2.0-or-later identifiers are really approved by OSI, as indicated by SPDX webpage?
+
+Not speaking for the OSI. OSI does not approve, or up till now hasn't
+approved, SPDX identifiers as such, but rather the actual licenses
+they refer to, or perhaps (I think this is currently a bit unclear) a
+subset of the set of actual licenses that an SPDX identifier refers
+to, and perhaps in some unusual cases a superset. I've certainly
+noticed some confusion about the difference between an actual license
+and the SPDX identifier that might represent it.
+
+SPDX makes some effort to indicate whether particular SPDX license
+identifiers are OSI-approved. This is strictly speaking "wrong" for
+the reason that OSI does not approve identifiers, but maybe it's
+useful.
+
+I suppose explicit OSI approval of "GPLv2 or later" (if we take that
+as equivalent roughly to GPL-2.0-or-later) is conceivable, given that
+even if, say, GPL version 4 were determined not to be OSI-approved,
+"GPLv2 or later" encompasses permission to treat the license as GPLv2
+which of course is OSI approved.
+
+Not sure any of this really matters though. For the entire time of the
+OSI's existence since 1998, "GPLv2 or later" has been the most
+prevalent form of GPL licensing and throughout that entire period the
+approval of GPLv2 by the OSI has been understood by everyone to
+include cases where the form of licensing is "GPLv2 or later". I
+assume this has never been spelled out by the OSI probably because
+it's so obvious.
+
+I think the now-deprecated GPL-2.0 may have been ambiguous in practice
+in that it was treated by some people as equivalent to "GPLv2 only"
+and/or the current GPL-2.0-only, and by others as a sort of way of
+referring to GPL version 2 without getting into the whole
+only/or-later issue. Not entirely sure though. I do see some use of
+"GPL-2.0" now to mean GPL version 2 in that sense.
+
+Richard

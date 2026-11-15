@@ -226,3 +226,21 @@ portfolio-1c の依頼（1.4 草案の §16.4 の名前と識別子の規律、�
 **逆側。** 一覧を持っていることは、指摘に答えた改訂版を出したことではない。審査で出る指摘に答える改訂は、その時点で作るしかない（凍結した本文は直さず次版で直す、という我々の手順は、審査の途中では「改訂版がまだ無い」と見える時間を作りうる）。Smith 氏の文は、我々の比較の文書（`ACD-1.0.comparison.md`）が先例に頼るほど弱く読まれうることを示す。C-FSL は単独の著者で作文の質が問題にされた提出で、ACD の B1（単独の起草者）と同じ面を持つ。
 
 **この節が establish しないこと。** 2018 年の「1 か月延ばす」運用が今も同じかは確かめていない（2019 年以降の process の変更は `ACD-1.0.review-rules.md` の範囲）。ACD の比較の文書のどの文が「先例だけで通る」型になっているかは数えていない。
+
+## 1.231 本文で機械可読の形式を名指すこと —— 承認された本文は SPDX の札を名指した、本文の URL は古びた、告知の形を固定すると REUSE と衝突した、OSI は識別子ではなくライセンスを承認する（2026-11-15）
+
+portfolio-1c の T69（1.4 草案の §2.6 に、除外する素材を示す形の例として "such as an SPDX expression or a REUSE file" を書く案・1.0 でも §2.6）への当て。測り方: 写しの全月（2010 年以降）の、引用行を除いた本文に `SPDX-License-Identifier|reuse.software|REUSE (spec|file)|本文の中の SPDX` を正規表現で当てた。会話を 1 本ずつ通読したのではないので、「見つからない」は弱い不在である。新しく置いた 3 通は `rounds/2024-03-license-discuss-ecl-stale-link-ombredanne-observed.txt`・`rounds/2021-09-license-discuss-afl-reuse-crane-observed.txt`・`rounds/2024-08-license-discuss-gplv2-spdx-fontana-observed.txt`。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| 承認された本文の冒頭: *"This Cryptographic Autonomy License (the "License") applies to any Work whose owner has marked it with any of the following notices: "Licensed under the Cryptographic Autonomy License version 1.0," or "SPDX-License-Identifier: CAL-1.0," or ..."* | 委員会報告 2020-02-09 の Exhibit A（Pamela Chestek 氏・`rounds/2019-04-license-review-cal-approval-observed-52of61.txt`）。理事会は 2020-02-14 に 8-0（棄権 1）で承認 | **有利な面（先例）。** 承認済みの本文が、条文の中で SPDX の札を適用の印として名指している。ACD の §16.2（1.0 でも §16.2）が `SPDX-License-Identifier` の札を十分な告知とするのと同じ型で、審査でこの名指しそのものへの異議は見つからなかった |
+| *"In the prefatory material, "with Combined-Works-Exception" should be "WITH ..." (the SPDX operator, or whatever the proper term is, is capitalized)."* | Richard Fontana 氏 2020-02-07（CAL の審査・`rounds/2019-04-license-review-cal-approval-observed-51of61.txt`） | **期待。** 審査者は本文の中の SPDX の構文の正確さまで見る。§2.6 に "SPDX expression" と書くなら、例に出す式の構文（`WITH`・`AND` の大文字、`LicenseRef-` の形）を正確にする |
+| *"or even better, bypass the URL entirely and use an SPDX-License-Identifier: ECL-2.0 tag."* | Philippe Ombredanne 氏 2024-03-20（ECL-2.0 の付録の URL が死んだので本文を直してよいか、という問いへ。本文を直すと checksum で照合する道具を欺くので悪手、と同じ通で） | **両面。** 本文に外部の場所を書くと古びる、の実例である。処方は SPDX の札で、古びたのは URL のほうだった。ただし SPDX も外部の団体で、名指した形式の側が変わる危険は 0 ではない |
+| *"Unfortunately, it seems as though the wording of the AFL precludes its use with REUSE and SPDX license identifiers, so the script is under MIT-0 in any case :)"* | Sebastian Crane 氏 2021-09-08 | **有利な面。** 告知の形を本文で固定したライセンスは、機械可読の慣行と衝突しうる。§2.6 と §16.2 が SPDX の札や式、REUSE の file でも足りると開くのは、この衝突を避ける向きである |
+| *"OSI does not approve, or up till now hasn't approved, SPDX identifiers as such, but rather the actual licenses they refer to"* / *"I've certainly noticed some confusion about the difference between an actual license and the SPDX identifier that might represent it."* | Richard Fontana 氏 2024-08-09（"Not speaking for the OSI" と断っている） | **逆側。** 承認の対象は本文で、識別子は SPDX が別に割り当てる。ACD の §16.1 と §16.2 は `ACD-1.4` という識別子を本文の中で先に名指し、一覧に載るまでは `LicenseRef-ACD-1.4` と書く。SPDX が別の識別子を割り当てれば、本文の名指しと一覧が食い違う |
+
+**読み。** 本文の中で SPDX の札を名指すことには承認済みの先例（CAL-1.0）があり、審査は名指しを咎めず、構文の正確さを求めた。告知の形を本文で固定すると機械可読の慣行と衝突しうる（AFL）ので、形式を例示しつつ限定しない T69 の書き方（"such as"）は、衝突を避ける側にある。
+
+**逆側。** 例示した形式は本文の外の団体の管理下にあり、古びることも名前が変わることもある（Ombredanne 氏の URL、Fontana 氏の識別子と本文の区別）。REUSE を本文で名指した承認済みの例は見つからなかった（AI-MIT-1.0 の提出者が 2026-03 の改訂で REUSE の per-file header を採ると書いたが、未承認で、審査の反応は確かめていない）。"such as" の例示は要件ではないと読まれるのが自然だが、例示が古びたときに本文が古く見えることは残る。
+
+**この節が establish しないこと。** CAL-1.0 の本文が名指した 2 つ目の札（`CAL-1.0-With-Exception`）が、SPDX の一覧で実際に割り当てられた識別子と一致しているかは確かめていない（一致していなければ、本文が先に名指した識別子が一覧と食い違った実例になる。SPDX の一覧は外部の取得が要る）。「標準を本文に書くと古びる」という正面の異議は、この測り方では見つからなかった。

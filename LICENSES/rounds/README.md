@@ -523,6 +523,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2020-08-04 | `license-review`（観測）| **委員会の MIT-0 の勧告と Rationale Document → 観測保存** | *"this is not a basis for rejection that the OSI has applied in the past (and the OSI has historically approved newly drafted licenses not yet in use)"*。理事会はこの勧告どおり承認した（`board-decisions.md` §2d）|
 | 2020-02 | `license-discuss` | **観測（委員長の Chestek 氏の 1 通・書いた本人が説明し、代理人はうまくいかなかった、直す意思が要る）** | `2020-02-license-discuss-authors-explain-not-proxies-observed.txt` |
 | 2021-09-12 | `license-review`（観測）| **委員会の Jam の勧告と Rationale Document → 観測保存** | *"to date, OSI has not used the number of projects adopting a license as a factor in deciding whether a license can be approved"*（`board-decisions.md` §2d）|
+| 2021-09 | `license-discuss` | **観測（Crane 氏の 1 通・AFL の文言は REUSE と SPDX の識別子での使用を妨げる）** | `2021-09-license-discuss-afl-reuse-crane-observed.txt` |
 | 2021-01-09 | `license-review`（観測）| **委員会の CERN-OHL の勧告と Rationale Document → 観測保存（抜粋）** | *"they are written such that they can be used for software, so they are appropriate for the OSI's review"*。審査対象の基準である（`board-decisions.md` §2e）。本文の Exhibit A（ライセンス全文）は省いた |
 | 2015-11-12 | `license-review`（観測）| **Richard Fontana 氏の 0BSD（当時 Free Public License）承認の告知 → 観測保存** | *"the OSI obtained outside legal counsel concerning the legal and policy issues raised by 'ultra-permissive' licenses like the FPL which do not impose conditions on the licensee"*。助言の中身は公開されていない（`board-decisions.md` §8.6）|
 | 2015-10-13 | `license-review`（観測）| **Richard Fontana 氏の委員会報告 → 観測保存** | Free Public License（現 0BSD）について *"Approval, or else OSI to adopt some formal maturity/real-world-use factor"*（`board-decisions.md` §8.6）|
@@ -532,6 +533,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2024-09-10 | `license-review`（観測）| **Pamela Chestek 氏（委員長）の 1 通 → 観測保存** | *"legal mechanisms other than a license"*（`board-decisions.md` §2g）|
 | 2024-09-10 | `license-review`（観測）| **Pamela Chestek 氏（委員長）の 1 通 → 観測保存** | *"This area needs room to develop"*。1 本か複数かを OSI が決めないと述べる（`board-decisions.md` §2g）|
 | 2024-03 | `license-discuss` | **観測（Blue Oak についての Perens 氏の 1 通・法律家の新しい permissive も採用されず承認済みの数を増やしただけ）** | `2024-03-license-discuss-blue-oak-reinvention-observed.txt` |
+| 2024-08 | `license-discuss` | **観測（Fontana 氏の 1 通・OSI は識別子ではなくライセンスを承認する）** | `2024-08-license-discuss-gplv2-spdx-fontana-observed.txt` |
+| 2024-03 | `license-discuss` | **観測（Ombredanne 氏の 1 通・本文の URL は古びた、本文は直さず SPDX の札を使え）** | `2024-03-license-discuss-ecl-stale-link-ombredanne-observed.txt` |
 | 2026-11-07 | 一次資料（OSI のサイト）| **記事 *Public Domain Is Not Open Source*（2017-07-28・署名 OSI Policy Team）→ スナップショット** | *"A solution would be"*、放棄できる法域では放棄し、できない法域のために許諾を与える形。CC0 が止まった理由は特許の議論だと述べ、結びは MIT を勧める（`board-decisions.md` §2f）|
 | 2026-11-07 | 一次資料（OSI のサイト）| **McCoy Smith 氏の記事 *Patents and Open Source*（2025-12-04）→ スナップショット** | *"(with or without defensive termination provisions)"* と、CC0 の特許の除外への懸念を述べる。同じ記事は Apache-2.0 の防御的終了を肯定する |
 | 2026-03〜04 | `license-review` | **観測（2 つの提出への最初の返信 2 通・元のライセンスとの差、使う（使うと表明する）プロジェクト、手順の項目、何を達成したいか）** | `2026-03-to-04-license-review-first-questions-observed.txt` |
