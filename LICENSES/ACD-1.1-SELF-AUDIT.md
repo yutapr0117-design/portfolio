@@ -822,3 +822,17 @@ Dedicator が自分では主張せず、独占的なライセンスを受けた�
 T48（2026-11-09）は、*"Paragraphs (a) and (b) do not reach a service through which **the Dedicator** runs the Work for others without providing a copy of it."* を、主語が *Section 5* の末文へ合流させ、*the Dedicator* を *it* にした。末文には E67 を閉じたとき（11-08）から *"the terms or measures it applies"* があった。合流の後、主語から遠い 65 語の文に *it* が 3 つ並び、文法の既定では主語の *Section 5* を指す。*a copy of it* は *a service* とも読め、そう読むと除外は意図より広がる。T60 で *the Dedicator* と *the Work* に名指しした（+3 語）。
 
 **一般形**: **2 つの文を 1 つに合流させると、合流先の主語が代名詞の既定の先行詞になる。** 合流させた文の名詞を代名詞に縮めるときは、合流先の主語との取り違えを読む。§3z（修正の組が先行詞を変える）と同じ族で、こちらは 1 つの修正の中で起きた。
+
+## 3za. 1.4 草案の修正が別の条の語の読みを変えた —— §5.2(a) の *apply* と §2.2 の *restriction*（2026-11-15）
+
+**1.0〜1.3 では食い違いが無いので、errata ではなくここへ記録する。** T64 を §2.2 と読み合わせたときに portfolio-1c が見つけ、portfolio-50 と portfolio-30 が反例を当てた（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.37）。
+
+| 修正 | 日付 | 効果 |
+|---|---|---|
+| T64（errata E82）| 2026-11-15 | §5.2(a) から *"apply, or"* を外し、Dedicator が技術的な手段を掛けることを許した（GPL-3.0 §3 型）|
+| —— | —— | §2.2 *"in respect of any copy of the Work that has been made available, may not impose any further term, condition, or restriction"* の *restriction* を法的と読む支え（技術的な手段は (a) が別に禁じている）が消え、技術的と読むと、既に配っているサーバに後から負荷対策を足すことを §2.2 が閉じ直す |
+| T65 | 2026-11-15 | *"may not impose any further term, condition, or restriction on what may be done with any copy of the Work that has been made available"*（+3 語）|
+
+**読み**: 最初の案 *legal restriction* と 50 の代案 *enforceable restriction* は、技術的な後付けの制限をまとめて §2.2 の外に出すので、Work に入れた phone-home で後から写しを止める形（30 の反例）を止める語が本文から消える。制限を「何に」掛けるかで切ると、窓口の負荷対策は外、遠隔停止は内に分かれる。
+
+**一般形**: **ある条から禁止を外すと、その禁止が別の条の語を狭く読む支えになっていた場合、別の条の語が広がる。** 外した禁止は、自分の条で何を許すかだけでなく、隣の条の語を何と読ませていたかも運んでいた。禁止を外す修正は、同じ対象（ここでは技術的な手段）を語で述べる他の条を全部読み直す。§3z（修正が代名詞の先行詞を変える）と同じく「単独では正しい修正が他の条の読みを変える」族で、こちらは語の意味の支えが消える型である。
