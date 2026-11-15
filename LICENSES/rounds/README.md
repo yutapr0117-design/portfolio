@@ -182,6 +182,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2012-03 | `license-review` / `license-discuss` | **観測（"CC0 incompliant with OSD on patents" から 5 通・著作権だけのライセンスは滑りやすい坂、放棄の効果を論じるのは時間の無駄）** | `2012-03-license-review-cc0-incompliant-patents-observed.txt` |
 | 2020-02 | `license-discuss` | **観測（Persona non Grata の前文の会話から 2 通・採用の見込みは承認の基準ではなかった、拘束しない語は要らない）** | `2020-02-license-discuss-adoption-not-a-criterion-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
+| 2010-11 | `license-review` | **観測（Villa 氏の 1 通・OSI と同時に FSF にも一覧への掲載を求めている）** | `2010-11-license-review-mpl2-s11-villa-fsf-too-observed.txt` |
+| 2010-11 | `license-review` | **観測（Perens 氏の 1 通・追加の許可は本文の外で、ライセンスは不変に）** | `2010-11-license-review-mpl2-s11-perens-invariant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
 | 2012〜2020 | `license-review` | **観測（特許を扱う新しい permissive の必要性と、増殖の分類の現状・4 通）** | `2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt` |
 | 2002-11〜12 | `license-discuss` | **観測（寄与者の特許の許諾が派生物まで届くか・3 通）** | `2002-11-to-12-license-discuss-mpl-patent-grants-on-derivatives-observed.txt` |
