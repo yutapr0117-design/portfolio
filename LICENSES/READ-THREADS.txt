@@ -141,7 +141,16 @@
 2001-12-07	Does "modification" include translation to another HLL?
 2001-12-10	license-ish vs. Bill of Rights-ish
 2001-12-12	Discussion: ADPL
+2002-01-09	paradox Open Source / Open Content
+2002-01-16	NCSA Open Source License
+2002-01-20	Advertising Clauses in Licenses
+2002-02-11	OpenE License
 2002-02-26	I don't mean to whine, but
+2002-03-06	Off topic question re Export controls
+2002-03-06	request for approval of APPOSL - going by the numbers.
+2002-03-13	OSD modification regarding what license can require of user
+2002-03-14	OSD modification regarding what license can require of
+2002-03-15	Static v. Dynamic Linking -- redux
 2002-05-22	Proposed License-RPL
 2002-06-09	Do I know what I'm talking about?
 2002-08-02	Legal soundness comes to open source distribution

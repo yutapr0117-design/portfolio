@@ -20,6 +20,24 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "request for approval of APPOSL - going by the numbers."（`license-discuss` 2002-03・6 通・決める側の通と最初の通を読んだ）は新しい論点なし（ライセンスの形をした政治的な主張は承認を拒んできた・Nelson 氏）
+
+- 2026-11-15 に "Off topic question re Export controls"（`license-discuss` 2002-03・8 通・決める側の通と最初の通を読んだ）は新しい論点なし（OSI の理事は法的助言をしない、理事に法律家はいない・Rosen 氏 2002、B1 の背景）
+
+- 2026-11-15 に "OpenE License"（`license-discuss` 2002-02・7 通・決める側の通と最初の通を読んだ）は新しい論点なし（著作権者の名を持つライセンスは再利用できないが、OSD が黙っているので拒む根拠が無い・Nelson 氏、B2 の背景）
+
+- 2026-11-15 に "paradox Open Source / Open Content"（`license-discuss` 2002-01・8 通を通読）は新しい論点なし（商用の利用を制限すると OSD 6 に反する・Rosen 氏、道具の使い道は作者が制限できない・Cowan 氏）
+
+- 2026-11-15 に "OSD modification regarding what license can require of"（`license-discuss` 2002-03・24 通・決める側の通と最初の通を読んだ）は §1.451 と同じ論点で新しい論点なし（OSD は禁止を並べず許可を述べるべきだった・Perens 氏、承認を取り消したことは無い・Nelson 氏）
+
+- 2026-11-15 に "OSD modification regarding what license can require of user"（`license-discuss` 2002-03・66 通・決める側の通と最初の通を読んだ）を `review-readings-6.md` §1.451 の逆側へ（使用を制限するライセンスを意図して承認したことは無い・Nelson 氏）
+
+- 2026-11-15 に "NCSA Open Source License"（`license-discuss` 2002-01・19 通・決める側の通と最初の通を読んだ）を `review-readings-6.md` §1.451 へ（理事会は OSD との整合で承認し、条項の有効性の意見は述べない・Rosen 氏、「承認する。基準は OSD だけ」・Nelson 氏）
+
+- 2026-11-15 に "Advertising Clauses in Licenses"（`license-discuss` 2002-01〜02・39 通・決める側の通と最初の通を読んだ）を `review-readings-6.md` §1.451 へ（OSD の目標はライセンスを読まずに使えること・Perens 氏、OSD は「コピーを持つなら何をしてもよい」と言うべきだった・Nelson 氏）
+
+- 2026-11-15 に "-- National Security and Public Policy (3.5B and 4)"（`license-review` 2015-09・16 通を通読）を `review-readings-2.md` §1.241 へ（OSD に文字どおり合っても OSI が承認するとは考えられないライセンスがある・Fontana 氏、既にそうなら条は要らず、そうでないなら条は悪い・Berkus 氏）
+
 - 2026-11-15 に "License-review Digest, Vol 119, Issue 14"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
 
 - 2026-11-15 に "License-review Digest, Vol 97, Issue 8"（`license-review` 2020-12・候補の外・通読）を `review-readings-2.md` §1.244 へ（承認がなぜ大事か簡潔に説明してほしい・Phipps 氏）

@@ -1,0 +1,115 @@
+Source: OSI license-discuss public archive, 2002-January.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 19 in "NCSA Open Source License" (2002-01-16)
+Senders: Lawrence E. Rosen
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Sun Jan 20 20:29:28 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Sun, 20 Jan 2002 12:29:28 -0800
+Subject: NCSA Open Source License
+In-Reply-To: <1011556752.31600.340.camel@elsschot>
+Message-ID: <00c501c1a1f1$28e4d440$585004c7@ROSENGARDEN>
+
+You asked for clarification of my earlier email about trademark
+licenses.
+
+Under trademark law, a trademark cannot be licensed by itself.  To be a
+valid license, the licensor must retain control (usually an approval
+right) over all goods or services bearing the trademark.  A licensor
+cannot simply allow his trademark to be used on third parties'
+derivative works.  Those third parties must seek separate trademark
+licenses under which the licensor will *approve* the licensee's
+derivative works after he or she reviews them for quality.  
+
+This trademark law requirement is inconsistent with the objective for
+free and open source software to be freely modifiable without additional
+permission (OSD #7).  
+
+Absent a trademark license, however, open source licensees can freely
+create derivative works. They simply cannot apply the licensor's
+trademark to those derivative works. 
+
+You asked about the trademark clauses in the AbiSource license.  As an
+attorney, I cannot comment publicly about *specific* legal issues.
+Indivuals with specific legal questions can contact their own attorney
+or contact me privately.
+
+The OSI board of directors approves licenses if they are consistent with
+the OSD.  The board renders no opinion about the validity or
+enforceability of specific clauses in specific licenses.
+
+/Larry Rosen 
+
+> -----Original Message-----
+> From: Mark Wielaard [mailto:mark at elsschot] On Behalf Of Mark Wielaard
+> Sent: Sunday, January 20, 2002 11:59 AM
+> To: lrosen at rosenlaw.com
+> Cc: license-discuss at opensource.org
+> Subject: RE: NCSA Open Source License
+> 
+> 
+> Hi,
+> 
+> On Sun, 2002-01-20 at 19:50, Lawrence E. Rosen wrote:
+> > The suggestion that the Apache Foundation create a separate 
+> trademark 
+> > license is legally not possible, at least without many more 
+> controls 
+> > over the quality of derivative works than would be 
+> acceptable by the 
+> > open source community.
+> 
+> Could you explain that a bit more?
+> 
+> Isn't this what AbiSource does. They have the following 
+> statement about their product:
+> 
+>   AbiSource software products, such as AbiWord, are copyrighted works
+>   released under the terms of the GNU General Public License (GPL).
+>   Verbatim copies of such works may be made and distributed, 
+> by anyone,
+>   in accordance with the terms of the GPL without violating the
+>   AbiSource trademarks. The GPL also grants you certain rights to make
+>   and distribute derivative works based on the source code to 
+> AbiSource
+>   products.
+> 
+>   The GPL does not grant you any right to use AbiSource trademarks in
+>   connection with these derivative works. AbiSource trademarks may not
+>   be used in connection with any such derivative works unless 
+> that usage
+>   is explicitly and specifically licensed, in writing, from SourceGear
+>   Corporation.
+> 
+>   As a specific exception, AbiSource freely licenses the use 
+> of certain
+>   of its trademarks solely in combination with the suffix "Personal"
+>   when applied to derivative works based on an AbiSource GPL product.
+>   Thus, for example, you are free to use the mark "AbiWord 
+> Personal" in
+>   connection with derivative works that are based on 
+> "AbiWord". To help
+>   maintain this distinction, AbiSource releases the sources to its GPL
+>   products with Personal-based trademarks.
+> 
+> For more information see 
+> <http://www.abisource.com/information/license/> >.
+> 
+> Is that not 
+> acceptable to the Open Source community?
+> 
+> Note that they write: "We are not evil. Our goal is very 
+> simple. We want to make sure our software stays Open Source, 
+> no matter what. That's why we chose the GPL. We also want 
+> everyone to know which products are ours. That's why we are 
+> so picky about our trademarks."
+> 
+> Cheers,
+> 
+> Mark
+> 
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

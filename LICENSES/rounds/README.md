@@ -331,6 +331,11 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-09-19 | （リスト外）| **第三者 AI レポート③ 好意的検証 → 受領** | **「クレヨン・ライセンス」の語を運んできた** ——アーカイブで実在を確認し、委員長の発言に到達した（`review-labels.md` §1.98）|
 | 2026-09-22 | （リスト外）| **ACD-1.2 草案への外部レビュー（OSI 承認準備）→ 受領** | オーナー経由。**渡されたレビュー対象が現行 `ACD-1.2-DRAFT.txt` と sha256 一致**（`1356b2b0…`）—— **この評は現行の byte に当たっている**（09-20 の 3 件は PDF 抽出で、`against.md` #167 の破損ヘッダを含む版を読んでいた）。**確定した実欠陥 1 件**: 冒頭が「1.1 と同一」と述べたまま下に 9 件の変更が並んでいた（`against.md` #207・**4 日間偽で、09-20 の 3 件は報告していない**）。**5 条の指摘のうち §6.2 / §6.3 は、勧める分離が既に本文にある** |
 | 2001-11 | `license-discuss`（観測）| **Intel's proposed BSD + Patent License → 観測保存（1of4 部）** | **特許許諾を GPL の OS に条件づけた 2001 年版が OSD 3 / 6 / 8 で争われ、承認されなかった。** 2016 年の無条件版は承認されている（`2016-01-...` を参照）。**ACD §8.2 が無条件・終了不能である理由に当たる。** |
+| 2002-01 | `license-discuss` | **観測（"Advertising Clauses in Licenses" から 1 通・Perens 氏 2002-01-20）** | `2002-01-license-discuss-advertising-perens-run-observed.txt` |
+| 2002-01 | `license-discuss` | **観測（"NCSA Open Source License" から 1 通・Rosen 氏 2002-01-20）** | `2002-01-license-discuss-ncsa-rosen-no-opinion-observed.txt` |
+| 2002-02 | `license-discuss` | **観測（"Advertising Clauses in Licenses" から 1 通・Nelson 氏 2002-02-13）** | `2002-02-license-discuss-advertising-nelson-use-observed.txt` |
+| 2002-03 | `license-discuss` | **観測（"Static v. Dynamic Linking -- redux" から 1 通・Nelson 氏 2002-03-16）** | `2002-03-license-discuss-static-dynamic-nelson-interpret-observed.txt` |
+| 2002-03 | `license-discuss` | **観測（"OSD modification regarding what license can require of user" から 1 通・Nelson 氏 2002-03-16）** | `2002-03-license-discuss-osd-modification-nelson-use-restricted-observed.txt` |
 | 2001-11 | `license-discuss`（観測）| **Intel's proposed BSD + Patent License → 観測保存（2of4 部）** | **特許許諾を GPL の OS に条件づけた 2001 年版が OSD 3 / 6 / 8 で争われ、承認されなかった。** 2016 年の無条件版は承認されている（`2016-01-...` を参照）。**ACD §8.2 が無条件・終了不能である理由に当たる。** |
 | 2001-11 | `license-discuss`（観測）| **Intel's proposed BSD + Patent License → 観測保存（3of4 部）** | **特許許諾を GPL の OS に条件づけた 2001 年版が OSD 3 / 6 / 8 で争われ、承認されなかった。** 2016 年の無条件版は承認されている（`2016-01-...` を参照）。**ACD §8.2 が無条件・終了不能である理由に当たる。** |
 | 2001-11 | `license-discuss`（観測）| **Intel's proposed BSD + Patent License → 観測保存（4of4 部）** | **特許許諾を GPL の OS に条件づけた 2001 年版が OSD 3 / 6 / 8 で争われ、承認されなかった。** 2016 年の無条件版は承認されている（`2016-01-...` を参照）。**ACD §8.2 が無条件・終了不能である理由に当たる。** |

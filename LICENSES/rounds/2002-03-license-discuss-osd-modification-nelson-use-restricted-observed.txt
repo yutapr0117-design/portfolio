@@ -1,0 +1,49 @@
+Source: OSI license-discuss public archive, 2002-March.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 67 in "OSD modification regarding what license can require of user" (2002-03-13)
+Senders: Russell Nelson
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Sat Mar 16 05:43:09 2002
+From: nelson at crynwr.com (Russell Nelson)
+Date: Sat, 16 Mar 2002 00:43:09 -0500 (EST)
+Subject: OSD modification regarding what license can require of user
+In-Reply-To: <200203151624.g2FGOcZ06822@wijiji.santafe.edu>
+References: <20020209205015.B362B9CB64@perens.com>
+	<15463.18541.181867.601368@desk.crynwr.com>
+	<20020313202007.GA19110@perens.com>
+	<200203141242.g2ECg7p06133@wijiji.santafe.edu>
+	<15504.49543.94196.814446@desk.crynwr.com>
+	<200203151624.g2FGOcZ06822@wijiji.santafe.edu>
+Message-ID: <15506.55763.302820.237051@desk.crynwr.com>
+
+Richard Stallman writes:
+ > The reason we've decided that this ASP requirement is legitimate is
+ > that it is a matter of requiring making the modified source code
+ > available in a case of public use.  It extends existing GPL
+ > requirements coherently to a new scenario of usage.
+
+We've never intentionally approved use-restricted licenses before.
+Several non-free licenses have been put before us, which had use
+restrictions (using the same justification you are currently using).
+We didn't approve those licenses.  I will vote against approving the
+GPLv3 if it imposes restrictions on users.
+
+ > It would be wrong to require publication of modified versions
+ > that are used privately, but inviting the public to use a server
+ > is not private use.
+
+I'm not sure that the GPL-using community is going to agree with you
+on this.  For example, if someone decides to distribute Linux under
+the GPLv3, and someone else runs it on a server, are they bound by the 
+GPLv3 to become a Linux distributor?  I haven't seen it, so I'm just
+speculating.
+
+-- 
+-russ nelson              http://russnelson.com | Crypto without a threat
+Crynwr sells support for free software  | PGPok | model is like cookies
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | without milk.
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   | 
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
