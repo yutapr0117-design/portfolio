@@ -89,6 +89,18 @@ quotes the nearest OSI-approved text we found.
 | §10.1: *"This Dedication imposes no condition, obligation, restriction, or requirement upon You in respect of the Work."* | 0BSD: *"Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted."* | **Nothing, in this sentence alone** — 0BSD is as unconditional. What is new is the pairing with the patent grant above: none of the three approved licences without a condition contains the word *patent* (§1.97) |
 | §7.2: *"You may extract and re-utilise the whole or any substantial part of the contents of the Work, repeatedly and systematically, without limit and without condition"* | **None that we found** names this right. CC0 1.0, which is **not** OSI-approved, lists *"database rights (such as those arising under Directive 96/9/EC"* among the rights it waives | A difference in what is **stated**, not necessarily in effect: an unrestricted permission may already reach this right. The draft uses the Directive's own verbs |
 
+**Why a new licence at all.** Bruce Perens wrote to submitters in 2018, as his own view and not
+an OSI rule, that licences *"duplicative of other licenses in their effect should not be accepted
+any longer, unless it's to meet new developments in case law or solve an obvious legal deficit."*
+ACD claims both, and only for the rows above. The deficit is the one OSI's FAQ calls CC0's most
+serious concern: a dedication that withholds patents (§8). The development is training on works
+and the reservations made against it: in December 2025 the Hamburg Higher Regional Court held,
+according to its press release, that an image agency's reservation against text and data mining
+could be attributed to the rightsholder but failed for want of a machine-readable form (*Kneschke
+v. LAION*), which is the question §6.2 settles for the Dedicator (`ACD-1.0.jurisdictions.md`
+§9a). Against this: the reservation itself comes from legislation, not case law, and we have read
+the court's press release, not the judgment; and §10.1 alone duplicates 0BSD in effect.
+
 **One definition a reader may misread.** §1.7 defines *Computational Use* to include *"the making,
 distribution, and use of any model, parameter set, weight, embedding, or output resulting from
 that processing"*. That defines acts so that §6.1 can permit them; it does not say outputs are
