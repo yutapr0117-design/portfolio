@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ADOPTING.md
 audience: anyone thinking of applying ACD to their own work
-last-updated: 2026-11-07
+last-updated: 2026-11-15
 canonical-ref: LICENSE (names the version this repository applies) / LICENSES/ACD-1.0.faq.md (the adopter's questions in full) / LICENSES/ACD-1.0.comparison.md (the alternatives) / LICENSES/ACD-1.0.against.md (the adverse record)
 ---
 
@@ -23,6 +23,14 @@ choice. Section numbers below are the same in every version unless the page says
   [FAQ A32](ACD-1.0.faq.md) before you apply it.
 - **You cannot answer a patent suit by ending the suer's rights.** Retaliation clauses are absent,
   and a competitor can take the work and still sue you (`ACD-1.0.against.md` #174).
+- **If you serve copies from your own server, read §5.2(a) first.** In the versions fixed so far
+  (1.0 to 1.3), you covenant not to *apply* any technological measure that restricts access to the
+  work. Read on its words, that reaches a rate limit, a proof-of-work check or a crawler block on
+  your own download server (errata [E82](ACD-1.0.errata.md)). The 1.4 draft drops *apply*: you may
+  put such measures on your server, and promise only not to assert rights in them or use
+  anti-circumvention law against people who get round them. That is the draft, not a fixed text;
+  until a fixed version says so, the safer course is to let a host you do not operate serve the
+  copies (`ACD-1.0.against.md` #171 reads a host's own measures as outside the covenant).
 
 ## What nobody can tell you yet
 
