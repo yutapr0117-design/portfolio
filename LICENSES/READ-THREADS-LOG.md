@@ -20,6 +20,10 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "Resources to discourage governments from bespoke licenses?"（`license-discuss` 2020-02〜03・決める側の通に絞った）を `review-readings-2.md` §1.221 へ（書いた本人が説明し、代理人はうまくいかなかった、直す意思が要る・Chestek 氏 2020。3 年後の「審査は直す場ではない」と並べた）。
+
+- 2026-11-15 に portfolio-50 の依頼で、直した版の出し方と差分の示し方を `review-readings-2.md` §1.220 へ。
+
 - 2026-11-15 に portfolio-50 の依頼で、2016 年以降の決める側の通を redline・差分・出し直し・新しいスレッドの語で探し、`review-readings-2.md` §1.220 へ（直した版は新しいスレッドで・Berkus 氏、1 つの完全な本文で・Chestek 氏、変更は番号つきの一覧で・Unicode の理由書）。会話を読んだのではないので READ-THREADS には足さない。
 
 - 2026-11-15 に portfolio-1c と portfolio-30 の依頼で、全期間の決める側の通を受益者・不行使の約束・privity の語で探し（63 通）、`review-readings-2.md` §1.219 へ（承認済みの受益者の条は licensee に守らせる向きで、受け手が約束に依拠する向きの先例は無い・Rosen 氏「知らない受益者」）。会話を読んだのではないので READ-THREADS には足さない。

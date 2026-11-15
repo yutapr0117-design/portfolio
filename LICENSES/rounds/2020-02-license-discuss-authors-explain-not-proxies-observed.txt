@@ -1,0 +1,45 @@
+Source: OSI license-discuss public archive, 2020-February.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of the messages in "Resources to discourage governments from bespoke licenses?" (2020-02)
+Senders: Pamela Chestek
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From pamela.chestek at opensource.org  Fri Feb 28 20:18:55 2020
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Fri, 28 Feb 2020 15:18:55 -0500
+Subject: [License-discuss] [Non-DoD Source] Re: Resources to discourage
+ governments from bespoke licenses?
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97CC55984E@UMECHPA7F.easf.csd.disa.mil>
+References: <d3958a2f-3f1d-4659-80ca-9921ba3f0e96@www.fastmail.com>
+ <1CE0ADD9-AB6B-4741-8A75-868ED5BA2C0A@lexpan.law>
+ <A677A9FB362B2F499BEFD6F80687FE97CC559560@UMECHPA7F.easf.csd.disa.mil>
+ <01e301d5ee64$cba95470$62fbfd50$@lexpan.law>
+ <A677A9FB362B2F499BEFD6F80687FE97CC55984E@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <ed8c0d17-3fc2-4401-2d59-a3c3ab8270cc@opensource.org>
+
+On 2/28/2020 2:05 PM, Karan, Cem F CIV USARMY CCDC ARL (USA) via
+License-discuss wrote:
+> I don't know the full reasoning behind why they couldn't participate on the list, but I do know that they were more open to talking with lawyers directly, off list.  Is that an option for you?
+Unfortunately, that's not a likely path to success. The licenses are
+discussed publicly, so the people who wrote the license are ideally the
+ones explaining it to the license-review list because they know the ins
+and outs. We've had proxies participate in the past and it doesn't go
+well. There also needs to be some willingness to modify the license
+based on feedback. The license may last to perpetuity, so it needs to be
+really well written. If it's presented to license-review as "take it or
+leave it," the outcome for a newly written license is likely going to be
+"leave it."
+
+The anonymous lawyers should think of the license-review process as a
+really great tool for improving their work product. The list does a
+great job at stress testing a license (not to mention the equanimity of
+the license steward!) and will identify problems that the original
+authors didn't think about, so that the ultimately approved license is
+much higher quality than the originally submitted license.
+
+Pam
+
+Pamela Chestek
+Chair, License Review Committee
+Open Source Initiative
