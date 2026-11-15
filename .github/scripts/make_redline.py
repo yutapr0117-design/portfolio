@@ -20,6 +20,9 @@ license-discuss へ出す。差を手で作ると、条の対応を取り違え 
 使い方 (CI では回さない。出力は投稿の日・申請の日に作り、そのとき使った commit を書き添える):
     python3 .github/scripts/make_redline.py LICENSES/ACD-1.0.txt LICENSES/ACD-1.4-DRAFT.txt > redline.txt
     python3 .github/scripts/make_redline.py --changed-only LICENSES/ACD-1.3.txt LICENSES/ACD-1.4-DRAFT.txt
+    python3 .github/scripts/make_redline.py --changed-only --context 8 LICENSES/ACD-1.0.txt LICENSES/ACD-1.4-DRAFT.txt
+        # 変わった語の前後 8 語だけを残し、間を "..." にする (list に貼れる長さへ・2026-11-15。全文の redline は 1.0→1.4 で
+        #   5,702 語あり、本体とほぼ同じ長さだった)
 """
 from __future__ import annotations
 
@@ -79,12 +82,20 @@ def map_from_10() -> dict[str, str | None]:
     return m
 
 
-def wdiff(a: str, b: str) -> str:
+def wdiff(a: str, b: str, context: int | None = None) -> str:
+    """語の差を [-旧-]{+新+} で。context を与えると、変わらない語の連なりは前後 context 語だけを残し、間を " ... " にする (出力は ASCII のまま)。"""
     aw, bw = a.split(), b.split()
     out = []
-    for op, i1, i2, j1, j2 in difflib.SequenceMatcher(a=aw, b=bw, autojunk=False).get_opcodes():
+    ops = difflib.SequenceMatcher(a=aw, b=bw, autojunk=False).get_opcodes()
+    for n, (op, i1, i2, j1, j2) in enumerate(ops):
         if op == "equal":
-            out.extend(aw[i1:i2])
+            run = aw[i1:i2]
+            if context is not None and len(run) > 2 * context + 1:
+                head = run[:context] if n > 0 else []
+                tail = run[-context:] if n < len(ops) - 1 else []
+                out.extend(head + ["..."] + tail)
+            else:
+                out.extend(run)
             continue
         if i2 > i1:
             out.append("[-" + " ".join(aw[i1:i2]) + "-]")
@@ -104,7 +115,8 @@ def label(key: str) -> str:
 
 def main(argv: list[str]) -> int:
     changed_only = "--changed-only" in argv
-    args = [a for a in argv if not a.startswith("--")]
+    context = int(argv[argv.index("--context") + 1]) if "--context" in argv else None
+    args = [a for a in argv if not a.startswith("--") and not (context is not None and a == str(context))]
     if len(args) != 2 or "-h" in argv or "--help" in argv:
         print(__doc__)
         return 0 if ("-h" in argv or "--help" in argv) else 2
@@ -147,7 +159,7 @@ def main(argv: list[str]) -> int:
         else:
             counts["changed"] += 1
             print(f"{tag}: changed")
-            print(fill(wdiff(A[old], B[key])))
+            print(fill(wdiff(A[old], B[key], context)))
             print()
     for key in A:
         if to_new.get(key) not in B:
