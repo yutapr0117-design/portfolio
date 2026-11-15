@@ -129,3 +129,18 @@ portfolio-50 の依頼（`REVISION-PROTOCOL.md` の 3.6 節の 6b で 1.4 を `l
 **逆側。** 例外は「判例の新しい展開」（case law）と書かれていて、ACD が依る EU 指令の留保は判例ではなく立法である。機械学習の著作権をめぐる判例はまだ固まっていない（§1.211 の Smith 氏・Villa 氏）。また Perens 氏は同じ通で法律家の関与を前提にしており、例外に当たるかを判断するのも法律家の読みだと考えている。
 
 **この節が establish しないこと。** Perens 氏の注意書きは OSI の規則ではない（本人が断っている）。2018 年以降、この 2 つの例外が委員会の理由書で使われたかは確かめていない。
+
+## 1.225 個々の部分に権利が在るかに関わらず作品全体に許諾する、プログラムの一部は機械の仕事 —— NOSA 2.0 をめぐる Perens 氏と Cowan 氏（2018）（2026-11-15）
+
+"NOSA 2.0 and Government licensing"（`license-review` 2018-06・`rounds/2018-06-license-review-nosa-whole-work-machine-portions-observed.txt` に 2 通）。NASA の独自ライセンス（NOSA 2.0）は、理事会が 2017 年に長さ・複雑さ・曖昧さを理由に承認も却下もできないとした（`against.md` #183）。その後の会話で、政府の作品が米国でパブリックドメインであることをどう扱うかが論じられた。通単位の未引用の会話を ACD の語の濃さで並べた最上位だった。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"There is also the matter that much of the work in computer programs is not an original work or authorship (for example, some of it is the work of a machine) and thus can not be copyrighted. These portions are in the public domain."*、*"We take care of this in our licenses by granting permissions on the entire work, whether or not we actually have rights to grant on any particular part. And yet there has been no attack of an Open Source license on a severability basis that I know of. NASA can do the same thing, and grant permissions regarding the entire work. Or alternatively they can actually dedicate the public domain works to the public domain, removing the ambiguity of where they are and are not public domain."* | Bruce Perens 氏 2018-06-20 | **有利な面（§9・強い）。** 2018 年の決める側の 1 人が、プログラムの一部は機械の仕事で著作物でないと名指し、その扱い方を「部分ごとに権利が在るかに関わらず作品全体に許諾する」「または放棄して曖昧さを除く」と書いた。1.4 草案の §9 はまさにこの形で、§9.2 は権利が無い部分には何も足さず何も取らないとし、§9.3 は受け手がどの部分が機械の生成かを決めなくてよいとし、§3 は放棄、§4 は作品全体への許諾である。§1.207（米国政府の作品・Smith 氏）と同じ線の、機械の仕事を明示した版 |
+| *"U.S. government-created software … is in the public domain in the U.S. only. In all other jurisdictions, it is fully protected by U.S. and foreign copyright. So a license is required to cover the remaining 98% of the planet, and this license has to be a single integrated instrument, not the disjunction of two potentially severable licenses."* | John Cowan 氏 2018-06-20 | **両面（B4）。** 有利: 一方の法域で権利が無くても他では在り、許諾が要るという形は、ACD が §3 と §4 を並べる理由と同じ。注意: Cowan 氏は「1 つに統合された文書」であって「切り離しうる 2 つのライセンスの並び」でないことを求めた。ACD は 1 つの文書だが、§2.4 は §3・§4・§5・§6 を互いに独立させ、§4.4 は許諾を放棄から独立させる。独立を「切り離しうる並び」と読む審査者には B4（放棄と許諾が並ぶ構造）の懸念に見えうる。ACD の答えは、独立は「一方が倒れても他方が立つ」ためで、受け手から見て 1 つの文書の 1 つの効果だということ |
+
+**読み。** 2018 年の 2 人は、権利の無い部分（政府の作品・機械の仕事・機能的な部分）を含む作品の扱い方を 2 つ示した。作品全体に許諾する（Perens 氏）か、放棄して曖昧さを除く（同）か、そして許諾は 1 つの統合された文書で（Cowan 氏）。ACD は両方を 1 つの文書に持つ。
+
+**逆側。** Perens 氏は「または」と書いた ——全体への許諾か放棄かの一方で足りる、という読みもでき、両方を持つ ACD は余分と見られうる（B3）。Cowan 氏の「切り離しうる 2 つの並びでなく」は、ACD の §2.4 の独立の書き方への疑問として当たりうる。NOSA 2.0 自体は長さと複雑さで止まった（#183）ので、この会話の 2 人の形を持っていても長さの問題は別に残る。
+
+**この節が establish しないこと。** Perens 氏の「機械の仕事」は 2018 年の文で、今の生成 AI を念頭に置いたものではない。「切り離しうる」が §2.4 の独立を指すかは、Cowan 氏は述べていない（NOSA の文脈）。

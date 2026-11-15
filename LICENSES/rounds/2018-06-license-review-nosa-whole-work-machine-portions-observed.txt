@@ -1,0 +1,76 @@
+Source: OSI license-review public archive, 2018-June.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 2 of the messages in "NOSA 2.0 and Government licensing" (2018-06)
+Senders: John Cowan, Bruce Perens
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From cowan at ccil.org  Wed Jun 20 17:18:36 2018
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 20 Jun 2018 13:18:36 -0400
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving
+ to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <CAK2MWOsW2JRK1Vp6YQn4z9=+_G0z9zirMSs1DqXmde+=Vr5iCA@mail.gmail.com>
+References: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil>
+ <CAK2MWOsW2JRK1Vp6YQn4z9=+_G0z9zirMSs1DqXmde+=Vr5iCA@mail.gmail.com>
+Message-ID: <CAD2gp_RZO41V1XYrtLQxDqdXuhe4FHUz30O7vjXNfMNFzsMyNA@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 11:01 AM, Bruce Perens <bruce at perens.com> wrote:
+
+Simply having the software be in the public domain and available in
+> source-code form is sufficient to comply with the OSD, if you don't attempt
+> to add contractual terms.
+>
+
+Alas, things are not so simple.  U.S. government-created software (or other
+copyrightable materials) is in the public domain in the U.S. only.  In all
+other jurisdictions, it is fully protected by U.S. and foreign copyright.
+So a license is required to cover the remaining 98% of the planet, and this
+license has to be a single integrated instrument, not the disjunction of
+two potentially severable licenses.
+
+-- 
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+A rabbi whose congregation doesn't want to drive him out of town isn't
+a rabbi, and a rabbi who lets them do it isn't a man.    --Jewish saying
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/eb7929f9/attachment.html>
+
+From bruce at perens.com  Wed Jun 20 17:49:21 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 20 Jun 2018 10:49:21 -0700
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving
+ to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <CAD2gp_RZO41V1XYrtLQxDqdXuhe4FHUz30O7vjXNfMNFzsMyNA@mail.gmail.com>
+References: <A677A9FB362B2F499BEFD6F80687FE97CC1E8EE7@UMECHPA7F.easf.csd.disa.mil>
+ <CAK2MWOsW2JRK1Vp6YQn4z9=+_G0z9zirMSs1DqXmde+=Vr5iCA@mail.gmail.com>
+ <CAD2gp_RZO41V1XYrtLQxDqdXuhe4FHUz30O7vjXNfMNFzsMyNA@mail.gmail.com>
+Message-ID: <CAK2MWOs8=j7V0CaM8JQ=4Df14_yNqAmUSxWjmCdkU46BSv6_yw@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 10:18 AM, John Cowan <cowan at ccil.org> wrote:
+
+>
+> In all other jurisdictions, it is fully protected by U.S. and foreign
+> copyright.
+>
+
+People are discussing this as if the problem was unique to NASA or the
+United States Government. Not so. In reality, it effects every Open Source
+program and all Open Source copyright holders. 17 USC 102(b) disallows the
+application of copyright to functional things, and there is much text in
+every program that is thus not subject to copyright. There is also the
+matter that much of the work in computer programs is not an original work
+or authorship (for example, some of it is the work of a machine) and thus
+can not be copyrighted. These portions are in the public domain.
+
+We take care of this in our licenses by granting permissions on the entire
+work, whether or not we actually have rights to grant on any particular
+part. And yet there has been no attack of an Open Source license on a
+severability basis that I know of. NASA can do the same thing, and grant
+permissions regarding the entire work. Or alternatively they can actually
+dedicate the public domain works to the public domain, removing the
+ambiguity of where they are and are not public domain.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/9d6cfcb4/attachment.html>
