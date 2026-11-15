@@ -293,6 +293,8 @@ McCoy 氏の上記発言に正面から当たる。**§4c は既にその危険�
 *"None of these substitute for legal review. They only mean that the failures a machine can find
 are not present."* **この 1 文を落としてはならない。**
 
+**2026-11-15 に足した（2 つ目）—— 承認済みのライセンスの取り下げを論じた 2013 年の会話で、法律家の関与について決める側が両側を書いた。** "what would de-listing of licenses look like?"（`license-discuss` 2013-03・`review-readings-2.md` §1.234・portfolio-2f）。**有利な面**: Richard Fontana 氏 2013-03-07 *"you don't need to be, or to get, a lawyer to interpret the OSD (more precisely, lawyers and non-lawyers are equally competent to interpret the OSD)."* **不利な面**: Bruce Perens 氏は取り下げの候補に *"the "crayon" licenses, mostly, those written without legal counsel"* を挙げ、*"It isn't the least bit difficult to diagnose when no lawyer was involved in drafting a license."* と書いた —— Berkus 氏 2020（法律家の声だけが数えられる）・Piana 氏 2024（法律家の目の形跡を探す）・Chestek 氏 2026（この複雑さは専門家の起草が要る）と同じ側の文である。**逆側**: 会話は承認済みのものの取り下げについてで、承認の基準ではない。Fontana 氏の文は OSD の**解釈**についてで、本文の**起草**の質についてではない（Perens 氏の文はまさに起草の質を言っている）。会話の発端は、Fontana 氏自身が過去の承認を *"approved "in haste""* と書いたことだった。
+
 **2026-11-15 に足した —— 法律家が起草した文書に、ACD の 3 つの条と同じ並びが在る（起草の先例・承認の先例ではない）。** Open Web Foundation Agreement 1.0 は、約束が後継者を縛ること（3.1.3）、倒産法 365(n) の目的で約束を許諾として扱うこと（3.1.4）、約束を迂回しないこと（6）を持ち、ACD の §2.8（承継）・§2.9（倒産で止まらない）・§5.1（訴えない約束）とほぼ同じ並びである（Lawrence Rosen 氏の `license-discuss` 2013-08-18 の引用・`review-readings-2.md` §1.227・portfolio-2f）。B1 に対して言えるのは「法律家の確認は無いが、同じ問題に法律家が出した答えの形をなぞっている」までである。**逆側**: OWFa は仕様への貢献のための合意で OSI が承認したライセンスではなく、3.1.4 の「約束を許諾として扱う」文を ACD は持たない（本文が法の分類を決める形を避けた・`QUESTIONS-FOR-COUNSEL.md` 問 8 の 2 つ目の問い）。形が似ていることは、効果が同じことの証拠ではない。
 
 ### B2（実使用 1 件）——**作れない。制御できるのは discoverability だけ**
