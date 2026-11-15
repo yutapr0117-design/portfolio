@@ -954,3 +954,23 @@ After: It does not apply this Dedication to material that a narrower notice the 
 **変えない理由**: (a) §1.2（1.0 では §1.6）は列挙の後を *"and any other right of a personal character conferred on an author by law"* と続ける。*other* は、起草者が列挙の 3 つを「人格的な性質の権利」と考えていたことを示し、財産権としての公表の支配（米国の §106(3)）は Covered Right のまま三つの足場に入る、と読める。人格的な公表権（*droit de divulgation*・UrhG 12 条）だけが §12 へ行く。(b) 重さが小さい: 献呈した Work は普通すでに公表されている（§2.2 の *"made available"*）ので、最初の公表の支配が問題になるのは未公表のまま適用する場合だけで、その場合も §12.1 が *"to the fullest extent permitted"* で放棄するので、米国での結果はほぼ同じになる。(c) 直すなら §1.2 の列挙を *"rights of a personal character conferred on an author by law, including the rights to be identified …, to object …, and to control first publication"* の形に組み替えることになり、1.0 から在る定義の語順を大きく動かす（1.3 との差として list に出す版で、定義の組み替えは読み手の費用が大きい）。
 
 **⚠ 逆側（50 の反例）**: *ejusdem generis* は「特定の列挙の後の一般語を、列挙と同じ種類に狭める」規範で、向きは一般語を狭めることであり、特定の列挙そのものを一般語の性質で狭める規範ではない。だから (a) から言えるのは「起草者は列挙を人格的と考えていた」という推論までで、*"to control first publication"* という特定の語を人格的なものに限らせる力は弱い。特定の語は語どおりに効かせる（余剰を避ける）と読む審査者は、米国の財産的な公表の支配も Moral Right に入ると読みうる。1.0 から同じ文で、欠陥とは判断しないので errata にも SELF-AUDIT にも入れず、この記録と逐条リファレンスの §1.2 の行に置く。
+
+### 14.42 1.3 → 1.4 の差を審査者の目で読んだ —— 消した語が反対解釈の材料になるか（本文の変更なし・2026-11-15）
+
+**レンズ**: §14.40 の教訓（差として出す版では、消した語に消した意味が探される）を、1.4 のすべての変更に当てた。portfolio-9b の `make_redline.py --changed-only`（`ACD-1.3.txt` → 草案・2026-11-15 の main）で削除の印 94 箇所を出し、2 語以上の削除をすべて読んで、「消したことが、範囲を狭めた／広げたという読みの材料になるか」と「その理由が記録に在るか」を当てた。
+
+| 削除 | 条 | 差だけを読む人が引きうる推論 | 意図と記録 |
+| :-- | :-- | :-- | :-- |
+| *"apply, or"* | §5.2(a) | Dedicator は技術的な手段を掛けてよくなった | **意図どおり**（T64・errata E82・§14.36）。GPL-3.0 §3 と同じ形 |
+| *"in full"*（*"Sections 3 to 8 and Section 12 apply to it in full"* → *"this Dedication applies to it"*）| §9.2 | 機械生成物に権利が成り立つとき、献呈は一部しか当たらない | **意図と違う推論**。*in full* は §15.1 と組んで §11.4 の *"It reaches nothing else"* と §12 の限りを越えて読まれうるので外した（E72・§14.15）。「一部」ではなく「この Dedication が当たる限りで当たる」である |
+| *"because such a threshold would be a condition and Section 10.1 permits none"* | §8.4 | 閾値を課さない理由が変わったので、条件を課しうるようになった | **意図と違う推論**。閾値を課さないことは変わらず、理由を「You が越えたかを判定できない（§6.5）」へ替えた（CHANGELIST の §8.4 の行）。§10.1 は変わらない |
+| *"Where a licence granted by Section 8.1 or Section 8.4 is held ineffective …"* | §8.6 | —— | 広げた（全法域で働く約束へ・E42）。推論は意図どおり |
+| *"Copyright is protected here three times over …"* などの理由・説明の文 | §2.8・§8.4・§8.6・§11.4・§12.4 | 説明を外したので、その作用もやめた | **意図と違う推論**。作用の文は残し、理由の文だけを外した（T54 ほか・CHANGELIST の「理由・説明の文を外したもの」−240 語）|
+| *"in whole or in part"* | §1.3 | 一部だけに適用することができなくなった | 意図どおりの限定（E61: 一部への適用が全体を Work にする読みを閉じた）。一部への適用は §16.2 の通知の範囲が扱う |
+| *"the form "ACD-N" or "ACD-N.N""* ほか §16.4 の語 | §16.4 | —— | 広げた（E76・E77・T44〜T50）。推論は意図どおり |
+
+ほかの削除（1〜数語の語の付け替え、*"click- through"* の改行、版番号と識別子の 1.3 → 1.4）は、差を読む人に範囲の推論を与えない。
+
+**結果**: 本文の欠陥は 0。ただし**「意図と違う推論」の 3 行（§9.2 の *in full*・§8.4 の閾値の理由・理由の文を外したこと）は、差だけを読む審査者が狭めた・条件を足したと読みうる**。答えは本文ではなく、オーナーが list に出す差（段 6b）に添える短い注に置くのが安い —— 3 行それぞれに「何を外し、作用は何が持つか」を 1 文で（portfolio-50 へ渡した）。
+
+**⚠ 逆側**: 削除だけを読み、追加（*{+…+}*）は読んでいない。追加が別の条の語を狭く読ませる型（§3za の一般形）は、このレンズでは出ない。2 語以上の削除に限ったので、1 語の削除（*apply* の対の *or* など）で範囲を動かすものは、上の *apply, or* のように 2 語にまとまる場合しか拾えていない。
