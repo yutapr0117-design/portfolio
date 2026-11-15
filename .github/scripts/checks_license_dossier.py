@@ -599,6 +599,11 @@ def run(ctx):
     _files476 = sorted((ROOT / "LICENSES").glob("*.md")) + sorted((ROOT / "docs" / "files" / "LICENSES").glob("*.md"))
     for _f476 in _files476:
         for _i476, _l476 in enumerate(_f476.read_text(encoding="utf-8").split("\n"), 1):
+            # 第三者の逐語 (*"…"* の italic 引用) の中の数は我々の申告ではないので読まない (2026-11-15・2f の報告):
+            #   Berkus 氏の *"review the over 200 approved licenses already in the OSI catalog"* を 200 本の申告と読み、
+            #   逐語を省略記号で削らせていた。逐語は改変しないのが規律で、Check が引用を書き換えさせてはならない。
+            #   我々自身の英文 (> の下書き・本文) は *"…"* で囲わないので、照合は残る
+            _l476 = re.sub(r'\*"[^"\n]*?"\*|\*“[^”\n]*?”\*', lambda _q: " " * len(_q.group(0)), _l476)
             for _p476 in _pats476:
                 for _m476 in _p476.finditer(_l476):
                     if int(_m476.group(1)) not in _ok476:
