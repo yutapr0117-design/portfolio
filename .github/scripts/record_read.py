@@ -13,6 +13,8 @@ Check 498 (h) は AS-OF の件数を READ-THREADS と THREAD-CANDIDATES から�
         --start 2018-06-04 --subject "Some notes for license submitters" \\
         --entry '"Some notes for license submitters"（`license-review` 2018-06）を `review-readings-2.md` §1.224 へ（…）'
     --no-thread を付けると (1) を飛ばす (会話を読んだのではなく、通だけを引いたとき・件数は動かない)。--dry-run は書かない。
+    --log-only は AS-OF の直近の 1 件を動かさず、LOG にだけ 1 項目を足す (読んだが新しい論点の無い会話をまとめた項目など・
+    件数は直す)。候補の数が変わったら (候補の外の会話を読んだとき)、項目の末尾に「候補は X → Y」を書き足す (2f の依頼)。
 """
 from __future__ import annotations
 
@@ -35,6 +37,8 @@ def main(argv: list[str]) -> int:
     ap.add_argument("--start", help="会話の始まりの日付 (census の start・READ-THREADS の行の日付)")
     ap.add_argument("--subject", help="件名 (アーカイブのとおり)")
     ap.add_argument("--no-thread", action="store_true", help="会話を読んだのではない (READ-THREADS に足さない)")
+    ap.add_argument("--log-only", action="store_true",
+                    help="AS-OF の直近の 1 件は動かさず、LOG にだけ 1 項目を足す (新しい論点の無い会話をまとめた項目など・件数は直す)")
     ap.add_argument("--date", default=datetime.date.today().isoformat())
     ap.add_argument("--dry-run", action="store_true")
     o = ap.parse_args(argv)
@@ -76,14 +80,21 @@ def main(argv: list[str]) -> int:
         print("STOP: AS-OF.md の「未読スレッドの残り」のセルの形を読めない (形が変わったなら道具を直す)")
         return 1
     old_recent = cell.group(3)
+    old_n = int(re.search(r"\*\*候補 (\d+) 本", cell.group(0)).group(1))
+    entry = o.entry
+    if int(n) != old_n:
+        # 候補の外の会話を読むと census は読んだ会話を母数に入れ、N と M が同じだけ増える (K は動かない)。
+        #   2f はそれを直近の文に手で書き足していた (2026-11-15 の依頼) ので、道具が書く
+        entry += f"（候補は {old_n} → {n}・読んだので母数に入った）"
+    recent = old_recent if o.log_only else f"{o.date} に {entry}"
     new_cell = (f"| **未読スレッドの残り** | **{o.date} · {cell.group(2)}** | **候補 {n} 本のうち {read} 本を読んだ。"
-                f"{unread} 本は読んでいない**（直近の 1 件: {o.date} に {o.entry}）。 **それより前の")
+                f"{unread} 本は読んでいない**（直近の 1 件: {recent}）。 **それより前の")
     at2 = at[:cell.start()] + new_cell + at[cell.end():]
     # (4) LOG の先頭へ前の直近を下ろす
     lg = L / "READ-THREADS-LOG.md"
     lt = lg.read_text(encoding="utf-8")
     heading = f"## {o.date} の読了（新しいものが上）"
-    item = f"- {old_recent}\n\n"
+    item = f"- {o.date} に {entry}\n\n" if o.log_only else f"- {old_recent}\n\n"
     if heading in lt:
         i = lt.index(heading) + len(heading)
         i = lt.index("\n\n", i) + 2
@@ -94,7 +105,7 @@ def main(argv: list[str]) -> int:
         lt2 = lt[:at_] + heading + "\n\n" + item + lt[at_:]
     print(f"READ-THREADS: {'足さない (--no-thread)' if o.no_thread else row}")
     print(f"AS-OF: 候補 {n} 本のうち {read} 本を読んだ。{unread} 本は読んでいない")
-    print(f"LOG の先頭へ下ろす: {old_recent[:100]}…")
+    print(f"LOG の先頭へ: {item[2:102]}…" + ("" if o.log_only else " (前の直近の 1 件を下ろす)"))
     if o.dry_run:
         print("dry-run: 何も書かない")
         return 0
