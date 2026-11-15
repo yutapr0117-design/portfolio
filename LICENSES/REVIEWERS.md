@@ -92,14 +92,18 @@ quotes the nearest OSI-approved text we found.
 **Why a new licence at all.** Bruce Perens wrote to submitters in 2018, as his own view and not
 an OSI rule, that licences *"duplicative of other licenses in their effect should not be accepted
 any longer, unless it's to meet new developments in case law or solve an obvious legal deficit."*
-ACD claims both, and only for the rows above. The deficit is the one OSI's FAQ calls CC0's most
+ACD's claim is that it is not duplicative (the table above); these two exceptions are a second
+line, not the claim itself. The deficit is the one OSI's FAQ calls CC0's most
 serious concern: a dedication that withholds patents (§8). The development is training on works
 and the reservations made against it: in December 2025 the Hamburg Higher Regional Court held,
 according to its press release, that an image agency's reservation against text and data mining
 could be attributed to the rightsholder but failed for want of a machine-readable form (*Kneschke
 v. LAION*), which is the question §6.2 settles for the Dedicator (`ACD-1.0.jurisdictions.md`
 §9a). Against this: the reservation itself comes from legislation, not case law, and we have read
-the court's press release, not the judgment; and §10.1 alone duplicates 0BSD in effect.
+the court's press release, not the judgment; §10.1 alone duplicates 0BSD in effect; and the same
+message says *"If you have not made use of an attorney in drafting your license, you are very
+unlikely to understand how the courts would actually execute your license."* No lawyer drafted
+this one.
 
 **One definition a reader may misread.** §1.7 defines *Computational Use* to include *"the making,
 distribution, and use of any model, parameter set, weight, embedding, or output resulting from
