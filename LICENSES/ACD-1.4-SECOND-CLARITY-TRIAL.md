@@ -874,3 +874,35 @@ After: It does not apply this Dedication to material that a narrower notice the 
 **portfolio-30 の反例（2026-11-15）**: T61 は立たない（直前の *"that this Dedication does not itself impose"* と名指しでそろう）。T62 は上の (2) で形が替わった。
 
 **依頼**: portfolio-50 に反例（*"distributed under that exception"* が下書き（*a draft identified as such*）を含むか —— 含むなら下書きも誰でもそのまま配れることになり、下書きと明示されている限り害は無いと読む）を、portfolio-9b に `--compare / --guard` を頼む。
+
+### 14.35 §16.4 と抜粋・注釈、§1.7 と「出力を作品の側へ引き寄せる定義」（2 件とも変えない・2026-11-15）
+
+**(1) 抜粋と注釈（portfolio-30 の反例・T63 として検討）**: 抜粋は一部を落とした本文で、§16.4 は改変した本文を *"any name that contains"* 名前の下で配ることを禁じる。license-review の審査者が条文を抜粋して批評を挟んだメールを件名 *"[License-review] … Autonomous Commons Dedication 1.4 …"* で送ると、語どおりなら審査という行為そのものが禁止に当たる、と読める。法律事務所の *"Annotated Autonomous Commons Dedication"*、ブログの *"A critique of the Autonomous Commons Dedication"* も同じ。T44・T50 で名前の肢を *"any name that contains"* に広げたので、1.4 で強くなった（1.0〜1.3 は *"under the name"*）。30 の案は翻訳の文の前に *"Quoting part of the text in a work that does not present itself as a text of this Dedication is not distributing a modified text."*（+22 語）を足す形。
+
+**変えない理由**: (a) 批評や注釈は、本文の語を引く別の著作物であって、§16.4 の主語 *"A modified text"*（この Dedication の本文を改変したもの）とは普通は読まない。名前の肢が広がっても、主語が広がったわけではない。(b) 比べる先がある: GPL-3.0 の *"Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed."* は §16.4 より強い（名前を問わず改変そのものを禁じる）が、GPL の本文を引いて批評する者がこの文に当たると論じた記録を、`license-discuss` と `license-review` の全 508 か月（`~/osi-archive-cache`）で *"copyright (on|in|of) the license text"* と *"quot(e|ing) the license"* の語で探して見つけなかった（ライセンス本文の著作権を論じた文は 2 件あり、どちらも本文を改変して別のライセンスを作る話だった）。(c) 引用は、米国の fair use とベルヌ条約 10 条の引用の権利が本文に関わらず支える。(d) +22 語は B3（長さ）に効き、GPL-3.0 より題名から短いという余裕（71 語）の 3 割を使う。
+
+**⚠ 逆側**: (1) 注釈書が本文の全文を語を変えずに載せて注を挟む形は、「本文に注を足したもの」とも読め、(a) の読みが最も弱い。そこで止まる審査者がいれば、30 の文の短い形（*"Quoting or annotating the text is not distributing a modified text."*・+11 語）を採る。(2) (b) は「探して見つからなかった」で、語の一覧に無い言い方は漏れうる。(3) 30 が退けた代案（主語を *"a modified text presented as a text of this Dedication"* に限る）は、T44 が塞いだ *ACD Plus* を「別のライセンスでこの Dedication の本文ではない」と言って抜ける読みを戻すので、どの形でも採らない。
+
+**(2) §1.7 の定義（portfolio-2f・`review-readings.md` §1.202 から）**: TRPL v1.0（2025-12）の議論で、Perens 氏は出力（モデルの重みなど）を派生物と「みなす」条を使用の制限と呼び、Chestek 氏は派生物でないものを派生物と呼ぶことを解釈の問題と書いた。§1.7 は Computational Use の定義に *"the making, distribution, and use of any model, parameter set, weight, embedding, or output resulting from that processing"* を含むので、§1.7 だけを読む審査者には同じ型（出力を作品の側へ引き寄せる定義）に見えうる、という 2f の指摘。2f の案は §1.7 の末尾に *"; this definition does not treat any such thing as derived from the Work (Section 6.4)"* 相当の一文。
+
+**変えない理由**: (a) §1.7 は行為の定義で、物の分類ではない。モデルを作り、配り、使う行為を Computational Use に入れるのは、§6.1 がそれらを許し、§8.4 がそれらに特許の許諾を与えるためで、TRPL の「みなし」とは向きが逆である（TRPL はみなして条件を掛け、ACD は行為に入れて許す）。(b) *derived* の語を使わず *resulting from* を使うのは E47 で §6.4・§8.4 とそろえた結果で、派生物の法的な性質を述べない。(c) §6.4 が *"Whether a right subsists in any such thing is not decided here and does not need to be."* と、まさに Chestek 氏の言う「辞書を作る」ことを避けている。定義に「派生物として扱わない」と書くと、扱うかどうかを本文が決める形になり、§6.4 の「決めない」と向きが食い違う。(d) 語数。
+
+**⚠ 逆側**: 審査者は定義から読む。§1.7 で止まる読み手には (a) の区別は見えない。その読み手に答えるのは本文ではなく、逐条リファレンスの §1.7 の行と `REVIEWERS.md` で、そこに TRPL との違いを 1 文で置くのが安い（提出面の作業として 2f と 50 に渡す）。§1.202 の「同じ型に見えうる」は、§1.7 だけを読んだ場合に限れば過剰ではない —— ただし「同じ型である」とは書かない。
+
+### 14.36 T64: §5.2(a) から *"apply, or"* を外す（−2 語・採った・2026-11-15）
+
+**見つけた経緯（portfolio-30・errata E82）**: Dedicator が自前のサーバ（forge やダウンロードの頁）で Work の写しを配り、AI クローラの負荷に対してレート制限、proof-of-work、UA の遮断を入れると、§5.2(a) *"apply … any technological measure that restricts access to or use of the Work"* に語どおり当たる。§5.2 末文の除外は「写しを渡さずに Work を動かすサービス」だけなので、写しを配るサーバは外れない（E68 の推論 API とは別の場面）。自前の forge を持つ大きなプロジェクトは B2 で最も欲しい採用者で、「自分のサーバを守れなくなる」と読めるライセンスは採らない（2025 年にそうしたプロジェクトが防御を入れたことは報道による。このリポジトリでは一次資料を取っていない）。同じ語は、有料のダウンロード窓口も「アクセスを制限する技術的手段」に当て、§5.1 の *"a payment You agreed to make"* と食い違う。
+
+**Before**: *"(a) apply, or assert rights in respect of, any technological measure that restricts access to or use of the Work, or invoke against You any law concerning the circumvention of such measures;"*
+
+**After**: *"(a) assert rights in respect of any technological measure that restricts access to or use of the Work, or invoke against You any law concerning the circumvention of such measures;"*
+
+**最初の案（1c）と 30 の反例**: 最初は目的語を *"a copy of the Work that You hold"* に絞る案（+5 語）とした。(a) の対は回避法で目的は写しに掛かる DRM であり、Dedicator には配る義務がそもそも無い（サーバを閉じてもよい）ので、配る窓口の負荷対策は (a) の問題ではない、という読み。30 の反例: Dedicator がアプリを App Store で配ると、ストアの DRM が手元の写しの使用を制限し、Dedicator がそこへ出すことは *apply* に当たりうる。絞った形でも「手元の写しの使用の制限」なので残り、モバイルの開発者が採れない（VLC と GPLv3 の件と同じ型だが、ACD は作者自身を縛る）。30 の代案が *apply, or* を外す形である。除外を足す形（*"or a measure that limits the load on a system the Dedicator operates, where a copy of the Work remains obtainable …"*・約 +22 語）は、名指さないサーバ側の手段（TLS、管理画面の認証）が (a) に入ると読ませる（*expressio unius*）ので採らなかった。
+
+**作用**: Dedicator は手段を掛けてよい（負荷対策、有料の窓口、ストアの保護）が、その手段について権利を主張せず、回避の法を You に向けない。GPL-3.0 §3 も DRM を掛けることは禁じず、回避を禁じる法的な力を放棄させる（*"you waive any legal power to forbid circumvention of technological measures"*）—— OSI が承認した先例と同じ形になる。目的語は *the Work* のままなので、写しに限る語が作る分岐（手元か、配る前か、暗号化した写しと別の鍵か）を作らない。回避は Dedicator に対して自由であり、§5.1 第 2 文（許された使用についての請求をしない）も、写しを得る行為への請求を塞ぐ。
+
+**⚠ 逆側**: (1) DRM 付きの写ししか出さない Dedicator も許される。§6 の目的（機械が学べること）は「法的に止められない」ことで保たれるが、「技術的に妨げない」約束は無くなる。(2) T31（2026-11-08）は「写しを渡す入口を (a)(b) の中に残す」選択だった。この変更で、登録も条件も無い API キーだけのゲートは (a) の外に出る（(b) は義務が無いので当たらない）—— Dedicator には配る義務が無く、選んで配ることは OSD の問いではない、と読んで覆す。登録や条件付きのダウンロードは (b) が引き続き止める。(3) *apply* を外すと、§5.2 末文の除外（*"the terms or measures the Dedicator applies"*）のうち *measures* の部分の働きが薄くなる（権利の主張の側にはまだ働く）。(4) 回避法の肢は *such measures* のままなので、Dedicator 自身のサーバの防御（proof-of-work など）の回避に回避法を使わない約束も残る。§3 の放棄で保護される著作物が無い法域では回避法が当たりにくいが、当たる法域では Dedicator は自分のサーバの防御の回避に対しても権利を行使できない —— サーバの防御を守る手段は、回避法ではなく不正アクセスの法になる。
+
+**審査記録（portfolio-2f が決める側の通を全期間で grep した・*anti-DRM / technological measure / circumvent / DMCA*）**: (1) Berkus 氏は CAL の審査で、CAL の 4.2.3 節 *"No Legal or Contractual Measures that Limit Access"* に *"Do we need an exemption here for government action? Not everyone has a choice about some of these laws (like anti-circumvention)."* と書いた（`license-review` 2019-08-19）。*apply* を約束から外すと、法が手段を義務づける場面（輸出規制、法定の保護）で Dedicator が約束を破る形も無くなる —— T64 を支える材料。(2) Chestek 氏は AGPL の回避条項を改めた提出に、*"Your revision to this concept limits the restriction to only the licensor, someone who is unlikely to impose DRM."* と書いた（`license-review` 2026-04-14・Project Tick）。§5.2(a) はもともと licensor だけを縛る形で（ACD は下流を縛らない。縛れば §10.1 の条件になる）、Chestek 氏の基準では効き目の小さい側にある。T64 で狭める費用は小さいと読む根拠になる一方、**逆側**として「(a) はそもそも語数（B3）に見合うか」という問いも立つ —— (a) を丸ごと外す案（−27 語ほど）は、§6 の「機械が学べる」約束の機械可読面と回避法の放棄を失うので、この試作では採らない。逐語は rounds に置かれていない（2f が置く PR を出すかどうかは 2f の判断）。
+
+**依頼**: portfolio-50 に反例（特に (4) と、§5.2 末文の *measures* の残り方）を、portfolio-9b に `--compare / --guard` を頼む。
