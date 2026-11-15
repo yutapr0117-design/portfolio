@@ -244,6 +244,7 @@
 2004-05-17	FYI: Next draft of MySQL FLOSS license exception
 2004-05-24	For approval: wxWindows-to-wxWidgets license name change
 2004-06-04	Creative Commons Attribution
+2004-06-04	Dual licensing
 2004-06-07	For Approval: Educational Community License
 2004-06-11	KDE violates IBM patent
 2004-06-14	OSD #6 (fields of endeavor) and research vs commercial rights
@@ -837,6 +838,7 @@
 2020-05-15	What does "appropriate standing" in the review process mean?
 2020-05-16	veto against Unlicense
 2020-07-27	Feedback about fair-code model
+2020-08-17	A modest proposal to reduce the number of BSD licenses
 2020-10-09	license review request
 2020-10-16	License-review Digest, Vol 95, Issue 10
 2020-10-16	License-review Digest, Vol 95, Issue 7

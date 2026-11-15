@@ -18,6 +18,12 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 **新しく読んだら**: この一覧の先頭に 1 件を足し、`AS-OF.md` のセルの「直近の 1 件」と件数を入れ替える。
 件名は同じ commit で `READ-THREADS.txt` にも足す（census が「読んだ」と数えるのはそちらだけ）。
 
+## 2026-11-16 の読了（新しいものが上）
+
+- 2026-11-16 に "Dual licensing"（`license-discuss` 2004-06〜・通読）。商用の利益の分配と二重ライセンスの議論で、ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "A modest proposal to reduce the number of BSD licenses"（`license-discuss` 2020-08・通読）。BSD の変種を 1 つに寄せる提案で、ACD に当たる新しい論点は無かった（節は立てない）
+
 ## 2026-11-15 の読了（新しいものが上）
 
 - 2026-11-15 に "time frame between request for approval and acknowledgement of request?"（`license-discuss` 2002-11・9 通を通読）を `review-readings-6.md` §1.454 へ（OSI は法律の観点からライセンスを評価しない、承認を法的な祝福と扱うな・Rosen 氏、議論の多いライセンスに注意を早く向ける案・Rosen 氏、提出の下見・Nelson 氏）
