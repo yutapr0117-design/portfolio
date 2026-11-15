@@ -428,10 +428,15 @@ def threads(out):
     print(f"READ-THREADS の行で、日付が会話の始まりと違う {len(off)} 行（日付を含む会話に当てた）" + ("" if not off else ""))
     for o in off:
         print(f"  {o}")
-    print(f"一覧 (THREAD-CANDIDATES.txt) に無い候補の会話 {len(new)} 件・日付が会話の始まりでない一覧の行 {len(stale)} 行"
+    # 新しい候補のうち、閾値では候補の外で、読んだので母数に入った会話 (2026-11-15・2f の問い): 読むと N と M が同じだけ
+    #   増え K は動かない。N の増加を「候補が見つかった」と読まないよう、2 つを分けて出す
+    inflow = [r for r in new if is_read(r) and r["dossier_hits"] >= 8]
+    print(f"一覧 (THREAD-CANDIDATES.txt) に無い候補の会話 {len(new)} 件 (うち閾値では候補の外で、読んだので母数に入った "
+          f"{len(inflow)} 件・N と M が同じだけ増え K は動かない)・日付が会話の始まりでない一覧の行 {len(stale)} 行"
           + ("（--pin で一覧を作り直した）" if "--pin" in sys.argv and (new or stale) else "（--pin で一覧を作り直す）" if new or stale else ""))
     for r in sorted(new, key=lambda r: r["start"])[:20]:
-        print(f"  新: {r['start']}\t{r['title']}  (通 {r['messages']}・決める側の語 {r['decider_words']}・ドシエの語 {r['dossier_hits']})")
+        how = "読んで入った" if r in inflow else "新"
+        print(f"  {how}: {r['start']}\t{r['title']}  (通 {r['messages']}・決める側の語 {r['decider_words']}・ドシエの語 {r['dossier_hits']})")
     # 候補の外 (ドシエの一致が閾値以上) で、決める側の通のうちドシエが 1 語連鎖も引いていない通を持つ会話
     #   (2026-11-15・2f の相談に 9b が (a) を選んだ)。母数 (候補・読了・AS-OF の数) は動かさない —— 会話を読んだかでなく、
     #   どの通をまだ引いていないかの一覧で、READ-THREADS に足すかは人が読んで決める
