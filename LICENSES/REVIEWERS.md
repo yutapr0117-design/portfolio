@@ -65,8 +65,8 @@ decide what is worth translating, and gives you the commands to check the claims
 - **Nearest approved licences.** Closest in effect to the Unlicense, MIT-0 and 0BSD (and to CC0,
   which is **not** OSI-approved), and in patent terms to UPL-1.0, BlueOak-1.0.0 and
   BSD-2-Clause-Patent, which already combine a permissive grant with an express patent grant under
-  one notice condition — **against those three it adds less**: the difference is that condition, not
-  the patent grant ([`submission-reference.md`](ACD-1.0.submission-reference.md) §2).
+  one notice condition — **against those three it adds less**: the difference established is that
+  condition ([`gap-measurements.md`](ACD-1.0.gap-measurements.md) §1.133).
 - **The two weaknesses, first.** **No lawyer has read it**, and **it has one adopter — this
   repository**. Neither is repaired here. Neither is a published criterion: the chair called legal
   review *"not a blocker"*, and a Committee rationale (2020) calls non-use *"not a basis for
