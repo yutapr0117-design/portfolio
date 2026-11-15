@@ -1,0 +1,22 @@
+Source: OSI license-review public archive, 2012-May.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 24 in "Svoboda for Approval" (2012-05-20)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Mon May 21 22:28:17 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 21 May 2012 15:28:17 -0700
+Subject: [License-review] Svoboda for Approval
+In-Reply-To: <CAOPXC2=Kfp+LAyySHir1RwBtkPkDd8GK0d743C71fgn88apfhA@mail.gmail.com>
+References: <CAOPXC2mqRM0jV_10kkDJDad1rfWbDFXy6F1Dbk0Gecdnjf-T+A@mail.gmail.com>
+	<CAOPXC2mxEGXq+oQrJ0tkkM1yQcwtCfeZJU_hSd01sgRvaZVgvQ@mail.gmail.com>
+	<4FBA812C.3040101@redhat.com>
+	<CAOPXC2=Kfp+LAyySHir1RwBtkPkDd8GK0d743C71fgn88apfhA@mail.gmail.com>
+Message-ID: <4FBAC181.4060002@perens.com>
+
+On 05/21/2012 11:08 AM, Gregor Pintar wrote:
+> There is no OSI approved license, that would allow modifying or removing
+> all copyright and other notices.
+That sort of thing would qualify as a "crayon license".

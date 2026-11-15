@@ -1,0 +1,35 @@
+Source: OSI license-discuss public archive, 2013-May.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 8 in "Akshar License 1.0 Final Draft" (2013-05-03)
+Senders: Luis Villa
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From luis at lu.is  Tue May  7 16:41:09 2013
+From: luis at lu.is (Luis Villa)
+Date: Tue, 7 May 2013 09:41:09 -0700
+Subject: [License-discuss] Akshar License 1.0 Final Draft
+In-Reply-To: <20130507141149.GA26838@mercury.ccil.org>
+References: <CAD6i1fJZJz5ODdsxErsu4qE9Um3-=KK28DWZT-p+xdgDD4Pw7Q@mail.gmail.com>
+	<20130504011202.GA28999@mercury.ccil.org>
+	<CAD6i1fKgwYvtF6-FOtQ1HYLLE44B+gkXhBwwtLyXDzpQNKj+cQ@mail.gmail.com>
+	<20130507141149.GA26838@mercury.ccil.org>
+Message-ID: <CAFPTOkUC2Fb3ttt+3kAF_6uUVFmRN6RDD7hoLvGSpHptvydYog@mail.gmail.com>
+
+On Tue, May 7, 2013 at 7:11 AM, John Cowan <cowan at mercury.ccil.org> wrote:
+>
+>
+> More than ever this license needs a justification in detail of its sparse
+> differences from Apache.
+
+To be clear, the license must be submitted following the rules at
+http://opensource.org/approval - including:
+
+1. Submit before final, whenever possible, to allow for revisions
+based on feedback
+**2. Clearly state rationale for a new license**
+**3. Compare to and contrast with the most similar OSI-approved license(s)**
+4. Provide results of any legal analysis available
+**5. Recommend which license proliferation category is appropriate**
+
+Luis
