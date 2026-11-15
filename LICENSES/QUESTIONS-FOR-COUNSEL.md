@@ -220,9 +220,8 @@ right, consent reaches what a covenant may not: persons who are not party to the
 protection after death (Japan, Article 60). If it is wrong, or if courts refuse a consent given in
 advance to unspecified acts (and Article 113(11), on acts prejudicial to honour or reputation, is
 not a right that consent obviously reaches), does adding consent words do harm, for instance by
-inviting the reading that the covenant alone was not meant to suffice? The 1.4 draft is weighing
-such a change (`ACD-1.4-SECOND-CLARITY-TRIAL.md`, T67); the reading above is ours, not a list
-participant's.
+inviting the reading that the covenant alone was not meant to suffice? Trial T67 of the 1.4 draft concerns such a
+change; the reading above is ours, not a list participant's.
 
 **An answer would change** §12.2 and §12.4, the clauses on which the dossier most wants correction
 (`jurisdictions.md` §10).
