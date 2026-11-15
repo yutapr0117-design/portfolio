@@ -217,8 +217,12 @@ Work, binds …"* とした。倒産管財人が §2.8 の譲受人に当たる�
 > **English:**
 >
 > It restricts the Dedicator, not You. Section 5.2 is a covenant by the
-> Dedicator: I will not apply a technological measure to the Work, and I will not
-> invoke anti-circumvention law against You.
+> Dedicator. In the texts fixed so far (1.0 to 1.3) it reads: I will not apply a
+> technological measure to the Work, and I will not invoke anti-circumvention law
+> against You. The 1.4 draft keeps the second half and narrows the first: the
+> Dedicator may put a measure on its own server, but asserts no right in it — the
+> shape of GPL-3.0 §3, which forbids no DRM but waives the legal power to stop
+> circumvention.
 >
 > Nothing stops You from applying whatever measures You like to Your own copy or
 > Your own distribution — Section 4.5 permits distribution "under any terms You
