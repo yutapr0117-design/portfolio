@@ -535,6 +535,14 @@ _MUTATIONS_TAIL.append({
     "replace": "any automatic processing of the Work",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 500: review-readings-2 の §1.241 の見出しを §1.240 に変える —— 帯を越えて同じ番号を 2 人が使うと、"
+            "名を添えない「§1.N」の引用が解決しない (2026-11-15・5 人で未読を読む日)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.review-readings-2.md",
+    "find": "\n## 1.241 ",
+    "replace": "\n## 1.240 ",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
