@@ -83,7 +83,7 @@ import re
 
 from _lib_draft_markers import EFFECT_MARKERS_468U, state_hits  # 一覧は _lib_draft_markers.py (measure_clause_overlap.py --guard と共有)
 from _lib_dossier import errata_draft_quote_misses, dossier_draft_quote_misses  # 草案の逐語の照合 (468w / 468a)
-from _lib_draft_counts import bullet_components, changelist_table_total, defined_term_uses, errata_list_mismatch, materials_0d_mismatches  # 468n / 468s / 定義語 / 468i / §0d
+from _lib_draft_counts import bullet_components, changelist_table_total, defined_term_uses, errata_list_mismatch, materials_0d_mismatches, draft_has_changes  # 468n / 468s / 定義語 / 468i / §0d
 
 def run(ctx):
     ROOT = ctx.ROOT
@@ -843,7 +843,7 @@ def run(ctx):
                 _body = " ".join(" ".join(_cls468x.get(_n, "").split()) for _n in _nums)
                 if _nums and len(_q) > 15 and _q in _body and _q not in _laterpos and not _marked:
                     _miss468x.append(f"{_key[:30]}: 外したはずの {_q[:50]!r} が §{'/§'.join(_nums)} に残る")
-        if not _n468x:
+        if not _n468x and draft_has_changes(_t468):  # 確定の直後 (変更 0 件) は主表が空で正しい (2026-11-15 の試走)
             _bad468.append(f"468x: {_cl468x.name} の主表から After (*\"…\"* へ) を 1 件も読めない (読めないまま黙らせない)")
         elif _miss468x:
             _bad468.append(f"468x: {_cl468x.name} の主表の After が、いまの草案に無く、後の行の Before にも「再改」の印にも無い: "

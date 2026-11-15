@@ -254,7 +254,10 @@ def run(ctx):
     sum_k = re.search(r"（([^（）]+?)の (\d+) 束で ([+−-]\d+)）", sec_k)
     old_k = re.search(r"1\.0 の ([\d,]+) 語から見ると (\d+) 語長い", sec_k)
     sn = lambda s: int(s.replace("−", "-").replace(",", ""))
-    if not (m_k and rows_k and sum_k and old_k and (L / f"ACD-{m_k.group(1)}.txt").exists()):
+    from _lib_draft_counts import draft_has_changes
+    if not sec_k and drafts_k and not draft_has_changes(text(drafts_k[0])):
+        pass  # 確定の直後 (変更 0 件) は「語数の内訳」の節がまだ無くて正しい (2026-11-15 の確定の試走)
+    elif not (m_k and rows_k and sum_k and old_k and (L / f"ACD-{m_k.group(1)}.txt").exists()):
         bad.append(f"(k) ACD-{ver_k}-CHANGELIST.md の「## 語数の内訳」の文 (前版の語数と差・束の表・N 束の和・1.0 との差) が読めない")
     else:
         w_k, w_prev, w_10 = (size(text(p))[0] for p in (drafts_k[0], L / f"ACD-{m_k.group(1)}.txt", L / "ACD-1.0.txt"))

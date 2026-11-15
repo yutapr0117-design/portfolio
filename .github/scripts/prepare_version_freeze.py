@@ -12,6 +12,14 @@ mirror / 適用する面の版と日付 / binary の権利表示 / SPDX XML / �
 やらないこと: 判断。外向きの文書の書き換え、REVIEWERS.md の表、語数の申告の文、`measure_descriptor_carryover.py`
 が出す条の読み直しは人が行う。走ったあとの consistency の RED が、次に直す場所の一覧である。
 
+**2026-11-15 の試走 (9b・使い捨ての worktree で 1.4 を確定)**: 走ったあとの consistency の RED は 6 群で、うち 3 群
+(459c・468x・498 (k): 変更 0 件の新しい草案を想定していなかった) と mutation の版の直書き 12 件は同じ日に直した。残る 3 群は
+確定の日の作業である —— (1) 460 (x): B3 と SUBMISSION-MATERIALS の長さの行は「1.4 草案は」と書いており、確定後は
+「1.5 草案は」の行が無くなる。出す版の名で書き直す。(2) 444m: 適用中の版を述べる行 (README・REVIEWERS・材料・1.0 の文書の
+一部) を、適用する版を決めてから読み直す。(3) Check 362: 作業中の CHANGELIST の中身を打つ mutation (468x・498 (j) など
+16 件) は、新しい CHANGELIST が空なので的を外す。確定した版の CHANGELIST を読む Check が無いので、付け替えずに退役させる
+(archive へ移すか消す)。
+
 ⚠ 作業ツリーを書き換える。commit の前に差分を読むこと。LICENSE と llms 系は版を置換するだけなので、
 過去の経緯を述べる文まで変わる (`ACD-1.1-CHANGELIST.md` §0.13「改名は一括置換しない」)。AIO 層の編集は
 aio-guardian を通し、`update_aio_digests.py` を回す。

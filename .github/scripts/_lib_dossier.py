@@ -220,8 +220,12 @@ def reviewer_map_misses(licenses_dir: Path) -> tuple[int, list[str]]:
     rv = licenses_dir / "REVIEWERS.md"
     rvt = rv.read_text(encoding="utf-8") if rv.exists() else ""
     n, bad = 0, []
+    # 作業中の草案の版の文書 (ACD-<草案の版>-…) はまだ提出していないので対象外 (確定の日に新しい CHANGELIST が
+    #   1 つ前の audience を写して RED になった・2026-11-15 の試走)
+    drafts = [p for p in licenses_dir.glob("ACD-*-DRAFT.txt") if "HAS BEEN FROZEN" not in p.read_text(encoding="utf-8").split("\n", 1)[0]]
+    wip = f"ACD-{drafts[0].name.split('-')[1]}-" if len(drafts) == 1 else None
     for p in sorted(licenses_dir.glob("*.md")):
-        if p.name in ("REVIEWERS.md", "README.md"):
+        if p.name in ("REVIEWERS.md", "README.md") or (wip and p.name.startswith(wip)):
             continue
         head = p.read_text(encoding="utf-8").split("\n---", 1)[0]
         aud = re.search(r"^audience:(.*)$", head, re.M)
