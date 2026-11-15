@@ -63,6 +63,45 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 - 2026-11-15 に "Advertising Clauses in Licenses"（`license-discuss` 2002-01〜02・39 通・決める側の通と最初の通を読んだ）を `review-readings-6.md` §1.451 へ（OSD の目標はライセンスを読まずに使えること・Perens 氏、OSD は「コピーを持つなら何をしてもよい」と言うべきだった・Nelson 氏）
 
 - 2026-11-15 に "-- National Security and Public Policy (3.5B and 4)"（`license-review` 2015-09・16 通を通読）を `review-readings-2.md` §1.241 へ（OSD に文字どおり合っても OSI が承認するとは考えられないライセンスがある・Fontana 氏、既にそうなら条は要らず、そうでないなら条は悪い・Berkus 氏）
+- 2026-11-15 に "License compatibility - reg"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Akshar License 1.0 Final Draft"（`license-discuss` 2013-05・通読）を `review-readings-2.md` §1.246 へ（2013 年の承認の規則の 5 項目・Villa 氏、新しいライセンスを強く勧めない・Fogel 氏）
+
+- 2026-11-15 に "Request for Approval : Modular Open Software License (MOSL)"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Is <some PHP program> Open Source?"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Differences between GPL and LGPL"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "License which requires watermarking? (Attribution Provision)"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Request for Approval : Modular Open-source Software License (MOSL)"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "relationship between opensource code and the copyrighted works it produces?"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Idea for time-dependent license, need comments"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Request for Approval of NO NONSENSE OPEN SOURCE LICENSE"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Svoboda for Approval"（`license-review` 2012-05・通読）を `review-readings-2.md` §1.245 へ（なぜ CC0 を使わないのか・Fontana 氏、CC0 が長いのは世界中で確実に手放すため・Nelson 氏、既存で解けない問題を述べよ・Callaway 氏）
+
+- 2026-11-15 に "Golan v. Holder"（`license-discuss` 2012-01・通読）。公有になった作品にも著作権が戻りうるという判決の紹介で、§3 の脆さには当たるが §4 の代わりの許諾が既に備える。新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "GPL and non-GPL binaries in one distribution"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Special clauses added to OSI-approved licenses: are they OK, and if not, what can/should we do about it?"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "GPL and proprietary WebAPIs"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "TCPDF license: LGPLv3 + a special clause: is this still considered "Open Source"?"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "commercial distribution"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Which DUAL Licence should I choose."（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "My mail about Python licensing did not go through?"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-15 に "Multi-license - won't it conflict?"（通読）。ACD に当たる新しい論点は無かった（節は立てない）
 
 - 2026-11-15 に "License-review Digest, Vol 119, Issue 14"（候補の外・話題の語に当たる未読・通読）。ACD に当たる新しい論点は無かった（節は立てない）
 
