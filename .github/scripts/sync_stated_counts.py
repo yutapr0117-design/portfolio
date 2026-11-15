@@ -9,7 +9,9 @@ sync-sizes が §2 の行数を実測から書き直すのと同じく、この�
 **場所の一覧**: 草案の語数から導出する数 —— 草案冒頭の "ACD-前版: N words, M clauses. This draft: N words, M clauses."、
 CHANGELIST の「前版の N 語から +N 語」「1.0 の N 語から見ると M 語長い」「（束名、束名の N 束で +M）」と英文の
 "N words from the title to *END OF TERMS* against 1.0's N, in M clauses against M"、B3 の見出しのかっこ、
-SUBMISSION-MATERIALS の長さの行 (後半の「条文では N 語長いまま」を含む)。**判断の数は書き換えない**: 束の表の各行と、
+SUBMISSION-MATERIALS の長さの行 (後半の「条文では N 語長いまま」を含む)。ドシエの規模の数 (2026-11-15・30 の依頼) —— 不利な事実の件数 (against の総括・REVIEWERS・READY-TO-SUBMIT・§4c)、
+errata の件数 (against・REVIEWERS・READY-TO-SUBMIT・errata 冒頭の英語の数詞と閉じた番号の一覧)、worked entries の総数
+(REVIEWERS・QUESTION-INDEX) (`_lib_dossier.count_sites`)。**判断の数は書き換えない**: 束の表の各行と、
 草案冒頭の箇条の (+N words.) (どの変更に何語かは人が決め、Check 468n が照らす)。
 
 使い方:
@@ -22,7 +24,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _lib_dossier import is_against  # noqa: E402
+from _lib_dossier import count_sites, is_against  # noqa: E402
 from _lib_draft_counts import apply_sites, length_sites  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -33,6 +35,7 @@ def main(argv: list[str]) -> int:
         print(__doc__)
         return 0
     sites, bad = length_sites(ROOT / "LICENSES", is_against, "all")
+    sites += count_sites(ROOT / "LICENSES")
     if bad:
         print("\n".join(f"ERROR: {b}" for b in bad))
         return 2
@@ -40,7 +43,8 @@ def main(argv: list[str]) -> int:
     for s in diff:
         print(f"{s['path'].relative_to(ROOT)}:{s['line']}  {s['what']}: {s['old']} -> {s['new']}")
     if "--apply" in argv and diff:
-        print(f"書き換えた: {apply_sites(diff)} か所 (照らした {len(sites)} か所)")
+        print(f"書き換えた: {apply_sites(diff)} か所 (照らした {len(sites)} か所)。STATUS.md も件数を写すので "
+              "`npm run status` を回し、最後に verify で Check 460 / 468 / 498 を確かめる")
         return 0
     print(f"照らした {len(sites)} か所のうち、実測と違う {len(diff)} か所" + ("" if not diff else " (--apply で書き換える)"))
     return 1 if diff else 0

@@ -190,8 +190,13 @@ def apply_sites(sites: list[dict]) -> int:
         if s["old"] != s["new"]:
             by_file.setdefault(s["path"], []).append(s)
     for path, ss in by_file.items():
-        lines = path.read_text(encoding="utf-8").split("\n")
-        for s in sorted(ss, key=lambda s: (s["line"], -s["start"])):
+        # file 全体の位置で持つ場所 ("abs") は先に後ろから、行の中の位置で持つ場所はその後に
+        text = path.read_text(encoding="utf-8")
+        for s in sorted((s for s in ss if s.get("abs")), key=lambda s: -s["start"]):
+            assert text[s["start"]:s["end"]] == s["old"], (path, s)
+            text = text[:s["start"]] + s["new"] + text[s["end"]:]
+        lines = text.split("\n")
+        for s in sorted((s for s in ss if not s.get("abs")), key=lambda s: (s["line"], -s["start"])):
             ln = lines[s["line"] - 1]
             assert ln[s["start"]:s["end"]] == s["old"], (path, s)
             lines[s["line"] - 1] = ln[:s["start"]] + s["new"] + ln[s["end"]:]
