@@ -16,6 +16,36 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 
 | 節 | 反映 | 確かめ方 |
 | :-- | :-- | :-- |
+| dig-2026-09 1.91 | against #164 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| dig-2026-09 1.93 | against #164 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| dig-2026-09 1.94 | なし（測り方の訂正で、ACD の論点に当たる読みを持たない） | 節の読みを当て直して判断した（2026-11-15・portfolio-2f） |
+| dig-2026-09 1.95 | against #150 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.96 | 入口（`ACD-1.0.submission-reference.md`・`ACD-1.0.comparison.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.97 | 入口（`REVIEWERS.md`・`ACD-1.0.comparison.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.104 | 入口（`ACD-1.0.comparison.md` の比較の本文） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.129 | against #272 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.130 | 入口（`REVISION-PROTOCOL.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.133 | B10（`ACD-OSI-BOTTLENECKS.md` の B10 の行と #84 への答えの段）/ THIRD（`ACD-1.4-CLARITY-TRIAL.md`）/ 入口（`REVIEWERS.md`・`ACD-1.0.submission-reference.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.134 | B13・B15（`ACD-OSI-BOTTLENECKS.md`）/ against #237・#283 / THIRD（`ACD-1.4-SECOND-CLARITY-TRIAL.md`）/ 入口（`ACD-1.0.submission-reference.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.135 | B10 / THIRD（`ACD-1.4-SECOND-CLARITY-TRIAL.md`）/ 入口（`ACD-1.0.submission-reference.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.136 | B7・B10 / against #284 / 入口（`SUBMISSION-MATERIALS.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.137 | B10（`ACD-OSI-BOTTLENECKS.md` の #84 への答えの段） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.139 | B10 / against #290 / 入口（`SUBMISSION-MATERIALS.md`・`OSI-APPROVAL-PLAN.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.143 | B4（`ACD-OSI-BOTTLENECKS.md` の英語の索引）/ against #307 / 入口（`SUBMISSION-MATERIALS.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.144 | B10（`ACD-OSI-BOTTLENECKS.md` の英語の索引）/ 入口（`SUBMISSION-MATERIALS.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.145 | against #307 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.146 | B4・B10 / against #314 / 入口（`REVIEWERS.md`・`SUBMISSION-MATERIALS.md`・`QUESTIONS-FOR-COUNSEL.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.148 | 未定（B10・2011 年の「公有化の標準の文書が無い」・30 へ） | この節の番号を引く反映先は grep で 0 件だった（2026-11-15・portfolio-2f）。送り先を書いた |
+| gap-measurements 1.149 | 未定（B10・明示の特許許諾と共同体への必要性の説明・30 へ） | この節の番号を引く反映先は grep で 0 件だった（2026-11-15・portfolio-2f）。送り先を書いた |
+| gap-measurements 1.150 | 未定（B10・CC0 の審査中に出た直し方の提案。引く側は `ACD-1.0.reviewer-positions.md` の分析だけ・30 へ） | この節の番号を引く反映先は grep で 0 件だった（2026-11-15・portfolio-2f）。送り先を書いた |
+| gap-measurements 1.151 | errata E69 / THIRD（`ACD-1.4-SECOND-CLARITY-TRIAL.md`）/ 入口（`OSI-APPROVAL-PLAN.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.152 | 未定（B4・Unlicense の審査の「裁判所が OSD に反して読みうるか」の基準・30 へ） | この節の番号を引く反映先は grep で 0 件だった（2026-11-15・portfolio-2f）。送り先を書いた |
+| gap-measurements 1.153 | against #311 / 入口（`SUBMISSION-MATERIALS.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.154 | B1 / against #305・#312 / 入口（`SUBMISSION-MATERIALS.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.160 | 入口（`SUBMISSION-MATERIALS.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.161 | 未定（1c 種・§8 の特許の許諾をどこまで伸ばすと許諾者の特許が空になるか・1c へ） | この節の番号を引く反映先は grep で 0 件だった（2026-11-15・portfolio-2f）。送り先を書いた |
+| gap-measurements 1.162 | 入口（`ACD-1.0.review-responses-meta.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
+| gap-measurements 1.163 | against #309 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
 | 1.164 | 未定（B10 の G1 の説明の出典・2012 年の CC0 の審査で特許の明示の除外が論点だったことの一次資料・30 へ） | この節の番号を引く反映先は grep で 0 件だった（2026-11-15・portfolio-2f）。送り先を書いた |
 | 1.165 | なし（ACD は §4 と §8 で著作権と特許を同じ文書で許諾し、著作権の無いものに特許だけを許諾する場面を持たない） | 節の読みを当て直して判断した（2026-11-15・portfolio-2f） |
 | 1.166 | against #316 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
