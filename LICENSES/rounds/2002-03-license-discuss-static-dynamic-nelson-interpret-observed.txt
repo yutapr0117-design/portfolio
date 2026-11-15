@@ -1,0 +1,40 @@
+Source: OSI license-discuss public archive, 2002-March.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 13 in "Static v. Dynamic Linking -- redux" (2002-03-15)
+Senders: Russell Nelson
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Sat Mar 16 15:50:24 2002
+From: nelson at crynwr.com (Russell Nelson)
+Date: Sat, 16 Mar 2002 10:50:24 -0500 (EST)
+Subject: Static v. Dynamic Linking -- redux
+In-Reply-To: <Pine.LNX.4.40.0203161018450.8230-100000@taxus>
+References: <15506.56503.510115.735667@desk.crynwr.com>
+	<Pine.LNX.4.40.0203161018450.8230-100000@taxus>
+Message-ID: <15507.26782.828457.850310@desk.crynwr.com>
+
+Emiliano writes:
+ > I don't think it'd be a good approach (legally or morally), but isn't
+ > the licensee bound by the text of the license, and nothing else?
+
+Again, I must stress that this is not based on experience, but instead
+on learning.  From what I have read, what really matters is your
+intention -- as captured in the license.  A good license will capture
+your intention completely, accurately, and precisely.  A poor license
+will lead to lawsuits.  In a lawsuit, the judge will interpret the
+license to try to divine your intention.  That is why anything you
+write in or about a license -- even if it's "just" a preamble and
+postamble, or in a separate commentary -- is used to interpret the
+terms of the license.
+
+That's why you do best to write the best license you can, and then
+shut up about it.
+
+-- 
+-russ nelson              http://russnelson.com | Crypto without a threat
+Crynwr sells support for free software  | PGPok | model is like cookies
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | without milk.
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   | 
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

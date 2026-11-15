@@ -1,0 +1,41 @@
+Source: OSI license-discuss public archive, 2002-February.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 16 in "Advertising Clauses in Licenses" (2002-02-09)
+Senders: Russell Nelson
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Wed Feb 13 16:07:22 2002
+From: nelson at crynwr.com (Russell Nelson)
+Date: Wed, 13 Feb 2002 11:07:22 -0500 (EST)
+Subject: Advertising Clauses in Licenses
+In-Reply-To: <20020211165946.04AB4A1C0D@perens.com>
+References: <15463.18541.181867.601368@desk.crynwr.com>
+	<20020211165946.04AB4A1C0D@perens.com>
+Message-ID: <15466.36072.739825.657176@desk.crynwr.com>
+
+Bruce Perens writes:
+ > From: Russell Nelson <nelson at crynwr.com>
+ > > There is much in the OSD which is insufficiently explicit.  For
+ > > example, we have maintained that there are no possible restrictions
+ > > a license could put on users, because there is no possible mechanism
+ > > one could use to constraint them, because no approved license can
+ > > require that the user execute a license (OSD#7).
+ > 
+ > People should be able to understand the OSD. Sigh.
+
+Unfortunately, the OSD is not very well written.  For example, it says 
+nothing about use, so multiple parties have tried to say "Yeah, you
+can copy this software, but in order to use it, you have to license it 
+from us."  We squashed them using #7 (fortunately!), but the OSD
+really ought to say "If you have a copy of this software, you can do
+anything you want with it."  The people who wrote the OSD never
+considered that somebody might want to deny usage.
+
+-- 
+-russ nelson              http://russnelson.com | Crypto without a threat
+Crynwr sells support for free software  | PGPok | model is like cookies
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | without milk.
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   | 
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

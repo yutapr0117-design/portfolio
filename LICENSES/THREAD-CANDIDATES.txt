@@ -374,6 +374,7 @@
 2007-06-05	License Committee Report for May 2007
 2007-06-20	when is an open source license open source?
 2007-06-25	For Approval: Common Public Attribution License (CPAL)
+2007-06-28	Politics-Free Licence ;)
 2007-07-07	Do I need to inform my employer before contributing to an Open Source Project?
 2007-07-07	why is taking open-source code closed expensive?
 2007-07-12	searchable list archives?
@@ -787,6 +788,7 @@
 2020-04-24	veto against Unlicence
 2020-05-15	What does "appropriate standing" in the review process mean?
 2020-05-16	veto against Unlicense
+2020-08-17	A modest proposal to reduce the number of BSD licenses
 2020-10-09	license review request
 2020-10-16	License-review Digest, Vol 95, Issue 10
 2020-10-16	License-review Digest, Vol 95, Issue 7
@@ -795,6 +797,7 @@
 2021-06-03	Licence-review request
 2021-11-02	Consumer protection, defective product
 2022-08-02	Should fork a project on github be seen as distribution of origin project?
+2022-08-09	Question about AGPLv3 with a Plugin Exception
 2022-09-19	Does the LinShare "attribution" notice violate OSD?
 2022-12-11	Disclaimer of warranty under German law
 2023-01-26	License Review working group asks for community input on its recommendations
