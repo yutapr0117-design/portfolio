@@ -276,3 +276,46 @@ def errata_list_mismatch(pre: str, ver: str, errata: Path) -> list[str]:
         bad.append(f"468i: 変更の箇条が名乗る errata {wrong} が「{ver} 草案で閉じた」の印を持たない "
                    "(別の版で閉じた番号・存在しない番号・印の付け忘れ)")
     return bad
+
+
+def materials_0d_mismatches(materials: str, clauses: dict) -> tuple[int, list[str]]:
+    """468 (§0d): 提出の材料 §0d の「狭めたと読まれうる箇所」の表の 1 列目が述べる草案の状態を、草案の本文と照らす。
+
+    表の行は「§9.2 の第 3 文から *"A"* と *"B"* を外し、*"C"* を足した」「§8.1 は *"derived from"*」の形で草案の今の状態を
+    前提にしているが、草案が変わっても何も鳴らなかった (50 の提案・2026-11-15。同じ日に §9.2 の行を 1c の指摘で手で直した)。
+    「を外」が続く引用は、その条に無いこと。「を足」が続く引用と「§N.M は」の後の引用は、その条に在ること。条は引用の前の
+    最も近い § (「§8.4・§6.4 は」なら両方)。動詞の読めない引用は照らさない (照らした数は返り値に出る)。
+    返り値: (照らした引用の数, 誤りの文の list)。表が読めなければ誤り。
+    """
+    sec = re.search(r"^## 0d\..*?(?=^## )", materials, re.M | re.S)
+    if not sec:
+        return 0, ["468 (§0d): SUBMISSION-MATERIALS.md の「## 0d.」の節を読めない"]
+    norm = {k: " ".join(v.split()) for k, v in clauses.items()}
+    n, bad = 0, []
+    for line in sec.group(0).split("\n"):
+        if not line.startswith("| ") or line.startswith(("| もの", "| 箇所", "|---")):
+            continue
+        c0 = re.split(r"(?<!\\)\|", line.strip().strip("|"))[0]
+        for m in re.finditer(r'\*"([^"]+)"\*', c0):
+            rest = re.sub(r'^(?:\s*(?:と|、|・)\s*\*"[^"]+"\*)+', "", c0[m.end():])
+            before = c0[:m.start()]
+            if re.match(r"\s*を外", rest):
+                want = False
+            elif re.match(r"\s*を足", rest):
+                want = True
+            elif re.search(r"は\s*$", before):
+                want = True
+            else:
+                continue
+            grp = re.search(r"((?:§\d+\.\d+(?:\([a-z]\))?[・、 ]*)+)[^§]*$", before)
+            keys = re.findall(r"§(\d+\.\d+)", grp.group(1)) if grp else []
+            if want and re.search(r"は\s*$", before):
+                keys = re.findall(r"§(\d+\.\d+)", re.search(r"((?:§\d+\.\d+[・、 ]*)+)は\s*$", before).group(1)) if re.search(r"((?:§\d+\.\d+[・、 ]*)+)は\s*$", before) else keys[-1:]
+            else:
+                keys = keys[-1:]
+            for k in keys:
+                n += 1
+                if (m.group(1) in norm.get(k, "")) != want:
+                    bad.append(f"468 (§0d): 材料 §0d の表が §{k} に *\"{m.group(1)}\"* が{'在る' if want else '無い'}と前提にしているが、"
+                               f"いまの草案では{'無い' if want else '在る'} (草案が変わったなら表の行を読み直す)")
+    return n, bad
