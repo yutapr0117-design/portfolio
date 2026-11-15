@@ -916,3 +916,20 @@ Project Tick General Public License の `license-review` 側の会話（v1 の�
 **逆側。** Rosen 氏の「放棄の効果を論じるのは時間の無駄」は、CC0 を承認すべきだという文脈で書かれた（*"Should we approve the widely-admired CC0 license despite its known disadvantages"*）。それでも CC0 は承認されなかった。審査者が放棄の効果を論じないことは、承認を保証しない。また、Piana 氏の「滑りやすい坂」は特許を含むことを求めるが、ACD の §8.4 のように作品の外（モデルと出力）まで特許を及ぼす形を支持する文ではない（B7・B10）。
 
 **この節が establish しないこと。** この会話は CC0 の撤回（2012-02-24）の後に続いたもので、CC0 の審査の帰結を変えていない（Nelson 氏 2012-03-10 *"We're not reviewing a license anymore since CC0 has been withdrawn"*）。Piana 氏の 2012 年の役職は、この通からは確かめていない。
+
+## 1.214 法律の論点では法律家の声が数えられ、非法律家の法的な議論は数えられない —— Unlicense の承認の議論（2020）（2026-11-15）
+
+"veto against Unlicence" / "veto against Unlicense"（`license-review` 2020-04〜06・決める側の未引用の通 13 通のうち 4 通・`rounds/2020-05-to-06-license-review-unlicense-attorneys-cleared-observed.txt`）。`against.md` #270 は委員会の理由書（*"The lawyers who opined on the issue, both US and non-US, agreed"*）を引くが、その理由書の前に list で決める側が何を数えていたかは引いていなかった。Unlicense は ACD が依拠する「献呈 + 許諾」型の唯一の承認先例である（#87）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"We're considering accepting the Unlicense on the basis that more than one attorney has said that they have no objections to it, and no attorney has objected. Despite the enthusiasm of your arguments, you are not an attorney, yet your arguments rest on legal grounds."* | Josh Berkus 氏 2020-05-13 | **不利な面（B1・B13・重い）。** 法律の論点（放棄が法域で効くか）について、決める側は法律家の声を数え、非法律家の法的な議論は承認を止める根拠として扱わなかった。ACD のドシエの法的な読み（`ACD-1.0.jurisdictions.md`、`QUESTIONS-FOR-COUNSEL.md` の前提）は、AI が書き人間が設計した非法律家の議論で、この基準では「数えられない側」に入る。逆に、反対する側も法律家を立てなければ数えられない（Berkus 氏は反対者に法律家の意見を求めた） |
+| *"The Unlicense is already in wide use, as opposed to proposed but new licenses"* | Berkus 氏 2020-05-16 | **不利な面（B2）。** 承認を支えた事情の 1 つに、既に広く使われていることがあった。ACD は新しい提案で、使用はこのリポジトリ 1 件である |
+| *"These risks also exist for other open source licenses and this doesn't look quantitatively different, or so high that we can't say that the document does a reasonably good job of ensuring software freedom."*、*"Here we have a very clear statement from the copyright owner that they have no intention of exercising copyright rights in the work."* | Pamela Chestek 氏 2020-05-17 | **有利な面（B4）。** 基準は「危険が無いこと」ではなく「他のライセンスと量的に違わないこと」で、著作権者が権利を行使しない意思を明確に述べていることが重く見られた。ACD は §3 で放棄し、§4 で許諾し、§2.2 と §10.4 で撤回も終了もしないと述べるので、意思の明確さでは Unlicense より厚い |
+| *"The developer side of this list was always OK with the unlicense, I think. It got blocked because the attorneys said it wouldn't fly with international law."* | Berkus 氏 2020-06-02（10 年前の最初の提出について） | 2010 年の Unlicense を止めたのは法律家の声で、2020 年に通したのも法律家の声だった。どちらの向きでも、放棄が国際的に効くかの判断は法律家に委ねられている |
+
+**読み。** Unlicense の承認は、法律家が反対しなかったことと、既に広く使われていたことに支えられた（Berkus 氏）。Chestek 氏は危険が他のライセンスと量的に違わないことを基準にした。ACD はこの先例に依拠するが、承認を支えた 2 つの事情（法律家の声・広い使用）をどちらも持たない。意思の明確さ（Chestek 氏の基準の材料）では Unlicense より厚い。
+
+**逆側。** Berkus 氏の文は、反対者が非法律家の法的な議論で承認を止めようとした場面のもので、提出者の側の非法律家の議論を退ける文ではない。2020 年には反対する法律家がいなかったので、提出の側に法律家の声が要るかは問われていない。ACD の場合も、法律家が反対しなければ同じ構図になりうる。だが、法律家が誰も意見を述べない場合（沈黙）の扱いはこの会話から分からない。Unlicense には複数の法律家が自分から意見を述べた。
+
+**この節が establish しないこと。** 委員会の理由書の結論は `against.md` #270 と `AS-OF.md` が持つ。Unlicense は「legacy」として承認された（#87）ので、新しいライセンスの承認の基準とは重さが違う。

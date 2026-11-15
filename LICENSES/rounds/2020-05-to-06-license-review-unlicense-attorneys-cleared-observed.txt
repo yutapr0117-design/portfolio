@@ -1,0 +1,178 @@
+Source: OSI license-review public archive, 2020-May.txt and 2020-June.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 4 messages in "veto against Unlicence" / "veto against Unlicense" (2020-05 to 2020-06)
+Senders: Josh Berkus, Pamela Chestek
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From josh at berkus.org  Wed May 13 18:03:47 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Wed, 13 May 2020 11:03:47 -0700
+Subject: [License-review] veto against Unlicence
+In-Reply-To: <Pine.BSM.4.64L.2005110825140.26256@herc.mirbsd.org>
+References: <Pine.BSM.4.64L.2004241436270.10072@herc.mirbsd.org>
+ <CAKgxSaA6=dOnjcSxiTRbt-wNJfPXrYKDSnHUFzn__w4NrEMyLw@mail.gmail.com>
+ <CAJU2dcoBD+q2cnMjk2WgK0Z2BUKsppyuo25aT9i5DhBpZZ2_kg@mail.gmail.com>
+ <f43adba537ec4b90c34b676fe8abcccb@lexpan.law>
+ <Pine.BSM.4.64L.2004241458290.10072@herc.mirbsd.org>
+ <Pine.BSM.4.64L.2004242239010.8901@herc.mirbsd.org>
+ <222c9f30-4d66-d1e7-85a7-d7a77f620cef@chesteklegal.com>
+ <f29eeca5-f210-a289-6630-61a2e42b5beb@crynwr.com>
+ <Pine.BSM.4.64L.2005110825140.26256@herc.mirbsd.org>
+Message-ID: <a2816128-c63e-ef17-01aa-f87478ebb4ad@berkus.org>
+
+On 5/11/20 1:25 AM, Thorsten Glaser wrote:
+>> The courts are unlikely to assign him one against his wishes.
+> Wrong, at least for the part of the world not USA.
+> 
+
+Can you get a European or other non-US attorney to back you up on this?
+
+We're considering accepting the Unlicense on the basis that more than
+one attorney has said that they have no objections to it, and no
+attorney has objected.  Despite the enthusiasm of your arguments, you
+are not an attorney, yet your arguments rest on legal grounds.
+
+If you truly want to block the unlicence from acceptance, the way to do
+it is to get a qualified attorney to back up your assertion that (a)
+release into public domain is meaningless in several jurisdictions, and
+(b) violation is a statutory crime even without prosecution.
+
+Otherwise, you've said your piece but been outvoted.
+
+-- 
+Josh Berkus
+
+
+From josh at berkus.org  Sat May 16 19:20:31 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Sat, 16 May 2020 12:20:31 -0700
+Subject: [License-review] veto against Unlicence
+In-Reply-To: <Pine.BSM.4.64L.2005151555550.15202@herc.mirbsd.org>
+References: <Pine.BSM.4.64L.2004241436270.10072@herc.mirbsd.org>
+ <CAKgxSaA6=dOnjcSxiTRbt-wNJfPXrYKDSnHUFzn__w4NrEMyLw@mail.gmail.com>
+ <CAJU2dcoBD+q2cnMjk2WgK0Z2BUKsppyuo25aT9i5DhBpZZ2_kg@mail.gmail.com>
+ <f43adba537ec4b90c34b676fe8abcccb@lexpan.law>
+ <Pine.BSM.4.64L.2004241458290.10072@herc.mirbsd.org>
+ <Pine.BSM.4.64L.2004242239010.8901@herc.mirbsd.org>
+ <222c9f30-4d66-d1e7-85a7-d7a77f620cef@chesteklegal.com>
+ <f29eeca5-f210-a289-6630-61a2e42b5beb@crynwr.com>
+ <Pine.BSM.4.64L.2005110825140.26256@herc.mirbsd.org>
+ <a2816128-c63e-ef17-01aa-f87478ebb4ad@berkus.org>
+ <Pine.BSM.4.64L.2005131836500.19617@herc.mirbsd.org>
+ <87a729da9z.fsf@mid.deneb.enyo.de>
+ <3f73e990-cf8b-5c42-efa4-49e77d1ad406@gmail.com>
+ <Pine.BSM.4.64L.2005151555550.15202@herc.mirbsd.org>
+Message-ID: <560d06ca-728e-7490-e52b-cca1c823a807@berkus.org>
+
+On 5/15/20 9:00 AM, Thorsten Glaser wrote:
+>> When using the an OSI approved license, the last thing I'd expect, is to
+>> discover that I had committed a felony.
+> When approving other licences with questionable wording, they were
+> rejected more easily. Is someone here invested in Unlicense or
+> something?
+
+So, two things:
+
+1. The Unlicense is already in wide use, as opposed to proposed but new
+licenses
+
+2. YOU ARE NOT AN ATTORNEY, and no amount of arguing on this list can
+make you one.
+
+The attorneys on this list seem to be satisfied that, contrary to your
+position, the Unlicense does not expose downstream users to criminal
+charges.  If you want to dispute that, you need to get a *legal* opinion
+that says otherwise.  Not YOUR opinion, which to be blunt, doesn't count
+because you are not an expert.
+
+So -- get an attorney, or please be silent. You have made your
+arguments.  Making them repeatedly in 800 different emails does not make
+them any more true than they were the first time.
+
+-- 
+Josh Berkus
+
+
+From pamela at chesteklegal.com  Sun May 17 13:58:54 2020
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sun, 17 May 2020 09:58:54 -0400
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+Message-ID: <9e9e7ffd-9d62-5972-ae73-d24e46270cff@chesteklegal.com>
+
+
+On 5/16/20 6:30 PM, Langley, Stuart wrote:
+> In my opinion its uncertain whether a court would treat it as a license.  Reasonable minds disagree.  It's more likely that a court would look at the intent of the dedicator, but because the Unlicense is written rather poorly there remains a non-remote chance it would be treated as just a failed transfer and leave the dedicator, but more likely their heirs, with a right to sue in some jurisdictions.  I could argue either side, but from a practical standpoint, that non-remote chance is enough that I do not advise clients to distribute software under the Unlicense.
+These risks also exist for other open source licenses and this doesn't 
+look quantitatively different, or so high that we can't say that the 
+document does a reasonably good job of ensuring software freedom. Under 
+other licenses there have been licensees who have tried to withdraw 
+their grant, most recently when Linux added a code of conduct. There 
+could be heirs that want the code used in some different way, but we 
+already have that risk in the US because of termination rights. Here we 
+have a very clear statement from the copyright owner that they have no 
+intention of exercising copyright rights in the work. One could have an 
+unfaithful grantor who later changes their mind, or heirs who think they 
+see a pot of gold, but this clear statement would be a pretty high 
+hurdle to get over. Assuming this would be treated as an abandonment 
+under US law, the events you describe are less likely to occur than in 
+the case of a license because the legal effect of the abandonment is 
+that there is no copyright.
+> If a license does not give me certainty that I won't have to go to court to defend myself, it's not a worthwhile license.
+
+Our task here isn't to decide whether it's a good license, only whether 
+it's an open source license. There are a number of approved licenses 
+that have a great deal of ambiguity, including some widely used ones. 
+This one appears to me to be within an acceptable range of ambiguity. (I 
+also give more latitude to licenses in widespread use than new ones.) It 
+isn't pretty, but I think it works.
+
+This does bring up a question. The submission asked for placement in the 
+"Licenses that are popular and widely used or with strong communities" 
+category. I don't think that category is correct given that a dedication 
+to the public domain, not licensing, is the primary goal. There aren't 
+any other appropriate categories that I see, so I would then default to 
+"uncategorized."
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com
+919-800-8033
+www.chesteklegal.com
+
+
+From josh at berkus.org  Tue Jun  2 16:51:45 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Tue, 2 Jun 2020 09:51:45 -0700
+Subject: [License-review] veto against Unlicense
+In-Reply-To: <CY4PR03MB27602C852FBEAF393CE26D53F68A0@CY4PR03MB2760.namprd03.prod.outlook.com>
+References: <CY4PR03MB2760064BADDC62B8D551C51BF6BA0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <05149fb5-d169-fba7-6536-dbf4737b1fe5@berkus.org>
+ <CY4PR03MB276031A32DBF1CB41B8F27BEF6BB0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <ef4827f0-0c6a-20f7-0d85-ea224a8134d0@berkus.org>
+ <CY4PR03MB27602C852FBEAF393CE26D53F68A0@CY4PR03MB2760.namprd03.prod.outlook.com>
+Message-ID: <4392a144-47c6-8582-de80-947111f46e3f@berkus.org>
+
+On 6/1/20 4:39 PM, Langley, Stuart wrote:
+> Josh Berkus wrote:
+>> Huh.  It honestly hadn't occured to me to see it that way.  From a
+>> developer perspective the unlicense is pretty clear.  If I was to fault
+>> it on something, it's the fact that there's no requirement to include
+>> the license on redistribution, making me wonder how effective the
+>> warranty disclaimer is.
+> [STL] I think your perspective is important.  What developers intend when they use the license is important. 
+> 
+> 
+
+The developer side of this list was always OK with the unlicense, I
+think.  It got blocked because the attorneys said it wouldn't fly with
+international law.
+
+-- 
+Josh Berkus

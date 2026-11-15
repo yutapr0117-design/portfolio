@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-15 時点・444 ファイル）
+## いまの状態（2026-11-15 時点・445 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -162,6 +162,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-08 | `license-review` | **観測（OpenMDW の審査から 3 通・著作権の反訴による終了は公平か、ソフトウェアでないものに及ぶライセンスを「ソフトウェアなら」の基準だけで量らない）** | `2026-08-license-review-openmdw-antisuit-and-non-software-observed.txt` |
 | 2024〜2026 | `license-review` | **観測（ドシエが引いていなかった決める側の 6 通・前例を論拠にするな、精確な語は品質の問題、AI 生成の表示はファイル単位で、完全な許諾は全法域の動詞を持つ）** | `2024-to-2026-license-review-unquoted-decider-messages-observed.txt` |
 | 2012-03 | `license-review` / `license-discuss` | **観測（"CC0 incompliant with OSD on patents" から 5 通・著作権だけのライセンスは滑りやすい坂、放棄の効果を論じるのは時間の無駄）** | `2012-03-license-review-cc0-incompliant-patents-observed.txt` |
+| 2020-05〜06 | `license-review` | **観測（Unlicense の承認の議論から 4 通・法律家が反対しなかったことを根拠に承認を検討、既に広く使われている、危険は他と量的に違わない）** | `2020-05-to-06-license-review-unlicense-attorneys-cleared-observed.txt` |
 | 2020-02 | `license-discuss` | **観測（Persona non Grata の前文の会話から 2 通・採用の見込みは承認の基準ではなかった、拘束しない語は要らない）** | `2020-02-license-discuss-adoption-not-a-criterion-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
