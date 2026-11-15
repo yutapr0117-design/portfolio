@@ -838,3 +838,39 @@ After: It does not apply this Dedication to material that a narrower notice the 
 **同じ型を数えた（2026-11-12）**: 25 の正規表現（文頭が *Section N* / *This Dedication* / *This Section* / *No permission*）では 6 文。portfolio-9b の `--it-subject`（PR 2972・主語の形を広く取る）では 14 件で、追加の §6.2 *"it states the Dedicator's own position"*（This Section）と *"on its own terms"*（Section 6.3）、§10.5・§11.3・§11.4 の *"unaffected by it"* と *"it is not a condition upon You"* は、主語か直前の節を指す。数え方で件数が変わるので、件数でなく読んだ範囲として書く。§10.4 と §15.1 の *it* / *its* は主語を指す（意図どおり）。§2.1 *every separable part of it*（Work）、§8.4 *the feature that infringes it*（claim）、§9.3 *answers it*（question）は直前の名詞と並びで 1 つに決まる。主語から遠い長い文に別のものを指す *it* が並ぶのは §5.2 だけだった。
 
 **採否（2026-11-12・採った・+3 語）**: `--compare` は 5,054 → 5,057・重複 69 → 69・族 51・指示語 0 / 0。`--guard` は、468u の目印 *"without providing a copy of it"*（`_lib_draft_markers.py`・2026-11-08 PR 2655）が欠けたので、目印を *"without providing a copy of the Work"* へ同じ commit で直し（portfolio-9b に知らせる）、17/17・468r 0。草案・冒頭の一覧（§5.2 の項 +78 → +81）・`This draft:`（5,552 → 5,555）・CHANGELIST（表の行・内訳の §5 の束 +115 → +118・合計 +109 → +112・1.0 から 659 語・英文の語数・切り替えの日の長さ）・逐条の §5.2 の行・errata E67 の 1.4 の欄（*as adopted on 2026-11-09* の形と T60 の 1 文）と E68 の言及・`QUESTIONS-FOR-COUNSEL.md` の引用・長さの数（材料・B3）・`ACD-1.1-SELF-AUDIT.md` §3z を同じ commit で直した。第 1 条からの `wc -w` は 5,214 → 5,217。**⚠ 逆側**: 同じ文に *the Dedicator* と *the Work* が 3 回ずつ並び、読む負担は少し増える。§14.31 で私はこの 3 つを「意味から決まる」と書いており、文法の既定を当てていなかった —— 先行詞の読みは、意味と文法の両方で当てる。
+
+### 14.34 T61・T62: §5.2(b) の *it* を名指しへ、§16.4 を Steward が出した新しい版にも及ぼす（+18 語・採った・2026-11-15）
+
+**レンズ**: 5 人体制の最初の組（2026-11-15・本文は portfolio-1c、反例は portfolio-50 と portfolio-30、測定は portfolio-9b）。T61 は §14.33 の (2)（主語と違うものを指す *it* を全数で当てる）の残りで、Dedicator と Dedication を同じ文に持ち *it* / *its* / *itself* を含む文を全部抜いた（8 文）。7 文は文法の既定（主語か直前の名詞）と意味が同じ先に向き、残ったのが §5.2(b) である。T62 は portfolio-30 が T57 に反例を当てて見つけた（errata E80）。
+
+**T61: §5.2(b) 末尾の *it*（+1 語）**
+
+**Before**: *"(b) impose by contract, terms of service, acceptable-use policy, access condition, click-through, registration requirement, or any other collateral means an obligation in respect of the Work that this Dedication does not itself impose, and it imposes none (Section 10.1);"*
+
+**After**: *"… that this Dedication does not itself impose, and this Dedication imposes none (Section 10.1);"*
+
+**欠陥**: 項の主語は柱書の *"the Dedicator will not"* の Dedicator で、*and it imposes none* は等位の節である。文法の既定（等位の節の代名詞は主語を指しやすい）では *it* は Dedicator で、草案は Dedicator を *it* / *itself* で受けてきた（§5.2 末文の *"the Dedicator itself makes"*、T60 で直す前の *it applies* / *it runs*）。Dedicator と読むと、この節は「Dedicator は付随の手段で何も課さない」という事実の表明になる。§5.2 末文は、Dedicator が自分の素材と、写しを渡さずに Work を動かすサービスに条件を付けることを §5 の外に置くので、その表明は §5.2 自身の末文と食い違い、偽になりうる。括弧の *(Section 10.1)* が Dedication の読みを支えるが、§10.1 を開かないと決まらない。1.0 から在る文（1.0〜1.3 で同じ）なので errata E81 に記録した。
+
+**作用は変わらないと読む理由**: 意図した読み（Dedication は何も課さないので、約束はあらゆる義務に及ぶ）を語で書くだけである。
+
+**⚠ 逆側**: (1) 同じ項に *this Dedication* が 2 回並ぶ。(2) 代案の「*and it imposes none* を外し *an obligation … that this Dedication does not itself impose* を *any obligation* にする」（−11 語）は、約束の範囲を「Dedication が課すもの以外」から「すべて」へ語の上で変える。Dedication が課すものは無いので同じに読めるが、§16.4 の但し書き（本文の頒布の条件）を「Work についての義務」と読む人には、Dedicator が契約で同じ但し書きを課すことまで約束が止めると読める。範囲の語を動かさない +1 語を採った。
+
+**T62: §16.4 を、Steward が出した新しい版にも及ぼす（+17 語）**
+
+**Before**: *"… except by the Steward (Section 16.5). That exception reaches only a new version under a version number and identifier that no earlier text the Steward or a former Steward has published, other than a draft identified as such, has borne, so that each name and identifier in this family continues to denote one fixed text. A modified text may be distributed under a different name."*
+
+**After**: *"… so that each name and identifier in this family continues to denote one fixed text. Section 16.4 applies to a new version distributed under that exception as it applies to this text. A modified text may be distributed under a different name."*
+
+**欠陥（portfolio-30・E80）**: 例外は「配る人」に付いていて「配られる本文」に付いていない。前の版から見れば後の版は改変した本文なので、Steward 以外（採用するプロジェクトの LICENSE、SPDX、承認されれば OSI の掲載）が後の版を名前の下で配ると、前の版の §16.4 の語のままでは禁止に当たる。普通は後の版自身の §16.4 第 1 文（同じ権利者が後で与えた許可）が救う。救わないのは §16.5 が定める譲渡の後で、前の版の本文の著作権は譲渡人 A に残り（§16.5 が移すのは役割であって著作権ではない）、譲受人 B の新版は A の本文を含み、A の §16.4 は「Steward（= B）による」頒布しか外していない。EPL の Steward 条項は例外を「改変する行為」に付けており（*"No one other than the Agreement Steward has the right to modify"*）、写す人は改変しないので同じ穴が無い。
+
+**30 の案 A を採らない理由**: 案 A *"unless it is a version the Steward (Section 16.5) has published"* は例外を本文に付けるが、§16.5 の *"the Steward"* は「最後に役割を譲り受けた者」1 人を指す。譲渡の後は、A が Steward だったときに出した版は *"a version the Steward has published"* に当たらず、同じ穴が時点を変えて残る。*"a former Steward"* を足すと、譲渡の後に A が出す新しい本文まで例外に入る。受け身の *"distributed under that exception"* は、その時の Steward が誰であっても、例外の下で出た版を指す。
+
+**最初の案（1c）と、30 の反例**: 最初は *"A new version distributed under that exception may be distributed verbatim by anyone."*（+12 語）とした。portfolio-30 の反例: §16.4 の翻訳と再符号化の文は *"the text"*（この版の本文）についての定めで、新しい版には及ばない。OSI のサイトの HTML、SPDX の XML、記述子の JSON のような新しい版の再符号化や翻訳は、前の版から見れば改変した本文のままで、*verbatim* の許可に入らない読みが立つ。承認の後に OSI と SPDX がまさにすることなので、E80 の目的がそこで欠ける。30 の代案 *"This Section applies to a new version … as it applies to this text."* を、E57 の規則（*this Section* は番号の付いた項を指す）に頼らないよう *Section 16.4* と名指して採った（語数は同じ）。
+
+**作用は変わらないと読む理由**: 誰が新しい版を出せるか、どの番号と識別子で出せるかは変わらない。足すのは、§16.4 が自分の本文に与えている扱い（誰でも verbatim で配れる・翻訳と再符号化はその名の下で配れる・改変した本文は名前の下では配れない）を、例外の下で出た版にも同じく与えることだけである。新しい版を改変したものは、前の版の §16.4 でも名前の下では配れない —— 新しい版自身の §16.4 と同じ向きで、二重になるが食い違わない。§16.6 により Work の利用者には効かない。
+
+**⚠ 逆側**: (1) 新しい版を誰でも verbatim で配れることは、許可の声である。T57 で portfolio-00 は *"is permitted"* が Dedication から Steward への許可の源と読まれうるとして退けた。ここでの許可は Steward へのものではなく、第 1 文と同じ「誰でも verbatim で」の許可だが、portfolio-30 は当たらないと読んだ。(2) 役割の譲渡は一度も起きておらず、裁判所は各版の許可がその版を覆うと読むだろう（E80 の重さは Low）。(3) +17 語で、名前の保護の束が +47 から +64 になる。(4) *that exception* が 2 文続けて同じ例外（*except by the Steward*）を指す。(5) 30 の案 A′ *"unless it is a version that the Steward or a former Steward (Section 16.5) has published"*（+8 語）は、譲渡の後に元の Steward が新しい改変本文を出すと例外に入る（次の文が塞ぐのは番号の再使用だけで、誰が出すかではない）ので採らなかった。
+
+**portfolio-30 の反例（2026-11-15）**: T61 は立たない（直前の *"that this Dedication does not itself impose"* と名指しでそろう）。T62 は上の (2) で形が替わった。
+
+**依頼**: portfolio-50 に反例（*"distributed under that exception"* が下書き（*a draft identified as such*）を含むか —— 含むなら下書きも誰でもそのまま配れることになり、下書きと明示されている限り害は無いと読む）を、portfolio-9b に `--compare / --guard` を頼む。

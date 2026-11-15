@@ -123,6 +123,8 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §2.6（約束と拘束・T58） | 第 2 文のセミコロンを句点にし、*"This undertaking binds that Dedicator and imposes nothing upon You"* を別の文にする | 約束の範囲と性質が 77 語の 1 文にあった。*This undertaking* は直前の識別の約束を受け、先行詞は変わらない（portfolio-00 の反例で clean）。**逆側**: 作用の分岐は元から無く、直さなくても害は無い（§14.32） | 0 | 反映済 |
 | §2.8（譲受人・T59） | 第 2 文を *"A transferee takes subject to it to that extent, Section 6 included."* とする | 第 1 文は譲受人への拘束を *"to the fullest extent the law permits"* に限るが、第 2 文は限り無く断定し、17 U.S.C. §205(e)（`QUESTIONS-FOR-COUNSEL.md` 問 1 (j)）を読んだ審査者に制定法より強い主張と突かれる（portfolio-00 の候補）。最初の案 *"to the same extent"* は「Dedicator が拘束されるのと同じだけ」とも読め、外したい無限定の強さが戻る（portfolio-00 の反例）。*"to that extent"* は直前の限りに一意に向く。1.0 から在る文（*"takes subject to them"*）なので errata に記録する（portfolio-00）。**逆側**: 法律家の答えが出れば限り方の語が変わりうる。*Section 6 included* の明示は残す（§14.32） | +3 | 反映済 |
 | §5.2（末文の *it*・T60） | 末文の *"it applies"* と *"it runs"* を *"the Dedicator applies"* と *"the Dedicator runs"* へ、*"a copy of it"* を *"a copy of the Work"* へ | 文の主語は *Section 5* で、*it* は文法の既定では主語を指す。*a copy of it* は Section 5・*a service*・*the Work* の 3 通りに読め、サービスの写しと読むと除外は「Dedicator がサービスのソフトウェアを渡さない限り、その条件は §5 の外」と意図より広がる（portfolio-00）。T48（2026-11-09）が *"through which the Dedicator runs the Work"* を合流させたとき *it* にしていた。1.4 草案が持ち込んだので `ACD-1.1-SELF-AUDIT.md` §3z に記録した。*even where* の掛かりを保つため 2 文に分けない。**逆側**: 同じ文に *the Dedicator* と *the Work* が 3 回ずつ並ぶ。Dedicator がサービスと Work の写しを同じ使い手に渡せば、そのサービスの条件は §5 の内に入り §5.2(b) が働く（除外の趣旨と合う）（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.33） | +3 | 反映済 |
+| §5.2(b)（*it*・T61） | 末尾の *"and it imposes none (Section 10.1)"* を *"and this Dedication imposes none (Section 10.1)"* へ | 項の主語は柱書の Dedicator で、等位の節の *it* は文法の既定では主語を指し、草案は Dedicator を *it* / *itself* で受けてきた。Dedicator と読むと「Dedicator は付随の手段で何も課さない」という事実の表明になり、自社の素材とサービスの条件を §5 の外に置く §5.2 末文と食い違う。1.0 から在る文なので errata E81 に記録した。**逆側**: 同じ項に *this Dedication* が 2 回並ぶ。*any obligation* へ縮める代案（−11 語）は約束の範囲の語を動かすので採らない（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.34） | +1 | 反映済 |
+| §16.4（新しい版・T62） | 例外の限りの文の次に *"Section 16.4 applies to a new version distributed under that exception as it applies to this text."* を足す | 例外は配る人に付き、配られる本文に付いていない。前の版から見れば後の版は改変した本文で、§16.5 の譲渡の後は、前の版の権利者 A の §16.4 は Steward（= B）による頒布しか外さないので、採用者・SPDX・OSI が B の新版を名前の下で配ると A の本文の禁止に当たる（portfolio-30・errata E80）。EPL は例外を改変する行為に付けており同じ穴が無い。最初の案 *"… may be distributed verbatim by anyone"* は新しい版の翻訳と再符号化（OSI の HTML・SPDX の XML）を拾わない（30 の反例）。30 の案 A *"unless it is a version the Steward has published"* は譲渡の後に A が出した版を外し、A′（*or a former Steward*）は譲渡の後に A が出す新しい本文を例外に入れる。**逆側**: 役割の譲渡は起きておらず、裁判所は各版の許可がその版を覆うと読むだろう（Low）。新しい版の改変は新しい版自身の §16.4 と二重に止まる（同じ向き）（§14.34） | +17 | 反映済 |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
@@ -169,21 +171,23 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | E77 | §16.4 | *"regardless of case"*（+3 語・T46） | **反映済み**（2026-11-09）|
 | E78 | §8.4 | 第 2 文 *"The grant is necessary because …"* を外す（−50 語・上の表の「§8.4（理由の文・T54）」行と同じ変更） | **反映済み**（2026-11-12）|
 | E79 | §2.8 | 第 2 文を *"A transferee takes subject to it to that extent, Section 6 included."* へ（+3 語・上の表の「§2.8（譲受人・T59）」行と同じ変更） | **反映済み**（2026-11-12）|
+| E80 | §16.4 | *"Section 16.4 applies to a new version distributed under that exception as it applies to this text."* を足す（+17 語・上の表の「§16.4（新しい版・T62）」行と同じ変更） | **反映済み**（2026-11-15）|
+| E81 | §5.2(b) | *"and it imposes none"* を *"and this Dedication imposes none"* へ（+1 語・上の表の「§5.2(b)（*it*・T61）」行と同じ変更） | **反映済み**（2026-11-15）|
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
-1.3 の 5,443 語から 1.4 草案は +112 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
+1.3 の 5,443 語から 1.4 草案は +130 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
 
 | 束 | 増減 | 何のための語か |
 | :-- | --: | :-- |
 | 適用と通知（§1.9・§2.3・§2.6・§16.1〜§16.3）| +148 | タグや識別子だけの適用、通知が名指す素材、優先、大小の区別、寄与の宛先。採用者がファイル単位・パッケージ単位で使うときに、意図しない素材を撤回不能に出さないための語 |
-| 不行使と付随の約束（§5）| +118 | 商標と虚偽の表示、合意した支払い、特許の除外、Dedicator 自身のモデルとサービス。データだけを出す組織や、重みと API を両方出す組織が採用できるための語 |
-| 名前の保護（§16.4〜§16.6）| +47 | 1 つの名前と識別子が 1 つの本文を指すための語 |
+| 不行使と付随の約束（§5）| +119 | 商標と虚偽の表示、合意した支払い、特許の除外、Dedicator 自身のモデルとサービス。データだけを出す組織や、重みと API を両方出す組織が採用できるための語 |
+| 名前の保護（§16.4〜§16.6）| +64 | 1 つの名前と識別子が 1 つの本文を指し、Steward が出した新しい版を誰でもその名の下で配れるための語 |
 | その他の明瞭化 | +43 | 定義、承継（§2.8 の *to that extent*・T59）、§4、§9 などの語の付き先 |
 | 特許（§6.1・§8）| −4 | 行為を目的語にし、*reach* を 1 回で定め、三つの足場の説明と §8.6 の *alongside them*（T56）を外した |
 | 理由・説明の文を外したもの | −240 | §2.8・§11.4・§12.4・§8.4（T54）の理由の文と、§2.7・§8.5 の案内（Chestek 氏 *"I question whether they belong in the agreement at all."*・#295）|
 
-**読み方**: 増えた語の大半（+263）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 659 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
+**読み方**: 増えた語の大半（+281）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 677 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
 
 ## 外部資料・OSAID 1.0・opensource.org のページを当てた記録（2026-10-28）は別の file へ移した
 
@@ -345,15 +349,15 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 > **If you read ACD-1.0 on `license-discuss`, this is what is different in the version submitted.**
 > The direction is unchanged: no condition is placed on You in respect of the Work (§10.1), the
 > surrender, the licence and the covenant stand side by side (§2.4, §4.4), and the patent grant
-> reaches models and outputs (§8.4). What changed is precision. Of the 79 defects recorded against
-> 1.0 in [`ACD-1.0.errata.md`](ACD-1.0.errata.md), 77 are closed: 36 in 1.1 to 1.3 (19, 13 and 4)
-> and 41 for the first time in 1.4. E10 is carried into finalisation and E6 is left as it is by
+> reaches models and outputs (§8.4). What changed is precision. Of the 81 defects recorded against
+> 1.0 in [`ACD-1.0.errata.md`](ACD-1.0.errata.md), 79 are closed: 36 in 1.1 to 1.3 (19, 13 and 4)
+> and 43 for the first time in 1.4. E10 is carried into finalisation and E6 is left as it is by
 > design. By the clause
-> each entry names first, most were in §8 (patents, 13), §16 (applying the text and its name, 12),
+> each entry names first, most were in §8 (patents, 13), §16 (applying the text and its name, 13),
 > §2 (scope and effect, 11) and §1 (definitions, 8); seven name the preamble or several clauses at
 > once. Further changes came from our own sweeps of the
 > later drafts and are listed, with their reasons, in each version's change list. The text is
-> longer: 5,555 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
+> longer: 5,573 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
 
 **⚠ 逆側**: 短い経路の語数が約 170 語増える（`REVIEWERS.md` の短い経路の表と Check 472m の値を同じ日に直す）。*"The direction is unchanged"* は、1.0 から変わらなかったものを 3 つだけ挙げる文で、ほかに変わらなかったものが無いとは言っていない。逆に、変わったものを errata の件数で数えるので、errata に載らない 1.4 生まれの変更（T34〜T52 の多く）は *"Further changes"* の 1 文にまとまる。数を当日に数え直すのは、草案が確定まで動くからである（2026-11-11 の時点でも 1.4 の閉鎖は 39 件で、まだ動きうる。**同日の訂正**: 最初の下書きは 1.3 で 5・1.4 で 38 と書いた。状態の列の版の語の最初の一致を数えていて、閉鎖の印でない語を拾っていた。portfolio-00 が印の正規表現で 4 と 39 を出し、同じ数え方で確かめた）。
 
