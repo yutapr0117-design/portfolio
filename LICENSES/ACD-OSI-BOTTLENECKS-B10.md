@@ -153,6 +153,10 @@ Bruce Perens 氏 2002-01-20 *"One of the goals of the OSD was to have software t
 
 Russell Nelson 氏 2005-09-01 *"Does OSI certify all licenses that comply with the OSD?"* と *"Does OSI certify all good licenses that comply with the OSD?"* を並べ、*"In other words, do we take into account the interests of the community?"* と問うた。Lawrence Rosen 氏は同じ日に *"my opinion has always been that OSI should approve licenses that comply with the OSD. Period."* と答え、理事の Eric S. Raymond 氏は同じ月に、3 つの基準（読める・再利用できる・重複しない）を *"supplemental to the OSD"* とし、*"we have to be more strict about what we allow in."* と書いた。上の 2001 年の段（新しさが無くても退けられない）から 2005 年のこの段を経て、差の問いは「優先度」から「承認の前の問い」へ移った。**逆側**: Raymond 氏の文は方針の説明で、理事会の議決の文ではない。Nelson 氏 2005-09-04 *"We can change our reasons for approval over time, but not over parties asking for approval."* —— 基準は時とともに変わるので、2005 年の基準も提出の日の運用とは限らない。
 
+### 2026-11-16 —— 許可型の変種の増殖に、元の事務局長が「もう断るべき」と書いた（`review-readings-3.md` §1.311）
+
+Lawrence Rosen 氏 2020-08-18（`license-discuss`）は、承認済みの BSD 型のライセンスが増えていることを *"ludicrous"* と呼び、*"OSI should simply refuse to do it anymore!"* と書いた。Josh Berkus 氏は 2020-08-21 に *"For such a short license, BSD has an awful lot of variations."* と添えた。ACD は条件の無い許可型の文書として、0BSD・MIT-0・Unlicense と同じ棚に置かれうるので、差が認められなければこの線に当たる。**逆側**: 文は同じ効果の言い換え（BSD の変種）に向けたもので、G1 の差が立てば当たらない。同じ Rosen 氏が 2005 年には「OSD に合えば承認すべき」と書いており（上の 2005 年の段）、2020 年の文はそこから動いた記録である —— 決める側の線が、時とともに増殖に厳しくなった向きを示す。
+
 ### 2026-09-20 追記 —— gap の 1 本目に、**決着した裁判例が付いた**
 
 **§6 が扱う問いは仮想ではない。** ハンブルク上級地方裁判所 第 5 民事部は 2025-12-10 に
