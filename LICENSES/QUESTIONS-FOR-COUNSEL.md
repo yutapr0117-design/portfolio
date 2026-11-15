@@ -1,7 +1,7 @@
 ---
 file: LICENSES/QUESTIONS-FOR-COUNSEL.md
 audience: a lawyer asked to read ACD, or reading it on license-review / license-discuss; the steward, when asking one
-last-updated: 2026-11-12
+last-updated: 2026-11-15
 canonical-ref: LICENSES/ACD-1.3.txt (the latest fixed text, applied to this repository) / LICENSES/ACD-1.4-DRAFT.txt (the successor draft) / LICENSES/ACD-1.0.jurisdictions.md (where we think each question sits, by jurisdiction) / LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (B1)
 ---
 
@@ -210,6 +210,19 @@ the rights are personal, inalienable, or incapable of waiver, while §12.1's wai
 signature, may fail for want of form. The United States (17 U.S.C. §106A(e)(1)) and the United
 Kingdom (CDPA s.94) make the rights non-transferable, so §12.2 applies there; we know of no
 jurisdiction in the gap, which is why the text was not changed (2026-11-01).
+(e) **Consent as well as a covenant.** Where moral rights cannot be waived, does a blanket advance
+consent in the licence text to acts that would otherwise infringe them (modification, omission of
+the author's name) operate separately from a covenant not to exercise them? In Japan the integrity
+right is infringed by alteration "against the author's will" (Article 20(1)), which reads as if
+consent removes the infringement rather than the remedy; the United Kingdom provides that the rights
+are not infringed by an act to which the person entitled has consented (CDPA s.87(1)). If that is
+right, consent reaches what a covenant may not: persons who are not party to the covenant, and the
+protection after death (Japan, Article 60). If it is wrong, or if courts refuse a consent given in
+advance to unspecified acts (and Article 113(11), on acts prejudicial to honour or reputation, is
+not a right that consent obviously reaches), does adding consent words do harm, for instance by
+inviting the reading that the covenant alone was not meant to suffice? The 1.4 draft is weighing
+such a change (`ACD-1.4-SECOND-CLARITY-TRIAL.md`, T67); the reading above is ours, not a list
+participant's.
 
 **An answer would change** §12.2 and §12.4, the clauses on which the dossier most wants correction
 (`jurisdictions.md` §10).
