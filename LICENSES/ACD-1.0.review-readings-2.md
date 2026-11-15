@@ -193,3 +193,19 @@ portfolio-1c の依頼（1.4 草案の §16.4 の名前と識別子の規律、�
 **逆側。** Cowan 氏が「今は分かりにくくない」とも書いているとおり、分かりにくさは読み手の慣れで変わる。ACD の理由の文は分かりやすさのために置いているが、長さとして数えられる。Perens 氏の問いは L0-R（使用を制限する独自の型）への問いで、委員会の理由書は使用を基準にしていない（§1.201・§1.223）。
 
 **この節が establish しないこと。** L0-R の審査の帰結（提出者が実質的に取り下げた・2019-01 の要約）はこの節では読んでいない。
+
+## 1.229 承認済みに無いことをするライセンスの審査は速くも一致もしない、使うだけの人に法的な負担を課さない、OSI・FSF・Debian の全部に通るかを先に問う —— License Zero Reciprocal の審査（2017）（2026-11-15）
+
+"For Approval: License Zero Reciprocal Public License"（`license-review` 2017-09〜11）と、そこから分かれた "resolving ambiguities in OSD"（2017-10）から 3 通（`rounds/2017-11-license-review-l0r-berkus-novel-not-fast-observed.txt`・`rounds/2017-10-license-review-l0r-perens-no-legal-load-observed.txt`・`rounds/2017-10-license-review-l0r-phipps-preflight-observed.txt`）。法律家の Kyle Mitchell 氏が単独で出した新しいライセンスの審査で、通単位の未引用の会話の上位に出た。§1.228（同じ提出の 2018 年の後日談）の前段である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"You are submitting for approval a license which does several things which no license previously approved by the OSI does. If you thought that reviewing such a license was going to be either fast or straightforwards, or that committee members would be unanimous in our evaluation of criteria or recommendations, then I'm sorry."* | Josh Berkus 氏 2017-11-13 | **見込みの材料（B10 の裏面）。** 承認済みに無い効果を主張するライセンスの審査は、速くも簡単でもなく、委員の評価も割れる、と理事の 1 人が書いた。ACD は B10 で「承認済みのどれにも無い効果」を主張するので、その主張が強いほど審査は長く、意見が割れると見込むのが正確である（`OSI-APPROVAL-PLAN.md` の時間の見込み） |
+| *"With regard to *simple users,* those who make use of the Open Source software and do not modify or redistribute it, there should be as close to *no legal load* as possible. We need to be cognizant that many of these users are individuals and very small businesses that can't reasonably assume any legal load at all."* | Bruce Perens 氏 2017-10-24（OSD が書いていないが承認の過程で見るべきこととして） | **有利な面。** ACD は使うだけの人に何も課さず（§10.1）、知らなくても許諾を持つ（§2.3）。Perens 氏の「法的な負担を限りなく 0 に」を、使う人だけでなく配る人・改変する人にまで及ぼした形である。§1.199 の同じ人の「ライセンスを読まなくても動かせる」と同じ線 |
+| *"Seems to me any license that is approved by only one of {OSI, FSF, Debian} is an indicator of an unaddressed issue. So, simply as an exercise of reflection, asking if one's license will be approved by all is a great pre-flight check."* | Simon Phipps 氏 2017-10-25 | **手順の材料。** OSI・FSF・Debian の全部に通るかを、提出の前の点検として問え、という当時の理事の勧めである。`OSI-APPROVAL-PLAN.md` は Debian・FSF・Fedora の見解を「関連情報」として挙げ、未使用の経路としている。提出の前にこの点検を自分で行い、結果を提出に書くことは、Phipps 氏の勧めの形に合う |
+
+**読み。** 2017 年の 3 人の文は、ACD の提出に 3 つの見込みと準備を与える。新しい効果を主張するほど審査は長く割れる（Berkus 氏）、使う人に負担を課さないことは決める側の価値に合う（Perens 氏）、FSF・Debian の見解を先に確かめるのは良い点検（Phipps 氏）。
+
+**逆側。** Phipps 氏の点検は「どれかにしか通らない」ことを問題の印とするので、FSF や Debian の側で ACD が通らないと分かれば、それ自体が不利な材料になる（ACD は §3 の放棄を持ち、Debian と FSF は CC0 をソフトウェアに勧めない立場を取ってきた）。点検をすれば結果が記録に残る。Berkus 氏の文は L0-R（使用を条件にする型）への文で、ACD のような条件の無い型の審査が同じく長くなるかは分からない。
+
+**この節が establish しないこと。** FSF・Debian が ACD をどう見るかは確かめていない。L0-R の審査の帰結は §1.228 の範囲で、この節は扱わない。

@@ -1,0 +1,53 @@
+Source: OSI license-review public archive, 2017-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 14 in "resolving ambiguities in OSD" (2017-10-24)
+Senders: Simon Phipps
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From simon at webmink.com  Tue Oct 24 23:45:57 2017
+From: simon at webmink.com (Simon Phipps)
+Date: Wed, 25 Oct 2017 01:45:57 +0200
+Subject: [License-review] resolving ambiguities in OSD [was Re: For
+ Approval: License Zero Reciprocal Public License]
+In-Reply-To: <CAFjZtRdBsgYOYk7Vss=c3FTbOcoJQQs_dx5h2=WGO6X4cpWUgA@mail.gmail.com>
+References: <CAFjZtRdBsgYOYk7Vss=c3FTbOcoJQQs_dx5h2=WGO6X4cpWUgA@mail.gmail.com>
+Message-ID: <CAA4ffp9+DzX4aVHZGJK6YQ7cHQ_wS3MQK4_kGVW4m3+kefiN3Q@mail.gmail.com>
+
+Hi Luis,
+
+On Wed, Oct 25, 2017 at 1:34 AM, Luis Villa <luis at lu.is> wrote:
+>
+>
+> As an example of the lack of transparency Kyle is (patiently, politely)
+> pointing out,
+>
+FSF approval is not mentioned in the mission, the OSD, or any other OSI
+> document, as far as I'm aware.
+>
+
+Huh? This is a mailing list discussion and there's no suggestion this is
+part of any formal process.
+
+
+> So it is un-transparent, even to a well-intentioned and fairly
+> sophisticated drafter like Kyle, why it should be diagnostic for OSI
+> approval.
+>
+
+Seems to me any license that is approved by only one of  {OSI, FSF, Debian}
+is an indicator of an unaddressed issue. So, simply as an exercise of
+reflection, asking if one's license will be approved by all is a great
+pre-flight check.
+
+Cheers
+
+S.
+-- 
+*Simon Phipps*  http://webmink.com
+
+*Office:* +1 (415) 683-7660 *or* +44 (238) 098 7027
+*Signal/Mobile*:  +44 774 776 2816
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171025/39973051/attachment.html>
