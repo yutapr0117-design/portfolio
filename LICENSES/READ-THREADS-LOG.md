@@ -20,6 +20,8 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に 2004〜2005 年に始まる未読 54 本（53 会話・879 通・決める側の通に絞った）を portfolio-50 が読んだ（5 人の分担・30 の案）。論点のある会話は `review-readings-4.md` の 1.350〜1.353 の節へ（OVPL の否決と OSD 5・「死んだ」ライセンスの整理・本文の書き方・寄与の既定と同意）、それ以外は読了の記録だけにした
+
 - 2026-11-15 に "Issue on licenses pages"（`license-discuss` 2013-11・4 通を通読）を `review-readings-2.md` §1.240 へ（OSL と AFL は 1 人の起草者が版を重ねて複数の版が承認された、FOSS の許諾は永遠なので旧版を勧めなくても配った物は変わらない・Rosen 氏）
 
 - 2026-11-15 に "Thoughts on AAL and OSS vs FOSS"（`license-discuss` 2020-03〜04・33 通を通読）を `review-readings-2.md` §1.239 へ（承認済みの AAL の作者は法律家ではないと OSI のサイトが書く、使われなくなった承認済みは廃止が論じられる・Berkus 氏、公開されたライセンスの名は共同体のもの・同）
