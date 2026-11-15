@@ -419,6 +419,8 @@ census の候補の外で、話題の語（撤回・放棄）に当たる未読�
 
 **この節が establish しないこと。** 撤回の可否の法的な評価はしていない。
 
+**追記（2026-11-15・同じ論点の 2015 年の記録）**: "Companies that encourage license violations"（`license-discuss` 2015-09）で、Lawrence Rosen 氏の通に引用された John Cowan 氏の文（Outlook 形式の引用で、`>` の付かない行に在る）は *"Since the right of an owner to revoke a bare license is inherent, it must be a promise not to exercise that right, and on what meeting of the minds, what consideration is that promise founded? Looks like a nudum pactum to me."*、Rosen 氏の答えは *"John, an open source license is not a nudum pactum. Consideration abounds in FOSS."* だった（`rounds/2015-09-license-discuss-violations-rosen-consideration-abounds-observed.txt`）。Rosen 氏の答えは、ライセンスの条件を対価と見る線で、何の条件も課さない ACD（§10.1）には移らない。`against-2.md` #324 が 2000 年と 2005 年の記録で同じことを書いており、これは 3 つ目の記録である。
+
 **反映**: B12（法人に移せば取り消せない、という形・30 へ）/ B4 の撤回の論点の補強（`QUESTIONS-FOR-COUNSEL.md` の問 (i)・撤回の後に初めて出会う者・30 へ）。本文は変えない（§2.2・§2.5・§3.1 を重ねた答えが既に在る）。
 
 ## 1.243 「公有のライセンス」というものは無い、それは放棄の試みと代わりの許諾の組み合わせだ —— ACD の §3 と §4 の形そのもの（"Public domain license - Public Domain Customized"・2014-12〜2015-01）（2026-11-15）
@@ -461,7 +463,7 @@ census の候補の外の未読の会話の 1 本（"License-review Digest, Vol 
 | 発言 | 誰が | ACD への当たり方 |
 | :-- | :-- | :-- |
 | *"Why not use CC0?"* | Richard Fontana 氏 2012-05-21 | **B10 の定型の問い。** 公有に置きたい提出者に、承認済みでない CC0 を勧めた。ACD は同じ問いに、CC0 が持たない特許の許諾と TDM の明示（B10 の G1）で答えることになる |
-| *"It's only not OSI approved because it doesn't do what it can't do, and what people think it should do -- solve the problem of patents. It's only too long because that's what is needed to reliably disclaim copyright world-wide ... and failing that, it's a license that comes as close as possible to public domain. If the Creative Commons thought "This work has no copyright" was sufficient, they would have used it, no?"* | Russ Nelson 氏 2012-05-21（CC0 は承認されておらず長すぎる、という提出者の返答へ） | **有利な面（長さと構造・B10）。** 世界中で確実に手放すには長さが要り、それが効かなければ公有に限りなく近い許諾になる、という CC0 の構造（放棄と代わりの許諾・§1.243）を、長さの理由として擁護した。CC0 が承認されない理由を特許に置いた点は、特許の許諾を持つ ACD と CC0 の差そのものである |
+| *"It's only not OSI approved because it doesn't do what it can't do, and what people think it should do -- solve the problem of patents. It's only too long because that's what is needed to reliably disclaim copyright world-wide ... and failing that, it's a license that comes as close as possible to public domain. If the Creative Commons thought "This work has no copyright" was sufficient, they would have used it, no?"* | Russ Nelson 氏 2012-05-21（CC0 は承認されておらず長すぎる、という提出者の返答へ） | **有利な面（長さと構造・B10）。** 世界中で確実に手放すには長さが要り、それが効かなければ公有に限りなく近い許諾になる、という CC0 の構造（放棄と代わりの許諾・§1.243）を、長さの理由として擁護した。CC0 が承認されない理由を特許に置いた点は、ACD と CC0 の差に関わる（ただし 2012 年の CC0 の審査で実際に問題になったのは、特許の許諾が無いことではなく、特許を明示に除外する条（4(a)）だった。ACD が「埋める」と書けるのは、特許の許諾を持つという形の面だけである・2026-11-15 に portfolio-30 の指摘で直した） |
 | *"If you must do this, at least state the problem you're trying to address that isn't already addressed by an OSI license. Heck, I'd argue that step should be a mandatory prerequisite for _any_ new license submission at this point."* | Tom Callaway 氏 2012-05-21（Fedora） | **期待（B10）。** 既存で解けない問題を述べることは、翌年には承認の規則の「新しいライセンスの理由」として明文になっている（§1.246）。ACD の提出は、この問いに最初の一画面で答える必要がある |
 | *"The fact that "Public Domain" means so many different things in so many different jurisdictions should tip you off that what you want to do is not trivial. CC-0 (aside from its patent issues) makes an admirable attempt to "workaround" this fact to achieve extremely permissive end-results when it is not possible to abandon copyright. If there was an "easy" way to universally place works in the Public Domain (for all meanings of PD), it would already have been done. The fact that CC-0 is long is because it is thorough."* | Tom Callaway 氏 2012-05-21 | **有利な面（長さ）と期待。** 公有に置く文が長いことは、徹底していることの印として読まれた。ACD の長さ（1.4 草案の語数の議論）にとって、「短くすべき」とは逆向きの、審査者の側の文である |
 | *"That sort of thing would qualify as a "crayon license"."* | Bruce Perens 氏 2012-05-21（短い公有の文について） | **逆側（B1）。** 短く、法律家の手を経ない公有の文は、crayon license と呼ばれた。ACD は短くはないが、単独の起草者の文である点で同じ型に見られうる |
@@ -490,3 +492,100 @@ census の候補の外の未読の会話の 1 本（"License-review Digest, Vol 
 **この節が establish しないこと。** 2013 年の規則が現行の規則とどう違うかの全文の比較はしていない（`review-rules.md` の範囲）。
 
 **反映**: 入口（2013 年の規則の 5 項目に、提出の文書のどこが答えるかの対照の点検・50 へ）/ B1（規則の 4 に出せるものが無いことの記録・30 へ）。
+## 1.247 表記だけの改訂でも、改訂版は「OSI 承認済み」と呼べない —— 承認は 1 つの本文に付く（MirOS Licence の表記の変更・2013-09）（2026-11-15）
+
+"Suggested MirOS Licence wording change: editorial or substantial?"（`license-review` 2013-09・4 通）を通読し、2 通を置いた（`rounds/2013-09-license-review-miros-{fontana-editorial-not-approved,villa-roughly-right}-observed.txt`）。承認済みの MirOS Licence の作者が、ハイフンでの改行を避けるために語順を少し入れ替える変更は「表記の変更」で版を改めずに済むか、と尋ねた会話である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"My personal view is that this revised version should not be characterized as an OSI-approved license, even if the revisions here are justifiably considered 'merely editorial'. You could say it's very similar to an OSI-approved license, and point out the degree of similarity."* | Richard Fontana 氏 2013-09-10 | **手順の材料（承認の後の版）。** 承認は一語単位で 1 つの本文に付き、表記だけの改訂でも新しい本文は承認済みではない。ACD の §16.4（1.0 でも §16.4）が「名と識別子は 1 つの固定した本文を指し続ける」と書くのは、この運用に合う。同時に、承認の後に ACD の版を改めれば、その版は改めて審査を要する |
+| *"I think that's roughly right, though I'm open to alternative points of view. (I'd make an exception for cases where there is no "standard" license (i.e., the BSDs/MITs) where clarifying the default text we present can be a useful service to the community and doesn't make life substantially more difficult for those trying to handle the number of licenses out there.)"* | Luis Villa 氏 2013-09-11 | **同じ向き。** 例外は「標準の本文」の無い BSD・MIT に限られ、ACD には当たらない |
+
+**読み。** 承認は特定の本文に付き、版を改めれば承認は引き継がれない。ACD が 1.0 から 1.4 まで版を重ねてきたことは、承認の後には「版ごとに審査」という費用に変わる。
+
+**逆側。** 承認を受けた版で版の改めを止めれば、この費用は生じない。ただし欠陥が見つかったときに直せない（直せば未承認の版になる）。ACD の手順（凍結して次の版で直す）は、承認の後にはそのまま「次の版も出す」ことになり、`against.md` #320（短い間の版の多さ）の費用と重なる。
+
+**この節が establish しないこと。** OSI が承認済みの本文の誤字の訂正をどう扱ってきたかの全体は確かめていない。
+
+**反映**: 入口（承認の後に版を改める場合の扱いを計画に書いておく・50 へ）/ against #320（承認の後にも版の多さが費用になる・30 へ）。
+
+## 1.248 指摘に本文で答えず「FAQ で説明する」と先送りした提出への評価は「meh」だった（ESA-PL・2018-05）（2026-11-15）
+
+"ESA-PL Weak 2.3"（`license-review` 2018-03〜05・4 通）を通読し、1 通を置いた（`rounds/2018-05-license-review-esa-pl-perens-faq-not-text-observed.txt`）。欧州宇宙機関のライセンスの審査である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Your responses offer to correct an obvious error in the license and punt all of the other issues, offering to clarify them in a FAQ rather than to go back to the lawyers for more drafting."* / *"So, because of this reluctance to go back to the lawyers, I'd have to say that my opinion so far is "meh". I don't strongly reject approval of the license, but neither do I see a need to speak in its favor."* | Bruce Perens 氏 2018-05-07 | **不利な面の候補（本文の外で答えること）。** 指摘に本文の改訂でなく説明の文書で答えると、審査者は支持しない。ACD は条文の論点の多くに、本文を変えずに逐条の説明や想定問答（`ACD-1.0.review-responses.md` など）で答える判断をしてきた（たとえば §1.232 の §2.6、§1.238 の型板、§1.239 の §16.4）。審査で同じ形を取れば、Perens 氏の「meh」の線に読まれうる |
+
+**読み。** 審査者が求めるのは本文での答えで、外の文書での説明は、本文を直す手間を避けたものと読まれうる。ACD の「本文を変えない」判断は、どれも「本文が既にその読みを持つ」ことを理由にしてきたが、審査ではその理由を本文の文言で示す必要がある。
+
+**逆側。** 本文が既に答えている論点を、さらに本文に書き足すのは語数の費用になる（§1.241 の Berkus 氏の二択の「要らない」側）。Perens 氏の文は、明らかな誤りを含む本文について、その他の論点を全部先送りした応答に向けたもので、本文が答えていることを示す説明まで否定してはいない。
+
+**この節が establish しないこと。** ACD の「本文を変えない」判断のうち、どれが審査で「先送り」と読まれうるかは数えていない。
+
+**反映**: 1c 種（「本文を変えない」判断の一覧に、その読みを本文のどの文言が持つかを並べる点検・1c へ）/ 入口（想定問答が本文の文言を引いて答えているかの点検・50 へ）。
+
+## 1.249 「Autonomous」を名に持つ先行のライセンス —— 後の CAL の前身「Autonomous Agent License」（2019-01）（2026-11-15）
+
+"Developing a new open source license"（`license-discuss` 2019-01・7 通）を通読し、2 通を置いた（`rounds/2019-01-license-discuss-autonomous-agent-license-{lindberg,perens}-observed.txt`）。Van Lindberg 氏が Holo のために作っていた強いコピーレフトのライセンスの事前の告知で、Bruce Perens 氏はそれを "Autonomous Agent License" と呼んで条項を批判した。この提出は後に Cryptographic Autonomy License（CAL・2020 承認）として審査された（`rounds/2019-04-license-review-cal-approval-observed-*`）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Unlike other current open source licenses, the Autonomous Agent License will require software that implements a compatible API or publicly performs the API to also be open source."* / *"So, unfortunately I really have to recommend in the strongest way that a license incorporating that term not be approved."* | Bruce Perens 氏 2019-01-31（Holo の告知の文を引いて） | **名の記録（B6・`against.md` #161）。** 「Autonomous」を名に持つライセンスが、ACD より前に審査の場に出ていた。批判は条項（API の実装への条件）に向けたもので、名には向いていない |
+
+**読み。** ACD の名の「Autonomous」は、審査の場で初めての語ではない。先行のライセンスは、名ではなく条項で批判され、名を変えて（Cryptographic Autonomy License）承認された。
+
+**逆側。** 名が変わった理由はこの会話の範囲では分からない。名の変更が審査の指摘によるものなら、#161 の Kuhn 氏の「名がその主題に唯一ふさわしいライセンスに見せる」の線と重なりうる。ACD の名が先行の名と混同されうるかも確かめていない。
+
+**この節が establish しないこと。** Autonomous Agent License から CAL への改名の理由。
+
+**反映**: B6（「Autonomous」を名に持つ先行のライセンスの記録・30 へ）。
+
+## 1.250 「著作権の拡張は、ライセンスの強制に役立つ場合でもオープンソースに悪い」—— Perens 氏の原則（"Open Source and the extension of copyright"・2019-01）（2026-11-15）
+
+`license-discuss` 2019-01 の会話（2 通）を通読し、1 通を置いた（`rounds/2019-01-license-discuss-extension-of-copyright-perens-observed.txt`）。オープンハードウェアのライセンスが、機能的で著作権の及ばない回路図の実装まで覆おうとすることへの批判である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"In addition, I think there's a principle here. Extension of copyright is bad for Open Source, even if it helps us enforce our licenses more effectively. It will always work against us to a greater extent that it can be put to work for us."* | Bruce Perens 氏 2019-01-31 | **点検の材料（データ・モデル・著作権以外の権利）。** ACD はデータ、モデルの重み、著作権以外の権利（データベース権・特許など）を許諾の範囲に含める。その書き方が「そこに権利がある」と主張するように読まれれば、Perens 氏の原則に当たる。ACD の §2.7（1.0 でも §2.7）は *"This Dedication reaches only rights the Dedicator holds, now or in future."* と書き、権利があるかどうかを主張しない形を取っている |
+
+**読み。** ACD は権利を与える文書で、権利の範囲を広げて強制する文書ではない。§2.7 は、権利が無いところに権利を主張しない形をとっており、Perens 氏の原則に合う。
+
+**逆側。** 許諾の範囲にデータやモデルを名指すこと自体が、「それらに権利がある」という前提を置いているように読まれうる。とくに §6（TDM と機械学習）と §1.3（Work の定義）の書き方は、Perens 氏の役の審査者がまず突く所になる（模擬委員会の点検の対象）。
+
+**この節が establish しないこと。** ACD の各条が権利の存在を前提しているかの条ごとの点検はしていない。
+
+**反映**: 1c 種（§1.3・§6 の書き方が権利の存在を前提しないかの点検・模擬委員会の Perens 氏の役で 2f が行う）。
+
+## 1.251 法的な文書に「拘束しない部分」は無い、前文は意図の解釈に使われる —— ACD の前文は「informative」と書くが、それでも読まれる（"Invariant manifestos …"・2020-12）（2026-11-15）
+
+`license-discuss` 2020-12 の会話（3 通・census の会話の始まり 2020-12-27）を通読し、2 通を置いた（`rounds/2020-12-license-discuss-invariant-manifestos-{chestek-no-non-binding,atkinson-preamble}-observed.txt`）。プロジェクトの価値を述べる変更不可の宣言をライセンスに添える案への返答である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"It is a misperception to think that there is any "non-binding" part of a legal document. Everything in there is there for a reason (or should be). There may be parts that don't describe an action, but contract interpretation often involves determining the intent of the parties. This is often the role of the recitals."*（同じ通で、GPLv2 の前文の意図の文は曖昧な条を利用者の自由の側に読むよう指示する、と続ける） | Pamela Chestek 氏 2020-12-28（個人のアドレスから） | **両面（ACD の前文）。** 1.4 草案の前文は *"PREAMBLE (informative; not part of the operative terms)"* と見出しを付け、*"Sections 1 to 16 are the operative terms. This preamble is not, and nothing in it qualifies them."* で終わる（1.0 にも同じ見出しの前文が在る）。Chestek 氏の線では、それでも前文は意図の判断に使われる。有利な面は、前文の *"This Dedication is written for works that are meant to be learned from."* が、曖昧な条を学ぶ側・受け手の側に読む方向に働くことである。逆側は、前文の他の道具への評価（*"silent or hostile"*）も意図の一部として読まれることである |
+| *"The GPL's preamble provides a non-legalese summary of the effect of the license, and explains the intent of the license."* / *"a much more neutral tone would have worked as well."*（間で、GPL の前文は価値を述べ強い語（threatened・surrender）を使っており、許される範囲の境の半ばまで来ている、と書く。原文の引用符とダッシュは写しで文字化けしているので、その部分は逐語で引かない） | Lukas Atkinson 氏 2020-12-27 | **点検の材料（前文の調子）。** 審査に近い参加者は、前文の調子を「許される範囲」の物差しで測る。ACD の前文の *"the existing tools are silent or hostile"* は、他のライセンスへの評価を含む強い語で、同じ物差しに掛かりうる |
+
+**読み。** ACD の前文を「informative」と明示しても、解釈では意図を示す文として読まれる。前文の意図（学ばれるための作品）は ACD に有利に働くが、他の道具への強い評価の語は、その分だけ審査の物差しに掛かる。
+
+**逆側。** Chestek 氏の文は契約の解釈の一般論で、許諾（ライセンス）が契約として読まれない法域では前文の役割は違いうる。「nothing in it qualifies them」は、前文が条の範囲を狭めも広げもしないという ACD の意図を述べており、意図の判断に使われること自体とは矛盾しない。
+
+**この節が establish しないこと。** ACD の前文のどの語が「強すぎる」と読まれうるかの点検はしていない。
+
+**反映**: 1c 種（前文の他の道具への評価の語（"hostile" など）を中立にできるかの試作・前文は解釈に使われるので、意図の文が受け手に有利に働くことは残す・1c へ）。
+
+## 1.252 米国では、ソフトウェアに法的に認められる人格権は無い（"exploring the attachment between the author and the code"・2020-02〜03）（2026-11-15）
+
+`license-discuss` 2020-02〜03 の会話（11 通）を通読し、1 通を置いた（`rounds/2020-03-license-discuss-author-attachment-chestek-moral-right-observed.txt`）。作者と自分のコードの心理的な結びつきを問う会話である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"There is no legally cognizable moral right in software in the US."* | Pamela Chestek 氏 2020-03-01（個人のアドレスから） | **§12 の範囲の確認。** ACD の §12（1.0 でも §12・人格権の放棄と不行使）は、米国では及ぶ対象がほとんど無い。§12 が効くのは、人格権を認める法域（日本・EU など）である。条が「米国では要らない」と読まれることは、§1.241 の Berkus 氏の二択の「要らない」側に当たるが、法域で違うから要る、という答えが立つ |
+
+**読み。** §12 は、人格権を持つ法域の作者が ACD を使うために要る条で、米国の審査者には要らない条に見えうる。
+
+**逆側。** 同じ会話で Chestek 氏は、ソフトウェアの作者は作品への強い所有の感覚を持たないことが多い（機能的だから）という個人の経験を書いている。ACD が人格権を重く扱うことは、ソフトウェアの実務からは過剰に見えうる。
+
+**この節が establish しないこと。** 各法域でソフトウェアに人格権がどう及ぶかの評価はしていない（`jurisdictions.md` の範囲）。
+
+**反映**: 1c 種（§12 が「法域で違うから要る」ことを逐条の §12 の行で示しているかの点検・THIRD §15.6 の掃引の対象・1c へ）。

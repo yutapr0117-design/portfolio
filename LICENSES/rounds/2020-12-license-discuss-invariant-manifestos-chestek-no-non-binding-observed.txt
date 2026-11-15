@@ -1,0 +1,131 @@
+Source: OSI license-discuss public archive, 2020-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 6 in "Invariant manifestos as an approach to expressing values / beliefs / missions for open source projects" (2020-12-27)
+Senders: Pamela Chestek
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Mon Dec 28 15:31:16 2020
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 28 Dec 2020 10:31:16 -0500
+Subject: [License-discuss] Invariant manifestos as an approach to
+ expressing values / beliefs / missions for open source projects
+In-Reply-To: <CAJTYOd1aPJxz0YjW3j1dqT-CrDYxDwXsY7uKTWDLs0xDudOkAw@mail.gmail.com>
+References: <8970f501-943f-6952-4d3d-e222ed38fc20@rolandturner.com>
+ <CAJTYOd1aPJxz0YjW3j1dqT-CrDYxDwXsY7uKTWDLs0xDudOkAw@mail.gmail.com>
+Message-ID: <20a5b383-fe4b-4127-07b6-88d1fdc705f8@chesteklegal.com>
+
+It is a misperception to think that there is any "non-binding" part of a 
+legal document. Everything in there is there for a reason (or should 
+be). There may be parts that don't describe an action, but contract 
+interpretation often involves determining the intent of the parties. 
+This is often the role of the recitals. Take for example the statement 
+in the GPLv2 that "The GNU General Public License is intended to 
+guarantee your freedom to share and change free software." When 
+interpreting the license, and trying to ascertain the meaning of an 
+ambiguous clause in it (and there are many), this statement tells you to 
+construe the ambiguous clause in favor of an outcome that will give 
+users the freedom to share and change the software, because that is 
+described in the document as the licensor's intent.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+On 12/27/2020 2:33 PM, Lukas Atkinson wrote:
+> There already are a number of licenses with a preamble, recital, or
+> introduction, and they can be helpful. For example, the CC0 Statement
+> of Purpose provides important background on how the device is intended
+> to work. The GPL's preamble provides a non-legalese summary of the
+> effect of the license, and explains the intent of the license. The GPL
+> preamble is also clearly political in the sense that it expresses
+> certain values, and uses charged words such as ?threatened? or
+> ?surrender?. I consider the GPL halfway to the boundary of what is
+> still acceptable in a preamble ? a much more neutral tone would have
+> worked as well. But it would be very unwise to forbid such sections
+> outright, or even to impose overly strict requirements.
+>
+> Of course, I agree that it would be problematic if a license were a
+> vehicle to attach completely unrelated material to a software. This
+> also relates to the OSI's lack of enthusiasm about badgeware licenses.
+>
+> So I think the question isn't *whether* we should allow manifestos or
+> mission statements (yes!), but to which degree they are appropriate
+> (not very much).
+>
+>    1. Enabling invariant material that is not part of the license text
+> is clearly not appropriate in a software context.
+>
+>    2. Non-binding sections of a license that summarize it or provide
+> interpretation guidance can be appropriate.
+>
+>    3. These sections should not include material that is unrelated to
+> the license terms, but that shouldn't be judged too harshly.
+>
+>    4. These sections should be clearly delimited from the actually binding terms.
+>
+>    5. Non-binding parts of a license should not go against the OSD and
+> other typical expectations for a license.
+>
+> There shouldn't be a license proliferation problem since two licenses
+> with identical terms (but different non-binding preambles) are clearly
+> redundant and don't require separate approval. It is my understanding
+> that a license can be open source and OSD-compliant without being
+> OSI-approved.
+>
+> As examples for some of these points, especially 3 and 5:
+>
+> * I would consider a preamble acceptable if it explains how a certain
+> philosophy or belief system requires certain license terms, e.g. why a
+> deontology-friendly license should be rather permissive, or why an
+> animal rights inspired license should use copyleft mechanisms.
+>
+> * I would consider a preamble unacceptable if its intent is clearly to
+> exclude certain uses (compare OSD 5 & 6), e.g. that software under
+> this license is intended to be used only for the greater good, or that
+> copyleft provisions are intended to discourage use by the SaaS
+> industry.
+>
+>
+> On Sun, 27 Dec 2020 at 07:26, Roland Turner via License-discuss
+> <license-discuss at lists.opensource.org> wrote:
+>> All,
+>>
+>> I continue to noodle with the problem of people increasingly aware of harm happening around them[1] seeking to add use-limits to open source licenses:
+>>
+>> Ignoring this shift seems undesirable.
+>> Tacking on use limits seems incompatible with what OSI is about.
+>>
+>> An approach came to mind while commenting on a recent proposal to license-review and I'd be interested in views on whether this was workable: would/should it be an acceptable condition in an OSI-approved license that an unmodified project manifesto be included in any copy of the software? This potentially improves both:
+>>
+>> the legal ambiguity problem: a separate manifesto need not create legal obligations (wording in the license to make this clear seems workable); and
+>> the license reuse problem, because different projects will have different values, beliefs, and missions.
+>>
+>> There is a real problem with updating the manifesto, but I'd like to explore whether there's any upside at all, before heading too far down that particular rabbit hole.
+>>
+>> I am particularly interested in the abuse potential. E.g. an activist organisation gets their software into use in a target's systems. Assume that the above successfully excludes the use of copyright law to invalidate the license on a use-limitation basis, but has OSI-approval facilitated the creation of a tool for outrage-industrial complex abuse? (Joe's Puppy Restaurant uses software created by an animal rights organisation to advance the welfare of animals in optimising its supply lines for arguably the opposite outcome.) Does it matter?
+>>
+>> - Roland
+>>
+>>
+>> 1: "woke" in contemporary usage, although that term it not particularly neutral; it is frequently used in both approving and pejorative contexts.
+>>
+>>
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Official statements by the Open Source Initiative will be sent from an opensource.org email address.
+>>
+>> License-discuss mailing list
+>> License-discuss at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Official statements by the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org

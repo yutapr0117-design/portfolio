@@ -1,0 +1,77 @@
+Source: OSI license-discuss public archive, 2015-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 16 in "Companies that encourage license violations" (2015-09-05)
+Senders: Lawrence Rosen
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Sat Sep 19 15:39:01 2015
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Sat, 19 Sep 2015 08:39:01 -0700
+Subject: [License-discuss] Companies that encourage license violations
+In-Reply-To: <20150918200100.GD6048@mercury.ccil.org>
+References: <CABJreot_B_4aLdysRFe2n-3=EbD4rJ4b=vEXiJnkuuL2Kh6u0Q@mail.gmail.com>
+ <CAD9S0+ZCEaN2tsfwrsUp6BZEGbc_QSDzwM0579XQwhFVAM-a6Q@mail.gmail.com>
+ <CAE+UdopRGOxjfZsg-DNCzVXCqgstfPP2=WcaQEqLGiBSvRCE6Q@mail.gmail.com>
+ <55EB2AAB.3010008@chesteklegal.com> <20150905182453.GF6364@mercury.ccil.org>
+ <0aab01d0e813$e1487830$a3d96890$@rosenlaw.com>
+ <20150906170347.GF5428@mercury.ccil.org> <55F9F681.9050603@chesteklegal.com>
+ <20150917033258.GA30478@mercury.ccil.org> <55FC3A2A.4010300@chesteklegal.com>
+ <20150918200100.GD6048@mercury.ccil.org>
+Message-ID: <05bb01d0f2f1$501778a0$f04669e0$@rosenlaw.com>
+
+John, an open source license is not a nudum pactum. Consideration abounds in FOSS. Paraphrasing Wikipedia (the easy source for all law references):
+
+ 
+
+The Jacobsen v. Katzer case is noteworthy in United States copyright law because Courts clarified the enforceability of licensing agreements on both open-source software and proprietary software. The case established the rule of law that terms and conditions of an Artistic License are "enforceable copyright conditions".
+
+ 
+
+/Larry
+
+ 
+
+ 
+
+-----Original Message-----
+From: John Cowan [mailto:cowan at mercury.ccil.org] 
+Sent: Friday, September 18, 2015 1:01 PM
+To: license-discuss at opensource.org
+Subject: Re: [License-discuss] Companies that encourage license violations
+
+ 
+
+Pamela Chestek scripsit:
+
+ 
+
+> Without entering into that quagmire [...]  my use of the word "contract"
+
+> was simply inapt. The principle applies in the interpretation of all 
+
+> types legal documents.
+
+ 
+
+Sure.  But if it is not meaningless, what does it mean?  Since the right of an owner to revoke a bare license is inherent, it must be a promise not to exercise that right, and on what meeting of the minds, what consideration is that promise founded?  Looks like a nudum pactum to me.
+
+ 
+
+-- 
+
+John Cowan           <http://www.ccil.org/~cowan> http://www.ccil.org/~cowan         <mailto:cowan at ccil.org> cowan at ccil.org
+
+        Is it not written, "That which is written, is written"?
+
+_______________________________________________
+
+License-discuss mailing list
+
+ <mailto:License-discuss at opensource.org> License-discuss at opensource.org
+
+ <https://lists.opensource.org/cgi-bin/mailman/listinfo/license-discuss> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20150919/f0614a11/attachment.html>

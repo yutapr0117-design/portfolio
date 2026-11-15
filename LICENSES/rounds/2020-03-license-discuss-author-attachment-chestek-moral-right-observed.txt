@@ -1,0 +1,35 @@
+Source: OSI license-discuss public archive, 2020-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 5 in "exploring the attachment between the author and the code" (2020-03-01)
+Senders: Pamela Chestek
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Sun Mar  1 23:06:48 2020
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sun, 1 Mar 2020 18:06:48 -0500
+Subject: [License-discuss] exploring the attachment between the author
+ and the code
+In-Reply-To: <Pine.BSM.4.64L.2003012255010.29585@herc.mirbsd.org>
+References: <CAB--Tha3MDCyg0ETfy1_DFsqyBuQA3g_wtaGPJ-D4a8=vdNOUA@mail.gmail.com>
+ <CAGi9AuUXk8HiR59=RbMRkeGcyg1-jsdXM4MoSEu9aAo5NDo5TQ@mail.gmail.com>
+ <CAB--ThYr_pQoShBgJR-o6V5n7LgHhwt5H7zOCqWZCc33vWh74A@mail.gmail.com>
+ <Pine.BSM.4.64L.2003012255010.29585@herc.mirbsd.org>
+Message-ID: <207d1af0-0bfd-9273-f581-01a5aa31b05a@chesteklegal.com>
+
+
+On 3/1/2020 5:58 PM, Thorsten Glaser wrote:
+> Is that so in the USA? Here it reads more like the exclusive exploitation
+> rights belong to the employer when done as part of hired work, but the
+> moral rights belong to the natural person who created it.
+There is no legally cognizable moral right in software in the US.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com

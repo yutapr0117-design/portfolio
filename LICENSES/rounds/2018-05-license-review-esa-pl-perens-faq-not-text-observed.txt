@@ -1,0 +1,43 @@
+Source: OSI license-review public archive, 2018-May.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 5 in "ESA-PL Weak 2.3" (2018-05-06)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Mon May  7 20:15:50 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 7 May 2018 13:15:50 -0700
+Subject: [License-review] ESA-PL Weak 2.3
+In-Reply-To: <CAB4rVPZ9pZ69_aKhuA55J=kQtjTmooGYmQPt3jhkb=c4rgQPNg@mail.gmail.com>
+References: <CAK2MWOveKdBSxY7cN5wjqVXj3f-2-9WwewwkZOXa7RxKxRcBBw@mail.gmail.com>
+ <CAB4rVPbRMLrFMCM1zkJMR2Jd5E9_GoGA62SUYFnupZhj-jsm9A@mail.gmail.com>
+ <b5e02131-2202-ef0d-9037-6c79f3f85114@tcilaw.de>
+ <CAB4rVPY8NQFJ+qb-92wNq+hd-5YPHwvrdomjhEtNgtTjgQzSxA@mail.gmail.com>
+ <CAB4rVPZ9pZ69_aKhuA55J=kQtjTmooGYmQPt3jhkb=c4rgQPNg@mail.gmail.com>
+Message-ID: <CAK2MWOtGxFR_LB9+Um2xjeZmjka4wFJejsTqicQtQX-V305zhw@mail.gmail.com>
+
+Hi Carsten,
+
+Your responses offer to correct an obvious error in the license and punt
+all of the other issues, offering to clarify them in a FAQ rather than to
+go back to the lawyers for more drafting. I understand that lawyers and
+drafting are expensive and that you'd like to go forward with these
+licenses right away, without having to iterate on the text with an outside
+party. And indeed, most of the flaws in the license are more harmful to
+your own organization than otherwise. But because they can become issues of
+argument in court, which is expensive, they are also potentially harmful to
+developers who use this license. Having spent well over half a Million
+dollars in court on an Open Source issue, I know just how expensive it can
+be.
+
+So, because of this reluctance to go back to the lawyers, I'd have to say
+that my opinion so far is "meh". I don't strongly reject approval of the
+license, but neither do I see a need to speak in its favor.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180507/06845fcc/attachment.html>

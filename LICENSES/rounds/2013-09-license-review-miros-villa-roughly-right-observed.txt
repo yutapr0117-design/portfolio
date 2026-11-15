@@ -1,0 +1,63 @@
+Source: OSI license-review public archive, 2013-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 4 in "Suggested MirOS Licence wording change: editorial or substantial?" (2013-09-09)
+Senders: Luis Villa
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From luis at lu.is  Wed Sep 11 17:35:44 2013
+From: luis at lu.is (Luis Villa)
+Date: Wed, 11 Sep 2013 10:35:44 -0700
+Subject: [License-review] Suggested MirOS Licence wording change:
+ editorial or substantial?
+In-Reply-To: <20130910214526.2c928d69@riley>
+References: <Pine.BSM.4.64L.1309091812130.15325@herc.mirbsd.org>
+	<20130910214526.2c928d69@riley>
+Message-ID: <CAFPTOkW3aqBUj3yTPfh1J062J_QO1eS39YwE4+a+XwC6ZaCLDw@mail.gmail.com>
+
+On Tue, Sep 10, 2013 at 6:45 PM, Richard Fontana
+<fontana at sharpeleven.org> wrote:
+> On Mon, 9 Sep 2013 18:17:18 +0000 (UTC)
+> Thorsten Glaser <tg at mirbsd.de> wrote:
+>
+>> Hi,
+>>
+>> I?ve received a suggestion to change the wording of The MirOS Licence
+>> to avoid hyphenation, using normal Open Source user feedback channels:
+>>
+>> --- current
+>> +++ suggested
+>> @@ -1,5 +1,5 @@
+>>  Provided that these terms and disclaimer and all copyright notices
+>>  are retained or reproduced in an accompanying document, permission
+>> -is granted to deal in this work without restriction, including un-
+>> -limited rights to use, publicly perform, distribute, sell, modify,
+>> -merge, give away, or sublicence.
+>> +is granted to deal in this work, and to do so without restriction,
+>> +including unlimited rights to use, distribute, modify, sublicence,
+>> +sell, give away, merge, or publicly perform.
+>>
+>> The changes are:
+>>
+>> ? ?to deal in this work without restriction? got changed to
+>>   ?to deal in this work, and to do so without restriction,?
+>>
+>> ? the rights were shuffled (but not changed)
+>>
+>> Is this an editorial change (that doesn?t mean a change to the
+>> licence, doesn?t mean we need to version it and reapply)?
+>
+> My personal view is that this revised version should not be
+> characterized as an OSI-approved license, even if the revisions here
+> are justifiably considered 'merely editorial'. You could say it's very
+> similar to an OSI-approved license, and point out the degree of
+> similarity.
+
+I think that's roughly right, though I'm open to alternative points of
+view. (I'd make an exception for cases where there is no "standard"
+license (i.e., the BSDs/MITs) where clarifying the default text we
+present can be a useful service to the community and doesn't make life
+substantially more difficult for those trying to handle the number of
+licenses out there.)
+
+Luis
