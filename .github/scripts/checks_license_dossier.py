@@ -409,12 +409,15 @@ def run(ctx):
                            if p.is_file() and p.name != "README.md")
         _t465 = _rm465.read_text(encoding="utf-8")
         _bad465 = []
-        _mh465 = re.search(r"##\s*いまの状態[^\n]*?(\d+)\s*ファイル", _t465)
+        # 見出しの数は任意にした (2026-11-15・50 の提案): 5 人が並行して受領文を足すと、手書きの「N ファイル」が
+        #   PR どうしで必ず衝突した (#3045 → #3048 で 2 回続けて 442 → 443)。数は下の OK 行が実測から出す。
+        #   見出しに数を書くなら、従来どおり実測と照合する (書いた数が偽のまま残らないように)
+        _mh465 = re.search(r"^##\s*いまの状態[^\n]*$", _t465, re.M)
+        _mn465 = re.search(r"(\d+)\s*ファイル", _mh465.group(0)) if _mh465 else None
         if not _mh465:
-            _bad465.append("README に「## いまの状態（… N ファイル）」の在庫見出しが無い "
-                           "(件数を導出と照合できない)")
-        elif int(_mh465.group(1)) != len(_files465):
-            _bad465.append(f"在庫見出しの申告 {_mh465.group(1)} / 実測 {len(_files465)}")
+            _bad465.append("README に「## いまの状態」の在庫見出しが無い (在庫表の範囲を決められない)")
+        elif _mn465 and int(_mn465.group(1)) != len(_files465):
+            _bad465.append(f"在庫見出しの申告 {_mn465.group(1)} / 実測 {len(_files465)}")
         # 在庫表の行数 — 見出し行と区切り行を除いた `| ... |` の数
         _sec465 = _t465[_mh465.start():] if _mh465 else ""
         _sec465 = _sec465.split("\n## ")[0]
