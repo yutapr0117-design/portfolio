@@ -294,3 +294,18 @@ portfolio-1c の T69（1.4 草案の §2.6 に、除外する素材を示す形�
 **逆側。** 会話は取り下げについてで、承認の基準についてではない。承認の審査では、法律家の目が通ったかを審査者が最初に探す記録がある（B1 の Piana 氏 2024、Berkus 氏 2020 の「法律家の声を数える」）。Fontana 氏自身が同じ会話の発端で Frameworx を *"approved "in haste""* と書いており、急いだ承認を悔やむ記録は、新しい単独起草のライセンスの審査を慎重にする向きに働く。Perens 氏の「診断は易しい」は、ACD の本文が法律家の書き方に見えない箇所があれば、それが最初に読まれることを意味する。
 
 **この節が establish しないこと。** 2013 年の Fontana 氏・Villa 氏の文が、その後の承認の審査の運用になったかは確かめていない。Frameworx が取り下げられたかは、この会話では分からない。
+
+## 1.235 MPL 2.0 の起草者は OSI と同時に FSF にも一覧への掲載を求めた、Perens 氏は追加の許可を本文の外に置き本文を不変にせよと書いた（"MPL 2 section 11"・2010-11）（2026-11-15）
+
+"MPL 2 section 11"（`license-review` 2010-11〜12・49 通）を通読し、2 通を置いた（`rounds/2010-11-license-review-mpl2-s11-villa-fsf-too-observed.txt`・`rounds/2010-11-license-review-mpl2-s11-perens-invariant-observed.txt`）。会話の大半は MPL 2.0 の草案の GPL との互換の通知と、強いコピーレフトが米国の著作権法で成り立つかの議論で、条件を置かない ACD には当たらない。当たるのは次の 2 通である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Just as we're asking OSI, we're also asking FSF to be on their lists of Libre and compatible licenses, and have spoken with them to that end."* | Luis Villa 氏 2010-11-22（Mozilla の側から、MPL 2.0 の目標の説明として） | **手順の先例。** 承認された主要なライセンスの起草者が、OSI と FSF の両方に同時に当たり、FSF とは話を済ませていた。§1.229 の Phipps 氏の事前点検（OSI・FSF・Debian の全部に通るか）を、提出者が実際に行った例である。`OSI-APPROVAL-PLAN.md` が未使用の経路としている FSF の見解は、提出と並べて求められてきた |
+| *"Adding permissions to use under different licenses is always the right of the copyright holder, and can be stated /outside of the Mozilla license./ And IMO should be."* / *"I submit that Mozilla would be doing the community a service if they were to make their license invariant."* | Bruce Perens 氏 2010-11-22（MPL の変種が承認済みの中に多すぎる、と同じ通で） | **有利な面。** ACD の §16.4（1.0 でも §16.4）は、改変した本文を "Autonomous Commons Dedication" の名と "ACD-" の識別子の下で配ることを Steward の新版のほかは許さず、*"each name and identifier in this family continues to denote one fixed text"* と書く。名と本文を 1 対 1 に保つ形で、Perens 氏の「ライセンスを不変に」に合う。ACD は条件を置かないので、追加の許可を本文の外に置く必要もそもそも生じない |
+
+**読み。** 2010 年の MPL 2.0 の審査は、FSF の見解を OSI の審査と並べて求めることが、主要な提出者の通常の手順だったことを示す。ACD の §16.4 の不変性は、変種の増殖を嫌う審査者の線に合う。
+
+**逆側。** Mozilla は大きな組織で、FSF と事前に話せる立場にあった。個人の提出者が同じ経路を取れるかは別の問題で、FSF に当たって否定的な見解が出れば、それは記録に残る（§1.229 の逆側）。また ACD は 1.0 から 1.4 まで版を重ねており、Perens 氏の「変種が多すぎる」は、名の下の不変性とは別に、同じ家族の版の数として読まれうる（`against.md` #320 の「3 か月足らずで 5 つの本文」と合わせて読む）。
+
+**この節が establish しないこと。** FSF が MPL 2.0 をどう扱ったかは、この会話では確かめていない。FSF が ACD をどう見るかも確かめていない。

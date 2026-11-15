@@ -311,6 +311,7 @@
 2010-06-04	WebM license resolution.
 2010-06-29	For Approval: SSCL
 2010-10-24	Legacy Approval - CodeIgniter License Agreement
+2010-11-22	MPL 2 section 11
 2010-12-01	Defenestrating the GPL
 2010-12-01	OT Discussions
 2010-12-01	License Committee Report for November 2010

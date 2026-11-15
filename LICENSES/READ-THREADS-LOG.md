@@ -20,6 +20,8 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に "what would de-listing of licenses look like?"（`license-discuss` 2013-03・18 通を通読）を `review-readings-2.md` §1.234 へ（法律家なしの起草を取り下げの理由に挙げた・Perens 氏、退けて OSD だけを理由にし、OSD の解釈は法律家と非法律家が等しくできる・Fontana 氏、起草の質の評価は主観的・Villa 氏）
+
 - 2026-11-15 に "What should fit in a FOSS license?"（`license-discuss` 2020-03・19 通を通読）を `review-readings-2.md` §1.233 へ（license-review は本物のライセンスに限る、思考実験は license-discuss で・Chestek 氏、2015 年の委員長は思考実験のライセンスも承認したと書いた、適用先のリポジトリは自らを実験と呼ぶ）
 
 - 2026-11-15 に "Contributor Clauses in Licenses"（`license-discuss` 2025-12・21 通を通読）を `review-readings-2.md` §1.232 へ（貢献の条項を執行できる根拠は受諾だ・Chestek 氏、ACD は受諾を要しないので移らない、提出する行為が同意の表示・Smith 氏は §2.6 に移る）（候補は 820 → 821・読んだので母数に入った）

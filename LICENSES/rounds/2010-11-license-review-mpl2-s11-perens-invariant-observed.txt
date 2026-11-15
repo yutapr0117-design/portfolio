@@ -1,0 +1,49 @@
+Source: OSI license-review public archive, 2010-November.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 49 in "MPL 2 section 11" (2010-11-22)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Mon Nov 22 22:43:46 2010
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 22 Nov 2010 14:43:46 -0800
+Subject: MPL 2 section 11
+In-Reply-To: <002001cb8a8c$7bbd01f0$733705d0$@com>
+References: <002001cb8a8c$7bbd01f0$733705d0$@com>
+Message-ID: <4CEAF222.6080100@perens.com>
+
+On 11/22/2010 01:30 PM, Lawrence Rosen wrote:
+> This is the optional notice that MPL 2 (Alpha 3) specifies in Exhibit A:
+>
+>
+>
+>      Pursuant to Section 11, this file may be distributed as part of a
+>
+>      Larger Work licensed under the GPL or LGPL.
+>
+>
+>
+> This is a neat linguistic effort to make MPL 2 compatible with the GPL and
+> LGPL. I don't mind you saying it. However, please make sure - for the sake
+> of all the rest of us who have so-called GPL-incompatible licenses - that
+> your FAQ makes the same statement about *all* open source licenses.
+>    
+Adding permissions to use under different licenses is always the right 
+of the copyright holder, and can be stated /outside of the Mozilla 
+license./ And IMO should be.
+
+As it stands, this is just another way that MPL has made itself into a 
+meta-license. There will be little point in saying something is "MPL 2" 
+because of the infinite number of appedici which can be added to modify 
+the license.
+
+And there's also modification of the body text. How many OSI-approved 
+licenses are MPL variants? It seems more than any other sort.
+
+I submit that Mozilla would be doing the community a service if they 
+were to make their license invariant.
+
+     Thanks
+
+     Bruce
