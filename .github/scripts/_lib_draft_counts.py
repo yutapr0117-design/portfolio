@@ -319,3 +319,14 @@ def materials_0d_mismatches(materials: str, clauses: dict) -> tuple[int, list[st
                     bad.append(f"468 (§0d): 材料 §0d の表が §{k} に *\"{m.group(1)}\"* が{'在る' if want else '無い'}と前提にしているが、"
                                f"いまの草案では{'無い' if want else '在る'} (草案が変わったなら表の行を読み直す)")
     return n, bad
+
+
+def draft_has_changes(draft_text: str) -> bool:
+    """作業中の草案の冒頭の変更一覧に、要約の行 (「ACD-N.M: N words, … This draft: …」) 以外の箇条が在るか。
+
+    版を確定した直後の新しい草案は変更が 0 件で、一覧は要約の 1 行だけになる (2026-11-15 の確定の試走)。その状態で
+    「主表を読めない」(468x)・「語数の内訳を読めない」(498 (k)) を RED にすると、確定の日の CI が理由なく止まる。
+    """
+    pre = draft_text.split(RULE, 1)[0]
+    chg = pre.split("Changes in this draft", 1)[-1].split("Still open", 1)[0]
+    return bool(re.search(r"\n    \* (?!ACD-\d+\.\d+: )", chg))
