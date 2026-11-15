@@ -785,3 +785,19 @@ Project Tick General Public License の `license-review` 側の会話（v1 の�
 **この節から出た作業。** `REVISION-PROTOCOL.md` §3.6 の「移る前に真であること」の表に、出す版（または前の版との差）が `license-discuss` に少なくとも 30 日置かれていること、の行を足した。
 
 **この節が establish しないこと。** 30 日は委員会の規則ではなく、Chestek 氏の 1 通の助言である。審査の規則（`review-rules.md`）が定める日数は、決定までの日数であって提出前の日数ではない。
+
+## 1.207 著作権の無い部分には、既存のライセンスが及ばないだけで足りる —— 米国政府の作品とライセンス（2019）（2026-11-15）
+
+"Government licenses"（`license-discuss` 2019-05〜06・40 通・決める側の通に絞って読んだ・`rounds/2019-05-license-discuss-government-works-uncopyrightable-parts-observed.txt` に 4 通）。census の論点の順位（B2・B4）と題の語（政府・パブリックドメイン）から選んだ。米国政府の職員の作品は 17 U.S.C. §105 で著作権の保護が無く、コードの一部だけがそうである場合にどのライセンスを使うかが論じられた。ACD の §9（機械が生成した素材）が扱う「権利が在るか分からない部分を含む作品」と同じ形の問いである。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"use an existing open source license (like Apache); to the extent that there might be uncopyrightable parts in the licensed code base (because, public domain, but also because, inter alia idea/expression, fair use, etc.), the license wouldn't apply, at least in the places where there was no copyright"* | McCoy Smith 氏 2019-05-28（このときは Intel の所属・2026 年は委員） | **不利な面（B10）。** 著作権の無い部分を含む作品には、既存のライセンスを使えば足り、ライセンスは権利の無い所に及ばないだけだ、という見方である。機械が生成したコードにも同じ理屈が当たり、§9 のための新しいライセンスは要らない、という返答になる。**有利な面。** ACD の §9.2 はこの「及ばないだけ」を本文で言う: *"Where a right does not subsist, this Dedication adds nothing to Your existing freedom as to that right and takes nothing away."* Smith 氏が既存のライセンスの黙示の働きとして述べたことを、ACD は明示する。明示の価値は §6.5 と同じ理由（沈黙が曖昧と分かった）に依る |
+| *"But if it's public domain, the government has no right to dictate how those modifications are subsequently licensed. That's sort of the whole point of public domain."*、*"I found the idea that one could contractually restrict something that is in the public domain … odd."* | Smith 氏 2019-05-28 | **有利な面。** ACD はパブリックドメインの素材に何の制限も課さない（§10.1）。権利の無い部分に条件を掛けて取り戻す形（Smith 氏が「奇妙」と呼んだもの）は、ACD には無い |
+| *"a work that is not in copyright (whether because the copyright has been expired or forfeited, or was expressly waived by the owner, or never existed in the first place) cannot be removed from the public domain except by Act of Congress."*、契約による制限は *"the recipients are in breach but the third parties are not, for lack of privity"* | John Cowan 氏 2019-05-28 | §1.202 の Sado 氏と同じ線（契約は同意した者しか縛らない）。ACD は権利の無い所に契約を置かないので、この費用の外に在る |
+
+**読み。** 2019 年の会話は、著作権の無い部分を含む作品について 2 つを確かめた。既存のライセンスは権利の無い所に及ばないだけで足りること（Smith 氏）と、権利の無いものを契約で縛り直すのは奇妙で、縛れても当事者だけであること（Smith 氏、Cowan 氏）である。ACD の §9 はどちらとも矛盾しない。権利の無い部分に何も加えず何も取らないと書き、条件を置かない。
+
+**逆側。** Smith 氏の 1 つ目の文は、B10 の問い（承認済みのライセンスで足りるのに新しいライセンスが要るか）に、§9 について「要らない」と答える形をしている。ACD の §9 の価値は「黙示の働きを明示する」ことにあり、効果の差ではない。§9 は B10 の主張（`REVIEWERS.md` の "In one screen" の 3 つの効果）にも入っていない。だから §9 は新しいライセンスの理由としてではなく、機械が生成した素材を含む作品に ACD を当てたときに読み手が抱く問いへの答えとしてだけ数えるべきである。
+
+**この節が establish しないこと。** 2019 年の Smith 氏は Intel の所属で書いており、委員としての文ではない。米国政府の作品の議論を機械が生成した素材へ移すのは我々の読みで、会話の中にその移しは無い。

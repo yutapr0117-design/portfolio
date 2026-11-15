@@ -1,0 +1,178 @@
+Source: OSI license-discuss public archive, 2019-May.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 4 of 40 in "Government licenses" (begun 2019-05-28)
+Senders: McCoy Smith, John Cowan
+Position: Not addressed to us. Observed. Each message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From mccoy.smith at intel.com  Tue May 28 19:41:12 2019
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Tue, 28 May 2019 19:41:12 +0000
+Subject: [License-discuss] Government licenses
+In-Reply-To: <CAFQvZEMEFhqTf_TnxjOzBaGvB=4ui8tFvEvvEYJhEPL8XifrcQ@mail.gmail.com>
+References: <mailman.307.1559004615.9084.license-review_lists.opensource.org@lists.opensource.org>
+ <49E7E985-9A51-47E6-91AE-DA595EA0D260@mac.com>
+ <2D52F7EE739F8542A700CAB96276B5198B158B23@fmsmsx117.amr.corp.intel.com>
+ <CAFQvZEMEFhqTf_TnxjOzBaGvB=4ui8tFvEvvEYJhEPL8XifrcQ@mail.gmail.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5198B159189@fmsmsx117.amr.corp.intel.com>
+
+>>From: License-discuss [mailto:license-discuss-bounces at lists.opensource.org] On Behalf Of VanL
+>>Sent: Tuesday, May 28, 2019 12:32 PM
+>>To: license-discuss at lists.opensource.org
+>>Subject: [License-discuss] Government licenses
+
+
+>>As he described it, goverment-written code is all public domain. Unfortunately, the predominant effect of that public domain status for the code was that government contractors would take the code, make trivial modifications, and sell it back to >>the government under a proprietary license - which they were within their rights to do.
+
+But if it?s public domain, the government has no right to dictate how those modifications are subsequently licensed.  That?s sort of the whole point of public domain.
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190528/8790e88c/attachment.html>
+
+From mccoy.smith at intel.com  Tue May 28 20:26:02 2019
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Tue, 28 May 2019 20:26:02 +0000
+Subject: [License-discuss] Government licenses
+In-Reply-To: <CAEozM8JPqfwicvA+v-vejipXiCtYx=EC6_6pfuhpkuqUhm=0wA@mail.gmail.com>
+References: <mailman.307.1559004615.9084.license-review_lists.opensource.org@lists.opensource.org>
+ <49E7E985-9A51-47E6-91AE-DA595EA0D260@mac.com>
+ <2D52F7EE739F8542A700CAB96276B5198B158B23@fmsmsx117.amr.corp.intel.com>
+ <CAFQvZEMEFhqTf_TnxjOzBaGvB=4ui8tFvEvvEYJhEPL8XifrcQ@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5198B159189@fmsmsx117.amr.corp.intel.com>
+ <CAFQvZENw1A_95zMe3V7CNWupHyTQ-MBKMQW21it0eJ-s6g_OPw@mail.gmail.com>
+ <CAEozM8JPqfwicvA+v-vejipXiCtYx=EC6_6pfuhpkuqUhm=0wA@mail.gmail.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5198B1594FC@fmsmsx117.amr.corp.intel.com>
+
+>>From: License-discuss [mailto:license-discuss-bounces at lists.opensource.org] On Behalf Of Ben Hilburn
+>>Sent: Tuesday, May 28, 2019 1:19 PM
+>>To: license-discuss at lists.opensource.org
+>>Subject: Re: [License-discuss] Government licenses
+
+
+>>There are prominent examples of various orgs trying clever ways to get around this, as Van mentioned. One recent example is the NSA's release of Ghidra, where they include a license (Apache 2.0), then a `NOTICE` file that says it cannot apply >>to the entire codebase but that *it is meant to*. Check out this `Licensing Intent` section from the Ghidra Github repository which is the most clear description I've seen, from a government agency, laying out the problem and their attempted >>work-around: https://github.com/NationalSecurityAgency/ghidra/blob/master/NOTICE#L15
+
+IIRC, this was the sort of thing that people who were questioning various provisions in NOSA (and other GOSS licenses) were suggesting would be the better solution ? use an existing open source license (like Apache); to the extent that there might be uncopyrightable parts in the licensed code base (because, public domain, but also because, inter alia idea/expression, fair use, etc.), the license wouldn?t apply, at least in the places where there was no copyright (like, the US for USG employee work).
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190528/ac75e70b/attachment.html>
+
+From mccoy.smith at intel.com  Tue May 28 21:46:35 2019
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Tue, 28 May 2019 21:46:35 +0000
+Subject: [License-discuss] Government licenses
+In-Reply-To: <208CFA86-8B66-4A2F-A31A-5D3118A89A85@mac.com>
+References: <mailman.307.1559004615.9084.license-review_lists.opensource.org@lists.opensource.org>
+ <49E7E985-9A51-47E6-91AE-DA595EA0D260@mac.com>
+ <2D52F7EE739F8542A700CAB96276B5198B158B23@fmsmsx117.amr.corp.intel.com>
+ <CAFQvZEMEFhqTf_TnxjOzBaGvB=4ui8tFvEvvEYJhEPL8XifrcQ@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5198B159189@fmsmsx117.amr.corp.intel.com>
+ <CAJ-h4vvfm7oxXj-YQZDxFyrL=Vf4HCfrq4zyb0cKLbAFR+Wm6g@mail.gmail.com>
+ <208CFA86-8B66-4A2F-A31A-5D3118A89A85@mac.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B5198B159E90@fmsmsx117.amr.corp.intel.com>
+
+>>From: License-discuss [mailto:license-discuss-bounces at lists.opensource.org] On Behalf Of Christopher Sean Morrison via License-discuss
+>>Sent: Tuesday, May 28, 2019 2:33 PM
+>>To: Christopher Sean Morrison via License-discuss <license-discuss at lists.opensource.org>
+>>Cc: Christopher Sean Morrison <brlcad at mac.com>
+>>Subject: Re: [License-discuss] Government licenses
+
+>>Gov?t regularly distributes software that otherwise has *no* Title 17 protections to foreign and domestic recipients, under contractual terms.  I?m told these have held up in court, though I admit to not having a citation handy.
+
+Yeah, I found the idea that one could contractually restrict something that is in the public domain (or in the parlance of 17 USC 105, not subject to copyright) odd.  Here?s a more than decade old presentation that talks about that:  http://www.archivists.org/conference/sanfrancisco2008/docs/session101-Frankel.pdf
+Maybe someone knows of better, newer, case law or scholarship on that point.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190528/57b48737/attachment.html>
+
+From cowan at ccil.org  Wed May 29 01:34:57 2019
+From: cowan at ccil.org (John Cowan)
+Date: Tue, 28 May 2019 21:34:57 -0400
+Subject: [License-discuss] Government licenses
+In-Reply-To: <208CFA86-8B66-4A2F-A31A-5D3118A89A85@mac.com>
+References: <mailman.307.1559004615.9084.license-review_lists.opensource.org@lists.opensource.org>
+ <49E7E985-9A51-47E6-91AE-DA595EA0D260@mac.com>
+ <2D52F7EE739F8542A700CAB96276B5198B158B23@fmsmsx117.amr.corp.intel.com>
+ <CAFQvZEMEFhqTf_TnxjOzBaGvB=4ui8tFvEvvEYJhEPL8XifrcQ@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5198B159189@fmsmsx117.amr.corp.intel.com>
+ <CAJ-h4vvfm7oxXj-YQZDxFyrL=Vf4HCfrq4zyb0cKLbAFR+Wm6g@mail.gmail.com>
+ <208CFA86-8B66-4A2F-A31A-5D3118A89A85@mac.com>
+Message-ID: <CAD2gp_SDC-m18YCJFF_kKYv1WbK6v5M7_svKgz5AORy+ktCO2A@mail.gmail.com>
+
+On Tue, May 28, 2019 at 5:33 PM Christopher Sean Morrison via
+License-discuss <license-discuss at lists.opensource.org> wrote:
+
+Yes!  Even to say it?s in the public domain is misleading.  It?s not a USC
+> term.
+>
+
+It's true that "public domain" is not *defined* in 17 U.S.C., but it is
+*used* there seven times.  So turning to a dictionary, we find this in the
+American Heritage Dictionary, 5th edition: "The condition of not being
+protected by a patent or copyright and therefore being available to the
+public for use without charge", and this in Merriam Webster Online: "[T]he
+realm embracing property rights that belong to the community at large, are
+unprotected by copyright or patent, and are subject to appropriation by
+anyone[.]"  So the term is well-defined.
+
+
+> Saying something from the Gov?t is ?public domain? typically just means it
+> went through a public release process and there's no intention to assert
+> rights.
+>
+
+No, it means that there is no copyright owner.  17 U.S.C.  ?105 says:
+"Copyright protection under this title is not available for any work of the
+United States Government, but the United States Government is not precluded
+from receiving and holding copyrights transferred to it by assignment,
+bequest, or otherwise."  The term ?work of the United States Government? is
+defined as "[a] work prepared by an officer or employee of the United
+States Government as part of that person?s official duties"
+
+
+> While works of Gov?t employees typically don't have copyright protection
+> under Title 17 and could easily be released "into the public domain?,
+>
+
+They *are* in the public domain (unless they were not part of the author's
+official duties).
+
+
+> that doesn?t mean they have to release it, can release it,
+>
+
+If by "release" you mean "publish", you are of course right.   But if by
+"release" you mean "place in the public domain", you are wrong, as shown
+above.
+
+or that there aren?t other mechanisms for releasing it NOT ?into the public
+> domain.?
+>
+
+There are no such mechanisms.  A copyrighted work can have its copyright
+transferred, but a work that is not in copyright (whether because the
+copyright has been expired or forfeited, or was expressly waived by the
+owner, or never existed in the first place) cannot be removed from the
+public domain except by Act of Congress.  This has happened several times
+in the past, notably 1893 (restoring copyright forfeited for lack of
+certain formalities if reregistered), 1919, 1941 (for the benefit of
+foreign authors whose copyrights expired during the war, when they could
+not renew them), 1976 (extension to life+50), and 1989 (extension to
+life+70), plus a number of private bills in the 19C for the benefit of
+specific authors.
+
+Gov?t regularly distributes software that otherwise has *no* Title 17
+> protections to foreign and domestic recipients, under contractual terms.
+>
+
+So they may, but if the recipients transfer the software to third parties,
+the recipients are in breach but the third parties are not, for lack of
+privity and because there is no in rem right in the nature of copyright.
+Much the same is true of classified materials (as opposed to the U.K. where
+receiving and further disseminating such materials is separately
+criminalized.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190528/6e4618c2/attachment.html>
