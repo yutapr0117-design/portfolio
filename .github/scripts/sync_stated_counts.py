@@ -13,7 +13,8 @@ SUBMISSION-MATERIALS の長さの行 (後半の「条文では N 語長いまま
 errata の件数 (against・REVIEWERS・READY-TO-SUBMIT・errata 冒頭の英語の数詞と閉じた番号の一覧)、worked entries の総数
 (REVIEWERS・QUESTION-INDEX) (`_lib_dossier.count_sites`)。runbook §9 の追跡ファイルの 5 つの数と実測日 (2f の依頼・
 `git ls-files` で数えるので、新しい file は git add してから回す)。「1.0 から何が変わったか」の英文の errata の数と § ごとの件数
-(Check 498 (j)・`>` の引用で行をまたいでも照らす)。**判断の数は書き換えない**: 束の表の各行と、
+(Check 498 (j)・`>` の引用で行をまたいでも照らす)。REVIEWERS 冒頭のドシエ全体の語数・倍率・実測日 (Check 472m・
+実測と 5% を越えて違うときだけ)。**判断の数は書き換えない**: 束の表の各行と、
 草案冒頭の箇条の (+N words.) (どの変更に何語かは人が決め、Check 468n が照らす)。
 
 使い方:
@@ -68,6 +69,36 @@ def repo_sites() -> list[dict]:
                           "end": off + m.end(1), "old": m.group(1), "new": datetime.date.today().isoformat(),
                           "what": "runbook §9 の実測日"})
     return sites
+
+
+def reviewers_size_sites() -> list[dict]:
+    """REVIEWERS.md 冒頭のドシエ全体の語数・倍率・実測日 (Check 472m が 10% の幅で照らし、8% で ADVISORY)。
+
+    2026-11-15、472m の ADVISORY が鳴った (453,125 語と書き実測 492,630 語・8.0%)。数え方は文が名乗る再測の
+    コマンド (rounds/ を除く LICENSES の `git ls-files` の語数)。**実測との差が 5% を越えたときだけ書き換える**
+    —— この 1 行は全員の増分で毎回動くので、毎回書き換えると並行 PR がこの行で衝突し続ける (8% の ADVISORY・
+    10% の BLOCKING の手前で 1 回だけ動かす)。倍率は 472m と同じ割り算で、表の the licence の語数で割る。
+    """
+    rv = ROOT / "LICENSES" / "REVIEWERS.md"
+    text = rv.read_text(encoding="utf-8")
+    m = re.search(r"Measured (\d{4}-\d{2}-\d{2}), the analysis in\s+this directory[^*]*?is \*\*([\d,]+) words\*\*, "
+                  r"\*\*(\d+) times the licence\*\*", text)
+    lic = re.search(r"\(ACD-\d+\.\d+\.txt\) \| \*\*([\d,]+)\*\* \| the licence\b", text)
+    if not m or not lic:
+        return []
+    ls = subprocess.run(["git", "ls-files", "-z", "LICENSES", ":!LICENSES/rounds"], cwd=ROOT, text=True,
+                        capture_output=True, check=True).stdout
+    real = sum(len((ROOT / f).read_text(encoding="utf-8", errors="replace").split()) for f in sorted(set(ls.split("\0"))) if f)
+    said = int(m.group(2).replace(",", ""))
+    line = text[:m.start()].count("\n") + 1
+    if abs(said - real) <= real * 0.05:
+        new_n, new_x, new_d = m.group(2), m.group(3), m.group(1)
+    else:
+        new_n, new_x = f"{real:,}", str(round(real / int(lic.group(1).replace(",", ""))))
+        new_d = datetime.date.today().isoformat()
+    return [{"path": rv, "line": line, "abs": True, "start": m.start(i), "end": m.end(i), "old": m.group(i), "new": v,
+             "what": f"REVIEWERS のドシエ全体の{w} (差が 5% を越えたときだけ)"}
+            for i, v, w in ((1, new_d, "実測日"), (2, new_n, "語数"), (3, new_x, "倍率"))]
 
 
 def defects_sites() -> list[dict]:
@@ -126,7 +157,7 @@ def main(argv: list[str]) -> int:
         print(__doc__)
         return 0
     sites, bad = length_sites(ROOT / "LICENSES", is_against, "all")
-    sites += count_sites(ROOT / "LICENSES") + repo_sites() + defects_sites()
+    sites += count_sites(ROOT / "LICENSES") + repo_sites() + defects_sites() + reviewers_size_sites()
     if bad:
         print("\n".join(f"ERROR: {b}" for b in bad))
         return 2
