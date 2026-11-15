@@ -115,6 +115,14 @@ Check 468y は 2 冊目とこの file の両方の「変えない」「退けた
 
 **⚠ 逆側**: (1) 旧い第 4 文は、届く範囲（*reach*）を狭く読む読みも「受け手を晒す結果」として退けていた。外した後、範囲の争いは §15.1 だけに頼り、§15.1 は *in respect of the Work* に限られるので、§8.4 のモデルと出力の請求項が「Work について」かを争う余地がある（30）—— ただし旧文の規則も *software* の理由に結んでいて、モデルと出力を名指していなかった（50）。(2) §8 全体の目的（著作権を渡して特許を留保すると受け手が晒される）を審査者に一目で示す説明力は、本文の作用の条からは消える。前文（*"… both leave the recipient of software exposed"*）に残る（30）。(3) 外向きの文書 5 つが 1.0 の文として引くので、切り替えの日の表に行を置いた。(4) −40 語で、GPL-3.0 より題名から短い余裕は 31 語から 71 語になる。B3 への作用は結果で、理由ではない。
 
+### 15.8 T72: 前文の *"silent or hostile"* を *"leave a gap"* へ（−1 語・採った・2026-11-15）
+
+**見つけた経緯（portfolio-2f・`review-readings-2.md` §1.251）**: Chestek 氏は *"It is a misperception to think that there is any "non-binding" part of a legal document."*（2020-12-28）と書いた —— 前文が自分を *"informative; not part of the operative terms"* と述べても、意図の判断に読まれる。Atkinson 氏 2020 は GPL の前文を「中立な調子でも足りた」と評した。ACD の前文の *"the three places where the existing tools are silent or hostile"* の *hostile* は、既存のライセンスへの強い評価語で、前文の第 1 段落が述べる 3 つ（未決・沈黙・特許の留保か沈黙）のどれも「敵対」ではない。
+
+**Before**: *"… it speaks in the three places where the existing tools are silent or hostile: machine learning, patents, and machine authorship."* **After**: *"… where the existing tools leave a gap: machine learning, patents, and machine authorship."*
+
+**⚠ 逆側**: (1) *gap* は B10 で我々が論じ、審査者が問う当の語で、前文がそれを当然のように述べると B10 の答えを先取りしていると読まれうる。中立の語の候補（*"where the existing tools say little"*）もあるが、特許を明示に留保する道具（CC0）を「言わない」とは言えないので、3 つを覆う語として *gap* を採った。(2) 前文の有利な面（*"written for works that are meant to be learned from"* が曖昧な条を受け手の側に読ませる）は変えない。(3) 2f の種の (2)（「本文を変えない」判断を、その読みを持つ本文の語と並べる）は、§14.x と §15.x の「変えない」節が既にその形（変えない理由に本文の語を引く）を持つので、別の表は作らない。
+
 ## 16. 模擬委員会 —— 記録に立場が厚く残る審査者の目で 1.4 草案を通読する（2026-11-15〜）
 
 **仕組み**: オーナーの依頼（「5 人で話し合って、より良い案をガンガン実行して」）を受けて、portfolio-1c が出し 5 人で決めた。記録に立場が厚く残る 5 人の審査者を 1 人ずつ受け持ち（30 = Chestek 氏、50 = Fontana 氏、2f = Perens 氏、9b = Smith 氏、1c = Villa 氏）、その人の過去の文だけを根拠に、その人の目で 1.4 草案を頭から通読して「どこを突くか」を条番号つきで出す。根拠の無い推測は書かない（必ずその人の文を引く）。各節は表（基準と出典 | 当たる条 | 扱い済みの場所 | 残る点）と、条を変える指摘（試作の種）を持つ。**0 件でも表を残す** —— 審査者の基準を網羅して当てた記録になる。**この節が establish しないこと**: 模擬であって、その人が実際にそう言うことを意味しない。
