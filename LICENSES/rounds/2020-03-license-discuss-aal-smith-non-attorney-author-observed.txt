@@ -1,0 +1,56 @@
+Source: OSI license-discuss public archive, 2020-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 32 in "Thoughts on AAL and OSS vs FOSS" (2020-03-29)
+Senders: McCoy Smith
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From mccoy at lexpan.law  Mon Mar 30 15:51:27 2020
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Mon, 30 Mar 2020 08:51:27 -0700
+Subject: [License-discuss] Thoughts on AAL and OSS vs FOSS
+In-Reply-To: <CAKHykesxoG+o-q+EQawn7NbyB0Go9=sW=+Bf7qJmiUCOLUBKmA@mail.gmail.com>
+References: <CACQ8_Zzhq+4LyyFGb7O9h-MdbHY8mwpLz6tWoWBK_Mmo2WYAaw@mail.gmail.com>
+ <CAJTYOd2Yc6bdF0Dr9OKQgeQV7dAqkqN0N4to+Hm7+ouQ03NK0w@mail.gmail.com>
+ <CAHEP+D+gVqYZ5xmAP89AFSaikCcHL4f2vWzxMF+PdpQhKpfGCw@mail.gmail.com>
+ <CAE+Udopqtfc2B4da8pZG8bVwA3zP9RxL8uuJvqp9coYsLu=1BQ@mail.gmail.com>
+ <CAHEP+DLLkYwKPWiap82P3RE=-E9=xMV1gLzf5uF4nw9KAbDoJA@mail.gmail.com>
+ <CAE+UdoqnDMHiK4PFsKPAXUS96jOTxE7VG-mU4gTyUWu-8YkgEg@mail.gmail.com>
+ <CAHEP+D+ebhzKujJfqEHKQ+WYdaTiHQv_h=kcb98rr6_fsJjL0g@mail.gmail.com>
+ <CAKHykesxoG+o-q+EQawn7NbyB0Go9=sW=+Bf7qJmiUCOLUBKmA@mail.gmail.com>
+Message-ID: <097c01d606ab$130f9190$392eb4b0$@lexpan.law>
+
+According to the OSI?s website, here is the author information on that license:
+
+ 
+
+Originally written by Edwin A. Suominen for licensing his PRIVARIA secure networking software (see www.privaria.org). The author, who is not an attorney, places this license template into the public domain along with a complete disclaimer of any warranty or responsibility for its content or legal efficacy. You may use or modify the language freely, but entirely at your own risk.
+
+ 
+
+Note that the dedication of the license to the public domain means that a 2.0 version could be written by anyone.  Although, if you?re going to deprecate 1.0 in favor of that 2.0, you probably want to let the author know and have a chance to respond and/or do the reve himself.
+
+ 
+
+From: License-discuss <license-discuss-bounces at lists.opensource.org> On Behalf Of Henrik Ingo
+Sent: Monday, March 30, 2020 5:17 AM
+To: license-discuss at lists.opensource.org
+Subject: Re: [License-discuss] Thoughts on AAL and OSS vs FOSS
+
+ 
+
+> Do you think an updated AAL could comply with the OSD?
+
+ 
+
+I personally think so. I expect the next step in this process would be for someone to find the original author of the AAL to discuss this option. 
+
+ 
+
+henrik
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20200330/60f45a53/attachment.html>

@@ -356,3 +356,19 @@ portfolio-1c の T69（1.4 草案の §2.6 に、除外する素材を示す形�
 **逆側。** Nelson 氏の「一語も変えない」は、§16.4（名と識別子の下で本文を変えさせない）の考えと同じだが、ACD はその規則を本文の中に置いている（`against.md` #27 は §16.4 が「条件は課さない」という通知の文と食い違うと読んだ）。Behlendorf 氏は同じ日に、名を変えた承認済みのライセンスも承認済みと扱ってきたと反論しており、2008 年の運用は一つに定まっていない。Perens 氏の文は、我々の提出に最初の指摘が少なくても安心できないことを意味する。
 
 **この節が establish しないこと。** OSI がその後に承認済みの本文を型板にしたかは確かめていない。IWL の帰結は、この会話の範囲では確かめていない。
+
+## 1.239 承認済みの AAL の作者は法律家ではないと OSI のサイトが書いている、使われなくなった承認済みライセンスは廃止が論じられた、公開されたライセンスの名は共同体のものだと Berkus 氏は書いた（"Thoughts on AAL and OSS vs FOSS"・2020-03）（2026-11-15）
+
+"Thoughts on AAL and OSS vs FOSS"（`license-discuss` 2020-03〜04・33 通）を通読し、3 通を置いた（`rounds/2020-03-license-discuss-aal-*-observed.txt`）。Attribution Assurance License（AAL・承認済み・`gap-census.md` の 141 本に在る）を使う事業者が、バッジの表示を残す 2.0 版を求めた会話である。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"The author, who is not an attorney, places this license template into the public domain along with a complete disclaimer of any warranty or responsibility for its content or legal efficacy."* | McCoy Smith 氏 2020-03-30 が OSI のサイトの AAL の説明を引いた（同じ通に *"Note that the dedication of the license to the public domain means that a 2.0 version could be written by anyone."*） | **有利な面（B1）。** 承認済みのライセンスの中に、作者が自ら法律家でないと述べ、OSI のサイトがそれを載せているものがある。法律家が起草していないことは、それだけで承認を妨げてこなかった |
+| *"Yeah, that was the first thing I looked at when I remarked that the license didn't have significant use anymore."* | Josh Berkus 氏 2020-03-30（作者自身が今は Apache-2.0 を使っている、という Fontana 氏の指摘を受けて。Smith 氏は同じ日に、作者に任意の廃止を持ちかけてはどうかと書いた） | **不利な面（B2）。** 承認の後も、使われなくなったライセンスは廃止が論じられる。実使用が 1 リポジトリの ACD は、承認されてもこの議論の的になりうる（`against.md` の B2 の「承認の後にも費用は残る」と同じ線） |
+| *"Why? I don't see how an original license author has any moral right to the name. Once the license is released, it belongs to the whole community."* | Josh Berkus 氏 2020-03-31（2.0 版を作るのに元の作者の許しは要らない、という流れで） | **逆側（§16.4・§16.5）。** ACD の §16.4（1.0 でも §16.4）は、"Autonomous Commons Dedication" の名と "ACD-" の識別子の下で新しい版を出せるのを Steward（§16.5）に限る。Berkus 氏の見方では、名は公開された時点で共同体のものになる。ただし AAL の作者は型板を公有に置いており、ACD の本文は名の扱いを本文の中で定めている。GPL と MPL も steward が版を出す形で承認されている |
+
+**読み。** AAL は、法律家でない作者が書いたライセンスが承認され、OSI がその事実を公表してきた例である。B1 の「法律家の目が通っていない」は、それだけで承認を止めた記録になっていない。一方で、使われなくなった承認済みのライセンスは、承認の後に廃止の議論を受けた。
+
+**逆側。** AAL の承認は古い時期のもので（この会話の時点で既に「もはや大きく使われていない」）、その後の審査は法律家の目を探すようになった記録がある（B1 の Berkus 氏 2020・Piana 氏 2024）。Berkus 氏の「名は共同体のもの」は、§16.4 の Steward の規則が審査で問われうることを意味する。AAL の作者が型板を公有に置いたことは、ACD の本文自身の扱い（§16.4 は改変した本文を別の名でなら配れると書く）と比べて読む必要がある。
+
+**この節が establish しないこと。** AAL が承認された年と、そのときの審査の記録は確かめていない。AAL 2.0 が出されたか、AAL が廃止されたかは、この会話の範囲では分からない。

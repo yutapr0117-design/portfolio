@@ -209,6 +209,9 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-11-07 | SPDX | **観測（収録基準の現行と前の版）** | `2026-11-07-spdx-license-inclusion-guidelines-snapshot.txt` |
 | 2003-03 | `license-discuss` | **観測（Public Domain を一覧に載せる求め・5 通）** | `2003-03-license-discuss-public-domain-on-the-list-observed.txt` |
 | 2020-03〜04 | `license-review` | **観測（Unlicense の審査から引いた 4 通）** | `2020-03-to-04-license-review-unlicense-cited-observed.txt` |
+| 2020-03 | `license-discuss` | **観測（Berkus 氏の 1 通・公開されたライセンスは共同体全体のもの）** | `2020-03-license-discuss-aal-berkus-name-belongs-community-observed.txt` |
+| 2020-03 | `license-discuss` | **観測（Berkus 氏の 1 通・承認済みの AAL はもはや大きく使われていない）** | `2020-03-license-discuss-aal-berkus-no-significant-use-observed.txt` |
+| 2020-03 | `license-discuss` | **観測（Smith 氏の 1 通・承認済みの AAL の作者は法律家ではないと OSI のサイトが書く）** | `2020-03-license-discuss-aal-smith-non-attorney-author-observed.txt` |
 | 2020-03 | `license-discuss` | **観測（Chestek 氏の 1 通・license-review は本物のライセンスに限る、思考実験は license-discuss で）** | `2020-03-license-discuss-what-fits-chestek-thought-experiments-observed.txt` |
 | 2026-10-17 | Hugging Face hub-docs | **観測（ライセンスの識別子の一覧・文書の写し）** | `2026-10-17-huggingface-hub-docs-licenses-snapshot.txt` |
 | 2012-02 | `license-review` | **観測（CC0 が特許を除いた理由と大学の事情・6 通）** | `2012-02-license-review-cc0-patents-and-universities-observed.txt` |

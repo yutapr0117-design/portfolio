@@ -1,0 +1,42 @@
+Source: OSI license-discuss public archive, 2020-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-15)
+Messages: 1 of 32 in "Thoughts on AAL and OSS vs FOSS" (2020-03-29)
+Senders: Josh Berkus
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From josh at berkus.org  Tue Mar 31 18:09:22 2020
+From: josh at berkus.org (Josh Berkus)
+Date: Tue, 31 Mar 2020 11:09:22 -0700
+Subject: [License-discuss] Thoughts on AAL and OSS vs FOSS
+In-Reply-To: <CAKHykeuLAe0mjnXw4U9fUoS_chmd8noxbOjyDZ3Ta1_NbFXtMQ@mail.gmail.com>
+References: <CACQ8_Zzhq+4LyyFGb7O9h-MdbHY8mwpLz6tWoWBK_Mmo2WYAaw@mail.gmail.com>
+ <CAJTYOd2Yc6bdF0Dr9OKQgeQV7dAqkqN0N4to+Hm7+ouQ03NK0w@mail.gmail.com>
+ <CAHEP+D+gVqYZ5xmAP89AFSaikCcHL4f2vWzxMF+PdpQhKpfGCw@mail.gmail.com>
+ <CAE+Udopqtfc2B4da8pZG8bVwA3zP9RxL8uuJvqp9coYsLu=1BQ@mail.gmail.com>
+ <CAHEP+DLLkYwKPWiap82P3RE=-E9=xMV1gLzf5uF4nw9KAbDoJA@mail.gmail.com>
+ <CAE+UdoqnDMHiK4PFsKPAXUS96jOTxE7VG-mU4gTyUWu-8YkgEg@mail.gmail.com>
+ <CAHEP+D+ebhzKujJfqEHKQ+WYdaTiHQv_h=kcb98rr6_fsJjL0g@mail.gmail.com>
+ <CAKHykesxoG+o-q+EQawn7NbyB0Go9=sW=+Bf7qJmiUCOLUBKmA@mail.gmail.com>
+ <65f269cd-b346-e4e4-a3df-681222b15bd1@berkus.org>
+ <CAKHykeuLAe0mjnXw4U9fUoS_chmd8noxbOjyDZ3Ta1_NbFXtMQ@mail.gmail.com>
+Message-ID: <352f1d11-cea0-d3b9-b1e1-3732e28d4d67@berkus.org>
+
+On 3/31/20 8:38 AM, Henrik Ingo wrote:
+> It would be bad form to use the same name though. But as a fallback
+> option I could of course submit for review a new license that was based
+> on AAL but with a new name.
+> 
+
+Why?  I don't see how an original license author has any moral right to
+the name.  Once the license is released, it belongs to the whole community.
+
+I mean, that said, I expect this particular author won't care what we do
+with the license -- after all, he no longer uses it.  But it's entirely
+possible that he won't respond to contact attempts.
+
+I haven't contacted him myself becase I think and OSI board member
+should do that.
+
+-- 
+Josh Berkus

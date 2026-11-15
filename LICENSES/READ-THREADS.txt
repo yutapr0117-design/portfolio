@@ -452,6 +452,7 @@
 2015-09-28	GPLv3 for elections software
 2015-10-14	OSET Public License
 2015-10-20	Short permissive no attribution required open source license
+2015-12-03	Orphan Works: Summary of proposed 17 USC 514
 2015-12-11	CDDL 1.0 vs. 1.1
 2016-01-13	Approval: BSD + Patent License
 2016-01-30	Words that don't mean derivative work
@@ -530,6 +531,7 @@
 2020-03-16	Strong non-discriminatory licensing
 2020-03-26	REMOVE AAL from list of approved licenses
 2020-03-28	Request for legacy approval: The Unlicense
+2020-03-29	Thoughts on AAL and OSS vs FOSS
 2020-04-23	Certifying MIT-0
 2020-04-24	veto against Unlicence
 2020-05-15	What does "appropriate standing" in the review process mean?
