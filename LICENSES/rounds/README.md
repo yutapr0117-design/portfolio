@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-11-15 時点・437 ファイル）
+## いまの状態（2026-11-15 時点・438 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -155,6 +155,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-01〜02 | `license-review` | **観測（Project Tick の提出から 2 通・提出した文は変えられない、`license-discuss` で固めてから出す、否決の勧告と既存のライセンスか法律家か）** | `2026-01-to-04-license-review-project-tick-discuss-first-observed.txt` |
 | 2019-08 | `license-review` | **観測（CAL の審査で Berkus 氏が条ごとに付けた所見の 1 通・迂回を禁じる法には政府の行為の例外が要るか）** | `2019-08-license-review-cal-anti-circumvention-exemption-observed.txt` |
 | 2019-05 | `license-discuss` | **観測（"Government licenses" から 4 通・著作権の無い部分には既存のライセンスが及ばないだけで足りる、パブリックドメインを契約で縛るのは奇妙）** | `2019-05-license-discuss-government-works-uncopyrightable-parts-observed.txt` |
+| 2014-09 | `license-review` | **観測（"Sublicensing" から 4 通・再許諾で約束は落ちる、FOSS は直接の許諾、再許諾を許す理由を示せ）** | `2014-09-license-review-sublicensing-privity-observed.txt` |
 | 2020-02 | `license-discuss` | **観測（Persona non Grata の前文の会話から 2 通・採用の見込みは承認の基準ではなかった、拘束しない語は要らない）** | `2020-02-license-discuss-adoption-not-a-criterion-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |

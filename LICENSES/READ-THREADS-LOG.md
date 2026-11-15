@@ -20,6 +20,10 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-15 の読了（新しいものが上）
 
+- 2026-11-15 に読了の記録だけにした 2 本: "Blue Oak Model License 1.0.0"（`license-discuss` 2019-07・5 通。Perens 氏「法律家が平易な語を使おうとして自分の足を撃つかもしれない」、Smith 氏「起草したのは米国の法律家」。Blue Oak は `gap-measurements.md` などに既出で、新しい論点を足さない）、"free database licenses"（2001-11・6 通。決める側の通は無く、list の目的の外として打ち切られた）。
+
+- 2026-11-15 に "Government licenses"（`license-discuss` 2019-05・40 通・決める側の通に絞った）を `review-readings.md` §1.207 へ（著作権の無い部分には既存のライセンスが及ばないだけで足りる・Smith 氏。ACD の §9.2 はそれを明示する）。
+
 - 2026-11-15 に読了の記録だけにした 4 本（ACD に新しい論点を足さない）: "Withdrawal of License Submission - Barrer Free Software License (BFSL)"（`license-review` 2025-12・非商用の制限を持つライセンスの取り下げ。B14 の "AI slop" の件は `against.md` #292 に既出）、"What's wrong with the AGPL?"（2024-06・AGPL の目的をめぐる会話で、条件を置かない ACD に当たる点が無い）、"documentation on un-enforceability of ethical licenses?"（2024-02・Chestek 氏「ライセンスは自分では執行されない」。条件の無い ACD には執行の問いが無い）、"plain text license versions?"（2012-09・OSI のサイトに平文の版を置くか。ACD は ASCII の 1 ファイルで、§16.2 は識別子だけで十分な通知とする。Villa 氏の「平文は情報を失わず、道具が解析しやすい」は有利な側だが新しい論点ではない）。
 
 - 2026-11-15 に同じ草案の `license-review` 側の会話（2026-01 と 2026-04・census は件名で `license-discuss` 側と 1 つの会話に束ねる）を `review-readings.md` §1.206 へ（`license-discuss` で少なくとも 30 日、提出した文は変えられない、新しいところだけの抜粋と既存のライセンスに例外を足せない理由・Chestek 氏、Sado 氏）。
