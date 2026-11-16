@@ -633,8 +633,19 @@ personal injury resulting from negligence"*, which the T82 exception already lea
 reasonableness"* (`rounds/2026-11-16-ucta-1977-s1-s2-legislation-gov-uk-snapshot.txt`). Whether §14.1 is
 reasonable for a gratuitous grant is the open part.
 
+In Japan the Consumer Contract Act reaches only a contract between a consumer and a business (Article
+2(3)), so an individual who applies ACD outside a business is not reached by it either. Where a business
+applies it, Article 8(3) adds a test of wording: a clause that partly excludes liability is void if it
+does not make clear that it applies only to negligence other than gross negligence:
+*「当該条項において事業者、その代表者又はその使用する者の重大な過失を除く過失による行為にのみ適用されることを明らかにしていないものは、無効とする。」*
+(`rounds/2026-11-16-shohisha-keiyaku-ho-2-8-e-gov-api-snapshot.txt`). The T82 exception names wilful
+misconduct and gross negligence, which reads as making that clear, but it excepts them only where
+applicable law does not permit their exclusion. Does a conditional exception of that kind meet
+Article 8(3), or must §14.1 except gross negligence without the condition, as EUPL-1.2 §8 does
+(`jurisdictions.md`, the paragraph on §14.1 and the Consumer Contract Act)?
+
 **An answer would change** the wording of the T82 exception, if it fails the transparency requirement
-or the United Kingdom's reasonableness test. Whether §14 should say that it does not limit the covenants
+the United Kingdom's reasonableness test, or Article 8(3) of Japan's Consumer Contract Act. Whether §14 should say that it does not limit the covenants
 is settled in the 1.4 draft by T83. An answer to (b) would change whether §14.1 needs its own subject.
 
 
