@@ -703,3 +703,21 @@ census は、ドシエに多く引かれた会話を「候補の外」に置く�
 **この節が establish しないこと。** §14 がどの国で落ちるか。ACD が贈与の基準に当たるか。
 
 **反映**: B8（§14 の「法の許す限り」の型が、国によっては句ごと無視されうること・jurisdictions のドイツの節が §14 に当てていなかったこと・30 へ）/ 入口（法律家への問い 9 に「§14.1 の句と §14.2 の縮減が、句を無視する法域で働くか」と「贈与の責任の基準に当たるか」を足すかの判断・`QUESTIONS-FOR-COUNSEL.md`・50 へ）/ B1（法律家のボランティアの助けを得て出し直す経路・Perens 氏 2019・30 へ）/ 1c（§14.2 の縮減の語を、縮減を認めない法域で何が残るかの点から見直すかの判断）。
+
+## 1.259 「OSI は『分からない』と言い続け、承認の印なしに使わせて様子を見る選択肢が要る」（Kuhn 氏 2020・CAL の審査）—— B2 の 2025 年の問いの 5 年前の形（2026-11-16）
+
+`review-readings-2.md` §1.258 で後に回した CAL の 3 つの審査の、ドシエが引いていない決める側の通（188 通・Perens 氏 76・Chestek 氏 46・Berkus 氏 19 ほか）を、同じ手順で点数づけし、点の付いた通を全文で読んだ。3 通はどれも `rounds/2019-04-license-review-cal-approval-observed-*.txt` に既に逐語で在り（20・35・49 of 61）、分析の文書が引いていなかった。新しい rounds は置かない。ほかの通は API の著作権への copyleft、公衆への実演の語、商標の扱いなど CAL に固有の論点で、ACD に当たる新しい点は無かった。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"As I said in 2018 during SS Public License evaluation, the process works great for "minor tweak", highly permissive FOSS licenses that have appeared in the wild and need urgent attention."* / *"I think there has to be an option (in the general case, not only for this particular license) for the OSI to say "we don't know" indefinitely and encourage the drafting authority to begin using the new license without the OSI-approved label and see what happens."* | Bradley M. Kuhn 氏 2020-01-04（CAL Beta 4・`rounds/2019-04-license-review-cal-approval-observed-49of61.txt`） | **両面（B2・B10）。** 審査の手順は「世に出て使われている、小さな手直しの許容的なライセンス」に向き、新しく書かれた広い射程のライセンスには向かない、という読み。ACD は許容的だが、新しく書かれ、世で使われていない（B2）。同時に、否決でも承認でもない「分からない・まず使ってみよ」という帰結を提案した。License Committee が 2025-07-18 に理事会へ *"should the LC reject a license proposal that is valid but is not in use anywhere?"* と問うた（`ACD-OSI-BOTTLENECKS-EXTERNAL.md` の B2 の「否決ではない帰結」の段）のは、この提案の 5 年後の形である。**逆側**: Kuhn 氏は当時の理事でも委員でもない（決める側の一覧には入っている）。提案は採られた記録が無い |
+| *"The FSF authorized a third-party fork for experimentation when the idea was new in 2002 -- precisely because the FSF (as a license steward dedicated to software freedom) was cautious about expanding copyleft requirements in novel directions."* | Bradley M. Kuhn 氏 2019-08-28（CAL Beta 2・同 35 of 61） | **B2 の材料。** 新しい考えのライセンスが、承認や採用の前に何年も実地で試された先例（Affero GPL）。ACD の新しい部分（モデルと出力への伸び・§6・§8.4）は試されていない。**逆側**: これは copyleft の義務を広げる場合の話で、義務を課さない ACD に「慎重さ」の理由がそのまま当たるかは分からない |
+| *"The license is being held to a standard for universal applicability of terms of art that I am not aware has been applied to Open Source licenses before."* | Bruce Perens 氏 2019-06-28（CAL・同 20 of 61・CAL の "public performance" が米国法の語だという指摘について） | **有利な面（B8）。** 1 つの法域の語に頼ることが審査で問われた。ACD の §4.2 は *"publicly display, publicly perform, communicate to the public"* と米国の語とベルヌ条約・欧州の語を並べ、§1.2 で Moral Rights を、§7 で sui generis database rights を自分で定義する。Perens 氏は同じ通で、この基準は以前は当てられていなかった、とも書いた —— 審査の基準が上がっているという読みで、ACD の長さ（B3）の一部はこの基準に答えるためのものである |
+
+**読み。** CAL の審査の、ドシエが引いていない決める側の通は、B2 について「否決ではない帰結」の早い形（Kuhn 氏 2020）を持っていた。
+
+**逆側。** Kuhn 氏の提案は採られた記録が無く、2025 年の LC の問いへの理事会の答えも記録に無い（register の同じ段）。
+
+**この節が establish しないこと。** OSI が「分からない」という帰結を実際に使うか。
+
+**反映**: B2（「否決ではない帰結」の段に、Kuhn 氏 2020 の「分からないと言い続け、印なしに使わせて様子を見る」を、2025 年の LC の問いの早い形として・30 へ）/ B8（§4.2 が複数の法域の語を並べることが、CAL の審査で問われた「1 つの法域の語」の問いに答える形であること・30 へ）。
