@@ -240,7 +240,7 @@ AI がやること:
 | :-: | :-- | :-: | :-- |
 | 1 | 1.4 草案の新しい語を、1.0 との差として自分の言葉で `license-discuss` に出し、少なくとも 30 日置く | 6b | `SUBMISSION-MATERIALS.md` §0b・§0d、`REVIEWERS.md` の新しい語の表 |
 | 2 | 実在のプロジェクトに、使う意向を公に表明してもらえるか尋ねる | 6（B2） | `.github/ISSUE_TEMPLATE/acd-use.yml`（AI はこの窓口に投稿しない）、`SUBMISSION-MATERIALS.md` §1 の「使うと表明しているプロジェクト」の行 |
-| 3 | 法律家に読んでもらうよう頼む | 5（B1） | `QUESTIONS-FOR-COUNSEL.md` |
+| 3 | 法律家に読んでもらうよう頼む（委員の側から、ボランティアの法律家に頼んで出し直せと勧めた先例がある: Perens 氏 2019 *"get a lawyer volunteer to help you, and resubmit after that"*・`review-readings-2.md` §1.258） | 5（B1） | `QUESTIONS-FOR-COUNSEL.md` |
 | 4 | 「OSI の承認がなぜ大事か」への答えを自分の言葉で持っておく（Phipps 氏 2020-12・`review-readings-2.md` §1.244） | 8 | `SUBMISSION-MATERIALS.md` §1 の「なぜ OSI の承認が大事か」の行 |
 | 5 | `license-review` へ送る | 9 | `SUBMISSION-MATERIALS.md` §0 の順 |
 | 6 | 審査の問いに自分の言葉で答える（代理の参加はうまくいかなかったと委員が書いた・2020-02-28） | 10 | `SUBMISSION-MATERIALS.md` §0 の 0c、§2 の「答えは本文の語を引いて書く」 |
