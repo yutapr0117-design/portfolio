@@ -1,0 +1,62 @@
+Source: OSI license-discuss public archive, 2018-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 23 in "Proposed license decision process" (2018-12-07)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Thu Dec 13 19:03:51 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 13 Dec 2018 11:03:51 -0800
+Subject: [License-discuss] Proposed license decision process
+In-Reply-To: <015d01d4930e$fd30b540$f7921fc0$@rosenlaw.com>
+References: <CA+xoNzG8ino3JpSS-X_8spxvnkGjDGyog+3sHJQKV0jFiSCw0A@mail.gmail.com>
+ <CAFjZtResykKsirbxxKf2Dt53wUizxk+M1fvS+zN100gCsRE5Bg@mail.gmail.com>
+ <20181213171637.GA3662@bluenote>
+ <015d01d4930e$fd30b540$f7921fc0$@rosenlaw.com>
+Message-ID: <CAK2MWOsw=ow48gzT-qtJKUGSDtjLFYfgi+SAAfcrSnbtMFSQJw@mail.gmail.com>
+
+Larry,
+
+As far as I am aware, where the previous OSI board has worst "screwed up"
+has been in accepting crayon licenses that can be harmful to the community
+(my favorite is the SIL Open Font license, which I contend allows third
+parties to place a font in the public domain). The OSD would not, on its
+own, have stopped this regardless of the literal-ness of the reading.
+
+    Thanks
+
+    Bruce
+
+On Thu, Dec 13, 2018 at 10:22 AM Lawrence Rosen <lrosen at rosenlaw.com> wrote:
+
+> Richard Fontana wrote:
+>
+> > I can easily come up with hypothetical licenses that would seem not to
+> fail a highly literalist reading of the OSD, but which historically would
+> never have been *treated* as conforming to the OSD, because of an obvious
+> failure of the license to provide software freedom as traditionally
+> understood in the community.
+>
+>
+>
+> Can you please cite examples that we've screwed up (or create a
+> hypothetical) because of a "highly literalist reading of the OSD"?
+>
+>
+>
+> "Traditionally understood?" You sound like the late Justice Antonin
+> Scalia! (Sorry; that crack is ad hominem!) :-)
+>
+>
+>
+> /Larry
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20181213/35f80be1/attachment.html>
