@@ -406,6 +406,7 @@ def gate_6b(today: "datetime.date | None" = None) -> list[str]:
     """段 6b (OSI-APPROVAL-PLAN.md §4・SUBMISSION-MATERIALS §0 の 0b): 出す版を license-discuss に少なくとも 30 日置いてから確定する。
 
     投稿の日は、草案の冒頭の節 "Changes since the version posted on <YYYY-MM-DD>" が記録する (50 と 1c の合意・2026-11-15)。
+    日付は公開アーカイブに届いた日で、同じ節にその通の URL (license-discuss の pipermail・日付と同じ月) が要る (2026-11-16)。
     その節が無ければ、窓はまだ始まっていない。根拠は Chestek 氏 2026-01-23 の "at least 30 days for feedback on
     license-discuss before submitting to license-review"。**逆側** (段 6b の行と同じ): 規則ではなく 1 人の助言で、30 日置いても
     議論が来る保証は無い。届いたかは公開アーカイブで確かめる (ゲート 10) —— この関数は日付しか見ない。
@@ -417,8 +418,19 @@ def gate_6b(today: "datetime.date | None" = None) -> list[str]:
     if not m:
         return ["段 6b: 出す版を license-discuss に出した記録が草案の冒頭に無い (\"Changes since the version posted on <日付>\")"
                 " —— 30 日の窓が始まっていない。投稿はオーナーが自分の言葉で書く (B14)"]
-    left = (datetime.date.fromisoformat(m.group(1)) + datetime.timedelta(days=30) - today).days
-    return [f"段 6b: {m.group(1)} に出した版の 30 日の窓が、あと {left} 日残っている"] if left > 0 else []
+    # 日付は投稿が公開アーカイブに届いた日で、同じ節にその通の URL を置く (50 の提案・2026-11-16): moderation で拒否された投稿は
+    #   届いていないので、日付だけでは窓を数えられない。照らすのは URL の形と月の一致だけで、届いたことはゲート 10 で人が確かめる
+    sec = head[m.start():]
+    nxt = re.search(r"\n\s*\n\s*[*-] |\n\S", sec[1:])
+    sec = sec[: nxt.start() + 1] if nxt else sec
+    d = datetime.date.fromisoformat(m.group(1))
+    u = re.search(r"https://lists\.opensource\.org/pipermail/license-discuss_lists\.opensource\.org/(\d{4}-[A-Z][a-z]+)/\d+\.html", sec)
+    if not u:
+        return [f"段 6b: {m.group(1)} の投稿の公開アーカイブの URL が同じ節に無い (届いた記録が無い・ゲート 10) —— 窓は始まらない"]
+    if u.group(1) != d.strftime("%Y-%B"):
+        return [f"段 6b: 投稿の日 {m.group(1)} と公開アーカイブの URL の月 {u.group(1)} が合わない"]
+    left = (d + datetime.timedelta(days=30) - today).days
+    return [f"段 6b: {m.group(1)} に届いた版の 30 日の窓が、あと {left} 日残っている"] if left > 0 else []
 
 
 def gate_6c() -> list[str]:
