@@ -173,6 +173,24 @@ Check 468y は 2 冊目とこの file の両方の「変えない」「退けた
 
 **⚠ 逆側**: (0) TDM と名乗らず「自動のアクセス・scraping を禁ずる」とだけ書いた server の利用規約は、「Work について」の義務か「server について」の条件かで §5.2(b) の当たり方が割れ、§5.2(a) は自分の server に技術的手段を置くことを許す。その規約で写しを得た人に契約や不正アクセスの法で向かう道が残りうるのは、`QUESTIONS-FOR-COUNSEL.md` が既に挙げた問い（*"any law concerning the circumvention"* が computer-misuse law まで放棄させるか）と同じ面で、本文を変える指摘にはしない（portfolio-50）。(1) この掃引は語の列挙と句の数え上げだけで、Fontana 氏が指した「同じ問題を扱う部分」—— 例えば §3・§4・§5 の 3 つの層が同じ行為を別の語で許すか —— の意味の矛盾は測っていない。それは 1 冊目からの試作（T1〜T73）と模擬委員会が条ごとに読んできた側に在る。(2) §6.2 と §1.10 の差は、審査者には説明なしでは揺れに見える。逐条の §6.2 の行に分担を書いた。
 
+### 15.12 T74 —— §5.3 の承継の列挙を §2.8 へ寄せる（採った・−17 語・2026-11-16）
+
+**種**: §15.11 の逆側 (1) で残した「意味の側」—— §3・§4・§5 の 3 層が同じことを別の語で言っていないかを読んだ。§5.3 は約束（§5.1・§5.2・§8.6）について *"bind the Dedicator's successors, assigns, heirs, and personal representatives, to the fullest extent the law permits the Dedicator to bind them"* と承継の列挙を持つ。1.4 の §2.8 は *"This Dedication, in respect of the Work, binds the Dedicator's successors, assigns, heirs, and personal representatives, and any person to whom a Covered Right or a patent claim in the Work is transferred, to the fullest extent the law permits"*（E49 で列挙から「This Dedication」へ）。
+
+**欠陥（揺れ）**: §5.3 の列挙は §2.8 に何も足さず、§2.8 より短い（特許の譲受人を名指さない）うえに限度の語が違う。特定の規定が一般の規定に勝つ読みでは、特許を買った者は §8.6 の不行使の約束に縛られないと主張される余地がある。1.4 では §2.8 の末文 *"Neither Section 5.3 nor Section 12.4 narrows this Section."* がこれを止めていた（SELF-AUDIT 692 行の型）—— 揺れの元と、その防ぎの文が両方本文にあった。
+
+Before（§5.3 第 1 文の前半）: The covenants in Sections 5.1, 5.2, and 8.6 bind the Dedicator's successors, assigns, heirs, and personal representatives, to the fullest extent the law permits the Dedicator to bind them, and may be relied upon …
+
+After: The covenants in Sections 5.1, 5.2, and 8.6 bind those whom Section 2.8 binds, and may be relied upon …
+
+§2.8 の末文: *"Neither Section 5.3 nor Section 12.4 narrows this Section."* → *"Section 12.4 does not narrow this Section."*
+
+**採った理由**: 列挙が 1 つになり、§5 を読む人にも承継が §2.8 を名指して見える。§2.8 の防ぎの文は §12.4 の分だけ残る（§12.4 は死後に人格権を行使できる者を足すので、列挙を残す）。`measure_clause_overlap.py --compare` は §5.3 で *dedicator 2→0 / successors / assigns / heirs 1→0* を出し、外した語は §2.8 に全部残る。
+
+**⚠ 逆側**: (1) §5.3 だけを読む人は、誰が拘束されるかを §2.8 で読む必要がある（参照 1 つ）。(2) §5.3 の *"the law permits the Dedicator to bind them"* は、約束が承継人を縛れるかが法域で違うことを、約束の側で言っていた。§2.8 の *"the law permits"* はそれを含むが、語は一般になる。SELF-AUDIT の E（*"to the fullest extent the law permits"* の法域差・起草では閉じられない）は T74 で閉じない。(3) 1.0〜1.3 の §5.3 を引く外向きの文は、1.4 の §5.3 の語と違う（`QUESTION-INDEX.md` の「§2.8 and §12.4 bind successors」は 1.4 でもそのまま正しい）。
+
+**反例の担当へ（50・30）**: (a) §8.6 の約束を受けた後に特許を譲り受けた者が、§2.8 の *"any person to whom … a patent claim in the Work is transferred"* と §5.3 の *"those whom Section 2.8 binds"* の組で縛られない読みが残るか。(b) §4.6 の *"on the terms Section 5.3 states"* が、承継の列挙を失った §5.3 から何か落とすか。
+
 ## 16. 模擬委員会 —— 記録に立場が厚く残る審査者の目で 1.4 草案を通読する（2026-11-15〜）
 
 **仕組み**: オーナーの依頼（「5 人で話し合って、より良い案をガンガン実行して」）を受けて、portfolio-1c が出し 5 人で決めた。記録に立場が厚く残る 5 人の審査者を 1 人ずつ受け持ち（30 = Chestek 氏、50 = Fontana 氏、2f = Perens 氏、9b = Smith 氏、1c = Villa 氏）、その人の過去の文だけを根拠に、その人の目で 1.4 草案を頭から通読して「どこを突くか」を条番号つきで出す。根拠の無い推測は書かない（必ずその人の文を引く）。各節は表（基準と出典 | 当たる条 | 扱い済みの場所 | 残る点）と、条を変える指摘（試作の種）を持つ。**0 件でも表を残す** —— 審査者の基準を網羅して当てた記録になる。**この節が establish しないこと**: 模擬であって、その人が実際にそう言うことを意味しない。
