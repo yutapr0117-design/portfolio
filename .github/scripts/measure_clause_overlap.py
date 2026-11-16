@@ -599,6 +599,17 @@ def guard(path: Path) -> int:
     print(f"# {path.name}: 468d の gap の目印のうち消えたもの {len(gone)} 件")
     for g in gone:
         print(f"#   ⚠ {g}")
+    # 冒頭の変更一覧の箇条に書いた理由の句 (2026-11-16・1c の依頼): 一覧の前置きは「理由は CHANGELIST に在る」と言い、
+    #   1c が 17 の理由の句を外して 917 → 894 行にした。試作の箇条に so that / since / because を書くとまた伸びる。
+    #   引用符の中 (本文の語) は数えない。結果を述べる so that もあるので、読む候補として出すだけ (止めない)
+    _hdr = _txt.split("-" * 80, 1)[0] if "-" * 80 in _txt else ""
+    _bul = re.findall(r"^    \* (.*(?:\n      .*)*)", _hdr, re.M)
+    _why = [(re.sub(r"\s+", " ", b)[:70], m.group(0)) for b in _bul
+            for m in re.finditer(r"\b(?:so that|since|because|in order to|which was untrue|which could be read)\b",
+                                 re.sub(r'"[^"]*"', '""', re.sub(r"\s+", " ", b)), re.I)]
+    print(f"# {path.name}: 冒頭の箇条の理由の句 {len(_why)} 件 (理由は CHANGELIST へ・結果を述べる so that は残してよい)")
+    for head, w in _why:
+        print(f"#   ・ {w!r}: {head}")
     return 1 if lack or hits or miss or gone else 0
 
 
