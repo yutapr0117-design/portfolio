@@ -1,0 +1,39 @@
+Source: OSI license-review public archive, 2020-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 3 in "License-review Digest, Vol 95, Issue 14" (2020-10-20)
+Senders: Vicky) Brasseur
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From osi-lists at vmbrasseur.com  Tue Oct 20 19:50:53 2020
+From: osi-lists at vmbrasseur.com (VM (Vicky) Brasseur)
+Date: Tue, 20 Oct 2020 12:50:53 -0700
+Subject: [License-review] License-review Digest, Vol 95, Issue 14
+In-Reply-To: <CA+ujgfNxdTF+6T2k1cCjdLUGJWDe2WsXhN3zPo7qYs1pu=at3g@mail.gmail.com>
+References: <mailman.292.1603165913.23837.license-review_lists.opensource.org@lists.opensource.org>
+ <CA+ujgfNxdTF+6T2k1cCjdLUGJWDe2WsXhN3zPo7qYs1pu=at3g@mail.gmail.com>
+Message-ID: <922caeb8-5185-c93e-d0dc-831b5a645071@vmbrasseur.com>
+
+Alex Williams wrote on 20/10/20 11:21:
+>  > ?I suggest withdrawing it from license-review while these issues are 
+> more thoroughly considered.
+> 
+> Do you believe that the license-discuss list would be more appropriate 
+> for the license at this time?
+
+Yes, please. I believe someone else suggested this earlier in the 
+conversation.
+
+However, before doing moving the conversation to license-discuss, I 
+advise you take the recommendation of several list members and consult a 
+lawyer experienced in license drafting to have them review and rework 
+the document first. The members of license-discuss are unlikely to be 
+happy with playing the role of the lawyer you should be consulting 
+instead. ;-)
+
+If you need recommendations for such lawyers, I suggest you ask that on 
+license-discuss as well.
+
+All the best,
+
+--V
