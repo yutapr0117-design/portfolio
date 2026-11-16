@@ -573,7 +573,7 @@ census の候補の外の未読の会話の 1 本（"License-review Digest, Vol 
 
 **この節が establish しないこと。** ACD の前文のどの語が「強すぎる」と読まれうるかの点検はしていない。同じ線の記録として、`ACD-1.0.review-readings-6.md` §1.450（Nelson 氏 2002「前文も別の解説も条文の解釈に使われる」）と `against.md` #124 の「逆向きの危険」の段を併せて読む。
 
-**反映**: 1c THIRD §15.8（T72・PR 3249 で前文の "silent or hostile" を "leave a gap" へ変えた。前文の意図の文 "written for works that are meant to be learned from" は残した）。
+**反映**: 1c THIRD §15.8（T72・PR 3249 で前文の "silent or hostile" を "leave a gap" へ変えた。前文の意図の文 "written for works that are meant to be learned from" は残した）→ T73（`ACD-1.4-THIRD-CLARITY-TRIAL.md` の 15.9 節）で "where that assumption fails" へ再び改めた（"leave a gap" は B10 で問われる当の語で、前文が当然のように述べると答えの先取りに読まれうるため）。
 
 ## 1.252 米国では、ソフトウェアに法的に認められる人格権は無い（"exploring the attachment between the author and the code"・2020-02〜03）（2026-11-15）
 
