@@ -117,6 +117,11 @@ to it to that extent, Section 6 included."*, so that the text claims no more tha
 (`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.32, T59; errata E79). In the United States, does a recipient's
 licence under §4 prevail over a later assignee of the copyright, and does it matter whether §3 has
 already taken effect, leaving nothing to transfer?
+In Japan the statute answers for a licence. Copyright Act Article 63-2 reads:
+*"利用権は、当該利用権に係る著作物の著作権を取得した者その他の第三者に対抗することができる。"*
+A right of use may be asserted against a person who later acquires the copyright, with no registration
+(`rounds/2026-11-16-minpo-chosakukenho-e-gov-api-snapshot.txt`), so §2.8 states what Japanese law already does if §4 is a grant of a right of use
+under Article 63. Whether it is one is the question of §1 above.
 
 A further question concerns the recipient who never saw the Dedication. In the 1.4 draft, §2.3 says
 *"To hold a permission granted here, You need not know of this Dedication"*, which matters because §10.2
@@ -551,8 +556,14 @@ cruelty, offences or insults, or refusal of maintenance), and article 931 requir
 before a notary on pain of nullity, so an un-notarised dedication is unlikely to be a gift there; whether
 French law bars an advance waiver we have not checked. Our reading narrows it further: revocation would
 reach only the recipient guilty of the ingratitude, not other recipients, and enforcing one's own patent
-in court is not in itself a serious wrong (`jurisdictions.md` §3). Is that reading right, and could revocation reach the patent licence of §8,
-which §8.2 calls not terminable on any ground?
+in court is not in itself a serious wrong (`jurisdictions.md` §3). In Japan, civil code article 550 lets
+either party cancel a gift not made in writing, *"ただし、履行の終わった部分については、この限りでない。"*
+(except for the part already performed;
+`rounds/2026-11-16-minpo-chosakukenho-e-gov-api-snapshot.txt`); our reading is that a published text
+applied to a Work is a writing and that a copy already received is a part performed, but we have not
+read a case on a public licence. Is that reading right, and could revocation reach the patent licence
+of §8? The 1.4 draft (T85) now says that the licences are not terminable *"under this Dedication"* on
+any ground, so the text no longer speaks for what the law may allow.
 
 The 1.4 draft (trial T82) now opens §14.1 with *"EXCEPT FOR ANY LIABILITY FOR WILFUL MISCONDUCT, GROSS
 NEGLIGENCE, DEATH, OR PERSONAL INJURY THAT APPLICABLE LAW DOES NOT PERMIT TO BE EXCLUDED, WHICH NOTHING IN
@@ -563,6 +574,14 @@ not permit" meet the transparency requirement of section 307(1), second sentence
 form, which leaves the licensor liable for these categories even where the law would let them be excluded,
 stand better, at the cost of more liability for adopters elsewhere? The texts we rely on are in
 `rounds/2026-11-16-bgb-276-307-309-521-524-gesetze-im-internet-snapshot.txt`.
+
+In the United Kingdom the question narrows. Sections 2 to 7 of the Unfair Contract Terms Act 1977 apply
+*"only to business liability"* (section 1(3)), so a Dedicator who applies ACD outside a business is
+not reached by them. Where a business applies it, section 2(1) forbids excluding liability *"for death or
+personal injury resulting from negligence"*, which the T82 exception already leaves standing, and section
+2(2) lets other negligence be excluded only *"in so far as the term or notice satisfies the requirement of
+reasonableness"* (`rounds/2026-11-16-ucta-1977-s1-s2-legislation-gov-uk-snapshot.txt`). Whether §14.1 is
+reasonable for a gratuitous grant is the open part.
 
 **An answer would change** whether §14.1 should exclude liability only for the use of the Work, as
 GPL-3.0 does, or say that it does not limit the covenants. An answer to (b) would change whether §14.1 needs its own subject.
