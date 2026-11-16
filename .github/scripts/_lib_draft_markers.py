@@ -23,7 +23,7 @@ EFFECT_MARKERS_468U = (
     # 2026-11-08 (T16〜T20・#2602): 許諾の目的語を請求項から行為へ移した結果、効果を運ぶ句になった
     ("8.1", "otherwise practise or transfer"),
     ("8.4", "Section 8.1 alone governs"),
-    ("5.1", "or as without legal ground, a use of the Work"),  # 2026-11-16 T90: for a use → that treats as wrongful, or as without legal ground, a use
+    ("5.1", "or as without legal basis, a use of the Work"),  # 2026-11-16 T90: for a use → that treats as wrongful, or as without legal basis, a use
     # 2026-11-08 (#2615): 特許の reach の定義と、通知が適用される範囲の主語
     ("8.3", "only as to the acts they describe"),
     ("16.2", "A notice a Dedicator places"),
