@@ -20,6 +20,14 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-16 の読了（新しいものが上）
 
+- 2026-11-16 に "Approval: OIN License (Open Innovation License) -- Trademark Issue"（`license-review` 2020-12・通読）を `review-readings-2.md` §1.254 へ（承認の投票の前に既存の団体と重なる略称を変えよ・Berkus 氏、SPDX も識別子を変えた・Brasseur 氏）
+
+- 2026-11-16 に "License-review Digest, Vol 95, Issue 14"（`license-review` 2020-10・通読）を `review-readings-2.md` §1.254 へ（リストの参加者は相談すべき法律家の代わりを務めない・Brasseur 氏）
+
+- 2026-11-16 に "GPL-3.0's anti-DRM tivoization clause"（`license-discuss` 2019-08・通読）。GPL の版の選び方の相談で、新しい論点は無かった（節は立てない・DECIDERS の漏れで候補に入っていなかった）
+
+- 2026-11-16 に "Groups/Communities"（`license-discuss` 2017-01・通読）。法律の議論の場の紹介を求めた通で、新しい論点は無かった（節は立てない・DECIDERS の漏れで候補に入っていなかった）
+
 - 2026-11-16 に 9b の帯（2002 年の 31 本）を全文で読み直した（最初の読みは決める側の通を 170〜220 語で切り、5 本は出力の末尾しか見ていなかった・切れていた通 39）。§1.450・§1.451 に当て直しの段を、`review-readings-6.md` §1.456 に新しい論点を置いた（本当の読み手は法律家・契約でない許諾の解釈の文は受け手を縛るか・Rosen 氏、使用の要件を一切禁じるべきではない・Perens 氏、帰属表示の称賛・Rosen 氏）
 
 - 2026-11-16 に、5 人の分担で census の未読を 0 にした（候補 824 本のうち 824 本を読了・候補の外の話題の未読 0 件）。2026-11-15 の起点は候補の未読 285 本と候補の外の 19 本だった。読んだ節の反映先は末尾の欄（Check 501）か `REFLECTION-BACKFILL.md` に在る
