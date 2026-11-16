@@ -484,6 +484,16 @@ donor's liability to intent and gross negligence. Is a dedication like this one 
 limitation falls away entirely, or a gift whose donor is liable only for intent and gross negligence, or
 neither (`jurisdictions.md` §3)?
 
+The 1.4 draft (trial T82) now opens §14.1 with *"EXCEPT FOR ANY LIABILITY FOR WILFUL MISCONDUCT, GROSS
+NEGLIGENCE, DEATH, OR PERSONAL INJURY THAT APPLICABLE LAW DOES NOT PERMIT TO BE EXCLUDED, WHICH NOTHING IN
+SECTION 14 LIMITS,"*, following EUPL-1.2 §8. Our reading is that this keeps the exclusion standing in Germany
+if the Dedication is standard terms, because the excepted categories match those that German civil code
+section 309 no. 7 protects. Two points we cannot settle. Does tying the exception to what "applicable law does
+not permit" meet the transparency requirement of section 307(1), second sentence? And does EUPL's unconditional
+form, which leaves the licensor liable for these categories even where the law would let them be excluded,
+stand better, at the cost of more liability for adopters elsewhere? The texts we rely on are in
+`rounds/2026-11-16-bgb-276-307-309-521-524-gesetze-im-internet-snapshot.txt`.
+
 **An answer would change** whether §14.1 should exclude liability only for the use of the Work, as
 GPL-3.0 does, or say that it does not limit the covenants. An answer to (b) would change whether §14.1 needs its own subject.
 

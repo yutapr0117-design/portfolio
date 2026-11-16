@@ -1,0 +1,56 @@
+Source: OSI license-review public archive, 2010-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16 by portfolio-30)
+Messages: 1 (Patrice-Emmanuel Schmitz, 2010-10-07, in "For Approval: The netX Public Lisense (in plain text)")
+Senders: Patrice-Emmanuel Schmitz (drafter of the EUPL), quoting Andrew Wilson (Intel)
+Position: Not addressed to us. Observed. The message is kept whole, including the passage it quotes inline.
+Why kept: the 1.4 draft's T82 (Section 14.1 excepts wilful misconduct, gross negligence, death and personal
+injury where the law does not permit exclusion) took this message's reasoning and the EUPL-1.2 Section 8 form
+as its precedent; Andrew Wilson's quoted question (does any retained liability make a licence incompatible
+with permissive ones?) is the converse.
+
+----- begin verbatim -----
+From patrice-emmanuel.schmitz at be.unisys.com  Thu Oct  7 08:32:25 2010
+From: patrice-emmanuel.schmitz at be.unisys.com (Schmitz, Patrice-Emmanuel)
+Date: Thu, 7 Oct 2010 09:32:25 +0100
+Subject: For Approval: The netX Public Lisense (in plain text)
+In-Reply-To: <EDC0E76513226749BFBC9C3FB031318FEAF63985@orsmsx508.amr.corp.intel.com>
+References: <8571F7783FE5ED488D0FD4119BB601BA023AB1FFDC@SBS-WBSLAWNET.intranet.wb-law.org>
+ <8571F7783FE5ED488D0FD4119BB601BA023AB2000A@SBS-WBSLAWNET.intranet.wb-law.org>
+ <4CACA7FB.2000803@postgresql.org> <4CACC5D7.6040107@perens.com>
+ <EDC0E76513226749BFBC9C3FB031318FEAEE9D48@orsmsx508.amr.corp.intel.com>
+ <4CACE838.8000303@perens.com>
+ <EDC0E76513226749BFBC9C3FB031318FEAF63985@orsmsx508.amr.corp.intel.com>
+Message-ID: <E6A2D16012EEC64FADD012E5E5A77FAA4F8518EA12@GBMK-EXCH6.eu.uis.unisys.com>
+
+Andrew Wilson wrote:
+
+> Another question I would like to raise is the netX license's limitation of
+> liability.
+> A netX Licensor's limitation of liability is miniscule (to damages from
+> "intention and
+> gross negligence"), but there is a difference between miniscule and zero.
+> All the most common open source licenses come with
+> language in SCREAMING ALL CAPS which state that they come with
+> NO WARRANTY OR INDEMNIFICATION FOR ANY PURPOSE, etc., etc.
+> My concern -- and this is a question for the qualified attorneys on
+> this list -- would be whether even miniscule indemnification renders
+> netX incompatible with <insert your favorite permissive license>.
+> 
+> In concrete terms, I question whether you can combine netX with
+> BSD, Apache, or MIT-licensed code, since you receive no indemnification
+> at all from BSD/Apache/MIT licensors.
+
+[Schmitz, Patrice-Emmanuel] The questions of warranty and liability are really distinct from copyright. They could be subject of a separate agreement or be inserted in a specific section of the licence. In European countries, and especially in Germany, courts have invalidated general exclusions, and even exclusions "to the extend allowed by the law" are considered as unfair regarding contract & protection of consumers law. This is the reason why the OSI-approved European Union Public License for example, requests from authors and contributors a warranty of ownership (regarding their contribution) and does not exclude liability in case of wilful misconduct (for example, introducing a computer virus) and in case of damages to natural persons (imagine that you distribute software for managing a car ABS or an aircraft, and it causes a crash!). 
+IMO, none of the 10 OSI principles regulates or limit warranty or liability exclusions.
+P-E Schmitz - www.osor.eu  
+> 
+> netX is GPL-incompatible for a host of reasons.
+> If it is also incompatible with permissive licenses, OSI should not
+> approve a new
+> license which creates a class of one, IMO, absent some truly compelling
+> reason.
+> 
+> Andy Wilson
+> Intel open source technology center
+> 
+----- end verbatim -----
