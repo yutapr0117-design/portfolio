@@ -149,7 +149,7 @@ running the Program"* は**著作権の話であって特許ではない**）。
 
 ### 2026-11-15 —— OSD の起草者と当時の理事が述べた目標を、ACD は文字どおりに満たす（`review-readings-6.md` §1.451・portfolio-9b）
 
-Bruce Perens 氏 2002-01-20 *"One of the goals of the OSD was to have software that the user could run without having to read the license or take any special action."*、Russell Nelson 氏 2002 は、OSD は *"If you have a copy of this software, you can do anything you want with it."* と言うべきだったと書いた。ACD の §10.1〜§10.4 は、受け手に条件も義務も課さず、何も知らせなくてよいと定める。**逆側**: MIT と 0BSD も同じ目標をほぼ満たすので、これは B10 の問い（既存のライセンスで足りないのは何か）には答えない。有利な材料として使えるのは、「条件を持たない形は OSD の目標に沿う」という点だけである。
+Bruce Perens 氏 2002-01-20 *"One of the goals of the OSD was to have software that the user could run without having to read the license or take any special action."*、Russell Nelson 氏 2002 は、OSD は *"If you have a copy of this software, you can do anything you want with it."* と言うべきだったと書いた。ACD の §10.1〜§10.4 は、受け手に条件も義務も課さず、何も知らせなくてよいと定める。**逆側**: MIT と 0BSD も同じ目標をほぼ満たすので、これは B10 の問い（既存のライセンスで足りないのは何か）には答えない。有利な材料として使えるのは、「条件を持たない形は OSD の目標に沿う」という点だけである。 **2026-11-16 に足した逆側（9b の全文での当て直し・`review-readings-6.md` §1.451）**: 同じ Perens 氏は 2002-03-13 に *"It is very tempting to ask for the OSD to say "no requirements connected with use, whatsoever". But I don't believe that's what we should do."* と書き、使用に要件を一切置かないことを OSD の原則にするのには反対した。Lawrence Rosen 氏は 2002-01-20 に帰属表示を求める条を *"All-in-all, I praise the advertising clause and encourage it to be used."* と称えた。「条件が無いこと」は、決める側にとって無条件の美点ではなかった —— 上の目標の文は「読まずに使える」ことの目標で、条件の無さを原則とする主張ではない。
 
 ### 2026-11-15 —— 2005 年の委員長も「OSD に合うものを全部か、良いものだけか」を決めていなかった（`review-readings.md` §1.177・portfolio-2f）
 
@@ -174,6 +174,10 @@ Josh Berkus 氏 2013-11-07（`license-review`）*"As a new license proposer, the
 ### 2026-11-16 —— 明示の特許許諾が無ければ強く反対する、共同体にとっての必要を説明せよ（`gap-measurements.md` §1.149・古い節の反映）
 
 Lawrence Rosen 氏 2018-12-13 *"if a license now is proposed without an express patent grant, I'd object to it vociferously"*（ACD の §8 は明示の許諾で、この線に合う）。Henrik Ingo 氏 2019-05 *"The OSI process is as much about policy as it is about technically applying the OSD rules correctly."*、新しいライセンスの提出者は *"fail to even attempt to explain how the new license is necessary or beneficial for the open source community as a whole."* —— B10 の答え（G1）は、提出者の都合ではなく共同体の利益として書く必要がある。**逆側**: どちらも個人の発言で、OSI の決定ではない。Luis Villa 氏 2019-06 がすぐ退けられる類型に挙げた *"incoherently written"* は、B3・B13 の側の危険として残る。
+
+### 2026-11-16 —— ACD に最も近い型の直近の提出に、要点が見えないと書かれた（PUWL・Fontana 氏 2025-10-01）
+
+Richard Fontana 氏は PUWL（公有化の放棄・責任の否認・代わりの許諾を 1 つにした提出）に *"I think the rationale you give for the license is fine, but I don't see the point of the license itself. As far as I can tell you are just combining a bunch of existing highly permissive permission grants"* と書いた（portfolio-50 が模擬委員会のアーカイブの当て方で拾った・against #110 の段）。B10 の問いが、同じ型にそのまま向けられた記録である。**逆側**: PUWL は既存の文（CC0・Unlicense など）を、どれが当たるかを言わずに並べた文書で、ACD は自前の文で書かれ、G1 の効果を主張する。審査者がその差を、同じ結論に達する前に見るかどうかは、入口（最初の一画面）が受け持つ。
 
 ### 2026-09-20 追記 —— gap の 1 本目に、**決着した裁判例が付いた**
 
