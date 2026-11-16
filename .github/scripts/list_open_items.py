@@ -173,7 +173,7 @@ def candidate_items() -> list[tuple[str, str, str, str]]:
                     if nx.startswith(("**先に登録", "#")):
                         break
                     rest.append(nx)
-                if "**反例の結果**" not in "\n".join(rest):
+                if "**反例の結果**" not in "\n".join([ln] + rest):  # 同じ行の末尾に足した印も読む (1c・SECOND は行を増やせない)
                     out.append((f"{p.name}:{i + 1}", "答えの記録なし", re.sub(r"\*\*", "", ln)[:110], "30 (反例) / 1c"))
     return out
 
