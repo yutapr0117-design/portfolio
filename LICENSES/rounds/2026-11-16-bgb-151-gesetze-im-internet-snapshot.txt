@@ -1,0 +1,18 @@
+Source: Bürgerliches Gesetzbuch (BGB) § 151, https://www.gesetze-im-internet.de/bgb/__151.html
+Retrieved: 2026-11-16 by portfolio-30, with the WebFetch tool.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes of at most 125
+        characters each. Re-fetch and compare before relying on the exact wording.
+
+WHY THIS FILE EXISTS. Section 2.3 of the 1.4 draft says a recipient need not know of the Dedication to hold
+a permission. Where Section 4 is read as a contract, this provision dispenses only with declaring acceptance,
+not with acceptance itself (jurisdictions.md section 3; QUESTIONS-FOR-COUNSEL.md question 1).
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+===== § 151 BGB, as reported =====
+1. "§ 151 Annahme ohne Erklärung gegenüber dem Antragenden"
+2. "Der Vertrag kommt durch die Annahme des Antrags zustande,"
+3. "ohne dass die Annahme dem Antragenden gegenüber erklärt zu werden braucht,"
+4. "wenn eine solche Erklärung nach der Verkehrssitte nicht zu erwarten ist oder der Antragende auf sie verzichtet hat."
+5. "Der Zeitpunkt, in welchem der Antrag erlischt,"
+6. "bestimmt sich nach dem aus dem Antrag oder den Umständen zu entnehmenden Willen des Antragenden."
