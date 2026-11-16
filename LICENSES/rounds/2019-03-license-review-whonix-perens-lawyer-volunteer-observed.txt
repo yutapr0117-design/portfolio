@@ -1,0 +1,46 @@
+Source: OSI license-review public archive, 2019-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 22 in "For Approval: GPL-3+-with-whonix-additional-terms - GPLv3 with improved, legal protections as per GNU GPL version 3 section 7" (2019-03-15)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Fri Mar 15 20:06:30 2019
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 15 Mar 2019 13:06:30 -0700
+Subject: [License-review] For Approval:
+ GPL-3+-with-whonix-additional-terms - GPLv3 with improved,
+ legal protections as per GNU GPL version 3 section 7
+In-Reply-To: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+References: <256b9a3e-3e99-0462-e496-919f92079a55@riseup.net>
+Message-ID: <CAK2MWOsXJfCiv1x6acKwCb-MeaagU8G4sqcgs_=CS5oTS0rT2w@mail.gmail.com>
+
+On Fri, Mar 15, 2019 at 12:50 PM Patrick Schleizer <adrelanos at riseup.net>
+wrote:
+
+> No legal review.
+>
+
+Patrick,
+
+I don't immediately see any non-compliance with the OSD. However, there is
+another good reason why I feel the license should be rejected.
+
+I submit that you place developers in danger by promoting a license without
+legal review, since they have no idea of what its actual effect might be in
+court, and this is thus what we have generally referred to with the
+purposefully deprecatory declaration "Crayon License". That you are making
+a mashup of what is presumably the work of lawyers isn't really sufficient.
+
+Foregoing the legal review was excusable long ago, indeed the OSD had no
+legal review because no lawyer would help us. Today we have folks like Kyle
+and Van on this list who have given of their time and are properly admitted
+to the Bar. I thus suggest that you actually get a lawyer volunteer to help
+you, and resubmit after that.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20190315/5299e32f/attachment.html>

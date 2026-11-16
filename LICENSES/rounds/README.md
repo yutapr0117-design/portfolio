@@ -126,6 +126,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2013-03 | `license-discuss` | **観測（"FAQ entry for slight variations in licenses?" から 4 通・承認済みライセンスの変種の確認に弁護士は要るか、で 2 人の弁護士が反対を向いた）** | `2013-03-license-discuss-slight-variations-lawyer-observed.txt` |
 | 2013-03 | `license-review` | **観測（2013 年 3 月の委員会報告 2 本から 3 通・理事会が求めて復活した正式の報告、CeCILL 2.1 の推薦、個人の起草者への勧め）** | `2013-03-license-review-committee-reports-observed.txt` |
 | 2017-01〜02 | `license-review` | **観測（"License Committee Report - January 2017" から 4 通・推薦は委員長個人のもの、list の沈黙、理事会は前もって判断を示さない）** | `2017-01-and-02-license-review-committee-report-observed.txt` |
+| 2017-02 | `license-discuss` | **観測（Rosen 氏の 1 通・法律家でない人を通してライセンスを出すことへの反発）** | `2017-02-license-discuss-arl-osl-rosen-non-lawyer-funnel-observed.txt` |
 | 2005-04 | `license-discuss` | **観測（"Official License Anti-Proliferation policy?" から 4 通・OSI の 2005-04-08 の声明の写しと、3 つの新しい基準の当てはめ方の説明）** | `2005-04-license-discuss-proliferation-statement-observed.txt` |
 | 2016-06・2017-01 | `license-review` | **観測（"Approval request for ZENTAO PUBLIC LICENSE" から 4 通と 2017-01 の委員会報告の会話から 1 通・badgeware、中国語の正本、利用者の多さでは足りなかった提出）** | `2016-06-license-review-zentao-public-license-observed.txt` |
 | 2017-05・07 | `license-review` | **観測（"EUPL v1.2" から 2 通・International の分類の目的、全ての言語の版に及ぶ承認）** | `2017-05-and-07-license-review-eupl-1-2-observed.txt` |
@@ -288,6 +289,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2011-12 | `license-review` | **観測（"Submitting MPL for Approval" から 1 通・Fogel 氏 2011-12-15）** | `2011-12-license-review-mpl2-fogel-proliferation-not-grounds-observed.txt` |
 | 2018〜2019 | `license-discuss` | **観測（審査の手順の 2 本から引いた 4 通）** | `2018-to-2019-license-discuss-review-process-cited-observed.txt` |
 | 2019-03 | `license-discuss` | **観測（The per se license constructor・全 15 通）** | `2019-03-license-discuss-per-se-license-constructor-observed.txt` |
+| 2019-03 | `license-review` | **観測（Perens 氏の 1 通・法律家のボランティアの助けを得て出し直せ）** | `2019-03-license-review-whonix-perens-lawyer-volunteer-observed.txt` |
 | 2019-03 | `license-review` | **観測（Fontana 氏の 1 通・v1.4 を共同体の合意と改訂の見込みの無さを理由に却下）** | `2019-03-license-review-cfsl-fontana-rejected-observed.txt` |
 | 2020-04 | `license-discuss` | **観測（Certifying MIT-0・3 通）** | `2020-04-license-discuss-certifying-mit0-observed.txt` |
 | 2025-03 | `license-review` | **観測（ModelGo の出力の通知の条項・4 通）** | `2025-03-license-review-modelgo-output-notice-observed.txt` |
@@ -618,6 +620,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2006-11 | `license-discuss`（観測）| **Biological Open Source（BiOS）の非ソフトウェア特許ライセンス相談 11 通 → 観測保存（5/6 部）** | **同じスレッドの 5/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
 | 2006-11 | `license-discuss`（観測）| **Biological Open Source（BiOS）の非ソフトウェア特許ライセンス相談 11 通 → 観測保存（6/6 部）** | **同じスレッドの 6/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
 | 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（1/11 部）** | **理事会が実際に不承認を議決した、我々の時代にいちばん近い審査。** 委員長 Chestek 氏が **CC0 が承認されていない理由**を名指しし（*"they expressly state that they do not grant a patent license. This is the reason that the CC-0 license is not an OSI-approved license ... although it has not been definitively decided due to Creative Commons' withdrawal"*）、**不承認の理由は OSD 違反ではなく主題**だった（*"open culture licenses are outside the purview of the Open Source Initiative"*）。その主題の定義は *"...an audiovisual work, a graphic work, and a model work"* で、**ACD-1.0 §1.2 の列挙は "audiovisual material" を含む**（#237 / #238） |
+| 2023-02 | `license-discuss` | **観測（Chestek 氏の 1 通・放棄できない責任と、「法の許す限り」の句が国によっては句ごと無視されること）** | `2023-02-license-discuss-unless-required-chestek-unwaivable-observed.txt` |
 | 2023-08 | `license-review` | **観測（Smith 氏の 1 通・特許の否認は承認できない、コンテンツのライセンスを除くなら方針として決めよ）** | `2023-08-license-review-mulan-owl-smith-content-patent-observed.txt` |
 | 2023-08 | `license-review` | **観測（Berkus 氏の 1 通・コンテンツのライセンスの承認の基準は未整備で、作るのは大きな作業）** | `2023-08-license-review-mulan-owl-berkus-content-criteria-observed.txt` |
 | 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（2/11 部）** | **同じスレッドの 2/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
