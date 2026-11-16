@@ -50,7 +50,7 @@ def main() -> int:
         print(f"STOP: 会話が見つからない: {o.start} {o.subject!r} (key {key!r})")
         return 2
     g = hit[0]
-    n_dec = words = 0
+    n_dec = words = cut = 0
     for i, (_when, date, frm, _title, body) in enumerate(g, 1):
         dec = bool(c.DECIDERS.search(frm))
         n_dec += dec
@@ -60,10 +60,14 @@ def main() -> int:
         w = txt.split()
         words += len(w)
         if len(w) > o.max_words:
+            cut += 1
             txt = " ".join(w[:o.max_words]) + f" …[+{len(w) - o.max_words} 語]"
         name = re.sub(r"\s*<[^>]*>|\S+@\S+", "", frm).strip(' "()') or frm
         print(f"\n[{i}] {date[:31]} · {'★' if dec else ''}{name}\n{txt}")
-    print(f"\n# {o.start} {o.subject}: {len(g)} 通 (決める側 {n_dec}) · 出した本文 {words} 語")
+    # 切った通の数を最後に出す (2026-11-16・30 の依頼): 2f と 9b は決める側の通を上限で切ったまま「論点なし」と読み、
+    #   全文で読み直すと論点が出た。切ったことを末尾の 1 行で見えるようにする (出力の末尾だけを読んでも目に入る)
+    print(f"\n# {o.start} {o.subject}: {len(g)} 通 (決める側 {n_dec}) · 出した本文 {words} 語"
+          + (f" · ⚠ 上限 {o.max_words} 語で切った通 {cut} —— 論点の判断の前に全文で読む" if cut else ""))
     return 0
 
 
