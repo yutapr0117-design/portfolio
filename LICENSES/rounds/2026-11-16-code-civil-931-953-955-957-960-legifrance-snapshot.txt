@@ -1,0 +1,44 @@
+Source: Code civil (France), Légifrance, https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006070721/
+        LEGISCTA000006150545/ (Section 1 : De la forme des donations entre vifs, articles 931 à 952) and
+        LEGISCTA000006150546/ (Section 2 : Des exceptions à la règle de l'irrévocabilité des donations entre vifs,
+        articles 953 à 966). Version shown by the page: "En vigueur au 16 novembre 2026"; each article quoted below
+        is shown as in force since 1 January 2007.
+Retrieved: 2026-11-16 by portfolio-30, with the WebFetch tool, one page at a time. The section identifiers were found
+        through Légifrance's own search by article number, after two guessed article identifiers led to other texts.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes of at most 125
+        characters each. Re-fetch and compare before relying on the exact wording.
+
+WHY THIS FILE EXISTS. Section 8.2 of the 1.4 draft says the patent licences are "not terminable by the
+Dedicator on any ground", and Section 2.2 that the Dedication is irrevocable. If a gratuitous grant were a gift
+in French law, these articles say on what grounds a gift can be revoked, and in what form a gift must be made.
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+===== Article 931 =====
+1. "Tous actes portant donation entre vifs seront passés devant notaires dans la forme ordinaire des contrats ;"
+2. "et il en restera minute, sous peine de nullité."
+
+===== Article 953 =====
+3. "La donation entre vifs ne pourra être révoquée que pour cause d'inexécution des conditions sous lesquelles elle"
+4. "aura été faite, pour cause d'ingratitude, et pour cause de survenance d'enfants."
+
+===== Article 955 =====
+5. "La donation entre vifs ne pourra être révoquée pour cause d'ingratitude que dans les cas suivants :"
+6. "1° Si le donataire a attenté à la vie du donateur ;"
+7. "2° S'il s'est rendu coupable envers lui de sévices, délits ou injures graves ;"
+8. "3° S'il lui refuse des aliments."
+
+===== Article 957 =====
+9. "La demande en révocation pour cause d'ingratitude devra être formée dans l'année, à compter du jour du délit imputé"
+10. "par le donateur au donataire, ou du jour que le délit aura pu être connu par le donateur."
+11. "Cette révocation ne pourra être demandée par le donateur contre les héritiers du donataire, ni par les héritiers du donateur"
+12. "contre le donataire, à moins que, dans ce dernier cas, l'action n'ait été intentée par le donateur, ou qu'il ne soit"
+13. "décédé dans l'année du délit."
+
+===== Article 960 =====
+14. "Toutes donations entre vifs faites par personnes qui n'avaient point d'enfants ou de descendants"
+15. "actuellement vivants dans le temps de la donation, de quelque valeur que ces donations puissent être,"
+16. "et à quelque titre qu'elles aient été faites, et encore qu'elles fussent mutuelles ou rémunératoires,"
+17. "même celles qui auraient été faites en faveur de mariage par autres que par les conjoints l'un à l'autre,"
+18. "peuvent être révoquées, si l'acte de donation le prévoit, par la survenance d'un enfant issu du donateur,"
+19. "même après son décès, ou adopté par lui dans les formes et conditions prévues au chapitre Ier du titre VIII du livre Ier."
