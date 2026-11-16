@@ -1,0 +1,81 @@
+Source: OSI license-discuss public archive, 2002-October.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 7 in "BXAPL - request for comments" (2002-10-24)
+Senders: Lawrence E. Rosen
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Sun Oct 27 17:10:41 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Sun, 27 Oct 2002 09:10:41 -0800
+Subject: BXAPL - request for comments
+In-Reply-To: <000801c27dba$95d8d600$b77e74d5@oemcomputer>
+Message-ID: <00f601c27ddb$c779bff0$927ba8c0@ROSENGARDEN>
+
+Abe Kornelis wrote:
+> However, it does not distinguish between software and 
+> programming tools, nor does it distinguish between derived 
+> software and what we have termed 'dependent software', which 
+> is termed in the LGPL as 'software that uses the Software'.
+> 
+> In the rationale for the BXAPL we have named 8 requirements 
+> that our license would need to fulfill. Since you tried 
+> offered your OSL1.1 as an alternative, I'll go over them 1 by 1.
+> 
+> A) Programming tools and dependent software versus other software
+>      and derivatives. I have found no mention of this 
+> distinction in your
+>      OSL.
+
+The OSL doesn't need to distinguish among these because it relies on the
+statutory definition of derivative works.  In my view, the OSL has the
+same effect as both the GPL and the LGPL.  One license instead of two!
+
+> B) Copyrights of Modifications to be passed to Copyright Holder.
+>      Found no mention of such a requirement in the OSL.
+
+The requirement that downstream licensees who modify the software assign
+their copyrights to the licensor is entirely unacceptable.  Why do you
+need that?  The OSL is fully enforceable by the licensor even if he
+doesn't own the copyrights.  (This is not true for the GPL or LGPL!)
+
+> C) Copyrights and Patent rights. Ok.
+> 
+> D) Disallow object-only distros. I assume section 3 of the OSL
+>      settles that.
+
+Yes it does.  
+
+> E) Recognizability of modifications. Not mentioned in OSL.
+
+Take a look at section 6 in www.rosenlaw.com/osl1.1.html.
+
+> F) Dual licensing. Section 4, right?
+
+Any licensor can license his software under any license (or licenses) he
+wants.  Of course, if he is licensing a derivative work of someone
+else's software, he must honor the requirements of THAT license.  If he
+is licensing a derivative work of OSL-licensed software, he can only use
+the OSL.  The same is true for the GPL.
+
+> G) Applicable law. Ok, section 11.
+
+> H) Local langauages. Found no mention of such things.
+
+I'm going to get translations of the OSL.
+
+> A quick count that the OSL covers 50% of our requirements.
+> So, thanks again, but I will stick with my own license.
+
+Entirely up to you.  But if you insist on your point B, above, I'll
+recommend disapproval of your license.  I should also note that,
+although this is not legal advice nor intended to create an
+attorney-client relationship with you, I believe several sections of
+your license are probably unenforceable and of dubious legal effect.  In
+particular, your claim that your license is not a contract is legal
+hogwash.
+
+/Larry
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

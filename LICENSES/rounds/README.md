@@ -128,6 +128,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2017-05・07 | `license-review` | **観測（"EUPL v1.2" から 2 通・International の分類の目的、全ての言語の版に及ぶ承認）** | `2017-05-and-07-license-review-eupl-1-2-observed.txt` |
 | 2019-02 | `license-review` | **観測（"For Approval: Twente License" から 4 通・プライバシーと人権の条件を利用に課して OSD 6 で退けられた）** | `2019-02-license-review-twente-license-observed.txt` |
 | 2002-10 | `license-discuss` | **観測（"click-wrap is legally supportable?" から 3 通・同意を求めないライセンスの条項は争われうるか）** | `2002-10-license-discuss-click-wrap-observed.txt` |
+| 2002-10 | `license-discuss` | **観測（"BXAPL - request for comments" から 1 通・Rosen 氏 2002-10-27）** | `2002-10-license-discuss-bxapl-rosen-not-a-contract-observed.txt` |
 | 2002-10 | `license-discuss` | **観測（"Right to Use" から 1 通・Rosen 氏 2002-10-29）** | `2002-10-license-discuss-right-to-use-rosen-observed.txt` |
 | 2002-10 | `license-discuss` | **観測（"Moral Rights" から 1 通・Rosen 氏 2002-10-03）** | `2002-10-license-discuss-moral-rights-rosen-question-observed.txt` |
 | 2002-10 | `license-discuss` | **観測（"Moral Rights" から 1 通・Rosen 氏 2002-10-06）** | `2002-10-license-discuss-moral-rights-rosen-attorney-observed.txt` |
