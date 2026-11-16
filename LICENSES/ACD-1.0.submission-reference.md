@@ -76,9 +76,10 @@ answer none of them:
    *(Note, 2026-11-02: this describes ACD-1.0 accurately, but "in the manner Section 12.2
    uses" overstates the parallel. Section 12.2 operates by the state of the law; Section 8.6
    operates only once a licence "is held ineffective", so no covenant exists yet at the
-   assertion that would produce the holding (errata E42). The ACD-1.4 draft makes the
-   covenant operate in every jurisdiction, without waiting for a licence to be held
-   ineffective (2026-11-12: it no longer says "alongside them"). Note, 2026-11-03: this
+   assertion that would produce the holding (errata E42). The ACD-1.4 draft gives the
+   covenant for every jurisdiction, without waiting for a licence to be held
+   ineffective (2026-11-12: it no longer says "alongside them"; 2026-11-16, trial T86: it
+   says the covenant is given there, not that it operates). Note, 2026-11-03: this
    paragraph said "Copyright is protected three times over", the wording of Section 8.6 in
    ACD-1.0 to 1.3. That is narrower than the footings it names, which operate on all the
    Covered Rights, and it can be read as protecting the Dedicator rather than the recipient
