@@ -1,0 +1,57 @@
+Source: (1) Directive (EU) 2024/2853 of the European Parliament and of the Council on liability for
+        defective products (the new Product Liability Directive), English text as published at
+        https://www.lexaris.de/book/version/documentflat/head/6811882 ; Article 2(2) also as published
+        at https://streamlex.eu/articles/pld-en-art-2/
+        (2) Directive (EU) 2019/770 of the European Parliament and of the Council on certain aspects
+        concerning contracts for the supply of digital content and digital services, English text
+        (as adopted) as published at https://www.legislation.gov.uk/eudr/2019/770/body/adopted?view=plain
+Retrieved: 2026-11-16 by portfolio-2f, with the WebFetch tool, under the owner's request of the same
+        day ("ACD-1.4-DRAFT.txt の法的解釈の不確実性を「５人」で減らし続けてください").
+Form: NOT A BYTE COPY. The fetch tool converts the page to text and returns it through a model, in
+        segments of at most about 125 characters, marked "[...]" where the tool cut between them. The
+        official EUR-Lex pages (eur-lex.europa.eu, three URL forms) returned empty content to the tool,
+        so none of the text below is from EUR-Lex. Article 2(2) of (1) was returned identically by two
+        independent publishers (lexaris.de and streamlex.eu); recital 14 and Article 15 of (1) and the
+        text of (2) are from one publisher each. Re-fetch from EUR-Lex and compare before relying on
+        the exact wording, and do not assume that nothing lies between two segments.
+
+WHY THIS FILE EXISTS. Sections 13 (no warranty) and 14 (limitation of liability) of the 1.4 draft rely on
+being able to disclaim and limit. `review-readings-2.md` §1.258 recorded that a limitation "to the extent
+permitted by applicable law" may be disregarded altogether in some countries. In the EU two instruments
+decide, before any disclaimer is read, whether a free supplier is exposed at all: strict product
+liability, which no contract can exclude, and consumer law on digital content. Both carry an express
+exclusion for free and open-source software. The dossier did not hold either text.
+
+---- (1) Directive (EU) 2024/2853 ----
+
+[1] Article 2(2) (two publishers, same text):
+    "This Directive does not apply to free and open-source software that is developed or supplied"
+    [...] "outside the course of a commercial activity."
+[2] Recital 14 (lexaris.de; consecutive segments):
+    "(14) Free and open-source software, whereby the source code is openly shared and users can freely access,"
+    [...] "use, modify and redistribute the software or modified versions thereof, can contribute to research"
+    [...] "and innovation on the market. Such software is subject to licences that allow anyone the freedom"
+    [...] "to run, copy, distribute, study, change and improve the software. In order not to hamper innovation"
+    [...] "or research, this Directive should not apply to free and open-source software developed or supplied"
+    [...] "outside the course of a commercial activity, since products so developed or supplied are by definition"
+    [...] "not placed on the market. Developing or contributing to such software should not be understood"
+    [...] "as making it available on the market. Providing such software on open repositories should not be considered"
+    [...] "as making it available on the market, unless that occurs in the course of a commercial activity."
+    [...] "In principle, the supply of free and open-source software by non-profit organisations should not be considered"
+    [...] "as taking place in a business-related context, unless such supply occurs in the course of a commercial activity."
+    [...] "However, where software is supplied in exchange for a price, or for personal data used other than exclusively"
+    [...] "for improving the security, compatibility or interoperability of the software, and is therefore supplied"
+    [...] "in the course of a commercial activity, this Directive should apply."
+[3] Article 15, "Exclusion or limitation of liability" (lexaris.de):
+    "Member States shall ensure that the liability of an economic operator pursuant to this Directive is not"
+    [...] "in relation to the injured person, limited or excluded by a contractual provision or by national law."
+
+---- (2) Directive (EU) 2019/770 ----
+
+[4] Article 3(1), first subparagraph:
+    "This Directive shall apply to any contract where the trader supplies or undertakes to supply digital content"
+    [...] "or a digital service to the consumer and the consumer pays or undertakes to pay a price."
+[5] Article 3(5)(f):
+    "(f) software offered by the trader under a free and open-source licence, where the consumer does not pay a price"
+    [...] "and the personal data provided by the consumer are exclusively processed by the trader for the purpose of improving"
+    [...] "the security, compatibility or interoperability of that specific software;"
