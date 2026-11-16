@@ -248,3 +248,24 @@ Check 468y は 2 冊目とこの file の両方の「変えない」「退けた
 **集め方**: 前の 20 行は、ドシエに既に引かれている同氏の文を、帰属が同氏と確かめられるものだけ集めた。後の 6 行は、portfolio-30 の道具（差出人で通を集め、引用の行を外した本人の文がドシエに 70 字の頭で 1 つも一致しない通を出す）でアーカイブの同氏の通 558 通から 60 語以上の 220 通を出し、ACD に関わる語（公有・献呈・CC0・特許・増殖・起草・承認・モデルなど）を多く含む上位 22 通を読んで足した（2026-11-16）。ドシエだけから集めると、ドシエが扱った文しか当たらず「0 件」が作りから決まる（30 の指摘）。
 
 **逆側**: 同氏の文はどれも他の提出についてのもので、ACD に当てたのは我々である。2015〜2020 年の文の一部は委員長や理事としての文で、2024 年以後の一部は「OSI を代表しない」と断った個人の文で、重みが違う。220 通のうち読んだのは 22 通で、残りの 198 通は語の数の少ない順に読んでいない。
+
+### 16.4 Perens 氏の基準を 1.4 草案に当てた（portfolio-2f・条を変える指摘 0 件）
+
+Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く引かれている審査者の 1 人である。決める側の役に無い時期の文も多いが、OSD の起草者として審査の場で重く読まれる。下の表は、その文だけを根拠に、1.4 草案の頭から終わりまでを Perens 氏の目で通読した結果である。
+
+| 基準と出典 | 当たる条 | 扱い済みの場所 | 残る点 |
+| :-- | :-- | :-- | :-- |
+| 使うだけの人には *"as close to *no legal load* as possible"*（2017-10・`review-readings-2.md` §1.229）、誰でも何の目的でも *"should not have to hire a lawyer just to run it"*（2018-12・`review-readings-2.md` §1.237） | §2.3・§10.1・§10.2 | §2.3 は受諾を要さず、§10.1 は何の条件も課さない。使う人に法的な負担は無い | 無し。むしろ有利な面（配る人・改変する人にも負担が無い） |
+| *"Extension of copyright is bad for Open Source, even if it helps us enforce our licenses more effectively."*（2019-01・`review-readings-2.md` §1.250） | §1.3・§6.1・§6.4・§7・§2.7 | §2.7 は *"reaches only rights the Dedicator holds"*。§6.1 は Covered Rights の範囲に限る。§6.4 はモデルや出力について *"Whether a right subsists in any such thing is not decided here and does not need to be."* と書き、権利の存在を主張しない。§1.3 はデータや視聴覚の素材を Work に数えるが、そこに権利があるとは述べない | 無し。§7（データベースの sui generis の権利）は既に在る法の権利を手放す条で、拡張ではない |
+| *"The language must continue the license once the web site goes away, as they so often do."*（2010-10・netX・`review-readings-2.md` §1.236） | §16.1・§16.2 | §16.2 は *"the terms apply in full whether or not a copy of this text accompanies the work"*。§16.1 の `<location of this file>` が消えても条件は効く | 無し |
+| *"I submit that Mozilla would be doing the community a service if they were to make their license invariant."*（2010-11・`review-readings-2.md` §1.235） | §16.4・§16.5 | §16.4 は名と識別子の下で本文を変えさせず、各名と識別子が 1 つの固定した本文を指し続ける | 版の数そのもの（1.0〜1.4）は不変性とは別に読まれうる（`against-2.md` #320） |
+| *"Requiring an explicit patent grant in new licenses /might/ be over-reaching. Being sensitive about disclaimers of patent grants and their potential to harm developers is probably appropriate."*（2012-02・CC0 の審査・`review-readings.md` §1.164） | §8.1・§8.4 | §8 は特許を除外せず、明示に許諾する。Perens 氏が害を見た「除外」の形を持たない | 明示の許諾は要件ではない、という同じ文の前半は、§8 が承認に必要だとは言えないことを示す（B10 の G1 の重さの問いで、本文の問いではない） |
+| *"licenses that are duplicative of other licenses in their effect should not be accepted any longer, unless it's to meet new developments in case law or solve an obvious legal deficit."*（2018-06・`review-readings-2.md` §1.224）、*"find an already-approved license to use"*（2010・`review-readings-2.md` §1.236）、Blue Oak について *"its main effect was to increase the number of OSI-approved licenses and the combinatorial problem"*（2024・`review-readings.md` §1.217） | 全体（B10） | B10 の G1（承認済みに無い効果）と、§1.224 の 2 つの例外（法の新しい展開＝§6、明白な欠陥＝CC0 の特許の除外と §8） | B10 は register の問いで、本文の語では閉じられない |
+| *"A license is a sort of program designed to be executed by the courts. If you have not made use of an attorney in drafting your license, you are very unlikely to understand how the courts would actually execute your license."*（2018-06・`review-readings-2.md` §1.224）、*"It isn't the least bit difficult to diagnose when no lawyer was involved in drafting a license."*（2013-03・`review-readings-2.md` §1.234）、短い公有の文は *"crayon license"*（2012-05・`review-readings-2.md` §1.245） | 全体（B1） | 入口が「法律家が読んでいない」ことを 5 か所で先に言い切る（portfolio-50 の確認）。`QUESTIONS-FOR-COUNSEL.md` が法律家への問いを条ごとに置く | B1 は残る。Perens 氏の目では、本文から法律家の不在が「すぐ分かる」所がまず突かれる |
+| 指摘に本文でなく FAQ で答える応答への評価は *"meh"*（2018-05・ESA-PL・`review-readings-2.md` §1.248） | 「本文を変えない」と判断した条（§2.6・§16.4 など） | 本文を変えない判断は、その読みを本文のどの語が持つかを引いて理由にしている（この文書の 15.8 節） | 審査で同じ形を取るとき、答えを本文の語で示すこと（手順の問い） |
+| *"I don't think anyone has bothered to focus on smaller issues of the license after seeing that the bigger ones would keep it from passing."*（2008-05・IWL・`review-readings-2.md` §1.238） | 全体 | `REVISION-PROTOCOL.md` の 3.8 節（細部の指摘の 2 波目の見込み・portfolio-30） | 最初の指摘が少なくても、細部の指摘は後から来る |
+| 標準の団体が API の実装を禁じうる条項は承認しないよう強く勧める（2019-01・`review-readings-2.md` §1.249） | 無し | ACD は使用や実装に条件を置かない（§10.1） | 無し |
+
+**結果**: 条を変える指摘は 0 件。Perens 氏の目で突かれるのは、本文の語ではなく、B1（法律家の不在）と B10（既存と重複しないか）と B2（採用）で、どれも register の側の問いである。本文に向く基準（使う人の負担、著作権の拡張、サイトに依らない効力、本文の不変、特許の除外）は、1.4 草案がそれぞれ §2.3・§10.1、§2.7・§6.4、§16.2、§16.4、§8 で既に満たしている。
+
+**逆側**: 「満たしている」は Perens 氏の過去の文に当てた結果で、Perens 氏が 1.4 草案を実際に読めば別の点を突きうる（模擬の限界）。とくに長さ（1.4 草案は CC0 の約 5.6 倍・`review-readings-2.md` §1.245）は、Perens 氏の文には直接の基準が無いが、*"crayon license"* の逆の極として「長すぎて読めない」と読まれる余地を残す（B3・B13）。
