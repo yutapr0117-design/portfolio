@@ -43,7 +43,7 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 | `ACD-1.0.gap-measurements.md` 1.153 | against #311 / 入口（`SUBMISSION-MATERIALS.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
 | `ACD-1.0.gap-measurements.md` 1.154 | B1 / against #305・#312 / 入口（`SUBMISSION-MATERIALS.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
 | `ACD-1.0.gap-measurements.md` 1.160 | 入口（`SUBMISSION-MATERIALS.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
-| `ACD-1.0.gap-measurements.md` 1.161 | 未定（1c 種・§8 の特許の許諾をどこまで伸ばすと許諾者の特許が空になるか・1c へ） | この節の番号を引く反映先は grep で 0 件だった（2026-11-15・portfolio-2f）。送り先を書いた |
+| `ACD-1.0.gap-measurements.md` 1.161 | 1c（`ACD-1.4-CLAUSE-REFERENCE-DRAFT.md` の §8.1・§8.4 の行・本文は変えない —— §8.1 の主題の限定と §8.4 の E66 の文が、Cowan 氏 2002 の「無関係なモジュールを足して許諾を主張する」手口を既に閉じている） | この PR で反映先にこの節の番号を書き、grep で確かめた（2026-11-16・portfolio-1c） |
 | `ACD-1.0.gap-measurements.md` 1.162 | 入口（`ACD-1.0.review-responses-meta.md`） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
 | `ACD-1.0.gap-measurements.md` 1.163 | against #309 | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
 | 1.164 | B10（`ACD-OSI-BOTTLENECKS-B10.md` の G1 の出典の段） | PR 3263 で反映先に番号を書いたことを grep で確かめた（2026-11-16・portfolio-30） |
