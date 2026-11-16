@@ -508,6 +508,13 @@ donor's liability to intent and gross negligence. Is a dedication like this one 
 limitation falls away entirely, or a gift whose donor is liable only for intent and gross negligence, or
 neither (`jurisdictions.md` §3)?
 
+If it is a gift, the same characterisation brings a donor's revocation for gross ingratitude, which
+cannot be waived in advance (German civil code sections 530 and 533; French civil code articles 953 and
+955). Our reading narrows it: revocation would reach only the recipient guilty of the ingratitude, not
+other recipients, and enforcing one's own patent in court is not in itself a serious wrong
+(`jurisdictions.md` §3). Is that reading right, and could revocation reach the patent licence of §8,
+which §8.2 calls not terminable on any ground?
+
 The 1.4 draft (trial T82) now opens §14.1 with *"EXCEPT FOR ANY LIABILITY FOR WILFUL MISCONDUCT, GROSS
 NEGLIGENCE, DEATH, OR PERSONAL INJURY THAT APPLICABLE LAW DOES NOT PERMIT TO BE EXCLUDED, WHICH NOTHING IN
 SECTION 14 LIMITS,"*, following EUPL-1.2 §8. Our reading is that this keeps the exclusion standing in Germany
