@@ -80,7 +80,7 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 
 | 発言 | 誰が | ACD への当たり方 |
 | :-- | :-- | :-- |
-| *"to prevent the use of his or her name as the author of any work which he or she did not create;"* | Lawrence Rosen 氏 2002-10-03（人格権として守るべきものの 2 つ目に挙げた） | **有利な面（B8）。** ACD の 1.4 草案は §11.3 で、作っていない作品を Dedicator が書いたと偽ることを、この文書が許せる範囲の外に置き（*"it was never the Dedicator's to permit"*）、§12.5 で人格権の放棄と不行使の約束がそこへ及ばないとする。Rosen 氏が挙げた 2 つ目の利益を、ACD は放棄の外に残している |
+| *"to prevent the use of his or her name as the author of any work which he or she did not create;"* | Lawrence Rosen 氏 2002-10-03（人格権として守るべきものの 2 つ目に挙げた） | **有利な面（B8）。** ACD の 1.4 草案は §11.3 で、作っていない作品を Dedicator が書いたと偽ることを、この文書が届く範囲の外に置き（1.0〜1.3 は理由を *"it was never the Dedicator's to permit"* と述べた。2026-11-16 の T77 で 1.4 草案はこの理由の文を外し、*"This Dedication does not make a false statement true"* と範囲の外であることの述べ方は残した）、§12.5 で人格権の放棄と不行使の約束がそこへ及ばないとする。Rosen 氏が挙げた 2 つ目の利益を、ACD は放棄の外に残している |
 | *"Do we really want to go down such a path in open source licenses, opening up a whole pandora's box of litigation about what constitutes "honor or reputation" in the sofware arena?"* | Lawrence Rosen 氏 2002-10-03 | **両面（B8）。** 有利な面: ACD は名誉と声望を守る条を置かず、人格権を放棄し、放棄できない所では行使しないと約束する（1.4 草案の §12.1・§12.2）。Rosen 氏が避けたがった訴訟の箱を、ACD は開けない向きにある。不利な面: B8 は同じ §12 を「gap」とも「mission creep」とも呼ばれた記録を持ち、ライセンスが人格権を扱うこと自体を、2002 年の法律顧問は問いとして立てた —— 扱わない方がよいという読みも、この問いから出る |
 
 **読み。** 2002 年の OSI の法律顧問は、人格権をオープンソースのライセンスで守る道に慎重で、名誉と声望の訴訟を避けたいと書いた。同時に、作っていない作品に名前を使われない利益は、守るべきものとして挙げた。ACD の 1.4 草案は、前者を放棄と不行使の約束で閉じ、後者を §11.3 と §12.5 で放棄の外に残す。2 つの扱いが、Rosen 氏の問いの 2 つの側にそれぞれ当たる。
