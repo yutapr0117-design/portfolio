@@ -142,9 +142,16 @@ def main(argv: list[str]) -> int:
     # (k) 免責・制限の条が同じ文書の約束を呑むか (2026-11-16・1c の依頼・問い 9 (a))
     # 責任を外す条だけ (保証の否認と依拠の否認は約束の違反の責任を外さないので数えない・初版は §6.3 と §13.2 で 26 件の雑音)
     limiters = [k for k, v in flat.items() if re.search(r"NOT LIABLE|is not liable", v) and re.search(r"this dedication", v, re.I)]
-    promises = [k for k, v in flat.items() if re.search(r"\bcovenants?\b|\bwill not\b|\bundertakes?\b|\bagrees? not\b", v)]
+    # 約束の主語が Dedicator の文だけ (他の条の約束を名指すだけの条 —— §4.6・§11.4 —— は約束ではない・2026-11-16 に 2 件の雑音)
+    promises = [k for k, v in flat.items()
+                if re.search(r"\bDedicator(?:'s)?(?: further| also| irrevocably)? (?:covenants?|will not|undertakes?|agrees? not)\b", v)]
     for lk in limiters:
-        named = set(re.findall(r"(?:Section|SECTION)S? (\d+(?:\.\d+)?)", flat[lk]))
+        # 同じ節の他の条が置く例外も数える (2026-11-16・T83 は §14.1 の免責の例外を §14.2 に置いた)。"Section 5, 8.6, or 12.2" の
+        #   ように並べた番号も読む
+        sib = " ".join(v for c, v in flat.items() if c.split(".")[0] == lk.split(".")[0])
+        named = set()
+        for grp in re.findall(r"(?:Section|SECTION)S? (\d+(?:\.\d+)?(?:(?:, | or | and |, or |, and )\d+(?:\.\d+)?)*)", sib):
+            named |= set(re.findall(r"\d+(?:\.\d+)?", grp))
         open_ = [pk for pk in promises if pk != lk and pk not in named and pk.split(".")[0] not in named]
         if open_:
             m = re.search(r"arising out of this dedication[^,.]*|this dedication", flat[lk], re.I)
