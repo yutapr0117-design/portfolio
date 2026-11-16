@@ -277,6 +277,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2010-10-07 | Schmitz 氏（EUPL の起草者） | **観測（netX の審査・一般的な免責は欧州で不当とされ、EUPL は故意と自然人への損害を除外しない理由・Wilson 氏の問いの引用つき）** | `2010-10-license-review-netx-schmitz-liability-exclusion-observed.txt` |
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 276 条 3 項・307 条 1 項・309 条 7 号・521 条・524 条 1 項・WebFetch の逐語の片）** | `2026-11-16-bgb-276-307-309-521-524-gesetze-im-internet-snapshot.txt` |
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 151 条・受諾の表示を要しない場合・WebFetch の逐語の片）** | `2026-11-16-bgb-151-gesetze-im-internet-snapshot.txt` |
+| 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 530 条・533 条・327 条、UrhG 31a 条・贈与の撤回、未知の利用方法、デジタル製品の規定と自由なソフトウェア・WebFetch の逐語の片）** | `2026-11-16-bgb-530-533-327-urhg-31a-gesetze-im-internet-snapshot.txt` |
 | 2026-11-15 | OSI 理事会 | **観測（2026-09-24 の議事録・オーナーがブラウザから写した本文）** | `2026-11-15-osi-board-minutes-2026-09-24-snapshot.txt` |
 | 2026-11-07 | SPDX | **観測（収録基準の現行と前の版）** | `2026-11-07-spdx-license-inclusion-guidelines-snapshot.txt` |
 | 2003-03 | `license-discuss` | **観測（Public Domain を一覧に載せる求め・5 通）** | `2003-03-license-discuss-public-domain-on-the-list-observed.txt` |

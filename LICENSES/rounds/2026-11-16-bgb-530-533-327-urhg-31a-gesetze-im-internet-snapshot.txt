@@ -1,0 +1,47 @@
+Source: Bürgerliches Gesetzbuch (BGB) and Urheberrechtsgesetz (UrhG), https://www.gesetze-im-internet.de/
+        (bgb/__530.html, bgb/__533.html, bgb/__327.html, urhg/__31a.html)
+Retrieved: 2026-11-16 by portfolio-30, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes of at most 125
+        characters each (one longer piece in BGB section 327(6) no. 6 is as returned). For section 530 the tool
+        reported restoring an encoding error in "Angehörigen". Re-fetch and compare before relying on the exact
+        wording. Only the parts named below were fetched.
+
+WHY THIS FILE EXISTS. Section 8.2 of the 1.4 draft says the patent licences are "not terminable by the
+Dedicator on any ground", and Section 2.2 that the Dedication is irrevocable. If a gratuitous grant is a gift in
+German law, a gift can be revoked for gross ingratitude and that right cannot be waived in advance (BGB 530,
+533). UrhG 31a governs grants for kinds of use unknown when granted. BGB 327 decides whether the consumer rules
+on digital products reach free software.
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+===== § 530 Abs. 1 BGB (Widerruf der Schenkung), as reported =====
+1. "(1) Eine Schenkung kann widerrufen werden, wenn sich der Beschenkte durch eine schwere Verfehlung gegen den Schenker oder"
+2. "einen nahen Angehörigen des Schenkers groben Undanks schuldig macht."
+
+===== § 533 BGB (Verzicht auf Widerrufsrecht), as reported =====
+3. "Auf das Widerrufsrecht kann erst verzichtet werden, wenn der Undank dem Widerrufsberechtigten bekannt geworden ist."
+
+===== § 31a UrhG (Verträge über unbekannte Nutzungsarten), as reported =====
+4. "(1) Ein Vertrag, durch den der Urheber Rechte für unbekannte Nutzungsarten einräumt oder sich dazu verpflichtet,"
+5. "bedarf der Schriftform. Der Schriftform bedarf es nicht, wenn der Urheber unentgeltlich ein einfaches Nutzungsrecht"
+6. "für jedermann einräumt. Schließt der Urheber einen Vertrag nach Satz 1 mit einer Verwertungsgesellschaft,"
+7. "so genügt die Textform. Der Urheber kann diese Rechtseinräumung oder die Verpflichtung hierzu widerrufen."
+8. "Das Widerrufsrecht erlischt nach Ablauf von drei Monaten, nachdem der andere die Mitteilung über die beabsichtigte"
+9. "Aufnahme der neuen Art der Werknutzung an den Urheber unter der ihm zuletzt bekannten Anschrift abgesendet hat."
+10. "Das Widerrufsrecht entfällt, wenn sich die Parteien nach Bekanntwerden der neuen Nutzungsart auf eine"
+11. "Vergütung nach § 32c Abs. 1 geeinigt haben."
+12. "Das Widerrufsrecht entfällt auch, wenn die Parteien die Vergütung nach einer gemeinsamen Vergütungsregel vereinbart haben."
+13. "Es erlischt mit dem Tod des Urhebers."
+14. "Sind mehrere Werke oder Werkbeiträge zu einer Gesamtheit zusammengefasst, die sich in der neuen Nutzungsart"
+15. "in angemessener Weise nur unter Verwendung sämtlicher Werke oder Werkbeiträge verwerten lässt,"
+16. "so kann der Urheber das Widerrufsrecht nicht wider Treu und Glauben ausüben."
+17. "Auf die Rechte nach den Absätzen 1 bis 3 kann im Voraus nicht verzichtet werden."
+
+===== § 327 BGB (Anwendungsbereich), as reported =====
+18. "Die Vorschriften dieses Untertitels sind auf Verbraucherverträge anzuwenden, welche die Bereitstellung"
+19. "digitaler Inhalte oder digitaler Dienstleistungen (digitale Produkte) durch den Unternehmer gegen Zahlung"
+20. "eines Preises zum Gegenstand haben."
+21. "Die Vorschriften dieses Untertitels sind nicht anzuwenden auf:"
+22. "Verträge über die Bereitstellung von Software, für die der Verbraucher keinen Preis zahlt und die der Unternehmer im Rahmen einer freien und quelloffenen Lizenz anbietet, sofern die vom Verbraucher"
+23. "bereitgestellten personenbezogenen Daten durch den Unternehmer ausschließlich zur Verbesserung der"
+24. "Sicherheit, der Kompatibilität oder der Interoperabilität der vom Unternehmer angebotenen Software verarbeitet werden,"
