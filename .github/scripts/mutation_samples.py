@@ -530,6 +530,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
+    "name": "Check 451g: 確定の道具の textRedistribution の注を「ACD- を含む」から「ACD- で始まる」へ戻す —— 草案の §16.4 は "
+            "contains と書くので、確定すると 1.4 の記述子が本文より狭い制限を述べる (errata E10 の型・2026-11-16)",
+    "file": ROOT / ".github" / "scripts" / "prepare_version_freeze.py",
+    "find": "or under any identifier that contains \\\"ACD-\\\", regardless of case, followed by a digit",
+    "replace": "or under any identifier that begins with \\\"ACD-\\\" followed by a digit",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
     "name": "Check 502: 草案の冒頭に投稿した版の記録の節を足し、状態の箇条「It has not been posted to any list.」を残す —— "
             "投稿の日に片方だけを直すと、草案が自分の状態について嘘をつく (2026-11-16・1c の依頼)",
     "file": CURRENT_DRAFT,
