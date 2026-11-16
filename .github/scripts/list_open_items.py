@@ -60,13 +60,28 @@ def register_items() -> tuple[list[tuple[str, str, str, str]], list[tuple[str, s
 
 
 def errata_items() -> list[tuple[str, str, str, str]]:
-    from prepare_version_freeze import errata_closures
+    """閉じた印の無い errata。草案の冒頭の "Still open in this draft: E6 (…) and E10 (…)" の括弧を読み、種類を分ける
+    (1c の依頼・2026-11-16: E6 は検証して狭めないと決めた問い、E10 は版ごとの記述子で確定の日に閉じ直すもの —— 一律に「未閉」と
+    出すと、閉じ忘れと誤読される)。宣言に無い E は「未閉 (宣言なし)」で、Check 468 が宣言と errata を照らす。"""
+    from prepare_version_freeze import RULE, errata_closures, working_draft
     _t, _c, unmarked, _s = errata_closures()
     text = (L / "ACD-1.0.errata.md").read_text(encoding="utf-8")
+    head = " ".join(working_draft().read_text(encoding="utf-8").split(RULE, 1)[0].split())
+    still = head[head.find("Still open in this draft"):]
     out = []
     for e in unmarked:
         m = re.search(rf"^\| {e} \|\s*([^|]*)\|", text, re.M)
-        out.append((f"errata {e}", "未閉", re.sub(r"\*\*", "", m.group(1)).strip()[:110] if m else "", "1c"))
+        why = re.search(rf"\b{e} \(([^()]*)\)", still)
+        if not why:
+            kind = "未閉（草案の宣言なし）"
+        elif re.search(r"descriptor|each new version|closed again", why.group(1)):
+            kind = "開いている（確定の日に閉じる）"
+        elif re.search(r"not narrowed|deliberately|examined", why.group(1)):
+            kind = "開いている（問いとして残す）"
+        else:
+            kind = "開いている"
+        title = re.sub(r"\*\*", "", m.group(1)).strip() if m else ""
+        out.append((f"errata {e}", kind, f"{title} —— {why.group(1) if why else ''}"[:110], "1c"))
     return out
 
 
