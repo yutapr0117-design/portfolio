@@ -13,7 +13,12 @@
   4. 確定のゲート (gate_6b・gate_6c) の満たしていない条件。
   5. AS-OF の「答えていない問い」の件数。
   6. 合成の文書 (READINGS-SYNTHESIS.md) の §6「本申請の前に残っていること」の番号つきの項目 (2f の合成・読みの側の残り)。
-  7. --advisory を付けると、consistency を回して ADVISORY の警告を足す (重い・約 2 分)。
+  7. オーナーにしかできない行為の表 (OSI-APPROVAL-PLAN.md・30 の依頼)。
+  8. 法律家と実務家への問い (QUESTIONS-FOR-COUNSEL / -PRACTITIONERS の `## N.` の節・どれも未回答)。
+  9. register の行のうち「**合否の状態（日付）**: 無い / まだ」と書いた行 (合否の基準を書いて、まだ満たしていない・30 の依頼)。
+  10. 候補 (読んで確かめる): SELF-AUDIT の 🔴 の項と、試作の文書の「先に登録する反例」(1c の依頼)。閉じたかは本文を読まないと
+     分からないので、件数でなく候補として出す。
+  11. --advisory を付けると、consistency を回して ADVISORY の警告を足す (重い・約 2 分)。
 **担当の候補** は、本文 = 1c、register と B = 30、入口と手順 = 50、未読と合成 = 2f、機械層 = 9b の割り振りから付ける (目安)。
 
 **集めないもの (重要)**: 「改善の余地」そのもの。ここに載るのは、ドシエが自分で「開いている」と書いた項目と、道具が
@@ -96,6 +101,49 @@ def synthesis_items() -> list[tuple[str, str, str, str]]:
     return out
 
 
+def owner_items() -> list[tuple[str, str, str, str]]:
+    t = (L / "OSI-APPROVAL-PLAN.md").read_text(encoding="utf-8")
+    m = re.search(r"オーナーにしかできない行為の一覧.*?\n(\|.*?)(?:\n\n|\Z)", t, re.S)
+    out = []
+    for row in (m.group(1).splitlines() if m else []):
+        c = [x.strip() for x in row.strip("|").split("|")]
+        if len(c) >= 3 and c[0].isdigit():
+            out.append((f"オーナーの行為 {c[0]}", f"段 {c[2]}", c[1][:110], "オーナー (B14) / 材料は 50"))
+    return out
+
+
+def question_items() -> list[tuple[str, str, str, str]]:
+    out = []
+    for name in ("QUESTIONS-FOR-COUNSEL.md", "QUESTIONS-FOR-PRACTITIONERS.md"):
+        p = L / name
+        for n, title in re.findall(r"^## (\d+)\. (.*)$", p.read_text(encoding="utf-8") if p.exists() else "", re.M):
+            out.append((f"{name.split('.')[0]} {n}", "未回答", title[:110], "オーナー (B1) / 材料は 30"))
+    return out
+
+
+def pass_fail_items() -> list[tuple[str, str, str, str]]:
+    out = []
+    for line in against_text(L).splitlines():
+        m = re.match(r"^\| (\d+) \|", line)
+        if m:
+            for d, rest in re.findall(r"\*\*合否の状態（([^）]+)）\*\*[:：]\s*([^|]{0,90})", line):
+                if re.match(r"\s*(無い|まだ)", rest):
+                    out.append((f"against #{m.group(1)}", f"合否 {d}", rest.strip()[:110], "30"))
+    return out
+
+
+def candidate_items() -> list[tuple[str, str, str, str]]:
+    out = []
+    sa = L / "ACD-1.1-SELF-AUDIT.md"
+    for h in re.findall(r"^### 🔴 (.*)$", sa.read_text(encoding="utf-8") if sa.exists() else "", re.M):
+        out.append(("SELF-AUDIT 🔴", "候補", h[:110], "1c"))
+    for p in sorted(L.glob("ACD-1.4-*TRIAL.md")):
+        for i, ln in enumerate(p.read_text(encoding="utf-8").splitlines(), 1):
+            if ln.startswith("**先に登録する反例"):
+                out.append((f"{p.name}:{i}", "候補", re.sub(r"\*\*", "", ln)[:110], "30 (反例) / 1c"))
+    return out
+
+
 def advisory_items() -> list[tuple[str, str, str, str]]:
     r = subprocess.run([sys.executable, str(ROOT / ".github/scripts/check_repository_consistency.py")], cwd=ROOT,
                        capture_output=True, text=True)
@@ -126,7 +174,10 @@ def main(argv: list[str]) -> int:
     groups = [("我々が手を打てる register の行（TEXT・DOSSIER・OPEN・UNTRIAGED）", ours),
               ("閉じていない errata", errata_items()), ("決着していない B", b_items()),
               ("確定のゲートの満たしていない条件", gate_items()), ("答えていない問い", asof_items()),
-              ("合成の文書 §6 の残り（読みの側）", synthesis_items())]
+              ("合成の文書 §6 の残り（読みの側）", synthesis_items()),
+              ("合否の基準を書いて、まだ満たしていない register の行", pass_fail_items()),
+              ("オーナーにしかできない行為", owner_items()), ("法律家と実務家への問い（未回答）", question_items()),
+              ("候補（閉じたかは読んで確かめる）: SELF-AUDIT の 🔴 と、先に登録した反例", candidate_items())]
     if "--advisory" in argv:
         groups.append(("ADVISORY の警告", advisory_items()))
     groups.append(("外部に依る register の行（EXTERNAL・我々の側でできることは行の「潰し方」に在る）", external))
