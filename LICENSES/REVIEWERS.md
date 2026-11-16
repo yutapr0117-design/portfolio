@@ -90,8 +90,9 @@ quotes the nearest OSI-approved text we found.
 
 **The defined terms.** *Work*, *You* and *Contribution* are Apache-2.0's words; *Moral Rights* is
 one of CC0's listed rights; *the Steward* follows EPL's *Agreement Steward*; *Reservation* is tied to Article 4(3) of
-Directive (EU) 2019/790. *Dedicator* plays the part of CC0's *Affirmer*: it is not *Licensor*,
-because §3 surrenders rights rather than licensing them. *Dedication* is CC0's
+Directive (EU) 2019/790. *Dedicator* plays the part of CC0's *Affirmer*: it surrenders rights (§3) and also licenses
+them (§4, granted independently and not as a fallback) and its patents (§8). *Licensor* would
+name only the second role. *Dedication* is CC0's
 word. *Covered Rights* is ours: MPL's *Covered* names software, ours names the rights, so that one
 term reaches copyright, neighbouring and database rights together. *Computational Use* and
 *Machine-Generated Material* are new, and name what ACD adds.
