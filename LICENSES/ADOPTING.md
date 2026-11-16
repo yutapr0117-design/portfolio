@@ -72,6 +72,13 @@ narrow band where those assumptions fail together.
    `REUSE.toml`, and the `license` field of a dataset or model card naming the files it covers. A
    single licence expression for a whole package says which licences are mixed in, not where.
 
+**If you only mention ACD, say so.** In your own work, the identifier (`ACD-1.4`), an SPDX tag, or
+the name with its version can be read as a notice that applies the text to the material it
+accompanies (§16.2 of the 1.4 draft). A README that names ACD only to compare it with other licences should name it without
+a version, or say in the same sentence that the work is not under it. §16.2 speaks of a notice that
+a Dedicator places, so an article or a comparison table about other people's work does not apply
+ACD to that work; that is our reading, and no lawyer has checked it.
+
 There is nothing to register, and you do not need to tell us.
 
 **If you use it or plan to, and are willing to say so publicly,
