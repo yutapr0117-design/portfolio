@@ -474,6 +474,8 @@ gap 部 1,041 語を削れば届くが、**それは B10（新規性の根拠が
 
 ---
 
+**2026-11-16 に足した —— 長さを確かさの代価とする読みと、その逆（`review-readings-2.md` §1.255・portfolio-2f・どちらも参加者の発言）。** Ian Lance Taylor 氏 2004-02（`license-discuss`）は AFL について *"rather more likely to be legally sound. However, for that very reason, it is much longer."* と書き、同じ月に Alex Rousskov 氏は *"new 100 page legal license attached has fewer chances succeeding in real world, no matter how many lawyers are happy"* と書いた。**ACD への当たり方は半分**: Taylor 氏の読みは、長さが法律家の起草から来る確かさの代価だという前提に立つ。ACD は法律家の起草ではない（B1）ので、長さを確かさの印として引くことはできない。Rousskov 氏の側（長いものは実際には使われにくい）は、そのまま当たる（B2）。**同じ向きの 2 つ目の記録は、構造が長さを生むと言う**: Rick Moen 氏 2015-10-02（`license-discuss`・`review-readings-2.md` §1.256）は CC0 を、献呈が効かない法域で働く許諾を含むので確かだと評し、*"(On the gripping hand, this causes its full text to be lengthy.)"* と添えた。こちらは法律家の起草を前提にせず、献呈＋許諾という構造が長さを生むと言うので、§3＋§4＋§5 を並べる ACD にはより当たる。**逆側**: 構造が長さの理由になっても、ACD は CC0 の約 5.6 倍で（長さの行）、構造だけでは説明しきれない。
+
 ## B12 —— class 9（2026-11-07 に 11 から移した）
 
 **steward が 1 人**で、承継の仕組みが無い。**設計変更では解けない**（条文を直しても steward は
