@@ -7,7 +7,7 @@
 **数えるもの** (節 = 草案の第 1〜16 節。§12.1 to §12.5 のような範囲は節に畳む):
   Q  `QUESTIONS-FOR-COUNSEL.md` の問い (`## N. … (§…)` の見出しが名指す節)
   P  `QUESTIONS-FOR-PRACTITIONERS.md` の問い (同じ形)
-  J  `ACD-1.0.jurisdictions.md` の「**確立していないこと**」の段 (段の中の § か、無ければ直前の「本文の手当て」の段の §)
+  J  `ACD-1.0.jurisdictions*.md` (分けた先も) の「**確立していないこと**」の段 (段の中の § か、無ければ直前の「本文の手当て」の段の §)
   E  `ACD-1.0.errata.md` の開いている行 (「N.M 草案で閉じた」の印が無い行・2 列目の §)
   R  `ACD-1.4-THIRD-CLARITY-TRIAL.md` §18 の記録の行 (下の形)。①②③ と状態ごとに数える
 
@@ -55,9 +55,16 @@ def count() -> tuple[dict[int, Counter], list[str]]:
         for h in re.findall(r"^## \d+\. .*$", (L / fname).read_text(encoding="utf-8"), re.M):
             for n in sections(h):
                 by[n][key] += 1
-    paras = re.split(r"\n\s*\n", (L / "ACD-1.0.jurisdictions.md").read_text(encoding="utf-8"))
+    # jurisdictions は分けることがある (2026-11-16・30 が §9 / §9a を別ファイルへ移す相談)。分けた先も読む。ファイルごとに
+    #   「本文の手当て」の段を引き継がない (分けた先の最初の「確立していない」が、元のファイルの最後の手当てを借りないように)
+    paras = []
+    for jf in sorted(L.glob("ACD-1.0.jurisdictions*.md")):
+        paras += [""] + re.split(r"\n\s*\n", jf.read_text(encoding="utf-8"))
     last_fix = ""
     for p in paras:
+        if p == "":
+            last_fix = ""
+            continue
         if "**本文の手当て**" in p:
             last_fix = p
         if "**確立していないこと**" in p:
