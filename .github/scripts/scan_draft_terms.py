@@ -11,6 +11,9 @@ T74〜T76 は、ある条が他の条の定義を借りる語 (names / reaches /
       指し先の条ごとにまとめ、言い方が 2 通り以上あるもの。
   (c) 定義を借りる語の一覧: 指し先の条ごとに、借りる動詞 (names = 人 / reaches・describes = 範囲 / to the extent = 限度 /
       binds = 拘束の相手) と、使っている条。同じ指し先から違う種類を借りていれば、人が読む。
+  (d) 英米の綴りの混在 (2026-11-16・T82 の "WILFUL" を読んで足した): 綴りの対 (wilful / willful・authorise / authorize・
+      endeavour / endeavor …) のうち、草案に両方の綴りがある語。草案は英国綴りで書かれている (licence は名詞・license は動詞)。
+      license / licence は名詞と動詞を分けられないので数えない。
 
 **測っていないもの**: 揺れが効果の違いを生むか。語が違っても同じ働きのこともあり、同じ語でも働きが違うこともある。
 
@@ -34,6 +37,10 @@ LIST = re.compile(r"(?<![\w'’])((?:[A-Za-z][\w\- ]{1,40}?, ){2,}(?:and|or) [A-
 REF = re.compile(r"((?:[a-z][\w\-]* ){0,3}?(?:that |which |whom |those )?Sections? (\d+(?:\.\d+)?(?:(?:, | and | or | to )\d+(?:\.\d+)?)*) "
                  r"(names?|reach(?:es)?|describes?|binds?|covers?|governs?))\b")
 EXTENT = re.compile(r"to the (?:fullest )?extent (?:that )?(?:Sections? (\d+(?:\.\d+)?)|the law permits|a jurisdiction)")
+SPELL = (("wilful", "willful"), ("authoris", "authoriz"), ("organis", "organiz"), ("recognis", "recogniz"),
+         ("characteris", "characteriz"), ("minimis", "minimiz"), ("endeavour", "endeavor"), ("favour", "favor"),
+         ("behaviour", "behavior"), ("labour", "labor"), ("judgement", "judgment"), ("defence", "defense"),
+         ("offence", "offense"), ("practis", "practic"), ("programme", "program"), ("analys", "analyz"))
 KIND = {"name": "人", "names": "人", "reach": "範囲", "reaches": "範囲", "describe": "範囲", "describes": "範囲",
         "bind": "拘束の相手", "binds": "拘束の相手", "cover": "範囲", "covers": "範囲", "govern": "範囲", "governs": "範囲"}
 
@@ -81,6 +88,18 @@ def main(argv: list[str]) -> int:
         kinds = sorted({w for _k, _p, w in rs})
         mark = "⚠" if len(kinds) >= 2 else "・"
         print(f"{mark} Section {tgt}: {', '.join(kinds)} —— " + "; ".join(f"§{k} 「{p}」" for k, p, _w in rs)[:300])
+    print("\n## (d) 英米の綴りの混在（同じ語に両方の綴りがあるもの・数は出現の数）")
+    low = " ".join(cl.values()).lower()
+    mixed = 0
+    for uk, us in SPELL:
+        # practic は practice（名詞・英米共通）に当たるので、英国の動詞 practise と対にするときは動詞の形だけを数える
+        a = len(re.findall(r"\b" + uk + r"\w*", low))
+        b = len(re.findall(r"\b" + (r"practic(?:ed|ing)\b" if us == "practic" else us + r"\w*"), low))
+        if a and b:
+            mixed += 1
+            print(f"⚠ {uk}… {a} / {us}… {b}")
+    if not mixed:
+        print("・ 混在なし")
     return 0
 
 
