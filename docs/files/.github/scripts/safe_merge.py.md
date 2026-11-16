@@ -66,3 +66,5 @@ python3 .github/scripts/safe_merge.py 3060 --dry-run  # 確かめるだけ
 ### For third parties / auditors
 
 merge の直前の main との組み合わせを検査した記録は、出力の `OK: #N (head) をいまの main (base) に重ねて consistency は緑` の行に残る。
+
+- **両側が同じ行を書き換えた衝突は止まる（2026-11-16・1c の報告）**: --reland は `merge.conflictStyle=diff3` で cherry-pick し、衝突の塊の元の行（base）を読む。元の行が main 側にも PR 側にも残っていなければ、両側が同じ行を書き換えたので「行を足した」とは扱わず STOP する。T77 の載せ直し（PR 3398）では、30 が PR 3396 で直した submission-osd の OSD 5 と §11.3 の行が、PR 側の古い理由の行と並んで残り、古い形が戻った。直した道具で同じ cherry-pick を再生すると STOP する（旧版は「解いた」）。数だけの違い・path の行（main 側）・元の行の無い追加は従来どおり解く。

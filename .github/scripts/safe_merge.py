@@ -75,7 +75,8 @@ def overlay_check(pr: str, head: str, base: str) -> tuple[bool, str]:
         shutil.rmtree(tmp, ignore_errors=True)
 
 
-_HUNK = re.compile(r"^<<<<<<< [^\n]*\n(.*?)^=======\n(.*?)^>>>>>>> [^\n]*\n", re.M | re.S)
+# diff3 の形 (`||||||| base` の節) も読む。base は両側が書き換えた元の行で、reland は merge.conflictStyle=diff3 で cherry-pick する
+_HUNK = re.compile(r"^<<<<<<< [^\n]*\n(.*?)(?:^\|\|\|\|\|\|\| [^\n]*\n(.*?))?^=======\n(.*?)^>>>>>>> [^\n]*\n", re.M | re.S)
 
 
 _ASOF_ROW = "| **未読スレッドの残り** |"
@@ -92,7 +93,11 @@ def resolve_numbers_only(text: str) -> tuple[str | None, list[str]]:
     bad = []
 
     def fix(m):
-        ours, theirs = m.group(1), m.group(2)  # cherry-pick では ours = main 側 (HEAD)、theirs = PR の commit
+        ours, base, theirs = m.group(1), m.group(2) or "", m.group(3)  # cherry-pick では ours = main 側 (HEAD)、theirs = PR の commit
+        # 両側が同じ元の行を書き換えた (元の行がどちらにも残っていない) のは「行を足した」ではない (2026-11-16・1c の報告):
+        #   T77 の載せ直し (#3398) で、30 が #3396 で直した submission-osd の OSD 5 の行と、PR が同じ行を古い理由のまま
+        #   書き換えた行が「表の行を足しただけ」として両方残り、古い形が戻った。数だけの違いと path の行 (main 側を採る) は従来どおり
+        _both = [ln for ln in base.splitlines(keepends=True) if ln.strip() and ln not in ours and ln not in theirs]
         if re.sub(r"\d", "0", ours) == re.sub(r"\d", "0", theirs):
             return ours
         if not ours.strip() or not theirs.strip():
@@ -115,11 +120,15 @@ def resolve_numbers_only(text: str) -> tuple[str | None, list[str]]:
                 c = ln.split("|")[1].strip() if ln.count("|") >= 2 else ln
                 return c if re.fullmatch(r"`?[\w./\-]+/[\w./\-]+`?|`?[\w.\-]+\.(?:md|txt|py|js|json|yml)`?(?: \d+\.\d+)?|\d+(?:\.\d+)?", c) else ln
             have = {key(ln) for ln in o}
-            return ours + "".join(ln for ln in t if ln not in o and key(ln) not in have)
+            _rest = [ln for ln in t if ln not in o and key(ln) not in have]
+            if _both and any(key(ln) == ln for ln in _rest):  # path でない行を両側が書き換えた
+                bad.append("両側が同じ表の行を書き換えた: " + _both[0][:70])
+                return m.group(0)
+            return ours + "".join(_rest)
         if all(re.match(r"\d{4}-\d{2}-\d{2}\t", ln) for ln in o + t):
             return ours + "".join(ln for ln in t if ln not in o)
         # READ-THREADS-LOG の先頭の項目 (`- …` と空行): 5 人が同じ位置に 1 項目ずつ挿す。両方を残す (main → PR の順)
-        if all(ln.startswith("- ") or not ln.strip() for ln in o + t):
+        if all(ln.startswith("- ") or not ln.strip() for ln in o + t) and not _both:
             new = [ln for ln in t if ln.strip() and ln not in o and text.count(ln) < 2]  # main が既に持つ項目は足さない
             return ours + "".join(ln + ("" if ln.endswith("\n\n") else "\n") for ln in new)
         bad.append(ours.splitlines()[0][:80] if ours.strip() else theirs.splitlines()[0][:80])
@@ -154,7 +163,7 @@ def reland(pr: str, info: dict) -> int:
     try:
         run(["git", "worktree", "add", "-q", "-b", new, str(wt), "origin/main"])
         for c in commits:
-            r = run(["git", "cherry-pick", c], cwd=wt, check=False)
+            r = run(["git", "-c", "merge.conflictStyle=diff3", "cherry-pick", c], cwd=wt, check=False)
             if r.returncode == 0:
                 continue
             files = [f for f in run(["git", "diff", "-z", "--name-only", "--diff-filter=U"], cwd=wt).stdout.split("\0") if f]
