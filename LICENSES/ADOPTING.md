@@ -18,7 +18,9 @@ choice. Section numbers below are the same in every version unless the page says
   §203 may still reach the licence ([`ACD-1.0.jurisdictions.md`](ACD-1.0.jurisdictions.md) §5a).
   If the law treats the act as a gift, Germany lets a donor revoke it against a recipient guilty of
   gross ingratitude, a right that cannot be waived in advance; France allows revocation only in three
-  serious cases its civil code lists, and requires a gift to be notarised (§3 of the same file). Either
+  serious cases its civil code lists, and requires a gift to be notarised (§3 of the same file). Japan
+  lets a gift not made in writing be cancelled except for what has already been delivered; we read the
+  published text as a writing ([`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) question 9). Either
   way it reaches that recipient only, and no lawyer has checked how it applies here.
 - **You give up credit.** Nobody has to keep your name or any notice (§10.2).
 - **You give up more patent rights than most licences ask.** The patent licence has no condition
