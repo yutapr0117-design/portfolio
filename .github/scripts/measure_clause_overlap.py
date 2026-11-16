@@ -313,7 +313,10 @@ def _grams(text: str, k: int) -> set[str]:
 
 _FUNCTION_WORDS = {"which", "that", "this", "with", "from", "into", "upon", "than", "when", "where", "there", "those", "these",
                    "their", "they", "them", "what", "whom", "whose", "have", "been", "were", "will", "would", "does", "under",
-                   "over", "about", "after", "before", "only", "also", "such", "each", "every", "other", "against", "within"}
+                   "over", "about", "after", "before", "only", "also", "such", "each", "every", "other", "against", "within",
+                   # 接続詞も機能語に入れる (2026-11-16・T77): "reaches, because it was never …" の "because it" が、ドシエの
+                   #   無関係な "because Section 16.3 …" に 4 件当たった。接続詞の後の名詞は言い換えの手がかりにならない
+                   "because", "since", "unless", "while", "though", "although", "whether", "where", "once"}
 
 
 def external_reliance(changed: dict[str, tuple[str, str]], after_all: str,
