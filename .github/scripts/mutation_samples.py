@@ -458,6 +458,22 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
+    "name": "Check 468ab: 草案の §8.4 の \"Section 8.4 reaches a claim only\" を \"This Section reaches a claim only\" へ戻す —— 小項の中の "
+            "\"this Section\" は §8 か §8.4 かで割れる (T84〜T88 で 5 → 0 にした型・2026-11-16)",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-DRAFT.txt",
+    "find": "Section 8.4 reaches a claim only",
+    "replace": "This Section reaches a claim only",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 468ab: 草案の §14.2 の例外の列から 2.5 を外す —— §2.5 の約束 (撤回を主張しない) の違反まで §14.1 が免責する形に"
+            "戻る (T88 で閉じた問い 9 (a) の型・2026-11-16)",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-DRAFT.txt",
+    "find": "Section 2.5, 5, 8.6, or",
+    "replace": "Section 5, 8.6, or",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
     "name": "Check 498 (k): CHANGELIST の「語数の内訳」の束の表で「その他の明瞭化」の行の数の前に 1 を足す —— 束の表は 468s の範囲外で、"
             "表の合計が草案の差と合わなくても通っていた (2026-11-15・50 が「増えた語の大半」の 263 ≠ 148 + 118 に気付いた)",
     "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
