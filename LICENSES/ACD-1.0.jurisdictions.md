@@ -186,6 +186,8 @@ verzichtet werden. Seine Ausübung kann nicht ausgeschlossen werden."* と定め
 
 ---
 
+**目的移転の原則（2026-11-16 追記・`rounds/2026-11-16-urhg-31-5-gesetze-im-internet-snapshot.txt`・WebFetch の逐語の片）**: UrhG 31 条 5 項は *„Sind bei der Einräumung eines Nutzungsrechts die Nutzungsarten nicht ausdrücklich einzeln bezeichnet,"* *„so bestimmt sich nach dem von beiden Partnern zugrunde gelegten Vertragszweck, auf welche Nutzungsarten es sich erstreckt."* と定め、同じことが *„ob ein Nutzungsrecht eingeräumt wird"* にも当たるとする。利用の種類が明示されていなければ、許諾は契約の目的で、多くは狭く読まれる。**ACD への当たり方**: 1.4 草案の §4.2 は利用の種類を名指しで並べ（分析・保存・複製・翻案など）、§6 は学習とテキスト・データ・マイニングを名指して明示する。§6.5 の「明示する理由」は、T79 で「沈黙は許しの有無を推論に委ねる」と書き直した —— この条は、その推論がドイツでは目的で狭く働きうることの根拠になる（portfolio-30 が T79 への反例として当てた）。**確立していないこと**: 31 条 5 項は「両当事者が前提とした契約の目的」を言うので、相手方の居ない一方的な公の許諾（§4）にどう当たるかは分からない。ACD は目的を前文（学ばれるための作品）と §6 に書くので、当たるとしても目的は学習を含む、と読むのは我々の読みで、助言を得ていない（`QUESTIONS-FOR-COUNSEL.md` 問 6）。
+
 ## 4. フランス（人格権が最も強い）
 
 **問い**: 人格権は永久・不可譲・時効にかからないのではないか。

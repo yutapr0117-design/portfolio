@@ -378,8 +378,18 @@ notice the Dedicator places from taking that material out of the Work. If a cour
 notice as the Dedicator's statutory reservation all the same, §16.2 and the statute point different
 ways for that material, and §6.3's withdrawal is what has to carry it.
 
+A second question runs underneath §6 as a whole. Under German law a grant of rights whose kinds of use
+are not expressly named is read by the purpose of the contract (UrhG section 31(5): *„so bestimmt sich nach dem
+von beiden Partnern zugrunde gelegten Vertragszweck, auf welche Nutzungsarten es sich erstreckt."*, `rounds/2026-11-16-urhg-31-5-gesetze-im-internet-snapshot.txt`).
+§4.2 and §6 name the uses expressly, and §6.5 now gives as its reason that silence *"leaves it to be inferred
+whether this is permitted"*. Does section 31(5) apply to a unilateral grant to the public, where there is no
+counterparty whose purpose can be read? If it does, is the purpose the Work's stated one (the preamble's
+*"works meant to be learned from"* and §6), and does the express list in §4.2 and §6 take the grant outside
+the rule altogether?
+
 **An answer would change** whether §6.2 and §6.3 can stay as statements of the Dedicator's own
-position, and whether the §16.2 rule does what it is meant to do or should be dropped.
+position, and whether the §16.2 rule does what it is meant to do or should be dropped; an answer to the second
+would say whether §6 is needed in Germany or only stated.
 
 ## 7. What follows from naming no governing law and no forum? (§15.3)
 
