@@ -154,7 +154,7 @@ in question, without breaching an obligation to or paying another person; errata
 that definition is the right one is part of the question.
 (b) A causal limit with no threshold may be read as too indefinite to operate, or as reaching any
 model that has once processed the Work; the 1.4 wording tests the infringing feature rather than the
-model, and a licensee must show that the feature came from the Work or that the Work teaches it. (c) We have not examined how an unconditional,
+model, and a licensee must show that the feature came from the Work or that the Work teaches it. The worry behind (b) is older than models: in 2002 John Cowan warned that a contributor patent licence reaching anything added to the software would make the developer's patents worthless (`gap-measurements.md` §1.161). (c) We have not examined how an unconditional,
 non-terminable patent licence to the public interacts with the Dedicator's other patent licensing.
 One form of that interaction was raised against CC0 in 2012: Bruce Perens wrote that a party that
 *"has licensed a patent and dedicates the software exercising that patent is obligated to help the
