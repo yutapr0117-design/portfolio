@@ -665,3 +665,23 @@ Henrik Ingo 氏（`henrik.ingo at avoinelama.fi`・両リストで 203 通）を
 **この節が establish しないこと。** 献呈と独立の許諾を並べる形が、fallback の形と同じく「隙が無い」と審査者に読まれるか。ACD の長さが CC0 と同じ理由で受け入れられるか（CC0 は 998 語、ACD の 1.4 草案は 5,546 語・`review-readings-2.md` §1.245）。
 
 **反映**: B4（献呈と許諾を並べる形への有利な評と、ACD の §4.4 が fallback でないので評がそのまま当たらないこと・30 へ）/ B3（長さを「隙の無さ」の代価とする評・§1.255 の Taylor 氏の読みと同じ向き・30 へ）/ B8（献呈は欧州で不可能という参加者の読み・30 へ）/ 入口（CC0 が承認されなかった理由を特許の除外とする読みが、FSF の理由と並ぶ・50 へ）。
+
+## 1.257 Mulan OWL の不承認の前に、Smith 氏（のちに理事）は「ソフトウェアにも内容にも使えるライセンスを退ける理由は無い」と書いていた（2023）。「より良いライセンスを作るのは弁護士資格を持つ人の仕事」（Perens 氏 2022）（2026-11-16）
+
+census は、ドシエに多く引かれた会話を「候補の外」に置く。その会話の中に、決める側の通でドシエが 1 文も引いていない通（8 語連鎖が無い 40 語以上の通）が 218 会話・1,277 通ある（`census_decision_statements.py threads` の `unquoted-decider` の出力・2026-11-16）。2024〜2026 年の `license-review` の分は `review-readings.md` §1.211 の前後で読んだ。portfolio-2f は 2021〜2023 年の分（136 通・29 会話のうち、件名で写しから取り出せた 65 通）を、各通を切らずに論点の語で点数づけし、点の付いた通をすべて全文で読んだ。2 つの会話から 4 通を置いた（`rounds/2023-08-license-review-mulan-owl-{smith-content-patent,berkus-content-criteria}-observed.txt`・`rounds/2022-12-license-discuss-retro-disapprove-{perens-bar,smith-drafting}-observed.txt`）。ほかの通（3D Slicer の審査の手続き、AFL の旧版の扱い、承認済みの一覧の整理、OSD の定義の議論）は、ACD に当たる新しい論点が無かった。**引いていない通は 71 通残る**（件名の書き換えで写しから取り出せなかった通・機械層の道具で取り出せれば読む）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"FWIW, I agree that licenses that disclaim patent grants are not approvable. That's the lesson of CC."* / *"There's an underlying issue within that about whether a license that doesn't disclaim patent licenses but doesn't articulate any express patent license is approvable (at least, going forward) which probably also should be addressed"* | McCoy Smith 氏 2023-08-15（Mulan OWL の審査） | **有利な面（§8）。** 特許の否認が承認を妨げる、という線を Smith 氏が「CC の教訓」として述べた。ACD の §8 は明示の許諾を置くので、否認の型にも沈黙の型にも当たらない。沈黙の型の扱いが未決であること（`against-2.md` #246 の W3C の承認）とも合う |
+| *"I'm not sure I agree that a "content" license is not approvable."* / *"I think if OSI is going to limit itself to only "software" licenses, it need to make that policy decision and make it clear, and perhaps articulate how one distinguishes between a "software" (or "primarily software") and a "non-software" (or "primarily non-software") license"* / *"absent that I see no reason why it shouldn't be approved if it could be used with software equally with content."* | McCoy Smith 氏 2023-08-15（同じ通） | **有利な面（B15）。** ソフトウェアにも内容にも等しく使えるライセンスは退ける理由が無い、という Smith 氏の読みで、ACD の §1.3 の列挙（ソフトウェアとそれ以外）に直接当たる。Fair License と CERN OHL を、ソフトウェアに限らない承認済みの例として挙げた。**逆側（重い）**: この通の 1 か月後、理事会は Mulan OWL を *"as open culture licenses, are not appropriate for OSI approval"* として不承認にした（`against-2.md` #237）。Smith 氏の読みは採られなかった |
+| *"I'm not ready to take on OSI developing a process and criteria for approving content licenses this year.  I do think it's something we should consider for the future ... in fact, should have done years ago ... but it's also going to be a ginormous effort for someone."* | Josh Berkus 氏 2023-08-11（同じ会話・委員長 Chestek 氏の「これらは承認の対象として適切でない、で合意があるか」への答え） | **不利な面（B15）。** 内容のライセンスを承認する基準は無く、作るのは大きな作業だ、という Berkus 氏の答え。ACD がソフトウェア以外を覆う部分は、基準の無い所で審査される |
+| *"1. There has to be a better license first. Which might unfortunately mean making it sometimes, and tolerating yet another license. Making it is for someone admitted to the Bar to do."* | Bruce Perens 氏 2022-12-14（"Retroactively disapproving licenses"・SIL Open Font License を例に） | **両面（B10・B1）。** 新しいライセンスを足すことを「より良いものが要るなら許す」と認めつつ、作り手を弁護士資格を持つ人に限った。ACD は前者に当たりうるが、後者には当たらない（B1）。`review-readings-2.md` §1.255 の Taylor 氏 2004「承認済みのほとんどは法的な助言を受けて書かれた」と同じ向き |
+| *"I also think that there are other factors, beyond OSI conformance, that can, and should, go into license approval (for example, a license is so poorly or ambiguously drafted that it can create problems for users, or -- for example -- it explicitly omits certain rights -- like patent -- that can result in them being non-open)."* | McCoy Smith 氏 2022-12-14（同じ会話） | **両面（B3・§8）。** 起草のあいまいさを OSD の外の承認の要素とする Smith 氏の読み。1.4 草案の明確さの試作（`ACD-1.4-CLARITY-TRIAL.md` から THIRD まで）はこの要素に答える側に在り、§8 は「特許を明示に外す」型に当たらない |
+
+**読み。** 2022〜2023 年の決める側の人の通は、ACD の 2 つの特徴（明示の特許の許諾、ソフトウェアと内容を共に覆うこと）のどちらにも、それを支える文を持っていた。ただし後者は、同じ審査で理事会が採らなかった読みである。
+
+**逆側。** Smith 氏の当時の役（委員か）は確かめていない（ドシエは「後に Licensing Committee」「2026-02 頃〜・理事」と書く）。Smith 氏の B15 の読みは不承認の決定に負けている。Berkus 氏の通は、ソフトウェア以外を覆うことの審査に基準が無いことを示す。Perens 氏の通は、新しいライセンスの作り手に弁護士資格を求める。
+
+**この節が establish しないこと。** 理事会が「ソフトウェアにも等しく使える」ライセンスを Mulan OWL と別に扱うか。決定の文は *"as open culture licenses"* で、ソフトウェアに使えるかには触れていない。
+
+**反映**: B15（Smith 氏 2023 の「ソフトウェアにも内容にも等しく使えるなら退ける理由が無い」と、それが 1 か月後の不承認に採られなかったこと、Berkus 氏の「基準は未整備」・30 へ）/ B1（Perens 氏 2022「作るのは弁護士資格を持つ人の仕事」・30 へ）/ 入口（特許の否認は承認できないという「CC の教訓」の Smith 氏の文を、ACD の §8 の説明に使えるか・50 へ）。

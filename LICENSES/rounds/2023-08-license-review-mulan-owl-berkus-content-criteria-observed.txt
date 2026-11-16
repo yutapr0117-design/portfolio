@@ -1,0 +1,32 @@
+Source: OSI license-review public archive, 2023-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 11 in "A request for checking the review status of Mulan OWLs v1" (2023-08-10)
+Senders: Josh Berkus
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From josh at berkus.org  Fri Aug 11 16:46:51 2023
+From: josh at berkus.org (Josh Berkus)
+Date: Fri, 11 Aug 2023 09:46:51 -0700
+Subject: [License-review] A request for checking the review status of
+ Mulan OWLs v1
+In-Reply-To: <b425c2dc-3ae6-e31f-1ed0-c120be7e5fb1@opensource.org>
+References: <tencent_432242E7C4943D054CCD1A4363B191998608@qq.com>
+ <1545611467.2073870.1688565578446.JavaMail.zimbra@piana.eu>
+ <b425c2dc-3ae6-e31f-1ed0-c120be7e5fb1@opensource.org>
+Message-ID: <d97a8028-ca18-486c-afbb-ff9ab38ea935@berkus.org>
+
+On 8/10/23 21:32, Pamela Chestek wrote:
+> 
+> Is there agreement that these licenses are not appropriate subject 
+> matter for OSI- approval, or are there some who disagree with that 
+> statement?
+
+I'm not ready to take on OSI developing a process and criteria for 
+approving content licenses this year.  I do think it's something we 
+should consider for the future ... in fact, should have done years ago 
+... but it's also going to be a ginormous effort for someone.  FUrther 
+discussion should move to license-discuss.
+
+-- 
+Josh Berkus

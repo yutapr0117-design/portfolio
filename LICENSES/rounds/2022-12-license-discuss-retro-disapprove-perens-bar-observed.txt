@@ -1,0 +1,28 @@
+Source: OSI license-discuss public archive, 2022-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 14 in "Retroactively disapproving licenses" (2022-12-13)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Wed Dec 14 20:54:18 2022
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 14 Dec 2022 12:54:18 -0800
+Subject: [License-discuss] Retroactively disapproving licenses
+In-Reply-To: <fc0afb2b-1e49-83a9-9bee-80ad86fa997d@opensource.org>
+References: <080f01d90f6e$e0d6c110$a2844330$@rosenlaw.com>
+ <03f001d90ff2$8543dde0$8fcb99a0$@lexpan.law>
+ <fc0afb2b-1e49-83a9-9bee-80ad86fa997d@opensource.org>
+Message-ID: <CAK2MWOsLSyR7G_jfdDyAWWN_o_3t+Ga8eExWrFuGGe5jsxz6fw@mail.gmail.com>
+
+IMO for specialized licenses (I'm thinking of SIL again)
+1. There has to be a better license first. Which might unfortunately mean
+making it sometimes, and tolerating yet another license. Making it is for
+someone admitted to the Bar to do.
+2. The better license must be evangelized to the community of the
+troublesome license.
+3. Then there will be less resistance to deprecation, and that can be gone
+ahead with.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20221214/7eec5134/attachment.html>
