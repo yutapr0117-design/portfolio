@@ -628,6 +628,12 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 
 §5〜§7 は portfolio-30 の帯。§6 と §7 は EU の法源が主なので portfolio-2f が行を書き、独・英・仏・日の当ては 30 が同じ行の命題の括弧に足す（台帳が 1 条 1 行で数えるため）。§5 の行は 30 がこの段落の直後に置く。
 
+- §5.1 | 命題: Dedicator が「許された使用を違法とし、または法律上の原因を欠くとする請求」を主張しないという約束が、約束として効く（独: UrhG 29 条 2 項が *"schuldrechtliche Einwilligungen und Vereinbarungen"* *" zu Verwertungsrechten"* を許す取引に挙げ、約束の形を法が予定する。T90 の *"without legal ground"* は BGB 812 条・民法 703 条に当たり、仏 1303-1 条は無償の意思から生じた利得を不当でないと明文で外す。英: 約因の無い約束は捺印証書でなければ契約として強制できないと読む（判例は未取得）—— 英国では契約より抗弁と §2.5 の禁反言として働く。日: 不起訴の合意は判例法で条文は無い（未取得）。範囲の語は T90 の後で閉じ、強制の可否は契約の成立に依る → 問い 5） | ③ | 状態: 出典あり | 法源: rounds/2026-11-16-urhg-29-gesetze-im-internet-snapshot.txt・rounds/2026-11-16-unjust-enrichment-bgb-812-minpo-703-code-civil-1303-snapshot.txt
+- §5.2 | 命題: Dedicator は利用規約・技術的手段などで Work に条件を足さない（範囲は §5.2 の末段と T91 で起草が閉じた。強制の可否は §5.1 と同じ根 → 問い 5） | ③ | 状態: 出典あり | 法源: rounds/2026-11-16-urhg-29-gesetze-im-internet-snapshot.txt
+- §5.3 | 命題: 下流の受け手が約束を intended beneficiary として頼れる（日: 民法 537 条 2 項は第三者が契約の時に特定していなくてもよいとし、3 項の受益の意思表示は受け手が約束を抗弁として持ち出すことに当たると読む。英: Contracts (Rights of Third Parties) Act 1999 s.1(1)(b) と (3) の階層での特定が §5.3 の形に合う。独: BGB 328 条 1 項。どれも契約の成立が前提で、英国では約因が無いので Act が当たらない読みが強い。*"to the extent a jurisdiction gives effect to such reliance"* と条件づけた形なので文は偽にならない → 問い 1） | ③ | 状態: 出典あり | 法源: rounds/2026-11-16-third-party-beneficiary-minpo-537-crtpa-1999-bgb-328-snapshot.txt
+
+**§5 の読み（portfolio-30）。** §5 の ② は 0（T90・T91 で語の側は閉じた）。③ は 1 つの根にまとまる —— **ACD が契約として成立するか**（§2.3 の知らない受け手、英国の約因、日独の第三者のための契約の前提）。問い 1 と問い 5 の本体で、起草では消せない。
+
 - §6.1 | 命題: TDM と学習の利用を、法定の例外とは別に許諾で許せる（DSM 指令 前文 18 は、権利者が例外の外の利用を許諾できると述べる） | ① | 状態: 出典あり | 法源: rounds/2026-11-16-eu-tdm-and-conflict-of-laws-snapshot.txt
 - §6.2 | 命題: Dedicator が留保をしないと宣言し、自分の権利について、どの信号も留保と読まないと定められる（DSM 指令 第 4 条 3 項の留保は権利者の行為で、オンラインでは機械可読の方法が「適切」—— 宣言は条と同じ向きだが、Dedicator が後に置いた機械可読の信号が留保と読まれるかは、HansOLG 5 U 104/24 の判決文を取るまで残る → 問い 6） | ③ | 状態: 出典あり | 法源: rounds/2026-11-16-eu-tdm-and-conflict-of-laws-snapshot.txt
 - §6.3 | 命題: Dedicator は自分の留保を撤回でき、他の権利者の留保は撤回できない（第 4 条 3 項は留保を "their rightholders" の行為とする —— 後半は条と同じ。前半の撤回の効力は条の文からは決まらない → 問い 6） | ③ | 状態: 出典あり | 法源: rounds/2026-11-16-eu-tdm-and-conflict-of-laws-snapshot.txt
