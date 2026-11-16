@@ -46,7 +46,9 @@ def main(argv: list[str]) -> int:
     if not o.no_thread and not (o.start and o.subject):
         print("STOP: 会話を読んだなら --start と --subject が要る (通だけなら --no-thread)")
         return 2
-    rt = L / "READ-THREADS.txt"
+    from census_decision_statements import read_rows, read_threads_file_for
+    # 書く file は会話の始まりの年で選ぶ (2026-11-16 に 2 つに分けた)。--no-thread は書かないが、戻すために 1 つ持つ
+    rt = read_threads_file_for(o.start or "0000", L)
     rtt = rt.read_text(encoding="utf-8")
     if not o.no_thread:
         # --start は census の会話の始まりの日付 (THREAD-CANDIDATES の行の日付) でなければならない (Check 498 (h) は
@@ -62,7 +64,7 @@ def main(argv: list[str]) -> int:
         if not same:
             print("注意: この件名は THREAD-CANDIDATES に無い (候補の外を読んだ)。候補の数 N と読了 M が同じだけ増える")
         row = f"{o.start}\t{o.subject}"
-        if row in rtt.split("\n"):
+        if (title_key(o.subject), o.start) in {(k, d) for k, d, _t in read_rows(L)}:
             print(f"STOP: READ-THREADS に既に在る: {row}")
             return 1
         # 並べ直さずに、日付が新しい行より前の位置へ 1 行だけ差し込む (全体を並べ直すと同じ日付の行の順が動き、

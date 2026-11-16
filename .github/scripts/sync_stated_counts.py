@@ -118,7 +118,8 @@ def asof_sites() -> list[dict]:
     if not m:
         return []
     cand = {(k, d) for k, d, _t in _list_rows(ROOT / "LICENSES" / "THREAD-CANDIDATES.txt")}
-    read = {(k, d) for k, d, _t in _list_rows(ROOT / "LICENSES" / "READ-THREADS.txt")} & cand
+    from census_decision_statements import read_rows
+    read = {(k, d) for k, d, _t in read_rows(ROOT / "LICENSES")} & cand
     vals = (len(cand), len(read), len(cand) - len(read))
     line = text[:m.start()].count("\n") + 1
     return [{"path": asof, "line": line, "abs": True, "start": m.start(i + 1), "end": m.end(i + 1), "old": m.group(i + 1),

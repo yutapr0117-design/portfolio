@@ -164,9 +164,15 @@ def run(ctx):
     else:
         if int(m.group(1)) != int(m.group(2)) + int(m.group(3)):
             bad.append(f"(h) AS-OF.md の未読スレッド: 候補 {m.group(1)} ≠ 読んだ {m.group(2)} + 読んでいない {m.group(3)}")
-        from census_decision_statements import _list_rows
+        from census_decision_statements import READ_THREADS_SPLIT, _list_rows, read_rows, read_threads_file_for, read_threads_files
         cand = {(k, d) for k, d, _t in _list_rows(L / "THREAD-CANDIDATES.txt")}
-        read = {(k, d) for k, d, _t in _list_rows(L / "READ-THREADS.txt")}
+        read = {(k, d) for k, d, _t in read_rows(L)}
+        # 読了の一覧は会話の始まりの年で 2 つの file に分けた (2026-11-16)。行が違う file に在ると、record_read の重複の
+        #   照合 (書く file の中だけを見る) をすり抜けて同じ会話が 2 行になりうる
+        _misfiled = [f"{_f.name}: {_d}" for _f in read_threads_files(L) for _k, _d, _t in _list_rows(_f)
+                     if read_threads_file_for(_d, L) != _f]
+        if _misfiled:
+            bad.append(f"(h) 読了の行が年の違う file に在る ({READ_THREADS_SPLIT} 年より前は READ-THREADS.txt): {_misfiled[:3]}")
         if not cand or not read:
             bad.append("(h) THREAD-CANDIDATES.txt か READ-THREADS.txt の行を読めない (導出できないなら照合は沈黙する)")
         elif (int(m.group(1)), int(m.group(2))) != (len(cand), len(read & cand)):

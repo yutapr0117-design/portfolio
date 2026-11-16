@@ -227,8 +227,7 @@ def listed_titles():
     """`LICENSES/READ-THREADS.txt` の件名 (候補の一覧から読んだもの・rounds を置かずに読んだものを含む・
     portfolio-00 が 2026-11-09 に置いた)。"""
     keys = set()
-    listed = REPO / "LICENSES" / "READ-THREADS.txt"
-    if listed.exists():
+    for listed in read_threads_files():
         for line in open(listed, encoding="utf-8"):
             if line.strip() and not line.startswith("#") and "\t" in line:
                 k = title_key(line.rstrip("\n").split("\t", 1)[1])
@@ -284,6 +283,27 @@ def noreview(out):
 
 
 GAP_DAYS = 90
+
+
+READ_THREADS_SPLIT = "2010"  # これより前に始まった会話は READ-THREADS.txt、以後は READ-THREADS-2010.txt
+
+
+def read_threads_files(licenses=None):
+    """読了の一覧の file (`LICENSES/READ-THREADS*.txt`)。2026-11-16 に 1,000 行の上限 (Check 365) の手前で会話の始まりの年で
+    2 つに分けた (50 の依頼)。読む側はここを通し、書く側 (record_read) は read_threads_file_for で選ぶ。"""
+    base = licenses or (REPO / "LICENSES")
+    return sorted(base.glob("READ-THREADS*.txt"))
+
+
+def read_threads_file_for(start, licenses=None):
+    """会話の始まりの日付 start の行を置く file。"""
+    base = licenses or (REPO / "LICENSES")
+    return base / ("READ-THREADS.txt" if start < READ_THREADS_SPLIT else f"READ-THREADS-{READ_THREADS_SPLIT}.txt")
+
+
+def read_rows(licenses=None):
+    """読了の全 file の行 [(件名の key, 日付, 件名)]。"""
+    return [r for f in read_threads_files(licenses) for r in _list_rows(f)]
 
 
 def _list_rows(path):
@@ -381,7 +401,7 @@ def threads(out):
         return hit[0]
 
     read, off = set(), []
-    for key, date, title in _list_rows(REPO / "LICENSES" / "READ-THREADS.txt"):
+    for key, date, title in read_rows():
         start = to_conv(key, date)
         if start is not None and start != date:
             off.append(f"{date}\t{title} → {start}")
