@@ -159,6 +159,20 @@ Check 468y は 2 冊目とこの file の両方の「変えない」「退けた
 
 **⚠ 逆側**: (1) Fontana 氏の評は文体全体（*style*）についてで、定義語だけではない。ACD の長さと文の形（B3）は、この表では測っていない。(2) 「同じ語」と書いた語も、定義の中身は承認済みのものと違う（例えば *Contribution* は §1.9 で場を名指す）—— 同じ語が別の意味で使われると、かえって誤読を招きうる。(3) 置き換えないので、1.3 との差（redline）には何も出ない。
 
+### 15.11 同じ問題を扱う部分どうしの語の揺れを掃いた —— Fontana 氏 2014 の *subtle contradictions*（変えない・2026-11-16）
+
+**種（portfolio-30・頻度表の読み）**: 25 年出続けた問いのうち本文の語で答えられるのは B13 で、その試作の種として、Fontana 氏 2014 が挙げた「同じ問題を扱う部分どうしの subtle contradictions」がある（模擬委員会 §16.3）。1.4 草案の第 1 条から *END OF TERMS* までを 2 つの方法で機械的に掃いた: (a) 3 項以上の列挙で、項の 3 つ以上が重なり、残りが違う組、(b) 同じ相手を指す句（*person* / *person or entity*、*Covered Rights* と *patent claims* の組）の数え上げ。
+
+| 見つけた揺れ | 読み | 扱い |
+| :-- | :-- | :-- |
+| §1.10 の *Reservation* の列挙 *"any act, notice, marking, metadata, protocol element, header, machine-readable signal, contractual term, or other measure"* と、§6.2 の *"no notice, marking, metadata, protocol element, header, robots directive, or other signal associated with the Work is to be read as a Reservation"* —— §6.2 は *machine-readable signal* と *contractual term* を持たず、*robots directive* を足す（1.0 から）| 2 つの経路の分担で、矛盾ではない。§6.2 は「信号を留保と読まない」経路で、Work に付いた信号だけを対象にする（*robots directive* は *machine-readable signal* の一種で、*other signal* が残りを拾う）。契約の条項は信号ではなく、Dedicator が結んだものは §6.3 が撤回し、他の権利者が自分の権利で結んだものは §6.3 第 2 文が力の外とする。権利者でない人の契約（ホスティングの利用規約など）は、§1.10 が Reservation を *"by which a rightsholder purports to reserve"* に限るので、そもそも Reservation に当たらない。§6.2 に *contractual term* を足すと、Dedicator が結んでいない契約の条項まで「留保と読まない」と宣言することになり、§2.7 の境界（他人の権利と約束に触れない）を越える | 変えない |
+| *person or entity*（9 回）と *person* だけ（11 回以上）| 定義が *person or entity* と書き、拘束する条が *person* と書くと、明示したものだけを含む読みで会社が外れる（§5.1・§8.6 の *"any other person"*、§6.3 の *"by another person"* など）| E58 で閉じた: §15.5 *"\"person\" includes an entity"* |
+| §1.7 と §6.4 の *"model, parameter set, weight, embedding, or output resulting"* | 同じ列挙（§1.7 は *any* を前に置くだけ）| 揺れなし |
+
+**結果（変えない）**: 機械の掃引で見つかった揺れは 2 つで、1 つは経路の分担として説明でき、1 つは既に閉じていた。
+
+**⚠ 逆側**: (1) この掃引は語の列挙と句の数え上げだけで、Fontana 氏が指した「同じ問題を扱う部分」—— 例えば §3・§4・§5 の 3 つの層が同じ行為を別の語で許すか —— の意味の矛盾は測っていない。それは 1 冊目からの試作（T1〜T73）と模擬委員会が条ごとに読んできた側に在る。(2) §6.2 と §1.10 の差は、審査者には説明なしでは揺れに見える。逐条の §6.2 の行に分担を書いた。
+
 ## 16. 模擬委員会 —— 記録に立場が厚く残る審査者の目で 1.4 草案を通読する（2026-11-15〜）
 
 **仕組み**: オーナーの依頼（「5 人で話し合って、より良い案をガンガン実行して」）を受けて、portfolio-1c が出し 5 人で決めた。記録に立場が厚く残る 5 人の審査者を 1 人ずつ受け持ち（30 = Chestek 氏、50 = Fontana 氏、2f = Perens 氏、9b = Smith 氏、1c = Villa 氏）、その人の過去の文だけを根拠に、その人の目で 1.4 草案を頭から通読して「どこを突くか」を条番号つきで出す。根拠の無い推測は書かない（必ずその人の文を引く）。各節は表（基準と出典 | 当たる条 | 扱い済みの場所 | 残る点）と、条を変える指摘（試作の種）を持つ。**0 件でも表を残す** —— 審査者の基準を網羅して当てた記録になる。**この節が establish しないこと**: 模擬であって、その人が実際にそう言うことを意味しない。
