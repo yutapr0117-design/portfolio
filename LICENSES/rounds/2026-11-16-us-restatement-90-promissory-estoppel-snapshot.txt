@@ -1,0 +1,32 @@
+Source: Restatement (Second) of Contracts §90(1), as quoted by state supreme courts:
+        (1) Newton Tractor Sales, Inc. v. Kubota Tractor Corp., Supreme Court of Illinois (2009), as
+            published at https://caselaw.findlaw.com/il-supreme-court/1480006.html
+        (2) Stone v. Waldoboro Bank, 559 A.2d 781 (Me. 1989), as published at
+            https://hallapproved.com/me/cases/supreme/1989/5129325/
+        (3) Alaska Bussell Electric Co. v. Vern Hickel Construction Co., Supreme Court of Alaska, as
+            published at https://case-law.vlex.com/vid/alaska-bussell-elec-co-895750369
+Retrieved: 2026-11-16 by portfolio-2f, with the WebFetch tool, under the owner's request of the same
+        day ("ACD-1.4-DRAFT.txt の法的解釈の不確実性を「５人」で減らし続けてください").
+Form: NOT A BYTE COPY. The fetch tool returns the page through a model, in segments of at most about
+        120 characters, marked "[...]" where the tool cut between them. The Restatement itself is a
+        publication of the American Law Institute and was not fetched; the text below is the courts'
+        quotation of it. (1) quotes §90(1) in full; (2) and (3) quote it with an ellipsis after
+        "promisee" that leaves out the words "or a third person". Each page was fetched once.
+
+WHY THIS FILE EXISTS. §2.5 of the 1.4 draft says the Dedicator makes the Dedication "intending that others
+rely on it" and is estopped from asserting that it is revocable or ineffective for want of consideration
+"to the extent the law of any jurisdiction gives that principle effect". `rounds/2026-11-16-us-asset-
+marketing-v-gagnon-consideration-snapshot.txt` records that a US court tied a licence's irrevocability to
+consideration. In the United States the principle §2.5 invokes is promissory estoppel, which most state
+courts take from §90 of the Restatement.
+
+[1] (Newton Tractor, Ill. 2009, full text as quoted)
+    "(1) A promise which the promisor should reasonably expect to induce action or forbearance on the part of the"
+    [...] "promisee or a third person and which does induce such action or forbearance is binding if injustice can be avoided"
+    [...] "only by enforcement of the promise."
+    [...] "The remedy granted for breach may be limited as justice requires."
+[2] (Stone v. Waldoboro Bank, Me. 1989) introducing sentence:
+    "We have previously approved the doctrine of promissory estoppel as set forth in section 90 of the Restatement (Second) of Contracts:"
+    followed by the same text with the court's own ellipsis after "promisee".
+[3] (Alaska Bussell) the same text, spelled "promissor", with an ellipsis after "promisee", followed by
+    "The remedy granted for breach may be limited as justice requires."
