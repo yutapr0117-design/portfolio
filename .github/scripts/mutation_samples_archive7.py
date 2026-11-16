@@ -63,8 +63,8 @@ MUTATIONS_ARCHIVE7 = [
     {
     "name": "Check 468x: 主表が「足す」と述べた語句 (or for a payment You agreed to make) を草案から消す —— After は「へ」の引用しか読まず、「*\"…\"* を足す」の引用は照合していなかった",
     "file": CURRENT_DRAFT,
-    "find": "), or for a payment You agreed to make.",
-    "replace": ").",
+    "find": "(Section 11.3), or for a payment You agreed",
+    "replace": "(Section 11.3), or for anything You agreed",
 },
     {
     "name": "Check 468x: 主表が §1.3 から「外す」と述べた語句 (in whole or in part) を §1.3 に戻す —— 「外す」の引用は照合しておらず、外したはずの語が条に残っても通った",
