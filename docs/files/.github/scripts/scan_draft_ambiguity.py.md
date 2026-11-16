@@ -30,3 +30,5 @@ canonical-ref: LICENSES/ACD-1.4-DRAFT.txt / .github/scripts/scan_draft_terms.py
 ## Audience-specific notes
 
 - **AI / 後任**: 型を足すときは docstring の一覧と `names` の辞書を同じ commit で直す。
+
+- **--law（2026-11-16・50 の方法の (a)）**: 条ごとに「法に頼る句」（to the extent / applicable law / held invalid / in a jurisdiction / takes effect / irrevocable / waives / 法・法域・裁判所・権利の存否を名指す句）を抜き、5 人の帯（1c §1〜4・30 §5〜7・50 §8〜10・2f §11〜13・9b §14〜16）に分けて出す。2026-11-16 の草案で 39 条・79 句。THIRD §18 に命題を書き出すときの入力。
