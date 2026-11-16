@@ -478,6 +478,8 @@ gap 部 1,041 語を削れば届くが、**それは B10（新規性の根拠が
 
 **2026-11-16 に足した —— 複雑さを理由に却下すべきだった、という委員会側の振り返り（`review-readings-6.md` §1.458・portfolio-9b）。** Richard Fontana 氏 2016-08-20（`license-discuss`・opensource.org のアドレスから・NOSA 2.0）*"Possibly, in retrospect, the better approach with NOSA 2.0 would have been to outright reject it as being way too complex with a number of likely or actual fatal problems."* **理由は連言である**（複雑すぎる、かつ致命的な問題を多く持つ）—— Chestek 氏の長さの文（#116）と同じく、片方だけを取らない。ACD の長さは前者に当たり、後者は B1（法律家の審査が無い）の側の問いになる。**逆側**: 逆向きの評も記録に在る —— Nelson 氏 2008-01 の委員会報告 *"Rosen suggests that this license is worthless because it is too simple."*（Boost について）。短すぎても長すぎても批判されうる。
 
+**2026-11-16 に足した —— 撤回不能を繰り返して述べることは「少し冗長」と読まれうる（`review-readings-2.md` §1.260）。** Josh Berkus 氏 2025-08-15 の MIT-I への文（全文と逆側は `review-precedents.md` §1.47）。ACD は撤回不能を §2.2・§3.1・§4.1・§8.1 の語と §10.4 で述べる。語数を減らす候補になるかは 1c の判断（2f の振り分け）。**逆側**: 4 か所はそれぞれ別の権利（献呈・放棄・著作権の許諾・特許の許諾）に付いていて、1 か所にまとめると、どの権利が撤回不能かの読みが割れうる。
+
 ## B12 —— class 9（2026-11-07 に 11 から移した）
 
 **steward が 1 人**で、承継の仕組みが無い。**設計変更では解けない**（条文を直しても steward は

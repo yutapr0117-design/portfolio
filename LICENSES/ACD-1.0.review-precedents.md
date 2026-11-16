@@ -211,6 +211,8 @@ License**"*・逐語は `rounds/2026-09-13-osi-board-meeting-minutes-2025-06-to-
 明言されている**。ACD-1.0 は撤回不能性を**独立した売りとして提出しない**（§4.1 の一語である）
 ので、この論点で争う理由が無い。
 
+**2026-11-16 に足した —— 同じ審査の逆側（`review-readings-2.md` §1.260・portfolio-2f）。** 上の読みは、委員長の「perpetual と irrevocable の語を入れればよい」を、ACD が既に満たす有利な面として取った。同じ審査で Josh Berkus 氏 2025-08-15 は *"I think it's a bit redundant for the reasons Pam gives"*、*"As far as I know, nobody has ever tried to do this; even with the various relicensings of database software, nobody has tried to claw back the old versions."* と書いた —— 撤回不能の明記そのものを「少し冗長」とし、撤回の実例は無いと言う。ACD の本文は撤回不能を §2.2・§3.1・§4.1・§8.1 の語と §10.4 で述べるので、審査者が撤回不能を新しさや長さの理由として聞けば、この読みが向く。**それでも上の結論は変わらない**: Berkus 氏の通の主な批判は MIT-I の別の義務（公の置き場から外してはならない）に向いていて、撤回不能の明記を退けてはいない。ACD は撤回不能を売りとして出さない、という上の段の方針と整合する。
+
 ---
 
 ## 1.48 0BSD に条件を足した提出 —— Modified 0BSD (Maintenance-Required)（2026-03・12 通・却下）
