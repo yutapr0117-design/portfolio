@@ -626,6 +626,15 @@ def main() -> int:
     finish(v, prev, nxt, args.date, c)
     print(f"ACD-{v} を確定した ({w:,} 語・{c} 条)。次の草案は ACD-{nxt}-DRAFT.txt。git add のあと consistency の RED を順に直す。")
     print(f"提出対象を切り替える日に読む行は `prepare_version_freeze.py --report {v}` が出す。")
+    # 道具が直さず、確定の日に人が直す RED (2026-11-16 の予行で実測・main の上で 1.4 を確定して consistency を回した)。
+    #   道具が直せないのは、どちらも「どの版の数・どの版の適用か」を言い直す判断だから (書き換えの向きが 1 つに決まらない)
+    print(f"確定の日に人が直す RED (2026-11-16 の予行で出たもの): "
+          f"(1) Check 460 (x) —— B3 の見出しと SUBMISSION-MATERIALS の長さの行は「{v} 草案は」の形で書かれ、作業中の草案が "
+          f"{nxt} になると 1 つも読めなくなる。確定した ACD-{v} の長さとして書き直すか、{nxt} 草案の長さとして書き直して "
+          "sync_stated_counts.py --apply を回す。"
+          f"(2) Check 444m —— 入口の FAQ・準備した答え・submission-osd・submission-reference が「適用している」と述べる版を、"
+          f"ACD-{v} を適用した事実に合わせる (道具は機械の面だけを直す)。"
+          "(3) Check 362 —— 下の mutation を退役させる。(4) Check 311 は --date に未来の日を渡すと sitemap の lastmod で鳴る (確定の日の日付を渡す)。")
     orphan_mutations()
     return 0
 
