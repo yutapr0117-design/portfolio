@@ -10,9 +10,10 @@ import re
 # §8.4 / §8.2 は B10 の立証 (gap-measurements.md §1.133) が依拠する句。§5.1 の除外と §8.4 の "content" は §8.4 の
 # 限定を支える (2026-11-06・portfolio-25 の依頼)。§5.1 の除外が落ちると、§8.4 が外した請求項まで不行使になる。
 EFFECT_MARKERS_468U = (
-    ("2.8", "Section 12.4 does not narrow this Section"),
-    # 2026-11-16 (T74・T75): §5.3 の承継の列挙を §2.8 へ寄せた（T75 で人だけを借りる語へ）。§5.3 が §2.8 を狭めないことは、この句が持つ
-    ("5.3", "bind the persons Section 2.8 names"),
+    # 2026-11-16 (T74〜T76): §5.3 と §12.4 は人を §2.8 から借り、限度を §2.8 と同じ語で持つ。限度と人が 1 つなので、
+    # どの条も §2.8 を狭めない（§2.8 の末文「Section 12.4 does not narrow this Section.」は T76 で要らなくなった）
+    ("5.3", "bind the persons Section 2.8 names, to the fullest extent the law permits"),
+    ("12.4", "after the Dedicator's death, to the fullest extent the law permits."),
     ("15.5", '"person" includes an entity'),
     ("8.4", "resulting from Computational Use of the Work"),
     ("8.4", "deliberately absent"),

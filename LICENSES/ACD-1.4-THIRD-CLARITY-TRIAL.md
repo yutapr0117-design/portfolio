@@ -201,6 +201,26 @@ After: The covenants in Sections 5.1, 5.2, and 8.6 bind those whom Section 2.8 b
 
 **⚠ 逆側**: (1) §12.4 の限度 *"to the fullest extent the law permits the Dedicator to bind them"* は残るので、§2.8 の末文 *"Section 12.4 does not narrow this Section."* は要る（468u の目印）。(2) §2.8 の挿入句は読みの負担を 1 つ足す。(3) *names* は §2.8 の文の中の *any person to whom … is transferred* も含むが、これは名指しではなく記述なので、*names* を「固有名で挙げる」と狭く読む余地は残る（*the persons Section 2.8 lists* でも同じ問いが立つ）。
 
+### 15.14 T76 —— §5.3・§12.4 の限度を §2.8 と同じ語に、§2.8 の末文を外す（採った・−5 語・2026-11-16）
+
+**反例（portfolio-30・T75 の merge の後に届いた）**: T75 の §5.3 *"bind the persons Section 2.8 names"* は人だけを借り、§2.8 の限度 *"to the fullest extent the law permits"* を借りない。3 つの約束が承継人・譲受人を限度なしに縛ると断定する形で、1.0 の §5.3 が持ち 1.1 で E17 が直した欠陥を戻していた。30 の案は (A) *"to the extent Section 2.8 binds them"*（+6）と (B) §5.3 から承継の句を外す（−6・30 の推し）。
+
+**50 の応答**: (A) も (B) も §2.8 の範囲 *"in respect of the Work"* を借り、50 の (a)（§8.4 のモデルについての約束が譲受人を縛るか）を戻す。50 の案 (C) は、人を借り、限度を §2.8 と同じ語で自分で持ち、範囲を約束の側に置く。
+
+**採った形**: (C) から *"as to everything those covenants reach"* を除いたもの —— 約束が人を縛るとき、縛る範囲は約束の文そのものが決めるので、範囲の句は何も足さない。さらに §12.4 の限度 *"the law permits the Dedicator to bind them"* も同じ語にした。人（§2.8 から借りる）と限度（同じ語）が 1 つになれば、どの条も §2.8 を狭められないので、§2.8 の末文 *"Section 12.4 does not narrow this Section."* の働きは構造で満たされ、外した。
+
+| 条 | Before（T75） | After（T76） | 語 |
+| :-- | :-- | :-- | --: |
+| §5.3 | *"bind the persons Section 2.8 names, and may be relied upon"* | *"bind the persons Section 2.8 names, to the fullest extent the law permits, and may be relied upon"* | +7 |
+| §12.4 | *"… after the Dedicator's death, to the fullest extent the law permits the Dedicator to bind them."* | *"… after the Dedicator's death, to the fullest extent the law permits."* | −5 |
+| §2.8 | 末文 *"Section 12.4 does not narrow this Section."* | （外した）| −7 |
+
+**機械層**: 468u の目印を §5.3 の *"bind the persons Section 2.8 names, to the fullest extent the law permits"* と §12.4 の *"after the Dedicator's death, to the fullest extent the law permits."* に替え、§2.8 の末文の目印を外した。mutation は §12.4 の限度を旧い語へ戻す形にした（手で RED を確かめた）。
+
+**教訓**: T74〜T76 は 1 日に §5.3 の語を 3 度変えた。T74 は範囲を借り（50）、T75 は限度を落とした（30）—— どちらも、語の増減を見る `--compare` には出ない種類で、反例の担当の読みでしか出なかった。**定義を他の条に預ける改めは、merge の前に反例を 1 巡当てる**（T74・T75 は CI の緑で merge し、反例はその後に届いた）。
+
+**⚠ 逆側**: (1) §12.4 の *"the Dedicator to bind them"* は、死後の行使者を Dedicator の約束で縛れるかを法が決める、と明示していた。新しい語も同じ意味だが、明示は減る。(2) §2.8 の末文を外すと、将来どこかの条が別の限度で承継を語れば、狭める読みが戻る —— 468u の目印が §5.3・§12.4 の語を守るが、新しい条は守らない。(3) SELF-AUDIT の E（*"to the fullest extent the law permits"* の法域差・起草では閉じられない）は T76 でも閉じない。
+
 ## 16. 模擬委員会 —— 記録に立場が厚く残る審査者の目で 1.4 草案を通読する（2026-11-15〜）
 
 **仕組み**: オーナーの依頼（「5 人で話し合って、より良い案をガンガン実行して」）を受けて、portfolio-1c が出し 5 人で決めた。記録に立場が厚く残る 5 人の審査者を 1 人ずつ受け持ち（30 = Chestek 氏、50 = Fontana 氏、2f = Perens 氏、9b = Smith 氏、1c = Villa 氏）、その人の過去の文だけを根拠に、その人の目で 1.4 草案を頭から通読して「どこを突くか」を条番号つきで出す。根拠の無い推測は書かない（必ずその人の文を引く）。各節は表（基準と出典 | 当たる条 | 扱い済みの場所 | 残る点）と、条を変える指摘（試作の種）を持つ。**0 件でも表を残す** —— 審査者の基準を網羅して当てた記録になる。**この節が establish しないこと**: 模擬であって、その人が実際にそう言うことを意味しない。

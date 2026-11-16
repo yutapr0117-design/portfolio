@@ -471,10 +471,10 @@ MUTATIONS_ARCHIVE5 = [
     "check": CHECK,
 },
     {
-    "name": "Check 468u: §2.8 の末文から「§12.4 は本条を狭めない」が落ちる —— 試作 e で外した理由の文が担っていた反対解釈の封じが本文から消える（§5.3 の分は T74 で §5.3 の「bind the persons Section 2.8 names」へ移った）",
+    "name": "Check 468u: §12.4 の限度が「the law permits the Dedicator to bind them」へ戻る —— §2.8 と違う限度は特定の規定として §2.8 を狭める読みを招く（T76 で §2.8 の末文の代わりに、限度を 1 つにした）",
     "file": CURRENT_DRAFT,
-    "find": "Section 6 included. Section 12.4 does not",
-    "replace": "Section 6 included. Section 12.4 is not read to",
+    "find": "Work after the Dedicator's death, to the fullest extent the law permits.",
+    "replace": "Work after the Dedicator's death, to the fullest extent the law permits the Dedicator to bind them.",
     "check": CHECK,
 },
     {
