@@ -402,6 +402,25 @@ def archive_cache_staleness(today: "datetime.date | None" = None) -> list[str]:
     return out
 
 
+def gate_6b(today: "datetime.date | None" = None) -> list[str]:
+    """段 6b (OSI-APPROVAL-PLAN.md §4・SUBMISSION-MATERIALS §0 の 0b): 出す版を license-discuss に少なくとも 30 日置いてから確定する。
+
+    投稿の日は、草案の冒頭の節 "Changes since the version posted on <YYYY-MM-DD>" が記録する (50 と 1c の合意・2026-11-15)。
+    その節が無ければ、窓はまだ始まっていない。根拠は Chestek 氏 2026-01-23 の "at least 30 days for feedback on
+    license-discuss before submitting to license-review"。**逆側** (段 6b の行と同じ): 規則ではなく 1 人の助言で、30 日置いても
+    議論が来る保証は無い。届いたかは公開アーカイブで確かめる (ゲート 10) —— この関数は日付しか見ない。
+    """
+    import datetime
+    today = today or datetime.date.today()
+    head = working_draft().read_text(encoding="utf-8").split(RULE, 1)[0]
+    m = re.search(r"Changes since the version posted on (\d{4}-\d{2}-\d{2})", head)
+    if not m:
+        return ["段 6b: 出す版を license-discuss に出した記録が草案の冒頭に無い (\"Changes since the version posted on <日付>\")"
+                " —— 30 日の窓が始まっていない。投稿はオーナーが自分の言葉で書く (B14)"]
+    left = (datetime.date.fromisoformat(m.group(1)) + datetime.timedelta(days=30) - today).days
+    return [f"段 6b: {m.group(1)} に出した版の 30 日の窓が、あと {left} 日残っている"] if left > 0 else []
+
+
 def gate_6c() -> list[str]:
     """提出のゲート 6c (REVISION-PROTOCOL.md §3.6・SUBMISSION-MATERIALS §0 の 0a): 未読が 0 で、読んだ節がすべて反映されている。
 
@@ -439,9 +458,9 @@ def main() -> int:
     if not args.date:
         ap.error("--date か --report が要る")
     if not args.not_for_submission:
-        unmet = gate_6c()
+        unmet = gate_6b() + gate_6c()
         if unmet:
-            print("STOP: 提出のゲート 6c を満たしていない (REVISION-PROTOCOL.md §3.6・オーナーの前提「全て読んで反映してこそ」):")
+            print("STOP: 提出の前提を満たしていない (段 6b の 30 日・ゲート 6c「全て読んで反映してこそ」・REVISION-PROTOCOL.md §3.6):")
             print("\n".join(f"  - {x}" for x in unmet))
             print("提出しない版を作業の区切りで凍結するなら --not-for-submission を付ける")
             return 2
