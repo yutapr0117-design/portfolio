@@ -1,0 +1,46 @@
+Source: (1) Uniform Commercial Code §2-316 and §2-312, as published by the Legal Information Institute,
+        https://www.law.cornell.edu/ucc/2/2-316 and https://www.law.cornell.edu/ucc/2/2-312
+        (2) 17 U.S.C. §106A (Visual Artists Rights Act), as published by the Legal Information
+        Institute, https://www.law.cornell.edu/uscode/text/17/106A
+        (3) Regulation (EU) 2017/1001 on the European Union trade mark, Article 14, English text as
+        adopted, as published at https://www.legislation.gov.uk/eur/2017/1001/article/14/adopted?view=plain
+Retrieved: 2026-11-16 by portfolio-2f, with the WebFetch tool, under the owner's request of the same
+        day ("ACD-1.4-DRAFT.txt の法的解釈の不確実性を「５人」で減らし続けてください").
+Form: NOT A BYTE COPY. The fetch tool returns the page through a model, in segments of at most about
+        120 characters, marked "[...]" where the tool cut between them. Each item was fetched once.
+        The UCC is a model code enacted state by state; the LII text is the official text of the
+        model, not of any one state's enactment. Re-fetch and compare before relying on the exact
+        wording, and do not assume that nothing lies between two segments.
+
+WHY THIS FILE EXISTS. `ACD-1.4-THIRD-CLARITY-TRIAL.md` §18.4 lists the legal propositions that §11 to §13
+of the 1.4 draft rely on and checks the US and EU half of each against a primary source. These are
+those sources.
+
+---- (1) UCC §2-316 and §2-312 ----
+
+[1] §2-316(2): "Subject to subsection (3), to exclude or modify the implied warranty of merchantability or any part of it"
+    [...] "the language must mention merchantability and in case of a writing must be conspicuous,"
+    [...] "and to exclude or modify any implied warranty of fitness the exclusion must be by a writing and conspicuous."
+[2] §2-316(3)(a): "unless the circumstances indicate otherwise, all implied warranties are excluded by expressions like"
+    [...] "\"as is\", \"with all faults\" or other language which in common understanding calls the buyer's attention"
+    [...] "to the exclusion of warranties and makes plain that there is no implied warranty; and"
+[3] §2-312(2): "A warranty under subsection (1) will be excluded or modified only by specific language or by circumstances which give"
+    [...] "the buyer reason to know that the person selling does not claim title in himself or that he is purporting to sell only"
+    [...] "such right or title as he or a third person may have."
+
+---- (2) 17 U.S.C. §106A ----
+
+[4] §106A(a), opening words: "Subject to section 107 and independent of the exclusive rights provided in section 106, the author of a work of visual art"
+[5] §106A(e)(1): "The rights conferred by subsection (a) may not be transferred, but those rights may be waived if the author"
+    [...] "expressly agrees to such waiver in a written instrument signed by the author. Such instrument shall specifically"
+    [...] "identify the work, and uses of that work, to which the waiver applies, and the waiver shall apply only to the work"
+    [...] "and uses so identified. In the case of a joint work prepared by two or more authors, a waiver of rights under"
+    [...] "this paragraph made by one such author waives such rights for all such authors."
+
+---- (3) Regulation (EU) 2017/1001, Article 14 ----
+
+[6] Art. 14(1)(c): "the EU trade mark for the purpose of identifying or referring to goods or services as those of the proprietor"
+    [...] "of that trade mark, in particular, where the use of that trade mark is necessary to indicate the intended purpose"
+    [...] "of a product or service, in particular as accessories or spare parts."
+[7] Art. 14(2): "Paragraph 1 shall only apply where the use made by the third party"
+    [...] "is in accordance with honest practices in industrial or commercial matters."
