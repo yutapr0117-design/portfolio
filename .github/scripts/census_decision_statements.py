@@ -21,6 +21,7 @@
 会話のうち、決める側の通で、その通単独ではドシエに 8 語連鎖が 1 つも無いもの (40 語以上) を会話ごとに並べる。
 **「引いていない」であって「読んでいない」ではない** —— 読んでも引かなかった通も出る。母数 (候補・読了・AS-OF の数) は
 動かさない。ドシエが一部だけ引いた大きな会話 (ModelGo 約 120 通) の残りの通が、どの一覧にも出なかった穴を埋める。
+各通は [日付, 差出人, 語数, 写しの file 名, Message-ID] (後の 2 つは 2026-11-16・2f の依頼: 件名を書き換えた通を写しから引く)。
 
 `noreview`: `license-review` の提出 (件名が For Approval / Approval / Submission の
 スレッドの最初の通) のうち、提出者が本文で法的レビューの不在を自分で述べたものを数える。
@@ -342,13 +343,15 @@ def conversations():
     未読を少なく出していた (候補の件名 778 本のうち 48 本が複数の会話を含み、23 本は読了と記録されていた)。
     戻り値は {key: [(会話の最初の通の日付 ISO, 最後の通の時刻, [通…])]}。日付の読めない通は最初の会話に入れる。"""
     by_key = collections.defaultdict(list)
-    for _, head, body in messages():
+    for fname, head, body in messages():
         title = subject_key(field(head, "Subject"))
         key = re.sub(r"[^a-z0-9]+", " ", title.lower()).strip()[:90]
         if len(key) < 6:
             continue
         date = field(head, "Date")
-        by_key[key].append((_when(date), date, field(head, "From"), title, body))
+        # 6・7 番目は通の在りか (写しの file 名と Message-ID・2026-11-16・2f の依頼): 件名を書き換えた通 (Re: の後の件名の
+        #   変更・digest) は、件名と日付と差出人では写しから引けなかった (2021〜2023 年の 136 通のうち 71 通)
+        by_key[key].append((_when(date), date, field(head, "From"), title, body, fname, field(head, "Message-ID")))
     convs = {}
     for key, v in by_key.items():
         groups, prev = [], None
@@ -375,7 +378,7 @@ def threads(out):
     for key, cs in convs.items():
         for start, _end, g in cs:
             seen, n, words, hits, topic, unquoted = set(), 0, 0, 0, 0, []
-            for _t, date, sender, title, body in g:
+            for _t, date, sender, title, body, fname, msgid in g:
                 if (sender, date) in seen:
                     continue
                 seen.add((sender, date))
@@ -390,7 +393,7 @@ def threads(out):
                     #   候補の閾値は会話全体の一致で見るので、ドシエが一部だけ引いた大きな会話 (license-review の ModelGo・
                     #   約 120 通) は候補の外に出て、残りの決める側の通がどの一覧にも出なかった。短い通 (40 語未満) は除く
                     if own_hits == 0 and len(text.split()) >= UNQUOTED_MIN:
-                        unquoted.append((_iso(date), sender.split("<")[0].strip().strip('"'), len(text.split())))
+                        unquoted.append((_iso(date), sender.split("<")[0].strip().strip('"'), len(text.split()), fname, msgid))
             dec_text = " ".join(own_text(x[4]) for x in g if DECIDERS.search(x[2]))
             row_b = sorted(b for b, rx in B_TOPICS.items() if re.search(rx, dec_text, re.I))
             row = {"b_topics": row_b, "title": g[0][3], "first": g[0][1], "start": start, "key": key,
@@ -494,7 +497,7 @@ def threads(out):
     print(f"候補の外で、決める側の通のうちドシエに 8 語連鎖が無い通 ({UNQUOTED_MIN} 語以上) を持つ会話 {len(outside_unq)} 件・"
           f"その通 {sum(len(r['unquoted_decider']) for r in outside_unq)} 通: {out}.unquoted-decider.json")
     for r in outside_unq[:15]:
-        first = ", ".join(f"{d} {s}" for d, s, _w in r["unquoted_decider"][:3])
+        first = ", ".join(f"{d} {s}" for d, s, _w, *_loc in r["unquoted_decider"][:3])
         print(f"  未引用の決める側の通 {len(r['unquoted_decider'])}: {r['start']}\t{r['title'][:60]}  (例: {first})")
     # ドシエが名を出しているのに未読の会話 (2026-11-12・portfolio-00 の依頼): 読んだのに READ-THREADS に足し忘れた
     #   会話 (0BSD-P は against #276 で読んだが行が無かった) を、件名 (3 語以上・Re: と [..] を除く) か件名の略称
