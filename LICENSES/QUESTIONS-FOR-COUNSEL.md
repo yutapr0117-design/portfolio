@@ -397,6 +397,14 @@ counterparty whose purpose can be read? If it does, is the purpose the Work's st
 *"works meant to be learned from"* and §6), and does the express list in §4.2 and §6 take the grant outside
 the rule altogether?
 
+**What the law already settles in the European Union (added 2026-11-16).** The reservation in Article
+4(3) of Directive (EU) 2019/790 is a condition of the exception in Article 4(1), not of a licence, and
+recital 18 says *"Rightholders should remain able to license"* the uses that fall outside the exception
+(`rounds/2026-11-16-eu-tdm-and-conflict-of-laws-snapshot.txt`, read through a fetch tool). Our reading:
+a reservation closes the exception route only, so where §4 and §6.1 operate as a licence they do not
+depend on whether a Reservation exists, and the question narrows to the case where a recipient relies on
+the exception alone, for example where the licence is held ineffective.
+
 **An answer would change** whether §6.2 and §6.3 can stay as statements of the Dedicator's own
 position, and whether the §16.2 rule does what it is meant to do or should be dropped; an answer to the second
 would say whether §6 is needed in Germany or only stated.
@@ -411,6 +419,16 @@ choice of law provisions are necessary or advisable in open source licenses"* (`
 #254), which supports the omission; but a recipient sued abroad has no clause to point to, and
 the dossier records that as a cost: #23 is answered only in part, and #170 lists national rules a
 forum could apply against several clauses.
+
+**What the law already settles in the European Union (added 2026-11-16).** For infringement, the law is
+that of the country for which protection is claimed: Rome II, Article 8(1), *"shall be the law of the
+country for which protection is claimed"*, and Article 8(3), *"may not be derogated from by an
+agreement pursuant to Article 14"*. Naming no governing law therefore gives up nothing on the
+infringement side. On the contract side, if the Dedication is a contract at all, Rome I, Article 4(2)
+points to the law of the country *"where the party required to effect the characteristic performance of
+the contract has his habitual residence"*; for a grant, that is the Dedicator
+(`rounds/2026-11-16-eu-tdm-and-conflict-of-laws-snapshot.txt`). Whether it is a contract is not settled by
+these texts.
 
 **An answer would change** whether the second sentence of §15.3 stays. #23 reads *"It is intended to
 operate under the law of each jurisdiction in which the Work is used, according to that law"* as a
@@ -520,11 +538,14 @@ donor's liability to intent and gross negligence. Is a dedication like this one 
 limitation falls away entirely, or a gift whose donor is liable only for intent and gross negligence, or
 neither (`jurisdictions.md` §3)?
 
-If it is a gift, the same characterisation brings a donor's revocation for gross ingratitude, which
-cannot be waived in advance (German civil code sections 530 and 533; French civil code articles 953 and
-955). Our reading narrows it: revocation would reach only the recipient guilty of the ingratitude, not
-other recipients, and enforcing one's own patent in court is not in itself a serious wrong
-(`jurisdictions.md` §3). Is that reading right, and could revocation reach the patent licence of §8,
+If it is a gift, the same characterisation brings a donor's revocation for gross ingratitude, which in
+Germany cannot be waived in advance (German civil code sections 530 and 533). France allows revocation
+only in the three cases of article 955 of its civil code (an attempt on the donor's life, serious
+cruelty, offences or insults, or refusal of maintenance), and article 931 requires a gift to be made
+before a notary on pain of nullity, so an un-notarised dedication is unlikely to be a gift there; whether
+French law bars an advance waiver we have not checked. Our reading narrows it further: revocation would
+reach only the recipient guilty of the ingratitude, not other recipients, and enforcing one's own patent
+in court is not in itself a serious wrong (`jurisdictions.md` §3). Is that reading right, and could revocation reach the patent licence of §8,
 which §8.2 calls not terminable on any ground?
 
 The 1.4 draft (trial T82) now opens §14.1 with *"EXCEPT FOR ANY LIABILITY FOR WILFUL MISCONDUCT, GROSS
