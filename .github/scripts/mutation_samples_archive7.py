@@ -313,4 +313,50 @@ MUTATIONS_ARCHIVE7 = [
     "replace": "だが送ったのは 5,778 語で、",
     "check": CHECK,
 },
+    {
+    "name": "Check 460 (s): file-size-budget.md に Check 463 の項目数を古い値で書く —— 旧版は LICENSES/ だけを読み、"
+            "docs/architecture/ の「10 項目」(実装 16) を見なかった (2026-11-12・監査 #136)",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": "Check 463（送る文面が OSI の要求項目を含む・項目数は Check 463 の OK 行）",
+    "replace": "Check 463（送る文面が OSI の要求 10 項目を含む）",
+    "check": CHECK,
+},
+    {
+    "name": "Check 460 (w): 質問集の mirror が名前を書かずに述べる問数を変える —— 旧版は QUESTIONS-FOR-COUNSEL の語を持つ行だけを"
+            "読み、mirror 自身の「尋ねたい 9 問」を読まなかった (2026-11-12・監査 #135)",
+    "file": ROOT / "docs" / "files" / "LICENSES" / "QUESTIONS-FOR-COUNSEL.md.md",
+    "find": "尋ねたい 9 問を、",
+    "replace": "尋ねたい 8 問を、",
+    "check": CHECK,
+},
+    {
+    "name": "Check 460 (w): 質問集を名指す行に「全8問」と書く —— 旧版は数の前に \\b を要求し、全 と 8 がどちらも語の文字なので"
+            "数えなかった (2026-11-12・監査 #135)",
+    "file": ROOT / "docs" / "files" / "LICENSES" / "QUESTIONS-FOR-COUNSEL.md.md",
+    "find": "**ACD を読む弁護士に尋ねたい 9 問を、",
+    "replace": "**ACD を読む弁護士に尋ねたい `QUESTIONS-FOR-COUNSEL`（全8問）を、",
+    "check": CHECK,
+},
+    {
+    "name": "Check 468r: §10.1 に「いまの状態」の語を足す (currently) —— 後で偽になる文を作用の条に書く T54 の型 (2026-11-12)",
+    "file": CURRENT_DRAFT,
+    "find": "       requirement upon You in respect of the Work.",
+    "replace": "       requirement upon You in respect of the Work as currently drafted.",
+    "check": CHECK,
+},
+    {
+    "name": "Check 468r: §6.5 の除外の句を書き換える —— 句で持つ除外が条から消えたら、読み直しの合図として RED (2026-11-12)",
+    "file": CURRENT_DRAFT,
+    "find": "       proved ambiguous in practice, and because a permission that an automated",
+    "replace": "       proved unclear in practice, and because a permission that an automated",
+    "check": CHECK,
+},
+    {
+    "name": "Check 472n: 申請日の 1 枚が引く草案の句 (§5.2 の \"that the Dedicator itself makes or makes available\") を草案から消す —— "
+            "旧版の manifest は本文で確かめた引用の hash も残すので、草案が句を失っても引用を解決し続けた (2026-11-12)",
+    "file": CURRENT_DRAFT,
+    "find": "       the Work, that the Dedicator itself makes or makes available, or the",
+    "replace": "       the Work, that the Dedicator itself makes or distributes, or the",
+    "check": CHECK,
+},
 ]

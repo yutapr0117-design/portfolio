@@ -1,4 +1,4 @@
-"""checks_license_stated_counts.py — 自己申告の文が持つ 2 つ目の数 (498) と、入口の「最後に読んだ時刻」(499)、§1.N の重複 (500)、読んだ節の反映の欄 (501)
+"""checks_license_stated_counts.py — 自己申告の文が持つ 2 つ目の数 (498) と、入口の「最後に読んだ時刻」(499)、§1.N の重複 (500)、読んだ節の反映の欄 (501)、草案の投稿の状態 (502)
 
 2026-11-08 に足した。Check 460 は自己申告の文の最初の数を実測と照合する面を多く持つが、同じ文の
 2 つ目の数と、隣の文が繰り返す同じ数は読んでいなかった（Check の監査 findings #114〜#123）。
@@ -37,6 +37,10 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (本体は _lib_dossier.reflect_field_misses)。**501b** (2026-11-15・30 の案 (B)・50 の依頼): §1.242 より前の節は
        REFLECTION-BACKFILL.md の表の 1 行で満たしてよい。行は見出しと 1 対 1・語彙・番号の実在・grep と言うなら行き先が
        §1.N を引くこと (BLOCKING)。反映の無い古い節が在れば RED (2026-11-16 に 0 になり、ADVISORY から BLOCKING へ上げた)。
+  502. **草案の冒頭の状態の箇条と、投稿した版の記録の節が食い違わないこと** (BLOCKING・2026-11-16・1c の依頼):
+       "* It has not been posted to any list." と "Changes since the version posted on <日付>" が同時に在れば RED。投稿の後の
+       箇条 "It was posted to license-discuss on <日付>" と節の日付が違えば RED、一方だけが在っても RED (草案が自分の状態に
+       ついて嘘をつく形・安全網の規律 (1))。
 """
 import datetime
 import re
@@ -364,3 +368,26 @@ def run(ctx):
           blocking=False)
     check(not _pend501, f"Check 501 (ADVISORY): 反映が「未定」の節は無い",
           f"Check 501 (ADVISORY): 反映が「未定」の節 {len(_pend501)} 件: {_pend501[:8]}。提出の前に決める", blocking=False)
+
+
+    # ── 502. 草案の冒頭の状態の箇条と、投稿した版の記録の節が食い違わないこと (BLOCKING) ──────────────
+    # 投稿の日に 1c が「Changes since the version posted on <日付>」の節を足し、状態の箇条を書き換える (2026-11-16 の合意)。片方だけを
+    #   直すと、草案が自分の状態について嘘をつき、確定の道具 (gate_6b) は節の日付で 30 日を数える
+    from prepare_version_freeze import RULE as _RULE502, working_draft as _wd502
+    _h502 = _wd502().read_text(encoding="utf-8").split(_RULE502, 1)[0]
+    _sec502 = re.search(r"Changes since the version posted on (\d{4}-\d{2}-\d{2})", _h502)
+    _not502 = "It has not been posted to any list." in _h502
+    _was502 = re.search(r"It was posted to license-discuss on (\d{4}-\d{2}-\d{2})", _h502)
+    _bad502 = []
+    if _sec502 and _not502:
+        _bad502.append("「It has not been posted to any list.」と「Changes since the version posted on」が同時に在る")
+    if bool(_sec502) != bool(_was502):
+        _bad502.append("投稿した版の記録の節と「It was posted to license-discuss on <日付>」の箇条の一方だけが在る")
+    elif _sec502 and _sec502.group(1) != _was502.group(1):
+        _bad502.append(f"節の日付 {_sec502.group(1)} と状態の箇条の日付 {_was502.group(1)} が違う")
+    if not _sec502 and not _not502:
+        _bad502.append("状態の箇条「It has not been posted to any list.」も、投稿した版の記録の節も無い (状態を述べていない)")
+    check(not _bad502, "Check 502: 草案の冒頭の投稿の状態の箇条と、投稿した版の記録の節が食い違わない",
+          f"Check 502: 草案が自分の投稿の状態について食い違う: {_bad502}。投稿の日は節と状態の箇条を同じ commit で直す (1c の合意)",
+          blocking=True)
+
