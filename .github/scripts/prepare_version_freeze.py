@@ -359,11 +359,25 @@ def report(version: str) -> int:
     return 0
 
 
+def _month_404_recently(lst: str, d, today) -> bool:
+    """日次の取得 (fetch_osi_watch.py・~/osi-fetch/watch/<日付>/summary.json) が 3 日以内に、そのリストの今月を HTTP 404 と
+    記録したか。pipermail は月の最初の投稿が来るまで月のページを作らない (2026-11-16: 両リストとも 11 月は 16 日間 404)。"""
+    import datetime
+    import json
+    root = Path.home() / "osi-fetch" / "watch"
+    for k in range(4):
+        s = root / (today - datetime.timedelta(days=k)).isoformat() / "summary.json"
+        if s.exists() and json.loads(s.read_text(encoding="utf-8")).get(f"license-{lst}_{d.strftime('%Y-%B')}.txt") == "HTTP 404":
+            return True
+    return False
+
+
 def archive_cache_staleness(today: "datetime.date | None" = None) -> list[str]:
     """census の写しが提出の日に新しいか (6c の逆側「未読 0 は写しの上の数」を手順でなく止めにする・2026-11-16)。
 
     先月の両リストは月が終わった後に取ったもの、今月の両リストは 3 日以内に取ったものが写しに在ること。今月の初め 3 日は、
-    投稿が無いと月の file が無い (404) ので今月を求めない。写しが無い機械では「写しが無い」と止まる。
+    投稿が無いと月の file が無い (404) ので今月を求めない。それより後でも、日次の取得が 3 日以内に今月を 404 と記録して
+    いれば、投稿が無いとして満たす (_month_404_recently)。写しが無い機械では「写しが無い」と止まる。
     """
     import datetime
     import os
@@ -380,6 +394,8 @@ def archive_cache_staleness(today: "datetime.date | None" = None) -> list[str]:
                 continue
             f = cache / f"license-{lst}-{d.strftime('%Y-%B')}.txt"
             got = datetime.date.fromtimestamp(f.stat().st_mtime) if f.exists() else None
+            if got is None and d is today and _month_404_recently(lst, d, today):
+                continue  # 今月はまだ投稿が無い (日次の取得が 3 日以内に 404 と記録した)。置く物が無いのは古さではない
             if got is None or got < need_after:
                 out.append(f"写しの {f.name} が{'無い' if got is None else f' {got} の取得で古い'} —— "
                            "fetch_osi_watch.py --to-cache で取り直し、census を --pin で回し直して未読を確かめる")
