@@ -11,7 +11,7 @@ canonical-ref: LICENSES/ACD-1.0.against.md / LICENSES/ACD-1.0.against-2.md / LIC
 
 ACD の OSI 承認に向けて「開いている項目」をドシエ全体から 1 つの一覧に集める。register の CLOSED / TRADE でない行（我々が手を
 打てる TEXT・DOSSIER・OPEN・UNTRIAGED と、外部に依る EXTERNAL を分ける）、閉じていない errata、決着していない B、確定のゲート
-（gate_6b・gate_6c）の満たしていない条件、AS-OF の答えていない問い、合成の文書（READINGS-SYNTHESIS.md）§6 の残り、`--advisory` で consistency の ADVISORY の警告。担当の候補の列つき。
+（gate_6b・gate_6c）の満たしていない条件、AS-OF の答えていない問い、合成の文書（READINGS-SYNTHESIS.md）§6 の残り、合否の基準を書いてまだ満たしていない register の行、オーナーにしかできない行為の表、法律家と実務家への問い、候補（SELF-AUDIT の 🔴 と先に登録した反例・閉じたかは読んで確かめる）、`--advisory` で consistency の ADVISORY の警告（30 と 1c の依頼で足した）。担当の候補の列つき。
 
 ## Why
 
