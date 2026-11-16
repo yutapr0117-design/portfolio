@@ -561,7 +561,11 @@ either party cancel a gift not made in writing, *"ただし、履行の終わっ
 (except for the part already performed;
 `rounds/2026-11-16-minpo-chosakukenho-e-gov-api-snapshot.txt`); our reading is that a published text
 applied to a Work is a writing and that a copy already received is a part performed, but we have not
-read a case on a public licence. Is that reading right, and could revocation reach the patent licence
+read a case on a public licence. Article 550 does not say what form the writing takes, and we have not read
+the cases that set the test (to whom the writing is addressed, how clearly it shows the intent to give).
+Article 549 also makes a gift take effect when the other party accepts, so a grant to the public may not
+be a gift at all, and then article 550 does not arise. On either reading, article 550 would not undo
+what a recipient already holds; neither reading is settled. Is that reading right, and could revocation reach the patent licence
 of §8? The 1.4 draft (T85) now says that the licences are not terminable *"under this Dedication"* on
 any ground, so the text no longer speaks for what the law may allow.
 
