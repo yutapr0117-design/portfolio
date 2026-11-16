@@ -45,7 +45,7 @@ decide what is worth translating, and gives you the commands to check the claims
   that is possible, and then grant a copyright license"*. ACD has both parts (§3, §4), its licence
   applying everywhere, and grants patents (§8). It imposes no condition (§10.1), so one of the two
   grounds on which submissions fail has nothing to attach to. Each of the eight published criteria has an answer in the
-  text (below), and it fills a gap the approved list leaves open.
+  text (below).
 - **The gap it claims, in one sentence.** **No OSI-approved instrument grants all three of these
   at once**: (i) a **patent licence that survives the transformation of the work into a model** and
   its outputs; (ii) **no condition on you at all**; and (iii) a grant that expressly reaches
@@ -58,19 +58,19 @@ decide what is worth translating, and gives you the commands to check the claims
   **0BSD, MIT-0 and the Unlicense** — and **none of those three contains the word *patent* at
   all**. Seven extend a patent grant beyond the work itself, and **all seven carry a condition**
   ([`ACD-1.0.gap-measurements.md`](ACD-1.0.gap-measurements.md) §1.97, §1.133).
-- **What this does not claim.** That existing licences forbid training: a licence that allows
-  everything allows training, and MIT's *"deal in the Software without restriction"* may well
-  reach these rights too. §6.1, §7 and §9 state expressly what a broad permission may already
+- **What this does not claim.** That existing licences forbid training: MIT's *"deal in the
+  Software without restriction"* may well reach these rights. §6.1, §7 and §9 state expressly what a broad permission may already
   give, so **they are not grounds of uniqueness** (§1.134).
 - **Nearest approved licences.** Closest in effect to the Unlicense, MIT-0 and 0BSD (and to CC0,
   which is **not** OSI-approved), and in patent terms to UPL-1.0, BlueOak-1.0.0 and
   BSD-2-Clause-Patent, which already combine a permissive grant with an express patent grant under
   one notice condition — **against those three it adds less**: the difference established is that
   condition ([`gap-measurements.md`](ACD-1.0.gap-measurements.md) §1.133).
-- **The two weaknesses, first.** **No lawyer has read it**, and **it has one adopter — this
-  repository**. Neither is repaired here. Neither is a published criterion: the chair called legal
-  review *"not a blocker"*, and a Committee rationale (2020) calls non-use *"not a basis for
-  rejection that the OSI has applied in the past"*.
+- **The three weaknesses, first.** **No lawyer has read it**; **it has one adopter — this
+  repository**; and **it is long**: its terms run longer than GPL-3.0's, a length a Committee
+  member has held against another licence. None is repaired here. The first two are not published
+  criteria: the chair called legal review *"not a blocker"*, and a Committee rationale (2020) calls
+  non-use *"not a basis for rejection that the OSI has applied in the past"*.
 - **Anyone can adopt it.** No project names, and nothing in the text to edit.
 - **If you read one more thing**, read [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md):
   every objection raised on the lists, and whether it lands.
@@ -88,6 +88,12 @@ quotes the nearest OSI-approved text we found.
 | §8.4: *"grants You a licence on the terms of Section 8.1 to put the Work to Computational Use and to make, have made, use, offer to sell, sell, import, and otherwise practise or transfer any model, parameter set, weight, embedding, or output resulting from Computational Use of the Work"* | UPL-1.0, one of the seven approved licences whose patent grant reaches beyond the work ([`gap-measurements.md`](ACD-1.0.gap-measurements.md) §1.133), extends it to *"(ii) the Larger Works (as defined below)"*: *"(b) any piece of software and/or hardware listed in the lrgrwrks.txt file if one is included with the Software"* | UPL reaches beyond the work only to what is **listed in advance** in a file shipped with it. A model trained on the work later cannot be listed. UPL also carries a notice condition |
 | §10.1: *"This Dedication imposes no condition, obligation, restriction, or requirement upon You in respect of the Work."* | 0BSD: *"Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted."* | **Nothing, in this sentence alone** — 0BSD is as unconditional. What is new is the pairing with the patent grant above: none of the three approved licences without a condition contains the word *patent* (§1.97) |
 | §7.2: *"You may extract and re-utilise the whole or any substantial part of the contents of the Work, repeatedly and systematically, without limit and without condition"* | **None that we found** names this right. CC0 1.0, which is **not** OSI-approved, lists *"database rights (such as those arising under Directive 96/9/EC"* among the rights it waives | A difference in what is **stated**, not necessarily in effect: an unrestricted permission may already reach this right. The draft uses the Directive's own verbs |
+
+**The defined terms.** *Work*, *You* and *Contribution* are Apache-2.0's words; *Moral Rights* is
+CC0's; *the Steward* follows EPL's *Agreement Steward*; *Reservation* is tied to Article 4(3) of
+Directive (EU) 2019/790. *Dedicator* plays the part of CC0's *Affirmer*: it is not *Licensor*,
+because §3 surrenders rights rather than licensing them. *Computational Use* and
+*Machine-Generated Material* are new, and name what ACD adds.
 
 **Why a new licence at all.** Bruce Perens wrote to submitters in 2018, as his own view and not
 an OSI rule, that licences *"duplicative of other licenses in their effect should not be accepted
