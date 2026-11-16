@@ -1,0 +1,217 @@
+Source: OSI license-discuss public archive, 2017-February.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 25 in "U.S. Army Research Laboratory Open Source License (ARL OSL) Version 0.4.1" (2017-02-27)
+Senders: Lawrence Rosen
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Mon Feb 27 18:42:59 2017
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Mon, 27 Feb 2017 10:42:59 -0800
+Subject: [License-discuss] [Non-DoD Source] Re: U.S. Army Research
+	Laboratory Open Source	License (ARL OSL) Version 0.4.1
+In-Reply-To: <A677A9FB362B2F499BEFD6F80687FE97BFE39EAD@UMECHPA7F.easf.csd.disa.mil>
+References: <A677A9FB362B2F499BEFD6F80687FE97BFE39D7D@UMECHPA7F.easf.csd.disa.mil>
+ <03d001d2911e$0b51ead0$21f5c070$@rosenlaw.com>
+ <A677A9FB362B2F499BEFD6F80687FE97BFE39E1F@UMECHPA7F.easf.csd.disa.mil>
+ <03f301d29121$fbd69ca0$f383d5e0$@rosenlaw.com>
+ <A677A9FB362B2F499BEFD6F80687FE97BFE39EAD@UMECHPA7F.easf.csd.disa.mil>
+Message-ID: <045c01d29129$52c64d60$f852e820$@rosenlaw.com>
+
+Cem Karan wrote:
+
+> As for our legal counsel posting to this list directly, they've told me in the past that they won't do that because it violates some statute or contract clause[1].  
+
+[1] I'm not sure what exactly, they've explained it to me, but I keep forgetting the finer details.
+
+ 
+
+I apologize for again writing to you, Cem, since you are doing a great job at this thread, but it is the only way I know to get my message to your attorneys:
+
+ 
+
+Their behavior in funneling their license to this public list via a non-lawyer is insulting to those of us on this list who are lawyers and who well understand the law of copyright and open source. They are also insulting the non-lawyers on this list who know more about open source licenses than most lawyers in your government agency apparently do. Please ask them to talk to us as professionals.
+
+ 
+
+As far as some "statute or contract clause" that would prevent a lawyer from justifying his or her own submission of a license to this public open source mail list, I doubt that! 
+
+ 
+
+I am personally so frustrated at this unnecessary barrier that I might file a FOIA request to force them to speak up publicly about their public legal issue that concerns all of us who use the Apache license with public domain components in our software. That's not the way the open source community works out such issues.
+
+ 
+
+/Larry 
+
+ 
+
+Lawrence Rosen
+
+Rosenlaw (www.rosenlaw.com) 
+
+3001 King Ranch Rd., Ukiah, CA 95482
+
+Cell: 707-478-8932 
+
+ 
+
+-----Original Message-----
+From: License-discuss [mailto:license-discuss-bounces at opensource.org] On Behalf Of Karan, Cem F CIV USARMY RDECOM ARL (US)
+Sent: Monday, February 27, 2017 10:10 AM
+To: lrosen at rosenlaw.com; license-discuss at opensource.org
+Subject: Re: [License-discuss] [Non-DoD Source] Re: U.S. Army Research Laboratory Open Source License (ARL OSL) Version 0.4.1
+
+ 
+
+I've forwarded your question to our internal counsel, and I'm hoping to get a message back in a day or two.  I'll post it when they get back to me.
+
+ 
+
+As for our legal counsel posting to this list directly, they've told me in the past that they won't do that because it violates some statute or contract clause[1].  So, I apologize if I have to act as a filter, but that is the best I can do at the moment.
+
+ 
+
+Thanks,
+
+Cem Karan
+
+ 
+
+[1] I'm not sure what exactly, they've explained it to me, but I keep forgetting the finer details.
+
+ 
+
+> -----Original Message-----
+
+> From: Lawrence Rosen [ <mailto:lrosen at rosenlaw.com> mailto:lrosen at rosenlaw.com]
+
+> Sent: Monday, February 27, 2017 12:50 PM
+
+> To: Karan, Cem F CIV USARMY RDECOM ARL (US) 
+
+> < <mailto:cem.f.karan.civ at mail.mil> cem.f.karan.civ at mail.mil>;  <mailto:license-discuss at opensource.org> license-discuss at opensource.org
+
+> Cc: Lawrence Rosen < <mailto:lrosen at rosenlaw.com> lrosen at rosenlaw.com>
+
+> Subject: RE: [Non-DoD Source] Re: [License-discuss] U.S. Army Research 
+
+> Laboratory Open Source License (ARL OSL) Version 0.4.1
+
+> 
+
+> All active links contained in this email were disabled. Please verify 
+
+> the identity of the sender, and confirm the authenticity of all links 
+
+> contained within the message prior to copying and pasting the address 
+
+> to a Web browser.
+
+> 
+
+> 
+
+> ________________________________
+
+> 
+
+> 
+
+> 
+
+> 
+
+> Cem Karan wrote:
+
+> 
+
+> > I'm not a lawyer, I'm not your lawyer, I don't pretend to be one on 
+
+> > TV or anywhere else, and nothing I say should be construed as legal
+
+> advice.
+
+> 
+
+> 
+
+> 
+
+> In that situation, it would be unfair to ask you my question directly, 
+
+> so please forward my email directly to your lawyer(s). I'd like to 
+
+> hear from them directly or on this list.
+
+> 
+
+> 
+
+> 
+
+> Cem Karan wrote:
+
+> 
+
+> . . . the truly serious issue is severability 
+
+> Caution-https://en.wikipedia.org/wiki/Severability < Caution- 
+
+>  <https://en.wikipedia.org/wiki/Severability> https://en.wikipedia.org/wiki/Severability > ).  The concern is that 
+
+> if the USG uses a license that depends on copyright (e.g., Apache 
+
+> 2.0), and those clauses are declared unenforceable by the courts, then 
+
+> it may be possible to declare the entire license unenforceable.
+
+> 
+
+> 
+
+> 
+
+> Larry Rosen asked:
+
+> 
+
+> Apache-licensed software also may (and frequently does) contain public 
+
+> domain components. Are you suggesting that "severability" is a 
+
+> potential problem with Apache software?
+
+> 
+
+> 
+
+> 
+
+> /Larry
+
+> 
+
+> 
+
+> 
+
+> Lawrence Rosen
+
+> 
+
+> Rosenlaw (Caution-www.rosenlaw.com)
+
+> 
+
+> 3001 King Ranch Rd., Ukiah, CA 95482
+
+> 
+
+> Cell: 707-478-8932
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20170227/b3d41925/attachment.html>

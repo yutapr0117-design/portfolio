@@ -1,0 +1,216 @@
+Source: OSI license-discuss public archive, 2023-February.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 9 in "Reconsidering the "unless required by applicable law" clauses on warranties and limitations of liability" (2023-02-17)
+Senders: Pamela Chestek
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Sat Feb 18 18:18:50 2023
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sat, 18 Feb 2023 13:18:50 -0500
+Subject: [License-discuss] Reconsidering the "unless required by
+ applicable law" clauses on warranties and limitations of liability
+In-Reply-To: <ebcb8aeb-20f3-44be-806d-76e9738c30ce@behlendorf.com>
+References: <ebcb8aeb-20f3-44be-806d-76e9738c30ce@behlendorf.com>
+Message-ID: <2cd87b91-a813-76c1-1e3d-457264a41bf3@chesteklegal.com>
+
+> Amendments to the proposed CRA are being sought to limit its damage 
+> upon the OSS community, but I worry that its base premise (that 
+> warranties/liabiliies can not be waived, and thus even non-EU 
+> publishers of source code could be found subject to its fines) and 
+> theory of incentives (put all the burdens on the software publisher; 
+> the market will sort out the resulting effect on supply/demand and 
+> prices) to be wholly broken. The erosion of those disclaimers is a 
+> systematic threat to what makes OSS work, and even if we achieve a 
+> negotiated battle to limit those compromises today, it only shifts the 
+> goalposts for next season's compromises.
+>
+> I'd like to propose that the stewards of licenses approved by the OSI 
+> and in major use consider two adjustments to their licenses:
+>
+> 1) Removal of the "unless required by law" terms in the Disclaimer of 
+> Warranty and Limitation of Liability clauses
+>
+> 2) Explicit text added that clarifies that if any part of such 
+> sections can not be honored by the recipient, the recipients' rights 
+> granted under this license are terminated.
+
+(speaking personally)
+
+Brian,
+
+Your premise that all liabilities can be waived is not correct. This is 
+in the interest of the public - imagine, for example, one had in a 
+release at a go-cart track "you are waiving the right to make a claim 
+against us for intentionally causing you bodily harm." That is against 
+public policy because it incentivizes someone to fail to exercise an 
+appropriate degree of care for others, such as disabling the brakes on 
+the go-carts, and for that reason the law won't enforce the release. 
+What can be waived varies from jurisdiction to jurisdiction, but I 
+believe it's fairly universal that one cannot waive liability for 
+intentional wrongs.
+
+Imagine if an individual included in an open source project code that 
+was designed to take down the entire electric grid as an act of 
+terrorism and it worked. Is it appropriate that the person would not be 
+liable to the electric companies for that intentional act because of a 
+waiver in the license?
+
+In the US, we acknowledge the existence of those unwaivable claims in 
+contracts by doing what the Apache license does, carving out "unless 
+required by applicable law." My understanding is that the clause isn't 
+effective in the same way in some countries and would instead be ignored 
+altogether, leading to liability for everything, not just the unwaivable 
+claims. I also understand that in some countries there are different 
+standards of liability for gifts versus an exchange that benefits both 
+parties. That is why the OSI gets requests for jurisdiction-specific 
+licenses that specifically name what the licensor will still be liable 
+for - those wrongs that, by the operation of law, cannot be avoided by 
+waiving them in a contract.
+
+So removing the clause from the licenses would only make it worse, not 
+better. I also don't think the second option would work - I use the 
+code, the electric grid goes down, I sue the developer, the developer 
+moves to dismiss on the basis that there was no license because the user 
+had agreed not to hold the licensor liable. I see two potential outcomes 
+- the user doesn't have a license and is therefore an infringer, but 
+that doesn't negate the malicious developer's liability for the harm 
+(although the liability on the copyright infringement claim might 
+outweigh the defendant's liability on the tort claim, so it's not worth 
+bringing the claim), or the court would say there is still a license but 
+that clause is unenforceable as against public policy.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com
++1 919-800-8033
+
+On 2/17/2023 12:42 PM, Brian Behlendorf wrote:
+>
+> (speaking personally)
+>
+> The Apache license 2.0, sections 7 and 8 say:
+>
+> ? 7. Disclaimer of Warranty. Unless required by applicable law or agreed
+> ? to in writing, Licensor provides the Work (and each Contributor 
+> provides
+> ? its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
+> CONDITIONS
+> ? OF ANY KIND, either express or implied, including, without limitation,
+> ? any warranties or conditions of TITLE, NON-INFRINGEMENT,
+> ? MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely
+> ? responsible for determining the appropriateness of using or
+> ? redistributing the Work and assume any risks associated with Your
+> ? exercise of permissions under this License.
+>
+> ? 8. Limitation of Liability. In no event and under no legal theory,
+> ? whether in tort (including negligence), contract, or otherwise, unless
+> ? required by applicable law (such as deliberate and grossly negligent
+> ? acts) or agreed to in writing, shall any Contributor be liable to You
+> ? for damages, including any direct, indirect, special, incidental, or
+> ? consequential damages of any character arising as a result of this
+> ? License or out of the use or inability to use the Work (including but
+> ? not limited to damages for loss of goodwill, work stoppage, computer
+> ? failure or malfunction, or any and all other commercial damages or
+> ? losses), even if such Contributor has been advised of the possibility
+> ? of such damages.
+>
+> This are the "use at your own risk" clauses that allow everyone, from 
+> volunteer individuals to large corporations, to be reassured that this 
+> gift of open source software sitting in front of the recipient is 
+> properly understood to be a gift, and not a promise. It puts the onus 
+> on the recipient to be sure that the software is fit for purpose to 
+> whatever their own standards are, and if they can't, they should not 
+> use the software.
+>
+> At the time of drafting the AL2 license, I believe the justification 
+> for having "unless required by applicable law" phrases on each were 
+> that it was typical legal boilerplate; more optimistically it could be 
+> seen as a polite nod to the wide array of viewpoints in different 
+> jurisdictions as to what can actually be dislaimed in a software 
+> copyright license, and that perspectives were likely to shift over 
+> time and the hope was that open source usage could be universal enough 
+> to shift it in its favor. However, it has resulted in organizations 
+> confusingly believing that in those jurisdictions where warranties and 
+> liability can not be entirely waived, that the rights in the license 
+> are still conferred regardless, and that whatever baseline warranties, 
+> liabilities, and resulting support would be inferred are allowed and 
+> even expected.
+>
+> This results not just in "free riding" - where naive organizations 
+> simply use open source code straight from the source without paying 
+> for a support agreement, yet expect support. We saw this when 
+> companies with no prior engagement with the Log4J developers flooded 
+> that team with demands for attestations on their part that they'd 
+> fixed all the bugs and it was defect free. The nerve.
+>
+> This has also put individuals and organizations publishing open source 
+> code at the risk of fines and other sanctions in jurisdictions where 
+> such limitations are not only weak, they are under direct attack by 
+> perhaps well intentioned regulations like the EU's Cyber Resiliance 
+> Act. I'm sure you've all followed the drama but two excellent blog 
+> posts on this matter are:
+>
+> https://blog.nlnetlabs.nl/open-source-software-vs-the-cyber-resilience-act/ 
+>
+> https://eclipse-foundation.blog/2023/01/15/european-cyber-resiliency-act-potential-impact-on-the-eclipse-foundation/ 
+>
+>
+> Amendments to the proposed CRA are being sought to limit its damage 
+> upon the OSS community, but I worry that its base premise (that 
+> warranties/liabiliies can not be waived, and thus even non-EU 
+> publishers of source code could be found subject to its fines) and 
+> theory of incentives (put all the burdens on the software publisher; 
+> the market will sort out the resulting effect on supply/demand and 
+> prices) to be wholly broken. The erosion of those disclaimers is a 
+> systematic threat to what makes OSS work, and even if we achieve a 
+> negotiated battle to limit those compromises today, it only shifts the 
+> goalposts for next season's compromises.
+>
+> I'd like to propose that the stewards of licenses approved by the OSI 
+> and in major use consider two adjustments to their licenses:
+>
+> 1) Removal of the "unless required by law" terms in the Disclaimer of 
+> Warranty and Limitation of Liability clauses
+>
+> 2) Explicit text added that clarifies that if any part of such 
+> sections can not be honored by the recipient, the recipients' rights 
+> granted under this license are terminated.
+>
+> If I give a child some candy, and they come to expect candy every time 
+> they see me, I'm going to stop giving them candy, on principle.
+>
+> IANAL so I won't try to draft the above, but I'd wager $1 that such 
+> text could even be made GPL compatible.
+>
+> This community is extraordinarily generous with its gifts and many 
+> corporations and governments have been able to free ride off the back 
+> of that generosity with very few actually returning value in any form. 
+> Clarity on this point would not only help reaffirm the implicit social 
+> contract underlying the incredible engine of creativity and economic 
+> power that OSS has become, it would remind recipients of the value of 
+> working with vendors or other service providers who are able to assume 
+> that kind of warranty and liability service for a fee.
+>
+> Thoughts?
+>
+> Brian
+>
+>
+>
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not 
+> necessarily those of the Open Source Initiative. Official statements 
+> by the Open Source Initiative will be sent from an opensource.org 
+> email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org 
+>
