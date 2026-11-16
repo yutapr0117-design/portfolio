@@ -1,0 +1,40 @@
+Source: Bürgerliches Gesetzbuch (BGB), https://www.gesetze-im-internet.de/bgb/ (Bundesministerium der Justiz / juris):
+        __276.html, __307.html, __309.html, __521.html, __524.html
+Retrieved: 2026-11-16 by portfolio-30, with the WebFetch tool, under the owner's delegation of the same day.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes of at most 125
+        characters each. Re-fetch and compare before relying on the exact wording; do not assume that nothing
+        lies between two quotes. Only the parts named below were fetched.
+
+WHY THIS FILE EXISTS. The 1.4 draft's trial T82 (Section 14.1) and the dossier's reading of it rest on these
+provisions: whether the limitation of liability survives in Germany if the Dedication is read as standard terms
+(Sections 307 and 309 no. 7) or as a gift (Sections 521 and 524), and what cannot be excluded at all (276(3)).
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD. Whether a unilateral public grant
+is standard terms, a gift, or neither is the question for counsel (QUESTIONS-FOR-COUNSEL.md question 9).
+
+===== § 276 Abs. 3 BGB (Verantwortlichkeit des Schuldners), as reported =====
+1. "Die Haftung wegen Vorsatzes kann dem Schuldner nicht im Voraus erlassen werden."
+
+===== § 307 Abs. 1 BGB (Inhaltskontrolle), as reported =====
+2. "Bestimmungen in Allgemeinen Geschäftsbedingungen sind unwirksam, wenn sie den Vertragspartner des Verwenders"
+3. "entgegen den Geboten von Treu und Glauben unangemessen benachteiligen."
+4. "Eine unangemessene Benachteiligung kann sich auch daraus ergeben, dass die Bestimmung nicht klar und verständlich ist."
+
+===== § 309 Nr. 7 BGB, as reported =====
+5. "7. (Haftungsausschluss bei Verletzung von Leben, Körper, Gesundheit und bei grobem Verschulden)"
+6. "a) (Verletzung von Leben, Körper, Gesundheit)"
+7. "ein Ausschluss oder eine Begrenzung der Haftung für Schäden aus der Verletzung des Lebens,"
+8. "des Körpers oder der Gesundheit, die auf einer fahrlässigen Pflichtverletzung des Verwenders"
+9. "oder einer vorsätzlichen oder fahrlässigen Pflichtverletzung eines gesetzlichen Vertreters"
+10. "oder Erfüllungsgehilfen des Verwenders beruhen;"
+11. "b) (Grobes Verschulden)"
+12. "ein Ausschluss oder eine Begrenzung der Haftung für sonstige Schäden, die auf einer grob fahrlässigen"
+13. "Pflichtverletzung des Verwenders oder auf einer vorsätzlichen oder grob fahrlässigen Pflichtverletzung"
+14. "eines gesetzlichen Vertreters oder Erfüllungsgehilfen des Verwenders beruhen;"
+
+===== § 521 BGB (Haftung des Schenkers), as reported =====
+15. "Der Schenker hat nur Vorsatz und grobe Fahrlässigkeit zu vertreten."
+
+===== § 524 Abs. 1 BGB (Haftung für Sachmängel), first part as reported =====
+16. "(1) Verschweigt der Schenker arglistig einen Fehler der verschenkten Sache, so ist er verpflichtet, dem Beschenkten den"
+(The tool summarised the rest: a donor who fraudulently conceals a defect must compensate the resulting damage.)
