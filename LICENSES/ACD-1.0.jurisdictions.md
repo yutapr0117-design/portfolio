@@ -196,6 +196,11 @@ verzichtet werden. Seine Ausübung kann nicht ausgeschlossen werden."* と定め
 
 **§2.3（知らない受け手）—— §4 を契約と読むと、知らない受け手には成立しない読みが立つ（2026-11-16 追記・portfolio-1c の問い・我々の読み）**: 1.4 草案の §2.3 は *"To hold a permission granted here, You need not know of this Dedication"* と言う。ドイツでは §4 の許諾は Nutzungsrecht を与える契約と読まれやすく、BGB 151 条は *"Der Vertrag kommt durch die Annahme des Antrags zustande,"* *"ohne dass die Annahme dem Antragenden gegenüber erklärt zu werden braucht,"* と、受諾の「表示」を要しない場合を定めるが、受諾そのものは要する（`https://www.gesetze-im-internet.de/bgb/__151.html`・2026-11-16 に WebFetch で取得）。申込みを知らない受け手には受諾の意思が無いので、その受け手との間に §4 の契約は成立しない、と読む余地がある。**別の道**: 連邦通常裁判所 2010-04-29 I ZR 69/08（Vorschaubilder I・BGHZ 185, 291）が形を与えた「schlichte Einwilligung」—— 権利者の一方的な同意で、利用権を与えないが、利用を侵害にしない（判決の原文は 2026-11-16 に dejure の写しが HTTP 429 で取れず、**逐語では確かめていない**。ここは言い換えで、引用ではない）。受諾を要しないので、公の献呈を全員への同意と読めば、知らない受け手にも働きうる。**逆側**: この同意は将来に向かって撤回できると解されてきたので、§2.2 の撤回不能と食い違う。§2.3 の末文 *"nothing You do or fail to do can cause You to lose one"* は受け手の行為についての文なので、Dedicator の撤回とは字面で衝突しないが、受け手の地位が撤回に耐えるとは言えない。§2.5（禁反言）は信頼を要するので、知らない受け手は救わない。§3 の放棄はドイツでは効かない（上の段）。against #321（委員長 2002 と Rosen 氏 2004 の assent）と同じ根の問いで、確立していない（`QUESTIONS-FOR-COUNSEL.md` 問 1）。
 
+**§8.2・§2.2 と贈与の撤回、31a 条の撤回権、§13・§14 の手前の 327 条（2026-11-16 追記・portfolio-30・portfolio-50 の依頼・条文は `rounds/2026-11-16-bgb-530-533-327-urhg-31a-gesetze-im-internet-snapshot.txt`・我々の読み）**:
+(1) **贈与なら、ひどい忘恩による撤回は事前に放棄できない（§8.2 の *"not terminable by the Dedicator on any ground"* と §2.2 がドイツで偽になりうる）**。530 条 1 項 *"Eine Schenkung kann widerrufen werden, wenn sich der Beschenkte durch eine schwere Verfehlung gegen den Schenker oder"* *"einen nahen Angehörigen des Schenkers groben Undanks schuldig macht."*、533 条 *"Auf das Widerrufsrecht kann erst verzichtet werden, wenn der Undank dem Widerrufsberechtigten bekannt geworden ist."* **絞り（不確実性が狭まる向き）**: 撤回はその忘恩を犯した受贈者に対してだけで、他の受け手の許しには及ばないと読む。§8.2 が名指す *"patent litigation by You against the Dedicator"* について言えば、自分の特許権を裁判で行使することは、それだけでは「重い非行」による忘恩に当たりにくいと読む（権利の行使は違法な行為ではない）—— ただし確かめていない。前提の「ACD は贈与か」は問い 9 と同じで、決まっていない。
+(2) **31a 条（未知の利用方法）**: 1 項 2 文は *"Der Schriftform bedarf es nicht, wenn der Urheber unentgeltlich ein einfaches Nutzungsrecht"* *"für jedermann einräumt."* —— §4 の形には書面が要らない（上の段の有利な面の逐語の裏づけ）。撤回権（1 項 4 文 *"Der Urheber kann diese Rechtseinräumung oder die Verpflichtung hierzu widerrufen."*）が 2 文の付与に及ぶかは、上の段が「文言が答えない」と書いたとおりで、4 項は事前の放棄を禁じる。**条文から言える狭まり**: 撤回権が消える仕組み（1 項 5 文）は、相手方が新しい利用の意図を著作者の最後の住所へ知らせてから 3 か月で、特定の契約の相手を前提にしている。2 項は撤回権が *"Es erlischt mit dem Tod des Urhebers."* —— 撤回権は著作者の生涯に限られ、Dedicator が著作者でない権利の承継人なら、この撤回権は Dedicator の手には無い。
+(3) **327 条（デジタル製品の消費者規定）は、無償の自由なソフトウェアに当たらない（§13・§14 の手前の狭まり）**。1 項 1 文は *"gegen Zahlung"* *"eines Preises"* の契約に限り、6 項 6 号は、価格を払わず *"im Rahmen einer freien und quelloffenen Lizenz"* 提供されるソフトウェア（個人データを安全性・互換性・相互運用性の改善にだけ使う場合）を外す。2f が取った EU の 2 つの指令（`rounds/2026-11-16-eu-product-liability-and-digital-content-foss-snapshot.txt`・§6）のドイツの置き換えの側も同じ線にある。**逆側**: 6 項 6 号は「ソフトウェア」と書く —— ACD のデータや文書の部分には、この除外の語は当たらない（1 項 1 文の「価格」の要件で外れる読みは残る）。
+
 ## 4. フランス（人格権が最も強い）
 
 **問い**: 人格権は永久・不可譲・時効にかからないのではないか。
@@ -437,6 +442,8 @@ obtain a remuneration for such lending**"*。
 **私的複製の補償金は別の指令に由来するが、本書では原典を当てていないので触れない。**
 
 ---
+
+**§13・§14 —— 2 つの EU 指令は、無償の自由なソフトウェアを先に外している（2026-11-16 追記・portfolio-2f が取得・`rounds/2026-11-16-eu-product-liability-and-digital-content-foss-snapshot.txt`）**: 製造物責任指令 2024/2853 の第 2 条 2 項は、商業活動の外で開発・供給される自由でオープンソースのソフトウェアに適用しない。デジタルコンテンツ指令 2019/770 の第 3 条 5 項 (f) も、価格も限られた目的以外の個人データも無い FOSS を外す。無償の Dedicator は、§13・§14 が効くかを問う前に、2 つの指令の外にいる。ドイツの置き換えの側は §3 の段（BGB 327 条 6 項 6 号）。**逆側**: 会社が商業活動の過程で ACD を当てれば 2024/2853 が適用され、同指令の第 15 条により、§14 は製造物責任を契約で制限・排除できない。ACD のデータや文書の部分が指令の「ソフトウェア」に当たるかは、指令から決まらない。
 
 ## 7. 英国
 
