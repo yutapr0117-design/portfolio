@@ -307,6 +307,8 @@ are not present."* **この 1 文を落としてはならない。**
 
 **2026-11-16 に足した —— 「法的に有効であること」を提出者が立証する（`review-readings-2.md` §1.253・portfolio-2f）。** Josh Berkus 氏 2013-11-07 は、新しいライセンスの提出者が理事会の過半に示すべきものを *"open source - legally valid - needed"* の 3 つとした。「法的に有効」は、法律家の審査が無い ACD には、本文の文と法律家への問い（`QUESTIONS-FOR-COUNSEL.md`）でしか答えられない。**逆側**: 1 人の理事の言い方で、法律家の意見書を要件とする規則ではない（上の 2013 年の規則の「available なら」と同じ）。
 
+**2026-11-16 に足した —— 承認された OSL の起草者は、読み手を法律家と置き、企業の弁護士の審査を経ていた（`review-readings-6.md` §1.456・portfolio-9b）。** Lawrence Rosen 氏 2002-11-06 *"But the real reader of an open source license is another lawyer who is going to advise his client what that word means."*、*"I'm using language from the Copyright Act on purpose."*、同じ通の追伸で *"The license has been submitted to several companies' attorneys for review"*。ACD は "Covered Rights" などの自前の定義語で書かれ、弁護士の審査を経ていない。**逆側**: 同じ起草者は、承認は法的な祝福ではないとも書いた（`review-readings-6.md` §1.454）—— 法律家の起草は承認の要件ではない。
+
 ### B2（実使用 1 件）——**作れない。制御できるのは discoverability だけ**
 
 **採用は捏造できない。** 存在しない採用を書けば、それは提出の失格事由であって弱点ではない
