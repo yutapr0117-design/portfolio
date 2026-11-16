@@ -160,7 +160,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       another person (errata E39, E60). It no longer points to Section 13.2.
       (+36 words.)
     * Section 8.6's covenant not to assert the patent claims that Sections 8.1
-      and 8.4 reach now operates in every jurisdiction, instead of only where
+      and 8.4 reach now is given for every jurisdiction, instead of only where
       a licence "is held ineffective", and reaches "any act that those
       Sections describe", where it reached any use of the Work or of anything
       resulting from Computational Use of it (errata E42, E45). It now stands
