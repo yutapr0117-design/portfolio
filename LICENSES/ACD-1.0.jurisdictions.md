@@ -542,6 +542,10 @@ Material"* と述べているのは、この状況に対してである** ——
 
 ---
 
+
+**§2.8・§12.2・§2.5 と CDPA 87 条 3 項 4 項・90 条 4 項（2026-11-16 追記・portfolio-30・条文は `rounds/2026-11-16-cdpa-1988-s87-s90-legislation-gov-uk-snapshot.txt`・我々の読み）**:
+(1) **§2.8（譲受人の拘束）は 90 条 4 項が裏づける（狭まる向き）**。*"A licence granted by a copyright owner is binding on every successor in title to his interest in the copyright,"* *"except a purchaser in good faith for valuable consideration and without notice (actual or constructive) of the licence"* —— 英国では許諾は承継人を法律で拘束し、外れるのは許諾を知らず、知りえなかった有償の善意の買主だけ。ACD は公開され、§16.2 の識別子が写しに付くので、「擬制された知（constructive notice）」の無い買主は考えにくいと読む（確かめていない）。§4 の許しが 90 条 4 項の licence に当たる限り、日本の 63 条の 2（§2b）と同じく、§2.8 は法が既にすることを述べる。
+(2) **§12.2 と §2.5 は 87 条 4 項の下に在る（狭まる向き）**。*"(4)Nothing in this Chapter shall be construed as excluding the operation of the general law of contract or estoppel"* *"in relation to an informal waiver or other transaction in relation to any of the rights mentioned in subsection (1)."* —— 署名の無い放棄（§12.1 が 87 条 2 項に届かない場合）でも、契約と禁反言の一般法は働くと法自身が書く。§12.2 の約束と §2.5 の禁反言は、まさにこの 2 つの道。87 条 3 項 (a) は放棄が *"to works generally, and may relate to existing"* *"or future works"* に及びうるとし、包括的な形を法が予定している（§12.3 は ACD の約束を the Work に限るので、それより狭い）。**残る不確実性**: 英国の約束的禁反言は、請求の根拠にならず抗弁にとどまると解されてきた（判例は取得していない・BAILII は道具に 403 を返した）—— §2.5 は Dedicator の主張を止める盾として書いてあるので、その限りでは当たらないが、受け手が §2.5 から損害を請求する道は無いと読む。
 ## 8. その他の法域
 
 個別に扱っていない法域については、**§1 の構造がそのまま答え**になる。§15.4 が「無効な条項は
