@@ -644,7 +644,7 @@ applicable law does not permit their exclusion. Does a conditional exception of 
 Article 8(3), or must §14.1 except gross negligence without the condition, as EUPL-1.2 §8 does
 (`jurisdictions.md`, the paragraph on §14.1 and the Consumer Contract Act)?
 
-**An answer would change** the wording of the T82 exception, if it fails the transparency requirement
+**An answer would change** the wording of the T82 exception, if it fails the German transparency requirement,
 the United Kingdom's reasonableness test, or Article 8(3) of Japan's Consumer Contract Act. Whether §14 should say that it does not limit the covenants
 is settled in the 1.4 draft by T83. An answer to (b) would change whether §14.1 needs its own subject.
 
