@@ -413,3 +413,19 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 (b) §2.4 の 3 つの足場の読みは §2.4 の最後の文がそのまま §15.1 に結ぶので、影響しない。
 (c) **残る点**: *"grants more to You"* の *grants* は、免責（§13・§14）の読みが分かれたときに、受領者に有利な（免責を狭くする）読みまで含むかを決めない。許可と義務の側では向きが 1 つに決まるが、免責は Dedicator を守る条で、どちらが「より多くを与える」かが語から決まらない。E20 と E75 が §15.1 の 2 つの文の射程を *in respect of the Work* に置いた後も、この点は扱っていない。
 **逆側**: 免責の読みを受領者に有利へ倒す規則を本文に足すと、承認済みのライセンスが持つ免責の型（`SUBMISSION-MATERIALS.md` §1c の基準 2 の行・#265）から外れ、かえって審査者に「免責が効かないかもしれない」と読ませる。試作の種にするかは 1c が決める（50 は「変えない」を勧める）。
+
+### 17.5 SECOND §10.1（T5・§16.1 のタグだけの適用）への反例（portfolio-30）
+
+**反例の結果**（SECOND §10.1 の先に登録する反例 (a)〜(e)）: **4 点は当たらない。(a) に残る点が 1 つ。** (b) 依存物の同梱ディレクトリのタグ: §16.2 は *"A notice a Dedicator places"* に限り、第三者が置いたタグは Dedicator の通知ではない。§2.7 が Dedicator の持つ権利に閉じるので、同梱物には及ばない。(c) 従業員が雇用主のコードにタグを付ける: §1.4 の Dedicator の定義は、適用する者を、その者が持つか持ちうる Covered Rights の範囲に限るので、権利を持たない者の適用は雇用主の権利に及ばない（代理の権限の問いは本文の外）。(d) `docs/` だけのタグ: §16.2 の *"applies this Dedication to the material it identifies ... or, where it identifies none, to the material it accompanies"* が範囲を決める。(e) 語順: §16.1 の *"in a form Section 16.2 names or in substantially the following form"* は 2 つを並べた選択で、通知文が推奨にすぎないとは読めない。**残る点 (a)**: README が比較のために「ACD-1.4」を挙げるだけでも、§16.2 の *"a reference to this Dedication by name and version"* の形には当たる。§16.1 の適用は *"place a notice with the Work"* で、*notice* は定義されていないので、比較の言及を「通知」と読む余地は語の上では残る。条件を告げない言及を通知と読むのは不自然で、実害は小さいと読む。試作にするなら、§16.2 の第 1 文の頭を「A notice that a Dedicator places to apply this Dedication」に寄せる形が候補（+5 語前後）。B3 の費用と比べて、30 は試作にしない側に傾く。
+
+### 17.6 SECOND §10.2（T6・§6.4 の "(Section 9)" を外す）への反例（portfolio-30）
+
+**反例の結果**: **当たらない（2 点とも）。** (a) いまの §6.4 は *"Whether a right subsists in any such thing is not decided here and does not need to be."* と自分の文で決めないことを述べ、§9 を根拠に要さない。§9.2 は別に *"makes no representation that any right subsists in any part of the Work"* と述べる。(b) 出力が Dedicator の Work に取り込まれた場合は、§9.1（Work は Machine-Generated Material を含みうる）と §9.2・§9.3 が受け持ち、§6.4 の括弧が無くても案内は §9 の見出しから届く。
+
+### 17.7 SECOND §10.3（T7・§15.1 の "upon You"）への反例（portfolio-30）
+
+**反例の結果**: **当たらない（2 点とも）。** (a) §15.1 の第 2 の句 *"the reading that grants more to You prevails"* は *"upon You"* と独立に働き、受け手に多く与える読みは Dedicator の側を重くする向きでも勝つ。*"upon You"* は第 1 の句の「義務を最小に」の宛先を受け手に定めるだけで、第 2 の句の射程を狭めない（`against.md` #124 の 2026-11-16 の段が、§15.1 は Dedicator の側を縛る向きだと書いたのと合う）。(b) §16.4 は文書についての制約で、§15.1 は *"This Dedication, in respect of the Work, is to be construed"* と、Work についての解釈に限られる（E20）ので当たらない。
+
+### 17.8 SECOND §14.24（T52・§16.2 の狭い通知と §6.2 の留保）への反例（portfolio-30）
+
+**反例の結果**: **当たらない（3 点とも）。** いまの §16.2 は *"a notice that is only a Reservation assigns nothing to other terms (Section 6.2)"* と書く。(a) 撤回不能の向き: TDM だけを外したい Dedicator は、opt-out の通知では外せず、素材を別の条件へ明示に割り当てる必要がある。これは §6.2 の *"expressly declines to make one"* を Dedicator が自分で適用した結果で、本文から読める。E61 が避けた向き（Dedicator の知らないうちに献呈が広がる）とは違い、Dedicator が §6.2 を読めば分かる。(b) 「TDM と再配布を禁じる」のような通知は *only* に当たらず、狭い通知として素材を Work の外に置く。それは Dedicator が献呈の範囲を選ぶことで、受け手から何かを取る抜け道ではない。外された素材は献呈されておらず、通知がそう告げている。(c) 第三者が置いた留保は §16.2 の *"A notice a Dedicator places"* に当たらないので狭い通知にならず、§6.3 が *"Where the Reservation is another rightsholder's ... the Dedicator has no power to withdraw it"* と扱う。
