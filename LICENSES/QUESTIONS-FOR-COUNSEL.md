@@ -207,7 +207,14 @@ Act makes inalienable), without reaching other works.
 **Why we doubt it.** (a) Whether a covenant given to the public at large, rather than to a known
 counterparty, is enforceable in Japan, Germany or France. (b) Whether §12.4 can bind persons who,
 after the author's death, act in their own right (Japan, Articles 60 and 116). (c) Whether a court
-would treat a covenant this broad as contrary to public order even though §12.3 confines it.
+would treat a covenant this broad as contrary to public order even though §12.3 confines it. A second
+point under (c): §12.3 ends by saying that the covenant and the consent *"are given in respect of a work
+that the Dedicator has chosen to place in the commons for the purpose stated in Section 6"*. That clause
+was kept to support the covenant's validity; since the 1.4 draft added a consent (T67), it also reaches
+the consent. A blanket consent given in advance may be read narrowly by the purpose it states (that is our
+reading, not one we have confirmed for any jurisdiction). Does the clause confine the consent to acts that
+serve §6's purpose, being learned from, so that an ordinary modification unrelated to learning falls outside
+it? If it does, would removing the clause weaken the covenant it was meant to support?
 (d) Whether any jurisdiction treats Moral Rights as transferable yet requires a formality, such as
 a signed writing, for a waiver. There §12.2's covenant would not operate, since its trigger is that
 the rights are personal, inalienable, or incapable of waiver, while §12.1's waiver, given without a
@@ -228,7 +235,7 @@ inviting the reading that the covenant alone was not meant to suffice? The 1.4 d
 (`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.1, T67); the reading above is ours, not a list participant's.
 
 **An answer would change** §12.2 and §12.4, the clauses on which the dossier most wants correction
-(`jurisdictions.md` §10).
+(`jurisdictions.md` §10), and whether §12.3 keeps its last clause (the second point under (c)).
 
 ## 4. Does a contribution fall under the Dedication by default? (§2.6, §1.9)
 
