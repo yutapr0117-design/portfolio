@@ -133,6 +133,28 @@ Check 468y は 2 冊目とこの file の両方の「変えない」「退けた
 
 **⚠ 逆側**: (1) 前文は非作用で、効くのは審査者が前文を意図の証拠として読むとき（Chestek 氏 2020・`review-readings-2.md` §1.251）だけ。(2) 2 回続けて同じ文を直した（T72・T73）—— 審査中の改訂を嫌う審査者（Berkus 氏 2018）の目には、確定の前の草案の中のことなので当たらないが、投稿の差には最後の形だけが出る。(3) 前文が「既存では足りない」と言わなくなったので、B10 の主張は入口と提出の材料が受け持つ。
 
+### 15.10 定義語を承認済みの語と照らした —— 独特に読まれる語はどれか（変えない・2026-11-16）
+
+**種（portfolio-50・模擬委員会の Fontana 氏の節）**: Fontana 氏は Open Innovation License を *"a highly and uninterestingly permissive FOSS license and it just happens to be written in a highly odd and idiosyncratic style"* と評した（2020-12-28）。定義はあっても語が独特に読まれると、理解の費用（B13）が増える。30 の頻度表の読みでは、25 年出続けた問い（B10・B1・B2・B13・B3）のうち、本文の語で答えられるのは B13 だけである。ACD の定義語 11 個を、承認済みのライセンスと法令の語に照らした（使われる回数は 2026-11-16 の草案で数えた）。
+
+| 定義語 | 回数 | 最も近い承認済み・法令の語 | 読み |
+| :-- | --: | :-- | :-- |
+| Work | 80 | Apache-2.0 の *Work* | 同じ語 |
+| You | 48 | Apache-2.0 の *You* | 同じ語 |
+| Contribution | 6 | Apache-2.0 の *Contribution* | 同じ語（定義は ACD の場に合わせてある）|
+| Moral Rights | 9 | CC0 の *moral rights*・ベルヌ条約 6 条の 2 | 同じ語 |
+| the Steward | 4 | EPL の *Agreement Steward*・MPL の *license steward* | 同じ語（`review-readings-2.md` §1.226 の先例）|
+| Reservation | 7 | EU 指令 2019/790 の 4 条 3 項の *reserved … in an appropriate manner* | 法令の語に結ぶ |
+| Dedicator | 77 | CC0 の *Affirmer*・Apache-2.0 の *Licensor* | **ACD に独特**。*Licensor* にすると §3 の放棄（許諾ではない）と食い違う。CC0 も自分の語（*Affirmer*）を立てている |
+| Covered Rights | 9 | CC0 の *Copyright and Related Rights*・MPL の *Covered Software* | ACD に独特だが、*Covered* は MPL と同じ型 |
+| Computational Use | 5 | 承認済みに無い | **前文の 3 つの場所（機械学習）に対応する新しい語** |
+| Machine-Generated Material | 4 | 承認済みに無い | **前文の 3 つの場所（機械による著作）に対応する新しい語** |
+| Dedication | — | CC0 の *dedication*（本文中の語）| ほぼ同じ語 |
+
+**結果（変えない）**: 11 個のうち 6 個は承認済みのライセンスか法令と同じ語、1 個（*Dedication*）はほぼ同じ語で、*Covered Rights* は MPL と同じ型である。独特なのは *Dedicator* と、前文が名指す場所に対応する 2 つの新しい語（*Computational Use*・*Machine-Generated Material*）—— 後の 2 つは、ACD が既存に無いと主張する効果（B10）そのものを名指す語で、承認済みの語に置き換えると、何が新しいかを本文が言えなくなる。*Dedicator* は 77 回使われ、置き換えの候補（*Licensor*）は §3 の放棄と食い違う。審査者の理解の費用は、本文ではなく入口の 1 行（定義語と承認済みの語の対応）で下げる —— portfolio-50 に `REVIEWERS.md` への 1 行を依頼した。
+
+**⚠ 逆側**: (1) Fontana 氏の評は文体全体（*style*）についてで、定義語だけではない。ACD の長さと文の形（B3）は、この表では測っていない。(2) 「同じ語」と書いた語も、定義の中身は承認済みのものと違う（例えば *Contribution* は §1.9 で場を名指す）—— 同じ語が別の意味で使われると、かえって誤読を招きうる。(3) 置き換えないので、1.3 との差（redline）には何も出ない。
+
 ## 16. 模擬委員会 —— 記録に立場が厚く残る審査者の目で 1.4 草案を通読する（2026-11-15〜）
 
 **仕組み**: オーナーの依頼（「5 人で話し合って、より良い案をガンガン実行して」）を受けて、portfolio-1c が出し 5 人で決めた。記録に立場が厚く残る 5 人の審査者を 1 人ずつ受け持ち（30 = Chestek 氏、50 = Fontana 氏、2f = Perens 氏、9b = Smith 氏、1c = Villa 氏）、その人の過去の文だけを根拠に、その人の目で 1.4 草案を頭から通読して「どこを突くか」を条番号つきで出す。根拠の無い推測は書かない（必ずその人の文を引く）。各節は表（基準と出典 | 当たる条 | 扱い済みの場所 | 残る点）と、条を変える指摘（試作の種）を持つ。**0 件でも表を残す** —— 審査者の基準を網羅して当てた記録になる。**この節が establish しないこと**: 模擬であって、その人が実際にそう言うことを意味しない。
