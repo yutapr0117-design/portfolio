@@ -183,6 +183,10 @@ Richard Fontana 氏は PUWL（公有化の放棄・責任の否認・代わり�
 
 Ian Lance Taylor 氏 2003-07-16（`license-discuss`）*"If you can't use an existing license, then your first step should not be to write a license, but instead to write to the list and explain clearly why no existing license will work"*。**逆側（ACD に不利な順序）**: ACD は G1 に理由を書いたが、リストに尋ねる前に本文を書き、1.0 を出した（2026-08-26）。**有利な面**: 1.0 は `license-review` ではなく `license-discuss` に出し、理由（gap）を最初の投稿に添えた。Taylor 氏は決める側の記録の無い参加者で、規則ではない。
 
+### 2026-11-16 —— 「違反しようのないライセンスは存在する理由が無い」（2009 の委員長）と、「増殖への扉は、それだけでは却下の理由ではない」（2011）（`review-readings-6.md` §1.458・portfolio-9b）
+
+不利な側: Russ Nelson 氏 2009-03-14 の WTFPL への理由（全文と ACD の答えは `board-decisions.md` §8.1）。有利な側: Karl Fogel 氏 2011-12-15（`license-review`・MPL 2.0）*"Agree with Bruce that the clause that opens the door to license proliferation is not in itself grounds for rejection."*（同じ通で *"We should of course still do everything we can to stop proliferation!"* と添える）。**逆側**: Fogel 氏の文は MPL 2.0 の版の更新の条についてで、新しいライセンスそのものの増殖を許す文ではない。
+
 ### 2026-09-20 追記 —— gap の 1 本目に、**決着した裁判例が付いた**
 
 **§6 が扱う問いは仮想ではない。** ハンブルク上級地方裁判所 第 5 民事部は 2025-12-10 に
