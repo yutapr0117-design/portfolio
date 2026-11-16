@@ -277,6 +277,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-11-16 | EU 指令・ローマ I・II | **観測（DSM 指令 2019/790 第 4 条 1〜3 項と前文 18、ローマ I 第 1 条 1 項・第 4 条、ローマ II 第 8 条 1 項・3 項・WebFetch の逐語の片で、バイト単位の写しではない・問い 6・7 の法源）** | `2026-11-16-eu-tdm-and-conflict-of-laws-snapshot.txt` |
 | 2026-11-16 | 米国連邦巡回区 | **観測（TransCore v. Electronic Transaction Consultants（2009）の、非独占の特許の許諾は訴えない約束と同じ効果、の 3 文・WebFetch の逐語の片で、バイト単位の写しではない・問い 2・8 の法源）** | `2026-11-16-us-transcore-covenant-equals-license-snapshot.txt` |
 | 2026-11-16 | 米国第 9 巡回区 | **観測（Asset Marketing Systems v. Gagnon（2008）の「対価を払ったので撤回できない」「対価に支えられた非独占の許諾は契約」の段・法律事務所の PDF からこの session で取り出した・裁判所の写しではない・撤回不能の不利な側の法源）** | `2026-11-16-us-asset-marketing-v-gagnon-consideration-snapshot.txt` |
+| 2026-11-16 | 米国の州最高裁 | **観測（契約法リステイトメント第 2 版 §90(1) の約束的禁反言の規準を、イリノイ（2009・全文）・メイン（1989）・アラスカの判決の引用で・WebFetch の逐語の片で、バイト単位の写しではない・§2.5 の米国の法源）** | `2026-11-16-us-restatement-90-promissory-estoppel-snapshot.txt` |
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（UrhG 31 条 5 項・目的移転の原則の条文・WebFetch の逐語の片で、バイト単位の写しではない）** | `2026-11-16-urhg-31-5-gesetze-im-internet-snapshot.txt` |
 | 2010-10-07 | Schmitz 氏（EUPL の起草者） | **観測（netX の審査・一般的な免責は欧州で不当とされ、EUPL は故意と自然人への損害を除外しない理由・Wilson 氏の問いの引用つき）** | `2010-10-license-review-netx-schmitz-liability-exclusion-observed.txt` |
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 276 条 3 項・307 条 1 項・309 条 7 号・521 条・524 条 1 項・WebFetch の逐語の片）** | `2026-11-16-bgb-276-307-309-521-524-gesetze-im-internet-snapshot.txt` |
