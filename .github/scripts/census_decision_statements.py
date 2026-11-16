@@ -371,6 +371,11 @@ def threads(out):
         if rel.endswith(".md") and "/rounds/" not in rel:
             seen_in_dossier.update(grams(open(REPO / rel, errors="replace").read()))
     convs = conversations()
+    # 写しが無いと会話は 0 で、固定の行だけが「アーカイブに無い候補」として残り、AS-OF と同じ数 (候補 N 本のうち N 本) を
+    #   それらしく出していた (2026-11-16・9b が DOSSIER_ARCHIVE_CACHE を渡さずに回し、誤った結論を 50 へ送った)。止まる
+    if not convs:
+        print(f"STOP: アーカイブの写しが読めない ({CACHE})。DOSSIER_ARCHIVE_CACHE=<写しの dir> を付ける")
+        sys.exit(2)
     rows, topical = [], []
     for key, cs in convs.items():
         for start, _end, g in cs:
