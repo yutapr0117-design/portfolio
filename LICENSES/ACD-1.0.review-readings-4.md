@@ -112,3 +112,24 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 **この節が establish しないこと。** FSF が ACD をどう評するか。WebFetch の要約の層を通った逐語が、原文と 1 字ずつ一致すること。
 
 **反映**: against #328（FSF の一次資料を 2026-11-16 に取り直した・逐語の置き換えは 30 へ）/ 入口（`OSI-APPROVAL-PLAN.md` の第三者の見解を得る経路の段に、FSF の一覧が ACD の 3 つの部分に当たる形を足す・50）。
+
+## 1.355 承認は OSD への適合だけでなく共同体の益も見るべきだという声と、見慣れないライセンスは取り残されるが新しい機能で選ばれることも原理的にはある、という観察（"Proposal: criteria for license approval"・2005-09）（2026-11-16）
+
+census の候補の外の会話（Ian Lance Taylor 氏の通を含む 31 本・9b の一覧）のうち 50 の分の 1 本。5 通を全文で読んだ（`read_thread.py`・上限で切った通 0）。Taylor 氏が OSI の理事だったかは opensource.org の頁でも写しでも確かめられなかった（2026-11-16・50）ので、決める側としては扱わない。
+
+| 発言 | 誰が・いつ | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"applications should be told whether their license is approved, or whether it has been rejected (and if so what criteria it breaches and why). Where rejection is for a minor reason that would be remedied by an obvious drafting change, the words of this drafting change should be passed on."* と、承認を OSD と公表された手続きだけで判断せよという提案 | Alex Bligh 氏 2005-09-01（OVPL の審査の最中・3 人が +1） | 手続きの材料。提出者の側の要求で、OSI の規則にはならなかった。ACD の手続きの文書（`REVISION-PROTOCOL.md`）は、指摘に本文で答えて改訂する形を取る |
+| *"I've generally argued that the OSI should not just blindly approve licenses which meet the requirements of the OSD, but should consider whether those licenses will help or hurt the community."* | Ian Lance Taylor 氏 2005-09-01 | B10 の側。OSD の適合は床で、共同体への益が問われうるという線（`against-2.md` #248 の 3 人と同じ向き）。ACD の答えは B10 の 3 つの効果と、条件を課さないので互換を壊さないこと（同じ通の反 GPL のライセンスの例は、他のライセンスとの組み合わせを禁じる形で、ACD はその反対） |
+| *"An less extraordinary software package under an unusual license is simply doomed to be left behind--it will perhaps included in distros, but it will not attract wide attention or contributions, or be integrated into other packages."* | 同 | **不利な面（B2）。** 採用は、ライセンスでなくソフトウェアの力が運ぶという見方で、ACD を使う作品は提出者のリポジトリ 1 件だけである |
+| *"It is possible in principle for a new license to be sufficiently interesting that people will adopt it in preference to the existing licenses because of new features that it has, even if it is not attached to any interesting software.  The only cases so far where I think this may actually happen are the AFL and the OSL."* | 同 | **有利な面（B10・B2）。** 機能で選ばれる新しいライセンスは原理的にありうるが稀だ、という観察。ACD が名指す機能（モデルと出力に届く特許・条件の無さ・機械学習の明示）は、この「機能で選ばれる」側の賭けである。逆側: 同氏は同じ文で、その例を 2 本しか挙げていない |
+
+2 本目の "OPEN Source"（2005-11・11 通）も全文で読んだ。帰属と対価への一般論（OSD 1 の説明）で、ACD に当たる新しい論点は無い（Taylor 氏の 4 通は自由ソフトウェアの起こりの説明）。
+
+**読み。** 2005 年の list には、承認を OSD だけで決めよという声と、共同体への益も見よという声が並んでいた（§1.198 の Behlendorf 氏と Nelson 氏の対立と同じ時期）。ACD にとって不利なのは「見慣れないライセンスは取り残される」の観察で、有利なのは「新しい機能で選ばれることもありうる」の観察である。
+
+**逆側。** Taylor 氏の文は一参加者の見解で、決める側の文ではない。共同体への益を承認の基準にする案は、その後の OSI の規則の文（`review-rules.md`）にそのままの形では入っていない。
+
+**この節が establish しないこと。** Taylor 氏が理事だったかどうか。
+
+**反映**: B2・B10（採用はソフトウェアが運ぶという観察と、機能で選ばれる新しいライセンスの稀さ・30 へ）。
