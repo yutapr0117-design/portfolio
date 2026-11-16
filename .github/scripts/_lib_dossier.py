@@ -324,6 +324,9 @@ def reflect_field_misses(licenses_dir: Path) -> tuple[int, list[str], list[str]]
 
 # ── 古い節の反映の表 (REFLECTION-BACKFILL.md・Check 501 の 2 つ目の面・2026-11-15) ─────────────────
 REFLECT_SCOPE_EXCLUDE = ("ACD-1.0.comparison.md", "REVISION-PROTOCOL.md")  # §1.N が読みの節でない文書 (CHANGELIST も外す)
+# 表の行のうち反映が「未定」のもの (呼ぶたびに作り直す・2026-11-16): 節の末尾の欄の未定は reflect_field_misses が返すが、
+#   表の行の未定はどこも数えておらず、gate_6c は 1.161 の未定の行を残したまま「満たした」と返した
+BACKFILL_PENDING: list[str] = []
 _BF_CELL = re.compile(r"^(?:`?(?P<file>[A-Za-z0-9.\-]+\.md)`?\s+|(?P<stem>[a-z][a-z0-9\-]+)\s+)?(?P<num>1\.\d+)$")
 
 
@@ -360,6 +363,7 @@ def backfill_table_misses(licenses_dir: Path) -> tuple[int, list[str], list[str]
         for i, h in enumerate(hs):
             body = t[h.end(): hs[i + 1].start() if i + 1 < len(hs) else len(t)]
             heads[(p.name, int(h.group(1)))] = bool(_REFLECT_LINE.search(body))
+    BACKFILL_PENDING.clear()
     bf = licenses_dir / "REFLECTION-BACKFILL.md"
     rows = [r for r in re.findall(r"^\|(.+)\|\s*$", bf.read_text(encoding="utf-8"), re.M)] if bf.exists() else []
     bad, covered = [], set()
@@ -396,6 +400,8 @@ def backfill_table_misses(licenses_dir: Path) -> tuple[int, list[str], list[str]
             bad.append(f"{where}: 節の末尾にも反映の欄が在る (両方は置かない)")
         covered.add(k)
         v = cells[1] if len(cells) > 1 else ""
+        if "未定" in v:
+            BACKFILL_PENDING.append(where)
         if not _REFLECT_VOCAB.search(v):
             bad.append(f"{where}: 反映のセルが語彙で始まらない: {v[:50]}")
         for a in re.findall(r"against #(\d+)", v) + re.findall(r"(?<=[・、/ ])#(\d+)", v):

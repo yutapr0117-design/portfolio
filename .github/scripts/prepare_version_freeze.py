@@ -367,7 +367,7 @@ def gate_6c() -> list[str]:
     Check 498 (h) と Check 501 / 501b と同じ関数。**逆側** (6c の行と同じ): census の候補の外は未読 0 に入らない。
     """
     sys.path.insert(0, str(Path(__file__).resolve().parent))
-    from _lib_dossier import backfill_table_misses, reflect_field_misses
+    from _lib_dossier import BACKFILL_PENDING, backfill_table_misses, reflect_field_misses
     from census_decision_statements import _list_rows
     cand = {(k, d) for k, d, _t in _list_rows(L / "THREAD-CANDIDATES.txt")}
     read = {(k, d) for k, d, _t in _list_rows(L / "READ-THREADS.txt")} & cand
@@ -378,8 +378,8 @@ def gate_6c() -> list[str]:
     if bad or pending:
         out.append(f"§1.242 以降の節の反映の欄が欠けるか未定: {len(bad)} 件・未定 {len(pending)} 件")
     _n, bad_b, missing = backfill_table_misses(L)
-    if bad_b or missing:
-        out.append(f"古い節の反映: 表の誤り {len(bad_b)} 件・反映の無い節 {len(missing)} 件")
+    if bad_b or missing or BACKFILL_PENDING:
+        out.append(f"古い節の反映: 表の誤り {len(bad_b)} 件・反映の無い節 {len(missing)} 件・未定の行 {len(BACKFILL_PENDING)} 件")
     return out
 
 
