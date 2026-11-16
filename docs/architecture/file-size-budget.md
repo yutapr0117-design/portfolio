@@ -93,7 +93,8 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `LICENSES/READ-THREADS.txt` | 566 | 980 | `advisory` | 読了した会話の一覧（`record_read.py` が 1 行ずつ足す）。**2026-11-15 に 5 人で未読を 0 にする作業で 852 行になり、800 行の危険域に入ったので登録した**（portfolio-2f）。行は読了ごとに増えるだけで減らない。候補 824 本を全部読み、候補の外の会話も足すと 1,000 行（Check 365）に届きうるので、届く前に年ごとの file に分けるか、Check 365 の対象から外す扱いを機械層（portfolio-9b）が決める |
 | `LICENSES/READ-THREADS-2010.txt` | 379 | 980 | `advisory` | 読了した会話の一覧のうち 2010 年以後に始まった会話（`record_read.py` が始まりの年で file を選ぶ）。**2026-11-16 に READ-THREADS.txt が 941 行（上限 1,000 まで 59 行）になり、年で 2 つに分けた**（portfolio-50 の報告・portfolio-9b） |
 | `LICENSES/THREAD-CANDIDATES-2010.txt` | 351 | 980 | `advisory` | census の候補の会話のうち 2010 年以後に始まった会話（`--pin` が始まりの年で file を選ぶ）。**2026-11-16 に THREAD-CANDIDATES.txt が 846 行で、決める側を 1 人足すと数十行増えるため、READ-THREADS と同じ型で年で 2 つに分けた**（portfolio-50 の勧め・portfolio-9b） |
-| `LICENSES/READ-THREADS-LOG.md` | 870 | 950 | `advisory` | 読了の記録（`record_read.py` が 1 件ずつ先頭に足す・1 件 2 行）。**2026-11-16 に Taylor 氏の候補の外の 31 本を読む作業で 818 行になり、800 行の危険域に入ったので登録した**（portfolio-9b）。950 を越えたら、古い日付の節を `READ-THREADS-LOG-<日付>.md` へ移す（本文は無改変で、`AS-OF.md` の 65 件を移したときと同じ形）。 |
+| `LICENSES/READ-THREADS-LOG.md` | 121 | 950 | `advisory` | 読了の記録（`record_read.py` が 1 件ずつ先頭に足す・1 件 2 行）。**2026-11-16 に Taylor 氏の候補の外の 31 本を読む作業で 818 行になり、800 行の危険域に入ったので登録した**（portfolio-9b）。950 を越えたら、古い日付の節を `READ-THREADS-LOG-<日付>.md` へ移す（本文は無改変で、`AS-OF.md` の 65 件を移したときと同じ形）。 |
+| `LICENSES/READ-THREADS-LOG-2026-11-15.md` | 763 | 950 | `advisory` | 読了の記録のうち 2026-11-15 以前の 2 節（書き足さない）。**2026-11-16 に READ-THREADS-LOG.md が 870 行になり、古い節を移した**（本文は無改変・portfolio-9b） |
 | `LICENSES/ACD-1.0.review-doctrine.md` | 781 | 800 | `advisory` | リスト上で論じられた法理を **ACD-1.0 の特定の条へ当てた**もの（§1.84 / §1.100 / §1.101 / §1.109）。**2026-09-25 に `review-precedents.md` が 955 行で advisory (900) を越えたので切り出した。** **割る線は行数ではなく主題** —— 残した側は「他の提出に何が起きたか」（撤回・却下・承認・改名・議決）、本書は「その法理を我々の条に当てるとどうなるか」で、読み手の用途が違う。**節番号は変えていない**ので `§1.84` 等の参照は番号として解決し、file 名を添えた参照は向け直した |
 | `LICENSES/ACD-1.1-SELF-AUDIT.md` | 856 | 900 | `advisory` | 草案（1.1〜1.4）が自分で持ち込んだ欠陥の記録（1.0 の本文に無い文の欠陥。1.0 に在る文は errata）。読みのたびに節を足す append 型で、**2026-11-08 に §3y を足して 800 行を越え、Check 454 の危険域に入ったので登録した**。900 に近づいたら、節の単位で 2 冊目へ分ける（`ACD-1.4-CLARITY-TRIAL.md` と同じ形） |
 | `LICENSES/ACD-1.0.review-responses-clauses.md` | 856 | 900 | `advisory` | **条項別の想定問答**（§1〜§16 を条ごとに、審査者が突いてくる順で並べる）。**2026-09-14 に Check 454 が「800 行を越えたのに予算が無い＝早期警告が存在しない」と検出して初めて登録した** —— それまで**この file だけ無登録**で、advisory も BLOCKING も効いていなかった。**審査の往復が続くかぎり育つ側の file**（1 つの指摘が 1 つの問答になる）。**次に advisory が鳴ったら、条の範囲で割る**（§1〜§9 / §10〜§16）—— テーマではなく**条番号**で割るのは、読み手が「どの条の話か」で探すからである |
@@ -641,6 +642,7 @@ LICENSES/READ-THREADS.txt | 980 | advisory
 LICENSES/READ-THREADS-2010.txt | 980 | advisory
 LICENSES/THREAD-CANDIDATES-2010.txt | 980 | advisory
 LICENSES/READ-THREADS-LOG.md | 950 | advisory
+LICENSES/READ-THREADS-LOG-2026-11-15.md | 950 | advisory
 LICENSES/ACD-1.0.review-doctrine.md | 800 | advisory
 LICENSES/ACD-1.1-SELF-AUDIT.md | 900 | advisory
 LICENSES/ACD-1.0.review-responses-clauses.md | 900 | advisory
