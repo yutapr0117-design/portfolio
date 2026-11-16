@@ -259,20 +259,16 @@ check."* (`review-readings-2.md` §1.229). Neither the FSF nor Debian has looked
 own reading of the 1.4 draft against their published tests, not their assessment**, and it should be
 weighed as such. Clause numbers are those of the 1.4 draft. The FSF's positions are taken from its licence list
 (`https://www.gnu.org/licenses/license-list.html`, read on 2026-11-15 and again on 2026-11-16 with the owner's
-permission to fetch from gnu.org). The fetch tool returns only the first sentence of each entry word for word and summarises the rest; the page could not be saved whole from this
-environment, so nothing from it is quoted here: the list files CC0 and the Unlicense as public domain dedications,
-its *Public Domain* entry says that being in the public domain is not a licence but means no licence is needed,
-and the reasons in the table below (CC0's patent exclusion, 0BSD's removable notices) are paraphrase. When the page
-is saved, these lines are to be replaced with the list's own words. A copy has not been placed in `rounds/`.
+permission to fetch from gnu.org). The entries for CC0, the Unlicense and *Public Domain*, and the Debian Wiki's public-domain note, are quoted below from `rounds/2026-11-16-fsf-license-list-and-debian-dfsg-public-domain-snapshot.txt` (portfolio-2f): the fetch tool's verbatim quotes, not a byte copy of the page, and to be re-fetched before anything relies on the exact wording. The 0BSD entry is not in that file, so the 0BSD row is still paraphrase.
 
 | Test | What it asks | ACD (1.4 draft) |
 |---|---|---|
 | FSF freedom 0 | Run the program for any purpose | §4.1 *"for any purpose whatsoever"*; §4.3 excludes conditions on field of use and on the user |
 | FSF freedoms 1 and 3 | Study and change it; distribute changed versions; access to source is a precondition | §4.2 includes study, adaptation and distribution *"in source form, in object form, or in any other form"*. ACD does not require anyone to provide source (§10.2), which the FSF accepts in permissive licences |
 | FSF freedom 2 | Redistribute copies | §4.2, §4.5 |
-| FSF: the stated reason it does not recommend CC0 for software | The FSF's licence list gives CC0's express exclusion of patent licences as the reason, and calls a program whose developer refuses patent licences a trap for users | **Does not apply.** §8.1 and §8.4 grant patent licences and §8.6 adds a covenant |
+| FSF: the stated reason it does not recommend CC0 for software | The list: *"For works of software it is not recommended, as CC0 has a term expressly stating it does not grant you"* *"any patent licenses."*, and *"If the developer is refusing users patent licenses, the program is in effect a trap for users"* | **Does not apply.** §8.1 and §8.4 grant patent licences and §8.6 adds a covenant |
 | FSF: what it says of 0BSD | The same list says that if the copyright notice or licence notice is removed, a recipient cannot safely rely on the licence and may face liability, and recommends a short licence that keeps the notice instead | **Applies to ACD as much as to 0BSD.** §10.2 lets a recipient drop every notice. §2.3 holds that a recipient has every permission without knowing of the Dedication, and §16.2 makes an identifier sufficient notice, but neither helps a recipient who received a copy with nothing on it to show where it came from (`against.md` #41, #326) |
-| FSF: what "public domain" is | Being in the public domain is not a licence (the list's *Public Domain* entry, paraphrased above). The list files CC0 and the Unlicense as public domain dedications that each add a fallback licence | **Same structure as ACD.** §3 surrenders, and §4 grants a licence that stands without §3 (§4.4), which is what the FSF's entries for CC0 and the Unlicense describe as a dedication with a fallback |
+| FSF: what "public domain" is | *"Being in the public domain is not a license; rather, it means the material is not copyrighted and no license is needed."* The list files CC0 and the Unlicense as public domain dedications that each add a fallback licence (the Unlicense's *"additional lax license that helps cover any cases where the dedication is inadequate"*) | **Same structure as ACD.** §3 surrenders, and §4 grants a licence that stands without §3 (§4.4), which is what the FSF's entries for CC0 and the Unlicense describe as a dedication with a fallback |
 | FSF: GPL compatibility | No condition that the GPL forbids adding | ACD imposes no condition (§10.1), and §4.5 lets a distributor apply any terms, including the GPL |
 | DFSG 1–3 | Free redistribution; source; derived works under the same terms allowed | §4.2, §4.5; no condition is imposed, so nothing prevents derived works under any terms |
 | DFSG 4 | Integrity of the author's source code (a licence may require patches) | ACD requires nothing; the only restriction is on distributing a modified **licence text** under its name (§16.4), which §16.6 keeps away from the Work, as the GPL's own text restriction is |
@@ -286,7 +282,7 @@ is saved, these lines are to be replaced with the list's own words. A copy has n
 existing ones; whether it would treat ACD as a new licence or as a public-domain dedication with a patent grant
 is not ours to predict (`ACD-OSI-BOTTLENECKS-B10.md` H1-g). (2) Debian's reviewers have asked of dedications
 whether the surrender works where the author's country does not recognise it; ACD answers with §4 (an
-independent licence, §4.4), the same answer CC0 gives with its fallback licence. (3) §6.2 and §6.3, on
+independent licence, §4.4), the same answer CC0 gives with its fallback licence. The Debian Wiki's licence page says *"Generally, a CC0-style PD dedication is viewed as sufficient for all jurisdictions, and can satisfy the DFSG "* *"if source is available."* (`rounds/2026-11-16-fsf-license-list-and-debian-dfsg-public-domain-snapshot.txt`); it is a wiki FAQ, not Debian's policy text, and it does not name ACD. (3) §6.2 and §6.3, on
 reservations for text and data mining, have no counterpart in either test and would be read as statements, not
 conditions.
 
