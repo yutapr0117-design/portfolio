@@ -155,6 +155,8 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §14.2・§2.5（約束の列・T88） | 例外の列 *"Section 5, 8.6, or 12.2"* を *"Section 2.5, 5, 8.6, or 12.2"* へ。§2.5 の *"The Dedicator will not assert"* を *"The Dedicator covenants not to assert"* へ（portfolio-30 の反例 (d): §2.5 は自分を covenant と呼ばないので、列の *a covenant in Section 2.5* が §2.5 の中に covenant を探させ、禁反言の文まで含むと読まれる害が出た。動詞を揃えれば covenant の範囲は *not to assert* に限られ、*estopped* の文は外に残る） | portfolio-9b の (k): §2.5 *"The Dedicator will not assert that this Dedication is revocable or ineffective for want of consideration or formality"* も Dedicator の約束で、T83 の列に入っていなかった | 2 | 反映済 |
 | §2.9（倒産・T89） | *"Nothing in this Dedication is conditioned on, suspended by, or revived by an insolvency"* を *"Nothing in this Dedication is, under its terms, conditioned on, suspended by, or revived by an insolvency"* へ | THIRD §18 の ②（portfolio-50 と 30 が同じ型として送った・T84〜T88 の束からの取り残し）。旧文は倒産手続と管財人の行為の効果まで言い切り、管財人が無償の処分を否認する法域（ドイツ InsO 134 条・`rounds/2026-11-16-inso-103-129-134-143-gesetze-im-internet-snapshot.txt`）では偽になりうる —— T81 と同じ型で、文書の中の効果に絞った。第 2 文（管財人を §2.8 の譲受人として扱う）は Dedicator の約束の側の言明で、変えない。**逆側**: *under its terms* は、法による停止・否認が在ることを本文が自分で示す。米国では Tempnology（2019）で拒絶は解除ではなく、既に与えた権利は残る（2f）ので、旧文は米国ではほぼ真だった | 3 | 反映済 |
 | §5.1・§5.2（約束の届く請求・Work の写し・T90・T91） | §5.1 の *"for a use of the Work that this Dedication permits"* を *"that treats as wrongful, or as without legal basis, a use of the Work that this Dedication permits"* へ（T90・+8。*or as without legal ground* は portfolio-50 の反例: 不当利得の請求は使用を違法とせず「法律上の原因が無い」と言う —— BGB 812 条 1 項・民法 703 条 —— ので、*treats as wrongful* だけでは残すつもりの請求が外れた。*unauthorised* に依る案は不正競争の請求を外すので採らなかった）。§5.2 の末段の後に *"A copy of the Work, or of part of it, contained in that material remains the Work, or that part of it."* を足す（T91・+22。*or of part of it* は portfolio-30 の反例 (c): 一部だけを同梱した場合に *copy of the Work* と言えるかが開き、E61 と逆向きに全体が Work になる読みを避けるため、一部は一部のまま Work に残す形にした。*legal basis* は 30 の勧めで、英語の不当利得の文献で据わる語） | 法律家への問い 5 のうち起草で決まる 2 つ。T90: 問いの記録は「*for* が、使用そのものを違法とする請求（不当利得・不正競争）を入れ、使用に付随するだけの請求（動かした機械による傷害）を外す、という線を引くかは試していない」と書く —— 我々の読みを語で定めた。T91: 問いの第 3 の小問（Work を同梱したインストーラーを、裁判所が 1 つの「他の素材」と扱えば、除外が Work を制限する規約まで届く）を語で閉じた（§2.1 の *every separable part* だけに頼らない）。**逆側**: *treats as wrongful* は新しい語で、承認済みのライセンスに先例が無い。T91 は、Dedicator が自分の製品の中の Work の写しにも §5 の約束を負うことを本文が言い切る | 30 | 反映済 |
+| §5.1・§5.2(d)（許しの効否・T93） | *"a use of the Work that this Dedication permits"* を 2 か所とも *"… that this Dedication permits or purports to permit"* へ | 法律家への問い 5 の第 6 の問い（portfolio-30 が T90 の 2 巡目で出し、50 が問いに置いた）: 許しが成立しない法域で、その使用はなお「この Dedication が許す使用」か。*permits* を「法的に有効に許す」と読めば、約束が最後の受け皿になる場面で約束が外れる。*or purports to permit* で、約束は §4 の効否に依らない —— §4.4・§8.6・§12.2 の「足場は互いに依らない」と揃う。*describes as permitted* は「列挙して述べたものだけ」と狭く読まれうるので採らなかった。**逆側**: *purports* は「称する」の語で、許しが効かない場面があることを本文が自分で示す | 8 | 反映済 |
+| §15.3（準拠法・T92） | 第 2 文 *"It is intended to operate under the law of each jurisdiction in which the Work is used, according to that law."* を外す | 法律家への問い 7: 第 1 文は *"specifies no governing law"* と言い、第 2 文は使用地の法を指すように読める —— 契約の側では Rome I 3 条の黙示の選択（それも使用地ごとの複数の法）と読まれる余地があり、文書が自分と食い違う。侵害の側は Rome II 8 条 1 項（保護国法・8 条 3 項で合意で外せない）が既に決めていて、第 2 文は何も足さない。問いの記録は「働かないなら外せる」と書く（`against.md` #23 も第 2 文を、法廷が従う必要の無い宣言と読む）。**逆側**: 第 2 文は「各法域の法で働くことを意図する」と Dedicator の意図を告げていた。外すと、契約と読まれた場合の準拠法は Rome I 4 条 2 項の既定（特徴的な給付をする者 = Dedicator の常居所地）に任される | −21 | 反映済 |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
@@ -209,19 +211,19 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
-1.3 の 5,443 語から 1.4 草案は +174 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
+1.3 の 5,443 語から 1.4 草案は +161 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
 
 | 束 | 増減 | 何のための語か |
 | :-- | --: | :-- |
 | 適用と通知（§1.9・§2.3・§2.6・§16.1〜§16.3）| +157 | タグや識別子だけの適用、通知が名指す素材、優先、大小の区別、寄与の宛先。採用者がファイル単位・パッケージ単位で使うときに、意図しない素材を撤回不能に出さないための語 |
-| 不行使と付随の約束（§5）| +140 | 商標と虚偽の表示、合意した支払い、特許の除外、Dedicator 自身のモデルとサービス。データだけを出す組織や、重みと API を両方出す組織が採用できるための語 |
+| 不行使と付随の約束（§5）| +148 | 商標と虚偽の表示、合意した支払い、特許の除外、Dedicator 自身のモデルとサービス。データだけを出す組織や、重みと API を両方出す組織が採用できるための語 |
 | 名前の保護（§16.4〜§16.6）| +64 | 1 つの名前と識別子が 1 つの本文を指し、Steward が出した新しい版を誰でもその名の下で配れるための語 |
 | その他の明瞭化 | +97 | 定義、承継（§2.8 の *to that extent*・T59、§5.3 の列挙を §2.8 へ寄せた T74）、免責の除外（§14.1・T82）と約束の違反（§14.2・T83）、撤回不能（§2.2 の後付けの制限・T65）、§4、§9 などの語の付き先 |
 | 人格権（§12）| +22 | 人格権を放棄できない法域での同意（T67・§2.4 の独立の列挙を含む）。約束が契約として効かない場面でも、行為がそもそも侵害にならないための語 |
 | 特許（§6.1・§8）| −52 | 行為を目的語にし、*reach* を 1 回で定め、三つの足場の説明と §8.6 の *alongside them*（T56）を外した |
-| 理由・説明の文を外したもの | −254 | §2.8・§11.4・§12.4・§8.4（T54）の理由の文と、§2.7・§8.5 の案内（Chestek 氏 *"I question whether they belong in the agreement at all."*・#295）|
+| 理由・説明の文を外したもの | −275 | §2.8・§11.4・§12.4・§8.4（T54）の理由の文と、§2.7・§8.5 の案内（Chestek 氏 *"I question whether they belong in the agreement at all."*・#295）|
 
-**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +297）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 721 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
+**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +305）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 708 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
 
 ## 外部資料・OSAID 1.0・opensource.org のページを当てた記録（2026-10-28）は別の file へ移した
 
@@ -382,6 +384,7 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 | 個別 | §11.3 の理由の文 *"because it was never the Dedicator's to permit"* を引く文（T77）: `against.md` #110 の行、`comparison.md` 528、`reviewer-positions.md` 504・630 | 1.0〜1.3 の文の引用としては正しい。ただし `reviewer-positions.md` 630 のように「Dedicator が持っていないものは渡せない」の論拠に使う段は、作者の表示では誤り（偽の帰属の権利は表示された本人のもので、英国 CDPA s.84・s.87(1) では本人の同意で侵害でなくなる）。提出の版を 1.4 にする日は、1.4 の §11.3（理由の文が無い）を引く。`submission-osd.md` の OSD 5 の行は、同じ命題を我々の地の文として述べていたので 2026-11-16 に直した（portfolio-30 が見つけた） |
 | 個別 | §6.5 の *"silence on this subject has proved ambiguous in practice"* を引く文（T79）: `submission.md`、`against.md`、`discussion-log.md`、`review-corpus.md` | 1.0〜1.3 の文の引用としては正しい。ただし `submission.md` のように、この言明を我々の理由として使う文は、出典が無いまま提出文に写さない（portfolio-50 が `SUBMISSION-MATERIALS.md` に注を置く）。提出の版を 1.4 にする日は *"leaves it to be inferred whether this is permitted"* を引く |
 | 個別 | §10.4 第 1 文 *"No permission granted by this Dedication terminates for any reason"* を引く文（T81）: `review-responses-clauses.md` 324（§8 の答え）・743（§12 の答え） | 1.0〜1.3 の文の引用としては正しい（743 の続き *"This Dedication contains no termination"* も 1.0 の文で、1.4 は *"in respect of the Work,"* が入る）。提出の版を 1.4 にする日は *"terminates under it, for any reason"* を引く（portfolio-9b が見つけた） |
+| 個別 | §15.3 第 2 文 *"It is intended to operate under the law of each jurisdiction in which the Work is used"* を引く文（T92）: `against.md` #23、`review-readings-5.md`、`QUESTIONS-FOR-COUNSEL.md` 問 7 | 1.0〜1.3 の文の引用としては正しい。1.4 では §15.3 は第 1 文だけになる。提出の版を 1.4 にする日に読み直す |
 
 
 ### 切り替えの日に `REVIEWERS.md` の *Which text you are looking at* へ入れる英文（下書き・2026-11-11）
@@ -399,7 +402,7 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 > §2 (scope and effect, 11) and §1 (definitions, 8); seven name the preamble or several clauses at
 > once. Further changes came from our own sweeps of the
 > later drafts and are listed, with their reasons, in each version's change list. The text is
-> longer: 5,617 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
+> longer: 5,604 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
 
 **⚠ 逆側**: 短い経路の語数が約 170 語増える（`REVIEWERS.md` の短い経路の表と Check 472m の値を同じ日に直す）。*"The direction is unchanged"* は、1.0 から変わらなかったものを 3 つだけ挙げる文で、ほかに変わらなかったものが無いとは言っていない。逆に、変わったものを errata の件数で数えるので、errata に載らない 1.4 生まれの変更（T34〜T52 の多く）は *"Further changes"* の 1 文にまとまる。数を当日に数え直すのは、草案が確定まで動くからである（2026-11-11 の時点でも 1.4 の閉鎖は 39 件で、まだ動きうる。**同日の訂正**: 最初の下書きは 1.3 で 5・1.4 で 38 と書いた。状態の列の版の語の最初の一致を数えていて、閉鎖の印でない語を拾っていた。portfolio-00 が印の正規表現で 4 と 39 を出し、同じ数え方で確かめた）。
 
