@@ -214,6 +214,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 2.6 now says that "This Dedication requires no separate
       instrument, assignment, or agreement" to place a Contribution under it,
       where it said that none "is needed". (0 words.)
+    * Section 8.1 and Section 8.4 now also name lending, exporting, keeping,
+      and possessing among the acts they license. (+8 words.)
     * Section 8.2 now says that the licences are not terminable by the
       Dedicator "under this Dedication" on any ground. (+3 words.)
     * Section 8.6 now says that its covenant "is given for every
@@ -267,7 +269,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5604 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5612 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -620,8 +622,9 @@ PREAMBLE (informative; not part of the operative terms)
 
   8.1  The Dedicator grants You a worldwide, royalty-free, non-exclusive,
        irrevocable, perpetual, sublicensable, and transferable licence to make,
-       have made, use, offer to sell, sell, import, and otherwise practise or
-       transfer the Work or anything derived from it, under every patent claim
+       have made, use, offer to sell, sell, lend, import, export, keep, possess,
+       and otherwise practise or transfer the Work or anything derived from it,
+       under every patent claim
        owned or controlled by the Dedicator, now or in future, that those acts
        would infringe, where the infringement is caused by subject matter
        contained in the Work as made available by the Dedicator.
@@ -642,7 +645,8 @@ PREAMBLE (informative; not part of the operative terms)
 
   8.4  The Dedicator further grants You a licence on the terms of Section 8.1 to
        put the Work to Computational Use and to make, have made, use, offer to
-       sell, sell, import, and otherwise practise or transfer any model,
+       sell, sell, lend, import, export, keep, possess, and otherwise practise
+       or transfer any model,
        parameter set, weight, embedding, or output resulting from Computational
        Use of the Work, under every patent claim owned or controlled by the
        Dedicator, now or in future, that those acts would infringe. This is a
