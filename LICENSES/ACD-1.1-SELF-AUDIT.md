@@ -40,6 +40,8 @@ canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (the current draft; ACD-1.2.txt frozen
 
 ### 🔴 §4.6 —— E17 の修正が、別の条の要約を古くした
 
+**1.1 草案で閉じた（§4.6 に *"on the terms Section 5.3 states"*・1.1〜1.3 と 1.4 草案が同じ語を持つ・印は 2026-11-16 に足した）。**
+
 **1.0 では §4.6 の要約は正確だった。** §5.3 は無限定で、§4.6 も無限定に引いていた。
 **E17 で §5.3 に *"to the extent a jurisdiction gives effect to such reliance"* を足したとき、§4.6 を見ていない。**
 
@@ -65,6 +67,8 @@ canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (the current draft; ACD-1.2.txt frozen
 
 ### 🔴 §16.4 —— 制限を「族」へ広げたとき、自分の次版も締め出していた
 
+**1.1 草案で閉じた（§16.4 に Steward の例外・1.4 草案では T57 の形・印は 2026-11-16 に足した）。**
+
 **E14 の修正は、単一の識別子 `ACD-1.0` への制限を族 `ACD-N` / `ACD-N.N` へ広げた。**
 第三者が改変テキストを `ACD-1.1` として出す穴は塞がった。**同時に、この文書自身の次版も塞がった。**
 
@@ -76,6 +80,8 @@ ACD-1.2 は「この文書の改変テキストを族の識別子で頒布する
 **つまりこれは草案が作った欠陥である。**
 
 ### 🔴 同じ条が、定義されていない行為者に依存していた
+
+**1.1 草案で閉じた（§16.5 が *"the Steward"* を機能で定義した・1.4 草案は T45 で譲渡の後を直した・印は 2026-11-16 に足した）。**
 
 上の目的節に現れる **"the steward" は、この文書のどこにも定義が無い。**
 §1 は 10 語を定義しており、これはその 1 つではない。**そして、この文書で唯一の制限条項が依存する
@@ -134,6 +140,8 @@ B3（長さ）に対する費用として正直に記録する ——**「正確
 ## 3f. E9 の形を「E9 が見ていない条」へ当てた —— §15.1（errata E20）
 
 ### 🔴 §15.1 —— 文書で唯一「制限する」条を、狭く読む規則が同じ文書の中で働いていた
+
+**1.1 草案で閉じた（E20・§15.1 に §10.1 と同じ *"in respect of the Work"*・1.1〜1.3 と 1.4 草案が同じ語を持つ・印は 2026-11-16 に足した）。**
 
 **E9 は §10.4 第 2 文へ、§10.1 が持つ house phrase *"in respect of the Work"* を付けた。** 理由は「"You" は
 *この Dedication の許諾を行使する者*と定義されており、**§16.4 は本文テキストについて許諾を与える**ので、
@@ -218,6 +226,8 @@ B3（長さ）に対する費用として正直に記録する ——**「正確
 | §16.4 | anyone（著作物ではなく文書テキスト）| — | — | **clean**（主題が違う）|
 
 ### 🔴 §7.2 —— gap を担うもう 1 つの節の操作的な許諾
+
+**1.1 草案で閉じた（E21・§7.2 に *"so far as the Covered Rights of the Dedicator are concerned (Section 2.7)"*・1.4 草案も同じ語・印は 2026-11-16 に足した）。**
 
 §7.2 は *"You may extract and re-utilise the whole or any substantial part of the contents of the
 Work, repeatedly and systematically, without limit and without condition"* と述べ、**主体も境界も無い。**
@@ -491,6 +501,8 @@ not it complies with the OSD"* である。** 文の長さでは**我々は比�
 | **E. 🔴 閉じていない。そして起草では閉じられない** | **§2.8 / §5.3 / §12.4 の *"to the fullest extent the law permits (the Dedicator to bind them)"*** | **法域によって薄くなる。下に書く** |
 
 ### 🔴 E —— 残っているばらつきは 1 つで、それは「誰に届くか」である
+
+**起草では閉じない**（法域が承継人や死後の行使者を Dedicator の約束で縛ることを許すかは法が決め、本文の語では決まらない。1.4 草案の T76 で §2.8・§5.3・§12.4 の限度は同じ語 *"to the fullest extent the law permits"* になったが、ばらつきの源は語でなく法域である・法律家への問い 3 (b)・印は 2026-11-16 に足した）。
 
 **§2.8（§3 / §4 / §6 / §8 の承継人拘束）・§5.3（§5 の covenant）・§12.4（§12.2 の covenant、
 および著者の死後に Moral Rights を行使しうる者）は、いずれも
