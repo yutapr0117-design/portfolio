@@ -92,3 +92,23 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 **この節が establish しないこと。** 署名なしの放棄の効力は、どの法域についても確かめていない。
 
 **反映**: 入口 —— Apache-2.0 §5 の先例は `SUBMISSION-MATERIALS.md` §1b の §2.6 の段へ（50）。署名なしの放棄が書面の要件に当たるかは `QUESTIONS-FOR-COUNSEL.md` の問いとして 30 へ渡した。同意の助言（Rosen 氏 2004・2005）は `against.md` #321 の追記として 30 へ渡した。
+
+## 1.354 FSF のライセンス一覧の一次資料 —— Unlicense は「献呈＋許諾」の形で GPL と両立する自由ソフトウェアのライセンスに載り、CC0 は特許の除外でソフトウェアに勧められず、0BSD は通知を外せることで「antisocial」とされる（2026-11-16）
+
+`https://www.gnu.org/licenses/license-list.html` を 2026-11-16 に取得した（オーナーの許可・同日。curl はこの環境の権限で止まり、WebFetch で取った。**WebFetch は要約の層を通るので、下の逐語は原文の頁で当て直してから外向きの文書に引く**。頁は最終更新日を表示していない）。2f の §1.253（FSF への自己点検）と `against-2.md` #328（Phipps 氏 2017 の「OSI・FSF・Debian のどれか 1 つだけの承認は未解決の問題の印」）の材料。
+
+| 項目（頁の見出し・anchor） | FSF の文 | ACD への当たり方 |
+| :-- | :-- | :-- |
+| The Unlicense（*GPL-Compatible Free Software Licenses*・`#Unlicense`） | *"The Unlicense is a public domain dedication."*、*"A work released under the Unlicense is dedicated to the public domain to the fullest extent permitted by law,"* *"and also comes with an additional lax license that helps cover any cases where the dedication is inadequate."* | **有利な面（B4）。** FSF は「献呈＋許諾」の形のものを、ソフトウェアのライセンスの節に GPL と両立するものとして載せている。ACD の §3 と §4 の並存は同じ型に属する。ただし Unlicense の許諾は献呈の補い（*"helps cover any cases where the dedication is inadequate"*）として描かれ、ACD の §4.4（献呈と独立・fallback でない）の形は FSF が評していない |
+| CC0 1.0（*Licenses for Works of Practical Use besides Software and Documentation*・`#CC0`） | *"If you want to release your non-software work to the public domain, we recommend you use CC0."*、*"For works of software it is not recommended, as CC0 has a term expressly stating it does not grant you any patent licenses."*、*"If the developer is refusing users patent licenses, the program is in effect a trap for users and users should avoid the program."* | **有利な面（G1・§8）。** FSF がソフトウェアに CC0 を勧めない理由は特許の除外ただ 1 つで、ACD は特許を明示に許諾する（§8.1・§8.4）。OSI の CC0 の審査で反対が集まった点（`review-precedents.md` §1.138）と同じ所を、FSF も理由にしている |
+| Zero-clause BSD（*GPL-Compatible Free Software Licenses*・`#Zero-BSD`） | *"if the copyright notice or license notice is removed from the program, it is not possible to safely rely on the license"* *"and users might even face liability."*、*"We recommend that developers choose a license that clearly requires preserving notices for their own works"* *"because of the confusion and antisocial effect that is the result of the 0BSD License."* | **不利な面（#328）。** ACD の §10.2 は *"You need not give attribution, reproduce any notice, … retain this file, or inform anyone of anything"* で、0BSD と同じ性質を明示の語で持つ。FSF は 0BSD を GPL と両立する自由ソフトウェアのライセンスとして載せたまま、自分の作品には勧めないと書く。ACD が FSF に出されれば、同じ評が付くと読むのが自然である |
+| Expat No Attribution（`#Expat0`・MIT-0 にあたる） | *"Our comments about the Zero-clause BSD license apply to this license."* | 同上。OSI が 2020 年に承認した MIT-0 にも同じ評が付いている —— FSF のこの評は OSI の承認を妨げなかった |
+| Public domain（`#PublicDomain`） | *"Being in the public domain is not a license; rather, it means the material is not copyrighted and no license is needed."* | OSI の FAQ の *"still not a license"* と同じ向き。ACD は §4 で許諾を持つので、献呈だけのものではない |
+
+**読み。** FSF の一覧は ACD の 3 つの部分にそれぞれ当たる。献呈と許諾の組（Unlicense）は自由ソフトウェアのライセンスとして載り、特許の明示（CC0 との差）は FSF がソフトウェアに求める点に合う。不利なのは §10.2 の通知を外せる性質で、FSF は 0BSD と MIT-0 にこれを理由に「自分の作品には勧めない」と書いた。Phipps 氏の pre-flight（#328）に当てると、ACD は FSF の自由ソフトウェアの定義を満たす側に読まれうるが、勧められない側に置かれる見込みが高い。
+
+**逆側。** (1) FSF の「勧めない」は自由ソフトウェアでないという判断ではなく、0BSD も MIT-0 も GPL と両立するものとして一覧に在る。Phipps 氏の試験は「承認される（approved）」かを問うので、勧めないことは不承認ではない。(2) OSI は FSF のこの評の後も MIT-0 を承認した（2020）。(3) ACD を FSF に出したことは無く、上はすべて我々が他の文書の評を当てた読みである。
+
+**この節が establish しないこと。** FSF が ACD をどう評するか。WebFetch の要約の層を通った逐語が、原文と 1 字ずつ一致すること。
+
+**反映**: against #328（FSF の一次資料を 2026-11-16 に取り直した・逐語の置き換えは 30 へ）/ 入口（`OSI-APPROVAL-PLAN.md` の第三者の見解を得る経路の段に、FSF の一覧が ACD の 3 つの部分に当たる形を足す・50）。
