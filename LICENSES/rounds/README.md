@@ -304,6 +304,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2013-04〜06 | `license-review` | **観測（法律家を要件にするかの議論・13 通・2 分割の 1/2 部）** | `2013-license-review-drafting-quality-cited-observed-1of2.txt` |
 | 2013-04〜06 | `license-review` | **観測（法律家を要件にするかの議論・13 通・2 分割の 2/2 部）** | `2013-license-review-drafting-quality-cited-observed-2of2.txt` |
 | 2022-07 | Fedora legal list / LWN / BleepingComputer / Fedora のデータ | **観測（CC0 をコードから外した判断と、いまのデータ）** | 最初の 1 通は取得できず、LWN と BleepingComputer の引用で置いた。`2022-07-fedora-legal-cc0-classification-observed.txt` |
+| 2022-12 | `license-discuss` | **観測（Perens 氏の 1 通・より良いライセンスを作るのは弁護士資格を持つ人の仕事）** | `2022-12-license-discuss-retro-disapprove-perens-bar-observed.txt` |
+| 2022-12 | `license-discuss` | **観測（Smith 氏の 1 通・起草の拙さとあいまいさは OSD の外の承認の要素）** | `2022-12-license-discuss-retro-disapprove-smith-drafting-observed.txt` |
 | 2012-01〜04 | `license-review` | **観測（CC0 の審査から引いた 27 通・2 分割の 1/2 部）** | ドシエが引いた通だけを束ねた。スレッド全体ではない。`2012-01-to-04-license-review-cc0-cited-observed-1of2.txt` |
 | 2012-01〜04 | `license-review` | **観測（CC0 の審査から引いた 27 通・2 分割の 2/2 部）** | 同じ束の 2/2 部。`2012-01-to-04-license-review-cc0-cited-observed-2of2.txt` |
 | 2012-03 | `license-review` | **観測（CC0 の意向調査・全 25 通・2 分割の 1/2 部）** | 票数そのものが証拠なのでスレッドを全部置いた（規則 6）。`2012-03-license-review-cc0-straw-poll-observed-1of2.txt` |
@@ -608,6 +610,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2006-11 | `license-discuss`（観測）| **Biological Open Source（BiOS）の非ソフトウェア特許ライセンス相談 11 通 → 観測保存（5/6 部）** | **同じスレッドの 5/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
 | 2006-11 | `license-discuss`（観測）| **Biological Open Source（BiOS）の非ソフトウェア特許ライセンス相談 11 通 → 観測保存（6/6 部）** | **同じスレッドの 6/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
 | 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（1/11 部）** | **理事会が実際に不承認を議決した、我々の時代にいちばん近い審査。** 委員長 Chestek 氏が **CC0 が承認されていない理由**を名指しし（*"they expressly state that they do not grant a patent license. This is the reason that the CC-0 license is not an OSI-approved license ... although it has not been definitively decided due to Creative Commons' withdrawal"*）、**不承認の理由は OSD 違反ではなく主題**だった（*"open culture licenses are outside the purview of the Open Source Initiative"*）。その主題の定義は *"...an audiovisual work, a graphic work, and a model work"* で、**ACD-1.0 §1.2 の列挙は "audiovisual material" を含む**（#237 / #238） |
+| 2023-08 | `license-review` | **観測（Smith 氏の 1 通・特許の否認は承認できない、コンテンツのライセンスを除くなら方針として決めよ）** | `2023-08-license-review-mulan-owl-smith-content-patent-observed.txt` |
+| 2023-08 | `license-review` | **観測（Berkus 氏の 1 通・コンテンツのライセンスの承認の基準は未整備で、作るのは大きな作業）** | `2023-08-license-review-mulan-owl-berkus-content-criteria-observed.txt` |
 | 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（2/11 部）** | **同じスレッドの 2/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
 | 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（3/11 部）** | **同じスレッドの 3/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
 | 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（4/11 部）** | **同じスレッドの 4/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
