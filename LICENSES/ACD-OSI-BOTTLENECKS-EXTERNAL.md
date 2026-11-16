@@ -226,6 +226,8 @@ embedding / output にまで特許許諾を及ぼす。** 射程はこの発言�
 
 **2026-11-15 に足した —— 承認の対象は本文で、識別子は SPDX が別に割り当てる。** Richard Fontana 氏 2024-08-09（`license-discuss`・"Not speaking for the OSI" と断ったうえで）*"OSI does not approve, or up till now hasn't approved, SPDX identifiers as such, but rather the actual licenses they refer to"*（`review-readings-2.md` §1.231・portfolio-2f）。ACD の §16.1 と §16.2 は識別子 `ACD-1.4` を本文の中で先に名指し、一覧に載るまでは `LicenseRef-ACD-1.4` と書く。SPDX が別の識別子を割り当てれば、本文の名指しと一覧が食い違う —— 版を確定する前に SPDX に識別子を確かめられないので、この費用は承認の後に残りうる。**有利な先例**: 承認された CAL-1.0 の本文は *"SPDX-License-Identifier: CAL-1.0"* を適用の印として条文で名指し、審査でこの名指しへの異議は見つからなかった（委員会報告 2020-02-09 の Exhibit A・同節）。**逆側**: CAL の 2 つ目の札（例外つきの形）が SPDX の一覧の識別子と一致するかは確かめていない（SPDX の一覧の外部取得はこの session では許されていない）。
 
+**2026-11-16 に足した —— SPDX は、略称の混同を避けるために提案の識別子を変えたことがある（B6 の段）。** VM (Vicky) Brasseur 氏 2020-12-28（`license-review`・OIN License）*"The license was also submitted to SPDX for inclusion in its list. Earlier today the team changed the proposed license identifier to avoid potential confusion with Open Invention Network"*。ACD の識別子（ACD-1.x）は SPDX の一覧で空いているが、SPDX に出すときに略称の重なりが同じように問われうる。**逆側**: その件は同じ分野の組織との重なりで、ACD について同じ点が挙がった記録は無い。
+
 ## B1 + B2 —— この 2 つは、リスト上では**別々ではなく 1 文で**争われている
 
 > **🆕 2026-09-22 追記 —— B2 の板挟みを、Chestek 氏（委員・元委員長）自身が「Catch-22」と呼んでいた。**
