@@ -179,6 +179,10 @@ Lawrence Rosen 氏 2018-12-13 *"if a license now is proposed without an express 
 
 Richard Fontana 氏は PUWL（公有化の放棄・責任の否認・代わりの許諾を 1 つにした提出）に *"I think the rationale you give for the license is fine, but I don't see the point of the license itself. As far as I can tell you are just combining a bunch of existing highly permissive permission grants"* と書いた（portfolio-50 が模擬委員会のアーカイブの当て方で拾った・against #110 の段）。B10 の問いが、同じ型にそのまま向けられた記録である。**逆側**: PUWL は既存の文（CC0・Unlicense など）を、どれが当たるかを言わずに並べた文書で、ACD は自前の文で書かれ、G1 の効果を主張する。審査者がその差を、同じ結論に達する前に見るかどうかは、入口（最初の一画面）が受け持つ。
 
+### 2026-11-16 —— 「本文を書く前に、既存のどれも使えない理由をリストに書け」（`review-readings-2.md` §1.255・参加者の発言）
+
+Ian Lance Taylor 氏 2003-07-16（`license-discuss`）*"If you can't use an existing license, then your first step should not be to write a license, but instead to write to the list and explain clearly why no existing license will work"*。**逆側（ACD に不利な順序）**: ACD は G1 に理由を書いたが、リストに尋ねる前に本文を書き、1.0 を出した（2026-08-26）。**有利な面**: 1.0 は `license-review` ではなく `license-discuss` に出し、理由（gap）を最初の投稿に添えた。Taylor 氏は決める側の記録の無い参加者で、規則ではない。
+
 ### 2026-09-20 追記 —— gap の 1 本目に、**決着した裁判例が付いた**
 
 **§6 が扱う問いは仮想ではない。** ハンブルク上級地方裁判所 第 5 民事部は 2025-12-10 に
