@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.4-ADVERSARIAL-TRIAGE.md
 audience: 次のセッションの実装者（一次読者）/ 監査人 / 審査者
-last-updated: 2026-11-02
+last-updated: 2026-11-16
 canonical-ref: LICENSES/ACD-1.0.against.md (#279・不利な事実の一覧) / LICENSES/ACD-1.4-CHANGELIST.md (条文の採否) / LICENSES/ACD-1.0.errata.md
 ---
 
