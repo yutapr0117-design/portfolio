@@ -464,6 +464,18 @@ law (the same objection that led us to remove sentences asserting legal results,
 E79)? The 1.4 draft does not add such a sentence, for that second reason
 (`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.2).
 
+A third question is German. German insolvency law gives the administrator two tools. The election not to
+perform (InsO section 103) is limited to a mutual contract (*"Ist ein gegenseitiger Vertrag"*), and ACD asks
+nothing of the recipient, so we read it as not reaching the Dedication. The other tool is avoidance of a
+gratuitous performance: *"Anfechtbar ist eine unentgeltliche Leistung des Schuldners, es sei denn, sie ist
+früher als vier Jahre"* *"vor dem Antrag auf Eröffnung des Insolvenzverfahrens vorgenommen worden."*
+(section 134(1)). Avoidance requires prejudice to creditors (section 129(1)), and a recipient in good faith
+returns only what still enriches it (section 143(2)). Is applying ACD a gratuitous performance that an
+administrator can avoid if the Dedicator becomes insolvent within four years? If so, does avoidance reach the
+permissions of recipients who already hold copies, or only future use? §2.9 cannot prevent this, because the
+statute gives the administrator the power (`jurisdictions.md` §3; the statutory text is in
+`rounds/2026-11-16-inso-103-129-134-143-gesetze-im-internet-snapshot.txt`).
+
 ## 9. Does the limitation of liability reach a breach of the Dedicator's own covenants? (§14.1, §5, §8.6, §12.2)
 
 **The clauses.** §14.1, set in capitals as conspicuous: the Dedicator *"IS NOT LIABLE TO YOU OR TO
