@@ -387,14 +387,14 @@ After: *"Nothing in this Dedication is, under its terms, conditioned on, suspend
 
 | 試作 | 条 | Before → After | 消える／狭まる問い |
 | :-- | :-- | :-- | :-- |
-| T92 | §15.3（1.0 では §15.7） | 第 2 文 *"It is intended to operate under the law of each jurisdiction in which the Work is used, according to that law."* を外す（−21） | 問 7: 第 1 文 *"specifies no governing law"* と第 2 文（使用地の法を指すように読める）が食い違い、契約の側で Rome I 3 条の黙示の選択と読まれる余地があった。侵害の側は Rome II 8 条 1 項・3 項が保護国法を合意で外せない形で決めていて、第 2 文は何も足さない（30 の EU の法源）。問いの記録は「働かないなら外せる」と書く —— 問 7 の「第 2 文を残すか」は消える。契約と読まれた場合の準拠法（Rome I 4 条 2 項）は残る |
+| T92 | §15.3（1.0 では §15.7） | 第 2 文 *"It is intended to operate under the law of each jurisdiction in which the Work is used, according to that law."* を外す（−21） | 問 7: 第 1 文 *"specifies no governing law"* と第 2 文（使用地の法を指すように読める）が食い違い、契約の側で Rome I 3 条の黙示の選択と読まれる余地があった。侵害の側は Rome II 8 条 1 項・3 項が保護国法を合意で外せない形で決めていて、第 2 文は何も足さない（`QUESTIONS-FOR-COUNSEL.md` 問 7 の 2026-11-16 の段が引く EU の法源・`rounds/2026-11-16-eu-tdm-and-conflict-of-laws-snapshot.txt`。Brussels I bis の読みは条文未取得の我々の読み）。問いの記録は「働かないなら外せる」と書く —— 問 7 の「第 2 文を残すか」は消える。契約と読まれた場合の準拠法（Rome I 4 条 2 項）は残る |
 | T93 | §5.1・§5.2(d) | *"a use of the Work that this Dedication permits"* → *"… permits or purports to permit"*（2 か所・+8） | 問 5 の第 6 の問い（30 が出し 50 が置いた）: 許しが成立しない法域で、その使用はなお「この Dedication が許す使用」か。*permits* を「法的に有効に許す」と読めば、約束が最後の受け皿になる場面で約束が外れる。語で答えた —— 問いは消える |
 
 **語の選び方（T93）**: *describes as permitted* は「列挙して述べたものだけ」と狭く読まれうる。*permits or purports to permit* は、有効な許しと、効かない法域の許しの両方を含む。§4.4・§8.6・§12.2 の「足場は互いに依らない」と揃う。
 
 **⚠ 逆側**: (1) T92: 第 2 文は「各法域の法で働くことを意図する」と Dedicator の意図を告げていた。外すと、契約と読まれた場合の準拠法は Rome I 4 条 2 項の既定（Dedicator の常居所地）に任される —— 受け手には遠い法になりうる。ただし第 2 文があっても、それが選択として認められるかは不確かだった。(2) T93: *purports* は「称する」の語で、許しが効かない場面があることを本文が自分で示す。(3) §5.2(d) は Dedicator 自身の私権（プライバシー・パブリシティ）の不行使で、*purports to permit* は「Dedication が許すと称する使用」—— 私権は §11.4 が許さない（Dedication の外）ので、*permits* の範囲は §4 の使用で、*purports* で広がらないと読む。
 
-**反例の担当へ（30・50）**: (a) T92 の後、§15.3 が 1 文だけで、Rome I の下で「準拠法を選ばない」意思表示として足りるか、(b) T93 の *purports to permit* が、Dedication が許さないもの（§11 の商標・私権）まで「許すと称する」と読まれて約束が広がる道が無いか、(c) 第 1 文の *"no forum"* が Brussels I bis の下で何をするか。
+**反例の担当へ（30・50）** **反例の結果**: 30（法律家の確認なし・EU の法源は 2f の帯）—— (a) 立たない: 第 1 文は「選ばない」の言明として足りる。Rome I 3 条 1 項は契約の一部についての選択を認めるので、旧第 2 文は部分ごとの選択と読まれる余地があり、外せばその読みは消える。契約と読まれた場合の 4 条 2 項（Dedicator の常居所地）の費用はもともと在った。事業者の Dedicator と消費者の受け手なら 6 条が受け手の常居所地の強行規定を残す。(b) 立たない: §11.1 *"grants no right"*・§11.4 *"does not purport to give it"* が自分で「称さない」ことを言うので、*purports to permit* が §11 へ約束を広げる道は本文が閉じている（逆側: §15.1 が *purports* に掛かると範囲が広がる余地 —— Dedicator 自身の約束なので受け手の害にはならない）。(c) 立たない: *no forum* は Brussels I bis 25 条の合意管轄が無いと言うだけで、一般の管轄はそのまま働く。登録した問い: (a) T92 の後、§15.3 が 1 文だけで、Rome I の下で「準拠法を選ばない」意思表示として足りるか、(b) T93 の *purports to permit* が、Dedication が許さないもの（§11 の商標・私権）まで「許すと称する」と読まれて約束が広がる道が無いか、(c) 第 1 文の *"no forum"* が Brussels I bis の下で何をするか。
 
 ## 16. 模擬委員会 —— 記録に立場が厚く残る審査者の目で 1.4 草案を通読する（2026-11-15〜）
 
