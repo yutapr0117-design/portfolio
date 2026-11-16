@@ -11,7 +11,7 @@ canonical-ref: LICENSES/ACD-OSI-BOTTLENECKS.md / LICENSES/REFLECTION-BACKFILL.md
 
 読んだ節（LICENSES/*.md の `## 1.N`）が B1〜B15 のどれに当たったかを、会話の年代ごとに数える。節の表の最後の列
 （ACD への当たり方）・末尾の反映の欄・REFLECTION-BACKFILL の行の B# を節ごとに集め、表の「誰が」の列が決める側
-（census の DECIDERS）の行の B# を別に数える。`--by-year`・`--sections B10`。
+（census の DECIDERS）の行の B# を別に数える。`--by-year`・`--sections B10`。`--destinations` は反映の行き先（条文 = 1c・THIRD・1.4 の文書 / register = against・errata・B / 入口 = SUBMISSION-MATERIALS・REVIEWERS など / なし）× B の節の数で、2f の合成の 3 つの表を道具から作り直すための口（2026-11-16）。行き先は語で分けるので近似である（反映のセルに B# が在れば register に数える）。
 
 ## Why
 

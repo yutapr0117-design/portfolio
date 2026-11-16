@@ -20,6 +20,7 @@
     python3 .github/scripts/count_b_topics.py              # B × 年代 (5 年ごと) の表と、B ごとの合計・決める側の行の数
     python3 .github/scripts/count_b_topics.py --by-year    # 年ごと
     python3 .github/scripts/count_b_topics.py --sections B10   # その B に当たった節の一覧 (番号・文書・年)
+    python3 .github/scripts/count_b_topics.py --destinations   # 反映の行き先 (条文・register・入口・なし) × B の節の数 (2f の合成の表)
 """
 from __future__ import annotations
 
@@ -36,6 +37,13 @@ L = ROOT / "LICENSES"
 EXCLUDE = ("ACD-1.0.comparison.md", "REVISION-PROTOCOL.md", "REFLECTION-BACKFILL.md")
 B = re.compile(r"\bB(1[0-5]|[1-9])\b")
 REFLECT = re.compile(r"^\*\*反映\*\*[:：](.*)$", re.M)
+# 反映の行き先の種類 (2026-11-16・2f の合成の 3 つの表 —— 条文は 1c、register は 30、入口は 50 が持つ)
+DEST = (("条文", re.compile(r"\b1c\b|THIRD|ACD-1\.4-")), ("register", re.compile(r"against #|#\d+|errata E\d+|\bE\d+\b|\bB\d+\b")),
+        ("入口", re.compile(r"入口|SUBMISSION-MATERIALS|REVIEWERS|READY-TO-SUBMIT|QUESTION-INDEX")), ("なし", re.compile(r"なし（")))
+
+
+def destinations(cell: str) -> set[str]:
+    return {name for name, rx in DEST if rx.search(cell)}
 
 
 def sections() -> list[dict]:
@@ -51,7 +59,7 @@ def sections() -> list[dict]:
             years = [int(y) for y in re.findall(r"(?<!\d)(199[89]|20[0-2]\d)(?:-\d\d)?(?!\d)", head) if int(y) <= 2025]
             if not years:
                 years = [int(y) for y in re.findall(r"(?<!\d)(199[89]|20[0-2]\d)(?!\d)", body) if int(y) <= 2025][:1]
-            bs, dec = set(), set()
+            bs, dec, dest = set(), set(), set()
             for row in re.findall(r"^\|(.+)\|\s*$", body, re.M):
                 cells = [c.strip() for c in row.split("|")]
                 if len(cells) < 3 or set(cells[0]) <= set(":- "):
@@ -62,7 +70,9 @@ def sections() -> list[dict]:
                     dec |= found
             for v in REFLECT.findall(body):
                 bs |= {f"B{m}" for m in B.findall(v)}
-            out.append({"file": p.name, "num": int(h.group(1)), "year": years[0] if years else None, "B": bs, "dec": dec})
+                dest |= destinations(v)
+            out.append({"file": p.name, "num": int(h.group(1)), "year": years[0] if years else None, "B": bs, "dec": dec,
+                        "dest": dest})
     bf = L / "REFLECTION-BACKFILL.md"
     if bf.exists():
         idx = {}
@@ -77,6 +87,7 @@ def sections() -> list[dict]:
             for s in idx.get(int(m.group(3)), []):
                 if f is None or s["file"] == f:
                     s["B"] |= {f"B{x}" for x in B.findall(cells[1])}
+                    s["dest"] |= destinations(cells[1])
     return out
 
 
@@ -95,6 +106,17 @@ def main(argv: list[str]) -> int:
         b = argv[argv.index("--sections") + 1]
         for s in sorted((s for s in secs if b in s["B"]), key=lambda s: (s["year"] or 0, s["num"])):
             print(f"§1.{s['num']}\t{s['file']}\t{s['year'] or '不明'}\t{'決める側の行' if b in s['dec'] else ''}")
+        return 0
+    if "--destinations" in argv:
+        names = [n for n, _ in DEST]
+        print(f"# 節 {len(secs)} の反映の行き先 (1 つの節は複数の行き先を持ちうる・行き先の読めない節 "
+              f"{sum(1 for s in secs if not s['dest'])}) —— 我々の記録の中の数")
+        print("| B | " + " | ".join(names) + " |")
+        print("| :-- | " + " | ".join("--:" for _ in names) + " |")
+        allb = sorted({b for s in secs for b in s["B"]}, key=lambda b: int(b[1:]))
+        for b in allb + ["(B 無し)", "合計"]:
+            row = [s for s in secs if (b in s["B"]) or (b == "(B 無し)" and not s["B"]) or b == "合計"]
+            print(f"| {b} | " + " | ".join(str(sum(1 for s in row if n in s["dest"]) or "") for n in names) + " |")
         return 0
     by_year = "--by-year" in argv
     cols = sorted({bucket(s["year"], by_year) for s in secs}, key=lambda c: (c == "不明", c))
