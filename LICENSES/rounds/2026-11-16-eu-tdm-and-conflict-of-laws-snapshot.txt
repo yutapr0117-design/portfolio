@@ -1,0 +1,70 @@
+Source: (1) Directive (EU) 2019/790 on copyright and related rights in the Digital Single Market,
+        Article 4 and recital 18, English text as adopted, as published at
+        https://www.legislation.gov.uk/eudr/2019/790/article/4/adopted?view=plain and
+        https://www.legislation.gov.uk/eudr/2019/790/introduction/adopted?view=plain
+        (2) Regulation (EC) No 593/2008 (Rome I), Articles 1(1) and 4, as published at
+        https://www.legislation.gov.uk/eur/2008/593/article/1/adopted?view=plain and
+        https://www.legislation.gov.uk/eur/2008/593/article/4/adopted?view=plain
+        (3) Regulation (EC) No 864/2007 (Rome II), Article 8, as published at
+        https://www.legislation.gov.uk/eur/2007/864/article/8/adopted?view=plain
+Retrieved: 2026-11-16 by portfolio-2f, with the WebFetch tool, under the owner's request of the same
+        day ("ACD-1.4-DRAFT.txt の法的解釈の不確実性を「５人」で減らし続けてください").
+Form: NOT A BYTE COPY. The fetch tool returns the page through a model, in segments of at most about
+        120 characters, marked "[...]" where the tool cut between them. Each item was fetched once.
+        legislation.gov.uk publishes these as EU legislation "as adopted"; the official EUR-Lex pages
+        returned empty content to the tool. Re-fetch and compare before relying on the exact wording,
+        and do not assume that nothing lies between two segments.
+
+WHY THIS FILE EXISTS. `QUESTIONS-FOR-COUNSEL.md` question 6 asks whether the text-and-data-mining
+declarations of §6.2 and §6.3 do anything, and question 7 asks what follows from naming no governing law
+and no forum (§15.3). The dossier cited Article 4(3) of Directive 2019/790 in paraphrase and held no text
+of Rome I or Rome II.
+
+---- (1) Directive (EU) 2019/790 ----
+
+[1] Art. 4(1): "Member States shall provide for an exception or limitation to the rights provided for in Article 5(a) and"
+    [...] "Article 7(1) of Directive 96/9/EC, Article 2 of Directive 2001/29/EC, Article 4(1)(a) and (b) of Directive 2009/24/EC"
+    [...] "and Article 15(1) of this Directive for reproductions and extractions of lawfully accessible works"
+    [...] "and other subject matter for the purposes of text and data mining."
+[2] Art. 4(2): "Reproductions and extractions made pursuant to paragraph 1 may be retained for as long as is necessary"
+    [...] "for the purposes of text and data mining."
+[3] Art. 4(3): "The exception or limitation provided for in paragraph 1 shall apply on condition that the use of works"
+    [...] "and other subject matter referred to in that paragraph has not been expressly reserved by their rightholders"
+    [...] "in an appropriate manner, such as machine-readable means in the case of content made publicly available online."
+[4] Recital 18 (selected consecutive segments as returned; the tool returned the whole recital):
+    "Rightholders should remain able to license"
+    [...] "the uses of their works or other subject matter falling outside the scope of the mandatory exception"
+    [...] "provided for in this Directive for text and data mining for the purposes of scientific research and of"
+    [...] "the existing exceptions and limitations provided for in Directive 2001/29/EC."
+    ...
+    "insofar as the rightholders have not reserved in an appropriate manner the rights to make reproductions"
+    [...] "and extractions for text and data mining. In the case of content that has been made publicly available"
+    [...] "online, it should only be considered appropriate to reserve those rights by the use of machine-readable"
+    [...] "means, including metadata and terms and conditions of a website or a service. Other uses should not be"
+    [...] "affected by the reservation of rights for the purposes of text and data mining. In other cases, it can"
+    [...] "be appropriate to reserve the rights by other means, such as contractual agreements or a unilateral declaration."
+    [...] "Rightholders should be able to apply measures to ensure that their reservations in this regard are respected."
+    [...] "This exception or limitation should leave intact the mandatory exception for text and data mining for"
+    [...] "scientific research purposes provided for in this Directive, as well as the existing exception for temporary"
+    [...] "acts of reproduction provided for in Article 5(1) of Directive 2001/29/EC."
+
+---- (2) Regulation (EC) No 593/2008 (Rome I) ----
+
+[5] Art. 1(1): "This Regulation shall apply, in situations involving a conflict of laws, to contractual obligations in civil and"
+    [...] "commercial matters."
+[6] Art. 4(1)(b): "a contract for the provision of services shall be governed by the law of the country where the"
+    [...] "service provider has his habitual residence;"
+    (The tool reported that Article 4(1) has no point about licences.)
+[7] Art. 4(2): "Where the contract is not covered by paragraph 1 or where the elements of the contract would be covered by"
+    [...] "more than one of points (a) to (h) of paragraph 1, the contract shall be governed by the law of the country"
+    [...] "where the party required to effect the characteristic performance of the contract has his habitual residence."
+[8] Art. 4(3): "Where it is clear from all the circumstances of the case that the contract is manifestly more closely connected"
+    [...] "with a country other than that indicated in paragraphs 1 or 2, the law of that other country shall apply."
+[9] Art. 4(4): "Where the law applicable cannot be determined pursuant to paragraphs 1 or 2, the contract shall be governed"
+    [...] "by the law of the country with which it is most closely connected."
+
+---- (3) Regulation (EC) No 864/2007 (Rome II) ----
+
+[10] Art. 8(1): "The law applicable to a non-contractual obligation arising from an infringement of an intellectual property right"
+     [...] "shall be the law of the country for which protection is claimed."
+[11] Art. 8(3): "The law applicable under this Article may not be derogated from by an agreement pursuant to Article 14."
