@@ -1,0 +1,39 @@
+Source: Insolvenzordnung (InsO), https://www.gesetze-im-internet.de/inso/ (Bundesministerium der Justiz / juris):
+        __103.html, __129.html, __134.html, __143.html
+Retrieved: 2026-11-16 by portfolio-30, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes of at most 125
+        characters each (one longer piece in section 143(1) is as returned). Re-fetch and compare before relying
+        on the exact wording. Only the parts named below were fetched.
+
+WHY THIS FILE EXISTS. Section 2.9 of the 1.4 draft says that nothing in the Dedication is suspended by an
+insolvency proceeding or by any act of an insolvency officer (QUESTIONS-FOR-COUNSEL.md question 8). German law
+gives the administrator two different tools: an election not to perform a mutual contract (section 103), and
+avoidance of a gratuitous performance made in the four years before the petition (sections 129, 134, 143).
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+===== § 103 InsO (Wahlrecht des Insolvenzverwalters), as reported =====
+1. "(1) Ist ein gegenseitiger Vertrag zur Zeit der Eröffnung des Insolvenzverfahrens vom Schuldner und vom anderen Teil nicht"
+2. "oder nicht vollständig erfüllt, so kann der Insolvenzverwalter anstelle des Schuldners den Vertrag erfüllen und die"
+3. "Erfüllung vom anderen Teil verlangen."
+4. "(2) Lehnt der Verwalter die Erfüllung ab, so kann der andere Teil eine Forderung wegen der Nichterfüllung nur als"
+5. "Insolvenzgläubiger geltend machen."
+6. "Fordert der andere Teil den Verwalter zur Ausübung seines Wahlrechts auf, so hat der Verwalter unverzüglich zu erklären,"
+7. "ob er die Erfüllung verlangen will."
+8. "Unterläßt er dies, so kann er auf der Erfüllung nicht bestehen."
+
+===== § 129 Abs. 1 InsO (Grundsatz), as reported =====
+9. "(1) Rechtshandlungen, die vor der Eröffnung des Insolvenzverfahrens vorgenommen worden sind"
+10. "und die Insolvenzgläubiger benachteiligen, kann der Insolvenzverwalter nach Maßgabe der §§ 130 bis 146 anfechten."
+
+===== § 134 InsO (Unentgeltliche Leistung), as reported =====
+11. "Anfechtbar ist eine unentgeltliche Leistung des Schuldners, es sei denn, sie ist früher als vier Jahre"
+12. "vor dem Antrag auf Eröffnung des Insolvenzverfahrens vorgenommen worden."
+13. "Richtet sich die Leistung auf ein gebräuchliches Gelegenheitsgeschenk geringen Werts, so ist sie nicht anfechtbar."
+
+===== § 143 Abs. 1 und 2 InsO (Rechtsfolgen), as reported =====
+14. "(1) Was durch die anfechtbare Handlung aus dem Vermögen des Schuldners veräußert, weggegeben oder aufgegeben ist,"
+15. "muß zur Insolvenzmasse zurückgewährt werden."
+16. "(2) Der Empfänger einer unentgeltlichen Leistung hat diese nur zurückzugewähren, soweit er durch sie bereichert ist."
+17. "Dies gilt nicht, sobald er weiß oder den Umständen nach wissen muß, daß die unentgeltliche Leistung die"
+18. "Gläubiger benachteiligt."
