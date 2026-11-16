@@ -218,6 +218,13 @@ verzichtet werden. Seine Ausübung kann nicht ausgeschlossen werden."* と定め
 
 **UrhG 29 条 —— 法が許す取引の列に、§4・§5・§12.2 の形がそのまま並ぶ（2026-11-16 追記・portfolio-30・条文は `rounds/2026-11-16-urhg-29-gesetze-im-internet-snapshot.txt`・我々の読み）**: 1 項 *"(1) Das Urheberrecht ist nicht übertragbar, es sei denn, es wird in Erfüllung einer Verfügung von Todes wegen"* … —— 著作権そのものは生前に移せない（§3 の放棄が効かない、上の段の根）。2 項 *"(2) Zulässig sind die Einräumung von Nutzungsrechten"* …（31 条を指す括弧）… *"schuldrechtliche Einwilligungen und Vereinbarungen"* *" zu Verwertungsrechten sowie die in"* …（39 条を指す）… *"geregelten Rechtsgeschäfte über Urheberpersönlichkeitsrechte."*（条番号の括弧は Check 471 が本ドシエの節と取り違えるので省いた。全文は写しに在る） —— 法が許すと名指す 4 つの形は、ACD の 4 つの層に当たる: 利用権の付与（§4）、債権的な同意（§12.2 の consent と、§2.3 の段の schlichte Einwilligung の近く）、利用権についての合意（§5 の不行使の約束）、39 条の人格権についての取引（§12.2・上の §12.2 の段）。**不確実性が狭まる向き**: §3 が効かない法域の代表であるドイツで、§4・§5・§12.2 の形が法の列に在ることが、条文で言える。**残ること**: 「債権的な」同意と合意は契約として成立して初めて働くので、知らない受け手（§2.3 の段）と、包括的な事前の同意の限界（14 条の段）は、この条では閉じない。
 
+**同じ構造（放棄・許諾・不行使の約束）を、ドイツの弁護士が既に読んでいる —— 上の段の「我々の読み」の 3 つが、公開された法律家の意見で裏づけられる（2026-11-16 追記・portfolio-30・portfolio-2f が取得・`rounds/2026-11-16-kreutzer-cc0-german-law-analysis-snapshot.txt`）**: Till Kreutzer 氏（ベルリンの弁護士・2011 年頃・CC0 のドイツ法上の分析・McCoy Smith 氏が 2020 年の Unlicense の審査で引いた）。
+(1) **§3 は効かない（上の段と同じ）**: *"A waiver of the author's right as such is not valid under German copyright law."* —— 根は UrhG 29 条 1 項（上の段の写し）。
+(2) **§4 の形は効く（狭まる向き）**: *"The bottom line is that the CC0 license fallback is – according to my opinion – legally effective."*、さらに *"public domain licenses (which"* *"cannot be interpreted as a waiver of rights under the German copyright, see above) are reinterpreted as"* *"unconditional, unlimited, non-exclusive (i.e. public) licenses"* が学説の通説だと書く —— 許諾の条が無くても公の許諾に読み替えられる。ACD の §4 は fallback でなく独立に立つ（§4.4）が、この読み替えの通説は同じ向きに働く。
+(3) **§5 の不行使の約束は有効（狭まる向き・§2.3 の段と §18.2 の §5.1 の ③ の一部を閉じる）**: *"pactum de non petendo that would prevent him from enforcing these rights anyway."*（*"valid and legally binding"* と評する）。29 条 2 項が許す *"Vereinbarungen"* の形に、弁護士の意見が当てはめた。
+(4) **§12.2 の包括的な同意の限界（上の §12.2 の段の「確かめていない」を一部埋める）**: *"According to the prevailing opinion among the German commentators global and unrestricted disclaimers"* *"about moral rights positions are invalid."* —— 包括的・無制限の人格権の放棄は通説で無効。その効果がライセンス全体に及ぶかを述べる続きの文は、取り出しの窓の外で取れていない。§12.2 は放棄でなく約束と同意で、§12.3 が the Work に限るので「無制限」より狭いが、当たるかは確立していない。
+**逆側**: 1 人の弁護士の 2011 年頃の意見で、判決でも制定法でもない。2021 年の UrhG の改正（DSM 指令の置き換え）の後に読み直された記録は見ていない。ACD の §4.4 は fallback でない点で CC0 と構造が違う。
+
 ## 4. フランス（人格権が最も強い）
 
 **問い**: 人格権は永久・不可譲・時効にかからないのではないか。
