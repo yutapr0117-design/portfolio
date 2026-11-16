@@ -302,7 +302,7 @@ Before: *"No permission granted by this Dedication terminates for any reason."* 
 
 **⚠ 逆側**: (1) *under it* は「法による終了は在る」と本文が自分で示す読みを作る —— ただし `ADOPTING.md` が §203 を名指すので、隠す利益は無い（50）。(2) §2.2 *"This Dedication is irrevocable."* も同じ問いを持ちうるが、*irrevocable* は Apache-2.0 など承認済みのライセンスが使う慣用の語で、法定の終了権に負けることは前提として読まれる —— *"for any reason"* のような言い切りを持たないので、変えない。(3) 50 の案のもう 1 つ *"Nothing in this Dedication terminates a permission granted by it, for any reason."*（+3）は、主語を文書にする点で同じ。短い方を採った。
 
-**反例の担当へ（30・50）**: (a) *under it* が、§8.2 の *"not terminable by the Dedicator on any ground"* と食い違う読みを作るか、(b) Dedicator が別の文書（例えば別の契約）で許しを終わらせうると読む余地を作るか（§2.2 の撤回不能と §5 の約束が閉じると読む）。
+**反例の担当へ（30・50）** **反例の結果**: 50 —— (a) 立たない: §8.2 は Dedicator の力の否定、§10.4 は文書の中の終了の事由の否定で、別の命題。§8.2 は特許の licence で §203 は著作権の grant だけに届くので、§8.2 の言い切りは米国でも真。(b) 立たない: §2.2 *"The Dedicator may not withdraw it, and may not impose any further term, condition, or restriction"* と §5.2(b) が閉じる。逆側: 旧文は「契約でない許しは許諾者が自由に撤回できる」読み（Cowan 氏 2000・objection-map の *"a bare permission can be freely revoked by the licensor"* の行）にも本文の言葉で答えていたが、*under it* の後はその答えを §2.2（撤回しない）と §2.5（禁反言）が持つ —— §10.4 から抜けるのは重複で、失う答えは無い。登録した問い: (a) *under it* が、§8.2 の *"not terminable by the Dedicator on any ground"* と食い違う読みを作るか、(b) Dedicator が別の文書（例えば別の契約）で許しを終わらせうると読む余地を作るか（§2.2 の撤回不能と §5 の約束が閉じると読む）。
 
 ## 16. 模擬委員会 —— 記録に立場が厚く残る審査者の目で 1.4 草案を通読する（2026-11-15〜）
 
