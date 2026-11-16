@@ -534,7 +534,7 @@ Dedicator が与えうるものではなく、本 Dedication はそれを与え�
 | **撤回（withdraw）** | **Dedicator が撤回する権限を持つものだけ。** 例: 配布者として自分で付けた metadata、hosting 側の既定 robots directive のうち自分で外せるもの |
 | **依拠しない宣言（disclaim reliance）** | **誰が付けたものについても成り立つ。** Dedicator は「その signal を根拠に権利主張しない」と述べているだけで、他人の権利には触れていない |
 
-**したがって、第三者が自分の権利の行使として付けた Reservation は、そのまま有効である。**
+**したがって、第三者が自分の権利の行使として付けた Reservation に、ACD は触れない**（それが法の上で有効かは、その権利者と法域の法が決める）。
 §6.2 の末文が *"does not purport to defeat a Reservation made by another rightsholder"* と述べ、
 §2.7 が instrument 全体を「Dedicator が持つ権利」に縛っている。**届かない撤回は、届かない。**
 
