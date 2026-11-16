@@ -136,6 +136,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §5.3・§2.8（承継の列挙・T74） | §5.3 の *"bind the Dedicator's successors, assigns, heirs, and personal representatives, to the fullest extent the law permits the Dedicator to bind them, and may be relied upon"* を *"bind those whom Section 2.8 binds, and may be relied upon"* へ（**後の行で再改**: 「§5.3・§2.8・§12.4（人だけを借りる・T75）」の行で *"bind the persons Section 2.8 names"* へ）。§2.8 の末文 *"Neither Section 5.3 nor Section 12.4 narrows this Section."* を *"Section 12.4 does not narrow this Section."* へ | 1.4 で §2.8 が *"This Dedication, in respect of the Work, binds"* になり（E49）、承継人・譲受人・相続人・人格代表者と Covered Right や特許の譲受人を拘束するので、§5.3 の承継の列挙は何も足さず、§2.8 より短い列挙（特許の譲受人を名指さない）と違う限度（*"the law permits the Dedicator to bind them"*）を持っていた。特定の規定が一般の規定に勝つ読みで、特許を買った者は §8.6 に縛られないと主張される余地を、§2.8 の末文が止めていた —— 揺れの元とその防ぎの両方を外し、§5 を読む人には承継が §2.8 を名指して見える。Fontana 氏 2014 の「同じ問題を扱う部分どうしの subtle contradictions」（模擬委員会 §16.3・`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.12）。**逆側**: §5.3 だけを読む人は誰が拘束されるかを §2.8 で読む必要がある。§12.4 は死後に人格権を行使できる者を足すので列挙を残す | −17 | 反映済 |
 | §5.3・§2.8・§12.4（人だけを借りる・T75） | （**後の行で再改**: 「§5.3・§12.4・§2.8（限度を 1 つに・T76）」の行で §5.3 と §12.4 に §2.8 の限度を置き、§2.8 の末文を外した）§5.3 の *"bind those whom Section 2.8 binds"* を *"bind the persons Section 2.8 names"* へ。§2.8 の *"a Covered Right or a patent claim in the Work is transferred"* を *"a Covered Right, or a patent claim that Section 8 reaches, is transferred"* へ。§12.4 の *"bind the Dedicator's successors, assigns, heirs, personal representatives, and any person entitled"* を *"bind the persons Section 2.8 names and any person entitled"* へ | T74 の *"those whom Section 2.8 binds"* は、§2.8 が *"This Dedication, in respect of the Work, binds"* と書くので、人だけでなく *in respect of the Work* の範囲まで借りると読む余地があった。§8.6 の約束は §8.4 の行為（Work の Computational Use から生じたモデル・重み・出力）に及び、モデルについての行為が *in respect of the Work* かは争いうるので、T74 は約束の範囲を狭める読みを新しく生んでいた（portfolio-50 の反例 (a)）。*names* は人だけを借りる。§2.8 の *"a patent claim in the Work"* は、§8.1・§8.4 が請求項を行為で定める語と揃わず（50 の (c)）、草案の他の場所の *"the patent claims Section 8 reaches"* に揃えた（*Covered Right* に *Section 8 reaches* が掛からないよう、挿入句にした）。§12.4 も承継人を §2.8 から借り、死後の行使者だけを足す。**逆側**: §12.4 の限度 *"the law permits the Dedicator to bind them"* は残るので、§2.8 の末文 *"Section 12.4 does not narrow this Section."* は要る | −1 | 反映済 |
 | §5.3・§12.4・§2.8（限度を 1 つに・T76） | §5.3 を *"bind the persons Section 2.8 names, to the fullest extent the law permits, and may be relied upon"* へ。§12.4 の *"to the fullest extent the law permits the Dedicator to bind them"* を *"to the fullest extent the law permits"* へ。§2.8 の末文 *"Section 12.4 does not narrow this Section."* を外す | T75 の §5.3 は *names* で人だけを借り、§2.8 の限度 *"to the fullest extent the law permits"* を借りないので、約束が承継人・譲受人を限度なしに縛ると断定する形になり、1.1 で E17 が直した 1.0 の欠陥を戻していた（portfolio-30 の反例）。30 の案 (A) *"to the extent Section 2.8 binds them"* と (B) §5.3 から承継を外す案は、どちらも §2.8 の *in respect of the Work* を借り、50 の反例 (a)（§8.4 のモデルについての約束が譲受人を縛るか）を戻す（portfolio-50）。限度を §2.8 と同じ語で各条が持てば、人も限度も 1 つになり、どの条も §2.8 を狭めないので、§2.8 の末文の働き（特定の規定が一般の規定を狭める読みを止める）は構造で満たされる。§12.4 の *"the law permits the Dedicator to bind them"* は *"the law permits"* と同じことを言う（拘束できるかは法が決め、Dedicator の約束が人を縛るのも法の許す限り）。**逆側**: (1) T74〜T76 の 3 回の改めで、1 日に §5.3 の語が 3 度変わった（反例を当ててから採る順の方が手戻りが少なかった）。(2) §12.4 の死後の行使者は、法が Dedicator の約束で縛ることを許さない法域が多く、*"the Dedicator to bind them"* はその点を明示していた —— 新しい語は同じ意味だが、明示が減る | −5 | 反映済 |
+| §11.3・§9.4（理由の文・T77） | §11.3 の *"because it was never the Dedicator's to permit"* を外す。§9.4 の *"Section 11.3 explains why a false claim of authorship is not something this Dedication is able to permit"* を *"Section 11.3 governs a false claim of authorship"* へ | 理由の文は「作者である」の表示で法の命題として誤り —— 著作は同意で真にならず、英国 CDPA s.84 の偽の帰属の権利は本人のもので s.87(1) により本人の同意で侵害でなくなる（portfolio-30 の反例・THIRD §15.17）。作用（虚偽の表示は届く範囲の外）は変わらない。**逆側**: §9.4 は「なぜ」の説明を失う | −18 | 反映済 |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
@@ -190,7 +191,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
-1.3 の 5,443 語から 1.4 草案は +103 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
+1.3 の 5,443 語から 1.4 草案は +85 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
 
 | 束 | 増減 | 何のための語か |
 | :-- | --: | :-- |
@@ -200,9 +201,9 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | その他の明瞭化 | +34 | 定義、承継（§2.8 の *to that extent*・T59、§5.3 の列挙を §2.8 へ寄せた T74）、撤回不能（§2.2 の後付けの制限・T65）、§4、§9 などの語の付き先 |
 | 人格権（§12）| +22 | 人格権を放棄できない法域での同意（T67・§2.4 の独立の列挙を含む）。約束が契約として効かない場面でも、行為がそもそも侵害にならないための語 |
 | 特許（§6.1・§8）| −44 | 行為を目的語にし、*reach* を 1 回で定め、三つの足場の説明と §8.6 の *alongside them*（T56）を外した |
-| 理由・説明の文を外したもの | −240 | §2.8・§11.4・§12.4・§8.4（T54）の理由の文と、§2.7・§8.5 の案内（Chestek 氏 *"I question whether they belong in the agreement at all."*・#295）|
+| 理由・説明の文を外したもの | −258 | §2.8・§11.4・§12.4・§8.4（T54）の理由の文と、§2.7・§8.5 の案内（Chestek 氏 *"I question whether they belong in the agreement at all."*・#295）|
 
-**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +267）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 650 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
+**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +267）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 632 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
 
 ## 外部資料・OSAID 1.0・opensource.org のページを当てた記録（2026-10-28）は別の file へ移した
 
@@ -377,7 +378,7 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 > §2 (scope and effect, 11) and §1 (definitions, 8); seven name the preamble or several clauses at
 > once. Further changes came from our own sweeps of the
 > later drafts and are listed, with their reasons, in each version's change list. The text is
-> longer: 5,546 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
+> longer: 5,528 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
 
 **⚠ 逆側**: 短い経路の語数が約 170 語増える（`REVIEWERS.md` の短い経路の表と Check 472m の値を同じ日に直す）。*"The direction is unchanged"* は、1.0 から変わらなかったものを 3 つだけ挙げる文で、ほかに変わらなかったものが無いとは言っていない。逆に、変わったものを errata の件数で数えるので、errata に載らない 1.4 生まれの変更（T34〜T52 の多く）は *"Further changes"* の 1 文にまとまる。数を当日に数え直すのは、草案が確定まで動くからである（2026-11-11 の時点でも 1.4 の閉鎖は 39 件で、まだ動きうる。**同日の訂正**: 最初の下書きは 1.3 で 5・1.4 で 38 と書いた。状態の列の版の語の最初の一致を数えていて、閉鎖の印でない語を拾っていた。portfolio-00 が印の正規表現で 4 と 39 を出し、同じ数え方で確かめた）。
 
