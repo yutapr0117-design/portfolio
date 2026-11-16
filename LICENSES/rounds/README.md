@@ -222,6 +222,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2025-12 | `license-discuss` | **観測（"Total Reciprocity Public License (TRPL v1.0)" から 3 通・出力を派生物とみなす条は使用の制限か、ライセンスが法の語を作り直すこと）** | `2025-12-license-discuss-trpl-functional-output-observed.txt` |
 | 2025-12 | `license-discuss` | **観測（同じ会話から 2 通・同じ誤解がほぼ月に一度来ること、出力への条件は契約でしか働かず同意した者しか縛らないこと）** | `2025-12-license-discuss-trpl-once-a-month-and-contract-observed.txt` |
 | 2025-07〜10 | `license-review` | **観測（PPPL BSD-3 の提出から 4 通・名前だけが違う同じライセンスは承認しない、著作権者の表示はライセンスの外に置く、名は steward が決める）** | `2025-07-to-10-license-review-pppl-same-license-new-name-observed.txt` |
+| 2025-08 | `license-review` | **観測（Berkus 氏の 1 通・撤回不能の明記は少し冗長、撤回の実例は無い）** | `2025-08-license-review-mit-i-berkus-irrevocable-redundant-observed.txt` |
 | 2026-03 | `license-review` | **観測（CNRI-Python-GPL-Compatible の提出から 4 通・clickwrap の文と OSD 10、同意の別の道が在れば反しないという読み）** | `2026-03-license-review-cnri-python-clickwrap-osd10-observed.txt` |
 | 2026-01 | `license-discuss` | **観測（Project Tick の草案から Perens 氏の 1 通・選択で起動する条項はライセンスを増やす、提出の前に法律家を使え）** | `2026-01-license-discuss-project-tick-attorney-observed.txt` |
 | 2026-01〜02 | `license-review` | **観測（Project Tick の提出から 2 通・提出した文は変えられない、`license-discuss` で固めてから出す、否決の勧告と既存のライセンスか法律家か）** | `2026-01-to-04-license-review-project-tick-discuss-first-observed.txt` |
@@ -655,6 +656,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2020-12 | `license-discuss` | **観測（Atkinson 氏の 1 通・前文は役に立つが、調子は中立でも足りる）** | `2020-12-license-discuss-invariant-manifestos-atkinson-preamble-observed.txt` |
 | 2020-12 | `license-discuss` | **観測（Chestek 氏の 1 通・法的な文書に拘束しない部分は無い、前文は意図の解釈に使われる）** | `2020-12-license-discuss-invariant-manifestos-chestek-no-non-binding-observed.txt` |
 | 2024-09-01 | `license-review`（観測）| **Stefano Maffulli 氏（事務局長）の問い → 観測保存** | *"non-software artifacts like datasets, documentation, and model parameters (aka weights)"*（`board-decisions.md` §2g）|
+| 2024-09 | `license-review` | **観測（Berkus 氏の 1 通・ソフトウェアのライセンスでない承認済みの文書は別に並べる）** | `2024-09-license-review-ai-process-berkus-list-separately-observed.txt` |
+| 2024-09 | `license-review` | **観測（Maffulli 氏の 1 通・AI には一般化に使える実践の例がまだ無い）** | `2024-09-license-review-ai-process-maffulli-no-practice-observed.txt` |
 | 2024-09-10 | `license-review`（観測）| **Pamela Chestek 氏（委員長）の 1 通 → 観測保存** | *"legal mechanisms other than a license"*（`board-decisions.md` §2g）|
 | 2024-09-10 | `license-review`（観測）| **Pamela Chestek 氏（委員長）の 1 通 → 観測保存** | *"This area needs room to develop"*。1 本か複数かを OSI が決めないと述べる（`board-decisions.md` §2g）|
 | 2024-03 | `license-discuss` | **観測（Blue Oak についての Perens 氏の 1 通・法律家の新しい permissive も採用されず承認済みの数を増やしただけ）** | `2024-03-license-discuss-blue-oak-reinvention-observed.txt` |

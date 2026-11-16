@@ -1,0 +1,119 @@
+Source: OSI license-review public archive, 2024-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 23 in "Adapting the license-review process to AI" (2024-09-01)
+Senders: Stefano Maffulli
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From stefano at opensource.org  Wed Sep 11 23:11:59 2024
+From: stefano at opensource.org (Stefano Maffulli)
+Date: Thu, 12 Sep 2024 01:11:59 +0200
+Subject: [License-review] Adapting the license-review process to AI
+In-Reply-To: <a897d4df-d160-4c2f-b72a-8dc0c43430fb@rolandturner.com>
+References: <CAH=j4iTnb2ZvZX5zc644HofPok1xFMyzrcdT-A6TyGgmaKzMVQ@mail.gmail.com>
+ <9b32b1a0-981f-46ab-8d10-e91b7711c236@berkus.org>
+ <0812c430-1d59-4579-be43-86ebb1ba90d4@chesteklegal.com>
+ <33661976-6260-4e11-a139-caec807a3297@rolandturner.com>
+ <88538684-2d3e-471b-a129-863de9a9bfbf@opensource.org>
+ <a897d4df-d160-4c2f-b72a-8dc0c43430fb@rolandturner.com>
+Message-ID: <CAH=j4iRMzkdPjSPNkYkqQBhaM+o6rx3XUQ1tYOiipGAaFYz6aw@mail.gmail.com>
+
+On Tue, Sep 10, 2024 at 8:39?AM Roland Turner via License-review <
+license-review at lists.opensource.org> wrote:
+
+> There seems to me to be a serious batteries-not-included problem with this
+> approach. I do get the need to evaluate terms more broadly than
+> copyright-license terms[1] alone[2], but what you're describing appears to
+> be abdicating an obvious role for OSI completely:
+>
+>    - Yes, we obviously can't become a certification body for every OS AI
+>    system in the world. Scope, resourcing at every level, assumptions about
+>    what F/OSS is about, etc., would all be invalidated by this approach.
+>    - But limiting review and approval merely to component terms destroys
+>    the meaning of OSI-approval for OSAID (because there would be no such
+>    thing), in that it is by no means certain that the combination of a set of
+>    compliant component terms will automatically yield a compliant whole[3].
+>
+>
+I see the temptation to jump to this conclusion but I recommend everybody
+to remember that the OSD looks easy to interpret today only because it's 26
+years old. Also, when it came out there were hundreds of software packages
+already using its principles.
+
+For AI we don't have any of that, there isn't a body of widely-agreed-upon
+"free as in freedom" work we can look at, there is no practice of openness,
+therefore there are no examples we can use to generalize a 10-points
+guideline to select AI systems to ship to freedom-deserving users (like
+Debian did with its Free Software Guidelines).
+
+The Open Source AI Definition should be seen as a set of widely agreed-upon
+principles, a short version of the GNU Manifesto and the What is Free
+Software page applied to AI, if you will. The companion document of the AI
+Definition is the "Checklist" is still in its infancy, tied to a specific
+kind of AI (GenAI) and to a specific view of the domain (the Linux
+Foundation Model Openness Framework), still has a lot of room to evolve. I
+expect the Checklist to grow as the collective knowledge of what makes an
+Open Source AI grows. The conversation started here
+https://discuss.opensource.org/t/concerns-and-feedback-on-anchoring-on-the-model-openness-framework/393/
+but no conclusion yet.
+
+Based on what I've seen so far in the wild, there is a simple shortcut to
+identify an Open Source AI: Did the developers release all of their
+training code and the code to create the dataset, with a detailed (peer
+reviewed, maybe) research paper? Are the results of the training available
+for anybody to use without limitations? If all answers are yes, I'd be
+fairly certain that's an Open Source AI.
+
+If any of these is no, you don't need lawyers: you need AI experts, not
+generic ones but very specific experts of the AI being examined, to argue
+if the technical details and code made available is sufficient to use,
+study, share and modify. I think the practitioners will have to show the
+path based on their practice.
+
+> *Stefano*, is there a current documented position on the intended
+> approach?
+>
+Not yet. If you think there needs to be one, I'd ask to contribute to the
+discussion above on the forum.
+
+Going back on topic, here is a summary of the answers to the original
+questions:
+
+- Do you believe that this group should be the one to review the new
+documents, or should a separate group be created for it?
+
+I didn't see strong arguments to create a separate group. People may
+require to develop new competences though. I'd also add that we may want to
+recruit people with skills this group may collectively lack at the moment.
+
+- What new challenges do you expect to see in reviewing these licenses?
+
+Consideration of rights other than copyright, patents, trademarks, moral
+rights will likely be necessary (Josh). Because of this and because of how
+fresh the field is, discussions are going to be harder (slower) to converge
+as we work through multiple new ramifications for the first time. (Roland)
+
+Some of the questions highlighted that there nomenclature is still evolving
+and there are no clear standards when it comes to naming and versioning
+conventions for these new terms. We don't even know what legal frameworks
+apply to some of the components.
+
+- Do you recommend any changes to the process in light of potential new
+challenges?
+
+Practical considerations like some kind of organized digital tracking of
+verifications (Josh.) Also editorial changes to add references to OSAI and
+the OSAID; and solicit additional information relevant for submissions
+under the adopted OSAID specifically (Roland.)
+
+Seems quite clear that the list of approved documents which are not
+software licenses will need to be hosted separately on opensource.org, like
+https://opensource.org/aiterms .
+
+Any other answers to these questions?
+
+thanks,
+stef
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20240912/02d6673c/attachment.htm>

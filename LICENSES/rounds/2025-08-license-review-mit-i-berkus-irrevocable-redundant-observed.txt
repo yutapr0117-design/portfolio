@@ -1,0 +1,46 @@
+Source: OSI license-review public archive, 2025-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 16 in "License Review Submission: Irrevocable MIT License (MIT-I)" (2025-08-14)
+Senders: Josh Berkus
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From josh at berkus.org  Fri Aug 15 17:54:32 2025
+From: josh at berkus.org (Josh Berkus)
+Date: Fri, 15 Aug 2025 10:54:32 -0700
+Subject: [License-review] License Review Submission: Irrevocable MIT
+ License (MIT-I)
+In-Reply-To: <7b1bcafa-5cfb-093e-b06d-33dfe3114978@chesteklegal.com>
+References: <ff4d5f0a-40a5-47dc-ba7c-e3a5994fe9d0@app.fastmail.com>
+ <ba0a580d-8aa5-4754-adc2-4d1c90f35d94@berkus.org>
+ <badd507d-41c9-4b5e-88c9-a91ed2625c09@lexpan.law>
+ <7b1bcafa-5cfb-093e-b06d-33dfe3114978@chesteklegal.com>
+Message-ID: <347cb90e-8970-49ba-95e5-f8ec9b1e3661@berkus.org>
+
+On 8/15/25 09:18, Pamela Chestek wrote:
+> 
+> I am also troubled by "The Software may not be removed from public 
+> repositories solely for the purpose of limiting access to versions 
+> previously distributed under this license." I don't think it's a good 
+> idea to start - what if it's taken down for security reasons? And you're 
+> forcing someone to spend the resources to maintain a copy of software in 
+> perpetuity, even if it's well past its useful life. I don't think 
+> someone should be required to maintain a copy of the software.
+
+This was the part where I was asking "can a license even compel this?"
+
+It's one thing to say that the license is not revokable on already 
+distributed copies of the software.  I think it's a bit redundant for 
+the reasons Pam gives; even if the license is theoretically revokable, 
+unless the revokation is automatic for reasons already documented in the 
+license itself you're going to have a hard time actually carrying it 
+out.  As far as I know, nobody has ever tried to do this; even with the 
+various relicensings of database software, nobody has tried to claw back 
+the old versions.
+
+But, saying that the distributor must commit to distributing the 
+software in perpetuity?  That seems like it goes well beyond copyright. 
+Aside from being unrealistic.
+
+-- 
+Josh Berkus

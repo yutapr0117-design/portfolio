@@ -1,0 +1,53 @@
+Source: OSI license-review public archive, 2024-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 23 in "Adapting the license-review process to AI" (2024-09-01)
+Senders: Josh Berkus
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From josh at berkus.org  Mon Sep  9 23:31:05 2024
+From: josh at berkus.org (Josh Berkus)
+Date: Mon, 9 Sep 2024 16:31:05 -0700
+Subject: [License-review] Adapting the license-review process to AI
+In-Reply-To: <CAH=j4iTnb2ZvZX5zc644HofPok1xFMyzrcdT-A6TyGgmaKzMVQ@mail.gmail.com>
+References: <CAH=j4iTnb2ZvZX5zc644HofPok1xFMyzrcdT-A6TyGgmaKzMVQ@mail.gmail.com>
+Message-ID: <9b32b1a0-981f-46ab-8d10-e91b7711c236@berkus.org>
+
+On 9/1/24 05:53, Stefano Maffulli wrote:
+> - What new challenges do you expect to see in reviewing these licenses?
+
+I see three major challenges:
+
+1. We'll need to review TOS for types of content which are not subject 
+to copyright law (e.g. collections of model weights).  To date, all of 
+the license eval on this list has been within the framework of copyright 
+law.  I suspect that I lot of us would need some education on how to 
+evaluate non-copyright terms; I know that I will.
+
+2. We will also need to evaluate whether certain types of content (model 
+weights, training process docs, etc.) require any clarification of the 
+OSD for compliance.
+
+3. The OSAID certifies complete software systems, not just licensing 
+documents.  So we will need to verify that the terms submitted are 
+actually applied to the software available.  To date, L-R has operated 
+by waiting for folks to submit documents to us; the OSAID will require 
+us -- or someone else -- to perform a compliance review.
+
+ > - Do you recommend any changes to the process in light of potential 
+new challenges?
+
+Given the above, I'm pretty sure that we need some kind of organized 
+digital tracking of verifications.
+
+We also might consider splitting the work.  I believe that L-R is going 
+to be much better equipped to evaluate whether the various documents 
+(licenses and terms) comply with the OSD, and leave it to another team 
+(staff, maybe?) to evaluate whether the AI software actually uses all 
+approved documents.
+
+Finally, I think we'll want to list approved documents which are not 
+software licenses separately on the website from the software licenses.
+
+-- 
+Josh Berkus
