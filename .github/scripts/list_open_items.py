@@ -16,8 +16,8 @@
   7. オーナーにしかできない行為の表 (OSI-APPROVAL-PLAN.md・30 の依頼)。
   8. 法律家と実務家への問い (QUESTIONS-FOR-COUNSEL / -PRACTITIONERS の `## N.` の節・どれも未回答)。
   9. register の行のうち「**合否の状態（日付）**: 無い / まだ」と書いた行 (合否の基準を書いて、まだ満たしていない・30 の依頼)。
-  10. 候補 (読んで確かめる): SELF-AUDIT の 🔴 の項と、試作の文書の「先に登録する反例」(1c の依頼)。閉じたかは本文を読まないと
-     分からないので、件数でなく候補として出す。
+  10. SELF-AUDIT の 🔴 の項で「**1.4 草案で閉じた（…）**」の印の無いもの (「**起草では閉じない**」は起草の外として別の状態)、
+     試作の文書の「先に登録する反例」で「**反例の結果**」の段の無いもの (印の語は 1c が決めた・2026-11-16)。
   11. --advisory を付けると、consistency を回して ADVISORY の警告を足す (重い・約 2 分)。
 **担当の候補** は、本文 = 1c、register と B = 30、入口と手順 = 50、未読と合成 = 2f、機械層 = 9b の割り振りから付ける (目安)。
 
@@ -133,14 +133,33 @@ def pass_fail_items() -> list[tuple[str, str, str, str]]:
 
 
 def candidate_items() -> list[tuple[str, str, str, str]]:
+    """SELF-AUDIT の 🔴 の項と、試作の文書の「先に登録する反例」のうち、閉じた印・答えの段が無いもの (1c が印の語を決めた・2026-11-16)。
+
+    SELF-AUDIT: 項の本文に「**1.4 草案で閉じた（…）**」(errata の印と同じ語) が在れば閉じた、「**起草では閉じない**」が在れば
+    起草の外 (別の状態で出す)。反例: 段の後、次の「**先に登録」か見出しまでに「**反例の結果**」が在れば答えた。
+    """
     out = []
     sa = L / "ACD-1.1-SELF-AUDIT.md"
-    for h in re.findall(r"^### 🔴 (.*)$", sa.read_text(encoding="utf-8") if sa.exists() else "", re.M):
-        out.append(("SELF-AUDIT 🔴", "候補", h[:110], "1c"))
+    st = sa.read_text(encoding="utf-8") if sa.exists() else ""
+    heads = list(re.finditer(r"^### 🔴 (.*)$", st, re.M))
+    for i, h in enumerate(heads):
+        end = re.search(r"^#{2,3} (?!⚠)", st[h.end():], re.M)
+        body = st[h.end(): h.end() + end.start()] if end else st[h.end():]
+        if re.search(r"\*\*1\.4 草案で閉じた（", body):
+            continue
+        state = "起草の外" if "**起草では閉じない**" in body else "未閉"
+        out.append(("SELF-AUDIT 🔴", state, h.group(1)[:110], "1c"))
     for p in sorted(L.glob("ACD-1.4-*TRIAL.md")):
-        for i, ln in enumerate(p.read_text(encoding="utf-8").splitlines(), 1):
+        lines = p.read_text(encoding="utf-8").splitlines()
+        for i, ln in enumerate(lines):
             if ln.startswith("**先に登録する反例"):
-                out.append((f"{p.name}:{i}", "候補", re.sub(r"\*\*", "", ln)[:110], "30 (反例) / 1c"))
+                rest = []
+                for nx in lines[i + 1:]:
+                    if nx.startswith(("**先に登録", "#")):
+                        break
+                    rest.append(nx)
+                if "**反例の結果**" not in "\n".join(rest):
+                    out.append((f"{p.name}:{i + 1}", "答えの記録なし", re.sub(r"\*\*", "", ln)[:110], "30 (反例) / 1c"))
     return out
 
 
@@ -177,7 +196,7 @@ def main(argv: list[str]) -> int:
               ("合成の文書 §6 の残り（読みの側）", synthesis_items()),
               ("合否の基準を書いて、まだ満たしていない register の行", pass_fail_items()),
               ("オーナーにしかできない行為", owner_items()), ("法律家と実務家への問い（未回答）", question_items()),
-              ("候補（閉じたかは読んで確かめる）: SELF-AUDIT の 🔴 と、先に登録した反例", candidate_items())]
+              ("閉じた印の無い SELF-AUDIT の 🔴 と、答えの記録の無い先に登録した反例", candidate_items())]
     if "--advisory" in argv:
         groups.append(("ADVISORY の警告", advisory_items()))
     groups.append(("外部に依る register の行（EXTERNAL・我々の側でできることは行の「潰し方」に在る）", external))
