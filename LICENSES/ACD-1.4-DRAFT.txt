@@ -121,6 +121,11 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       law permits the Dedicator to bind them". With one list and one limit,
       no Section binds fewer persons or less than Section 2.8 does. (-6
       words.)
+    * Section 11.3 no longer gives a reason for its limit, which was untrue
+      where a person may consent to being falsely named as the author, and
+      Section 9.4 says that Section 11.3 "governs a false claim of
+      authorship", where it said that Section 11.3 explains why. (-18
+      words.)
     * Section 6.1 now permits Computational Use as to the patent claims
       Section 8 reaches, where it named the patent claims of the Dedicator and
       so went beyond Section 8. (+4 words.)
@@ -246,7 +251,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5546 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5528 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -670,10 +675,9 @@ PREAMBLE (informative; not part of the operative terms)
        answer changes.
 
   9.4  Section 9 is not a disclaimer of the fact of origin. Where a person
-       directed the making of the Work, that remains true as a matter of
-       history whatever the position in law. Section 10 governs whether You
-       need say so, and Section 11.3 explains why a false claim of authorship
-       is not something this Dedication is able to permit.
+       directed the making of the Work, that remains true as a matter of history
+       whatever the position in law. Section 10 governs whether You need say so,
+       and Section 11.3 governs a false claim of authorship.
 
 
 10. ABSENCE OF CONDITIONS
@@ -720,9 +724,8 @@ PREAMBLE (informative; not part of the operative terms)
   11.3 This Dedication does not make a false statement true. Representing that
        the Dedicator authored, endorsed, approved, sponsored, or is associated
        with a work, when that is not the case, is outside what this Dedication
-       reaches, because it was never the Dedicator's to permit. This Section
-       states a limit of the Dedication's reach; it is not a condition upon
-       You, and Section 10.1 is unaffected by it.
+       reaches. This Section states a limit of the Dedication's reach; it is not
+       a condition upon You, and Section 10.1 is unaffected by it.
 
   11.4 This Dedication, in respect of the Work, reaches Covered Rights, the
        patent claims Section 8 reaches, and Moral Rights to the extent
