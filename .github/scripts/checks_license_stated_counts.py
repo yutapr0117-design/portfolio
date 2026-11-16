@@ -169,6 +169,14 @@ def run(ctx):
             bad.append(f"(h) AS-OF.md の未読スレッド: 候補 {m.group(1)} 本 / 読んだ {m.group(2)} 本 と述べるが、"
                        f"THREAD-CANDIDATES.txt の会話は {len(cand)}、READ-THREADS.txt のうちそこに在る会話は "
                        f"{len(read & cand)} (読了の行を足して AS-OF を直し忘れたか、行の日付が会話の始まりでない)")
+        if cand and read:
+            # 提出のゲート 6c の (i) を毎回見えるようにする (2026-11-16・ADVISORY): 確定の道具 (gate_6c) は手で回すときにしか
+            #   鳴らないので、census が新しい候補を足して未読が 0 から動いても気づけない。BLOCKING にすると、候補が入るたびに
+            #   全員の PR が止まるので ADVISORY に留める (写しの鮮度は CI に写しが無いので確定の道具だけが見る)
+            _k498h = len(cand - read)
+            check(_k498h == 0, "Check 498 (h) (ADVISORY): 提出のゲート 6c の (i) —— 候補の未読は 0",
+                  f"Check 498 (h) (ADVISORY): 候補の未読が {_k498h} 本ある。提出のゲート 6c (未読 0・全て反映) を満たしていない。"
+                  "読んで record_read.py で記録する (オーナー: 「全て読んで反映してこそ、出せるクオリティ」)", blocking=False)
 
     # (i) AS-OF の「答えていない問い」の行: 件数「**N 件**」を手で書き、問いが届くたびに状態の欄へ
     #   「**Qn** 届いた日・発言者・`rounds/<file>`・§N・未回答｜YYYY-MM-DD にオーナーが回答」を「；」で
