@@ -340,8 +340,9 @@ def run(ctx):
     # 501b: 古い節の反映の表 (REFLECTION-BACKFILL.md・30 の案 (B) と 50 の依頼・2026-11-15)。§1.242 より前の節は、節の末尾の欄か
     #   表の 1 行で満たす。表の行は見出しと 1 対 1・語彙・番号の実在・grep と言うなら行き先が §1.N を引く。反映の無い節の数は
     #   ADVISORY で毎回出し、0 になった日に BLOCKING へ上げる (提出のゲート 6c の (ii) を機械で測る)
-    from _lib_dossier import backfill_table_misses
+    from _lib_dossier import BACKFILL_PENDING, backfill_table_misses
     _nb501, _badb501, _miss501 = backfill_table_misses(L)
+    _pendb501 = list(BACKFILL_PENDING)
     check(not _badb501, f"Check 501b: REFLECTION-BACKFILL の {_nb501} 行が見出しと 1 対 1 で、反映先を語彙で名指す",
           (f"Check 501b: 反映の表の行が誤る: {_badb501[:8]}。行は「| 1.N | 反映 | 確かめ方 |」(床 70 の下は「| `<file>` 1.N | …」)。"
            "**未反映のまま本申請は出せない** (6c)"), blocking=True)
@@ -350,5 +351,8 @@ def run(ctx):
     check(not _miss501, f"Check 501b: §1.242 より前の節はすべて欄か表の行で反映を述べる (表 {_nb501} 行)",
           f"Check 501b: 反映の無い古い節 {len(_miss501)} 件 (先頭: {_miss501[:6]})。表に行を足す。**未反映のまま本申請は出せない** (6c)",
           blocking=True)
+    check(not _pendb501, "Check 501b (ADVISORY): 反映の表に「未定」の行は無い",
+          f"Check 501b (ADVISORY): 反映の表に「未定」の行 {len(_pendb501)} 件: {_pendb501[:6]}。提出の前に決める (6c)",
+          blocking=False)
     check(not _pend501, f"Check 501 (ADVISORY): 反映が「未定」の節は無い",
           f"Check 501 (ADVISORY): 反映が「未定」の節 {len(_pend501)} 件: {_pend501[:8]}。提出の前に決める", blocking=False)
