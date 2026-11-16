@@ -258,8 +258,12 @@ simply as an exercise of reflection, asking if one's license will be approved by
 check."* (`review-readings-2.md` §1.229). Neither the FSF nor Debian has looked at ACD. **What follows is our
 own reading of the 1.4 draft against their published tests, not their assessment**, and it should be
 weighed as such. Clause numbers are those of the 1.4 draft. The FSF's positions are taken from its licence list
-(`https://www.gnu.org/licenses/license-list.html`, read on 2026-11-15 through a summarising fetch; the wording is
-paraphrased here because it has not been checked word for word, and a copy has not been placed in `rounds/`).
+(`https://www.gnu.org/licenses/license-list.html`, read on 2026-11-15 and again on 2026-11-16 with the owner's
+permission to fetch from gnu.org). The fetch tool returns only the first sentence of each entry word for word and summarises the rest; the page could not be saved whole from this
+environment, so nothing from it is quoted here: the list files CC0 and the Unlicense as public domain dedications,
+its *Public Domain* entry says that being in the public domain is not a licence but means no licence is needed,
+and the reasons in the table below (CC0's patent exclusion, 0BSD's removable notices) are paraphrase. When the page
+is saved, these lines are to be replaced with the list's own words. A copy has not been placed in `rounds/`.
 
 | Test | What it asks | ACD (1.4 draft) |
 |---|---|---|
@@ -268,6 +272,7 @@ paraphrased here because it has not been checked word for word, and a copy has n
 | FSF freedom 2 | Redistribute copies | §4.2, §4.5 |
 | FSF: the stated reason it does not recommend CC0 for software | The FSF's licence list gives CC0's express exclusion of patent licences as the reason, and calls a program whose developer refuses patent licences a trap for users | **Does not apply.** §8.1 and §8.4 grant patent licences and §8.6 adds a covenant |
 | FSF: what it says of 0BSD | The same list says that if the copyright notice or licence notice is removed, a recipient cannot safely rely on the licence and may face liability, and recommends a short licence that keeps the notice instead | **Applies to ACD as much as to 0BSD.** §10.2 lets a recipient drop every notice. §2.3 holds that a recipient has every permission without knowing of the Dedication, and §16.2 makes an identifier sufficient notice, but neither helps a recipient who received a copy with nothing on it to show where it came from (`against.md` #41, #326) |
+| FSF: what "public domain" is | Being in the public domain is not a licence (the list's *Public Domain* entry, paraphrased above). The list files CC0 and the Unlicense as public domain dedications that each add a fallback licence | **Same structure as ACD.** §3 surrenders, and §4 grants a licence that stands without §3 (§4.4), which is what the FSF's entries for CC0 and the Unlicense describe as a dedication with a fallback |
 | FSF: GPL compatibility | No condition that the GPL forbids adding | ACD imposes no condition (§10.1), and §4.5 lets a distributor apply any terms, including the GPL |
 | DFSG 1–3 | Free redistribution; source; derived works under the same terms allowed | §4.2, §4.5; no condition is imposed, so nothing prevents derived works under any terms |
 | DFSG 4 | Integrity of the author's source code (a licence may require patches) | ACD requires nothing; the only restriction is on distributing a modified **licence text** under its name (§16.4), which §16.6 keeps away from the Work, as the GPL's own text restriction is |
@@ -298,4 +303,4 @@ their lists of Libre and compatible licenses, and have spoken with them to that 
 view rather than ours. Under the moderators' notice (register B14) the owner, not the AI, would send those
 questions.
 
-**Added 2026-11-16 — a lead to the FSF's own record, not the FSF's words.** Mike Linksvayer, writing for Creative Commons on `license-discuss` 2011-08-08: *"The exception that proves the rule is the CC0 public domain dedication, which is GPL-compatible and with the FSF we recently recommended for software if public domain is the intention."* (`review-readings-2.md` §1.253, portfolio-2f). This is CC reporting a joint recommendation; the FSF's own statement of 2011, and what it said later about CC0's patent exclusion, are still to be read from FSF sources before the self-check above relies on them.
+**Added 2026-11-16 — a lead to the FSF's own record, not the FSF's words.** Mike Linksvayer, writing for Creative Commons on `license-discuss` 2011-08-08: *"The exception that proves the rule is the CC0 public domain dedication, which is GPL-compatible and with the FSF we recently recommended for software if public domain is the intention."* (`review-readings-2.md` §1.253, portfolio-2f). This is CC reporting a joint recommendation; the FSF's own statement of 2011, and what it said later about CC0's patent exclusion, are still to be read from FSF sources before the self-check above relies on them. **Checked against the list on 2026-11-16**: the FSF's current entry for CC0 says (in the fetch tool's summary, not word for word) that it does not recommend CC0 for software because CC0 expressly grants no patent licences. If the 2011 joint recommendation happened as Creative Commons described it, the FSF's position has since moved on CC0 for software, and the reason it gives is the one ACD's §8 answers.
