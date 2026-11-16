@@ -17,7 +17,7 @@ EFFECT_MARKERS_468U = (
     ("15.5", '"person" includes an entity'),
     ("8.4", "resulting from Computational Use of the Work"),
     ("8.4", "deliberately absent"),
-    ("8.2", "not terminable by the Dedicator on any ground"),
+    ("8.2", "not terminable by the Dedicator under this Dedication on any ground"),
     ("5.1", "other than for patent infringement"),
     ("8.4", "from the content of the Work"),
     # 2026-11-08 (T16〜T20・#2602): 許諾の目的語を請求項から行為へ移した結果、効果を運ぶ句になった
