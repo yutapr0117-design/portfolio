@@ -60,3 +60,33 @@ def state_hits(clauses):
             f = re.sub(re.escape(x), " ", f, flags=re.I) if cx == c else f
         hits += [(c, m.group(0)) for m in re.finditer(r"\b(?:" + STATE_WORDS_468R + r")\b", f, re.I)]
     return hits, miss
+
+
+# 468d の目印: gap を担う条 (§6 / §9) の中身を「その条が何をするか」の句で見る。言い回しを変えても残る句を選ぶ
+# (byte 等価は 2026-09-11 に E4 の正当な改訂まで止めた)。§8.4 は 2026-09-10 に因果の限定 (E15) を入れたので、
+# gap の核の語が草案のどこかに残ることだけを見る。2026-11-16 に checks_license_draft.py から移した (module の行の予算
+# 900 の手前・886 行)。measure_clause_overlap.py --guard も同じ一覧を試作に当てる
+GAP_MARKERS_468D = {
+    6: ("Computational Use of the Work is expressly permitted",
+        "without condition",
+        "makes no Reservation",
+        "expressly declines to make one",
+        "withdraws it and disclaims reliance",
+        "no permission at all"),
+    9: ("makes no representation that any right subsists",
+        "asserts no right in Machine-Generated Material",
+        "are not required to determine",
+        "depends on that"),
+}
+GAP_WORDS_468D = ("model", "parameter set", "weight", "embedding", "output")
+
+
+def gap_losses(draft_body):
+    """草案の本文 (区切り線の後) から、gap を担う条の目印か §8.4 の gap 語が消えていれば、その一覧を返す。"""
+    def sec(txt, n):
+        m = re.search(r"^%d\. [A-Z].*?(?=^\d+\. [A-Z])" % n, txt, re.M | re.S)
+        return re.sub(r"\s+", " ", m.group(0)).strip() if m else ""
+    lost = [f"§{n} から gap の中身が消えている: {mk!r}"
+            for n, ms in GAP_MARKERS_468D.items() for mk in ms if mk not in sec(draft_body, n)]
+    lost += [f"§8.4 の gap 語 {kw!r} が草案から消えている" for kw in GAP_WORDS_468D if kw not in draft_body.lower()]
+    return lost

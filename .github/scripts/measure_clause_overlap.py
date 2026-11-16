@@ -580,8 +580,9 @@ def guard(path: Path) -> int:
     """468u の目印 (効果を運ぶ句) が該当条に在るか、468r の「いまの状態」の語が条に無いかを、草案や試作ファイルに
     当てて出す。一覧は Check と同じ 1 か所 (_lib_draft_markers.py) から読む (468r は 2026-11-12 に足した)。"""
     sys.path.insert(0, str(Path(__file__).resolve().parent))
-    from _lib_draft_markers import EFFECT_MARKERS_468U, state_hits
-    cl = clauses(path.read_text(encoding="utf-8"))
+    from _lib_draft_markers import EFFECT_MARKERS_468U, gap_losses, state_hits
+    _txt = path.read_text(encoding="utf-8")
+    cl = clauses(_txt)
     lack = [(s, mk) for s, mk in EFFECT_MARKERS_468U if mk not in cl.get(s, "")]
     print(f"# {path.name}: 468u の目印 {len(EFFECT_MARKERS_468U)} 件のうち欠けているもの {len(lack)} 件")
     for s, mk in lack:
@@ -592,7 +593,13 @@ def guard(path: Path) -> int:
         print(f"#   ⚠ §{s}: {w!r}")
     for s, x in miss:
         print(f"#   ⚠ 除外の句が §{s} に無い: {x!r}")
-    return 1 if lack or hits or miss else 0
+    # 468d の gap の目印も当てる (2026-11-16): 試作が §6 / §9 の中身か §8.4 の gap 語を落とすと、merge の後に 468d が RED に
+    #   なるまで気付かなかった
+    gone = gap_losses(_txt.split("-" * 80, 1)[-1])
+    print(f"# {path.name}: 468d の gap の目印のうち消えたもの {len(gone)} 件")
+    for g in gone:
+        print(f"#   ⚠ {g}")
+    return 1 if lack or hits or miss or gone else 0
 
 
 def uses(path: Path, terms: list[str]) -> int:

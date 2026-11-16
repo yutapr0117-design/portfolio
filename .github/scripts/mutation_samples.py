@@ -450,6 +450,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
+    "name": "Check 468d: 草案の §6 の \"makes no Reservation\" を \"makes a Reservation\" へ —— gap を担う条の中身が消える。468d に"
+            "登録の mutation が 1 つも無かった (2026-11-16・目印を _lib_draft_markers へ移したときに気付いた)",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-DRAFT.txt",
+    "find": "makes no Reservation",
+    "replace": "makes a Reservation",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
     "name": "Check 498 (k): CHANGELIST の「語数の内訳」の束の表で「その他の明瞭化」の行の数の前に 1 を足す —— 束の表は 468s の範囲外で、"
             "表の合計が草案の差と合わなくても通っていた (2026-11-15・50 が「増えた語の大半」の 263 ≠ 148 + 118 に気付いた)",
     "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
