@@ -61,7 +61,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LIC
 
 **確立していないこと**: 著作権法は放棄の手続を定めておらず、放棄の可否は条文上明らかではない。
 人格権については 59 条が一身専属と定めており、放棄は認められないとするのが一般的な理解である。
-**§12.2 の不行使特約が、どこまでの範囲で・誰に対して効くかは、助言を得ていない。**
+**§12.2 の不行使特約が、どこまでの範囲で・誰に対して効くかは、助言を得ていない。** 条文で言える狭まり（2026-11-16・portfolio-30）: 59 条 *「著作者人格権は、著作者の一身に専属し、譲渡することができない。」* は譲渡を禁じるが、不行使の約束を禁じる文は無い。死後については 60 条ただし書が、著作者の意を害しない行為を外す（`rounds/2026-11-16-minpo-chosakukenho-e-gov-api-snapshot.txt`・下の 2b の段）。
 `review-responses-boilerplate.md` Q31 に詳しい姿勢を書いてある。
 
 **取り戻しの問い（2026-11-08 追記・e-Gov 法令 API で原典）**: 著作者が考えを変えて取り戻す規定は、
@@ -140,7 +140,7 @@ to it"* は、63 条の 2「利用権は、当該利用権に係る著作物の�
 §15.4（その法域に限り切り離す）。
 
 **確立していないこと**: 著作権の完全な放棄が認められないという理解は広く共有されているが、
-**不行使の約束や撤回不能のライセンスがどこまで拘束するかは、助言を得ていない。**
+**不行使の約束や撤回不能のライセンスがどこまで拘束するかは、助言を得ていない。** 法律家の意見と条文で狭まった所（2026-11-16・portfolio-30）: UrhG 29 条 2 項は *"schuldrechtliche Einwilligungen und Vereinbarungen"* *" zu Verwertungsrechten"* を許す取引に挙げ（`rounds/2026-11-16-urhg-29-gesetze-im-internet-snapshot.txt`）、ベルリンの弁護士 Kreutzer 氏は CC0 の同じ形の約束を *"pactum de non petendo that would prevent him from enforcing these rights anyway."* と評した（`rounds/2026-11-16-kreutzer-cc0-german-law-analysis-snapshot.txt`・意見であって判決ではない）。撤回不能の側は、贈与の忘恩による撤回（530・533 条）と 42 条の撤回が残る（下の段）。
 
 **§15.4 を根拠に挙げるときの但し書き（2026-08-30 追記）**: §15.4 には機構が 2 つある ——
 **①無効な条項を有効となる最小限に reform する**、②reform できなければ**その法域に限って
@@ -155,8 +155,7 @@ to it"* は、63 条の 2「利用権は、当該利用権に係る著作物の�
 
 **確立していないこと（追加）**: そもそも ACD-1.0 が標準約款（AGB）に当たるかが不明である ——
 対価も交換もなく、相手方に条件を課す当事者もいない一方的な付与だからである。当たらなければ
-Reduktion の制限もそのままには及ばない。**どちらであるかは助言を得ていない。**
-本書の方針どおり、ここでは問いとして置く。
+Reduktion の制限もそのままには及ばない。**どちらであるかは助言を得ていない。** 本書の方針どおり、ここでは問いとして置く。 定義で言える狭まり（2026-11-16・portfolio-30・`rounds/2026-11-16-bgb-305-310-gesetze-im-internet-snapshot.txt`）: 305 条 1 項は AGB を *"Allgemeine Geschäftsbedingungen sind alle für eine Vielzahl von Verträgen vorformulierten Vertragsbedingungen,"* *"die eine Vertragspartei (Verwender) der anderen Vertragspartei bei Abschluss eines Vertrags stellt."* と定める —— 多数の受け手に同じ文で当てる点は当たり、問いは「契約」と「示す（stellt）」の側に残る（§2.3 の段の契約の成立と同じ根）。310 条 1 項は *"§ 305 Absatz 2 und 3, § 308 Nummer 1, 2 bis 9 und § 309 finden keine Anwendung auf Allgemeine Geschäftsbedingungen,"* *" die gegenüber einem Unternehmer, einer juristischen Person des öffentlichen Rechts"* … —— 受け手が事業者なら 309 条（T82 で当てた 7 号を含む）は直接は当たらず、307 条だけが残る。受け手が消費者なら、310 条 3 項 1 号で AGB は事業者が示したものとみなされる。
 
 **ドイツの実務家の見解（2026-11-08 追記）**: Unlicense の審査（2020-05-19）で、Pamela Chestek 氏が
 ドイツの弁護士 Till Jaeger 氏の見解を本人の許可を得てリストに載せた（`rounds/2020-05-license-review-unlicense-veto-observed.txt`・
@@ -232,9 +231,7 @@ verzichtet werden. Seine Ausübung kann nicht ausgeschlossen werden."* と定め
 **本文の手当て**: §12.1 →（放棄不能なら）§12.2 の不行使の約束 / §12.3（Work 限定）/
 §12.4（死後に行使しうる者まで）/ §12.5（**虚偽の帰属に対抗する利益は残す**）/ §12.6（可分）。
 
-**確立していないこと**: 不行使の約束が人格権について有効かは争いがありうる。**§12.5 で
-虚偽帰属への対抗利益を残しているのは、全部を捨てさせない設計だが、それで足りるかは
-助言を得ていない。**
+**確立していないこと**: 不行使の約束が人格権について有効かは争いがありうる。**§12.5 で 虚偽帰属への対抗利益を残しているのは、全部を捨てさせない設計だが、それで足りるかは 助言を得ていない。** 条文で言える所（2026-11-16・portfolio-30）: 知的財産法典の第 L121-1 条は *"L'auteur jouit du droit au respect de son nom, de sa qualité et de son oeuvre."* —— 名前の尊重は権利の 3 つの柱の 1 つとして名指されており、§12.5 が残す偽の帰属への対抗は、その柱の 1 つにそのまま当たる。残る 2 つ（qualité と oeuvre）は §12.2 の約束と同意の下に在り、ソフトウェアでは L121-7 が法の側で狭める（上の段）。条文の写しは `rounds/2026-11-16-cpi-l121-1-l121-7-legifrance-snapshot.txt`。
 
 **撤回の条文（2026-11-08 追記・Légifrance で原典）**: フランスには人格権としての撤回権がある。
 L121-4 は *« Nonobstant la cession de son droit d'exploitation, l'auteur, même postérieurement à la

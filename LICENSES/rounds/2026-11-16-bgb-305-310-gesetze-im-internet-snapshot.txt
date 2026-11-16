@@ -1,0 +1,32 @@
+Source: Bürgerliches Gesetzbuch §§ 305 and 310, https://www.gesetze-im-internet.de/bgb/__305.html and /__310.html
+Retrieved: 2026-11-16 by portfolio-30, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes of at most 125
+        characters each. Re-fetch and compare before relying on the exact wording. Only the parts named below were fetched.
+
+WHY THIS FILE EXISTS. jurisdictions.md section 3 asks whether the Dedication is standard business terms (AGB) under
+German law, on which the controls in sections 307 and 309 (rounds/2026-11-16-bgb-276-307-309-521-524-gesetze-im-internet-
+snapshot.txt) depend. Section 305(1) defines AGB; section 310 limits where some of the controls apply.
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+===== § 305 Abs. 1 BGB (Einbeziehung Allgemeiner Geschäftsbedingungen in den Vertrag), as reported =====
+1. "Allgemeine Geschäftsbedingungen sind alle für eine Vielzahl von Verträgen vorformulierten Vertragsbedingungen,"
+2. "die eine Vertragspartei (Verwender) der anderen Vertragspartei bei Abschluss eines Vertrags stellt."
+3. "Gleichgültig ist, ob die Bestimmungen einen äußerlich gesonderten Bestandteil des Vertrags bilden"
+4. "oder in die Vertragsurkunde selbst aufgenommen werden, welchen Umfang sie haben,"
+5. "in welcher Schriftart sie verfasst sind und welche Form der Vertrag hat."
+6. "Allgemeine Geschäftsbedingungen liegen nicht vor, soweit die Vertragsbedingungen zwischen den Vertragsparteien"
+7. "im Einzelnen ausgehandelt sind."
+
+===== § 310 BGB (Anwendungsbereich), Abs. 1 Satz 1 and Abs. 3 Nr. 1 and Nr. 2, as reported =====
+8. "§ 305 Absatz 2 und 3, § 308 Nummer 1, 2 bis 9 und § 309 finden keine Anwendung auf Allgemeine Geschäftsbedingungen,"
+9. " die gegenüber einem Unternehmer, einer juristischen Person des öffentlichen Rechts"
+10. " oder einem öffentlich-rechtlichen Sondervermögen verwendet werden."
+11. "Bei Verträgen zwischen einem Unternehmer und einem Verbraucher (Verbraucherverträge) finden die Vorschriften"
+12. " dieses Abschnitts mit folgenden Maßgaben Anwendung:"
+13. "Allgemeine Geschäftsbedingungen gelten als vom Unternehmer gestellt, es sei denn, dass sie durch den Verbraucher"
+14. " in den Vertrag eingeführt wurden;"
+15. "§ 305c Abs. 2 und die §§ 306 und 307 bis 309 dieses Gesetzes sowie Artikel 46b des Einführungsgesetzes zum"
+16. " Bürgerlichen Gesetzbuche finden auf vorformulierte Vertragsbedingungen auch dann Anwendung, wenn diese nur zur"
+17. " einmaligen Verwendung bestimmt sind und soweit der Verbraucher auf Grund der Vorformulierung"
+18. " auf ihren Inhalt keinen Einfluss nehmen konnte;"
