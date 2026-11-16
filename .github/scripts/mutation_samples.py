@@ -442,6 +442,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
+    "name": "Check 498 (h): 2010 年以後に始まった候補の会話の行を THREAD-CANDIDATES.txt (2009 年まで) にも置く —— 候補の集合も件数も"
+            "変わらないので、年の照合が無ければ通る (2026-11-16・候補の一覧も年で分けたとき・50 の勧め)",
+    "file": ROOT / "LICENSES" / "THREAD-CANDIDATES.txt",
+    "find": "2009-12-08\tOKL4 license\n",
+    "replace": "2009-12-08\tOKL4 license\n2010-01-19\tmove licenses to voluntarily retired list?\n",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
     "name": "Check 498 (k): CHANGELIST の「語数の内訳」の束の表で「その他の明瞭化」の行の数の前に 1 を足す —— 束の表は 468s の範囲外で、"
             "表の合計が草案の差と合わなくても通っていた (2026-11-15・50 が「増えた語の大半」の 263 ≠ 148 + 118 に気付いた)",
     "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",

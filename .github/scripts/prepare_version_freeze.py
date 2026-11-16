@@ -508,8 +508,8 @@ def gate_6c() -> list[str]:
     """
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     from _lib_dossier import BACKFILL_PENDING, backfill_table_misses, reflect_field_misses
-    from census_decision_statements import _list_rows, read_rows
-    cand = {(k, d) for k, d, _t in _list_rows(L / "THREAD-CANDIDATES.txt")}
+    from census_decision_statements import candidate_rows, read_rows
+    cand = {(k, d) for k, d, _t in candidate_rows(L)}
     read = {(k, d) for k, d, _t in read_rows(L)} & cand
     out = []
     if len(cand) - len(read):

@@ -117,8 +117,8 @@ def asof_sites() -> list[dict]:
     m = re.search(r"候補 (\d+) 本のうち (\d+) 本を読んだ。(\d+) 本は読んでいない", text)
     if not m:
         return []
-    cand = {(k, d) for k, d, _t in _list_rows(ROOT / "LICENSES" / "THREAD-CANDIDATES.txt")}
-    from census_decision_statements import read_rows
+    from census_decision_statements import candidate_rows, read_rows
+    cand = {(k, d) for k, d, _t in candidate_rows(ROOT / "LICENSES")}
     read = {(k, d) for k, d, _t in read_rows(ROOT / "LICENSES")} & cand
     vals = (len(cand), len(read), len(cand) - len(read))
     line = text[:m.start()].count("\n") + 1

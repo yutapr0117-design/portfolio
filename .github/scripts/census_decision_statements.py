@@ -285,25 +285,43 @@ def noreview(out):
 GAP_DAYS = 90
 
 
-READ_THREADS_SPLIT = "2010"  # これより前に始まった会話は READ-THREADS.txt、以後は READ-THREADS-2010.txt
+READ_THREADS_SPLIT = "2010"  # これより前に始まった会話は <stem>.txt、以後は <stem>-2010.txt
+
+
+def split_files(stem, licenses=None):
+    """年で分けた一覧の file (`LICENSES/<stem>*.txt`)。2026-11-16 に 1,000 行の上限 (Check 365) の手前で会話の始まりの年で
+    2 つに分けた (READ-THREADS は 50 の報告、THREAD-CANDIDATES は 50 の勧め)。読む側はここを通し、書く側は split_file_for で選ぶ。"""
+    base = licenses or (REPO / "LICENSES")
+    return sorted(base.glob(f"{stem}*.txt"))
+
+
+def split_file_for(stem, start, licenses=None):
+    """会話の始まりの日付 start の行を置く file。"""
+    base = licenses or (REPO / "LICENSES")
+    return base / (f"{stem}.txt" if start < READ_THREADS_SPLIT else f"{stem}-{READ_THREADS_SPLIT}.txt")
+
+
+def split_rows(stem, licenses=None):
+    """年で分けた一覧の全 file の行 [(件名の key, 日付, 件名)]。"""
+    return [r for f in split_files(stem, licenses) for r in _list_rows(f)]
 
 
 def read_threads_files(licenses=None):
-    """読了の一覧の file (`LICENSES/READ-THREADS*.txt`)。2026-11-16 に 1,000 行の上限 (Check 365) の手前で会話の始まりの年で
-    2 つに分けた (50 の依頼)。読む側はここを通し、書く側 (record_read) は read_threads_file_for で選ぶ。"""
-    base = licenses or (REPO / "LICENSES")
-    return sorted(base.glob("READ-THREADS*.txt"))
+    return split_files("READ-THREADS", licenses)
 
 
 def read_threads_file_for(start, licenses=None):
-    """会話の始まりの日付 start の行を置く file。"""
-    base = licenses or (REPO / "LICENSES")
-    return base / ("READ-THREADS.txt" if start < READ_THREADS_SPLIT else f"READ-THREADS-{READ_THREADS_SPLIT}.txt")
+    return split_file_for("READ-THREADS", start, licenses)
 
 
 def read_rows(licenses=None):
-    """読了の全 file の行 [(件名の key, 日付, 件名)]。"""
-    return [r for f in read_threads_files(licenses) for r in _list_rows(f)]
+    """読了の全 file の行。"""
+    return split_rows("READ-THREADS", licenses)
+
+
+def candidate_rows(licenses=None):
+    """候補の全 file (THREAD-CANDIDATES*.txt) の行。"""
+    return split_rows("THREAD-CANDIDATES", licenses)
 
 
 def _list_rows(path):
@@ -407,7 +425,7 @@ def threads(out):
             off.append(f"{date}\t{title} → {start}")
         read.add((key, start or date))
     in_rounds = rounds_titles()
-    pinned_rows = _list_rows(CANDIDATES)
+    pinned_rows = candidate_rows()
     # 固定も会話単位 (2026-11-11): 件名で固定すると、会話を 1 つ固定しただけで同じ件名の他の会話まで候補に入り、
     #   --pin のたびに一覧が増えて収束しなかった。件名単位で書かれた旧い行は、日付が指す会話に当てる
     pinned = {(k, to_conv(k, d) or d) for k, d, _t in pinned_rows}
@@ -426,9 +444,12 @@ def threads(out):
     new = [r for r in candidates if (r["key"], r["start"]) not in pinned]
     stale = [l for l in pinned_rows if (l[0], l[1]) not in pairs | pinned]
     if "--pin" in sys.argv and (new or stale):
-        head = [l for l in open(CANDIDATES, encoding="utf-8") if l.startswith("#")] if CANDIDATES.exists() else []
+        # 年で分けた 2 つの file へ、それぞれの見出しを残して書く (2026-11-16)
         body = {f"{r['start']}\t{r['title']}\n" for r in candidates}
-        CANDIDATES.write_text("".join(head) + "".join(sorted(body, key=lambda l: (l[:10], l))), encoding="utf-8")
+        for _f in {CANDIDATES, split_file_for("THREAD-CANDIDATES", READ_THREADS_SPLIT)}:
+            head = [l for l in open(_f, encoding="utf-8") if l.startswith("#")] if _f.exists() else []
+            mine = [l for l in body if split_file_for("THREAD-CANDIDATES", l[:10]) == _f]
+            _f.write_text("".join(head) + "".join(sorted(mine, key=lambda l: (l[:10], l))), encoding="utf-8")
     unread = sorted((r for r in candidates if not is_read(r)), key=lambda r: -r["decider_words"])
     json.dump(unread, open(out, "w"), ensure_ascii=False, indent=0)
     rounds_only = sorted((r for r in candidates if r["key"] in in_rounds and not is_read(r)), key=lambda r: -r["decider_words"])
