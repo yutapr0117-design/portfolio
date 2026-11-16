@@ -379,7 +379,7 @@ any Reservation *"to the fullest extent the Dedicator is able"*, and disclaims r
 rightsholder's statutory act. Whether a rightsholder can bind itself in advance never to make one,
 and whether a reservation placed by a host or platform (not a rightsholder) has any effect for the
 purpose of the exception, are questions on which a German appellate court has ruled in a case
-about the same exception (HansOLG 5 U 104/24; `jurisdictions.md` §9a(9)) — we have read the
+about the same exception (HansOLG 5 U 104/24; `jurisdictions-sources.md` §9a(9)) — we have read the
 court's own announcement, not the judgment.
 
 The 1.4 draft adds a rule on the Dedicator's own notices (§16.2, 2026-11-10): *"a notice that is
@@ -464,7 +464,7 @@ States. What remains open is the law of those jurisdictions (Germany is being re
 Insolvency Code) and the cross-border balancing of *Jaffé v. Samsung*.
 
 **An answer would change** whether §2.9 needs more than the 1.4 draft gives it, and how the dossier
-answers #178 (`jurisdictions.md` §9a (10), on Qimonda).
+answers #178 (`jurisdictions-sources.md` §9a (10), on Qimonda).
 In *Jaffé v. Samsung* the result took a four-day evidentiary hearing and a discretionary
 balancing (#178), so the core of the question is whether §2.9's statement that nothing in the
 Dedication is *"suspended by, or revived by"* such a proceeding or an officer's act would be read

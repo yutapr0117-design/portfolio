@@ -29,7 +29,7 @@ canonical-ref: AI2AI.md (Session Record #37) / LICENSES/ACD-1.0.against.md / LIC
 - **ACD-1.0 / 1.1 は凍結。** 本セッションの本文変更はすべて 1.2 草案のみ
 - **外部レビューの受領文は `rounds/` に無改変で置く**（PDF は Check 122 で tracked 禁止なので
   **抽出テキスト + 原本 sha256**、冒頭に「原本ではない」と明記）
-- **未読の法源を引かない**（`jurisdictions.md` §9）
+- **未読の法源を引かない**（`jurisdictions-sources.md` §9）
 
 ## Change impact
 
