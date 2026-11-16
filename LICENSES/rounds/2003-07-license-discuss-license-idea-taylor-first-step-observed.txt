@@ -1,0 +1,38 @@
+Source: OSI license-discuss public archive, 2003-July.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 29 in "license idea" (2003-07-16)
+Senders: Ian Lance Taylor
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From ian at airs.com  Wed Jul 16 17:47:16 2003
+From: ian at airs.com (Ian Lance Taylor)
+Date: 16 Jul 2003 10:47:16 -0700
+Subject: license idea
+In-Reply-To: <NDBBJJNEFMOFJENJOAHJGEFHEIAA.don@digitalthinkinginc.com>
+References: <NDBBJJNEFMOFJENJOAHJGEFHEIAA.don@digitalthinkinginc.com>
+Message-ID: <m3lluyict7.fsf@gossamer.airs.com>
+
+"Don Jarrell" <don at digitalthinkinginc.com> writes:
+
+> What I offer as 
+> an alternative thinking approach is "not yet soup"; it 
+> is just what I have been discussing with a few licensing 
+> buddies.  
+
+I have a different alternative: use an existing OSI approved license.
+
+If you can't use an existing license, then your first step should not
+be to write a license, but instead to write to the list and explain
+clearly why no existing license will work for your situation.  People
+on the list will then say one of the following:
+1) actually, license X satisfies your needs; or
+2) you're right, there is no current license for your needs, but what
+   you want to do would be OSI approved, so go ahead and write a
+   license; or
+3) you're right, there is no current license for your needs, because
+   what you want to do would not be OSI approved.
+
+Ian
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

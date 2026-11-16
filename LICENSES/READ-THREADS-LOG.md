@@ -20,6 +20,36 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-16 の読了（新しいものが上）
 
+- 2026-11-16 に "Redistribution constraint"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に ""open-source" x "free software""（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "Submitting a new license or using the current ones"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "Question regarding modules/pluggins license?"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "Licenses and subterfuge"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "Inappropriate postings from non-lawyers"（`license-discuss`・通読・Taylor 氏の候補の外）を `review-readings-2.md` §1.255 へ
+
+- 2026-11-16 に "Copyright Act preempts the wave theory of light"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "For Approval: Simple Permissive License"（`license-discuss`・通読・Taylor 氏の候補の外）を `review-readings-2.md` §1.255 へ
+
+- 2026-11-16 に "Corba interfaces and GPL freedom"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "Commercial Open Source- state of play"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "license idea"（`license-discuss`・通読・Taylor 氏の候補の外）を `review-readings-2.md` §1.255 へ
+
+- 2026-11-16 に "violating a license b4 product release"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "Licensing Model: open downstream apps or proprietary license"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "Optimal license for Java projects ..."（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "Limiting the use of an OpenSource application"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
 - 2026-11-16 に "Approval: OIN License (Open Innovation License) -- Trademark Issue"（`license-review` 2020-12・通読）を `review-readings-2.md` §1.254 へ（承認の投票の前に既存の団体と重なる略称を変えよ・Berkus 氏、SPDX も識別子を変えた・Brasseur 氏）
 
 - 2026-11-16 に "License-review Digest, Vol 95, Issue 14"（`license-review` 2020-10・通読）を `review-readings-2.md` §1.254 へ（リストの参加者は相談すべき法律家の代わりを務めない・Brasseur 氏）
