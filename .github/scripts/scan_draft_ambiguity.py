@@ -22,8 +22,13 @@
   (k) 免責・制限の条が同じ文書の約束を呑むか —— 射程を "this Dedication" で言う免責・制限の条 (§13・§14 など) と、Dedicator が
       約束する条 (covenants / will not) の組で、免責の条がその約束を名指して外していないもの (1c の依頼・問い 9 (a) の型)。
 
+**--law** (2026-11-16・50 の方法の (a)): 条ごとに「法に頼る句」(to the extent / applicable law / where … permits /
+in a jurisdiction / held invalid / takes effect / is not / does not …) を抜き、5 人の帯 (1c §1〜4・30 §5〜7・50 §8〜10・
+2f §11〜13・9b §14〜16) に分けて出す。各人が THIRD の第 18 節に「命題」を書き出すときの入力。
+
 使い方:
     python3 .github/scripts/scan_draft_ambiguity.py                    # いまの草案
+    python3 .github/scripts/scan_draft_ambiguity.py --law              # 法に頼る句を帯ごとに
     python3 .github/scripts/scan_draft_ambiguity.py LICENSES/ACD-1.3.txt
 """
 from __future__ import annotations
@@ -62,16 +67,45 @@ def defined_terms(text: str) -> dict[str, str]:
     return out
 
 
+LAW = re.compile(r"\b(to the (?:fullest |greatest |maximum )?extent(?: (?:that |permitted by |the law |a jurisdiction |applicable law )[^,.;]{0,40})?|"
+                 r"applicable law|under (?:the )?(?:applicable )?law|the law of [a-z ]+?(?=[,.;])|where (?:the |applicable )?law [^,.;]{0,40}|"
+                 r"in (?:a|any|each) jurisdiction[^,.;]{0,30}|held (?:invalid|unenforceable|ineffective)|"
+                 r"takes? effect[^,.;]{0,30}|is (?:effective|ineffective|valid|void|enforceable)[^,.;]{0,30}|"
+                 r"as a matter of (?:law|fact)|by operation of law|whether or not [^,.;]{0,40}(?:subsist|recogni|known)[^,.;]{0,20}|"
+                 r"irrevocabl[ey]|perpetual|worldwide|cannot be (?:waived|excluded|limited)[^,.;]{0,20}|"
+                 r"(?:intended|third-party) beneficiar(?:y|ies)|consideration|estoppel|covenants?(?= not)|waives?|"
+                 # 取りこぼしを減らす受け皿: 法・法域・裁判所・権利の存否を名指す句 (前後 30 字)
+                 r"[^,.;]{0,30}\b(?:laws?|jurisdictions?|courts?|statutes?|subsists?|enforce(?:able|d)?|revocab\w+|terminat\w+)\b[^,.;]{0,30})", re.I)
+BANDS = (("1c", 1, 4), ("30", 5, 7), ("50", 8, 10), ("2f", 11, 13), ("9b", 14, 16))
+
+
+def law_phrases(cl: dict[str, str]) -> None:
+    """--law: 条ごとに法に頼る句を抜き、5 人の帯に分けて出す。"""
+    for who, lo, hi in BANDS:
+        rows = [(k, sorted({" ".join(m.group(0).split()).lower() for m in LAW.finditer(" ".join(v.split()))}))
+                for k, v in cl.items() if "." in k and lo <= int(k.split(".")[0]) <= hi]
+        rows = [(k, ps) for k, ps in rows if ps]
+        print(f"\n## {who}（§{lo}〜§{hi}）: {len(rows)} 条・{sum(len(p) for _k, p in rows)} 句")
+        for k, ps in rows:
+            print(f"- §{k}: " + " / ".join(f"「{p}」" for p in ps))
+
+
 def main(argv: list[str]) -> int:
     if argv and argv[0] in ("-h", "--help"):
         print(__doc__)
         return 0
+    law = "--law" in argv
+    argv = [a for a in argv if a != "--law"]
     path = Path(argv[0]) if argv else sorted((ROOT / "LICENSES").glob("ACD-*-DRAFT.txt"),
                                              key=lambda p: len(p.read_text(encoding="utf-8")))[-1]
     text = path.read_text(encoding="utf-8")
     cl = clauses(text)
     flat = {k: " ".join(v.split()) for k, v in cl.items()}
     terms = defined_terms(text)
+    if law:
+        print(f"# {path.name}: 法に頼る句 (条ごと・5 人の帯)")
+        law_phrases(cl)
+        return 0
     print(f"# {path.name}: 条 {len(cl)}・定義語 {len(terms)} ({', '.join(sorted(terms))})")
     found: dict[str, list[str]] = defaultdict(list)
 
