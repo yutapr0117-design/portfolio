@@ -345,7 +345,7 @@ def backfill_table_misses(licenses_dir: Path) -> tuple[int, list[str], list[str]
     REFLECT_FROM 以降なし)。番号のセルは「1.179」か、床 (70) の下で文書ごとの番号のときは「`<file>` 1.67」(50 の形)。
     反映のセルは Check 501 の語彙で、against #N / errata E# は実在。「確かめ方」が grep と言う行は、名指した行き先の
     どれかに「§1.N」が実在すること (反映したと書いて行き先が引いていない形を止める)。
-    返り値: (表の行の数, RED の文, 反映の無い節 (欄も行も無い・ADVISORY・0 になったら BLOCKING へ))。
+    返り値: (表の行の数, RED の文, 反映の無い節 (欄も行も無い・2026-11-16 から BLOCKING))。
     """
     ag = against_text(licenses_dir)
     ag_lines = {int(m.group(1)): m.group(0) for m in re.finditer(r"^\| (\d+) \|.*$", ag, re.M)}
