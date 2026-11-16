@@ -1,0 +1,56 @@
+Source: OSI license-discuss public archive, 2004-December.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 6 in "For Approval: German Free Software License" (2004-12-01)
+Senders: Russell Nelson
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Wed Dec  1 16:00:03 2004
+From: nelson at crynwr.com (Russell Nelson)
+Date: Wed, 1 Dec 2004 11:00:03 -0500
+Subject: AW: AW: AW: AW: For Approval: German Free Software License
+In-Reply-To: <84D511A814FAF742BF6927D883CF67C177C2A6@mpg-hap-info.mpipriv-hh.mpg.de>
+References: <84D511A814FAF742BF6927D883CF67C177C2A6@mpg-hap-info.mpipriv-hh.mpg.de>
+Message-ID: <16813.60035.670491.782759@desk.crynwr.com>
+
+Axel Metzger writes:
+ > Hi Russell, hi list,
+ > 
+ > It seems to me that the discussion on the list has now calmed down it bit or
+ > shifted to more general questions. 
+ > 
+ > I would propose that I look through now all the e-mails we had and make a
+ > list of the critical provisions and try to talk to the GFSL-people to get a
+ > solution for all of them or to cancel the approval process. 
+
+I'm quite sure that you haven't heard about all of the problems with
+the license[1].  I'm not sure that you understand that you're here asking
+for a favor.  You want to create the best open source license you can
+-- a license that is visibly better than any other license.  If you're
+uninterested in doing that, then you're not going to get your license
+approved, because the world does not have an intrinsic need for any
+more open source licenses.  Since you have been offered suggestions
+and refused them, you're going to have a HARD TIME getting more
+suggestions for improvement.
+
+I recommend that you take the list of changes, talk to the GFSL
+people, make the changes, and then re-submit your license for approval
+with full expectations that there will be more changes needed.
+
+Your situation is very akin to someone running an open source project
+who has refused improvements.  Do that much, and you won't GET
+any improvements to refuse.
+
+[1] For example, what does Section 3(5) mean?  It reads as if it were
+translated using Babelfish.  This is just one of many problems with
+unclear wording due to poor translation.  Or, Section 3(6) is probably
+unnecessary.  If you have licensed people to reproduce and distribute
+the Program, then no judge is going to let you retroactively withdraw
+that license using the patent system.  Section 1(1) *is* a patent
+license.
+
+-- 
+--My blog is at angry-economist.russnelson.com  | Violence never solves
+Crynwr sells support for free software  | PGPok | problems, it just changes
+521 Pleasant Valley Rd. | +1 315-323-1241 cell  | them into more subtle
+Potsdam, NY 13676-3213  | +1 212-202-2318 VOIP  | problems.

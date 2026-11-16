@@ -1,0 +1,73 @@
+Source: OSI license-discuss public archive, 2016-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 88 in "U.S. Army Research Laboratory Open Source License (ARL OSL) 0.4.0" (2016-08-15)
+Senders: Richard Fontana
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From fontana at opensource.org  Sat Aug 20 14:21:08 2016
+From: fontana at opensource.org (Richard Fontana)
+Date: Sat, 20 Aug 2016 10:21:08 -0400
+Subject: [License-discuss] [Non-DoD Source] Re: [Non-DoD Source] Re:
+ U.S. Army Research Laboratory Open Source License (ARL OSL) 0.4.0
+In-Reply-To: <D3DD1F41.2F9FA%Nigel.Tzeng@jhuapl.edu>
+References: <DBAE099A-840E-48B3-B1CA-FFDFA1C7F09B@mac.com>
+ <2D52F7EE739F8542A700CAB96276B5193410E611@FMSMSX108.amr.corp.intel.com>
+ <CAEq5uw=qk84PnAObMVA6Wuc2ObDAWPQ1eUFYJe0Jsd-ow7wsuQ@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5193410FB00@FMSMSX108.amr.corp.intel.com>
+ <D3DB810C.2F50A%Nigel.Tzeng@jhuapl.edu>
+ <20160818202419.o25asvo7bclspdf2@antelope>
+ <D3DB942E.2F5AF%Nigel.Tzeng@jhuapl.edu>
+ <20160819213938.ffc5fpupte5mg7us@antelope>
+ <20160819225504.GJ29916@linuxmafia.com>
+ <D3DD1F41.2F9FA%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <20160820142107.kswyrlm6rjxy4jdd@antelope>
+
+On Sat, Aug 20, 2016 at 02:24:53AM +0000, Tzeng, Nigel H. wrote:
+> My understanding then and now was that it had become clear to them that
+> Richard and Bruce was going to stall approval for a long time/forever
+> unless they took out the patent clause that the open data folks wanted. So
+> they withdrew because they were never going to do that and the discussions
+> were getting more and more heated.
+
+I'm assuming 'Richard' is me and 'Bruce' is Bruce Perens. Neither of
+us were on the OSI board at that time; we were just participants on a
+mailing list. Also, I don't recall Bruce Perens' involvement in the
+CC0 discussion at all, but my objective was to encourage the OSI take
+a consistent approach to the problem of nonstandard provisions dealing
+with patents, having remembered the discussion of the MXM license in
+~2009, rather than an approach that would be explainable solely by
+attitudes towards the license steward.
+
+> If you don?t believe that was a correct assessment on their part then pray
+> tell the status of NOSA v2 that was originally submitted for approval in
+> 2013.
+
+That's a special, unfortunate case. With NOSA 2.0 I continued (and
+sort of continue) to feel that the license was salvageable with a lot
+of work, which no one (including me and I think including NASA) seems
+to have the time or inclination to take on individually or
+collectively. Possibly, in retrospect, the better approach with NOSA
+2.0 would have been to outright reject it as being way too complex
+with a number of likely or actual fatal problems. An issue there was
+that, until recently, I assumed that the OSI customarily does not
+formally reject licenses, as opposed to just not approving those that
+are problematic (holding out the possibility of the license steward
+submitting revisions or improvements). I think that is actually true
+of licenses submitted in the past several years, but I recently
+learned that in the distant past there were licenses the OSI actually
+formally rejected.
+
+Even now, I still think NOSA 2.0 can be fixed without revising it
+beyond all recognition. However, I pointed out at least one
+significant problem (related, in fact, to the MXM/CC0 patent
+provisions issue) and it did not seem that Bryan was receptive to
+discussing it. Even if the OSI did have at least an earlier history of
+rejecting licenses, I believe it's true that revised versions of
+problematic submitted licenses have generally been prepared by the
+license steward rather than that task being taken on by the OSI
+itself. That is, it would be strange if the only way to get an
+acceptable version of NOSA 2.0 would be for the OSI to take on primary
+responsibility for drafting it.
+
+Richard

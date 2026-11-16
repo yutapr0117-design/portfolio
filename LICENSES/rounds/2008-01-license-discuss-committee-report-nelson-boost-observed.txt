@@ -1,0 +1,115 @@
+Source: OSI license-discuss public archive, 2008-January.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 23 in "License committee report for January 2008" (2008-01-09)
+Senders: Russ Nelson
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Wed Jan  9 06:54:56 2008
+From: nelson at crynwr.com (Russ Nelson)
+Date: Wed, 9 Jan 2008 01:54:56 -0500
+Subject: License committee report for January 2008
+Message-ID: <18308.28608.276010.207782@desk.crynwr.com>
+
+I'm the chair of the license approval committee.  This is my report
+for the current set of licenses under discussion.  This finishes up
+the licenses submitted to license-discuss.
+
+Title: the unnamed license used for the Multics release
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:msp:14716:pljfldpnccljepadnbhk
+License: In the submission
+Comments: Cowan, Moen, Flashen agree that it's an Open Source
+  license.  Flashen would prefer them to use a different license, but
+  wouldn't we all?
+Recommend: approval, placement in non-reusable category because of
+  named copyright holders and required historical background.
+
+--
+
+Title: Open Source Hardware License 
+Submission: 
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:12911:200707:jmkojcilhopeddgknmdj
+Withdrawn:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:14689:200711:iakenbbilmlclankalbe
+
+--
+
+Title: Minimal Library License (MLL)
+Submission:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:14690:200711:mgjjfbndjmpjbjhbdnbp
+Comments: This approval request is not actionable since the submittor
+  proposes one license or another license.
+Recommend: no action
+
+--
+
+Title: The Simplified BSD License 
+Submission:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:13962:200709:epiemomifonkahmoahjh
+Comments: The board sent this license back to the submittor because
+  the license is identical to the FreeBSD license, yet the FreeBSD
+  license is more well-known.  The submittor has refused to change the
+  name of his submission:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:14760:oojmkoabkddapheodgme
+Recommend: Modifying the New BSD License template so that the third
+  clause is optional.  In this manner, both the FreeBSD license and
+  the Dag-Erling's Simplified BSD License will fit into the template
+  with no license proliferation problems.
+
+--
+
+Title: The Boost Software License, Version 1.0 (BSL1.0)
+Submission:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:14481:200710:meigodkpcglbcpolcpgc
+Discussion follows this posting:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:14120:200709:bakbhhjpafpgoioklknn
+License: http://www.boost.org/LICENSE_1_0.txt
+Comments: Travers and Flashen agree it complies with the OSD.  Cowan
+  points out that ti doesn't grant the right to distribute derivative
+  works.  Flashen points out that the BSD license doesn't either.
+  The license is closest to the MIT license, but gives the additional
+  release from needing to include the copyright notice in binaries.
+Recommend: Approval
+
+--
+
+Title: Reciprocal Public License 1.5
+Submission:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:13076:200707:kdcakaahmlnjkcfaaijd
+    also see the 1.3 Revision (never formally submitted):
+  http://www.crynwr.com/cgi-bin/ezmlm-cgi?3:mss:11460:200604:jdibjjcfcadiapdjgmig
+Discussion:
+  (there was no discussion, so the submittor restarted the discussion
+  process under the subject "RPL 1.5 discussion")
+  http://crynwr.com/cgi-bin/ezmlm-cgi?3:mss:14051:200709:dllmhdnfpdeigehepkma
+Comments: Flashen suggests that we wait to approve this license until
+  we have more experience with attribution.  Yet, this is an update
+  to an existing license, so the question is not whether the license
+  is a good license or not (the board pretty much agreed on approving
+  it back in 2002 that it was not likely to get much update), but
+  whether the changes increase or decrease its compliance with the
+  OSD.
+Recommend: Approval with deprecation of RPL 1.1.
+
+--
+
+Title: THINGIEsthetic Permissive License
+Submission:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:mss:2:jkbdgnklpfdkfffnncgj
+Discussion:
+  http://crynwr.com/cgi-bin/ezmlm-cgi?17:dds:0:200712#b
+Comments: The name of this license must be modified.  Why?  Look at
+  the discussion.  We're not ready for the use of unicode characters
+  in license names.  (This is my own personal comment, but I hope that
+  the evidence will convince everyone who doesn't agree with me.)
+  Rosen suggests that this license is worthless because it is too
+  simple.  Nobody has explicitly said whether the license complies
+  with the OSD, but it's so short and simple that it MUST, mustn't it?
+Recommend: Return to the submittor for revision.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Software that needs
+Crynwr sells support for free software  | PGPok | documentation is software
+521 Pleasant Valley Rd. | +1 315-323-1241       | that needs repair.
+Potsdam, NY 13676-3213  |     Sheepdog          | 

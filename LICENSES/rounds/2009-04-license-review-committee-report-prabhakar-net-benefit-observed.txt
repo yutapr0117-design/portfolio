@@ -1,0 +1,51 @@
+Source: OSI license-review public archive, 2009-April.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 9 in "License Committee Report for April 2009" (2009-03-31)
+Senders: Ernest Prabhakar
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From ernest.prabhakar at gmail.com  Wed Apr  1 00:00:57 2009
+From: ernest.prabhakar at gmail.com (Ernest Prabhakar)
+Date: Tue, 31 Mar 2009 17:00:57 -0700
+Subject: License Committee Report for April 2009
+In-Reply-To: <d7be70c00903311615u58957312hf1d06be8ba2e943e@mail.gmail.com>
+References: <18898.15281.654059.115969@desk.crynwr.com>
+ <d7be70c00903311615u58957312hf1d06be8ba2e943e@mail.gmail.com>
+Message-ID: <3257D827-E260-42EF-AAB9-214D4C00830F@gmail.com>
+
+Hi Alon,
+
+On Mar 31, 2009, at 4:15 PM, Alon von Bismark wrote:
+> Is "the chair of the license approval committee" still in denial to
+> accept the WTFPL (<http://en.wikipedia.org/wiki/WTFPL>)
+
+I don't think there's any need to personalize this.  From what I've  
+been able to follow (which admittedly isn't everything), the majority  
+of commenters were similarly unhappy with the license, and there  
+appears to be genuine uncertainty about whether the license is  
+sufficiently legally sound to be worthy of inflicting upon the open  
+source community.
+
+> as a license fully conforming to the OSD?
+
+Conforming to the OSD is a necessary but not sufficient condition.   
+The OSI has both the right and obligation to ensure that approving the  
+license is a net benefit to the community, given considerations of  
+proliferation, validity, and comprehensibility.
+
+> If so, "the chair of the license approval
+> committee" might want to explain his reasoning, apart from the
+> hypotetical "cannot be mentioned in polite company" argument, using
+> legal concept(s), please. Thank you in advance.
+
+ From what I can tell, either "Do whatever you want" is literally  
+true, in which case it offers nothing over public domain --  or, if  
+you insist on an international equivalent, CC0: http://creativecommons.org/license/zero/
+
+Or, if it is not _really_ true that I can do whatever I want, it is a  
+misleading title, and worthy of rejection on the grounds of potential  
+confusion.
+
+-- Ernie P.
+OSI Board Observer

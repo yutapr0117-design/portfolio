@@ -1,0 +1,60 @@
+Source: OSI license-review public archive, 2015-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 7 in "License Committee Report" (2015-10-13)
+Senders: Richard Fontana
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From fontana at sharpeleven.org  Wed Oct 14 03:37:29 2015
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Tue, 13 Oct 2015 23:37:29 -0400
+Subject: [License-review] License Committee Report
+In-Reply-To: <20151014010625.GU8868@linuxmafia.com>
+References: <20151013225637.GA5292@sharpeleven.org>
+ <20151014010625.GU8868@linuxmafia.com>
+Message-ID: <20151014033729.GA6643@sharpeleven.org>
+
+On Tue, Oct 13, 2015 at 06:06:25PM -0700, Rick Moen wrote:
+> Quoting Richard Fontana (fontana at sharpeleven.org):
+> 
+> [FPL 1.0.0:]
+> 
+> > The license is clearly OSD-conformant. I do not find the policy
+> > objections to the Free Public License persuasive, particularly given
+> > that no such objections were raised when CC0 was submitted. (CC0 also
+> > has no expectation of CC0-covered works bearing a copyright notice and
+> > has no notice-preservation condition.) 
+> 
+> I would speculate that none was raised about CC0 because that licence
+> has an explicit, specified role for the 'Affirmer', without whom the
+> fallback permissive provisions would be at best suspiciously vague and 
+> for all I know might lack legal force.  You may recall that the fallback 
+> permissive licence clauses (that take effect if dedication to the public
+> domain is locally ineffective) is what brought out support for CC0 --
+> though apparently on account of separate dispute over patent concerns it
+> was withdrawn before approval.
+
+But the point is that I, an Affirmer, can release something under CC0,
+give it to you, and you can proceed to remove all trace of me and CC0
+and give it to someone else, consistent with the CC0 waiver and the
+fallback license.
+
+> If the Board bases its approval decisions mechanistically on OSD
+> compliance, then Richard's recommendation should certainly be followed.
+> The case for non-approval rests in the contention that the licence's 
+> aim of concealing licensors is harmful to the interests of downstream
+> code recipients.
+
+I don't actually think the license aims to 'conceal' licensors. Rather
+it says 'don't worry about recording information on who the licensor
+is'. One reason why this does not concern me is that I realized long
+ago that the discernable record of purported provenance and copyright
+ownership in most open source codebases is generally inaccurate and
+gets decreasingly accurate over time. I don't actually think this is a
+problem, in practice; it's just a feature of open source that one has
+to get accustomed to.
+
+Anyway I will emphasize your concern if the license is discussed at
+the board meeting.
+
+Richard

@@ -162,3 +162,27 @@ census の外の 31 本（Ian Lance Taylor 氏が多く書いた会話・Taylor 
 **この節が establish しないこと。** OSD が後に実行の明文を足したかは、この会話からは分からない。
 
 **反映**: B10（§1.451 の有利な面の補強 —— 理事の「使用を縛る手段は無い」を参加者が引いた・重みは低い・30 へ）/ B13（§6.5 の明文化の求めは参加者の側にも在った・1c へ種）。本文は変えない。
+
+## 1.458 違反のしようが無いライセンスは存在理由が無く、OSI が承認する理由も無い —— WTFPL の不承認のときの委員長の理由（2009）。同じ委員長は 1 年前、バイナリで表示を求めない Boost の承認を勧めていた（2008）（2026-11-16）
+
+census の `unquoted-decider`（候補の外の会話のうち、決める側の通でドシエが 1 文も引いていない通・`census_decision_statements.py threads`）の 1999〜2016 年分 484 通を、9b が読んだ（2017〜2023 年は portfolio-2f・§1.257）。手順は §1.257 と同じで、各通を切らずに論点の語で点数づけし、点の付いた通を上から全文で読んだ（5 点以上 171 通のうち上位 100 通。通は写しの file 名と Message-ID で引き、484 通すべてを引けた・PR 3419）。8 通を `rounds/` に置いた。下の表のほか、IPA Font（2009・Perens 氏と Tiemann 氏がフォントの source と binary の区別を論じた）と Open Source Hardware License（2007・取り下げ）は B15 の材料として読み、新しい論点は無かった。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"The only (ONLY) reason to write a license rather than putting your software into the public domain is because you plan to sue at least one of your users eventually."* / *"The WTFPL is impossible to violate"* … *"Thus, it is a license with no reason to exist, and a license which the OSI has no reason to approve."* | Russ Nelson 氏 2009-03-14（委員長・WTFPL の審査・`rounds/2009-03-license-review-wtfpl-nelson-no-reason-to-exist-observed.txt`） | **不利な面（B4・B10）。** ACD は §10.1 で受け手に条件を課さない。この基準では ACD も「違反のしようが無い」ので、存在理由が問われる。`board-decisions.md` §8.1 の WTFPL の不承認（*"It's no different from dedication to the public domain"*）の、委員長自身の言葉での理由である |
+| Boost について *"The license is closest to the MIT license, but gives the additional release from needing to include the copyright notice in binaries."* / *"Recommend: Approval"*。同じ報告で別の提出に *"Rosen suggests that this license is worthless because it is too simple."* | Nelson 氏 2008-01-09（委員長の委員会報告・`rounds/2008-01-license-discuss-committee-report-nelson-boost-observed.txt`） | **有利な面（§10.2・#326）。** 表示の義務を MIT から外したライセンスを、同じ委員長が承認へ勧めた。ACD の §10.2 はすべての形で表示を求めない。外したのはバイナリの表示だけなので、ACD ほど遠くはない。**両面（B3）**: 短すぎることも欠点として挙がった |
+| *"the discernable record of purported provenance and copyright ownership in most open source codebases is generally inaccurate and gets decreasingly accurate over time. I don't actually think this is a problem, in practice"* | Richard Fontana 氏 2015-10-13（委員長・FPL 1.0.0（0BSD）の報告への Moen 氏の異議への答え・`rounds/2015-10-license-review-committee-report-fontana-provenance-observed.txt`） | **有利な面（§10.2・#326 の補強）。** `review-readings.md` §1.216 の報告の続きで、写しから出所が消えることを問題としない理由を述べた |
+| *"Conforming to the OSD is a necessary but not sufficient condition."* / 「好きにしてよい」が文字どおりなら *"it offers nothing over public domain"*、国際的な同等物が要るなら CC0 | Ernest Prabhakar 氏 2009-03-31（理事会オブザーバーと署名・`rounds/2009-04-license-review-committee-report-prabhakar-net-benefit-observed.txt`） | **不利な面（B10・B4）。** 承認は共同体への利益で量られ、考慮は *"proliferation, validity, and comprehensibility"* だと書いた。ACD には「CC0 で足りるのでは」が向く |
+| *"the world does not have an intrinsic need for any more open source licenses"* / 求めるのは *"a license that is visibly better than any other license"* | Nelson 氏 2004-12-01（German Free Software License・`rounds/2004-12-license-discuss-gfsl-nelson-intrinsic-need-observed.txt`） | **不利な面（B10）。** 新しいライセンスは既存より目に見えて良いことを示す側に負担がある |
+| *"These days I believe the OSI Board is also interested in reasons why a proposed license is a good idea in addition to meeting the OSD."* | Simon Phipps 氏 2008-12-15（TGPPL・後の理事と会長。2008 年の役は確かめていない・`rounds/2008-12-license-review-tgppl-phipps-reasons-beyond-osd-observed.txt`） | **不利な面（B10）。** OSD への適合の外に、なぜ良い考えかの理由が要る |
+| MPL 2.0 について、増殖への扉を開く条項は *"not in itself grounds for rejection"* | Karl Fogel 氏 2011-12-15（理事会へ勧告を送ると書いた・`rounds/2011-12-license-review-mpl2-fogel-proliferation-not-grounds-observed.txt`） | **有利な面（B10）。** 増殖のおそれは、それだけでは却下の理由にならない |
+| NOSA 2.0 は振り返れば *"outright reject it as being way too complex with a number of likely or actual fatal problems"* が良かった / 直した版は *"generally been prepared by the license steward rather than that task being taken on by the OSI itself"* | Fontana 氏 2016-08-20（ARL OSL の会話・`rounds/2016-08-license-discuss-arl-fontana-nosa-too-complex-observed.txt`） | **不利な面（B3）・両面（B1）。** 複雑さそのものが却下の理由になりうる（`board-decisions.md` §8.2 の NOSA 2.0 の決議と同じ向き）。直すのは提出者の仕事で、OSI は起草を引き受けない |
+
+**読み。** 2004〜2016 年の決める側の通は、新しいライセンスに「OSD への適合の外の理由」を求めた（Nelson 氏・Prabhakar 氏・Phipps 氏）。最も鋭いのは Nelson 氏の WTFPL への理由で、条件を課さないこと自体を存在理由の欠如と読んだ。ACD の中心の設計（§10.1）にそのまま当たる。
+
+**逆側。** Nelson 氏の基準は、その後の承認で方針にならなかった。理事会は 2015 年に FPL 1.0.0（0BSD）を *"Essentially the same as the WTFPL license"* と言われながら 8 対 0 で承認し（`board-decisions.md` §8.6）、2020 年に MIT-0 も承認した。どちらも違反のしようが無い。同じ Nelson 氏は 2008 年に、表示を求めない Boost を承認へ勧めていた。Fogel 氏は増殖のおそれだけでは却下しないと書いた。ただし Prabhakar 氏の「CC0 で足りるのでは」は、ACD がなぜ CC0 でないかを示す側の負担として残る（B10 の差の主張）。
+
+**この節が establish しないこと。** Nelson 氏の理由が 2009 年の理事会の決定の理由と同じだったか（決定の文は「パブリックドメインへの献呈と違わない」）。Prabhakar 氏の通がどのライセンスの審査か（件名は委員会報告への返信）。Phipps 氏の 2008 年の役。
+
+**反映**: B10（Nelson 氏 2004・Prabhakar 氏 2009・Phipps 氏 2008 の「適合の外の理由」を不利な側に、Fogel 氏 2011 を有利な側に・30 へ）/ B4（Nelson 氏 2009 の WTFPL の理由を `board-decisions.md` §8.1 の決定の文の隣に置くか・逆側の 0BSD と MIT-0 と同じ段に・30 へ）/ B3（Fontana 氏 2016 の「複雑すぎるので却下が良かった」と、Nelson 氏 2008 の報告の「短すぎて無価値」を同じ段に・30 へ）/ 入口（§10.2 の説明に Boost の承認の勧めと Fontana 氏の出所の文を足せるか・#326 の行・50 へ）。本文は変えない。
+

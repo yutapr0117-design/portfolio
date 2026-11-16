@@ -1,0 +1,36 @@
+Source: OSI license-review public archive, 2011-December.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 11 in "Submitting MPL for Approval" (2011-12-08)
+Senders: Karl Fogel
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From kfogel at red-bean.com  Fri Dec 16 02:49:35 2011
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Thu, 15 Dec 2011 21:49:35 -0500
+Subject: [License-review] Submitting MPL for Approval
+In-Reply-To: <20111209044429.GA13588@mercury.ccil.org> (John Cowan's message
+	of "Thu, 8 Dec 2011 23:44:30 -0500")
+References: <CAFPTOkWjcmxkmDfEkOW-UvXDT4nNQu1Ui_gcUgsc9uhrhW1b8g@mail.gmail.com>
+	<87pqfycsmt.fsf@red-bean.com>
+	<20111209044429.GA13588@mercury.ccil.org>
+Message-ID: <878vmdnscg.fsf@kwarm.red-bean.com>
+
+John Cowan <cowan at mercury.ccil.org> writes:
+>I have reviewed it, and IMO it is obviously open-source and should be
+>pushed through.  No tricks, no traps.
+
+Thanks Josh and Bruce.  I've read the license again too now, and
+examined its diff against RC2, and completely concur: this is an open
+source license and should be approved.
+
+Agree with Bruce that the clause that opens the door to license
+proliferation is not in itself grounds for rejection.  (We should of
+course still do everything we can to stop proliferation!)
+
+Since Luis's RC3 post has been on this list for a while, and no one has
+found objections, I'll transmit our recommendation to the Board that OSI
+approve it, in a separate mail.
+
+Best,
+-Karl
