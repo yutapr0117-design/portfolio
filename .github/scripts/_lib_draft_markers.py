@@ -45,7 +45,7 @@ STATE_EXEMPT_468R = (
     ("1.5", "whether or not presently known and whether or not presently subsisting"),   # 範囲の語
     ("6.1", "so far as"), ("6.2", "So far as"), ("7.2", "so far as"),                   # 範囲の語
     ("6.4", "is not decided here and does not need to be"),                             # 決めないことの宣言 (恒久)
-    ("6.5", "silence on this subject has proved ambiguous in practice"),                # 過去の観察 (偽にならない)
+    # §6.5 の "has proved ambiguous in practice" は 2026-11-16 の T79 で "leaves permission to be inferred" に替えた (出典の無い経験の言明)
 )
 
 

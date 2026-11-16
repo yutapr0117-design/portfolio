@@ -121,6 +121,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       law permits the Dedicator to bind them". With one list and one limit,
       no Section binds fewer persons or less than Section 2.8 does. (-6
       words.)
+    * Section 6.5 now says that silence on this subject "leaves permission to
+      be inferred", where it stated an experience for which no source is
+      given. (0 words.)
     * Section 11.3 no longer gives a reason for its limit, which was untrue
       where a person may consent to being falsely named as the author, and
       Section 9.4 says that Section 11.3 "governs a false claim of
@@ -579,9 +582,9 @@ PREAMBLE (informative; not part of the operative terms)
        does not need to be. Nothing in this Dedication requires You to license,
        disclose, or attribute any such thing.
 
-  6.5  Section 6 states expressly what Sections 3 to 5 and 8 would in any
-       event permit. It is stated expressly because silence on this subject has
-       proved ambiguous in practice, and because a permission that an automated
+  6.5  Section 6 states expressly what Sections 3 to 5 and 8 would in any event
+       permit. It is stated expressly because silence on this subject leaves
+       permission to be inferred, and because a permission that an automated
        system cannot determine is, for the purposes of a work meant to be
        learned from, no permission at all.
 
