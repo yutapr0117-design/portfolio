@@ -530,6 +530,8 @@ Licensing Committee の報告が理事会の議事録に逐語で入っている
 **⚠ ただし WTFPL は許諾条項を持たない。** ACD は持つ。**だから同じ結論になるとは限らない**
 ——**が、「献呈と同じに見える」段階で止められる危険は、実例で示されている。**
 
+**2026-11-16 に足した —— 却下の時の委員長自身の理由（`review-readings-6.md` §1.458・portfolio-9b）。** Russ Nelson 氏 2009-03-14（`license-review`・委員会報告の改訂の会話）*"The only (ONLY) reason to write a license rather than putting your software into the public domain is because you plan to sue at least one of your users eventually."*、*"The WTFPL is impossible to violate, since I can do whatever the fuck I want. Thus, it is a license with no reason to exist, and a license which the OSI has no reason to approve."* ACD も §10.1 で条件を課さないので、同じ問いがそのまま向く（違反しようのない文書を、なぜ公有への献呈でなくライセンスとして書くのか）。**ACD の答え**: 公有への献呈が効かない法域が在り（`jurisdictions.md`）、§4 はその場合にも働く独立の許諾である —— 訴えるためではなく、献呈が届かない所で受け手に許しを残すためにライセンスの形を持つ。**逆側（同じ重さ）**: この理由は同じ委員長の個人の言い方で、その後に委員会は違反しようのない文書を通している —— 2015 年の FPL（0BSD）は「WTFPL と本質的に同じ」と言われたまま 8 対 0 で承認され（下の §8.6）、2020 年には MIT-0 と Unlicense が承認された。同じ Nelson 氏も 2008-01 の委員会報告で、バイナリで表示を求めない Boost を承認へ勧めていた。
+
 ### 8.2 🔴 **長さ・複雑さ・曖昧さが、承認でも却下でもない決議を生んだ（2017 秋 f2f・NOSA 2.0）**
 
 > Resolved, That, **in view of the length, complexity, and ambiguities in the submitted drafts of

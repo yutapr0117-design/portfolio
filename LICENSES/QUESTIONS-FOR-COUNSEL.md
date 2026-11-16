@@ -474,6 +474,16 @@ subject *"any Contributor"*, defined to include the Licensor. We did not change 
 named the parts without rights produced a sentence about a Dedicator who, for those parts, is not one
 (`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.19).
 
+A second question is whether §14 survives at all where a court will not cut a limitation down to what
+the law allows. Pamela Chestek wrote in 2023 of clauses of this form that *"the clause isn't effective in
+the same way in some countries and would instead be ignored altogether, leading to liability for
+everything"*. §14.1 and §14.2 both rely on being cut down (*"TO THE FULLEST EXTENT PERMITTED"*, *"limited
+to the greatest extent that law permits"*). In the same message she noted that *"in some countries there
+are different standards of liability for gifts versus an exchange"*; German civil code section 521 limits a
+donor's liability to intent and gross negligence. Is a dedication like this one standard terms whose
+limitation falls away entirely, or a gift whose donor is liable only for intent and gross negligence, or
+neither (`jurisdictions.md` §3)?
+
 **An answer would change** whether §14.1 should exclude liability only for the use of the Work, as
 GPL-3.0 does, or say that it does not limit the covenants. An answer to (b) would change whether §14.1 needs its own subject.
 
