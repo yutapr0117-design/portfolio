@@ -609,3 +609,21 @@ census の候補の外の未読の会話の 1 本（"License-review Digest, Vol 
 **この節が establish しないこと。** 当て直しは語で当てたもので、語に当たらない読み落としは残りうる（測り方の限界）。
 
 **反映**: B1・B10（Berkus 氏 2013 の 3 つの立証の責任・30 へ）/ against #324（Cowan 氏 2000 の無条件の許諾と献呈・2004 の期待と依拠・30 へ）/ 入口と B10（FSF の一次資料は 2026-11-16 にオーナーの許可で取得した: `rounds/2026-11-16-fsf-license-list-and-debian-dfsg-public-domain-snapshot.txt`。FSF は CC0 をソフトウェアに勧めない理由を *"as CC0 has a term expressly stating it does not grant you"* *"any patent licenses."* と特許の明示の除外に置き、献呈と代わりの許諾の組み合わせ（Unlicense）は GPL と両立するとする。Debian Wiki は CC0 型の献呈をソースがあれば DFSG を満たしうるとする。特許を明示に許諾する ACD には FSF の理由は当たらないが、FSF も Debian も ACD を評価していない。**逆側（同じ写しの 0BSD の項）**: FSF は表示の保存を求めないライセンス（0BSD・Expat0）を、GPL と両立する自由なライセンスと認めつつ *"We recommend that developers choose a license that clearly requires preserving notices for their own works"* *"because of the confusion and antisocial effect that is the result of the 0BSD License."* と勧めない。ACD も表示を求めない（§10.2）ので、FSF の目ではこの線に入りうる・30 へ）。
+
+## 1.254 承認の投票の前に、既存の団体と重なる略称を変えるよう求めた理事 —— 「ACD」の略称は確かめていなかった（OIN License・2020-12）。リストの参加者は相談すべき法律家の代わりを務めない（2020-10）（2026-11-16）
+
+census の決める側の一覧（DECIDERS）に、OSI の公の宛名で書いていた 3 人（Jim Jagielski 氏・Patrick Masson 氏・VM (Vicky) Brasseur 氏）が入っておらず、足して回すと未読が 4 本出た（portfolio-9b に DECIDERS への追加を頼んだ）。4 本を読み、2 本から 3 通を置いた（`rounds/2020-12-license-review-oin-{berkus-acronym,brasseur-spdx-identifier}-observed.txt`・`rounds/2020-10-license-review-digest95-brasseur-consult-lawyer-observed.txt`）。残る 2 本（2017-01 Groups/Communities・2019-08 GPL-3.0's anti-DRM tivoization clause）は新しい論点が無かった。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"Aside from the required wording changes, the other major issue with this license is the short name of the license itself, which seems like a pretty clear trademark infringement in my non-lawyer eyes."* / *"Since this license is unaffiliated with that organization (unless I've missed something), even were it otherwise acceptable I'd request a change of license acronym before voting to approve it."* | Josh Berkus 氏 2020-12-27（略称「OIN」が Open Invention Network と重なることについて） | **点検の材料（B6・名前）。** 承認の投票の前に、既存の団体と重なる略称を変えるよう求めた。ACD の略称「ACD」と識別子「ACD-1.x」が既存の団体や商標と重ならないかは、ドシエで確かめていなかった。**2026-11-16 に確かめた範囲**: 画像ソフトの ACDSee の会社名は "ACD Systems International Inc."（acdsee.com のフッター *"© Copyright 1993 -  ACD Systems International Inc."*・同日に取得）で、「ACD」を名に持つソフトウェアの会社が実在する。「ACD」が商標として登録されているか、どの範囲で登録されているかは確かめていない |
+| *"The license was also submitted to SPDX for inclusion in its list. Earlier today the team changed the proposed license identifier to avoid potential confusion with Open Invention Network"* | VM (Vicky) Brasseur 氏 2020-12-28（2018〜2020 年に OSI の宛名でも書いていた） | **点検の材料（B6・B11）。** SPDX の側も、既存の団体との混同を避けるために識別子を変えた。ACD を SPDX に出すとき（B11）にも同じ点検が来うる |
+| *"However, before doing moving the conversation to license-discuss, I advise you take the recommendation of several list members and consult a lawyer experienced in license drafting to have them review and rework the document first. The members of license-discuss are unlikely to be happy with playing the role of the lawyer you should be consulting instead. ;-)"* | VM (Vicky) Brasseur 氏 2020-10-20 | **不利な面（B1）。** リストは法律家の代わりにならない、という線で、`review-readings-2.md` §1.233 の Chestek 氏 2020（「review は本物のライセンスに限る」）・§1.234 の Perens 氏と同じ向き。ACD が `license-discuss` に出した 1.0 の議論も、法律家の目の無い文書として同じ物差しで見られうる |
+
+**読み。** 略称が既存の団体や商標と重なることは、2020 年の審査で承認の投票の前に直すべき点として扱われた。ACD の名前の点検（B6）は、これまで「Autonomous」の語（§1.249）と名の主張（#112）を見てきたが、略称「ACD」の衝突は見ていなかった。
+
+**逆側。** OIN の件は、ライセンスの略称が同じ分野（オープンソースの特許）で長く活動する団体の名と同じだった例で、「ACD」と画像ソフトの会社の名は分野が違う。Berkus 氏は自分の目を *"non-lawyer eyes"* と断っている。商標の衝突が実際にあるかは、登録の調査（法律家の問い）を経ないと分からない。略称を変える費用は大きく（識別子、§16.4 の名の規則、既に配った版）、確かめずに変える理由にはならない。
+
+**この節が establish しないこと。** 「ACD」の商標の登録の有無と範囲。ACD の名前が審査で問われるかどうか。
+
+**反映**: B6（略称「ACD」の衝突の点検が抜けていたこと・Berkus 氏 2020 の先例と、同名の会社の実在・30 へ）/ B11（SPDX に出すとき識別子の衝突が問われうる・30 へ）/ 入口（法律家への問いに「ACD」の商標の調査を足すかの判断・`QUESTIONS-FOR-COUNSEL.md`・50 へ）。

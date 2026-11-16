@@ -1,0 +1,45 @@
+Source: OSI license-review public archive, 2020-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 43 in "Approval: OIN License (Open Innovation License)" (2020-12-25)
+Senders: Vicky) Brasseur
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From osi-lists at vmbrasseur.com  Mon Dec 28 05:35:36 2020
+From: osi-lists at vmbrasseur.com (VM (Vicky) Brasseur)
+Date: Sun, 27 Dec 2020 21:35:36 -0800
+Subject: [License-review] Approval: OIN License (Open Innovation
+ License) -- Trademark Issue
+In-Reply-To: <c270b078-29d3-1439-13d4-737ee895e1e1@berkus.org>
+References: <CAHgftsJ5x1AYYVVADTHaueaHwN4-2WHoQeYLLkb3EFkwhcRe2g@mail.gmail.com>
+ <c270b078-29d3-1439-13d4-737ee895e1e1@berkus.org>
+Message-ID: <0ab8d346-3965-f4a5-f8ab-c46c5b7dd4f8@vmbrasseur.com>
+
+The license was also submitted to SPDX for inclusion in its list. 
+Earlier today the team changed the proposed license identifier to avoid 
+potential confusion with Open Invention Network:
+
+https://github.com/spdx/license-list-XML/issues/1134#issuecomment-751485014
+
+Perhaps the same is intended for the OSI submission but they haven't had 
+the chance to say so yet?
+
+--V
+
+Josh Berkus wrote on 27/12/20 21:27:
+> Andrew, All:
+> 
+> Aside from the required wording changes, the other major issue with this
+> license is the short name of the license itself, which seems like a
+> pretty clear trademark infringement in my non-lawyer eyes.
+> 
+> The Open Invention Network is a longstanding organization in the world
+> of Open Source, and has always gone by the acronym "OIN"
+> (https://openinventionnetwork.com/)  Since this license is unaffiliated
+> with that organization (unless I've missed something), even were it
+> otherwise acceptable I'd request a change of license acronym before
+> voting to approve it.
+> 
+> "OIL" is the obvious choice, but that has its own issues ;-)
+> 
+> 
