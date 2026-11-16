@@ -79,7 +79,7 @@ _HUNK = re.compile(r"^<<<<<<< [^\n]*\n(.*?)^=======\n(.*?)^>>>>>>> [^\n]*\n", re
 
 
 _ASOF_ROW = "| **未読スレッドの残り** |"
-_RECENT = re.compile(r"（直近の 1 件: (.*?)）。 \*\*それより前の")
+_RECENT = re.compile(r"（直近の 1 件: (.*?)(?:）。|。）) \*\*それより前の")  # 閉じ方の両方を読む (record_read と同じ)
 MOVED_RECENT: list[str] = []  # AS-OF の行の衝突で main 側を採ったとき、PR 側の「直近の 1 件」(LOG へ移す)
 
 
