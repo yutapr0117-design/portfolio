@@ -92,6 +92,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | 未読のスレッドを読んだ記録（節 1.450 から・2002〜2003 と 2009〜2010 のスレッド） | [`ACD-1.0.review-readings-6.md`](ACD-1.0.review-readings-6.md) —— 2026-11-15 に未読の 285 本を 5 人で読むため、年の帯ごとに書き場所を分けた |
 | 読んだスレッドの件名の一覧（AS-OF の未読数の元） | [`READ-THREADS.txt`](READ-THREADS.txt) —— 1 行 1 件名。読んだら同じ commit で足す |
 | 古い節（§1.242 より前）の反映先の表 | [`REFLECTION-BACKFILL.md`](REFLECTION-BACKFILL.md) —— 1 節 1 行。提出のゲート 6c が求める「読んだ節がすべて反映されている」を、1,000 行の上限に当たらずに満たすため（2026-11-15） |
+| 読みの合成（未読 0 の後の全体） | [`READINGS-SYNTHESIS.md`](READINGS-SYNTHESIS.md) —— 読みの節 244 の反映先を、条文・register・入口に分けて数えた。本文を変える指摘は残っておらず、残るのは B1・B10・B2（2026-11-16） |
 | 未読数の母数になる候補のスレッドの一覧 | [`THREAD-CANDIDATES.txt`](THREAD-CANDIDATES.txt) —— 1 行 1 件名。一度候補になったら外さない。道具の `--pin` が足す |
 | **審査の場がどう働き、誰がそこで書いているか**（pre-review としての `license-discuss` / 沈黙の比較 / 書き手の記録 / moderator が引いた CoC） | [`ACD-1.0.review-venue.md`](ACD-1.0.review-venue.md) —— `reviewer-positions.md` から 2026-09-24 に切り出した（§1.67 以降・節番号は不変） |
 | リストが我々の類型に付ける呼び名（「クレヨン」「vanity」）と、それが実際に指している害 | [`ACD-1.0.review-labels.md`](ACD-1.0.review-labels.md) |
