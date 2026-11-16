@@ -481,6 +481,12 @@ would it harm, by appearing to decide a legal classification that the text other
 law (the same objection that led us to remove sentences asserting legal results, errata E23 and
 E79)? The 1.4 draft does not add such a sentence, for that second reason
 (`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.2).
+For patents in the United States the gap narrows: the Federal Circuit held that *"a non-exclusive
+patent license is equivalent to a covenant not to sue"* (*TransCore v. Electronic Transaction
+Consultants*, 2009; `rounds/2026-11-16-us-transcore-covenant-equals-license-snapshot.txt`), so the patent
+covenant of §8.6 and the licences of §8.1 and §8.4 should fare alike there, and after *Tempnology* (above)
+rejection leaves either in place. The case is about patent exhaustion; whether the same line reaches the
+copyright covenants of §5 we have not found.
 
 A third question is German. German insolvency law gives the administrator two tools. The election not to
 perform (InsO section 103) is limited to a mutual contract (*"Ist ein gegenseitiger Vertrag"*), and ACD asks
