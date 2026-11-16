@@ -38,7 +38,7 @@ Check 468y は 2 冊目とこの file の両方の「変えない」「退けた
 
 **測定（portfolio-9b・最初の形）**: `--compare` は条 +0・語 +25・重複 69 → 69・族 51・先行詞の無い指示語 0 / 0・許可の声が増えた条 0。`--guard` は 468u 17 件の欠け 0・468r 0 / 0。§12.2 の *any such person* は直前の文の *any person who receives the Work from You* を指す。外した語に依拠する外向きの記録は `against.md` #118（§12.5 の旧文 *"survives it"*）で、1.4 を出す版にする日に書き換える。
 
-**§15.1 への追記（2026-11-16）**: §12.3 の *"they are given in respect of a work that the Dedicator has chosen to place in the commons for the purpose stated in Section 6"* は、1 冊目の試作で「目的の文が約束の有効性を助けるか狭めるかは法律家への問い 3 (c) の領分」として残した句である（`ACD-1.4-CLARITY-TRIAL.md` の §12.3 の行）。T67 で §12.3 の主語を *"The covenant and the consent"* にしたので、この目的の句は同意にも掛かる。包括的な事前の同意は目的に照らして狭く解釈されやすく、学ばれることと関係の無い通常の改変が同意の外と読まれうる —— 狭める側の重みが T67 で増した（理由の文が範囲を狭める E78・E85 と同じ型の、法律家の判断に委ねる側の残り）。本文は変えず、問い 3 (c) にこの面を足すよう portfolio-30 に頼んだ。
+**§15.1 への追記（2026-11-16）**: §12.3 の *"they are given in respect of a work that the Dedicator has chosen to place in the commons for the purpose stated in Section 6"* は、1 冊目の試作で「目的の文が約束の有効性を助けるか狭めるかは法律家への問い 3 (c) の領分」として残した句である（`ACD-1.4-CLARITY-TRIAL.md` の §12.3 の行）。T67 で §12.3 の主語を *"The covenant and the consent"* にしたので、この目的の句は同意にも掛かる。包括的な事前の同意が目的に照らして狭く読まれうるなら、学ばれることと関係の無い通常の改変が同意の外と読まれうる —— 狭める側の重みが T67 で増した（理由の文が範囲を狭める E78・E85 と同じ型の、法律家の判断に委ねる側の残り）。「目的で狭く読まれうる」は我々の読みで、どの法域でも確かめていない。本文は変えず、portfolio-30 が `QUESTIONS-FOR-COUNSEL.md` 問 3 (c) の 2 つ目の点として訊いた（この句は同意を学ばれることに資する行為に限るか、限るなら句を外すと約束の有効性を損なうか）。
 
 ### 15.2 §2.9 と OWFa の「約束を倒産法の目的では許諾として扱う」（変えない・2026-11-15）
 
