@@ -1,0 +1,39 @@
+Source: e-Gov 法令 API（デジタル庁）
+        民法（明治二十九年法律第八十九号・lawId 129AC0000000089）: https://laws.e-gov.go.jp/api/1/articles;lawId=129AC0000000089;article=527 / 549 / 550
+        著作権法（昭和四十五年法律第四十八号・lawId 345AC0000000048）: https://laws.e-gov.go.jp/api/1/articles;lawId=345AC0000000048;article=59 / 60 / 63 / 63_2
+Retrieved: 2026-11-16 by portfolio-30, with the WebFetch tool, one article at a time. (The e-Gov web page itself
+        returned no body to the tool; the API returned the article text.)
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Each article below was returned as a
+        single verbatim quote, except 著作権法 63 条 5 項・6 項, which the tool summarised and which are left out here.
+        Re-fetch and compare before relying on the exact wording.
+
+WHY THIS FILE EXISTS. The 1.4 draft's Sections 2.3 (no acceptance needed), 2.2 and 8.2 (irrevocable; not
+terminable), 2.8 (transferees bound), 12.2 and 12.4 (moral rights covenant and consent; persons after death) are
+read against these articles in jurisdictions.md section 2.
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+===== 民法 第五百二十七条（承諾の通知を必要としない場合における契約の成立時期） =====
+1. 「申込者の意思表示又は取引上の慣習により承諾の通知を必要としない場合には、契約は、承諾の意思表示と認めるべき事実があった時に成立する。」
+
+===== 民法 第五百四十九条（贈与） =====
+2. 「贈与は、当事者の一方がある財産を無償で相手方に与える意思を表示し、相手方が受諾をすることによって、その効力を生ずる。」
+
+===== 民法 第五百五十条（書面によらない贈与の解除） =====
+3. 「書面によらない贈与は、各当事者が解除をすることができる。ただし、履行の終わった部分については、この限りでない。」
+
+===== 著作権法 第五十九条（著作者人格権の一身専属性） =====
+4. 「著作者人格権は、著作者の一身に専属し、譲渡することができない。」
+
+===== 著作権法 第六十条（著作者が存しなくなつた後における人格的利益の保護） =====
+5. 「著作物を公衆に提供し、又は提示する者は、その著作物の著作者が存しなくなつた後においても、著作者が存しているとしたならばその著作者人格権の侵害となるべき行為をしてはならない。」
+6. 「ただし、その行為の性質及び程度、社会的事情の変動その他によりその行為が当該著作者の意を害しないと認められる場合は、この限りでない。」
+
+===== 著作権法 第六十三条（著作物の利用の許諾）第一項〜第四項 =====
+7. 「著作権者は、他人に対し、その著作物の利用を許諾することができる。」
+8. 「前項の許諾を得た者は、その許諾に係る利用方法及び条件の範囲内において、その許諾に係る著作物を利用することができる。」
+9. 「利用権（第一項の許諾に係る著作物を前項の規定により利用することができる権利をいう。次条において同じ。）は、著作権者の承諾を得ない限り、譲渡することができない。」
+10. 「著作物の放送又は有線放送についての第一項の許諾は、契約に別段の定めがない限り、当該著作物の録音又は録画の許諾を含まないものとする。」
+
+===== 著作権法 第六十三条の二（利用権の対抗力） =====
+11. 「利用権は、当該利用権に係る著作物の著作権を取得した者その他の第三者に対抗することができる。」
