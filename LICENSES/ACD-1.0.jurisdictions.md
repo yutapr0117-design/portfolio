@@ -471,6 +471,8 @@ obtain a remuneration for such lending**"*。
 **確立していないこと**: 当該規定の適用範囲・存続期間の扱い・生成 AI への当てはめは議論が
 続いている。**本書はその議論に立ち入らない。**
 
+**§14.1（T82 の後）と UCTA —— 規制は事業上の責任に限られる（2026-11-16 追記・portfolio-30・条文は `rounds/2026-11-16-ucta-1977-s1-s2-legislation-gov-uk-snapshot.txt`・我々の読み）**: UCTA 1 条 3 項は、2〜7 条を *" only to business liability, that is liability for breach of obligations or duties arising—"* *"(a)from things done or to be done by a person in the course of a business (whether his own business or another's); or"* に限る。事業の外で無償に ACD を当てる個人の Dedicator には、2 条の規制がそもそも当たらない（不確実性が狭まる向き）。事業として当てる場合は 2 条 1 項 *"exclude or restrict his liability for death or personal injury resulting from negligence."* が当たり、2 項は他の損害の過失の責任の除外を合理性の要件に服させる。T82 の除外（法が除外を許さない死亡・人身の責任）は 1 項と同じ向きで、*"WHICH NOTHING IN SECTION 14 LIMITS"* が 1 項の「制限（restrict）」の禁止にも合う。**確立していないこと**: 2 項の合理性の要件を、無償の公の付与の免責が満たすか（費用を取らないことは合理性の側に働くと読むが、確かめていない）。消費者への通知は 2 条 4 項で Consumer Rights Act 2015 の側に移るので、事業者が消費者に向けて当てる場合はそちらを当てる（未取得）。
+
 ### 7a. 原典（2026-09-19 に legislation.gov.uk で確認）
 
 > **s.9(3)** *"In the case of a literary, dramatic, musical or artistic work which is

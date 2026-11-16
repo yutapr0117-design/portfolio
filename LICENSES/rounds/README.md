@@ -280,6 +280,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2010-10-07 | Schmitz 氏（EUPL の起草者） | **観測（netX の審査・一般的な免責は欧州で不当とされ、EUPL は故意と自然人への損害を除外しない理由・Wilson 氏の問いの引用つき）** | `2010-10-license-review-netx-schmitz-liability-exclusion-observed.txt` |
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 276 条 3 項・307 条 1 項・309 条 7 号・521 条・524 条 1 項・WebFetch の逐語の片）** | `2026-11-16-bgb-276-307-309-521-524-gesetze-im-internet-snapshot.txt` |
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 151 条・受諾の表示を要しない場合・WebFetch の逐語の片）** | `2026-11-16-bgb-151-gesetze-im-internet-snapshot.txt` |
+| 2026-11-16 | 英 legislation.gov.uk | **観測（UCTA 1977 1 条 3 項・2 条 1 項 2 項・免責の規制は事業上の責任に限る・WebFetch の逐語の片）** | `2026-11-16-ucta-1977-s1-s2-legislation-gov-uk-snapshot.txt` |
 | 2026-11-16 | デジタル庁（e-Gov 法令 API） | **観測（民法 527・549・550 条、著作権法 59・60・63・63 条の 2・WebFetch）** | `2026-11-16-minpo-chosakukenho-e-gov-api-snapshot.txt` |
 | 2026-11-16 | 仏 Légifrance | **観測（民法典 931 条・953 条・955 条・957 条・960 条・贈与の方式と撤回の事由・WebFetch の逐語の片）** | `2026-11-16-code-civil-931-953-955-957-960-legifrance-snapshot.txt` |
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（UrhG 14 条・30 条・39 条、BGB 1922 条・1967 条・人格権の変更の合意と死後の承継・WebFetch の逐語の片）** | `2026-11-16-urhg-14-30-39-bgb-1922-1967-gesetze-im-internet-snapshot.txt` |
