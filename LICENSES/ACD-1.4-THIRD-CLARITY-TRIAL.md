@@ -189,3 +189,34 @@ Check 468y は 2 冊目とこの file の両方の「変えない」「退けた
 **集め方**: 上の 22 行はドシエに既に在る同氏の文から、下の 5 行はアーカイブの同氏の通 586 通のうち、60 語以上でドシエが 1 文も引いていなかった 35 通を読んで足した（2026-11-15・register への反映は PR 3232）。同氏の確かめ方（範囲の広いライセンスをソフトウェアだけのライセンスとして通読する・2023-08）を 1.4 草案に当てた結果は `ACD-OSI-BOTTLENECKS-EXTERNAL.md` の B15 の節に在る。
 
 **逆側**: 同氏の文はどれも他の提出についてのもので、ACD に当てたのは我々である。60 語に満たない通と、ドシエが一部を引いている通の残りの文は読んでいない。
+
+### 16.3 Fontana 氏の基準を 1.4 草案に当てた（portfolio-50・条を変える指摘 0 件）
+
+| 基準と出典 | 当たる条 | 扱い済みの場所 | 残る点 |
+| :-- | :-- | :-- | :-- |
+| *"I almost feel like you wrote three different licenses here and combined them into one."*、同じ通で、同じ問題を扱う部分どうしの *"subtle contradictions"* を懸念（2014-04-13） | §3・§4・§5 | `objection-map.md`（3 つの足場は意図した設計）、`ACD-1.4-CHANGELIST.md` の *"subtle contradictions"* の行、§4.4（献呈が無効でも許諾が立つ） | **最も当たりやすい点。** 足場どうしの食い違いは 1.4 の試作で探し続けたが、無いことは示せない（B3・B13） |
+| *"We should not be quick to approve new licenses that seem to have problematically-drafted provisions even if the problems are not mentioned in the OSD (e.g., excessive vagueness, problems of comprehensibility, inconsistency across provisions)."*（2014-06-30） | 全体 | `SUBMISSION-MATERIALS.md` §1c の基準 3・4、試作 T34 以降と errata | 理解の費用（B3・B13）。判断は審査者のもの |
+| 「名指せる規則に反しない限り承認」という主張の由来を、*"Artful license drafters were arguing that the OSI was compelled to approve any license with some sort of novel controversial provision if a clear conflict with a specific OSD provision could not be identified."* と説明（2026-08-28） | — | B10 | OSD 適合だけでは足りない、という同氏の線は残る（16.2 の 2019-07 の行と同じ） |
+| *"the waste-of-time licenses are most often just the work of one developer acting in isolation"*（2013-05-30）、*"some credible showing that there's more than one person who supports the submission"*（2013-06-05） | 手続き | B2、`OSI-APPROVAL-PLAN.md`、窓口 `acd-use.yml` | **ACD はこの形に当たる。** 支持の表明は 0 件のまま（尋ねるのはオーナーの行為） |
+| 有利: *"access to good legal advice will be unrealistic to many developers, and yet they seem to me to have as much a right to draft new purportedly open source licenses"*（2013-04-07）、*"it is hard to make the case that involvement of an attorney is a likely indicator of higher quality"* | 全体 | `reviewer-positions.md`（B1 の逆の記録） | 法律家の不在そのものを退ける理由にしない立場。ただし同じ人が起草の質は問う（上の 2014 の行） |
+| 有利: *"There is a bit of a chicken/egg problem, as the absence of OSI approval may significantly deter projects *independent of the steward* from choosing the new license."*（2013-06-06）、*"OSI has approved thought-experiment licenses before (e.g. the SimPL) as well as licenses that were not used prior to OSI approval (e.g. the UPL)."*（2015-10-13・委員長として） | — | `reviewer-positions.md`、`review-readings-2.md` | 2015 年の文は、演習として作った文を `license-review` に出すことを退けた文脈に在る。ACD は「本物のライセンスか演習か」を問われうる（#161） |
+| *"may have taken the wrong path very early on by developing a process that encouraged submission of novel, community-untested licenses"*（2020-01-04） | 手続き | `review-labels.md`、#161 | ACD は community-untested の典型（B2） |
+| 機械翻訳を疑い *"run through a machine translator without subsequent human review"*（2019-05-27） | 全体（英語の質） | `review-outcomes.md`、B14 | 本文は AI が書いた英語で、英語の母語話者の法律家の目は通っていない（B1） |
+| 有利: *"I'm not sure the possibility that any part of this license is AI-generated matters though."*（2026-03・AI-MIT の審査） | — | `review-responses-meta.md` Q36、`SUBMISSION-MATERIALS.md` | 問いは本文の著作権の有無についてで、AI 起草の提出を読むかどうかではない |
+| *"I support granting legacy approval for the Unlicense. I wouldn't necessarily support approval for the regular (non-legacy) category, which arguably entails a more stringent form of review based on various criteria."*（2020-03-29） | 全体 | `against-2.md` | **ACD に legacy の道は無い。** Unlicense が通った基準より厳しい審査を受ける。先例への寄りかかりはこの差を越えない（#239） |
+| Fedora で CC0 の代わりを問われ *"I have typically been recommending MIT No Attribution (SPDX: MIT-0)"*（2022-07-23・Fedora legal） | B10 | `against-2.md`、`ADOPTING.md`（MIT-0 を先に勧める） | 「MIT-0 で足りないか」は B10 の問いそのもの。差は特許・ML の明示・権利の存否を問わないこと |
+| 特許を許さないライセンスは FOSS と見なせないという合意（LWN が引く同氏の文）、CC0 について *"I was not troubled by the idea of approval of CC0 as such."*（2019-05） | §8.1・§8.4・§3 | `REVIEWERS.md` | 有利。§8 は許諾を明示し、反対が集まった CC0 の特許の除外を持たない |
+| *"Either review for certification/approval the whole thing or not at all."*（2012-01-04・CC0） | §3・§4 | B4、`review-readings.md` | §4 だけを見てくれとは言えず、§3 の献呈を含む全体が審査される |
+| UPL の許諾の広さを *"goes way beyond to the opposite extreme"* と読み、承認の前に許諾は改変前の Software と挙げた作品へ狭められた（2015） | §8.4 | `REVIEWERS.md`、`SUBMISSION-MATERIALS.md` | **§8.4 はモデルと出力へ伸びる**。1.4 草案は侵害する特徴が Work の内容から生じる範囲に限ったが、広さを問う読みは残る（B7・B10） |
+| モデルのパラメータには承認済み以外のライセンスもありうるが *"that does not apply to code or model architecture materials"* | §1.3・§6 | `ACD-1.4-CHANGELIST.md`（§1.3 の重みの列挙を外した行）、B15 | 扱い済み。§1.3 は重みを名指さない |
+| 有利（個人の見解）: オープンソースのライセンスは *"extensively used for non-software material in open source project repositories"* で *"completely appropriate"*（2026-04-06） | §1.3（data・audiovisual） | `ACD-OSI-BOTTLENECKS-EXTERNAL.md` の B15、`against.md` #211 | 委員会の立場ではない |
+| *"OSI does not approve, or up till now hasn't approved, SPDX identifiers as such, but rather the actual licenses they refer to"*（2024-08-09・個人の立場） | §16.1 の SPDX の行 | `ACD-OSI-BOTTLENECKS-EXTERNAL.md` | 扱い済み（識別子は SPDX が割り当てる） |
+| 通知の年は *"templatize the date"*（2017） | §16.1 | `review-outcomes.md`、提出パケット §4b | 扱い済み（雛形の空欄は所在の 1 欄だけ） |
+| clickwrap と OSD 10（2026-03-20・CNRI） | §2.3 | `SUBMISSION-MATERIALS.md` §1c の OSD 10 の行（`review-readings.md` §1.204） | 有利 |
+| どの素材が covered work かを問う（`against.md` #134・アーカイブに逐語の 1 文は無く、要旨） | §1.3・§2.6・§16.2 | #134、T69（§2.6 の識別を §16.2 の形で果たす） | 扱い済み |
+
+**結果**: 条を変える指摘は 0 件。同氏の基準は、起草の構造（3 つの足場の食い違い・起草の質）、手続き（単独の起草者・community-untested・legacy でない厳しい審査）、既存で足りるか（MIT-0・UPL の広さ）に集まる。本文の語で閉じられるものは 1.4 までに閉じてあり、残るのは B2・B3・B10・B13 の側の問いである。審査で最初に来やすいのは 1 行目（3 つのライセンスを 1 つにした）と、§8.4 の広さ（UPL）の 2 つと読む。
+
+**集め方**: ドシエに既に引かれている同氏の文を、帰属が同氏と確かめられるものだけ集めた（`grep` で文の前後を読み、他の人の文や要旨を外した）。アーカイブの同氏の通を全数では読んでいない。
+
+**逆側**: 同氏の文はどれも他の提出についてのもので、ACD に当てたのは我々である。2015〜2020 年の文の一部は委員長や理事としての文で、2024 年以後の一部は「OSI を代表しない」と断った個人の文で、重みが違う。
