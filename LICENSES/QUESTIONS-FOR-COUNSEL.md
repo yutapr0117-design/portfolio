@@ -431,6 +431,20 @@ forum's insolvency law, and *Jaffé v. Samsung* (4th Cir. 2013) shows that prote
 result (errata E5, E30); whether its structure — no obligation on the licensee — keeps it outside
 "executory" is what we cannot judge.
 
+**What the law already settles in the United States (added 2026-11-16).** The Supreme Court held in
+*Mission Product Holdings v. Tempnology* (2019) that *"Rejection of a contract—any contract—in bankruptcy
+operates not as a rescission but as a breach"*, that *"Such an act cannot rescind rights that the
+contract previously granted"*, and that *"the counterparty retains the rights it has received under
+the agreement"*; the opinion uses the definition that a contract is executory if *"performance remains
+due to some extent on both sides"* (`rounds/2026-11-16-us-bankruptcy-tempnology-and-365n-snapshot.txt`,
+read through a fetch tool and not a byte copy). So in the United States the question narrows to two
+steps: whether a licence that puts no obligation on the licensee is executory at all (our reading is
+that it is not; the Court did not decide a case like this), and, if it is, rejection still leaves the
+rights already granted, without relying on §365(n). The same reasoning reaches the covenants if they
+are "any contract", which narrows the second question below to jurisdictions other than the United
+States. What remains open is the law of those jurisdictions (Germany is being read under §103 of the
+Insolvency Code) and the cross-border balancing of *Jaffé v. Samsung*.
+
 **An answer would change** whether §2.9 needs more than the 1.4 draft gives it, and how the dossier
 answers #178 (`jurisdictions.md` §9a (10), on Qimonda).
 In *Jaffé v. Samsung* the result took a four-day evidentiary hearing and a discretionary
