@@ -82,6 +82,9 @@ def fragments(text: str):
 
 
 def main() -> int:
+    if any(a in ("-h", "--help") for a in sys.argv[1:]):
+        print(__doc__)
+        return 0
     old = sys.argv[1] if len(sys.argv) > 1 else "1.0"
     new = sys.argv[2] if len(sys.argv) > 2 else _current_draft_version()
     b_old, b_new = body(old), body(new)
@@ -97,8 +100,18 @@ def main() -> int:
                     lost.append((face, n, frag))
     print(f"外向きの {len(FACES)} 文書の逐語引用のうち ACD-{old} の本文に在る断片: {total}")
     print(f"  そのうち ACD-{new} の本文に無いもの: {len(lost)}")
-    for face, n, frag in lost:
+    # 行が旧版を名乗っているか (2026-11-16): 「1.0 はこう書いていた」は正当で残す。名乗りの無い行は、出す版を切り替える
+    #   日に書き換えるか、旧版の引用だと明示するかを決める。名乗りで 2 つに分けて、決める行を先に出す
+    named = re.compile(rf"(?<![\d.§])(?:ACD-)?{re.escape(old)}(?![\d])|\b(?:earlier|previous|former) (?:version|text)|旧版")
+    lines = {face: (ROOT / "LICENSES" / face).read_text(encoding="utf-8").split("\n") for face in {f for f, _n, _q in lost}}
+    unnamed = [(f, n, q) for f, n, q in lost if not named.search(lines[f][n - 1])]
+    print(f"  うち、行が ACD-{old} を名乗らない (確定の日に書き換えるか旧版の引用と明示するかを決める): {len(unnamed)}")
+    for face, n, frag in unnamed:
         print(f"  [{face}:{n}] {frag[:160]}")
+    print(f"  行が ACD-{old} を名乗る (旧版の引用として残せる): {len(lost) - len(unnamed)}")
+    for face, n, frag in lost:
+        if (face, n, frag) not in unnamed:
+            print(f"  [{face}:{n}] {frag[:160]}")
     return 0
 
 
