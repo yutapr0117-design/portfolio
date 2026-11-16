@@ -728,8 +728,8 @@ MUTATIONS_ARCHIVE5 = [
     {
     "name": "Check 468u: §5.1 の特許の除外を落とす —— §8.4 が外した請求項まで「許された使用の請求」として不行使になる",
     "file": CURRENT_DRAFT,
-    "find": "permits, other than for",
-    "replace": "permits, other than",
+    "find": "than for patent infringement",
+    "replace": "than patent infringement",
     "check": CHECK,
 },
     {
