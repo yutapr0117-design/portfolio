@@ -275,3 +275,30 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 **結果**: 条を変える指摘は 0 件。Perens 氏の目で突かれるのは、本文の語ではなく、B1（法律家の不在）と B10（既存と重複しないか）と B2（採用）で、どれも register の側の問いである。本文に向く基準（使う人の負担、著作権の拡張、サイトに依らない効力、本文の不変、特許の除外）は、1.4 草案がそれぞれ §2.3・§10.1、§2.7・§6.4、§16.2、§16.4、§8 で既に満たしている。
 
 **逆側**: 「満たしている」は Perens 氏の過去の文に当てた結果で、Perens 氏が 1.4 草案を実際に読めば別の点を突きうる（模擬の限界）。とくに長さ（1.4 草案は CC0 の約 5.6 倍・`review-readings-2.md` §1.245）は、Perens 氏の文には直接の基準が無いが、*"crayon license"* の逆の極として「長すぎて読めない」と読まれる余地を残す（B3・B13）。
+
+### 16.5 Smith 氏の基準を 1.4 草案に当てた（portfolio-50・9b の受け持ちを引き継いだ・条を変える指摘 0 件）
+
+| 基準と出典 | 当たる条 | 扱い済みの場所 | 残る点 |
+| :-- | :-- | :-- | :-- |
+| 提出の手順の問いに全部答える: *"you need to answer all the questions set forth in the process for approval"*（2026-03-17）、Blue Oak に Rationale・Distinguish・Legal review・Proliferation category を挙げ *"I think any review of this license should be suspended at least until those questions are answered."*（2022-03-20）、ADVPL に *"Describe what gap not filled by currently existing licenses that the new license will fill."* を名指し（2024-09-05） | 手続き | `ACD-1.0.submission.md`、`SUBMISSION-MATERIALS.md` §1 | 答えは用意してある。Legal review の答えは「無い」で、それは B1 として残る |
+| 法律家: *"this license really needs to go through a legal review before submission/resubmission."*（2025-10-26）、*"trying to do this on your own isn't likely to result in something functional"*。有利な側: *"Drafting or review by a lawyer is no guarantee of quality"*（2019-03-15）、審査した法律家は匿名でなく名を出すべき（2020-08-25・Vaccine License の「専門家が書いたが審査は公開できない」に） | 全体 | B1、`against-2.md`、`REVIEWERS.md` | **残る（B1）**。ACD は「法律家は読んでいない」と書くので、匿名の審査を主張する形には当たらない |
+| 献呈と許諾の同居: *"I sort of feel like it is not necessarily fatal to have the two concepts together in a single "license," but CC-0 makes it clearer that it operates in the way above -- complete dedication to public without restriction in places where that can be done, otherwise extremely permissive license without restrictions"*、法域で献呈と copyleft が入れ替わる形は *"likely violates OSD 5"*（2024-12-18・PBZC）、*"I think everyone acknowledges that a pure public domain dedication without a backstop is problematic"*（2020-05-15） | §3・§4・§4.4・§12.2 | B4、`review-precedents.md` §1.46 | 有利。§4 の許諾は §3 と独立に、どの法域でも同じ形で立つ（§4.4）ので、法域で条件が入れ替わる形に当たらない。CC0 との差は、許諾が献呈の失敗を条件にしないこと（*"not as a fallback"*） |
+| **PUWL に**: *"it seems to be a concatenation of a bunch of different highly-permissive ("-0") licenses or other public domain dedications, without any indication of whether all, or the one the licensee chooses, applies."*（2025-10-01） | §3・§4・§5・§4.4 | 1.4 草案の前文（3 つは互いの fallback でなく、1 つだけに頼ってよい）と §4.4 | 有利。どれが働くかを本文が述べる。作用の条では §4.4（§4 は §3 と独立）と §5.3 の末尾（*"Sections 3 and 4 operate in their favour independently of this Section."*）が述べ、3 つ全部が互いの fallback でないことを 1 か所で述べるのは *informative* の前文である |
+| CC0 の献呈の語を範に: *"the wording they use in CC0 is much more comprehensive in the language it uses (in Sec. 2)"*、CC0 は *"perhaps the best example of a comprehensive effort to dedicate content to the public domain"*（2025-12-04） | §3 | `ACD-1.2-CHANGELIST.md` | 扱い済み |
+| 撤回不能: *"Making a license irrevocable is fine, and many OSI licenses do that (for example, Apache 2.0)."* | §2.2 | `AS-OF.md` | 有利 |
+| 特許: 権利を明示に外すライセンスは *"can result in them being non-open"*（2022-12-14）、CC0 の特許の除外は OSD 7 に反しうる（2025-12・OSI ブログ）、BSD+Patent と UPL の特許の許諾の射程を、何を基準に測るかで比べた（2017-03-30） | §8.1・§8.4 | `REVIEWERS.md`、`SUBMISSION-MATERIALS.md` §1c の OSD 7 の行 | 有利（特許を明示に許す）。**ただし同氏は射程の測り方を条ごとに比べる人で、§8.4 の「Work の内容から生じる」という因果の基準は、Apache 型（寄与とその組み合わせ）とも UPL 型（挙げた作品）とも違う新しい測り方である**（B7） |
+| *"I think that precedent shouldn't be used to allow for incompletely written licenses"*（2026-05-14）、承認済みの OSD に反するライセンスが *"can be used as precedent for new license submitters as to why their non-OSD compliant licenses must also be approved"*（2019-06-03） | §4.2・全体 | `AS-OF.md`、#239 | ACD は許諾の行為を列挙する。先例への寄りかかりは同氏の線で限られる（#239） |
+| *"preambles can be construed as not part of the license"*（2025-10-26） | 前文 | `reviewer-positions.md`、#124 | 前文は自ら *informative* と述べる。上の PUWL の行のとおり、3 つの足場の関係を 1 か所で述べるのは前文で、作用の条は §4.4 と §5.3 の末尾に分けて述べる |
+| 本文の変更を禁じる文は OSD 3 に反する（2025-08-14） | §16.4 | #101、#179 | §16.4 は本文テキストの名前の制約で Work の条件ではない（§16.6）。Steward の例外に同氏の広い読みが届く点は論破していない（#179） |
+| 起草の手入れ: MGB に、閉じていない引用符・括弧、定義語と本文の語の食い違い（定義は *Model Materials*、本文は *Models*）を挙げた（2025-09-22） | 全体 | —（**この節で測った**） | **1.4 草案の第 1 条から END OF TERMS までで、定義語の表記ゆれは 0**（2026-11-16・portfolio-50 が語ごとに大小文字を無視して数えた）。小文字の *machine-generated material*・*reservation*・*dedication* は前文だけ、小文字の *work* は定義の前の一般の語（*a work*・*any work*）だけだった。同じ範囲で括弧は開き 25・閉じ 25、二重引用符は 42 で偶数（数えただけで、対応の位置は見ていない・これを見る Check は無い） |
+| 許諾される物の定義は汎用でよい（GPLv3 の *"any copyrightable work"*・Apache-2.0 の *"the work of authorship"* と並べて・2026-08-29・OpenMDW） | §1.3 | B15 | 有利。§1.3 も適用された素材という汎用の形 |
+| source に触れない提出は OSD 2 に反しうる（2020-10-16・Anti-IP） | §4.2 | `SUBMISSION-MATERIALS.md` §1c の OSD 2 の行 | 有利（§4.2 は source の形の頒布を許す） |
+| 公有の素材にも免責は効く: *"I believe that to be an effective waiver of liability, despite the fact that there is not copyright rights being conveyed."*（2016-08-16） | §13・§14 | `REVIEWERS.md` | 有利 |
+| 既存と重なるものを「より使われるライセンスと重複する」の分類に置く提案（2020-03-05・PHP） | — | B10 | 承認されても分類で重複と読まれうる（B10） |
+| pre-review の場: *"if you want people to give comments before you submit for approval, this is the correct mailing list"*（2024-09-30） | 手続き | #117 | 有利（`license-discuss` を先に使った） |
+
+**結果**: 条を変える指摘は 0 件。同氏の基準は、手続き（問いに全部答える・法律家）、構造（献呈と許諾の同居・どれが働くかの明示）、特許の射程の測り方、起草の手入れに集まる。献呈と許諾の同居は §4.4 で、汎用の定義・source・免責・撤回不能は本文で有利に答えている。起草の手入れは、この節で定義語の表記ゆれを数えて 0 と確かめた。**審査で来やすいのは、§8.4 の射程の測り方（新しい因果の基準）**と読む。3 つの足場の関係を 1 か所で述べるのが前文だけであることは、前文を合意の外と読む同氏の文（2025-10-26）と組み合わさりうるが、作用の条（§4.4・§5.3 の末尾）が分けて述べているので、条を変える指摘にはしない。
+
+**集め方**: ドシエに引かれている同氏の文に加え、portfolio-30 の道具でアーカイブの同氏の通 458 通から、ドシエが 1 文も引いていない 60 語以上の 99 通を出し、ACD に関わる語の多い上位 16 通を読んだ（2026-11-16）。PBZC（2024-12-18）・PUWL（2025-10-01）・特許の射程（2017-03-30）・起草の手入れ（2025-09-22）・汎用の定義（2026-08-29）・Anti-IP（2020-10-16）・pre-review の重複分類（2020-03-05）はこちらから足した。
+
+**逆側**: 同氏の文はどれも他の提出についてのもので、ACD に当てたのは我々である。99 通のうち読んだのは 16 通。同氏は委員会の報告者として書く通（*"on behalf of the Licensing Committee"*）と個人として書く通があり、上の表は区別していない。
