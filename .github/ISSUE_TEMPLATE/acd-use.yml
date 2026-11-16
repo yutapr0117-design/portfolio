@@ -27,6 +27,17 @@ body:
         - We are interested and have not decided
     validations:
       required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Which text (optional)
+      description: OSI approval attaches to one fixed text, so it helps to know which one you mean.
+      options:
+        - The latest fixed version (named in this repository's LICENSE)
+        - The version to be submitted for approval, once it is fixed
+        - Not decided
+    validations:
+      required: false
   - type: textarea
     id: why
     attributes:
