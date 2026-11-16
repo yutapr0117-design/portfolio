@@ -166,6 +166,40 @@ def run(ctx):
              "\u6761\u756a\u53f7\u3092\u76f4\u3059\u304b\u3001\u305d\u306e\u6bb5\u843d\u3067\u5b9f\u969b\u306b\u8ad6\u3058\u3066\u3044\u308b\u6761\u9805\u3092\u6319\u3052\u3088"),
             blocking=True,
         )
+        # 470 の問いの引用の枝 (ADVISORY・2026-11-16・下位部の番号は振らない: probe は ADVISORY を RED と数えないので、名指す mutation を作れない): 法律家と実務家への問いは 1.4 草案の条番号で書かれ、草案の文を逐語で引く。試作で草案の文が
+        #   変わると、問いが古い文を「1.4 草案は」として引いたままになる (T80・T92・T93 の後に 5 件・9b の測定)。470 は 1.0 の
+        #   地図で合えば通すので鳴らない。引用の断片 (5 語以上) が草案に逐語で無く、どれかの ACD の本文と 5 語の連なりを 4 割以上
+        #   共有する (= ACD の文の引用で、外の法源や発言の引用ではない) ものを数える。段落のその引用より前が旧版を名乗れば除く
+        def _n470b(_s):
+            return re.sub(r"\s+", " ", _s).lower().strip(" .,;:")
+
+        def _g470b(_s):
+            _w = re.findall(r"[a-z0-9']+", _s.lower())
+            return {" ".join(_w[_i:_i + 5]) for _i in range(len(_w) - 4)}
+        _dr470b = sorted((ROOT / "LICENSES").glob("ACD-1.[1-9]-DRAFT.txt"),
+                         key=lambda _p: "HAS BEEN FROZEN" in _p.read_text(encoding="utf-8").split("\n", 1)[0])
+        _d470b = _n470b(_dr470b[0].read_text(encoding="utf-8").split("-" * 80, 1)[-1]) if _dr470b else ""
+        _G470b = _g470b(" ".join(_n470b(_p.read_text(encoding="utf-8")) for _p in sorted((ROOT / "LICENSES").glob("ACD-1.*.txt"))))
+        _stale470b = []
+        for _qf470b in ("QUESTIONS-FOR-COUNSEL.md", "QUESTIONS-FOR-PRACTITIONERS.md"):
+            _qt470b = (ROOT / "LICENSES" / _qf470b).read_text(encoding="utf-8") if (ROOT / "LICENSES" / _qf470b).exists() else ""
+            for _p470b in re.split(r"\n\s*\n", _qt470b):
+                _fl470b = " ".join(_p470b.split())
+                for _m470b in re.finditer(r'\*"([^"]{12,})"\*', _fl470b):
+                    if re.search(r"(?<![\d.§])(?:ACD-)?1\.[0-3](?![\d])|earlier version", _fl470b[:_m470b.start()]):
+                        continue
+                    for _fr470b in re.split(r"\s*(?:…|\.\.\.)\s*", _m470b.group(1)):
+                        _nf470b, _gs470b = _n470b(_fr470b), _g470b(_fr470b)
+                        if len(_fr470b.split()) >= 5 and _nf470b not in _d470b and _gs470b \
+                                and len(_gs470b & _G470b) >= 0.4 * len(_gs470b):
+                            _stale470b.append(f"{_qf470b}: \"{_fr470b[:70]}\"")
+        check(
+            not _stale470b,
+            "Check 470 (問いの引用・ADVISORY): 法律家と実務家への問いが引く草案の文は、いまの草案に逐語で在る",
+            (f"Check 470 (問いの引用・ADVISORY): 問いが、いまの草案に無い ACD の文を引いている（試作で文が変わったか、言い回しがずれた）: "
+             f"{_stale470b}。草案の文に揃えるか、旧版の文なら段落のその引用より前で版を名乗れ"),
+            blocking=False,
+        )
     else:
         # 対象が無いのに黙って skip しない (2026-11-02): 改名・移動を正しく済ませると他の Check は全部緑のまま、
         # ここだけが OK も ERROR も出さずに消える (460 / 469 で踏んだ形)。
