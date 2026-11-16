@@ -138,7 +138,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §5.3・§12.4・§2.8（限度を 1 つに・T76） | §5.3 を *"bind the persons Section 2.8 names, to the fullest extent the law permits, and may be relied upon"* へ。§12.4 の *"to the fullest extent the law permits the Dedicator to bind them"* を *"to the fullest extent the law permits"* へ。§2.8 の末文 *"Section 12.4 does not narrow this Section."* を外す | T75 の §5.3 は *names* で人だけを借り、§2.8 の限度 *"to the fullest extent the law permits"* を借りないので、約束が承継人・譲受人を限度なしに縛ると断定する形になり、1.1 で E17 が直した 1.0 の欠陥を戻していた（portfolio-30 の反例）。30 の案 (A) *"to the extent Section 2.8 binds them"* と (B) §5.3 から承継を外す案は、どちらも §2.8 の *in respect of the Work* を借り、50 の反例 (a)（§8.4 のモデルについての約束が譲受人を縛るか）を戻す（portfolio-50）。限度を §2.8 と同じ語で各条が持てば、人も限度も 1 つになり、どの条も §2.8 を狭めないので、§2.8 の末文の働き（特定の規定が一般の規定を狭める読みを止める）は構造で満たされる。§12.4 の *"the law permits the Dedicator to bind them"* は *"the law permits"* と同じことを言う（拘束できるかは法が決め、Dedicator の約束が人を縛るのも法の許す限り）。**逆側**: (1) T74〜T76 の 3 回の改めで、1 日に §5.3 の語が 3 度変わった（反例を当ててから採る順の方が手戻りが少なかった）。(2) §12.4 の死後の行使者は、法が Dedicator の約束で縛ることを許さない法域が多く、*"the Dedicator to bind them"* はその点を明示していた —— 新しい語は同じ意味だが、明示が減る | −5 | 反映済 |
 | §11.3・§9.4（理由の文・T77） | §11.3 の *"because it was never the Dedicator's to permit"* を外す。§9.4 の *"Section 11.3 explains why a false claim of authorship is not something this Dedication is able to permit"* を *"Section 11.3 governs a false claim of authorship"* へ | 理由の文は「作者である」の表示で法の命題として誤り —— 著作は同意で真にならず、英国 CDPA s.84 の偽の帰属の権利は本人のもので s.87(1) により本人の同意で侵害でなくなる（portfolio-30 の反例・THIRD §15.17）。作用（虚偽の表示は届く範囲の外）は変わらない。**逆側**: §9.4 は「なぜ」の説明を失う | −18 | 反映済 |
 | §6.5（経験の言明・T79） | 第 2 文の *"silence on this subject has proved ambiguous in practice"* を *"silence on this subject leaves it to be inferred whether this is permitted"* へ（初めの案 *"leaves permission to be inferred"* は許しが在ることを前提にし、ドイツ UrhG 31 条 5 項の目的移転の原則のように沈黙を狭く読む法域では偽に読めた・portfolio-30 の反例） | 「実務で曖昧だった」は経験の言明で、ドシエに出典が無い（portfolio-50 が 2026-11-16 に当てた: 在るのは承認済み 141 本の沈黙の測定で、それは「沈黙している」の証拠であって「曖昧だった」の証拠ではない。逆向きに Villa 氏は TDM 例外と fair use に *"very clear good-faith arguments"* が在ると書いた）。新しい語は分析の言明で出典が要らず、後半の「自動の仕組みが判定できない許可」へ繋がる（推論に委ねられた許しは判定できない）。1 冊目の T1 は前半を外す案で、外向きの引用（CE14）のため不成立だった —— T79 は外さずに替える。**逆側**: 1.0〜1.3 の文を引く外向きの記録（`against.md`・`discussion-log.md`・`submission.md`・`review-corpus.md`）は 1.4 では語が違う（切り替えの日の表）。新しい語は許しの有無を推論に委ねると言うだけで、推論が争われうることは言わない | 4 | 反映済 |
-| §8.4（閾値の理由・T80） | 末文の *"since You could not determine whether one had been crossed"* を *"since You could not always determine whether one had been crossed"* へ | You は学習する者も含み（§1.6）、自分が集めたデータで学習する者は、Work をどれだけ使ったかを知りうる。「判定できない」は一部の場合に偽で、T77・T79 と同じ型（理由の文が一部の場合に偽）。偽の場合に「判定できるなら閾値が戻る」と読む分岐（T54 の型）も、*always* で前提が真になるので立ちにくい。**逆側**: 「いつもは判定できない」は閾値を置かない理由として弱く言う —— 判定できる者には閾値があってもよい、と読む余地は語の上で残る（反例の担当へ） | 1 | 反映済 |
+| §8.4（閾値の理由・T80） | 末文の理由の句 *"since You could not determine whether one had been crossed (Section 6.5)"* を外す（初めの案は *"could not always determine"*（+1）だった） | You は学習する者も含み（§1.6）、自分が集めたデータで学習する者は、Work をどれだけ使ったかを知りうる。「判定できない」は一部の場合に偽で、T77・T79 と同じ型。初めの案 *always* は理由を真にするが、「判定できない場合のための免除」と読まれ、判定できる者について「理由が尽きれば規則も尽きる」の筋で閾値を持ち込む足場になる —— T71 で閉じた E85 と同じ型を新しく作る（portfolio-50 の反例）。句ごと外すと作用の句 *"That is a question of causation and not of quantity: no threshold of how much of the Work was used is imposed."* だけが残り、どの場合でも真で、狭める足場が無い。**逆側**: §6.5 を指す所が 1 つ減り（§2.6 だけになる）、閾値を置かない理由の説明は本文から消える（逐条の §8.4 の行へ移した） | −12 | 反映済 |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
@@ -193,7 +193,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
-1.3 の 5,443 語から 1.4 草案は +90 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
+1.3 の 5,443 語から 1.4 草案は +77 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
 
 | 束 | 増減 | 何のための語か |
 | :-- | --: | :-- |
@@ -202,10 +202,10 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | 名前の保護（§16.4〜§16.6）| +64 | 1 つの名前と識別子が 1 つの本文を指し、Steward が出した新しい版を誰でもその名の下で配れるための語 |
 | その他の明瞭化 | +34 | 定義、承継（§2.8 の *to that extent*・T59、§5.3 の列挙を §2.8 へ寄せた T74）、撤回不能（§2.2 の後付けの制限・T65）、§4、§9 などの語の付き先 |
 | 人格権（§12）| +22 | 人格権を放棄できない法域での同意（T67・§2.4 の独立の列挙を含む）。約束が契約として効かない場面でも、行為がそもそも侵害にならないための語 |
-| 特許（§6.1・§8）| −43 | 行為を目的語にし、*reach* を 1 回で定め、三つの足場の説明と §8.6 の *alongside them*（T56）を外した |
+| 特許（§6.1・§8）| −56 | 行為を目的語にし、*reach* を 1 回で定め、三つの足場の説明と §8.6 の *alongside them*（T56）を外した |
 | 理由・説明の文を外したもの | −254 | §2.8・§11.4・§12.4・§8.4（T54）の理由の文と、§2.7・§8.5 の案内（Chestek 氏 *"I question whether they belong in the agreement at all."*・#295）|
 
-**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +267）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 637 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
+**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +267）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 624 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
 
 ## 外部資料・OSAID 1.0・opensource.org のページを当てた記録（2026-10-28）は別の file へ移した
 
@@ -382,7 +382,7 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 > §2 (scope and effect, 11) and §1 (definitions, 8); seven name the preamble or several clauses at
 > once. Further changes came from our own sweeps of the
 > later drafts and are listed, with their reasons, in each version's change list. The text is
-> longer: 5,533 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
+> longer: 5,520 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
 
 **⚠ 逆側**: 短い経路の語数が約 170 語増える（`REVIEWERS.md` の短い経路の表と Check 472m の値を同じ日に直す）。*"The direction is unchanged"* は、1.0 から変わらなかったものを 3 つだけ挙げる文で、ほかに変わらなかったものが無いとは言っていない。逆に、変わったものを errata の件数で数えるので、errata に載らない 1.4 生まれの変更（T34〜T52 の多く）は *"Further changes"* の 1 文にまとまる。数を当日に数え直すのは、草案が確定まで動くからである（2026-11-11 の時点でも 1.4 の閉鎖は 39 件で、まだ動きうる。**同日の訂正**: 最初の下書きは 1.3 で 5・1.4 で 38 と書いた。状態の列の版の語の最初の一致を数えていて、閉鎖の印でない語を拾っていた。portfolio-00 が印の正規表現で 4 と 39 を出し、同じ数え方で確かめた）。
 
