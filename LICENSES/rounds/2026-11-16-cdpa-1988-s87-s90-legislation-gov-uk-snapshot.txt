@@ -1,0 +1,34 @@
+Source: Copyright, Designs and Patents Act 1988 (c. 48), legislation.gov.uk, https://www.legislation.gov.uk/ukpga/1988/48/
+        section/87 and /section/90 (latest available revised version as shown by the site).
+Retrieved: 2026-11-16 by portfolio-30, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes of at most 125
+        characters each. Re-fetch and compare before relying on the exact wording. (The dossier quoted s.87(1) and
+        (2) earlier, from a 2026-09-19 reading; this file adds (3), (4) and section 90.)
+
+WHY THIS FILE EXISTS. Section 2.8 of the 1.4 draft binds transferees; Sections 12.2 and 2.5 rely on consent, covenant
+and estoppel. Section 90(4) says whom a copyright licence binds in the UK; section 87(3) and (4) say how far a waiver
+may reach and that the general law of contract and estoppel still applies to an informal one.
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+===== section 87 (Consent and waiver of rights), (1) to (4) =====
+1. "(1)It is not an infringement of any of the rights conferred by this Chapter to do any act to which the person entitled"
+2. "to the right has consented."
+3. "(2)Any of those rights may be waived by instrument in writing signed by the person giving up the right."
+4. "(3)A waiver—"
+5. "(a)may relate to a specific work, to works of a specified description or to works generally, and may relate to existing"
+6. "or future works, and"
+7. "(b)may be conditional or unconditional and may be expressed to be subject to revocation;"
+8. "and if made in favour of the owner or prospective owner of the copyright in the work or works to which it relates,"
+9. "it shall be presumed to extend to his licensees and successors in title unless a contrary intention is expressed."
+10. "(4)Nothing in this Chapter shall be construed as excluding the operation of the general law of contract or estoppel"
+11. "in relation to an informal waiver or other transaction in relation to any of the rights mentioned in subsection (1)."
+
+===== section 90 (Assignment and licences), (1), (3) and (4) =====
+12. "Copyright is transmissible by assignment, by testamentary disposition or by operation of law, as personal"
+13. "or moveable property."
+14. "An assignment of copyright is not effective unless it is in writing signed by or on behalf of the assignor."
+15. "A licence granted by a copyright owner is binding on every successor in title to his interest in the copyright,"
+16. "except a purchaser in good faith for valuable consideration and without notice (actual or constructive) of the licence"
+17. "or a person deriving title from such a purchaser; and references in this Part to doing anything with, or without,"
+18. "the licence of the copyright owner shall be construed accordingly."
