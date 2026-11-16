@@ -90,7 +90,7 @@ canonical-ref: AI2AI.md (Session Record #37) / LICENSES/ACD-1.0.against.md (#157
 
 ## 8. 次に読む人へ —— 未読のまま残したもの
 
-**`jurisdictions.md` §9 に 8 件の法源が「読む対象」として並んでいる**
+**`jurisdictions-sources.md` §9 に 8 件の法源が「読む対象」として並んでいる**
 （Kneschke v. LAION / Ryanair v PR Aviation / Qimonda / 17 U.S.C. §201(b) / DMCA §1202 /
 消費者契約法 8 条 / droit de retrait / 不公正契約条項の枠組み）。
 **どれも原典で読んでいない。** **読む前に引けば、開いていない権威を借りることになる。**

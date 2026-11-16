@@ -192,7 +192,7 @@ Ian Lance Taylor 氏 2003-07-16（`license-discuss`）*"If you can't use an exis
 **§6 が扱う問いは仮想ではない。** ハンブルク上級地方裁判所 第 5 民事部は 2025-12-10 に
 *Kneschke v. LAION* の控訴を棄却し（Az. 5 U 104/24）、**(a) 画像エージェンシーが置いた利用留保は
 権利者に帰属させられる**が、**(b) それは機械可読の形式を欠いていたので効かなかった**と判断した
-（`jurisdictions.md` §9a (9)）。**§6.2 が扱うのはその 2 点そのもの**で、
+（`jurisdictions-sources.md` §9a (9)）。**§6.2 が扱うのはその 2 点そのもの**で、
 **しかも UrhG 44b 条 3 項より広い**（機械可読な signal であっても Dedicator の側では
 Reservation と読まないと述べている）。
 

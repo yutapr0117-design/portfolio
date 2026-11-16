@@ -39,6 +39,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | 「OSI が**公表している規則**は何と書いてあるのか」 | [`ACD-1.0.review-rules.md`](ACD-1.0.review-rules.md) —— **公表ページを原典で読んだ**記録（承認基準 8 条 / 提出の要件リスト / Code of Conduct の逐条 / 本文を変えたい提出者への手続き・§1.70 / §1.76 / §1.81 / §1.82 / §1.86）。**公表ページは規則を、リストは議論を、理事会は決定を残す** ——資料の種類で分けてある |
 | 「**理事会は実際に何を決めたのか**」 | [`ACD-1.0.board-decisions.md`](ACD-1.0.board-decisions.md) —— **公開議事録という別の一次資料**から読める決定（承認 8・否決 9・取り下げ 2／公開 12 回の範囲）。**最も重いのは、公表されていない第 3 の帰結** ——*reject* ではなく *"not approved … if it is **duplicative and not used by a project**"*。**リストは議論を、理事会は決定を残す** §9 からは [`ACD-1.0.board-decisions-2.md`](ACD-1.0.board-decisions-2.md) に続く（2026-11-15・advisory を越えたため）。 |
 | 「うちの国では効かないのでは」 | [`ACD-1.0.jurisdictions.md`](ACD-1.0.jurisdictions.md) |
+| その法域の読みが頼る、外から届いた法源と原典の読み | [`ACD-1.0.jurisdictions-sources.md`](ACD-1.0.jurisdictions-sources.md) |
 | **使ってよいか / どう使うか / 法務に何を見せるか** | [`ACD-1.0.faq.md`](ACD-1.0.faq.md) |
 | レビューで来るであろう指摘への回答（総論・OSD・認める弱点） | [`ACD-1.0.review-responses.md`](ACD-1.0.review-responses.md) |
 | 同・条項別 | [`ACD-1.0.review-responses-clauses.md`](ACD-1.0.review-responses-clauses.md) |
