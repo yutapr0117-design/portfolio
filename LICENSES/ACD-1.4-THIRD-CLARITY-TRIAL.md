@@ -607,7 +607,7 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 - §11.4 | 命題: Dedicator は他人の個人データ・肖像・声についての許しを与えられない（個人データの同意は本人のもの） | ① | 状態: 出典なし
 - §12.1 | 命題: 人格権は、法の許す限りで放棄できる（米国: VARA の権利は視覚芸術の作品だけに在り、放棄は作品と利用を特定した署名ある書面を要する） | ③ | 状態: 出典あり | 法源: rounds/2026-11-16-us-ucc-vara-and-eu-trademark-snapshot.txt
 - §12.2 | 命題: 譲渡できない・放棄できない人格権について、不行使の約束と同意は効く（米国: VARA の権利は "may not be transferred" で §12.2 の "inalienable" に当たり、§12.2 の側が働く。約束が §106A(e) の方式なしに効くかは判決を取っていない・独・仏・日は 30 へ） | ③ | 状態: 出典あり | 法源: rounds/2026-11-16-us-ucc-vara-and-eu-trademark-snapshot.txt
-- §12.4 | 命題: 約束と同意は承継人と死後の権利の行使者を拘束する（30 へ） | ③ | 状態: 出典なし
+- §12.4 | 命題: 約束と同意は承継人と死後の権利の行使者を拘束する（独: UrhG 30 条で死後の権利は承継人に、BGB 1922 条・1967 条で相続人は被相続人の債務を負うので、約束が契約として成立する限り法と同じ向き。日: 60 条・116 条が対応（jurisdictions §2b）。仏: 未取得・portfolio-30） | ③ | 状態: 出典あり | 法源: rounds/2026-11-16-urhg-14-30-39-bgb-1922-1967-gesetze-im-internet-snapshot.txt
 - §13.1 | 命題: "AS IS" の否認は黙示の保証を外す（米国: UCC §2-316 は商品性に触れ、書面なら目立つ形を求める —— §13.1 は大文字で、MERCHANTABILITY と FITNESS FOR A PARTICULAR PURPOSE と "AS IS" を持つ。EU: 商業活動の外の無償の FOSS は製造物責任指令とデジタルコンテンツ指令の外。商業活動の過程の供給なら製造物責任は契約で外せない） | ① | 状態: 出典あり | 法源: rounds/2026-11-16-eu-product-liability-and-digital-content-foss-snapshot.txt
 - §13.2 | 命題: 権原と非侵害の保証を外せる（米国: UCC §2-312(2) は特定の語か事情を求める —— §13.2 は "DOES NOT WARRANT … THAT THE DEDICATOR HOLDS ANY RIGHT IN IT" と特定して述べる） | ① | 状態: 出典あり | 法源: rounds/2026-11-16-us-ucc-vara-and-eu-trademark-snapshot.txt
 - §13.3 | 命題: Dedicator は保守・更新・提供の継続の義務を負わない（文書の中身の言明。EU のサイバーレジリエンス法の義務が無償の Dedicator に及ぶかは取っていない） | ① | 状態: 出典なし

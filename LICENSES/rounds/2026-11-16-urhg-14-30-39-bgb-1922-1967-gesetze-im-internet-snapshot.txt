@@ -1,0 +1,34 @@
+Source: Urheberrechtsgesetz (UrhG) and Bürgerliches Gesetzbuch (BGB), https://www.gesetze-im-internet.de/
+        (urhg/__14.html, urhg/__30.html, urhg/__39.html, bgb/__1922.html, bgb/__1967.html)
+Retrieved: 2026-11-16 by portfolio-30, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes of at most 125
+        characters each. Re-fetch and compare before relying on the exact wording.
+
+WHY THIS FILE EXISTS. Section 12.2 of the 1.4 draft gives a covenant not to exercise Moral Rights and a consent
+to acts that would otherwise infringe them, where the law makes those rights inalienable; Section 12.4 binds the
+persons entitled to exercise them after the Dedicator's death. These provisions are the German statutory
+anchors: what an author may agree to about changes (UrhG 39), what the core right protects (UrhG 14), who holds
+the author's rights after death (UrhG 30), and whether obligations pass to heirs (BGB 1922, 1967).
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+===== § 14 UrhG (Entstellung des Werkes), as reported =====
+1. "Der Urheber hat das Recht, eine Entstellung oder eine andere Beeinträchtigung seines Werkes zu verbieten,"
+2. "die geeignet ist, seine berechtigten geistigen oder persönlichen Interessen am Werk zu gefährden."
+
+===== § 30 UrhG (Rechtsnachfolger des Urhebers), as reported =====
+3. "Der Rechtsnachfolger des Urhebers hat die dem Urheber nach diesem Gesetz zustehenden Rechte,"
+4. "soweit nichts anderes bestimmt ist."
+
+===== § 39 UrhG (Änderungen des Werkes), as reported =====
+5. "(1) Der Inhaber eines Nutzungsrechts darf das Werk, dessen Titel oder Urheberbezeichnung (§ 10 Abs. 1) nicht ändern,"
+6. "wenn nichts anderes vereinbart ist."
+7. "(2) Änderungen des Werkes und seines Titels, zu denen der Urheber seine Einwilligung nach Treu und Glauben nicht"
+8. "versagen kann, sind zulässig."
+
+===== § 1922 Abs. 1 BGB (Gesamtrechtsnachfolge), as reported =====
+9. "(1) Mit dem Tode einer Person (Erbfall) geht deren Vermögen (Erbschaft) als Ganzes auf eine oder mehrere andere Personen"
+10. "(Erben) über."
+
+===== § 1967 Abs. 1 BGB (Erbenhaftung, Nachlassverbindlichkeiten), as reported =====
+11. "(1) Der Erbe haftet für die Nachlassverbindlichkeiten."
