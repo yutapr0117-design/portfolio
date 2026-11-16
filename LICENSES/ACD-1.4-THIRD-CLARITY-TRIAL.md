@@ -370,6 +370,19 @@ After: *"Nothing in this Dedication is, under its terms, conditioned on, suspend
 
 **反例の担当へ（30・50）**: (a) *under its terms* が、*conditioned on* の部分（文書の条件の言明・もとから真）まで弱めると読まれるか、(b) 第 2 文の *"Such an officer is a person to whom rights are transferred"* も効果の言い切り（管財人が譲受人に当たるかは法が決める）で、同じ型か。
 
+### 15.27 T90・T91 —— 法律家への問い 5 のうち起草で決まる 2 つ（+15 語・2026-11-16・【反例待ち】）
+
+| 試作 | 条 | Before → After | 消える／狭まる問い |
+| :-- | :-- | :-- | :-- |
+| T90 | §5.1 第 2 文 | *"any claim or cause of action, whether now known or unknown, for a use of the Work that this Dedication permits"* → *"… that treats as wrongful a use of the Work that this Dedication permits"* | 問 5 の本体: 記録は「*for* が、使用そのものを違法とする請求（不当利得・不正競争）を入れ、使用に付随するだけの請求（動かした機械による傷害）を外す、という線を引くかは試していない」と書く。我々の読みを語で定めた —— 問 5 の本体は狭まる（線は語で引かれ、その語が法でどう読まれるかが残る）|
+| T91 | §5.2 末段 | 末に *"A copy of the Work contained in that material remains the Work."* | 問 5 の第 3 の小問: Work を同梱したインストーラーとクリックスルーとライセンスキーを、裁判所が 1 つの「他の素材」と扱えば、除外が Work を制限する規約まで届く。§2.1 の *every separable part* だけに頼らず、語で閉じた —— 小問は消える |
+
+**468u の目印**: §5.1 の *"other than for patent infringement"* は残る（T90 は *for a use* だけを替えた）。§5.2 の *"other than the Work, that the Dedicator itself makes or makes available"* の行は動かしていない（mutation の anchor）。
+
+**⚠ 逆側**: (1) *treats as wrongful* は新しい語で、承認済みのライセンスに先例が無い。*for* は短いが線を引かない。(2) T91 は、Dedicator が自分の製品やインストーラーの中の Work の写しにも §5 の約束（§5.2(b) の規約で義務を課さない）を負うことを言い切る —— 製品の中に Work を同梱する採用者は、製品の規約が Work の部分に及ばないよう書く必要がある。(3) +15 語（B3）。
+
+**反例の担当へ（30・50）**: (a) *treats as wrongful* が、損害の請求（使用が違法だと主張せず、損害だけを求める形）を外すと読まれる道が無いか、(b) T91 で「Work の写し」と「Work を変えたもの（Dedicator 自身の改変）」の境 —— Dedicator が自分で改変した写しは Work か、他の素材か、(c) T91 が §5.2(b) を、Dedicator の SaaS の規約（Work の写しを渡さない場面）にまで戻すと読まれないか（*"without providing a copy of the Work"* の場面は写しが無いので当たらない、と読む）。
+
 ## 16. 模擬委員会 —— 記録に立場が厚く残る審査者の目で 1.4 草案を通読する（2026-11-15〜）
 
 **仕組み**: オーナーの依頼（「5 人で話し合って、より良い案をガンガン実行して」）を受けて、portfolio-1c が出し 5 人で決めた。記録に立場が厚く残る 5 人の審査者を 1 人ずつ受け持ち（30 = Chestek 氏、50 = Fontana 氏、2f = Perens 氏、9b = Smith 氏、1c = Villa 氏）、その人の過去の文だけを根拠に、その人の目で 1.4 草案を頭から通読して「どこを突くか」を条番号つきで出す。根拠の無い推測は書かない（必ずその人の文を引く）。各節は表（基準と出典 | 当たる条 | 扱い済みの場所 | 残る点）と、条を変える指摘（試作の種）を持つ。**0 件でも表を残す** —— 審査者の基準を網羅して当てた記録になる。**この節が establish しないこと**: 模擬であって、その人が実際にそう言うことを意味しない。
