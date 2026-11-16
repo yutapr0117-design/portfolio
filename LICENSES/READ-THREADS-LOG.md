@@ -20,6 +20,7 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-16 の読了（新しいものが上）
 
+- 2026-11-16 に、5 人の分担で census の未読を 0 にした（候補 824 本のうち 824 本を読了・候補の外の話題の未読 0 件）。2026-11-15 の起点は候補の未読 285 本と候補の外の 19 本だった。読んだ節の反映先は末尾の欄（Check 501）か `REFLECTION-BACKFILL.md` に在る
 - 2026-11-16 に "Dual licensing"（`license-discuss` 2004-06〜・通読）。商用の利益の分配と二重ライセンスの議論で、ACD に当たる新しい論点は無かった（節は立てない）
 
 - 2026-11-16 に "A modest proposal to reduce the number of BSD licenses"（`license-discuss` 2020-08・通読）。BSD の変種を 1 つに寄せる提案で、ACD に当たる新しい論点は無かった（節は立てない）
