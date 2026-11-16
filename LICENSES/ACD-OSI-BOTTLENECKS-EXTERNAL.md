@@ -357,6 +357,8 @@ are not present."* **この 1 文を落としてはならない。**
 「解消可能・未実施（discoverability のみ制御可）」と述べるが、**その先に何が起きるかを書いていない。**
 **答えは「否決される」ではなく「**決まらないまま留め置かれる**」である。**
 
+**2026-11-16 に足した —— 5 年前の形（`review-readings-2.md` §1.259・portfolio-2f）。** Bradley M. Kuhn 氏 2020-01-04（`license-review`・CAL Beta 4）*"I think there has to be an option (in the general case, not only for this particular license) for the OSI to say "we don't know" indefinitely and encourage the drafting authority to begin using the new license without the OSI-approved label and see what happens."* 理事会の 2025 年の答えは、これを「重複かつ未使用」の場合に限った形と読める。**逆側**: Kuhn 氏の提案は一般の選択肢で、2025 年の答えは範囲が狭い。重複に当たらないが未使用のライセンスに第 3 の状態が使われるかは、記録から分からない。
+
 **3 つの帰結が出る。**
 
 **(1) B2 と #84（重複）は、別々の弱点ではなく 1 つの条件の 2 項である。**
