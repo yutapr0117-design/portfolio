@@ -38,6 +38,8 @@ Check 468y は 2 冊目とこの file の両方の「変えない」「退けた
 
 **測定（portfolio-9b・最初の形）**: `--compare` は条 +0・語 +25・重複 69 → 69・族 51・先行詞の無い指示語 0 / 0・許可の声が増えた条 0。`--guard` は 468u 17 件の欠け 0・468r 0 / 0。§12.2 の *any such person* は直前の文の *any person who receives the Work from You* を指す。外した語に依拠する外向きの記録は `against.md` #118（§12.5 の旧文 *"survives it"*）で、1.4 を出す版にする日に書き換える。
 
+**§15.1 への追記（2026-11-16）**: §12.3 の *"they are given in respect of a work that the Dedicator has chosen to place in the commons for the purpose stated in Section 6"* は、1 冊目の試作で「目的の文が約束の有効性を助けるか狭めるかは法律家への問い 3 (c) の領分」として残した句である（`ACD-1.4-CLARITY-TRIAL.md` の §12.3 の行）。T67 で §12.3 の主語を *"The covenant and the consent"* にしたので、この目的の句は同意にも掛かる。包括的な事前の同意は目的に照らして狭く解釈されやすく、学ばれることと関係の無い通常の改変が同意の外と読まれうる —— 狭める側の重みが T67 で増した（理由の文が範囲を狭める E78・E85 と同じ型の、法律家の判断に委ねる側の残り）。本文は変えず、問い 3 (c) にこの面を足すよう portfolio-30 に頼んだ。
+
 ### 15.2 §2.9 と OWFa の「約束を倒産法の目的では許諾として扱う」（変えない・2026-11-15）
 
 **材料（portfolio-2f・`review-readings-2.md` §1.227）**: Rosen 氏は Moglen 氏の「ライセンスは倒産で終わりうる」に、OWFa の 3 つの条で答えた（`license-discuss` 2013-08-18）。3.1.3 *"Notwithstanding the personal nature of my promise, this promise is intended to be binding on any future owner, assignee or exclusive licensee who has been given the right to enforce any Granted Claims against third parties."*、3.1.4 *"Solely for purposes of Section 365(n) of Title 11, United States Bankruptcy Code and any equivalent law in any foreign jurisdiction, this promise will be treated as if it were a license and you may elect to retain your rights under this promise if I … reject this non-assert."*、6（義務を迂回する行為を取らず、第三者にも手伝わない）。ACD の §2.8・§2.9・§5.1 とほぼ同じ並びで、法律家が起草した先例である（承認の先例ではない）。候補は、§2.9 に「この Dedication の約束（§5・§8.6・§12.2）は、許諾者の倒産で許諾を受けた者を守る法の目的では許諾として扱う」型の 1 文を足すこと（20〜25 語）。
