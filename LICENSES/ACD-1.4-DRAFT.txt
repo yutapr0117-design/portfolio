@@ -23,7 +23,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Changes are recorded in LICENSES/ACD-1.4-CHANGELIST.md, and defects
       this draft introduces itself in LICENSES/ACD-1.1-SELF-AUDIT.md, which is
       a register of our own sweeps rather than of any one version. Each entry
-      below says what changed; the reasons are in the change list.
+      below says what changed; the reasons are in the change list, which is
+      in Japanese.
 
   Changes in this draft, relative to ACD-1.3:
 
