@@ -166,9 +166,10 @@ def run(ctx):
     # と同種の class)。本 Check は全カテゴリ表の Check 番号を抽出し、重複が 0 件であることを
     # 機械強制する。番号順序自体はカテゴリ境界でリセットするため強制しない (各カテゴリ内では
     # ascending だが、カテゴリ間では非単調) — 番号一意性のみが本質的に守るべき invariant。
-    _map64 = ROOT / "docs" / "architecture" / "check-repository-consistency-map.md"
+    from _lib_check_map import check_map_paths, check_map_text  # 地図の file の一覧は 1 か所 (分けた日に 2 つ目を足す)
+    _map64 = (check_map_paths(ROOT) or [ROOT / "docs" / "architecture" / "check-repository-consistency-map.md"])[0]
     if _map64.exists():
-        _msrc64 = _map64.read_text(encoding="utf-8")
+        _msrc64 = check_map_text(ROOT)
         # 行頭が `| <数字><suffix?> |` 形式の行を抽出 (category 表のみ; §3 級別表は行頭 `| BLOCKING` で除外)
         # alpha suffix を含めた identifier として保存 (Check 7 / 7b / 7c は別 identifier として一意性検査)
         _ids64 = re.findall(r"^\|\s*(\d+[a-z]?)\s*\|", _msrc64, re.MULTILINE)
