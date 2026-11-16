@@ -150,7 +150,7 @@ def pass_fail_items() -> list[tuple[str, str, str, str]]:
 def candidate_items() -> list[tuple[str, str, str, str]]:
     """SELF-AUDIT の 🔴 の項と、試作の文書の「先に登録する反例」のうち、閉じた印・答えの段が無いもの (1c が印の語を決めた・2026-11-16)。
 
-    SELF-AUDIT: 項の本文に「**1.4 草案で閉じた（…）**」(errata の印と同じ語) が在れば閉じた、「**起草では閉じない**」が在れば
+    SELF-AUDIT: 項の本文に「**N.M 草案で閉じた（…）**」(errata の印と同じ語・どの版でも) が在れば閉じた、「**起草では閉じない**」が在れば
     起草の外 (別の状態で出す)。反例: 段の後、次の「**先に登録」か見出しまでに「**反例の結果**」が在れば答えた。
     """
     out = []
@@ -160,7 +160,7 @@ def candidate_items() -> list[tuple[str, str, str, str]]:
     for i, h in enumerate(heads):
         end = re.search(r"^#{2,3} (?!⚠)", st[h.end():], re.M)
         body = st[h.end(): h.end() + end.start()] if end else st[h.end():]
-        if re.search(r"\*\*1\.4 草案で閉じた（", body):
+        if re.search(r"\*\*\d+\.\d+ 草案で閉じた（", body):  # どの版で閉じた印も (errata・prepare_version_freeze と同じ形・1c)
             continue
         state = "起草の外" if "**起草では閉じない**" in body else "未閉"
         out.append(("SELF-AUDIT 🔴", state, h.group(1)[:110], "1c"))
