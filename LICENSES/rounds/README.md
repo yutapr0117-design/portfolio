@@ -286,6 +286,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2010-10-07 | Schmitz 氏（EUPL の起草者） | **観測（netX の審査・一般的な免責は欧州で不当とされ、EUPL は故意と自然人への損害を除外しない理由・Wilson 氏の問いの引用つき）** | `2010-10-license-review-netx-schmitz-liability-exclusion-observed.txt` |
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 276 条 3 項・307 条 1 項・309 条 7 号・521 条・524 条 1 項・WebFetch の逐語の片）** | `2026-11-16-bgb-276-307-309-521-524-gesetze-im-internet-snapshot.txt` |
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 151 条・受諾の表示を要しない場合・WebFetch の逐語の片）** | `2026-11-16-bgb-151-gesetze-im-internet-snapshot.txt` |
+| 2026-11-16 | 日・英・独の公式の条文サイト | **観測（第三者のための契約: 民法 537 条・Contracts (Rights of Third Parties) Act 1999 s.1・BGB 328 条 1 項・WebFetch）** | `2026-11-16-third-party-beneficiary-minpo-537-crtpa-1999-bgb-328-snapshot.txt` |
 | 2026-11-16 | 英 legislation.gov.uk | **観測（CDPA 1988 87 条 1〜4 項・90 条 1・3・4 項・同意と放棄と禁反言、許諾の承継人への拘束・WebFetch の逐語の片）** | `2026-11-16-cdpa-1988-s87-s90-legislation-gov-uk-snapshot.txt` |
 | 2026-11-16 | 英 legislation.gov.uk | **観測（消費者権利法 2015 の 2 条・61 条・65 条・事業者と消費者の間の免責の規制・WebFetch の逐語の片）** | `2026-11-16-consumer-rights-act-2015-s2-s61-s65-legislation-gov-uk-snapshot.txt` |
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（UrhG 29 条・著作権の譲渡の不可と許される取引・WebFetch の逐語の片）** | `2026-11-16-urhg-29-gesetze-im-internet-snapshot.txt` |
