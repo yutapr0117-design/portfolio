@@ -30,7 +30,7 @@ steward read ACD-1.0 in full before posting it. Neither has been reviewed by a l
 
 ---
 
-## 1. Can a surrender and a licence of the same rights stand side by side? (§3, §4, §4.4)
+## 1. Can a surrender and a licence of the same rights stand side by side? (§2.3, §3, §4, §4.4)
 
 **The clauses.** §3.1 surrenders all Covered Rights and places the Work in the public domain
 *"in each jurisdiction that gives effect to such an act"*; §3.3 waives where surrender is not
