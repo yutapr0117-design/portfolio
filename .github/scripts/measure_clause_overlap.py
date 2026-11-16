@@ -311,6 +311,35 @@ def _grams(text: str, k: int) -> set[str]:
     return set(_gram_list(text, k))
 
 
+def sibling_overlap(cb: dict[str, str], ca: dict[str, str], k: int = 4) -> list[tuple[str, str, str, str]]:
+    """(変えた条, 同じ節の他の条, 句, 他の条の文脈)。変えた条に新しく入った k 語の連なりで、同じ節 (§N.x) の変えていない条にも在るもの。
+
+    T82 (2026-11-16) は §14.1 に「法が除外を許さない責任 … は第 14 節の何物も制限しない」を足し、同じ節の §14.2 の「法が除外または
+    制限を許さない責任は、法の許す限り制限する」と同じ対象に逆を言った。機械の網はどれも緑で、人の読みで見つけた。同じ限定の句
+    (applicable law does not permit …) を同じ節の 2 つの条が持つときに出す。機能語だけの連なりは除く。"""
+    out = []
+    for c, a in ca.items():
+        if cb.get(c) == a or "." not in c:
+            continue
+        new = _grams(a, k) - _grams(cb.get(c, ""), k)
+        top = c.split(".")[0]
+        for s, other in ca.items():
+            if s == c or s.split(".")[0] != top or cb.get(s) != other:
+                continue
+            for g in sorted(new & _grams(other, k)):
+                if sum(w not in _FUNCTION_WORDS and len(w) >= 3 and w not in ("the", "and", "any", "for") for w in g.split()) < 2:
+                    continue
+                i = " ".join(other.split()).lower().find(g.split()[0])
+                out.append((c, s, g, " ".join(other.split())[max(0, i - 30):i + 90]))
+    # 同じ (条, 他の条) の組は最初の 3 句まで (長い句は 4 語の連なりが重なって並ぶ)
+    seen, res = {}, []
+    for x in out:
+        seen[(x[0], x[1])] = seen.get((x[0], x[1]), 0) + 1
+        if seen[(x[0], x[1])] <= 3:
+            res.append(x)
+    return res
+
+
 _FUNCTION_WORDS = {"which", "that", "this", "with", "from", "into", "upon", "than", "when", "where", "there", "those", "these",
                    "their", "they", "them", "what", "whom", "whose", "have", "been", "were", "will", "would", "does", "under",
                    "over", "about", "after", "before", "only", "also", "such", "each", "every", "other", "against", "within",
@@ -533,6 +562,11 @@ def compare(before: Path, after: Path, n: int) -> None:
           "「B は含まれない」と読ませうる (2026-11-15・T67 の §12.3 と §2.4)")
     for k, a, b, ctx in _cg:
         print(f"#   ⚠ §{k} [{a} だけ・{b} が無い]: …{ctx}…")
+    _sib = sibling_overlap(cb, ca)
+    print(f"# 新しく入った句と、同じ節の他の条が持つ同じ句 (4 語の連なり): {len(_sib)} —— 同じ対象に 2 つの条が別のことを"
+          "言っていないか読む (2026-11-16・T82 の §14.1「NOTHING IN SECTION 14 LIMITS」と §14.2 の「limited to the greatest extent」)")
+    for k, s, g, ctx in _sib:
+        print(f"#   ・ §{k} の新しい句「{g}」は §{s} にも在る: …{ctx}…")
     _us = universal_scope(cb, ca)
     print(f"# 新しく入った全称の句 (every other provision / nothing in this Dedication …): {len(_us)} —— 肯定の全称が"
           "条を量化すると、免責・責任の制限・文書の規律と、同じ条が限定する条も呑む (2026-11-15・T70 の §5.3)")
