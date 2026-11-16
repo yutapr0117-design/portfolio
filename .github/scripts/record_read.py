@@ -56,7 +56,8 @@ def main(argv: list[str]) -> int:
         #   会話を読んだと数えられ、件数が合わない (2f が 2026-11-15 に 10-04 と 10-06 で 1 度踏んだ・5 人で読む日の依頼)。
         #   同じ件名の候補が在って日付が違えば止まる。件名が候補に無いのは「候補の外」を読んだときで、正当なので知らせるだけ
         from census_decision_statements import _list_rows, title_key
-        same = [d for k, d, _t in _list_rows(L / "THREAD-CANDIDATES.txt") if k == title_key(o.subject)]
+        from census_decision_statements import candidate_rows
+        same = [d for k, d, _t in candidate_rows(L) if k == title_key(o.subject)]
         if same and o.start not in same:
             print(f"STOP: --start {o.start} は THREAD-CANDIDATES の同じ件名の会話の日付 {', '.join(same)} のどれでもない。"
                   "census の start (会話の始まり) を渡す")
@@ -78,8 +79,8 @@ def main(argv: list[str]) -> int:
     out = Path(tempfile.mkdtemp()) / "threads.json"
     # 後の段で STOP したら書いた file を元に戻す (2026-11-16・9b が踏んだ: AS-OF のセルを読めずに STOP し、READ-THREADS に
     #   14 行と --pin の THREAD-CANDIDATES だけが残った)。census は READ-THREADS を読むので、書いてから回すしかない
-    cand_p = L / "THREAD-CANDIDATES.txt"
-    backup = {rt: rt.read_text(encoding="utf-8"), cand_p: cand_p.read_text(encoding="utf-8")}
+    from census_decision_statements import split_files
+    backup = {f: f.read_text(encoding="utf-8") for f in [rt] + split_files("THREAD-CANDIDATES", L)}
 
     def stop(msg: str) -> int:
         if not o.dry_run:
