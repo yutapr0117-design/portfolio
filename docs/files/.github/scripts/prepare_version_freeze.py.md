@@ -45,6 +45,8 @@ python3 .github/scripts/prepare_version_freeze.py --report 1.4
 
 申請の日に `submission.md` の `SUBMISSION-TARGET` を切り替えると、Check 472 / 472f / 472h が版に紐づく欄を名指す。2026-11-07 の予行では、欄を直すと Check はすべて満たせた（満たせない Check は無かった）。Check が止めない行は上の `--report` で読む。
 
+`--report` の「{版} 草案は … と述べる」の段（2026-11-16）は、その版だけを名乗る文が、その版の本文に無い語（試作で外した語）を引いている行を出す。errata・against と、版を名に持つ作業の文書、ほかの版も名乗る文は除く。測った値: main で 1 件（clause-reference の経緯の文・正しい）、T77 の枝で +2 件（§1.453 と submission-osd の OSD 5 の行・本物）。Check にしなかった理由は `check-repository-consistency-map.md` §2.9。
+
 ## Constraints
 
 - **判断はしない。** 文を読む書き換え（Check 444m）と、`measure_descriptor_carryover.py` が出す条の読み直しは人が行う。

@@ -313,6 +313,37 @@ def finish(v: str, prev: str, nxt: str, date: str, clauses: int) -> None:
         subprocess.run([sys.executable, f".github/scripts/{tool}"], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
 
 
+def quotes_gone_from(version: str, target: Path) -> list[tuple[str, int, str]]:
+    """同じ文で「{version} 草案 / {version} draft / ACD-{version}」を名乗り、どの版の本文には在るが target には無い語を引く行。
+
+    Check 470 は 1.0 の地図で合えば通すので、草案から外した語を「1.4 草案は … と述べる」と引き続けても鳴らない。
+    ADVISORY の Check として試作すると main で 4 件とも誤検出だった（地図 §2.9・2026-11-16）ので、確定の日に人が読む一覧として出す。
+    merge 前の --compare は、その試作の後に書いた段落を拾わない。
+    """
+    def norm(s: str) -> str:
+        return re.sub(r"\s+", " ", s).lower()
+    texts = [norm(p.read_text(encoding="utf-8")) for p in sorted(L.glob("ACD-1.[0-9]*.txt"))]
+    tgt = norm(target.read_text(encoding="utf-8").split("-" * 80, 1)[-1])
+    named = re.compile(rf"(?<![\d.§])(?:ACD-{re.escape(version)}(?![\d\-])|{re.escape(version)}\s*(?:草案|draft))")
+    quote = re.compile(r'\*"([^"]{6,300})"\*|"([A-Za-z][^"\u201c\u201d]{8,300})"|\u201c([^\u201d]{8,300})\u201d')
+    out = []
+    for f in sorted(L.glob("*.md")):
+        if re.match(r"ACD-1\.[1-9]-", f.name) or re.match(r"ACD-1\.0\.(?:errata|against)", f.name):
+            continue  # 版を名に持つ作業の文書は Before / After を並べ、errata と against は旧版の語を「草案で直した」と引く
+        for i, line in enumerate(f.read_text(encoding="utf-8").split("\n"), 1):
+            for sent in re.split(r"(?<=。)", line):
+                bare = quote.sub(" ", sent)
+                # ほかの版も名乗る文 (「1.1 to 1.3 では …、1.4 草案は改めた」) は旧版の語を旧版として引く
+                if not named.search(bare) or re.search(rf"(?<![\d.§])1\.(?!{re.escape(version[2:])}(?!\d))\d(?![\d.])", bare):
+                    continue
+                for m in quote.finditer(sent):
+                    q = re.sub(r"\*\*|\\", "", next(g for g in m.groups() if g))
+                    nq = re.sub(r"[.,;:]+$", "", norm(q)).strip()
+                    if len(q.split()) >= 5 and nq not in tgt and any(nq in x for x in texts):
+                        out.append((f.name, i, q))
+    return out
+
+
 def report(version: str) -> int:
     """提出対象を切り替える日に人が読む行を列挙する。何も書き換えない。"""
     from measure_citation_drift import CITE, FACES, FIRST_READ, cited_lines
@@ -365,6 +396,10 @@ def report(version: str) -> int:
     target = L / f"ACD-{version}.txt"
     if not target.exists():
         target = working_draft()
+    gone = quotes_gone_from(version, target)
+    print(f"\n## 「{version} 草案は … と述べる」の文が、{version} の本文に無い語を引いている行: {len(gone)}（外した語を引き続けていないか読む）")
+    for f, i, q in gone:
+        print(f"  {f}:{i}  \"{q[:80]}\"")
     for path in (L / "ACD-1.0.txt", target):
         w, c = size(path.read_text(encoding="utf-8"))
         print(f"  {path.name}: {w:,} 語・{c} 条（区切り線の後から数える。Check 468 と同じ数え方）")
