@@ -64,3 +64,5 @@ python3 .github/scripts/prepare_version_freeze.py --report 1.4
 
 - **AI**: 確定は申請の数日前で、行動規範の改定の取り込みのあとである（`OSI-APPROVAL-PLAN.md` §3.8）。使い捨ての worktree で先に回してよい。
 - **監査人**: 2026-11-06 の予行で、走ったあとの RED は人の判断が要る面と派生値に絞られ、Check 490 は通った。
+
+確定の日に冒頭の一覧を CHANGELIST の付録へ逐語で移すとき、CHANGELIST に `<!-- APPENDIX-NOTE: … -->` があれば、その文を付録の見出しの直下に置く（2026-11-16・portfolio-30 の案）。冒頭の一覧の形が草案の途中で変わったとき（1.4 では 11-16 に理由の句を外した・bd5d71e3）に、前の形の在りかを指す。文は版ごとに CHANGELIST が持ち、道具は版を決め打ちしない。

@@ -127,6 +127,18 @@ def working_draft() -> Path:
     return cands[0]
 
 
+def appendix(head: str, header: str) -> str:
+    """CHANGELIST の末尾に、確定時点の草案の冒頭を逐語で足した本文を返す。
+
+    CHANGELIST に `<!-- APPENDIX-NOTE: … -->` があれば、その文を付録の見出しの直下に 1 段落で置く (2026-11-16・30 の案)。
+    冒頭の一覧の形が草案の途中で変わったとき (1.4 では 11-16 に理由の句を外した・bd5d71e3) に、前の形がどこに在るかを
+    付録が指せるようにする。文は版ごとに CHANGELIST が持ち、道具は版を決め打ちしない (逐語の付録の前に置くので、
+    frozen_header の "keeps, word for word" は付録の本体についてそのまま真)。"""
+    m = re.search(r"<!--\s*APPENDIX-NOTE:\s*(.*?)\s*-->", head, re.S)
+    note = f"{' '.join(m.group(1).split())}\n\n" if m else ""
+    return f"{head}\n\n## 付録: 確定時点の草案ヘッダ（逐語）\n\n{note}```\n{header.rstrip()}\n```\n"
+
+
 def frozen_header(v: str, prev: str, nxt: str, date: str, pw: int, pc: int, w: int, c: int) -> str:
     return "\n\n".join([
         f"ACD-{v} -- FROZEN TEXT.",
@@ -556,7 +568,7 @@ def main() -> int:
     (L / f"ACD-{v}.txt").write_text(frozen_header(v, prev, nxt, args.date, pw, pc, w, c) + RULE + body, encoding="utf-8")
     changelist = L / f"ACD-{v}-CHANGELIST.md"
     head = changelist.read_text(encoding="utf-8").rstrip("\n")
-    changelist.write_text(f"{head}\n\n## 付録: 確定時点の草案ヘッダ（逐語）\n\n```\n{header.rstrip()}\n```\n", encoding="utf-8")
+    changelist.write_text(appendix(head, header), encoding="utf-8")
     draft_path.write_text(pointer(v, nxt, prev, args.date), encoding="utf-8")
     # 草案の「Still open」は errata の状態と照合される (Check 468) ので、文を引き継ぎ、版の列だけ足す。
     still_open = " ".join(header[header.index("Still open in this draft"):].split())
