@@ -23,8 +23,8 @@ MUTATIONS_ARCHIVE5 = [
     {
     "name": 'Check 460 (w): REVIEWERS.md の質問集の問数を "Eight" へ戻す —— 11-01 に問 9 を足したあと、審査者向けの入口だけが 8 問と述べ続けていた形 (bb / 25 が発見)',
     "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "Nine questions on which",
-    "replace": "Eight questions on which",
+    "find": "Ten questions on which",
+    "replace": "Nine questions on which",
     "check": CHECK,
 },
     {

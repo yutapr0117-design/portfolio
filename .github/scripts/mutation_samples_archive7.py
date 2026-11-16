@@ -325,15 +325,15 @@ MUTATIONS_ARCHIVE7 = [
     "name": "Check 460 (w): 質問集の mirror が名前を書かずに述べる問数を変える —— 旧版は QUESTIONS-FOR-COUNSEL の語を持つ行だけを"
             "読み、mirror 自身の「尋ねたい 9 問」を読まなかった (2026-11-12・監査 #135)",
     "file": ROOT / "docs" / "files" / "LICENSES" / "QUESTIONS-FOR-COUNSEL.md.md",
-    "find": "尋ねたい 9 問を、",
-    "replace": "尋ねたい 8 問を、",
+    "find": "尋ねたい 10 問を、",
+    "replace": "尋ねたい 9 問を、",
     "check": CHECK,
 },
     {
     "name": "Check 460 (w): 質問集を名指す行に「全8問」と書く —— 旧版は数の前に \\b を要求し、全 と 8 がどちらも語の文字なので"
             "数えなかった (2026-11-12・監査 #135)",
     "file": ROOT / "docs" / "files" / "LICENSES" / "QUESTIONS-FOR-COUNSEL.md.md",
-    "find": "**ACD を読む弁護士に尋ねたい 9 問を、",
+    "find": "**ACD を読む弁護士に尋ねたい 10 問を、",
     "replace": "**ACD を読む弁護士に尋ねたい `QUESTIONS-FOR-COUNSEL`（全8問）を、",
     "check": CHECK,
 },
