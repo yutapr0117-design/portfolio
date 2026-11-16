@@ -34,26 +34,20 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 1.2 now says that Moral Rights include any right of a personal
       character conferred on an author by law "now or in future", the words
       Sections 1.5 and 8.1 use (errata E50). (+4 words.)
-    * Section 1.3 no longer says "in whole or in part", so that applying this
-      Dedication to part of some material no longer makes the whole of it the
-      Work, which Section 2.1 and Section 15.1 would then carry to all of it
-      (errata E61). (-5 words.)
+    * Section 1.3 no longer says "in whole or in part" (errata E61). (-5
+      words.)
     * Section 1.5 now says "Covered Rights exclude", where it said "Covered
       Rights excludes" (errata E51). (0 words.)
     * Section 1.9 now reaches material submitted to the Dedicator or to any
       repository or forum "in either case offering the Work, with a notice of
       this Dedication, to the public or to those invited to contribute", where
       it reached any submission to the Dedicator or to a repository or forum
-      the Dedicator maintains, so that a past contributor is not an addressee
-      (errata E65, E73). (+18 words.)
+      the Dedicator maintains (errata E65, E73). (+18 words.)
     * Section 2.2 now bars a further term, condition, or restriction "on what
       may be done with" any copy of the Work that has been made available,
-      where it barred one "in respect of" such a copy, so that a later rate
-      limit on the Dedicator's own server is outside it and a later remote
-      disabling of a copy is inside. (+3 words.)
+      where it barred one "in respect of" such a copy. (+3 words.)
     * Section 2.3 now says that to hold a permission You need not know of this
-      Dedication, since Section 10.2 lets a copy travel without any notice and
-      a recipient may never have seen it. (+7 words.)
+      Dedication. (+7 words.)
     * Section 2.6 now undertakes to identify any material that Section 1.9
       excludes from being a Contribution, not only material a person marks as
       not being one, and the undertaking binds only "a Dedicator who includes
@@ -106,10 +100,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       read as Section 5, and paragraph (b) says "this Dedication imposes
       none", where "it" could be read as the Dedicator (errata E81). (+82
       words.)
-    * Section 5.3 now also names the covenant in Section 8.6, so that the
-      patent covenant may be relied upon by anyone who receives the Work from
-      You as an intended beneficiary, as the covenants in Section 5 may
-      (errata E83). (+1 word.)
+    * Section 5.3 now also names the covenant in Section 8.6 (errata E83). (+1
+      word.)
     * Section 5.3 no longer lists the persons its covenants bind; it says
       that they "bind the persons Section 2.8 names, to the fullest extent
       the law permits", the limit Section 2.8 states. (-8 words.)
@@ -122,16 +114,12 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       no Section binds fewer persons or less than Section 2.8 does. (-6
       words.)
     * Section 6.5 now says that silence on this subject "leaves it to be
-      inferred whether this is permitted", where it stated an experience for
-      which no source is given. (+4 words.)
-    * Section 10.4 now says that no permission terminates "under it", where
-      it said that none terminates for any reason, which a statute may
-      override. (+2 words.)
-    * Section 11.3 no longer gives a reason for its limit, which was untrue
-      where a person may consent to being falsely named as the author, and
-      Section 9.4 says that Section 11.3 "governs a false claim of
-      authorship", where it said that Section 11.3 explains why. (-18
-      words.)
+      inferred whether this is permitted". (+4 words.)
+    * Section 10.4 now says that no permission terminates "under it", where it
+      said that none terminates for any reason. (+2 words.)
+    * Section 11.3 no longer gives a reason for its limit, and Section 9.4
+      says that Section 11.3 "governs a false claim of authorship", where it
+      said that Section 11.3 explains why. (-18 words.)
     * Section 6.1 now permits Computational Use as to the patent claims
       Section 8 reaches, where it named the patent claims of the Dedicator and
       so went beyond Section 8. (+4 words.)
@@ -141,19 +129,18 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of parts of the Work and not of models or outputs (errata E47). (-2
       words.)
     * Sections 8.1 and 8.4 now license the acts themselves, named in the same
-      words and ending "otherwise practise or transfer", so that a person who
-      never uses the Work holds nothing under them, and Section 8.1 reaches
-      "the Work or anything derived from it", where it said "any derivative of
-      the Work" (errata E40, E41, E64). Section 8.4 (errata E66) now leaves a
-      feature added to the Work by whatever means to Section 8.1 alone, reaches
-      a claim only where the feature that infringes it results from the content
-      of the Work, where it excluded any claim that a model made without the
-      Work could also infringe, and says that no threshold of quantity is
-      imposed, and states its grant without the reasons it gave for it: the
-      sentence on why the grant is necessary (errata E78), which errata E56
-      had corrected, the unresolved state of the law, why the proviso in
-      Section 8.1 is absent, and why no threshold is imposed, which was
-      untrue of one who trains a model on data it knows. (-103 words.)
+      words and ending "otherwise practise or transfer", and Section 8.1
+      reaches "the Work or anything derived from it", where it said "any
+      derivative of the Work" (errata E40, E41, E64). Section 8.4 (errata E66)
+      now leaves a feature added to the Work by whatever means to Section 8.1
+      alone, reaches a claim only where the feature that infringes it results
+      from the content of the Work, where it excluded any claim that a model
+      made without the Work could also infringe, and says that no threshold of
+      quantity is imposed, and states its grant without the reasons it gave
+      for it: the sentence on why the grant is necessary (errata E78), which
+      errata E56 had corrected, the unresolved state of the law, why the
+      proviso in Section 8.1 is absent, and why no threshold is imposed. (-103
+      words.)
     * Section 8.3 now says once that Sections 8.1 and 8.4 reach a patent claim
       only as to the acts they describe, where it spoke of any patent right of
       the Dedicator in respect of the Work, and no longer gives a reason
@@ -166,28 +153,23 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       another person (errata E39, E60). It no longer points to Section 13.2.
       (+36 words.)
     * Section 8.6's covenant not to assert the patent claims that Sections 8.1
-      and 8.4 reach now operates in every jurisdiction, instead of only where a
-      licence "is held ineffective", and reaches "any act that those Sections
-      describe", where it reached any use of the Work or of anything resulting
-      from Computational Use of it (errata E42, E45). It now stands on the same
-      footing as "the covenants in Section 5", where it said "the covenant", no
-      longer explains the three footings, which the Preamble states, and ends
-      "depends on that question or on how it is answered", the words
-      Sections 4.4 and 12.2 use (errata E54, E71), and no longer says that it
-      operates "alongside them", which could be read either as alongside the
-      licences, and so as lasting only while a licence stands, or as alongside
-      the covenants in Section 5. (-69 words.)
+      and 8.4 reach now operates in every jurisdiction, instead of only where
+      a licence "is held ineffective", and reaches "any act that those
+      Sections describe", where it reached any use of the Work or of anything
+      resulting from Computational Use of it (errata E42, E45). It now stands
+      on the same footing as "the covenants in Section 5", where it said "the
+      covenant", no longer explains the three footings, which the Preamble
+      states, and ends "depends on that question or on how it is answered",
+      the words Sections 4.4 and 12.2 use (errata E54, E71), and no longer
+      says that it operates "alongside them". (-69 words.)
     * Section 9.1 now gives code produced by an automated system as an example
       of Machine-Generated Material. (+7 words.)
-    * Section 9.2 now says that where a right this Dedication reaches subsists,
-      "this Dedication applies to it", where it listed Sections 3 to 8 and
-      Section 12, a list that could be read to confine Section 5 to rights that
-      subsist and to leave out Sections 13 and 14 (errata E72). (-3 words.)
+    * Section 9.2 now says that where a right this Dedication reaches
+      subsists, "this Dedication applies to it", where it listed Sections 3 to
+      8 and Section 12 (errata E72). (-3 words.)
     * Section 9.4 and Section 14.2 now say "Section 9" and "Section 14", where
       they said "this Section" (errata E57). (0 words.)
-    * Section 10.3 now opens "Under this Dedication", so that it does not reach
-      terms the Dedicator sets for its own service outside this Dedication
-      (errata E74). (+3 words.)
+    * Section 10.3 now opens "Under this Dedication" (errata E74). (+3 words.)
     * The heading of Section 11 now ends "AND PRIVACY" (errata E59). (+1 word.)
     * Section 11.1 now says "Nothing in Section 11 reduces what any other
       Section of this Dedication gives", where it said "Nothing in this Section
@@ -225,19 +207,15 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 15.5 now says that "person" includes an entity (errata E58). (+4
       words.)
     * Section 16.1 now names the forms in Section 16.2 alongside the long
-      notice, so that a Dedicator who places only the identifier or a tag has
-      applied this Dedication. (+7 words.)
+      notice. (+7 words.)
     * Section 16.2 now speaks of "a work to which a Dedicator has applied this
       Dedication", says what material a notice a Dedicator places applies this
       Dedication to, lets a narrower notice of the Dedicator prevail, and
-      matches its identifiers without regard to case (errata E69). It also says
-      that "a notice that is only a Reservation assigns nothing to other
-      terms", so that an opt-out from text and data mining alone does not take
-      material out of the Work. (+104 words.)
+      matches its identifiers without regard to case (errata E69). It also
+      says that "a notice that is only a Reservation assigns nothing to other
+      terms". (+104 words.)
     * Section 16.3 now reaches any work in which the person applying this
-      Dedication holds "or may hold" rights "of their own", so that someone
-      unsure whether rights subsist in machine output need not settle that
-      first. (+6 words.)
+      Dedication holds "or may hold" rights "of their own". (+6 words.)
     * Section 16.4 now restricts any name that contains "Autonomous Commons
       Dedication" and any identifier that contains "ACD-" followed by a digit,
       both "regardless of case", where it restricted the name and identifiers
@@ -255,8 +233,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       version under its name after the role of Steward has been assigned
       (errata E80). (+58 words.)
     * Section 16.5 now names, after an assignment, "the person or entity to
-      whom that role was last assigned", so that an assignor does not remain
-      the Steward. (+4 words.)
+      whom that role was last assigned". (+4 words.)
     * Section 16.6 now says that Sections 16.4 and 16.5 bind "no one in respect
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
