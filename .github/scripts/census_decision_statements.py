@@ -57,6 +57,10 @@ DECIDERS = re.compile("|".join(re.escape(x) for x in [
     "Hashman", "Liambotis", "Josh Simmons", "Vignoli", "Zacchiroli", "Villa", "Rosen", "Perens",
     "Fontana", "McCoy", "Behlendorf", "Vidal", "Kuhn", "Wheeler", "Dolan", "Sado", "Randal",
     "Milinkovich", "Langel",
+    # 2026-11-16 (2f の発見): OSI の公の宛名 (opensource.org) で書いていた 3 人が漏れていた —— Jim Jagielski 氏 (理事)、
+    #   Patrick Masson 氏 (General Manager & Director)、VM (Vicky) Brasseur 氏 (理事)。足すと候補が 4 本増え、「未読 0」は
+    #   漏れのぶん狭い範囲の 0 だった
+    "Jagielski", "Masson", "Brasseur",
 ]))
 RULE = re.compile(r"""(
  \b(?:osi|we|the\ board|the\ committee|lrc|board|committee)\b[^.?!\n]{0,60}\b(?:will\ not|won't|wouldn't|would\ not|cannot|can't|should\ not|shouldn't|must\ not|never|refuse[sd]?|reject(?:s|ed)?|decline[sd]?|don't|do\ not|does\ not|doesn't|did\ not)\b[^.?!\n]{0,60}\b(?:approv\w+|certif\w+|accept\w*|list\w*)\b
