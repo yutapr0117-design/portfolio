@@ -114,8 +114,13 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       You as an intended beneficiary, as the covenants in Section 5 may
       (errata E83). (+1 word.)
     * Section 5.3 no longer lists the persons its covenants bind, with a
-      limit of its own; it says that they "bind those whom Section 2.8
-      binds". (-15 words.)
+      limit of its own; it says that they "bind the persons Section 2.8
+      names". (-15 words.)
+    * Section 2.8 now names a transferee of "a patent claim that Section 8
+      reaches", where it said "a patent claim in the Work", and Section 12.4
+      binds "the persons Section 2.8 names" and those entitled to Moral
+      Rights after the Dedicator's death, where it listed the persons Section
+      2.8 lists. (-1 word.)
     * Section 6.1 now permits Computational Use as to the patent claims
       Section 8 reaches, where it named the patent claims of the Dedicator and
       so went beyond Section 8. (+4 words.)
@@ -241,7 +246,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5552 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5551 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -415,10 +420,10 @@ PREAMBLE (informative; not part of the operative terms)
 
   2.8  This Dedication, in respect of the Work, binds the Dedicator's
        successors, assigns, heirs, and personal representatives, and any person
-       to whom a Covered Right or a patent claim in the Work is transferred, to
-       the fullest extent the law permits. A transferee takes subject to it to
-       that extent, Section 6 included. Section 12.4 does not narrow this
-       Section.
+       to whom a Covered Right, or a patent claim that Section 8 reaches, is
+       transferred, to the fullest extent the law permits. A transferee takes
+       subject to it to that extent, Section 6 included. Section 12.4 does not
+       narrow this Section.
 
   2.9  Nothing in this Dedication is conditioned on, suspended by, or revived
        by an insolvency, bankruptcy, administration, receivership, liquidation,
@@ -529,8 +534,8 @@ PREAMBLE (informative; not part of the operative terms)
        without providing a copy of the Work, even where using that material is
        a Computational Use of the Work.
 
-  5.3  The covenants in Sections 5.1, 5.2, and 8.6 bind those whom Section 2.8
-       binds, and may be relied upon by You and by anyone who receives the Work
+  5.3  The covenants in Sections 5.1, 5.2, and 8.6 bind the persons Section 2.8
+       names, and may be relied upon by You and by anyone who receives the Work
        from You, directly or indirectly, as an intended beneficiary, to the
        extent a jurisdiction gives effect to such reliance. Sections 3 and 4
        operate in their favour independently of this Section.
@@ -754,11 +759,10 @@ PREAMBLE (informative; not part of the operative terms)
        future, and they are given in respect of a work that the Dedicator has
        chosen to place in the commons for the purpose stated in Section 6.
 
-  12.4 The covenant and the consent in Section 12.2 bind the Dedicator's
-       successors, assigns, heirs, personal representatives, and any person
-       entitled to exercise or enforce Moral Rights in the Work after the
-       Dedicator's death, to the fullest extent the law permits the Dedicator to
-       bind them.
+  12.4 The covenant and the consent in Section 12.2 bind the persons Section 2.8
+       names and any person entitled to exercise or enforce Moral Rights in the
+       Work after the Dedicator's death, to the fullest extent the law permits
+       the Dedicator to bind them.
 
   12.5 Neither the covenant nor the consent in Section 12.2 extends to conduct
        falling within Section 11.3, so the interest that Moral Rights protect

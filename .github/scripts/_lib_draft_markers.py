@@ -11,8 +11,8 @@ import re
 # 限定を支える (2026-11-06・portfolio-25 の依頼)。§5.1 の除外が落ちると、§8.4 が外した請求項まで不行使になる。
 EFFECT_MARKERS_468U = (
     ("2.8", "Section 12.4 does not narrow this Section"),
-    # 2026-11-16 (T74): §5.3 の承継の列挙を §2.8 へ寄せた。§5.3 が §2.8 を狭めないことは、この句が持つ
-    ("5.3", "bind those whom Section 2.8 binds"),
+    # 2026-11-16 (T74・T75): §5.3 の承継の列挙を §2.8 へ寄せた（T75 で人だけを借りる語へ）。§5.3 が §2.8 を狭めないことは、この句が持つ
+    ("5.3", "bind the persons Section 2.8 names"),
     ("15.5", '"person" includes an entity'),
     ("8.4", "resulting from Computational Use of the Work"),
     ("8.4", "deliberately absent"),

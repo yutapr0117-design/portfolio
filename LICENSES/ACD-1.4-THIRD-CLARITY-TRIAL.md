@@ -191,6 +191,16 @@ After: The covenants in Sections 5.1, 5.2, and 8.6 bind those whom Section 2.8 b
 
 **反例の担当へ（50・30）**: (a) §8.6 の約束を受けた後に特許を譲り受けた者が、§2.8 の *"any person to whom … a patent claim in the Work is transferred"* と §5.3 の *"those whom Section 2.8 binds"* の組で縛られない読みが残るか。(b) §4.6 の *"on the terms Section 5.3 states"* が、承継の列挙を失った §5.3 から何か落とすか。
 
+### 15.13 T75 —— T74 の §5.3 を「人だけを借りる」語へ、§2.8 の特許の譲受人の語と §12.4 を揃える（採った・−1 語・2026-11-16）
+
+**反例（portfolio-50・§15.12 の (a)〜(c)）**: (a) 人の集合は変わらない（§2.8 も *assigns* を挙げる）。当たるのは範囲の側で、§2.8 は *"This Dedication, in respect of the Work, binds …"* なので、T74 の §5.3 *"bind those whom Section 2.8 binds"* は「§2.8 が縛る限りで（*in respect of the Work*）」と読む余地を持つ。§8.6 の約束は §8.4 の行為（Work の Computational Use から生じたモデル・重み・出力の製造・使用・販売）に及び、モデルについての行為が *in respect of the Work* かは争いうる。§15.1 の「広く読む」も T43 以後は *in respect of the Work* の下なので、受領者に有利に解く規則が無い —— **T74 は約束の範囲を狭める読みを新しく生んでいた**。(b) §4.6 の *"on the terms Section 5.3 states"* が借りるのは頼れる人と頼り方で、落ちるもの無し。(c) §2.8 の *"a patent claim in the Work"* は §8.1・§8.4 の請求項の語（行為で定める）と揃わない。
+
+**直したもの**: §5.3 *"bind the persons Section 2.8 names"*（*names* は人だけを借り、範囲は約束の側に残る・0 語）。§2.8 *"a Covered Right, or a patent claim that Section 8 reaches, is transferred"*（+1・挿入句にして *Section 8 reaches* が *Covered Right* に掛かる読みを避けた。草案の他の場所の *"the patent claims Section 8 reaches"* と同じ語）。§12.4 *"bind the persons Section 2.8 names and any person entitled to exercise or enforce Moral Rights in the Work after the Dedicator's death"*（−2・承継人の列挙を §2.8 の 1 か所にした）。
+
+**教訓**: 定義を他の条に預ける語は、何を預けるか（人か、範囲か）を動詞で決める —— *binds* は効果を指し、*names* は人を指す。T74 の検証で `--compare` は §5.3 の主体の語が消えたことを示したが、範囲の語が借りられることは示さなかった（語の増減では見えない種類）。
+
+**⚠ 逆側**: (1) §12.4 の限度 *"to the fullest extent the law permits the Dedicator to bind them"* は残るので、§2.8 の末文 *"Section 12.4 does not narrow this Section."* は要る（468u の目印）。(2) §2.8 の挿入句は読みの負担を 1 つ足す。(3) *names* は §2.8 の文の中の *any person to whom … is transferred* も含むが、これは名指しではなく記述なので、*names* を「固有名で挙げる」と狭く読む余地は残る（*the persons Section 2.8 lists* でも同じ問いが立つ）。
+
 ## 16. 模擬委員会 —— 記録に立場が厚く残る審査者の目で 1.4 草案を通読する（2026-11-15〜）
 
 **仕組み**: オーナーの依頼（「5 人で話し合って、より良い案をガンガン実行して」）を受けて、portfolio-1c が出し 5 人で決めた。記録に立場が厚く残る 5 人の審査者を 1 人ずつ受け持ち（30 = Chestek 氏、50 = Fontana 氏、2f = Perens 氏、9b = Smith 氏、1c = Villa 氏）、その人の過去の文だけを根拠に、その人の目で 1.4 草案を頭から通読して「どこを突くか」を条番号つきで出す。根拠の無い推測は書かない（必ずその人の文を引く）。各節は表（基準と出典 | 当たる条 | 扱い済みの場所 | 残る点）と、条を変える指摘（試作の種）を持つ。**0 件でも表を残す** —— 審査者の基準を網羅して当てた記録になる。**この節が establish しないこと**: 模擬であって、その人が実際にそう言うことを意味しない。
