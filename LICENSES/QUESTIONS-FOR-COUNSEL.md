@@ -467,6 +467,26 @@ named the parts without rights produced a sentence about a Dedicator who, for th
 **An answer would change** whether §14.1 should exclude liability only for the use of the Work, as
 GPL-3.0 does, or say that it does not limit the covenants. An answer to (b) would change whether §14.1 needs its own subject.
 
+
+## 10. Does the name or the short identifier collide with a mark in use? (§16.4, B6)
+
+**The clause.** §16.4 ties the name *Autonomous Commons Dedication* and the identifier *ACD-*
+followed by a version number to one fixed text, and restricts distributing a modified text under
+either. The short form used everywhere, including in this repository's notices, is *ACD*.
+
+**Why we doubt it.** We checked that SPDX has no identifier beginning *ACD-* (B6), but not whether
+*ACD* is a registered or used mark. A software company, ACD Systems International Inc. (ACDSee),
+uses it (`ACD-OSI-BOTTLENECKS.md` B6, 2026-11-16). On another submission a board member asked for
+a new acronym before voting because the short name was also an organisation's name in the same
+field: Josh Berkus, 2020-12-27, *"Were it otherwise acceptable I'd request a change of license
+acronym before voting to approve it."* (`review-readings-2.md` §1.254). He spoke as a
+non-lawyer, and that clash was in the same field; whether a mark held by a company outside open
+source licensing matters is what we cannot judge.
+
+**An answer would change** whether the identifier should change before the version to be submitted
+is fixed. Changing it later costs every notice, the SPDX request and the documents; changing it
+before the version is fixed costs only the draft and the dossier.
+
 ---
 
 ## How to answer
@@ -476,4 +496,4 @@ In any form, on a list or privately. **Public answers are recorded word for word
 pointer to where the analysis uses it are recorded (`rounds/README.md`). Correction of any reading
 on this page is the most useful answer; agreement is the next most useful, because it moves B1.
 Nothing here asks a reader to take on any obligation, and a short answer to one question is worth
-more to us than a long one to all nine.
+more to us than a long one to all ten.
