@@ -1,0 +1,43 @@
+Source: OSI license-review public archive, 2008-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 14 in "For Approval: Transitive Grace Period Public Licence, v1.0" (2008-12-14)
+Senders: Simon Phipps
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From webmink at gmail.com  Mon Dec 15 19:09:56 2008
+From: webmink at gmail.com (Simon Phipps)
+Date: Mon, 15 Dec 2008 19:09:56 +0000
+Subject: For Approval: Transitive Grace Period Public Licence, v1.0
+In-Reply-To: <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>
+References: <32A0293C-F7A0-401E-9F43-B18412CE110B@zooko.com> <803A6C7A-BEF1-4FE5-9F43-8D09C6A266BD@zooko.com> <4945D81C.6020600@perens.com> <8753473FE8264592B95D637BC2F94D34@LROSENTOSHIBA> <D2C6CF08-8E84-4190-B07B-2189F7629F0A@zooko.com>
+Message-ID: <910249FA-F573-4AC3-857C-BCF25B6C9354@gmail.com>
+
+
+On Dec 15, 2008, at 14:35, zooko wrote:
+
+>  my primary aim in submitting this licence for approval is to  
+> certify that the licence is open source, not to certify that it is a  
+> good idea.
+
+These days I believe the OSI Board is also interested in reasons why a  
+proposed license is a good idea in addition to meeting the OSD. If  
+Larry's assertion that the same ends you're anticipating can be met  
+just with exceptions is true, that would suggest the license is not  
+suitable for OSI approval on grounds of proliferation.
+
+> This is the reason why TGPPL needs to be a separate licence: it  
+> imposes the added burden
+
+Larry in fact said that for the copyright holder to waive a condition  
+of OSL 3.0 was the /removal/ of a burden, implying the re-appearance  
+of the condition at the end of the copyright-holder's chosen period  
+would not be the imposition of a burden. Larry's assertion, which  
+appears sound, was that this could thus be achieved by a copyright- 
+holder's license exception.
+
+Did you in fact consider the approach of using exceptions to an  
+existing license like OSL 3.0 before submission? If so I'd be  
+interested in why they don't work for you.
+
+S.

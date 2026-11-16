@@ -1,0 +1,38 @@
+Source: OSI license-review public archive, 2009-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 28 in "Revised License Committee Report for March 2009" (2009-03-04)
+Senders: Russ Nelson
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Sun Mar 15 01:41:52 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Sat, 14 Mar 2009 21:41:52 -0400
+Subject: Revised License Committee Report for March 2009
+In-Reply-To: <1ca85c8f0903140902t4ee1a6e1td1a66998de9e7842@mail.gmail.com>
+References: <18862.48647.170005.290662@desk.crynwr.com>
+	<18864.8797.142732.713787@desk.crynwr.com>
+	<1ca85c8f0903131501l31ccf24fi5f6f80b6779cb3b1@mail.gmail.com>
+	<18875.44405.814194.310725@desk.crynwr.com>
+	<1ca85c8f0903140902t4ee1a6e1td1a66998de9e7842@mail.gmail.com>
+Message-ID: <18876.23776.262062.180497@desk.crynwr.com>
+
+wtfpl user writes:
+ > Well, something may well seem obviously stupid to you
+ > (absolute-fuckin'-ly) but I fail to see what.
+
+The only (ONLY) reason to write a license rather than putting your
+software into the public domain is because you plan to sue at least
+one of your users eventually.  Presumably also, you are going to write
+your license so that there is SOME WAY that a licensee can violate it.
+The WTFPL is impossible to violate, since I can do whatever the fuck I
+want.  Thus, it is a license with no reason to exist, and a license
+which the OSI has no reason to approve.
+
+End of story.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Cloudmade supports http://openstreetmap.org/ 
+521 Pleasant Valley Rd. | +1 315-323-1241    
+Potsdam, NY 13676-3213  |     Sheepdog       
