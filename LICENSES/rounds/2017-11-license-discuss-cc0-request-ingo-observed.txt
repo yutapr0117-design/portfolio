@@ -1,0 +1,94 @@
+Source: OSI license-discuss public archive, 2017-November.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 10 in "I've been asked to license my open source project CC0" (2017-11-07)
+Senders: Henrik Ingo
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From henrik.ingo at avoinelama.fi  Fri Nov 10 10:22:57 2017
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Fri, 10 Nov 2017 13:22:57 +0300
+Subject: [License-discuss] I've been asked to license my open source
+ project CC0
+In-Reply-To: <CAF3gKsysXDpsXpLGD4QwwzTe_VvcO75TBNhZYanV4K9EFn6qRQ@mail.gmail.com>
+References: <CAF3gKsysXDpsXpLGD4QwwzTe_VvcO75TBNhZYanV4K9EFn6qRQ@mail.gmail.com>
+Message-ID: <CAKHykev262gU+p7Gf_w6KGYkxz0TxBMLPBeA62CmeKhukhtkJw@mail.gmail.com>
+
+Hi Shahar.
+
+You already got many answers, but none seem to be complete, so let me have
+a go...
+
+On Tue, Nov 7, 2017 at 8:09 PM, Shahar Or <mightyiampresence at gmail.com>
+wrote:
+
+> I have been asked to change the license of an open source project of mine
+> to CC0. I'm reluctant to do so, as it is not OSI approved.
+> https://github.com/mightyiam/shields-badge-data/issues/28
+>
+
+Makes sense. I wouldn't do it either.
+
+I should say I think Creative Commons is great and all of what they do is
+well intended. But for software I think there's no justification to not
+pick an OSI approved license. (Conversely, CC licenses are primarily
+designed for copyrighted works that are not software code.)
+
+The relevant history here is as follows:
+
+A couple years ago people proposed to Creative Commons to submit CC0 for
+OSI certification. You can find that discussion on license-review list if
+you want to read with your own eyes.
+
+Questions were then raised about the fact that CC0 expressly excludes
+patents from the grant. (Which is fair in the sense that public domain is a
+concept related to copyright.) Many reviewers voiced an opinion that
+explicitly reserving the right to sue your users for patent infringment is
+clearly not compatible with the Open Source Definition. (Notably, OSI has
+previously rejected licenses on the same grounds. Search for MXL I believe?)
+
+CC then withdrew it's submission. Technically then, it's never been decided
+whether CC0 is open source or not, but it is not OSI approved.
+
+Is there good reason for this request, at all?
+>
+
+Probably not. Maybe they don't want other licenses in their repo. It's
+quite common for open and closed software to include small parts that are
+BSD, ISC, MIT, etc licensed, even if the software as a whole is licensed
+under its own license.
+
+If they have an actual reason (that is not a policy or possibly a
+misinformed reason), it would have to be something that is in the ISC
+license and not in CC0. Seems like warranty and patents are the 2
+alternatives?
+
+
+
+> I mean, can they not otherwise depend on my software, if their software is
+> CC0 licensed?
+> When I conveyed my reluctance it was suggested that I dual-license.
+>
+
+Dual-license is often a good solution! You have 1 license that is OSI
+approved, so you are clearly open source. Then you have other licenses that
+meet some other specific need.
+
+You need to consider still, whether CC0 is a license you want to use. Is it
+ok that someone would distribute your software without warranty and with
+explicitly reserving the right to sue for patents?
+
+Note that as long as you keep the ISC in your own repo, then people getting
+the software from you, will still have both the warranty and whatever
+patent license may be implied by the short ISC license.
+
+henrik
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20171110/c09a573d/attachment.html>

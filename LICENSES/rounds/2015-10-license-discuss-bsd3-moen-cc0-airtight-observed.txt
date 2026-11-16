@@ -1,0 +1,39 @@
+Source: OSI license-discuss public archive, 2015-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 16 in "BSD 3-clause and copyright notices" (2015-10-01)
+Senders: Rick Moen
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From rick at linuxmafia.com  Fri Oct  2 23:42:35 2015
+From: rick at linuxmafia.com (Rick Moen)
+Date: Fri, 2 Oct 2015 16:42:35 -0700
+Subject: [License-discuss] BSD 3-clause and copyright notices
+In-Reply-To: <20151002134956.GA2948@singpolyma-liberty>
+References: <CABbZS=XNr0NLpFWf2wXvzyFfjCqyC35Sz_xqhBO6JmKL8d2n+g@mail.gmail.com>
+ <CAOFm3uFxAwrrxbofGUqdhEzfsPKOpy+v8kLS7sQ=nXykzWG1=A@mail.gmail.com>
+ <CABbZS=UbPsd=-XF03=chr8jXw7tXo7duzaA0LOTffy5P16+cjA@mail.gmail.com>
+ <20151002134956.GA2948@singpolyma-liberty>
+Message-ID: <20151002234235.GK5061@linuxmafia.com>
+
+Quoting Stephen Paul Weber (singpolyma at singpolyma.net):
+
+> If you want to be open source and do not want to require
+> attribution, why not consider <http://unlicense.org/> or similar?
+
+Like most recent licences that aim to be more minimal than MIT/X11
+License and Fair License (both OSI Certified, BTW), Unlicense suffers
+fatal drafting errors, such that it should _not_ be recommended to
+anyone.
+
+https://lists.opensource.org/pipermail/license-review/2012-January/000026.html
+https://lists.opensource.org/pipermail/license-review/2012-January/000047.html
+https://lists.opensource.org/pipermail/license-review/2012-January/000049.html
+https://lists.opensource.org/pipermail/license-review/2012-January/000052.html
+https://lists.opensource.org/pipermail/license-review/2012-January/000060.html
+
+OTOH, Creative Commons CC0 is highly permissive and legally airtight
+because it includes well-drafted permissive licence that applies in any
+jurisdiction where its primary PD dedication clauses fail to have the
+intended legal effect.  (On the gripping hand, this causes its full text
+to be lengthy.)

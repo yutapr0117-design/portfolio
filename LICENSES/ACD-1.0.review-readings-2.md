@@ -646,3 +646,22 @@ Ian Lance Taylor 氏（`ian at airs.com`・両リストで 232 通）の発言�
 **この節が establish しないこと。** 審査者が提出の日に「既存のどれも合わない理由」を先に問うかどうか。長さが ACD の確かさを上げているかどうか（法律家の目を経ていないので、それは測れない）。
 
 **反映**: B10（「書く前にリストに理由を尋ねよ」と、ACD が本文を先に書いて出した逆側の 1 文・portfolio-30）/ B3（長さを確かさの代価とする Taylor 氏の読みと Rousskov 氏の逆の文を対で置き、どちらも法律家の起草を前提にするので ACD には半分しか当たらない、と書く・portfolio-30）/ B1 は足さない（承認済みの多くが法律家の助言を経たという同じ向きの文が、B1 と against #1 に既に厚く在るので、足すと padding になる・portfolio-30 の判断）。
+
+## 1.256 CC0 は献呈が効かない所で働く許諾を持つので「法的に隙が無い」、その代わりに長い（Moen 氏 2015）。ソフトウェアに CC0 が承認されなかった理由は特許の除外（Ingo 氏 2017）（2026-11-16）
+
+Henrik Ingo 氏（`henrik.ingo at avoinelama.fi`・両リストで 203 通）を census の決める側の一覧に足すと、未読が 8 本出る（2026-11-16 の試算・一時の写しで回した）。Ingo 氏が OSI の理事だったかは一次の記録で確かめていない（portfolio-50 に確かめを頼む）ので、Taylor 氏（§1.255）と同じく候補の外として 8 本を通読した。2 本から 4 通を置いた（`rounds/2015-10-license-discuss-bsd3-{moen-cc0-airtight,woolley-pd-europe}-observed.txt`・`rounds/2017-11-license-discuss-cc0-request-{ingo,morrison-patent}-observed.txt`）。残る 6 本（2012 The alphabetical list・2015 PHP License v3.01 comments・2016 malicious derivatives・2019 CAL Beta 3・2020 On dual-licensing・2020 Extending copyleft）は、ACD に当たる新しい論点が無かった（CAL Beta 3 の Ingo 氏の評は CAL の審査の記録に既に厚い）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"OTOH, Creative Commons CC0 is highly permissive and legally airtight because it includes well-drafted permissive licence that applies in any jurisdiction where its primary PD dedication clauses fail to have the intended legal effect. (On the gripping hand, this causes its full text to be lengthy.)"* / 同じ通で *"Like most recent licences that aim to be more minimal than MIT/X11 License and Fair License (both OSI Certified, BTW), Unlicense suffers fatal drafting errors, such that it should _not_ be recommended to anyone."* | Rick Moen 氏 2015-10-02（"BSD 3-clause and copyright notices"） | **有利な面（B4・B3）。** 献呈と許諾を並べる形を、献呈の効かない法域への備えとして「隙が無い」と評し、その長さを同じ理由の代価とした。ACD の §3 と §4 の並びはこの形の系譜に在る。**ただし ACD は CC0 と同じではない**: CC0 の許諾は献呈が効かない所で働く（fallback）が、ACD の §4.4 は *"not as a fallback for it: it takes effect whether or not Section 3 does"* と書き、受領者に §3 が効くかの判断を求めない。Moen 氏の評は fallback の形に向いたもので、独立の許諾にそのまま当たるかは分からない（`QUESTIONS-FOR-COUNSEL.md` の問い 1 の「献呈と許諾は並んで立つか」がこの点） |
+| *"Public domain dedication is impossible in Europe. There is some doubt as whether it is even possible in the USA. The nearest you would get is something like CC0, which attempts to disclaim as much IPR as it is possible to disclaim."* | David Woolley 氏 2015-10-02（同じ会話） | **不利な面（B8・法域）と、§4 の理由。** 献呈そのものが効かない法域が在る、という参加者の読み。ACD の §3.3（放棄だけを許す法域では放棄する）と §4（独立の許諾）は、この読みに備える条である。**逆側**: 「不可能」は参加者の断定で、法域ごとの検討ではない（`jurisdictions.md` が法域ごとの撤回権を持つ） |
+| *"But for software I think there's no justification to not pick an OSI approved license. (Conversely, CC licenses are primarily designed for copyrighted works that are not software code.)"* / *"Many reviewers voiced an opinion that explicitly reserving the right to sue your users for patent infringment is clearly not compatible with the Open Source Definition."* / *"Technically then, it's never been decided whether CC0 is open source or not, but it is not OSI approved."* | Henrik Ingo 氏 2017-11-10（"I've been asked to license my open source project CC0"） | **両面。** CC0 が承認されなかった理由を特許の除外とする読みで、`rounds/2026-11-16-fsf-license-list-and-debian-dfsg-public-domain-snapshot.txt` の FSF の理由と同じ向き。ACD の §8 は CC0 が除外を置いた所に許諾を置くので、この理由は ACD に当たらない。**逆側**: 「ソフトウェアには承認済みのライセンスを」は、新しい道具を出すこと自体への逆風（B10）で、ソフトウェア以外の著作物を覆う ACD の §1.3 は、CC の側の道具と同じ需要に当たる（B15） |
+| *"With CC0, I would suggest striking the patent provision or incorporating a patent grant from contributors in some manner."* | Christopher Sean Morrison 氏 2017-11-07（同じ会話） | **有利な面（§8）。** CC0 を使う人への処方として、特許の条を消すか特許の許諾を組み込め、と書いた。ACD の §8 は後者の形を取る。**逆側**: 同じ会話で Nigel Tzeng 氏は、自分のコードが使う特許を持たないなら特許の条は意味を持たない、と書き（要約・アーカイブの写しでは引用符の文字が化けているので逐語で引かない）、特許の差が実際に効く場面は狭いと読んだ |
+
+**読み。** 2015〜2017 年のリストの参加者は、献呈と許諾を並べる形を「隙が無い」と評し、CC0 の欠点を特許の除外に絞っていた。ACD はどちらの点でも CC0 の欠点を避ける側に在る。
+
+**逆側。** どれも参加者の発言で、委員会の決定ではない。Moen 氏が 2015 年に「致命的な起草の誤り」と評した Unlicense は、2020 年に承認された（`review-precedents.md`）—— 参加者の起草の評が承認の帰結を決めるわけではない。ACD の §4 は fallback でないので、Moen 氏の評の前提（献呈が効かない所で許諾が働く）とは形が違う。
+
+**この節が establish しないこと。** 献呈と独立の許諾を並べる形が、fallback の形と同じく「隙が無い」と審査者に読まれるか。ACD の長さが CC0 と同じ理由で受け入れられるか（CC0 は 998 語、ACD の 1.4 草案は 5,546 語・`review-readings-2.md` §1.245）。
+
+**反映**: B4（献呈と許諾を並べる形への有利な評と、ACD の §4.4 が fallback でないので評がそのまま当たらないこと・30 へ）/ B3（長さを「隙の無さ」の代価とする評・§1.255 の Taylor 氏の読みと同じ向き・30 へ）/ B8（献呈は欧州で不可能という参加者の読み・30 へ）/ 入口（CC0 が承認されなかった理由を特許の除外とする読みが、FSF の理由と並ぶ・50 へ）。

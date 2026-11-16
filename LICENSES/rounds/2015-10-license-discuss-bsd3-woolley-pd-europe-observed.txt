@@ -1,0 +1,27 @@
+Source: OSI license-discuss public archive, 2015-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 16 in "BSD 3-clause and copyright notices" (2015-10-01)
+Senders: David Woolley
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From forums at david-woolley.me.uk  Fri Oct  2 10:05:17 2015
+From: forums at david-woolley.me.uk (David Woolley)
+Date: Fri, 02 Oct 2015 11:05:17 +0100
+Subject: [License-discuss] BSD 3-clause and copyright notices
+In-Reply-To: <560E4CC8.504@mozilla.org>
+References: <CABbZS=XNr0NLpFWf2wXvzyFfjCqyC35Sz_xqhBO6JmKL8d2n+g@mail.gmail.com>
+ <CAOFm3uFxAwrrxbofGUqdhEzfsPKOpy+v8kLS7sQ=nXykzWG1=A@mail.gmail.com>
+ <CABbZS=UbPsd=-XF03=chr8jXw7tXo7duzaA0LOTffy5P16+cjA@mail.gmail.com>
+ <560E4CC8.504@mozilla.org>
+Message-ID: <560E56DD.7030300@david-woolley.me.uk>
+
+On 02/10/15 10:22, Gervase Markham wrote:
+> * Pick a project license which does not require attribution (that
+> basically means a Public Domain dedication); or
+>
+
+Public domain dedication is impossible in Europe.  There is some doubt 
+as whether it is even possible in the USA.  The nearest you would get is 
+something like CC0, which attempts to disclaim as much IPR as it is 
+possible to disclaim.

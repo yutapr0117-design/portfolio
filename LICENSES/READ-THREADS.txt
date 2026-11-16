@@ -662,6 +662,7 @@
 2012-10-03	License Stewards
 2012-11-11	proposal to revise and slightly reorganize the OSI licensing page [revisited]
 2012-11-12	objective criteria for license evaluation
+2012-11-12	The alphabetical list
 2012-11-26	Boilerplate license text for permissive licenses?
 2012-11-28	Organizing the FAQ into categories.
 2012-12-06	Making the PHP FAQ generic
@@ -728,6 +729,7 @@
 2014-12-04	Public domain license - Public Domain Customized
 2014-12-30	Approval request for GG License 1.0
 2015-01-16	FAQ entry on CLAs
+2015-02-05	PHP License v3.01 comments
 2015-03-04	Reverse Engineering and Open Source Licenses
 2015-03-12	Software, licenses, and patents
 2015-03-30	Shortest copyleft licence
@@ -748,6 +750,7 @@
 2015-09-15	-- National Security and Public Policy (3.5B and 4)
 2015-09-17	Sovereign Immunity
 2015-09-28	GPLv3 for elections software
+2015-09-29	BSD 3-clause and copyright notices
 2015-10-14	OSET Public License
 2015-10-20	Short permissive no attribution required open source license
 2015-12-03	Orphan Works: Summary of proposed 17 USC 514
@@ -765,6 +768,7 @@
 2016-06-05	ZENTAO PUBLIC LICENSE For Approval
 2016-06-06	License submission for approval for Moritz30-Projects Open Source License Version 1
 2016-06-16	Approval request for ZENTAO PUBLIC LICENSE
+2016-06-22	open source licenses addressing malicious derivatives
 2016-08-05	licenses for hosted services
 2016-08-22	The License Talking-About List
 2016-11-28	Using opensource in a company not in the software business
@@ -785,6 +789,7 @@
 2017-06-21	Moderator Advice
 2017-07-27	Hooyami License Version 1.0 for Approval
 2017-09-14	New Exhibit A for EPLv2
+2017-11-07	I've been asked to license my open source project CC0
 2018-03-02	ESA Permissive PL 2.3
 2018-03-02	ESA-PL Weak 2.3
 2018-06-18	OSL and AFL
@@ -842,6 +847,7 @@
 2019-08-13	Discussion: AGPL and Open Source Definition conflict
 2019-08-19	Fact-gathering on OSI-approved licenses
 2019-08-22	Coordinated release of security vulnerability information.
+2019-08-22	For approval: The Cryptographic Autonomy License (Beta 3)
 2019-08-28	The Right of Display
 2019-08-30	GPL-3.0's anti-DRM tivoization clause
 2019-09-11	Coherent Open Source - Getting underway next Friday
@@ -849,6 +855,7 @@
 2019-10-07	Storing source artifacts in ELF files
 2019-12-26	Approval Status of MIT-0
 2020-01-02	AGPL timeline & why cautious processes with real-world testing are better
+2020-01-03	On dual-licensing
 2020-02-20	Ethical open source licensing - Persona non Grata Preamble
 2020-02-24	"Fairness" vs. mission objectives
 2020-02-24	Ethical open source licensing - Dual Licensing for Justice
@@ -863,6 +870,7 @@
 2020-03-09	What should fit in a FOSS license?
 2020-03-15	How can we as a community help empower authors outside license agreements?
 2020-03-16	Strong non-discriminatory licensing
+2020-03-19	Extending copyleft and out-of-the-box compliance
 2020-03-26	REMOVE AAL from list of approved licenses
 2020-03-28	Request for legacy approval: The Unlicense
 2020-03-29	Thoughts on AAL and OSS vs FOSS
