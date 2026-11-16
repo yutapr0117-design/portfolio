@@ -723,3 +723,21 @@ census は、ドシエに多く引かれた会話を「候補の外」に置く�
 **この節が establish しないこと。** 2025 年の第 3 の状態が、重複に当たらないが未使用のライセンスにも使われるか。
 
 **反映**: B2（「否決ではない帰結」の段に、Kuhn 氏 2020 の文を、2025 年の理事会の答えの 5 年前の形として 1 文・portfolio-30）/ 1c（§4.2 が複数の法域の語を並べることが、CAL の審査で問われた「1 つの法域の語」の問いに答える形であること —— 逐条の §4.2 の行の材料・portfolio-30 の振り分け）。
+
+## 1.260 撤回不能を明記することは「少し冗長」—— 撤回の実例は無い（Berkus 氏 2025・MIT-I）。AI には一般化に使える実践がまだ無い（Maffulli 氏 2024）（2026-11-16）
+
+census の unquoted-decider（候補の外の会話の、ドシエが 1 文も引いていない決める側の通）の 2024〜2026 年分 170 通（`license-review` 124・`license-discuss` 46）を、2026-11-16 の main で回し直して Message-ID で引き、論点の語で点数づけして、ACD の論点に近い会話（AI への審査の手順の適応・MIT-I・新しいライセンスの事前の相談 など）を全文で読んだ。`review-readings.md` §1.211 の前後で読んだ 2024〜2026 年の `license-review` の 74 通の後に、ドシエが増えて引用が変わった分と `license-discuss` の分が加わっている。3 通を置いた（`rounds/2025-08-license-review-mit-i-berkus-irrevocable-redundant-observed.txt`・`rounds/2024-09-license-review-ai-process-{maffulli-no-practice,berkus-list-separately}-observed.txt`）。Perens 氏 2024-10 の「ある種の関門が要る」は `review-venue.md` に、AI への審査の適応のスレッドの委員長の答えは `board-decisions.md` に既に在る。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"It's one thing to say that the license is not revokable on already distributed copies of the software.  I think it's a bit redundant for the reasons Pam gives; even if the license is theoretically revokable, unless the revokation is automatic for reasons already documented in the license itself you're going to have a hard time actually carrying it out.  As far as I know, nobody has ever tried to do this; even with the various relicensings of database software, nobody has tried to claw back the old versions."* | Josh Berkus 氏 2025-08-15（MIT-I の審査） | **逆側（§2.2・§4.1・§10.4・B10）。** `review-precedents.md` §1.47 は、委員長が MIT に「perpetual と irrevocable の語を入れればよい」と述べたことを、ACD の §4.1 が既に満たす有利な面として読んだ。同じ審査で Berkus 氏は、撤回不能の明記そのものを「少し冗長」とし、撤回の実例は無いと書いた。ACD の本文は "irrevocable" の語を §2.2（*"This Dedication is irrevocable"*）・§3.1・§4.1・§8.1 の 4 か所に持ち、§10.4 が許しが終了しないことを別に述べる —— 新しさ（B10）や長さ（B3）の説明に撤回不能を挙げると、「実際には問題になっていない点に語を費やしている」と読まれうる。**有利な面**: Berkus 氏は撤回不能を誤りとは言っておらず、`jurisdictions.md` の法定の撤回権（UrhG 42 条ほか）は、ライセンスの撤回とは別の、作者の側の撤回の道で、実例が無いのはライセンスの撤回についてである |
+| *"I see the temptation to jump to this conclusion but I recommend everybody to remember that the OSD looks easy to interpret today only because it's 26 years old. Also, when it came out there were hundreds of software packages already using its principles."* / *"For AI we don't have any of that, there isn't a body of widely-agreed-upon "free as in freedom" work we can look at, there is no practice of openness, therefore there are no examples we can use to generalize"* | Stefano Maffulli 氏（事務局長）2024-09-12（"Adapting the license-review process to AI"） | **両面（B10・B15・B2）。** AI の領域には一般化に使える実践が無い、という事務局長の読み。ACD のモデルと出力への伸び（§6・§8.4）は、審査者が比べる先例の無い所に在る —— 新しさの根拠にもなり、比べる物差しが無いという不利にもなる。OSD 自体が「既に何百もの実践があった」ことで解釈しやすくなった、という読みは、B2（実使用が 1 件）の重さを裏から支える |
+| *"Finally, I think we'll want to list approved documents which are not software licenses separately on the website from the software licenses."* | Josh Berkus 氏 2024-09-09（同じ会話） | **参考（B15）。** ソフトウェアのライセンスでない承認済みの文書を別に並べる、という案。ACD のようにソフトウェアとそれ以外を共に覆う文書が、どちらの一覧に入るのかは、この案の下で問われうる |
+
+**読み。** 2024〜2026 年の、ドシエが引いていない決める側の通は、ACD の撤回不能の強調に向けた逆側（Berkus 氏 2025）を持っていた。§1.47 の有利な読みは、同じ審査の別の通と対で置く必要がある。
+
+**逆側。** Berkus 氏の通は、MIT-I の「公の置き場から外してはならない」という別の義務への批判が主で、撤回不能の明記を退けてはいない。Maffulli 氏の通は OSAID（AI の定義）の文脈で、ライセンスの審査の基準を述べたものではない。
+
+**この節が establish しないこと。** 審査者が ACD の撤回不能の 4 か所の語と §10.4 を冗長と読むかどうか。
+
+**反映**: B10（撤回不能の明記を「少し冗長・撤回の実例は無い」とする Berkus 氏 2025 を、`review-precedents.md` §1.47 の有利な読みの逆側として・30 へ）/ B15（AI の領域に一般化の実践が無いという事務局長の読みと、非ソフトウェアの文書を別に並べる案・30 へ）/ 1c（撤回不能を 4 か所の語と §10.4 で述べることが冗長と読まれる余地 —— 語数を減らす候補になるかの判断）。
