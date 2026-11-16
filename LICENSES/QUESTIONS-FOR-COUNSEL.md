@@ -152,6 +152,17 @@ public dedication still work as a unilateral consent of the kind the German Fede
 recognised in 2010 (I ZR 69/08, *Vorschaubilder I*), and if so, can the Dedicator revoke that consent
 despite §2.2? (`jurisdictions.md` §2 and §3; `against-2.md` #321.)
 
+**What a German attorney has written about the closest instrument (added 2026-11-16).** Till Kreutzer's
+analysis of CC0 under German law (c. 2011, cited on `license-review` in 2020) narrows (c). He wrote that
+the waiver is ineffective there (*"the waiver in sec. 2 of the CC0 is not legally effective under German
+copyright law"*), that the fallback licence is effective, and that even without one *"public domain
+licenses ... are reinterpreted as unconditional, unlimited, non-exclusive (i.e. public) licenses"* in the
+prevailing opinion of scholars. He read the non-assertion as *"a valid and binding assurance to desist
+from taking legal actions"* (`rounds/2026-11-16-kreutzer-cc0-german-law-analysis-snapshot.txt`). On that view §3 does
+nothing in Germany, as (c) supposes, but §4 and §5 carry the Dedication there, and §4.4 does not depend on
+a reinterpretation. It is one attorney's opinion on CC0, not a decision, and the extract breaks off where
+he turns to moral rights, so §12 is not covered by it.
+
 **An answer would change** whether the text keeps three footings (register B4) and how §4.4 says
 "independent". An answer to (b) or (h) would change what the dossier says rather than the text: no
 wording contracts out of a statute that forbids it. An answer to (i) would change whether §2.5 needs
