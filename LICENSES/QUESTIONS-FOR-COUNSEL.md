@@ -412,18 +412,19 @@ front of its server and use that law against a crawler that defeats it; the purp
 meant to be learned from) is then kept only if copies remain obtainable by other means, and the text
 does not require that they do.
 
-A sixth question is what *"a use of the Work that this Dedication permits"* means where the permission
+A sixth question was what *"a use of the Work that this Dedication permits"* means where the permission
 fails. In a jurisdiction where §4 does not take effect, is the use still one the Dedication permits, so
 that §5.1 still bars the claim, or only one the text says it permits? We read §15.1, which asks for the
 reading that gives *"the widest permission and the least obligation upon You"*, as choosing the first,
 so that the covenant stands on its own footing, as §2.4 says. If a court takes the second, §5.1
 falls with §4 in exactly the place it is meant to hold (`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.27, from
-portfolio-30).
+portfolio-30). **The 1.4 draft answers it (trial T93):** §5.1 and §5.2(d) now say *"a use of the Work
+that this Dedication permits or purports to permit"*, so the covenant holds where §4 does not take
+effect.
 
 **An answer would change** whether §5.1's *"treats as wrongful, or as without legal basis"* is the right wording,
 and whether data protection needs its own exception. An answer to the second question would change whether §11.3 needs the altered-work case in words.
-The third is settled in the 1.4 draft by T91. An answer to the sixth would change whether §5.1 should say that a use is permitted
-for this purpose whether or not §4 takes effect. An answer to the fourth would change whether §5.3 should keep the words *intended beneficiary*, and whether T66 should have extended them to §8.6. An answer to the fifth would change whether the second limb of §5.2(a) needs a carve-out for computer-misuse law.
+The third is settled in the 1.4 draft by T91. The sixth is settled in the 1.4 draft by T93. An answer to the fourth would change whether §5.3 should keep the words *intended beneficiary*, and whether T66 should have extended them to §8.6. An answer to the fifth would change whether the second limb of §5.2(a) needs a carve-out for computer-misuse law.
 
 ## 6. Do the text-and-data-mining declarations do anything? (§6.2, §6.3)
 
@@ -468,8 +469,10 @@ would say whether §6 is needed in Germany or only stated.
 
 ## 7. What follows from naming no governing law and no forum? (§15.3)
 
-**The clause.** *"This Dedication specifies no governing law and no forum. It is intended to
-operate under the law of each jurisdiction in which the Work is used."*
+**The clause.** In ACD-1.3: *"This Dedication specifies no governing law and no forum. It is intended to
+operate under the law of each jurisdiction in which the Work is used, according to that law."* The 1.4
+draft (trial T92) keeps only the first sentence: *"This Dedication specifies no governing law and no
+forum."*
 
 **Why we doubt it.** OSI's board, approving another licence, said *"it does not believe that
 choice of law provisions are necessary or advisable in open source licenses"* (`against.md`
@@ -487,9 +490,15 @@ the contract has his habitual residence"*; for a grant, that is the Dedicator
 (`rounds/2026-11-16-eu-tdm-and-conflict-of-laws-snapshot.txt`). Whether it is a contract is not settled by
 these texts.
 
-**An answer would change** whether the second sentence of §15.3 stays. #23 reads *"It is intended to
-operate under the law of each jurisdiction in which the Work is used, according to that law"* as a
-declaration about conflict of laws that a forum need not follow; if it does no work, it can go.
+**The 1.4 draft answers the first part (trial T92).** #23 read the second sentence as a declaration
+about conflict of laws that a forum need not follow, and the law above shows it did no work on the
+infringement side, so the draft removed it. One consequence follows: that sentence was the only words
+that could be read as an implied choice of each place of use, so without it, on the contract side,
+Rome I Article 4(2) points to the Dedicator's habitual residence. Is that a cost to a recipient sued
+abroad, or does it make the contract side easier to predict?
+
+**An answer would change** whether the dossier should tell adopters that the contract side may follow
+the Dedicator's law. Whether §15.3 keeps its second sentence is settled in the 1.4 draft by T92.
 
 ## 8. Does the Dedication survive the Dedicator's insolvency? (§2.9)
 
