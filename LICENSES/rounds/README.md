@@ -187,6 +187,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2003-08 | `license-discuss` | **観測（"Open Source Licensing" の全 3 通・OSL の perpetual と 17 U.S.C. §203、法はどのみち勝つので書く必要は無いという文の引用）** | `2003-08-license-discuss-osl-perpetual-and-section-203-observed.txt` |
 | 2007-07〜08 | `license-discuss` | **観測（GPLv3 の審査の進め方から 2 通・審査を OSD だけに絞る主張と、その前提だった採用と検討）** | `2007-07-license-discuss-gplv3-review-scope-observed.txt` |
 | 2018-06 | `license-review` | **観測（"moving to an issue tracker" から 5 通・理事会が変更を求める 2 つの場面と、独自の価値の問い）** | `2018-06-license-review-board-change-requests-and-unique-value-observed.txt` |
+| 2018-06 | `license-review` | Villa 氏 2018-06-19 | `2018-06-license-review-submitter-notes-villa-industry-changed-observed.txt` |
 | 2018-09 | `license-review` | **観測（Smith 氏の 1 通・先例の主張への否定的な反応、運用は OSD の文言より厳しい）** | `2018-09-license-review-cfsl-smith-interpretive-history-observed.txt` |
 | 2018-06 | `license-review` | **観測（Perens 氏の 1 通・ライセンスに関心を持つ人を紹介してほしい）** | `2018-06-license-review-l0r-perens-interest-observed.txt` |
 | 2018-06 | `license-review` | **観測（Cowan 氏の 1 通・RPL は不透明でも善意だから承認したが誤りだった）** | `2018-06-license-review-l0r-cowan-rpl-observed.txt` |
@@ -204,6 +205,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2018-10 | `license-review` | **観測（Phipps 氏の 1 通・著者に代わって未解決の論点を集めた、改訂版が要る）** | `2018-10-license-review-cfsl-phipps-open-issues-observed.txt` |
 | 2018-10 | `license-review` | **観測（Phipps 氏の 1 通・指摘が改訂版で扱われていないので理事会は判断を延ばした）** | `2018-10-license-review-cfsl-phipps-postponed-observed.txt` |
 | 2019-06 | `license-discuss` | **観測（"Copyright on APIs" から 2 通・在るか分からない権利を主張すること、名指すことが権利の拡張の例になること）** | `2019-06-license-discuss-api-copyright-claiming-rights-observed.txt` |
+| 2019-07 | `license-discuss` | Villa 氏 2019-07-02 | `2019-07-license-discuss-how-global-villa-2019-observed.txt` |
 | 2025-12 | `license-discuss` | **観測（"Total Reciprocity Public License (TRPL v1.0)" から 3 通・出力を派生物とみなす条は使用の制限か、ライセンスが法の語を作り直すこと）** | `2025-12-license-discuss-trpl-functional-output-observed.txt` |
 | 2025-12 | `license-discuss` | **観測（同じ会話から 2 通・同じ誤解がほぼ月に一度来ること、出力への条件は契約でしか働かず同意した者しか縛らないこと）** | `2025-12-license-discuss-trpl-once-a-month-and-contract-observed.txt` |
 | 2025-07〜10 | `license-review` | **観測（PPPL BSD-3 の提出から 4 通・名前だけが違う同じライセンスは承認しない、著作権者の表示はライセンスの外に置く、名は steward が決める）** | `2025-07-to-10-license-review-pppl-same-license-new-name-observed.txt` |
@@ -220,6 +222,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2016-06 | `license-review` | **観測（Moritz30 の提出から 6 通・読めなければ適合しないと推定する、法律家への相談を要件にしない、長い語は効くために要る）** | `2016-06-license-review-moritz30-unclear-means-nonconformant-observed.txt` |
 | 2025-02 | `license-review` | **観測（ModelGo への Berkus 氏の所見 1 通・機械学習の条項に AI を作る実務家の読みを、英語に母語話者の編集者を）** | `2025-02-license-review-modelgo-berkus-practitioner-review-observed.txt` |
 | 2026-08 | `license-review` | **観測（OpenMDW の審査から 3 通・著作権の反訴による終了は公平か、ソフトウェアでないものに及ぶライセンスを「ソフトウェアなら」の基準だけで量らない）** | `2026-08-license-review-openmdw-antisuit-and-non-software-observed.txt` |
+| 2026-08 | `license-review` | Villa 氏 2026-08-14 | `2026-08-license-review-openmdw-villa-mpl2-defensive-clause-observed.txt` |
 | 2024〜2026 | `license-review` | **観測（ドシエが引いていなかった決める側の 6 通・前例を論拠にするな、精確な語は品質の問題、AI 生成の表示はファイル単位で、完全な許諾は全法域の動詞を持つ）** | `2024-to-2026-license-review-unquoted-decider-messages-observed.txt` |
 | 2012-03 | `license-review` / `license-discuss` | **観測（"CC0 incompliant with OSD on patents" から 5 通・著作権だけのライセンスは滑りやすい坂、放棄の効果を論じるのは時間の無駄）** | `2012-03-license-review-cc0-incompliant-patents-observed.txt` |
 | 2020-02 | `license-discuss` | **観測（Persona non Grata の前文の会話から 2 通・採用の見込みは承認の基準ではなかった、拘束しない語は要らない）** | `2020-02-license-discuss-adoption-not-a-criterion-observed.txt` |

@@ -1,0 +1,103 @@
+Source: OSI license-discuss public archive, 2019-July.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 1 in "How global do licenses have to be? [was Re: Copyright on APIs]" (2019-07-02)
+Senders: Luis Villa
+Position: Luis Villa（元 OSI 理事）
+
+----- begin verbatim -----
+From luis at lu.is  Tue Jul  2 17:58:39 2019
+From: luis at lu.is (Luis Villa)
+Date: Tue, 2 Jul 2019 10:58:39 -0700
+Subject: [License-discuss] How global do licenses have to be? [was Re:
+ Copyright on APIs]
+In-Reply-To: <CAFQvZEPkCqBjrofsFrcZGStYKXH4Odqi2GsffvAVwJT9NJM71Q@mail.gmail.com>
+References: <000001d52ed4$0a7f7f90$1f7e7eb0$@rosenlaw.com>
+ <CAFjZtRfvQWTUVZGvoe2WFJaXvRcqMWfOu7ZtwP_3Gr-iZqLaag@mail.gmail.com>
+ <CAFQvZEPkCqBjrofsFrcZGStYKXH4Odqi2GsffvAVwJT9NJM71Q@mail.gmail.com>
+Message-ID: <CAFjZtRcrOXK88JoArv8Jn_Z4Eh1mY1f0xK64KrYf-A0bCcjzxg@mail.gmail.com>
+
+tl;dr: our existing licenses are maybe not as global as we'd like to
+pretend; feels like that has implications for future license approvals (and
+maybe CAL) but I'm not sure what those implications are/should be.
+
+On Tue, Jul 2, 2019 at 9:33 AM VanL <van.lindberg at gmail.com> wrote:
+
+> On Tue, Jul 2, 2019 at 8:20 AM Luis Villa <luis at lu.is> wrote:
+>
+>> I dislike this, but the Federal Circuit would tell you that the APIs are
+>> expressive source code.
+>>
+>
+> If the API is part of the "Work" for copyright purposes, then copying the
+> API is subject to copyleft *under any copyleft license, currently-accepted
+> licenses included.*
+>
+> <snip>
+>
+> The argument against this was always that "the identified elements are
+> statutorily excluded from copyright" under 17 USC 102. I don't think that
+> is a sound legal position anymore.
+>
+
+Whether it is a sound legal position depends on where you are. In US cases
+that also involve a patent, APIs would appear to be (currently) part of the
+work.
+
+But that's also almost certainly not the case in the EU, per SAS/World
+Programming.
+
+Presumably for most large licensees, the effect here is that the rule of
+the most-risk-creating jurisdiction is the one that applies, so we already
+have API copyleft whether OSI (and Larry ;) ) likes it or not.
+
+On Thu, Jun 27, 2019 at 6:03 AM Pamela Chestek <
+pamela.chestek at opensource.org> wrote:
+
+> License Review Committee Recommendation:
+>
+<snip>
+
+>
+>    1. The mechanism of ?public performance?: ... [T]his license uses a
+>    term specific to US law, which is ?public performance.? The use of of a
+>    term found only in one jurisdiction?s body of law leads to the possibility
+>    of highly disparate outcomes under other legal systems.
+>
+> I agree that consistency is good - I've written at length on how cross-jurisdiction
+inconsistency is extremely problematic in the data licensing context
+<https://lu.is/blog/2016/09/12/copyleft-and-data-database-law-as-poor-platform/>,
+for example. And it's possible CAL crosses an articulable line that is more
+precise than the general "licenses should be consistent across
+jurisdictions" (see [1] below).
+
+I think it is worth noting, though, that our existing licenses are not
+globally consistent. Beyond Van's point about changes in the underlying law
+impacting the terms of the license, there are problems as basic as those
+with 'distribute' noted by the GPL v3 drafting team
+<http://gplv3.fsf.org/denationalization-dd2.html>. ("Even within a single
+country and language, the term distribution may be ambiguous...") And GPL
+v3 and MPL v2 both allow people to add additional warranty disclaimers
+because the drafters were pretty certain the existing disclaimers might be
+insufficient in certain jurisdictions or contexts. I'm sure there are
+others.
+
+Anyway, I don't have any answers to this problem - it probably falls into
+the category of "things we have to live with". I'd just urge all of us to
+be cautious about cross-jurisdictional consistency as a mandatory
+requirement for new licenses when it's definitely not the case with
+existing licenses and arguably not possible even for the most basic of
+terms.
+
+Luis
+
+[1] I think CAL's ambiguity around "public performance" is probably
+distinguishable from other license's ambiguity around "distribute":
+distribute is ambiguous because widely-used and well-defined in other
+systems, but those definitions may be conflicting; public performance
+ambiguous because not widely used and so undefined in other systems. And
+this may be what the board had in mind when saying "the use of a term found
+only in one jurisdiction's body of law" rather than a different phrase. If
+that precision was intentional, kudos!
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20190702/15ab0254/attachment.html>
