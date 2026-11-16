@@ -1,7 +1,7 @@
 ---
 file: LICENSES/AUDIT-LEDGER-ARCHIVE.md
 audience: 次のセッションの実装者（一次読者）/ 監査人
-last-updated: 2026-11-01
+last-updated: 2026-11-16
 canonical-ref: LICENSES/AUDIT-LEDGER.md (本台帳・新しい回はそちらへ足す) / .github/scripts/verify_dossier_quotations.py (引用照合の道具)
 ---
 
