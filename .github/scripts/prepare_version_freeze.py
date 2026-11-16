@@ -407,6 +407,8 @@ def gate_6b(today: "datetime.date | None" = None) -> list[str]:
 
     投稿の日は、草案の冒頭の節 "Changes since the version posted on <YYYY-MM-DD>" が記録する (50 と 1c の合意・2026-11-15)。
     日付は公開アーカイブに届いた日で、同じ節にその通の URL (license-discuss の pipermail・日付と同じ月) が要る (2026-11-16)。
+    拒否の道: 同じ節に "Posting rejected by moderation on <日付>" と rounds/ の stub の path が在れば、stub の実在と在庫、
+    FROZEN.md の <!-- STAGE-6B-DECISION: <日付> proceed … --> (拒否より後) を見て通す (段 6b の (3)・50 の提案)。
     その節が無ければ、窓はまだ始まっていない。根拠は Chestek 氏 2026-01-23 の "at least 30 days for feedback on
     license-discuss before submitting to license-review"。**逆側** (段 6b の行と同じ): 規則ではなく 1 人の助言で、30 日置いても
     議論が来る保証は無い。届いたかは公開アーカイブで確かめる (ゲート 10) —— この関数は日付しか見ない。
@@ -424,6 +426,23 @@ def gate_6b(today: "datetime.date | None" = None) -> list[str]:
     nxt = re.search(r"\n\s*\n\s*[*-] |\n\S", sec[1:])
     sec = sec[: nxt.start() + 1] if nxt else sec
     d = datetime.date.fromisoformat(m.group(1))
+    rej = re.search(r"Posting rejected by moderation on (\d{4}-\d{2}-\d{2})", sec)
+    if rej:
+        # 拒否の道 (段 6b の (3)・50 の提案・2026-11-16): 拒否された投稿は届いていないので 30 日は数えない。拒否の stub
+        #   (B14 の off-list の stub と同じ形・本文を置かない) が rounds/ に実在して在庫に載り、FROZEN.md の
+        #   STAGE-6B-DECISION marker が拒否の日より後に「proceed」と決めていれば通す。判断が記録に残ることが条件
+        bad = []
+        stub = re.search(r"(LICENSES/rounds/[\w.\-]+\.txt)", sec)
+        if not stub or not (ROOT / stub.group(1)).exists():
+            bad.append("拒否の stub の path が節に無いか、file が無い")
+        elif Path(stub.group(1)).name not in (L / "rounds" / "README.md").read_text(encoding="utf-8"):
+            bad.append(f"拒否の stub {Path(stub.group(1)).name} が rounds/README.md の在庫に無い")
+        dm = re.search(r"<!--\s*STAGE-6B-DECISION:\s*(\d{4}-\d{2}-\d{2})\s+(proceed|wait)\b", (L / "FROZEN.md").read_text(encoding="utf-8"))
+        if not dm:
+            bad.append("FROZEN.md に STAGE-6B-DECISION の marker が無い (拒否の後に進むかの決定の記録)")
+        elif dm.group(1) < rej.group(1) or dm.group(2) != "proceed":
+            bad.append(f"STAGE-6B-DECISION が {dm.group(1)} {dm.group(2)} —— 拒否 ({rej.group(1)}) より後の proceed でない")
+        return [f"段 6b (拒否の道): {x}" for x in bad]
     u = re.search(r"https://lists\.opensource\.org/pipermail/license-discuss_lists\.opensource\.org/(\d{4}-[A-Z][a-z]+)/\d+\.html", sec)
     if not u:
         return [f"段 6b: {m.group(1)} の投稿の公開アーカイブの URL が同じ節に無い (届いた記録が無い・ゲート 10) —— 窓は始まらない"]
