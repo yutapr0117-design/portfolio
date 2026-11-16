@@ -55,8 +55,7 @@ decide what is worth translating, and gives you the commands to check the claims
   unrestricted permission may already reach.**
 - **Measured over the whole approved list.** Of the **141 licences
   SPDX marks OSI-approved and not deprecated, exactly three impose no condition on the licensee** —
-  **0BSD, MIT-0 and the Unlicense** — and **none of those three contains the word *patent* at
-  all**. Seven extend a patent grant beyond the work itself, and **all seven carry a condition**
+  **0BSD, MIT-0 and the Unlicense** — and **none of those three contains the word** *patent*. Seven extend a patent grant beyond the work itself, and **all seven carry a condition**
   ([`ACD-1.0.gap-measurements.md`](ACD-1.0.gap-measurements.md) §1.97, §1.133).
 - **What this does not claim.** That existing licences forbid training: MIT's *"deal in the
   Software without restriction"* may well reach these rights. §6.1, §7 and §9 state expressly what a broad permission may already
@@ -68,7 +67,7 @@ decide what is worth translating, and gives you the commands to check the claims
   condition ([`gap-measurements.md`](ACD-1.0.gap-measurements.md) §1.133).
 - **The three weaknesses, first.** **No lawyer has read it**; **it has one adopter — this
   repository**; and **it is long**: its terms run longer than GPL-3.0's, a length a Committee
-  member has held against another licence. None is repaired here. The first two are not published
+  member has held, with other faults, against another licence. None is repaired here. The first two are not published
   criteria: the chair called legal review *"not a blocker"*, and a Committee rationale (2020) calls
   non-use *"not a basis for rejection that the OSI has applied in the past"*.
 - **Anyone can adopt it.** No project names, and nothing in the text to edit.
@@ -90,9 +89,11 @@ quotes the nearest OSI-approved text we found.
 | §7.2: *"You may extract and re-utilise the whole or any substantial part of the contents of the Work, repeatedly and systematically, without limit and without condition"* | **None that we found** names this right. CC0 1.0, which is **not** OSI-approved, lists *"database rights (such as those arising under Directive 96/9/EC"* among the rights it waives | A difference in what is **stated**, not necessarily in effect: an unrestricted permission may already reach this right. The draft uses the Directive's own verbs |
 
 **The defined terms.** *Work*, *You* and *Contribution* are Apache-2.0's words; *Moral Rights* is
-CC0's; *the Steward* follows EPL's *Agreement Steward*; *Reservation* is tied to Article 4(3) of
+one of CC0's listed rights; *the Steward* follows EPL's *Agreement Steward*; *Reservation* is tied to Article 4(3) of
 Directive (EU) 2019/790. *Dedicator* plays the part of CC0's *Affirmer*: it is not *Licensor*,
-because §3 surrenders rights rather than licensing them. *Computational Use* and
+because §3 surrenders rights rather than licensing them. *Dedication* is CC0's
+word. *Covered Rights* is ours: MPL's *Covered* names software, ours names the rights, so that one
+term reaches copyright, neighbouring and database rights together. *Computational Use* and
 *Machine-Generated Material* are new, and name what ACD adds.
 
 **Why a new licence at all.** Bruce Perens wrote to submitters in 2018, as his own view and not
