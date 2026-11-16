@@ -1,0 +1,196 @@
+Source: OSI license-review public archive, 2018-June.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 97 in "Some notes for license submitters" (2018-06-12)
+Senders: Luis Villa
+Position: Luis Villa（元 OSI 理事）
+
+----- begin verbatim -----
+From luis at lu.is  Wed Jun 20 03:57:21 2018
+From: luis at lu.is (Luis Villa)
+Date: Tue, 19 Jun 2018 20:57:21 -0700
+Subject: [License-review] Some notes for license submitters
+In-Reply-To: <CAK2MWOucUUXWoeT9Y=LdSTryB3oMRbNTuqL4VQa0kc1u2mJ=-Q@mail.gmail.com>
+References: <CAFjZtRc=6MZDMXpMrvad6oAuOgj_Kmb8U19qe-kRZw-puAh=8w@mail.gmail.com>
+ <8e39062a-2f4f-4507-5df0-ea7f6e64b509@postgresql.org>
+ <CAJ-h4vsOoE6U9yzje0jpLLgQa-YsFN=wOWpxvEjej7o2dXPdwA@mail.gmail.com>
+ <CAK2MWOvpNVWQdMarz2F9Hr=7gU8jJsyr59E2vMsj1U3YDVqWUg@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B51978BD4E35@FMSMSX108.amr.corp.intel.com>
+ <0e8069da-2fc3-2897-ea2f-7479cdc42c31@opensource.org>
+ <CAK2MWOt8ty5gvPZyW4yzvGT9jswYyFs4Gj+s3dqXGWXS+7OQfg@mail.gmail.com>
+ <a7526439-ff77-5fc4-26f3-4c5031ab7849@opensource.org>
+ <20180619211623.GE18555@dev.kemitchell.com>
+ <6c2c4f04-3186-a438-bc0f-6b7c6f057799@opensource.org>
+ <20180619231234.GG18555@dev.kemitchell.com>
+ <b0baa682-21d7-3bc0-0298-5bba6bac3c07@opensource.org>
+ <CAK2MWOt5jTm4_hzgBTtfX2EOKR3L0cM0+uMAj_g+-T9oB0kWGw@mail.gmail.com>
+ <608caf65-7c0a-bd55-d2ce-82223a5b3179@opensource.org>
+ <CAK2MWOucUUXWoeT9Y=LdSTryB3oMRbNTuqL4VQa0kc1u2mJ=-Q@mail.gmail.com>
+Message-ID: <CAFjZtRcXOUz_7KUptoGDx0NuwS8dSkU4KWyBU9n=+vJ7neumEg@mail.gmail.com>
+
+[Changing the subject line back for those who'd like to ignore tools
+discussion or vice-versa]
+
+The software industry has a completely different economic and technological
+infrastructure than it did when OSI was founded and when most of these
+licenses were written. Every other software licensing agreement in the
+industry has changed radically since the mid-2000s as a result. It is not
+healthy that the OSI's license selection (and possibly the OSD) have not
+followed suit. Frankly, I think a lot of the "post open source
+<http://lu.is/blog/2013/01/27/taking-post-open-source-seriously-as-a-statement-about-copyright-law/>"
+thing is really "open source licenses are nearly completely unresponsive to
+the software industry as it actually exists in the year 2018".
+
+I'm pretty sure that, contra Bruce, it isn't OSI's position that open
+source needs to stay forever trapped in amber, but a reasonable outside
+observer (like Kyle!) could certainly conclude otherwise.
+
+Luis
+
+P.S. To respond to the claim that licensing improvements are no longer
+possible, significant input that MPL 2.0 responded to in various subtle but
+important ways:
+
+   - various cases around the covenant / condition difference (thanks in
+   part to members of this list)
+   - then-state-of-the-art changes in Javascript compilation (shouldn't be
+   any unexpected surprises there, unlike the case for some licenses)
+   - vast improvements in readability to reflect the broadening base of
+   open source developers who lack legal expertise
+   - GPL v3-style termination
+   - explicit permission for additional disclaimers (has proven very useful
+   in the medical space)
+   - patent termination that reflected the actual mechanisms by which
+   patents were being granted to open source communities (which, IMHO, we'd
+   all be better off if Apache and FSF adopted)
+
+And that's just off the top of my head, in a license that had as a
+deliberate design goal not rocking the boat.
+
+Changes since then that even a fairly conservative new license might
+consider responding to:
+
+   - What does a network services license look like in a microservices
+   world? what about serverless? what about a Javascript-dominated world?
+   - How should notice requirements respond to state-of-the-art in app
+   stores, package managers, GitHub, SPDX, and general trend towards
+   "WTFPL"-attitude in next-generation open source development? (What current
+   licenses *say*, and what all these *do*, are often at odds in ways that
+   would be very profitable for a determined troll.)
+   - How should drafting respond to license wizards, CC-style
+   human-readable licenses, and other attempts to make licensing "easy"?
+
+A bolder new license might consider:
+
+   - What does an economically viable open source look like?
+   - How do you get Facebook, Amazon, Google, Twitter, etc., on board with
+   a network services copyleft? When you talk to people at these places, many
+   of them would like to prevent free-riding by their competitors, and would
+   look very seriously at a network copyleft that was perceived to be
+   pragmatic. The vast, gaping hole in this area is a damning condemnation of
+   our work as an open legal community.
+   - How should we think about our role as an extra-institutional legal
+   system? Eben and Richard took some good steps there by documenting
+   everything (in recognition of the quasi-constitutional nature of the
+   license) but I think there's a lot of potential to explore here.
+
+
+On Tue, Jun 19, 2018 at 7:28 PM Bruce Perens <bruce at perens.com> wrote:
+
+> OK, so not just whether it passes the OSD but whether it provides any
+> unique value, too.
+>
+> Sure we need new licenses for new case law. But how many of the licenses
+> submitted actually *were *an attempt to catch up with new case law? There
+> hasn't been much other than GPL3.
+>
+>     Thanks
+>
+>     Bruce
+>
+> On Tue, Jun 19, 2018 at 7:18 PM, Allison Randal <allison at opensource.org>
+> wrote:
+>
+>> Hi Bruce,
+>>
+>> I'm a firm supporter of the license proliferation position that the OSI
+>> adopted over a decade ago, and we do continue to consider whether a new
+>> license is offering unique value.
+>>
+>> But, I consider it highly unlikely that we have such a perfect set of
+>> open source license versions today that we'll never need to change them.
+>> Especially since the law that open source licenses are built on keeps
+>> changing, so over time open source licenses will need to evolve to cope
+>> with a legal environment that the current licenses couldn't anticipate.
+>>
+>> Allison
+>>
+>> On 06/19/2018 06:02 PM, Bruce Perens wrote:
+>> > Allison,
+>> >
+>> > The biggest problem here is not that OSI is slow to approve licenses,
+>> > that they provide insufficient feedback, or that they are using the
+>> > wrong software.
+>> >
+>> > It's a greater problem that OSI continues to approve licenses on a
+>> > regular basis, twenty years after the process started.
+>> >
+>> > There aren't that many actually useful variations on the licenses that
+>> > actually pass the OSD. There are actually only three useful licenses, a
+>> > gift-style, a sharing-with-rules-style, and something in between. Given
+>> > Affero and GPL3 terms on those three, essentially all purposes for Open
+>> > Source can be carried out. All else is embellishment.
+>> >
+>> > What we are seeing now are licenses that satisfy a particular attorney.
+>> > These are often introduced as being necessary for the specific needs of
+>> > the venue (Europe, for example) or a particular organization (NASA,
+>> > focusing on restrictions on the public domain). It's arguable that these
+>> > licenses are more useful than existing well-tested ones, even for those
+>> > organizations. For example, I don't see how NASA can /really /benefit
+>> > from imposing terms upon public-domain works or making itself a
+>> > secondary beneficiary of licenses executed by others.
+>> >
+>> > The license reviewers aren't waiting to be surprised by some worthy
+>> > innovation in Open Source licensing. No such thing is coming by. They
+>> > are mainly working to make sure that OSI understands when a license
+>> > should be rejected, and why.
+>> >
+>> > If OSI were to conclude that licenses, at this point, should be approved
+>> > only when there are /compelling /reasons to do so, the community would
+>> > benefit.
+>> >
+>> >     Thanks
+>> >
+>> >     Bruce
+>> >
+>> >
+>> > _______________________________________________
+>> > License-review mailing list
+>> > License-review at lists.opensource.org
+>> >
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>> >
+>>
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>
+>
+>
+> --
+> Bruce Perens K6BP - CEO, Legal Engineering
+> Standards committee chair, license review committee member, co-founder,
+> Open Source Initiative
+> President, Open Research Institute; Board Member, Fashion Freedom
+> Initiative.
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180619/6428a489/attachment.html>

@@ -176,6 +176,16 @@ Check 468y は 2 冊目とこの file の両方の「変えない」「退けた
 
 **結果**: 条を変える指摘は 0 件。Villa 氏の基準は、起草の質（直した記録がある）、既存との差（B10）、事前の審査（B1）、採用（B2）に集まり、どれも register の側の問いで、1.4 の本文の語では閉じられない。
 
+**アーカイブからの補い（2026-11-16）**: 上の表は、ドシエに引かれた文だけから書いていた。portfolio-2f がアーカイブの Villa 氏の通 331 通から論点の語に当たる 62 通を読んで 5 つの候補を挙げ、portfolio-1c が原文に当てた 3 つを rounds/ に置いた。
+
+| 発言 | 当たる条 | 読み | 残る点 |
+| :-- | :-- | :-- | :-- |
+| *"MPL 2.0's defensive clause terminates copyright grants specifically because the patent grant is often such a toothless remedy."*、*"A major software company (and frequent patent litigator) told us that they'd never ship MPL 2 software because of that, which we counted as a win."*（`license-review` 2026-08-14・OpenMDW 1.1・`rounds/2026-08-license-review-openmdw-villa-mpl2-defensive-clause-observed.txt`）| §8.2・§10.4 | **不利な面**。MPL 2.0 の起草側が、防御の終了を著作権の許諾に掛けるのは意図した設計だと述べた。ACD は終了を持たない（§10.4）ので、Dedicator を訴えた人も全ての許可を保つ（`against.md` #46 の費用）。**逆側**: 同じ文は、防御条項が特許訴訟の多い会社の採用を止めたことを「勝ち」と数えている。ACD は報復の条を持たず、1.4 の §8.2 はそれを方針でなく構造（§10.1 が条件を認めない）から導く —— *"the absence follows from the structure of this Dedication rather than from a policy preference expressed here"*。採用の阻害を避けるのは結果であって、本文が述べる理由ではない| 本文は変えない。§10.4 に終了を入れると、ACD の差の要（条件も終了も無い・§10）が消える。#46 の欄に足すかは register の担当（portfolio-30）へ |
+| *"our existing licenses are maybe not as global as we'd like to pretend; feels like that has implications for future license approvals (and maybe CAL)"*（`license-discuss` 2019-07-02・`rounds/2019-07-license-discuss-how-global-villa-2019-observed.txt`）| §15.3・§3.3・§12 | **有利な面**。既存のライセンスが法域の違いを扱いきれていないことを、元理事が将来の承認の問いとして挙げた。ACD は法域ごとに放棄が効かない場合の備え（§3.3・§4）、人格権の不行使と同意（§12）、裁判地を選ばない規則（§15.3）を持つ | Villa 氏は含意が何であるべきかは分からないと書いている。支持ではなく、問いが在ることの記録 |
+| *"The software industry has a completely different economic and technological infrastructure than it did when OSI was founded and when most of these licenses were written. … It is not healthy that the OSI's license selection (and possibly the OSD) have not followed suit."*（`license-review` 2018-06-19・`rounds/2018-06-license-review-submitter-notes-villa-industry-changed-observed.txt`）| §6・§9・B10 | **有利な面**。新しい事情（ACD では機械学習と機械による著作）に応じるライセンスの居場所を、元理事が求めた。ACD の前文は *"the three places where that assumption fails"* を名指す | 2018 年の文で、機械学習を名指していない。B10 の「既存で足りないか」に答えるのは量の側（`SUBMISSION-MATERIALS.md` §0d）で、この文は居場所が在りうることだけを示す |
+
+**補いの結果**: 条を変える指摘は 0 件のまま。2f の残り 2 つ（BSD+Patent の相互参照の誤りの指摘・2018-10 の審査の場への評価）は原文に当てていない —— 前者は ACD の相互参照の errata の線（E-series）で既に機械が照合し（Check 471）、後者は B1 の逆側に使うかを慎重に決める必要があるので、register の担当に渡す。
+
 **§15.7（T71）への追記（portfolio-30）**: 理由を作用の条に置くと Chestek 氏 2026-01-24 *"The unnumbered parts appear to be explanatory material, so I question whether they belong in the agreement at all."* と Piana 氏の線（説明は本文に入れない）に当たり、前文に置くと前文は自ら *"informative; not part of the operative terms"* と述べるので、`against.md` #124 の線では効力を持たない。どちらも同じ審査者の文に当たるので「理由をどこに置くか」に正解は無く、T71 は理由が範囲を狭める読みを許す害（E85）を除く方を選んだ。
 
 ### 16.2 Chestek 氏の基準を 1.4 草案に当てた（portfolio-30・条を変える指摘 0 件）

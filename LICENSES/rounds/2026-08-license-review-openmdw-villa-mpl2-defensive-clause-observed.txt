@@ -1,0 +1,68 @@
+Source: OSI license-review public archive, 2026-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 86 in "For Approval: OpenMDW License Agreement, versions 1.1 (OpenMDW-1.1)" (2026-08-13)
+Senders: Luis Villa
+Position: Luis Villa（MPL 2.0 の起草側・元 OSI 理事）
+
+----- begin verbatim -----
+From luis at lu.is  Fri Aug 14 13:36:43 2026
+From: luis at lu.is (Luis Villa)
+Date: Fri, 14 Aug 2026 06:36:43 -0700
+Subject: [License-review] For Approval: OpenMDW License Agreement,
+ versions 1.1 (OpenMDW-1.1)
+In-Reply-To: 
+ <DM6PR04MB4313AC9FB801BA258E254938D6DA2@DM6PR04MB4313.namprd04.prod.outlook.com>
+References: 
+ <DM6PR04MB4313AC9FB801BA258E254938D6DA2@DM6PR04MB4313.namprd04.prod.outlook.com>
+Message-ID: 
+ <CAFjZtRe+o7hTzW2DU07a1cb8sNhjakSbpLcUb7c5okhQXPen7A@mail.gmail.com>
+
+MPL 2.0’s defensive clause terminates copyright grants specifically because
+the patent grant is often such a toothless remedy.
+
+A major software company (and frequent patent litigator) told us that
+they’d never ship MPL 2 software because of that, which we counted as a win.
+
+On Fri, Aug 14, 2026 at 4:28 AM David Rudin <David at foundational.law> wrote:
+
+>
+> The copyright termination remedy has precedent in specification licensing.
+> The OWF agreements have carried it since 2009, the Community Specification
+> License since 2020. Admittedly, both are specification agreements and were
+> never submitted for OSI approval.
+>
+> OWFa 1.0 § 3.1.2.1 — and 0.9 before it — terminates "all rights, grants,
+> and promises made by me to you under this Agreement." Not under Section 3,
+> but under the Agreement, and § 2.1 is the copyright grant. The FAQ is
+> explicit: the signer's promises not to assert its Granted Claims "and its
+> copyrights" terminate; "defensive termination only means that the patent
+> and copyright licenses terminate" (Q16). The copyright license is given
+> irrevocably "except for defensive purposes" (Q3).
+>
+> The CSL carries it forward. The copyright license is irrevocable "except
+> as expressly stated in this License" (§ 1.1), and the express statement is
+> the defensive termination clause, which terminates "any licenses granted
+> under this License" (§ 2.1.4).
+>
+> The reasoning is that an instrument covering one body of material under
+> several overlapping IP regimes is granting one IP bargain, not a group of
+> individual bargains based on distinct IP regimes.  If the remedy reaches
+> only patents, a licensee can assert copyright in the materials it received
+> and keep its copyright license to those same materials. Closing that
+> asymmetry is the point.
+>
+> David
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Communication from the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260814/ec307ed3/attachment.htm>
