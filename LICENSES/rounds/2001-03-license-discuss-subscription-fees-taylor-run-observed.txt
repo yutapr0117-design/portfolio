@@ -1,0 +1,125 @@
+Source: OSI license-discuss public archive, 2001-March.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 39 in "Subscription/Service Fees - OSD Intent" (2001-03-28)
+Senders: Ian Lance Taylor
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From ian at airs.com  Thu Mar 29 06:56:47 2001
+From: ian at airs.com (Ian Lance Taylor)
+Date: 28 Mar 2001 22:56:47 -0800
+Subject: Subscription/Service Fees - OSD Intent
+In-Reply-To: <PstOfc.3ac2d7a3.c67ea6@localhost>
+References: <C1896BD5E8B1D311BE75009027CB019019A91A@mail.mediazone.co.jp>
+	<01032819311200.00353@weathertop> <PstOfc.3ac2b94d.c67ea6@localhost>
+	<si8zlp6uu8.fsf@daffy.airs.com> <PstOfc.3ac2d7a3.c67ea6@localhost>
+Message-ID: <sipuf15ahc.fsf@daffy.airs.com>
+
+Eric Jacobs <eaj at ricochet.net> writes:
+
+> My statement that Bob has all the rights which Andy has but does not
+> have the requirement of distributing under the GPL is derived from
+> David Johnson's argument about OSD #7 -- namely, that a recipient of
+> Open Source software gains all of the rights that the distributor
+> had with regard to the software, _without_ having to meet any of the
+> requirements that the distributor did.
+
+I'm sorry, I don't get it.  OSD #7 appears to me to say just what
+David Johnson says that it says: the recipient gets the rights of the
+person who gave him the software.  OSD #7 does not say that the
+recipient has to meet any requirements.
+
+> If Andy gives Bob a copy of the software, that does not mean that Bob
+> should automatically be granted Andy's rights, _without_ meeting the
+> conditions under which Andy obtained them.
+
+Why not?
+
+> Scenario 1
+>   - Andy obtains a copy of a software program.
+>   - Andy reads the license. The license states, in part, that it will
+>     grant him rights to copy, modify, distribute and prepare derivative
+>     works, under certain conditions. The conditions include a requirement
+>     to pay a fee.
+>   - Andy accepts the license. Andy is now granted those rights. Andy
+>     has also now incurred an obligation to pay the fee.
+>   - Andy gives a copy of the program to Bob. (Legally, as Andy has
+>     been granted that right.)
+>   - Bob reads the license. The license states, in part, that if he has
+>     received his copy from somebody who was granted rights under this
+>     license, Bob is also granted those rights.
+>   - Bob accepts (or doesn't accept) the license. In case he accepts, he
+>     does not have to pay a fee to copy, modify, distribute, or prepare
+>     derivative works.
+> 
+> Scenario 2
+>   - Andy obtains a copy of a software program.
+>   - Andy reads the license. The license states, in part, that it will
+>     grant him rights to copy, modify, distribute and prepare derivative
+>     works, under certain conditions. The conditions include a requirement
+>     that any derivative works of the software that Andy creates must be
+>     licensed under the GPL.
+>   - Andy accepts the license. Andy is now granted those rights. Andy
+>     has also now incurred an obligation that any derivative work of the
+>     software he should create must be licensed under the GPL.
+>   - Andy gives a copy of the program to Bob. (Legally, as Andy has
+>     been granted that right.)
+>   - Bob reads the license. The license states, in part, that if he has
+>     received his copy from somebody who was granted rights under this
+>     license, Bob is also granted those rights.
+> [Note: This license is not the GNU GPL, obviously.]
+>   - Bob accepts (or doesn't accept) the license. In case he accepts, he
+>     may prepare derivative works and license them under any license he
+>     chooses.
+
+As far as I can tell, your analogy relies on equating ``obligation to
+pay a fee'' with ``obligation that any derivative works must be under
+the GPL.''  But those are different cases.  Andy has a presumed right
+to run the program.  Andy does not have a presumed right to copy a
+program.  Copyright law restricts copying a program.  It does not
+restrict running a legally obtained copy of a program.
+
+I think your argument only holds up if you believe that Bob does not
+have a right to run a legally obtained copy of a program.
+
+It's clear that Bob does not have the right to arbitrarily distribute
+a legally obtained copy of a program.  That's what copyright law is
+all about.  It's not at all clear that Bob does not have a right to
+run a legally obtained copy of a program.
+
+> > A way to work around this is to provide a license which is an open 
+> > source license but which says that every time you run the program you 
+> > must pay the developer a dollar.  This gets back to the fact we've 
+> > discussed before, which is that the OSD does not clearly state that the 
+> > recipient is permitted to run the program. 
+> 
+> Whether running a program implicitly involves copying that is an
+> exclusive right of the copyright holder is, of course, an issue that is
+> debatable, and it is not what I am primarily interested in here. To
+> save confusion, let us consider this:
+> 
+> ) A way to work around this is to provide a license which is an open 
+> ) source license but which says that every time you _copy_ the program you 
+> ) must pay the developer a dollar.
+
+But that would violate OSD #1, so that license is not an open source
+license.
+
+> But whether or not shareware-with-source can be practically or legally
+> enforced is not my main point. My main point is that OSD #7 cannot be
+> sensibly construed as a criterion that a requirement-to-pay be waived
+> for users to whom the software is redistributed, *without* also
+> implying the waiver of other kinds of requirements, such as GNU
+> GPL-style "viral" requirements.
+
+I believe it can, if you believe that the recipient of a legally
+obtained copy of a program always has the right to run it.  Some
+people do believe it, probably includ Russ.  See also
+    http://cr.yp.to/softwarelaw.html
+
+I myself am uncertain, which is why I would be happier if the OSD had
+an explicit statement that a recipient of a program was permitted to
+run it.  But I think you need to tackle that explicitly, rather than
+sidestepping it as you did in your note.
+
+Ian

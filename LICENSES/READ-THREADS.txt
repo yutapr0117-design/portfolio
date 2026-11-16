@@ -32,6 +32,7 @@
 1999-05-19	making money off your GPL-ed code
 1999-05-27	GPL kernel clients
 1999-07-12	IBM Public License
+1999-07-29	keeping patentable algorithm free
 1999-08-10	RFC soon on essay "Does Free Software Production in a Bazaar obey the Law of Diminishing R
 1999-08-10	RFC soon on essay "Does Free Software Production in a Bazaar obey the Law of Diminishing Returns?"
 1999-08-11	Essay RFC delayed.
@@ -67,9 +68,12 @@
 1999-11-30	Proprietary software for Linux
 2000-02-13	License Approval Process
 2000-02-21	Dominion Games needs help
+2000-03-03	How To Break The GPL
+2000-03-22	Again - How To Break The GPL
 2000-03-28	Licenses versus contracts
 2000-03-28	The position RMS takes...
 2000-03-29	Wired Article on the GPL
+2000-04-02	Dynamic and Static Linking
 2000-04-04	Simple Public License, Please Review
 2000-04-05	OSI board asleep at the switch?
 2000-04-11	Apache v. GPL
@@ -93,9 +97,12 @@
 2000-09-08	Proposal for OSI Certification: The SteelBlue License
 2000-09-11	License List -- as of 9-11-00
 2000-10-28	revised GPL?
+2000-11-01	LGPL clarification
 2000-11-28	Modifying existing licenses in minor ways
 2000-12-09	Directory for open-source software
 2001-01-15	Request for approval: IPL 1.0
+2001-01-15	Misunderstanding of the basics?
+2001-01-16	Open Source *Game* Programming?
 2001-01-18	OSI compliance requiring software to be "free beer"?
 2001-01-18	OpenDivX license
 2001-01-19	To the keepers of the holy grail of Open Source
@@ -105,12 +112,16 @@
 2001-02-15	boomberg bloopers
 2001-02-21	Assigning copyright
 2001-02-22	Transfer of Copyright
+2001-02-22	What is Copyleft?
 2001-03-20	Apache vs. BSD licenses
+2001-03-27	Subscription/Service Fees - OSD Intent
 2001-04-04	APSL 1.2
 2001-04-12	Certification Mark: OSI Certified
+2001-06-10	so waht? Re: WG: MSFT and GNU questions
 2001-06-17	SUN Binary Code License
 2001-06-21	Copyright & License Questions
 2001-06-25	Interesting Microsoft license clause re open source
+2001-07-05	QPL-ed library linking with a GPL-ed library.
 2001-07-24	License for approval
 2001-07-27	"Perl Artistic License"
 2001-07-30	approved licenses web page not being updated
@@ -118,8 +129,10 @@
 2001-08-07	VENTURE CAPITAL
 2001-08-08	Quick Reference For Choosing a Free Software License
 2001-08-10	approval time
+2001-08-27	License Counseling
 2001-08-31	License backlog - OSI is making itself irrellevant
 2001-09-05	newsforge story
+2001-09-10	copyright discussion
 2001-09-21	OSI mark. was[Re: Backlog assistance?]
 2001-09-21	Backlog assistance?
 2001-09-22	YAPL is bad
@@ -133,6 +146,7 @@
 2001-10-31	Response to comments on Intel's proposed BSD+Patent license
 2001-11-05	Wonka Public Licence
 2001-11-07	CMGPL licence
+2001-11-08	Public domain
 2001-11-13	Spirit of OSD - was[Fails OSD #1.]
 2001-11-13	Fails OSD #1. [Re: OSD compliant shareware]
 2001-11-14	OSD/OpenSource.org Translations
