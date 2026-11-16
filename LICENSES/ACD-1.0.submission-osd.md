@@ -297,3 +297,5 @@ their lists of Libre and compatible licenses, and have spoken with them to that 
 §1.235). Asking the FSF's licensing team and `debian-legal` in parallel answers the discount above with their
 view rather than ours. Under the moderators' notice (register B14) the owner, not the AI, would send those
 questions.
+
+**Added 2026-11-16 — a lead to the FSF's own record, not the FSF's words.** Mike Linksvayer, writing for Creative Commons on `license-discuss` 2011-08-08: *"The exception that proves the rule is the CC0 public domain dedication, which is GPL-compatible and with the FSF we recently recommended for software if public domain is the intention."* (`review-readings-2.md` §1.253, portfolio-2f). This is CC reporting a joint recommendation; the FSF's own statement of 2011, and what it said later about CC0's patent exclusion, are still to be read from FSF sources before the self-check above relies on them.
