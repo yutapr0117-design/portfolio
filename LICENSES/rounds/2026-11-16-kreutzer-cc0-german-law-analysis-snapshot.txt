@@ -40,5 +40,8 @@ analysis of exactly that structure under German law.
     With this and other special exemptions (which are also known as "Linux Clauses") the German legislator
     has explicitly acknowledged the compatibility of public licenses with the German copyright law."
 [7] "According to the prevailing opinion among the German commentators global and unrestricted disclaimers
-    about moral rights positions are invalid. The effect, however, is not that the license"
-    (the sentence continues beyond the extracted window; not retrieved)
+    about moral rights positions are invalid. The effect, however, is not that the license itself is void.
+    It rather means that the author could – notwithstanding the insofar unlimited authorisation in the
+    license – for example prohibit distortions of his work."
+    (completed 2026-11-16 from the same extraction at portfolio-50's request; the first version of this
+    file cut the sentence at "the license")
