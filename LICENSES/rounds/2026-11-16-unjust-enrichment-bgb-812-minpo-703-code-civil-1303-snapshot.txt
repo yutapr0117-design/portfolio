@@ -1,0 +1,33 @@
+Source: three statutes on unjust enrichment, each fetched one page at a time with the WebFetch tool on 2026-11-16
+        by portfolio-30:
+        - Bürgerliches Gesetzbuch § 812, https://www.gesetze-im-internet.de/bgb/__812.html
+        - 民法 第七百三条, e-Gov 法令 API, https://laws.e-gov.go.jp/api/1/articles;lawId=129AC0000000089;article=703
+        - Code civil articles 1303 and 1303-1, Légifrance, https://www.legifrance.gouv.fr/codes/section_lc/
+          LEGITEXT000006070721/LEGISCTA000032023810/ (version shown: in force as of 16 November 2026; both articles
+          in force since 1 October 2016)
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes of at most 125
+        characters each (the Japanese article was returned as one quote). Re-fetch and compare before relying on
+        the exact wording.
+
+WHY THIS FILE EXISTS. Trial T90 of the 1.4 draft narrows the covenant in Section 5.1 to a claim "that treats as
+wrongful a use of the Work that this Dedication permits". portfolio-50 objected that a claim in unjust enrichment
+does not treat a use as wrongful, so it would fall outside the covenant. These are the statutes that claim rests
+on in Germany, Japan and France.
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+===== § 812 Abs. 1 Satz 1 BGB (Herausgabeanspruch), as reported =====
+1. "Wer durch die Leistung eines anderen oder in sonstiger Weise auf dessen Kosten etwas ohne rechtlichen Grund erlangt,"
+2. "ist ihm zur Herausgabe verpflichtet."
+
+===== 民法 第七百三条（不当利得の返還義務） =====
+3. 「法律上の原因なく他人の財産又は労務によって利益を受け、そのために他人に損失を及ぼした者（以下この章において「受益者」という。）は、その利益の存する限度において、これを返還する義務を負う。」
+
+===== Code civil, article 1303 =====
+4. "En dehors des cas de gestion d'affaires et de paiement de l'indu, celui qui bénéficie d'un enrichissement injustifié au"
+5. "détriment d'autrui doit, à celui qui s'en trouve appauvri, une indemnité égale à la moindre des deux valeurs de"
+6. "l'enrichissement et de l'appauvrissement."
+
+===== Code civil, article 1303-1 =====
+7. "L'enrichissement est injustifié lorsqu'il ne procède ni de l'accomplissement d'une obligation par l'appauvri"
+8. "ni de son intention libérale."
