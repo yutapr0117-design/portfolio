@@ -136,6 +136,11 @@ In Japan the statute answers for a licence. Copyright Act Article 63-2 reads:
 A right of use may be asserted against a person who later acquires the copyright, with no registration
 (`rounds/2026-11-16-minpo-chosakukenho-e-gov-api-snapshot.txt`), so §2.8 states what Japanese law already does if §4 is a grant of a right of use
 under Article 63. Whether it is one is the question of §1 above.
+In the United Kingdom, CDPA section 90(4) makes a copyright owner's licence binding on every successor in
+title *"except a purchaser in good faith for valuable consideration and without notice (actual or
+constructive) of the licence"* (`rounds/2026-11-16-cdpa-1988-s87-s90-legislation-gov-uk-snapshot.txt`).
+A Dedication published with the Work makes notice likely, but a purchaser who never saw it is the case
+§2.8's *"to the fullest extent the law permits"* leaves to the law.
 
 A further question concerns the recipient who never saw the Dedication. In the 1.4 draft, §2.3 says
 *"To hold a permission granted here, You need not know of this Dedication"*, which matters because §10.2
@@ -395,9 +400,18 @@ front of its server and use that law against a crawler that defeats it; the purp
 meant to be learned from) is then kept only if copies remain obtainable by other means, and the text
 does not require that they do.
 
+A sixth question is what *"a use of the Work that this Dedication permits"* means where the permission
+fails. In a jurisdiction where §4 does not take effect, is the use still one the Dedication permits, so
+that §5.1 still bars the claim, or only one the text says it permits? We read §15.1, which asks for the
+reading that gives *"the widest permission and the least obligation upon You"*, as choosing the first,
+so that the covenant stands on its own footing, as §2.4 says. If a court takes the second, §5.1
+falls with §4 in exactly the place it is meant to hold (`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.27, from
+portfolio-30).
+
 **An answer would change** whether §5.1's *"treats as wrongful, or as without legal basis"* is the right wording,
 and whether data protection needs its own exception. An answer to the second question would change whether §11.3 needs the altered-work case in words.
-The third is settled in the 1.4 draft by T91. An answer to the fourth would change whether §5.3 should keep the words *intended beneficiary*, and whether T66 should have extended them to §8.6. An answer to the fifth would change whether the second limb of §5.2(a) needs a carve-out for computer-misuse law.
+The third is settled in the 1.4 draft by T91. An answer to the sixth would change whether §5.1 should say that a use is permitted
+for this purpose whether or not §4 takes effect. An answer to the fourth would change whether §5.3 should keep the words *intended beneficiary*, and whether T66 should have extended them to §8.6. An answer to the fifth would change whether the second limb of §5.2(a) needs a carve-out for computer-misuse law.
 
 ## 6. Do the text-and-data-mining declarations do anything? (§6.2, §6.3)
 
