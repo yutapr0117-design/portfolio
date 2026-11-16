@@ -501,8 +501,8 @@ MUTATIONS_ARCHIVE5 = [
     {
     "name": "Check 468u: §8.2 の \"not terminable by the Dedicator on any ground\" が「for cause なら終了できる」へ変わる —— 条件・終了の不在という §1.133 の組み合わせが崩れ、CERN-OHL の 3 本と区別できなくなる",
     "file": CURRENT_DRAFT,
-    "find": "not terminable by the Dedicator on any ground",
-    "replace": "terminable by the Dedicator for cause",
+    "find": "not terminable by the Dedicator under this Dedication on any",
+    "replace": "terminable by the Dedicator under this Dedication for cause on any",
     "check": CHECK,
 },
     {

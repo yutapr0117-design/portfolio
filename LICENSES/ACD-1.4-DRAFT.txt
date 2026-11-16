@@ -167,8 +167,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 9.2 now says that where a right this Dedication reaches
       subsists, "this Dedication applies to it", where it listed Sections 3 to
       8 and Section 12 (errata E72). (-3 words.)
-    * Section 9.4 and Section 14.2 now say "Section 9" and "Section 14", where
-      they said "this Section" (errata E57). (0 words.)
+    * Section 9.4 and Section 14.2 now say "Section 9" and "Section 14",
+      where each referred to itself (errata E57). (0 words.)
     * Section 10.3 now opens "Under this Dedication" (errata E74). (+3 words.)
     * The heading of Section 11 now ends "AND PRIVACY" (errata E59). (+1 word.)
     * Section 11.1 now says "Nothing in Section 11 reduces what any other
@@ -203,6 +203,19 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 14.2 now says that Section 14 does not limit the Dedicator's
       liability for asserting a claim, or exercising a right, in breach of a
       covenant in Section 5, 8.6, or 12.2. (+27 words.)
+    * Section 2.6 now says that "This Dedication requires no separate
+      instrument, assignment, or agreement" to place a Contribution under it,
+      where it said that none "is needed". (0 words.)
+    * Section 8.2 now says that the licences are not terminable by the
+      Dedicator "under this Dedication" on any ground. (+3 words.)
+    * Section 8.6 now says that its covenant "is given for every
+      jurisdiction", where it said that it "operates" in every jurisdiction.
+      (+1 word.)
+    * Section 2.6, Section 5.3, Section 6.2, Section 6.3, Section 8.4,
+      Section 11.3, Section 11.4, and Section 12.2 now name themselves by
+      number. (0 words.)
+    * Section 14.2 now also names the undertaking in Section 2.5 among the
+      covenants whose breach Section 14 does not limit. (+1 word.)
     * Section 15.1 now joins its two sentences, so that "in respect of the
       Work" also governs the rule that the reading granting more to You
       prevails, and says on whom the least obligation falls, "upon You"
@@ -239,7 +252,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5578 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5583 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -398,12 +411,12 @@ PREAMBLE (informative; not part of the operative terms)
        notice may identify material under Section 16.2, so that a person or an
        automated system reading the Work can determine what this Dedication does
        not cover. This undertaking binds that Dedicator and imposes nothing upon
-       You, and Section 6.5 states why it matters. No separate instrument,
-       assignment, or agreement is needed to place a Contribution under this
-       Dedication. Whether the Dedicator asks a contributor for anything else is
-       a matter of project governance and is not addressed here. Nothing in this
-       Section obliges anyone to submit anything, or obliges the Dedicator to
-       accept anything.
+       You, and Section 6.5 states why it matters. This Dedication requires no
+       separate instrument, assignment, or agreement to place a Contribution
+       under it. Whether the Dedicator asks a contributor for anything else is a
+       matter of project governance and is not addressed here. Nothing in
+       Section 2.6 obliges anyone to submit anything, or obliges the Dedicator
+       to accept anything.
 
   2.7  This Dedication reaches only rights the Dedicator holds, now or in
        future. Where the Work incorporates material in which another person
@@ -531,7 +544,7 @@ PREAMBLE (informative; not part of the operative terms)
        You and by anyone who receives the Work from You, directly or indirectly,
        as an intended beneficiary, to the extent a jurisdiction gives effect to
        such reliance. Sections 3 and 4 operate in their favour independently of
-       this Section.
+       Section 5.3.
 
 6. MACHINE LEARNING, TEXT AND DATA MINING, AND MODEL TRAINING
 
@@ -544,20 +557,20 @@ PREAMBLE (informative; not part of the operative terms)
        declines to make one. So far as the Covered Rights and patent claims of
        the Dedicator are concerned, no notice, marking, metadata, protocol
        element, header, robots directive, or other signal associated with the
-       Work is to be read as a Reservation, whatever its form and whoever
-       placed it there. This Section is bounded by Section 2.7: it states the
+       Work is to be read as a Reservation, whatever its form and whoever placed
+       it there. Section 6.2 is bounded by Section 2.7: it states the
        Dedicator's own position and does not purport to defeat a Reservation
        made by another rightsholder, which Section 6.3 addresses on its own
        terms.
 
   6.3  Where a Reservation has been made in respect of the Work, whether by the
        Dedicator or by another person, and whether before or after this
-       Dedication was applied, the Dedicator withdraws it and disclaims
-       reliance on it, to the fullest extent the Dedicator is able. Where the
-       Reservation is another rightsholder's, made in exercise of rights of
-       their own, the Dedicator has no power to withdraw it and this Section
-       does not purport to give one; the disclaimer of reliance operates in
-       every case (Section 2.7).
+       Dedication was applied, the Dedicator withdraws it and disclaims reliance
+       on it, to the fullest extent the Dedicator is able. Where the Reservation
+       is another rightsholder's, made in exercise of rights of their own, the
+       Dedicator has no power to withdraw it and Section 6.3 does not purport to
+       give one; the disclaimer of reliance operates in every case (Section
+       2.7).
 
   6.4  No enforceable claim arises against You, under this Dedication or under
        any Covered Right of the Dedicator, in respect of a model, parameter set,
@@ -597,13 +610,14 @@ PREAMBLE (informative; not part of the operative terms)
        contained in the Work as made available by the Dedicator.
 
   8.2  The licences granted by Sections 8.1 and 8.4 are subject to no condition
-       and are not terminable by the Dedicator on any ground, including the
-       commencement of or participation in patent litigation by You against the
-       Dedicator or any other person. This Dedication contains no patent
-       retaliation provision. A retaliation provision operates as a condition
-       on permission already given, and Section 10.1 admits no condition, so
-       the absence follows from the structure of this Dedication rather than
-       from a policy preference expressed here.
+       and are not terminable by the Dedicator under this Dedication on any
+       ground, including the commencement of or participation in patent
+       litigation by You against the Dedicator or any other person. This
+       Dedication contains no patent retaliation provision. A retaliation
+       provision operates as a condition on permission already given, and
+       Section 10.1 admits no condition, so the absence follows from the
+       structure of this Dedication rather than from a policy preference
+       expressed here.
 
   8.3  Sections 8.1 and 8.4 reach a patent claim only as to the acts they
        describe. Nothing in this Dedication reserves, preserves, or leaves
@@ -617,12 +631,12 @@ PREAMBLE (informative; not part of the operative terms)
        Dedicator, now or in future, that those acts would infringe. This is a
        grant in its own right and not a clarification of Section 8.1. The
        proviso in Section 8.1 as to subject matter contained in the Work is
-       deliberately absent from this Section. Section 8.1 alone governs a
-       feature added to the Work, by whatever means. This Section reaches a
-       claim only where the feature that infringes it results, in whole or in
-       part, from the content of the Work; a feature that the Work teaches or
-       embodies is taken so to result. That is a question of causation and not
-       of quantity: no threshold of how much of the Work was used is imposed.
+       deliberately absent from Section 8.4. Section 8.1 alone governs a feature
+       added to the Work, by whatever means. Section 8.4 reaches a claim only
+       where the feature that infringes it results, in whole or in part, from
+       the content of the Work; a feature that the Work teaches or embodies is
+       taken so to result. That is a question of causation and not of quantity:
+       no threshold of how much of the Work was used is imposed.
 
   8.5  Sections 8.1 to 8.4 are subject to Section 2.7: they reach only patent
        claims the Dedicator owns or controls, now or in future, and are neither
@@ -636,8 +650,8 @@ PREAMBLE (informative; not part of the operative terms)
        assist any other person to assert, against You the patent claims that
        Sections 8.1 and 8.4 reach, in respect of any act that those Sections
        describe. This covenant is given on the same footing as the covenants in
-       Section 5 and does not wait for either licence to be held ineffective:
-       it operates in every jurisdiction. You are not required to determine
+       Section 5 and does not wait for either licence to be held ineffective: it
+       is given for every jurisdiction. You are not required to determine
        whether either licence is effective in any jurisdiction, and nothing
        permitted by this Dedication depends on that question or on how it is
        answered.
@@ -710,21 +724,21 @@ PREAMBLE (informative; not part of the operative terms)
   11.3 This Dedication does not make a false statement true. Representing that
        the Dedicator authored, endorsed, approved, sponsored, or is associated
        with a work, when that is not the case, is outside what this Dedication
-       reaches. This Section states a limit of the Dedication's reach; it is not
+       reaches. Section 11.3 states a limit of the Dedication's reach; it is not
        a condition upon You, and Section 10.1 is unaffected by it.
 
   11.4 This Dedication, in respect of the Work, reaches Covered Rights, the
-       patent claims Section 8 reaches, and Moral Rights to the extent
-       stated in Section 12. It reaches nothing else, save that the covenants
-       in Section 5 are promises about the Dedicator's own conduct and are not
-       limited by this sentence. It grants no permission under the law of data
-       protection, under a right of privacy, publicity, or personality, or
-       under any right held by a person other than the Dedicator. Where the
-       Work contains the personal data, likeness, voice, or performance of a
-       person other than the Dedicator, any permission those laws require is
-       not the Dedicator's to give and this Dedication does not purport to give
-       it. This Section states a limit of the Dedication's reach; it is not a
-       condition upon You, and Section 10.1 is unaffected by it.
+       patent claims Section 8 reaches, and Moral Rights to the extent stated in
+       Section 12. It reaches nothing else, save that the covenants in Section 5
+       are promises about the Dedicator's own conduct and are not limited by
+       this sentence. It grants no permission under the law of data protection,
+       under a right of privacy, publicity, or personality, or under any right
+       held by a person other than the Dedicator. Where the Work contains the
+       personal data, likeness, voice, or performance of a person other than the
+       Dedicator, any permission those laws require is not the Dedicator's to
+       give and this Dedication does not purport to give it. Section 11.4 states
+       a limit of the Dedication's reach; it is not a condition upon You, and
+       Section 10.1 is unaffected by it.
 
 
 12. MORAL RIGHTS
@@ -733,13 +747,13 @@ PREAMBLE (informative; not part of the operative terms)
        Dedicator waives and agrees not to assert Moral Rights in the Work.
 
   12.2 Where the law of a jurisdiction provides that Moral Rights are personal
-       to the author, inalienable, or incapable of waiver, Section 12.1 does not
-       apply in that jurisdiction, and instead the Dedicator covenants not to
-       exercise Moral Rights in the Work against You or against any person who
-       receives the Work from You, directly or indirectly. The Dedicator also
-       consents to any act by You or by any such person that would otherwise
-       infringe those rights. You are not required to determine which of
-       Section 12.1 and this Section applies in a jurisdiction, and nothing
+       to the author, inalienable, or incapable of waiver, Section 12.1 does
+       not apply in that jurisdiction, and instead the Dedicator covenants not
+       to exercise Moral Rights in the Work against You or against any person
+       who receives the Work from You, directly or indirectly. The Dedicator
+       also consents to any act by You or by any such person that would
+       otherwise infringe those rights. You are not required to determine which
+       of Section 12.1 and Section 12.2 applies in a jurisdiction, and nothing
        permitted by this Dedication depends on that question or on how it is
        answered.
 
@@ -791,7 +805,8 @@ PREAMBLE (informative; not part of the operative terms)
        liability, that liability is limited to the greatest extent that law
        permits, and the remainder of Section 14 continues to apply. Section 14
        does not limit the Dedicator's liability for asserting a claim, or
-       exercising a right, in breach of a covenant in Section 5, 8.6, or 12.2.
+       exercising a right, in breach of a covenant in Section 2.5, 5, 8.6, or
+       12.2.
 
 
 15. CONSTRUCTION AND SEVERABILITY
