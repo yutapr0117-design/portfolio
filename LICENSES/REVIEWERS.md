@@ -138,6 +138,21 @@ what the gap claim rests on; putting it in one instrument is a choice of form, n
 difference. The question is being asked now, and a 2017 precedent may weigh less than it; and a short exception is easier to review than a long licence, which argues the other way.
 ([`ACD-OSI-BOTTLENECKS-EXTERNAL.md`](ACD-OSI-BOTTLENECKS-EXTERNAL.md) B10, H1-g.)
 
+
+## Reasons the 1.4 draft no longer gives in its own words
+
+Several sentences of the 1.4 draft say less than 1.3 did, because a reason written into a clause
+can be false in some country, and a reader can then use the false reason to narrow the rule. The
+rules stayed; the reasons moved here. The full records are in the change list, in Japanese.
+
+| Clause | What the 1.4 draft keeps | The reason, and why it left the text |
+| :-- | :-- | :-- |
+| §11.3 | A false statement that the Dedicator wrote or endorses something is outside the Dedication's reach | Earlier versions said this was never the Dedicator's to permit. Under some laws the person named can consent (UK, CDPA s.84 and s.87(1)), so that reason was false there. The limit needs no reason: a permission does not make a false statement true |
+| §8.4 | No threshold of how much of the Work was used; the test is causation, not quantity | A recipient usually cannot measure how much of a work shaped a model. The reason was removed because someone fine-tuning on their own data sometimes can, and a reason that fails for them invites a threshold for them |
+| §6.5 | Machine learning and text and data mining are permitted expressly | Earlier versions said silence had proved ambiguous in practice; we could not source that claim. The 1.4 draft says silence leaves it to be inferred whether this is permitted, which is true everywhere, including where unnamed uses are read narrowly (Germany, UrhG §31(5)) |
+| §10.4 | No permission terminates under the Dedication | Earlier versions said none terminates for any reason. In the United States an author may end a licence after 35 years notwithstanding any agreement (17 U.S.C. §203; `ACD-1.0.jurisdictions.md` §5a), so the text now speaks only of itself |
+| §14.1 | Liability for wilful misconduct, gross negligence, death or personal injury is excepted where the law does not permit it to be excluded | In Germany an exclusion that reaches these may fall away entirely. EUPL-1.2 §8 takes the same course (`ACD-1.0.jurisdictions.md` §3) |
+
 ## Which text you are looking at
 
 **There are four frozen texts, and they are frozen for different reasons.** *(2026-10-29: this table said "two" and named 1.0 as the applied licence after 1.2 and 1.3 had been frozen; corrected.)*
