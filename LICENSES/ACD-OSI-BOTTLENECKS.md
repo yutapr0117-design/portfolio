@@ -229,6 +229,8 @@ the 1.0 text.
 
 **2026-11-15 に足した（5 つ目）—— 「Autonomous」を名に持つ先行のライセンスが在った（`review-readings-2.md` §1.249・portfolio-2f）。** 2019-01 に Holo のために準備されたライセンスは、告知の文で "Autonomous Agent License" と呼ばれ（Bruce Perens 氏の通に引かれた形でアーカイブに残る）、のちに Cryptographic Autonomy License（CAL）として 2020 年に承認された。Perens 氏の批判は条項（API の実装への条件）に向けられ、名には向いていない。**逆側**: 改名の理由は記録の範囲では分からない。ACD の名がこの先行の名と混同されうるかも確かめていない。
 
+**2026-11-16 に足した（6 つ目）—— 派生に別の名を求めることは「自由」と両立する、と当時の理事が書いた（`review-readings-3.md` §1.312）。** Brian Behlendorf 氏 2001-03-20 *"I don't see asking someone to choose a different name for a derivative work as not qualifying as "free" as the FSF defines it."* §16.4（改変した本文は別の名で）を支える。**逆側**: Apache の製品名の条件について書いたもので、ライセンスの本文の名前の条ではない。
+
 ## B8 —— §12 人格権。**同じ条項が「gap」と「mission creep」の両方で名指しされている**
 
 **この項目が難しいのは、賛否が割れているからではなく、賛否が同じ条項の別の面を見ているからである。**

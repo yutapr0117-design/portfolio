@@ -205,3 +205,20 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 **この節が establish しないこと。** 提案された再許諾がその後に行われたかは確かめていない。
 
 **反映**: B10（`ACD-OSI-BOTTLENECKS-B10.md`・許可型の変種の増殖に、元の事務局長が「もう断るべき」と書いた）。
+
+## 1.312 決める側の通を全文で当て直した —— 2,500 字で切っていた 12 通から、§8.5 と §16.4 に当たる 2 文（1999・2001）（2026-11-16）
+
+2f が自分の抜き出しの穴（決める側の通を先頭の数百字で切っていた）を見つけて全文で当て直したのを受けて（2f の PR 3280）、portfolio-30 も 1.300〜1.305 を書いたときの抜き出しを測った。1999〜2001 年の 50 本では、決める側の通を 2,500 字で切っていて、12 通が切られていた。そのうち 5 通はライセンスの本文の転送（"A new open source license"・IBM Public License・3dfx・LPPL・ADPL）で、残りの 7 通を全文で読み直した。2003 年の 16 本（`read_thread.py --deciders-only`・上限 600 語）では、切れたのは 1 通の末尾 12 語だけだった。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"what developers want, and what they (incorrectly) think they have under other licenses, is code that is patent-free. Sorry, it doesn't work like that; any software, under any license, can come under a claim of patent infringement by a patent holder"* | Brian Behlendorf 氏 1999-04-19（APSL 1.1 の意見募集の会話） | **有利な面（§8.5）。** ライセンスは第三者の特許から受け手を守れない、とした。ACD の §8.5 は、§8 が Dedicator の持つ請求項にしか及ばず、第三者の請求項を侵害しないことの表明でも保証でもない、と書く |
+| *"I think this is unfortunate, as in a digital environment, your good name is your only asset, and protecting it shouldn't be hard. I don't see asking someone to choose a different name for a derivative work as not qualifying as "free" as the FSF defines it."* | Brian Behlendorf 氏 2001-03-20（"Apache vs. BSD licenses"） | **有利な面（§16.4・B6）。** 派生物に別の名を選ばせることは自由と両立する、とした。ACD の §16.4 は、改変したライセンスの本文を同じ名で配ることだけを妨げ、Work には何も求めない（§10.5） |
+
+**読み。** 切られていた部分に、ACD の結論を変えるものは無かった。拾えた 2 文は、どちらも既に本文が持つ形（§8.5・§16.4）を、当時の理事の言葉で支える。
+
+**逆側。** Behlendorf 氏 2001 は Apache の名前（製品名に「Apache」を使わせない条件）について書いており、ACD の §16.4 はライセンスの本文の名前についての条で、対象が違う。名前を守ることへの共感としてだけ読む。切られていた 12 通のうち、ライセンスの本文の転送の 5 通は意見を含まないので読み直していない。他の帯の抜き出しの上限は、それぞれの読み手が確かめる（2026-11-16 に全員へ知らせた）。
+
+**この節が establish しないこと。** 50 本の決める側でない通は、冒頭 500 字で読んだままである。
+
+**反映**: B6（`ACD-OSI-BOTTLENECKS.md` の B6 の節・派生に別の名を求めることは自由と両立する）。§8.5 の側は本文が既に持つので、register には行を立てない。
