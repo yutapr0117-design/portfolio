@@ -74,6 +74,17 @@ def main(argv: list[str]) -> int:
         rtt = "\n".join(lines[:at] + [row] + lines[at:])
     # (2) census を一時的な写しの上で回す (--pin は THREAD-CANDIDATES.txt を書くので、dry-run でも本物を汚さない)
     out = Path(tempfile.mkdtemp()) / "threads.json"
+    # 後の段で STOP したら書いた file を元に戻す (2026-11-16・9b が踏んだ: AS-OF のセルを読めずに STOP し、READ-THREADS に
+    #   14 行と --pin の THREAD-CANDIDATES だけが残った)。census は READ-THREADS を読むので、書いてから回すしかない
+    cand_p = L / "THREAD-CANDIDATES.txt"
+    backup = {rt: rt.read_text(encoding="utf-8"), cand_p: cand_p.read_text(encoding="utf-8")}
+
+    def stop(msg: str) -> int:
+        if not o.dry_run:
+            for f, txt in backup.items():
+                f.write_text(txt, encoding="utf-8")
+        print(msg + (" (READ-THREADS と THREAD-CANDIDATES は元に戻した)" if not o.dry_run else ""))
+        return 1
     if not o.dry_run:
         rt.write_text(rtt, encoding="utf-8")
     pin = [] if o.dry_run else ["--pin"]
@@ -81,7 +92,7 @@ def main(argv: list[str]) -> int:
                        cwd=ROOT, text=True, capture_output=True, env=dict(os.environ))
     m = re.search(r"AS-OF: 候補 (\d+) 本のうち (\d+) 本を読んだ。(\d+) 本は読んでいない", r.stdout)
     if not m:
-        print(f"STOP: census の出力から件数を読めない (アーカイブの写しが要る: DOSSIER_ARCHIVE_CACHE)\n{r.stdout[-500:]}{r.stderr[-500:]}")
+        return stop(f"STOP: census の出力から件数を読めない (アーカイブの写しが要る: DOSSIER_ARCHIVE_CACHE)\n{r.stdout[-500:]}{r.stderr[-500:]}")
         return 1
     n, read, unread = m.groups()
     # (3) AS-OF のセル
@@ -92,8 +103,7 @@ def main(argv: list[str]) -> int:
     # 閉じ方は「）。」と「。）」の両方を読む (2026-11-16・2f の報告: 手で追記したセルが「…無い。）」で終わり、道具が STOP した)。
     #   書くときは「）。」に揃える (下の new_cell)
     if not cell:
-        print("STOP: AS-OF.md の「未読スレッドの残り」のセルの形を読めない (形が変わったなら道具を直す)")
-        return 1
+        return stop("STOP: AS-OF.md の「未読スレッドの残り」のセルの形を読めない (形が変わったなら道具を直す)")
     old_recent = cell.group(3)
     old_n = int(re.search(r"\*\*候補 (\d+) 本", cell.group(0)).group(1))
     entry = o.entry
@@ -126,7 +136,10 @@ def main(argv: list[str]) -> int:
         return 0
     af.write_text(at2, encoding="utf-8")
     lg.write_text(lt2, encoding="utf-8")
-    print("書いた。verify で Check 498 (h) を確かめる")
+    # READ-THREADS と LOG の行数が予算表 (Check 424) とずれるので、行数の表も直す (2026-11-16・50 の依頼: 読了を足す PR が
+    #   424 で赤になり、5 人とも sync-sizes を回し忘れうる)
+    subprocess.run([sys.executable, str(ROOT / ".github/scripts/sync_size_table.py")], cwd=ROOT, capture_output=True)
+    print("書いた (行数の表も直した)。verify で Check 498 (h) を確かめる")
     return 0
 
 
