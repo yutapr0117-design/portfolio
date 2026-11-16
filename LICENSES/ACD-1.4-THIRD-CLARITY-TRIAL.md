@@ -358,6 +358,18 @@ After（§14.2 の末）: *"Section 14 does not limit the Dedicator's liability 
 
 **反例の担当へ（30・50）** **反例の結果**: 50 —— 反例なし（§14.2 の列は §5.2(b) の「課す」だけの違反を外し、その規約で訴えたときは入る）。取り残しとして §2.9 の *"suspended by, or revived by … any act of a trustee"*（InsO 134 条の否認に負けうる）を次の束へ。30 —— (a)(b)(c) 立たない（§5.3 末文の旧 *this Section* は節 5 全体とも読めたが、§3・§4 は §5 を引かないので害は無い）。**(d) は立った**: §2.5 は自分を covenant と呼ばず、*a covenant in Section 2.5* が §2.5 の中に covenant を探させ、禁反言まで含むと読まれる。§2.5 を *"covenants not to assert"* にして動詞を揃えた（+1）。登録した問い: (a) T84 の *requires no* が、提出者に別の手続きを求めないことの約束（§2.6 第 1 文の既定）を弱めるか、(b) T86 の *is given for* が、§2.4 の独立の足場の読み（第 2 の足場）を弱めるか、(c) T87 の 9 か所のうち、節全体を指していたものが無いか（§6.2 *"Section 6.2 is bounded by Section 2.7"* など、どれも自分の小項を指すと読んだ）、(d) T88 の §2.5 は *"will not assert"* の約束と禁反言の 2 つを持つ —— *a covenant in Section 2.5* が禁反言まで含むと読まれる害があるか。
 
+### 15.26 T89 —— §2.9 を文書の中の効果に絞る（+3 語・2026-11-16・【反例待ち】）
+
+**種**: portfolio-50 と 30 が §18 の ② として送り、T84〜T88 の束から取り残した（50 の 1 巡の指摘）。§2.9 *"Nothing in this Dedication is conditioned on, suspended by, or revived by an insolvency … or by any act of a trustee …"* は、倒産手続と管財人の行為の**効果**まで言い切る。管財人が無償の処分を否認できる法域（ドイツ InsO 134 条・30 が条文を取得）では偽になりうる —— T81 と同じ型。
+
+After: *"Nothing in this Dedication is, under its terms, conditioned on, suspended by, or revived by an insolvency …"*
+
+**消える／狭まる不確実性**: ドイツで旧文が偽になる読み（§18.1 の §2.9 の行）。否認されうるかは法の側に残り、問 8 が持つ。米国では Tempnology（2019）で拒絶は解除ではなく既に与えた権利は残る（2f）ので、旧文は米国ではほぼ真だった。
+
+**⚠ 逆側**: (1) *under its terms* は、法による停止・否認が在ることを本文が自分で示す。(2) 第 2 文（管財人を §2.8 の譲受人として扱う）は変えないので、管財人が §2.8 の拘束を受けるかは法が決める（問 8）。
+
+**反例の担当へ（30・50）**: (a) *under its terms* が、*conditioned on* の部分（文書の条件の言明・もとから真）まで弱めると読まれるか、(b) 第 2 文の *"Such an officer is a person to whom rights are transferred"* も効果の言い切り（管財人が譲受人に当たるかは法が決める）で、同じ型か。
+
 ## 16. 模擬委員会 —— 記録に立場が厚く残る審査者の目で 1.4 草案を通読する（2026-11-15〜）
 
 **仕組み**: オーナーの依頼（「5 人で話し合って、より良い案をガンガン実行して」）を受けて、portfolio-1c が出し 5 人で決めた。記録に立場が厚く残る 5 人の審査者を 1 人ずつ受け持ち（30 = Chestek 氏、50 = Fontana 氏、2f = Perens 氏、9b = Smith 氏、1c = Villa 氏）、その人の過去の文だけを根拠に、その人の目で 1.4 草案を頭から通読して「どこを突くか」を条番号つきで出す。根拠の無い推測は書かない（必ずその人の文を引く）。各節は表（基準と出典 | 当たる条 | 扱い済みの場所 | 残る点）と、条を変える指摘（試作の種）を持つ。**0 件でも表を残す** —— 審査者の基準を網羅して当てた記録になる。**この節が establish しないこと**: 模擬であって、その人が実際にそう言うことを意味しない。
@@ -582,17 +594,17 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 | :-- | :-- | :-- | :-- |
 | §1.4 | 複数の Dedicator の行為は各自に別々に働く（*"operates severally"*）| Dedicator 自身の意思表示の範囲の言明で、法の命題を言わない | ① |
 | §1.6 | 自動の仕組みが行使した許しは、その背後の人と運用者に与えられる | 許諾の宛先を Dedicator が決める文で、自動の仕組みが法的な主体になれるかは問わない形 | ① |
-| §2.2 第 1 文 | *"This Dedication is irrevocable."* —— 献呈は撤回できない | ドイツ UrhG 42 条（確信の変更による撤回）・フランス CPI L121-4（撤回・悔悟の権利）、米国 17 U.S.C. §203 の終了権は法定で、事前に放棄できない。さらに無償の付与が贈与と読まれれば、ドイツ BGB 530 条（ひどい忘恩による撤回・533 条で事前の放棄不可）とフランス民法典 953 条・955 条が残る（portfolio-50 の持ち越し・条文は 30 が取得）。*irrevocable* は承認済みのライセンス（Apache-2.0 など）も使う慣用の語で、法定の撤回権に負けることは前提として読まれる。第 2 文 *"The Dedicator may not withdraw it"* は Dedicator 自身の約束で、約束としては真 | ③（UrhG 42 条・CPI L121-4・§203 は `jurisdictions.md` に在る。贈与の撤回は 30 が足す）|
+| §2.2 第 1 文 | *"This Dedication is irrevocable."* —— 献呈は撤回できない | ドイツ UrhG 42 条（確信の変更による撤回）・フランス CPI L121-4（撤回・悔悟の権利）、米国 17 U.S.C. §203 の終了権は法定で、事前に放棄できない。さらに無償の付与が贈与と読まれれば、ドイツ BGB 530 条（ひどい忘恩による撤回・533 条で事前の放棄不可）とフランス民法典 953 条・955 条が残る（portfolio-50 の持ち越し・条文は 30 が取得）。*irrevocable* は承認済みのライセンス（Apache-2.0 など）も使う慣用の語で、法定の撤回権に負けることは前提として読まれる。第 2 文 *"The Dedicator may not withdraw it"* は Dedicator 自身の約束で、約束としては真 | ③（UrhG 42 条・CPI L121-4・§203 は `jurisdictions.md` に在る。贈与の撤回は 30 が足した）。**米国の出典（不利な側・2f）**: Asset Marketing v. Gagnon（第 9 巡回区・2008）*"because AMS paid consid-eration, this license is irrevocable"* —— 撤回不能の理由を対価に置くので、対価の無い ACD の *irrevocable* は語だけからは立たず、米国で撤回を止めるのは §2.5（禁反言）と §5 の約束の側になる（判決は対価の無い許諾を撤回できるとは判示していない・反対の読みは推論・`rounds/2026-11-16-us-asset-marketing-v-gagnon-consideration-snapshot.txt`）|
 | §2.3 | 受諾が無くても許しが立つ | §4 を契約と読む法域（BGB 151 条・民法 527 条）では、知らない受け手に許諾が成立しない読みがある（§15.23）| ③（30 が `jurisdictions.md` と問い 1 に書いた）|
 | §2.5 | 約因・方式の欠如を理由に無効を主張しない（禁反言）| *"to the extent the law of any jurisdiction gives that principle effect"* と法に条件づけた形で、どの法域でも真 | ① |
 | §2.6 第 1 文 | 提出は既定で献呈の下に入り、提出者は Dedicator になる | 提出を同意と読めるかは法が決める（問 4）| ③ |
-| §2.6 第 4 文 | *"No separate instrument, assignment, or agreement is needed to place a Contribution under this Dedication."* —— 書面や別の合意は法的に要らない | 受け身の *is needed* が法の命題として読め、書面や権利ごとの明示を要する法域（フランス CPI L131-2・L131-3 は著作者の権利の移転に書面と権利ごとの明示を求める）では偽になりうる。ACD は権利を移転しないので当たりにくいが、提出者の権利を Work へ献呈させる形は移転に近く読まれうる | **②** → T84 の種: *"This Dedication requires no separate instrument, assignment, or agreement to place a Contribution under it."*（0 語）—— 文書自身の要求の言明になり、法が別に書面を求めるかは言わない |
+| §2.6 第 4 文 | *"No separate instrument, assignment, or agreement is needed to place a Contribution under this Dedication."* —— 書面や別の合意は法的に要らない | 受け身の *is needed* が法の命題として読め、書面や権利ごとの明示を要する法域（フランス CPI L131-2・L131-3 は著作者の権利の移転に書面と権利ごとの明示を求める）では偽になりうる。ACD は権利を移転しないので当たりにくいが、提出者の権利を Work へ献呈させる形は移転に近く読まれうる | **②** → **T84 で入った（2026-11-16）**: *"This Dedication requires no separate instrument, assignment, or agreement to place a Contribution under it."*（0 語）—— 文書自身の要求の言明になり、法が別に書面を求めるかは言わない |
 | §2.7 | Dedicator の持つ権利だけに届く | 範囲を限る起草の言明 | ① |
 | §2.8 | 承継人・譲受人を拘束する | *"to the fullest extent the law permits"* と法に条件づけた形。拘束の範囲の法域差は起草では閉じない（SELF-AUDIT の E）| ①（範囲の差は ③）|
-| §2.9 | 倒産の手続は献呈に影響せず、管財人は譲受人として扱う | 米国: Tempnology（2019）は拒絶を解除でなく違反とし、既に与えた権利は残るとした。executory は *"performance remains due to some extent on both sides"* で、受け手に義務の無い ACD の licence は当たりにくい（2f が法源を rounds に置く）。ドイツ InsO 103 条の選択権が及ぶかは問 8 | 米国は ①（法源つき）、ドイツは ③ |
+| §2.9 | 倒産の手続は献呈に影響せず、管財人は譲受人として扱う | 米国: Tempnology（2019）は拒絶を解除でなく違反とし、既に与えた権利は残るとした。executory は *"performance remains due to some extent on both sides"* で、受け手に義務の無い ACD の licence は当たりにくい（2f が法源を rounds に置く）。ドイツ InsO 103 条の選択権が及ぶかは問 8 | 米国は ①（法源つき）。ドイツは **②** → **T89**（*"under its terms"* で文書の中の効果に絞る・管財人の否認 InsO 134 条は法の側に残る・`rounds/2026-11-16-inso-103-129-134-143-gesetze-im-internet-snapshot.txt`）|
 | §3.1・§3.3 | 放棄・waiver | *"to the fullest extent permitted by the law of each jurisdiction"*・*"where the law … permits it to be waived"* と法に条件づけた形 | ① |
 | §3.2 | 放棄は報酬請求権（補償・報酬・徴収・使用料）を含む | §3.1 の「法の許す限り」の下に入る。ドイツの法定報酬請求権（UrhG 63a 条など）は事前に放棄できないが、条件づけた形なので文は偽にならない | ①（法の限りで空になる部分がある）|
-| §4.1 | 譲渡可能・再許諾可能 | ドイツ UrhG 34 条・35 条は譲渡・再許諾に著作者の同意を要するが、許諾の語自体がその同意になる | ① |
+| §4.1 | 譲渡可能・再許諾可能 | ドイツ UrhG 34 条・35 条は譲渡・再許諾に著作者の同意を要するが、許諾の語自体がその同意になる | ① 。*irrevocable, perpetual* の米国での効力は §2.2 の行の Gagnon（2008）と同じ根 |
 | §4.2 | *"by any means now known or later devised"* | ドイツ UrhG 31a 条は未知の利用方法の許諾に書面を求めるが、誰にでも無償で単純な利用権を与える場合を除く、というのが我々の読み（条文の確認を 30 に頼む）。フランス CPI L131-6 は予見できない利用形態の明示と利益配分を求め、無償の公衆への許諾（L122-7-1）に及ぶかは我々の読みでは決まらない | ドイツは ①（条文待ち）、フランスは ③ |
 | §4.3〜§4.6 | 条件の無さ・独立・下流の扱い | 起草の言明で、法の命題を言わない（§4.4 の *"takes effect whether or not Section 3 does"* は §3 に依存しないことの言明）| ① |
 
