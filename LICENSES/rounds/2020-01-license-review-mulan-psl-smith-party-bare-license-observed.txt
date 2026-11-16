@@ -1,0 +1,642 @@
+Source: OSI license-review public archive, 2020-January.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 5 in "[license review] Mulan PSL V1" (2020-01-01)
+Senders: McCoy Smith
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From mccoy at lexpan.law  Wed Jan  1 18:21:18 2020
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Wed, 1 Jan 2020 10:21:18 -0800
+Subject: [License-review] [license review] Mulan PSL V1
+In-Reply-To: <000501d5bebf$47e63d80$d7b2b880$@pku.edu.cn>
+References: <000501d5bebf$47e63d80$d7b2b880$@pku.edu.cn>
+Message-ID: <000c01d5c0d0$43d39d10$cb7ad730$@lexpan.law>
+
+A few comments on this submission; sorry I didn?t get comments in on prior iterations:
+
+ 
+
+This looks like a variant on Apache, so my initial question on this was why not translate Apache into Chinese, and have that be the authoritative version?  However, there are some substantive differences here with Apache, so that proposition would not make sense if the goal is to achieve some improvements or variants to canonical Apache, as well as to have an authoritative native Chinese language license.  The substantive differences do raise questions in my mind though (note that some of these may be the result of translation from Chinese to English, so perhaps some clarity in the English-translated submission is required rather than changes to the license text itself):
+
+ 
+
+?Software means the program and related documents which are comprised of those Contribution and licensed under this License.?
+
+ 
+
+The grammar, in English, of this definition is awkward.  It probably should say:
+
+ 
+
+??Software? means the program and related documents which comprise all Contributions licensed under this License.?
+
+ 
+
+Also:
+
+ 
+
+?Affiliates means entities that control, or are controlled by, or are under common control with a party to this License, ?control? means direct or indirect ownership of at least fifty percent (50%) of the voting power, capital or other securities of controlled or commonly controlled entity.?
+
+ 
+
+I think you may not want use the term ?party? here, as it would apply both to the entity/person giving the grant (licensor), and the entities/persons receiving the grant (licensee).  This looks like it is styled to be a ?bare license? (vs a contract), in which case use of ?party? here could be construed as an effort to make binding obligations that go in both ways (vs having all terms merely be conditions upon the grant of the licenses).  If your intent is to have this be interpreted as a contract, for which both parties (licensor and licensee) are agreeing to obligations, you might want to clarify what is the binding obligation of the licensee (entity receiving the grant) to the licensor (entity giving the grant), particularly what obligations you believe Affiliates of the licensee should be bound to.
+
+ 
+
+And:
+
+ 
+
+?2. Grant of Patent License 
+
+*** where such patent license is only limited to the patent claims owned or controlled by such Contributor now or in future which will be necessarily infringed by its Contribution alone, or by combination of the Contribution with the Software to which the Contribution was contributed, excluding of any patent claims solely be infringed by your or others? modification or other combinations.?
+
+ 
+
+The grammar, in English, of the last part of that statement is awkward.  I?d suggest you just use the language straight out of, e.g., Eclipse:
+
+              ?The patent license shall not apply to any other combinations which include the Contribution.?
+
+ 
+
+In addition:
+
+ 
+
+?If you or your Affiliates directly or indirectly (including through an agent, patent licensee or assignee), institute patent litigation (including a cross claim or counterclaim in a litigation) or other patent enforcement activities against any individual or entity by alleging that the Software or any Contribution in it infringes patents, then any patent license granted to you under this License for the Software shall terminate as of the date such litigation or activity is filed or taken.?
+
+ 
+
+The parenthetical here is potentially highly problematic, as it doesn?t limit what sort of ?agent,? ?patent licensee? or ?assignee? to which it applies.  I think you intend here to indicate an ?agent, patent licensee or assignee? *which has been granted the right to institute patent litigation using a Contributor?s patent that is claimed to be infringed by the Software.*  If that is the case, it should be made clear. Otherwise, it ? as written ? would cover a non-exclusive licensee of a general corporate patent cross-license who asserts a patent claim against the Software based on a patent that that non-exclusive licensee developed independent of the Contributor.  The same would apply to ?agent? and ?assignee? (although in that case, an agent for any purpose might be potentially implicated).  If you did intend the defensive suspension claim to be that broad in scope, I don?t think it violates the OSD, but it likely means that many entities will not wish to use the license, as any contractual relation it enters into with other entities that could be characterized as agency or assignment (or the granting of any sort of patent license) means that their continued use of software is at risk based on independent actions of those parties using their own patents.
+
+ 
+
+5. Disclaimer of Warranty and Limitation of Liability
+
+The Software and Contribution in it are provided without warranties of any kind, either express or implied. In no event shall any Contributor or copyright holder be liable to you for any damages, including, but not limited to any direct, or indirect, special or consequential damages arising from your use or inability to use the Software or the Contribution in it, no matter how it?s caused or based on which legal theory, even if advised of the possibility of such damages.?
+
+Since you?re already using red to highlight the ?Language? clause, I?d suggest you might want to do that for the ?Disclaimer of Warranty and Limitation of Liability,? as (at least in the USA), making such disclaimers ?conspicuous? (for example, using a different color, or a box, or ALL CAPS) can be considered required for it to be effective (https://mjlr.org/2015/09/19/out-of-sight-out-of-mind-hidden-disclaimers-and-ucc-%C2%A7-2-316s-conspicuousness-requirement/) 
+
+
+
+Nota bene:  My friend Carlo compared this license to ?BSD+Patents?; I?ve gotten to the point where I now tend to include a parenthetical because of the confusion between ?BSD+Patents? (plural, the license that Facebook used for a short time with react.js but later stopped using because of negative reaction to the patent defensive suspension clause) and ?BSD+Patent? (singular, the OSI-approved license, that does not even have a patent defensive suspension clause because it is designed to be GPLv2 compatible).?  Remember that the ?singular? license is the OSI approved, GPLv2 compatible one!
+
+ 
+
+Happy New Year
+
+McCoy
+
+ 
+
+?That license was written and submitted by me on behalf of my prior employer so I feel some duty to continue to point out this clarification?.
+
+ 
+
+From: License-review <license-review-bounces at lists.opensource.org> On Behalf Of Zhou Minghui
+Sent: Sunday, December 29, 2019 7:15 PM
+To: 'License submissions for OSI review' <license-review at lists.opensource.org>; 'Simon Phipps' <webmink at opensource.org>
+Subject: Re: [License-review] [license review] Mulan PSL V1
+
+ 
+
+Dear all,
+
+ 
+
+According to the collected suggestions, we have revised the Mulan PSL v1, and here is the submission of Mulan Permissive Software License, Version 2?Mulan PSL v2?for approval. 
+
+For your convenience, the modifications of the license texts are marked with red.
+
+ 
+
+Thank you. Happy new year!
+
+ 
+
+Minghui Zhou
+
+---------------------
+
+Professor, Ph.D.
+
+Department of Computer Science
+
+Peking University
+
+----------------------
+
+ 
+
+ 
+
+=======================================================
+
+Type of submission: Approval
+
+ 
+
+License name: ???????,?2??Mulan Permissive Software License?Version 2?
+
+ 
+
+Short Identifier: Mulan PSL v2
+
+ 
+
+List of suggestions:
+
+We collected the suggestions from the License Review Mailing List as follows:
+
+
+From: Carlo Piana < <mailto:carlo at piana.eu> carlo at piana.eu>
+
+
+I have one observation and one criticism.
+
+The observation is that this looks like a couple of licenses like the BSD+patents. While arguably the text is more streamlined and modern, building on the experience in licensing that we have accrued since the BSD times, I wonder if there is such desperate need for yet another license. Except perhaps one in Chinese.
+
+ 
+
+The criticism is founded on a long debated issue about whether multi-language licenses are a good idea. As you know, GNU GPL family decided that the only ever authoritative version is the English one, and I tend to agree with the rationale underneath. It is tremendously difficult to exactly match the same meaning across multiple languages, and my experience in dissecting legal instruments of the EU -- limiting to those few languages I am reasonably confident perusing -- is that it is very difficult to find a single meaning. Often one should find it comparing different versions and with the help of the recitals, and yet it is very difficult to reach a final point.
+
+ 
+
+Moreover, you state in your introduction that the rule is (roughly) "either is normative". But that rule is nowhere expressed in the license itself. I am afraid this would then be totally left to the local court, in case. Yet, a license lives not only in court, but also in the current interpretation of those using it, who would not have the benefit of a third party picking up one version or the other.
+
+ 
+
+Frankly, I see little merit in creating confusion by using two languages on equal footing. On the other hand, the fact that the license is non-copyleft reduces the concerns on possible negative consequences.
+
+ 
+
+I wonder if those concerns have also been tackled in your legal analysis, and what the answer were, in case.
+
+ 
+
+I totally love the name of the license.
+
+
+From: Josh Berkus < <mailto:josh at berkus.org> josh at berkus.org>
+
+
+I think Carlo was arguing that this license should state that the Chinese version is authoritative.  Certainly that would make sense to me.
+
+ 
+
+
+From: Carlo < <mailto:carlo at piana.eu> carlo at piana.eu>
+
+
+Thanks Josh for spotting the point. Pretty much so. **One** version should be authoritative, IMHO. Which one, that's up to the author of the license to decide.
+
+ 
+
+Suppose one contributor picks the English and another, for an unrelated project, the Chinese, and the two differ substantially due to a glitch in the translation. And a third party combines them. It's a minor hiccup here, as it's no copyleft, yet it's unnecessary added entropy. Which one applies? You would have two inbound and most of all two outbound
+
+licenses in a superstate, with the same name and different legal consequences.
+
+ 
+
+Again, not a big issue, rather a matter of elegance and "ecology".
+
+ 
+
+
+From: Simon Phipps < <mailto:webmink at opensource.org> webmink at opensource.org>
+
+
+Please collect all the suggestions the list offer and then make a revised submission with a new version number that includes all the changes you intend to make, with an explanation of each change in the submission email (ideally with citations!). That way we have a single email to refer to in the final approval process.
+
+ 
+
+
+From: Pamela Chestek < <mailto:pamela at chesteklegal.com> pamela at chesteklegal.com>
+
+
+Would it be possible to make one version authoritative is some countries and the other authoritative in the rest of the world? You could says something like "the Chinese version is the official version in China, Hong Kong, etc. and the English version is the official version in the other countries of the world." If you said that the Chinese version was authoritative everywhere, and then litigate the license in the US, the Chinese version will need to be translated to English. You might then end up with a /different/ translation than the version written in English.
+
+ 
+
+But you would want it very clear how it was divided. I would not say something like "Chinese-speaking countries" because then you get into arguments about what that means - is the United States a Chinese-speaking country because it has a sizable Chinese-speaking population? (We have no official language in the United States.)
+
+ 
+
+Just suggesting it - does this create problems I'm not seeing?
+
+ 
+
+
+From: Simon Phipps < <mailto:simon at webmink.com> simon at webmink.com>
+
+
+Wouldn't the copyright holder's preference be the best selection? Given the two versions are essentially equivalent it doesn't matter which is selected as long as one is.
+
+ 
+
+So maybe change the usage instructions to include a statement of which language is normative, then change the license text to state Chinese is normative unless otherwise specified in the copyright statement in the source code, so there's a default.
+
+ 
+
+
+From: Pamela Chestek < <mailto:pamela at chesteklegal.com> pamela at chesteklegal.com>
+
+
+Hmm, except that it gets sticky where each individual contributor to the same project chooses differently. That would be impossible to sort out in a lawsuit.
+
+ 
+
+So I'm back to just picking Chinese as the controlling language.
+
+ 
+
+This demonstrates why it's so hard to write a good license and why they can get very lengthy.
+
+ 
+
+
+From: Josh Berkus < <mailto:josh at berkus.org> josh at berkus.org>
+
+
+Do we have someone in the OSI who can review the Chinese language license?
+
+ 
+
+
+From: Simon Phipps < <mailto:webmink at opensource.org> webmink at opensource.org>
+
+
+Our process requires that a notarised English translation is provided for review. In this case certification that the English version is legally equivalent would be sufficient, which we can probably assume from the status of the submitter.
+
+ 
+
+Note that making a single version normative (if that is what the submitter chooses to do) merely indicates that where there is disputed interpretation during litigation of otherwise equivalent texts, the normative version is used by the court. It should not affect our deliberations about the overall license if both versions are certified equivalent.
+
+ 
+
+ 
+
+Modification (compared to Mulan PSL v1):
+
+The main concern was, we provide both Chinese version and English version of Mulan PSL v1, but what if there is disputed interpretation between both versions? To solve this problem, we add a statement in the license terms, stating that while there is any conflict between the Chinese version and the English version, the Chinese version prevails. We highly appreciate the suggestions from Carlo Piana, Josh Berkus, Simon Phipps and Pamela Chestek!
+
+ 
+
+6???
+
+     ?????????????????????????????????????????????????????
+
+6. Language
+
+This license is written in both Chinese and English, and the Chinese version and English version shall have the same legal effect. In the case of divergence between the Chinese and English versions, the Chinese version shall prevail.
+
+ 
+
+Rationale:
+
+1. Mulan PSL v2 is expressed in both Chinese and English, which have the same legal effect. It is convenient for open source participants to read and use. 
+
+2. In order to solve the existing litigation problems, Mulan PSL v2 clarifies the authorization of copyright, patent and trademark, and provides better legal protection. 
+
+3. For the sake of simplicity and  <javascript:;> understandability, Mulan PSL v2 was revised jointly by technical experts and legal experts to simplify the terms and optimize the expression as much as possible on the premise of clarifying the behavior constraints of both parties in the License. Mulan PSL v2 is easy for users to follow.
+
+ 
+
+Distinguish (from other OSI-approved permissive licenses):
+
+Mulan PSL v2 differs from BSD 3-clause License and Apache License V2.0 in terms of statement obligation, copyright license, patent license and patent retaliation.
+
+1. Statement obligation. Mulan PSL v2 only requires that the licensed software to be distributed with a copy of this License and copyright, patent, trademark and disclaimer statements in the software.
+
+2. Copyright license. Original licensor, subsequent contributor, and Affiliates of those licensors provide the Copyright license.
+
+3. Patent license. Original licensor, subsequent contributor, and Affiliates of those licensors provide the patent license.
+
+4. Patent retaliation: If a user or its Affiliates directly or indirectly (including through an agent, patent licensee or assignee) institute patent litigation (including a cross claim or counterclaim in a litigation) or other patent enforcement activities against any individual or entity by alleging that the Software or any Contribution in it infringes patents, then any patent license granted to the user or its Affiliates under this License for the Software shall terminate as of the date such litigation or activity is filed or taken.
+
+ 
+
+A comparison to existing OSS licenses and clauses, is attached to this submission as a license commentary.
+
+
+?
+
+Mulan PSL v2
+
+BSD 3-Clause License
+
+Apache License V2.0
+
+
+Permissions
+
+*  Commercial use 
+
+*  Commercial use 
+
+*  Commercial use  
+
+
+*  Modification  
+
+*  Modification
+
+*  Modification
+
+
+*  Distribution
+
+*  Distribution 
+
+*  Distribution 
+
+
+*  Private use  
+
+*  Private use  
+
+*  Private use  
+
+
+*  Patent license from all code licensors and their affiliates
+
+	*  Patent license from subsequent contributors and their affiliates and original licensor
+
+
+Limitations
+
+*  Liability  
+
+*  Liability  
+
+*  Liability  
+
+
+*  Warranty  
+
+*  Warranty  
+
+*  Warranty  
+
+
+*  Trademark use 
+
+?
+
+*  Trademark use 
+
+
+Conditions
+
+?   License and copyright notice when distribution
+
+?   License and copyright notice when distribution
+
+?   License and copyright notice when distribution
+
+
+?   User's patent license automatically terminates when such user directly or indirectly enforces its patents on the work
+
+	?   User's patent license automatically terminates when such user sues infringement of its patents on the work
+
+		
+?   State changes
+
+ 
+
+Legal Review:
+
+Mulan PSL v2 was drafted by software experts and lawyers from colleges, research institutions,  <javascript:;> enterprises and open source communities. It has been reviewed by lawyers specialized in the field of intellectual property and open source software.
+
+Both the Chinese and English versions of Mulan PSL v2 have the same legal effect. Users can select the appropriate version in their jurisdiction. In the event of conflicts between the Chinese version and English version, the Chinese version shall prevail. Mulan PSL v2 meets OSI?s definition of ?Open Source? of OSI and OSI?s requirements. The rationale of the license is to create a license with easy compliance, better compatibility, comprehensive patent protection, and Chinese (not just English) friendly.
+
+ 
+
+License proliferation category: 
+
+Licenses that are popular and widely used or with strong communities
+
+Mulan PSL v1 has been widely used in China open source community, here is a list of projects licensed under Mulan PSL v1:
+
+
+Projects
+
+URL
+
+
+Hutool
+
+ <https://gitee.com/loolly/hutool> https://gitee.com/loolly/hutool
+
+
+OpenArkCompiler
+
+ <https://gitee.com/harmonyos/OpenArkCompiler> https://gitee.com/harmonyos/OpenArkCompiler
+
+
+IJPay
+
+ <https://gitee.com/javen205/IJPay> https://gitee.com/javen205/IJPay
+
+
+IMI
+
+ <https://gitee.com/yurunsoft/IMI> https://gitee.com/yurunsoft/IMI
+
+
+SimpleDFS
+
+ <https://gitee.com/FusionStack/SimpleDFS> https://gitee.com/FusionStack/SimpleDFS
+
+ 
+
+Text of the license:
+
+???????? ?2? 
+
+2019?12?  <http://license.coscl.org.cn/MulanPSL> http://license.coscl.org.cn/MulanPSL2
+
+ 
+
+????????????????????????????2??????????????????
+
+0.          ??
+
+????????????????????????????????????
+
+???????????????????????????????????????
+
+????????????????????????
+
+????????????????????????????????????????????????????????????50%????????????????????
+
+???????????????????????????????????
+
+1.       ??????
+
+??????????????????????????????????????????????????????????????????????????
+
+2.       ??????
+
+???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+
+3.       ?????
+
+?????????????????????????????????????????????4????????????????
+
+4.       ????
+
+?????????????????????????????????????????????????????????????????????????????????
+
+5.       ?????????  
+
+????????????????????????????????????????????????????????????????????????????????????????????????????????,????????????????? 
+
+6???
+
+        ?????????????????????????????????????????????????????
+
+???? 
+
+ 
+
+????????????2?????????
+
+???????????????2???????????????????????????????
+
+1.	????????????????????????????????????????
+2.	????????????????LICENSE??????????????????????
+
+3? ??????????????????????
+
+
+	
+		
+ 
+
+
+Copyright (c) [Year] [name of copyright holder]
+
+[Software Name] is licensed under Mulan PSL v2.
+You can use this software according to the terms and conditions of the Mulan PSL v2. 
+
+You may obtain a copy of Mulan PSL v2 at:
+
+                 <http://license.coscl.org.cn/MulanPSL> http://license.coscl.org.cn/MulanPSL2 
+
+THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT warranties of any kind, either express or implied, including but not limited to non-infringement, merchantability or fit for a particular purpose.  
+
+See the Mulan PSL v2 for more details.  
+
+ 
+
+ 
+
+ 
+
+ 
+
+Mulan Permissive Software License?Version 2 (Mulan PSL v2)
+
+December 2019   <http://license.coscl.org.cn/MulanPSL> http://license.coscl.org.cn/MulanPSL2
+
+ 
+
+Your reproduction, use, modification and distribution of the Software shall be subject to Mulan PSL v2 (this License) with the following terms and conditions: 
+
+0. Definition
+
+Software means the program and related documents which are comprised of those Contribution and licensed under this License.
+
+Contributor means the Individual or Legal Entity who licenses its copyrightable work under this License.
+
+Legal Entity means the entity making a Contribution and all its Affiliates.
+
+Affiliates means entities that control, or are controlled by, or are under common control with a party to this License, ?control? means direct or indirect ownership of at least fifty percent (50%) of the voting power, capital or other securities of controlled or commonly controlled entity.
+
+Contribution means the copyrightable work licensed by a particular Contributor under this License.
+
+1. Grant of Copyright License
+
+Subject to the terms and conditions of this License, each Contributor hereby grants to you a perpetual, worldwide, royalty-free, non-exclusive, irrevocable copyright license to reproduce, use, modify, or distribute its Contribution, with modification or not.
+
+2. Grant of Patent License 
+
+Subject to the terms and conditions of this License, each Contributor hereby grants to you a perpetual, worldwide, royalty-free, non-exclusive, irrevocable (except for revocation under this Section) patent license to make, have made, use, offer for sale, sell, import or otherwise transfer its Contribution where such patent license is only limited to the patent claims owned or controlled by such Contributor now or in future which will be necessarily infringed by its Contribution alone, or by combination of the Contribution with the Software to which the Contribution was contributed, excluding of any patent claims solely be infringed by your or others? modification or other combinations. If you or your Affiliates directly or indirectly (including through an agent, patent licensee or assignee), institute patent litigation (including a cross claim or counterclaim in a litigation) or other patent enforcement activities against any individual or entity by alleging that the Software or any Contribution in it infringes patents, then any patent license granted to you under this License for the Software shall terminate as of the date such litigation or activity is filed or taken.
+
+3. No Trademark License
+
+No trademark license is granted to use the trade names, trademarks, service marks, or product names of Contributor, except as required to fulfill notice requirements in Section 4.
+
+4. Distribution Restriction
+
+You may distribute the Software in any medium with or without modification, whether in source or executable forms, provided that you provide recipients with a copy of this License and retain copyright, patent, trademark and disclaimer statements in the Software.
+
+5. Disclaimer of Warranty and Limitation of Liability
+
+The Software and Contribution in it are provided without warranties of any kind, either express or implied. In no event shall any Contributor or copyright holder be liable to you for any damages, including, but not limited to any direct, or indirect, special or consequential damages arising from your use or inability to use the Software or the Contribution in it, no matter how it?s caused or based on which legal theory, even if advised of the possibility of such damages.
+
+6. Language
+
+This license is written in both Chinese and English, and the Chinese version and English version shall have the same legal effect. In the case of divergence between the Chinese and English versions, the Chinese version shall prevail.
+
+End of the Terms and Conditions
+
+ 
+
+How to apply the Mulan Permissive Software License?Version 2 (Mulan PSL v2) to your software
+
+To apply the Mulan PSL v2 to your work, for easy identification by recipients, you are suggested to complete following three steps:
+
+i Fill in the blanks in following statement, including insert your software name, the year of the first publication of your software, and your name identified as the copyright owner; 
+
+ii Create a file named ?LICENSE? which contains the whole context of this License in the first directory of your software package;
+
+iii Attach the statement to the appropriate annotated syntax at the beginning of each source file.
+
+
+	
+		
+ 
+
+
+Copyright (c) [Year] [name of copyright holder]
+
+[Software Name] is licensed under the Mulan PSL v2.  
+You can use this software according to the terms and conditions of the Mulan PSL v2. 
+
+You may obtain a copy of Mulan PSL v2 at:
+
+                 <http://license.coscl.org.cn/MulanPSL> http://license.coscl.org.cn/MulanPSL2
+
+THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT warranties of any kind, either express or implied, including but not limited to non-infringement, merchantability or fit for a particular purpose.  
+
+See the Mulan PSL v2 for more details.
+
+ 
+
+ 
+
+ 
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200101/bb4d9d69/attachment-0001.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: image003.png
+Type: image/png
+Size: 708 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200101/bb4d9d69/attachment-0002.png>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: image004.png
+Type: image/png
+Size: 598 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200101/bb4d9d69/attachment-0003.png>

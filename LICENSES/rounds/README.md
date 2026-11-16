@@ -108,6 +108,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2007-06 | `license-discuss` | **観測（Phipps 氏・法体系は書くか何も書かないか・1 通）** | `2007-06-license-discuss-phipps-fixed-law-or-none-observed.txt` |
 | 2007-04 | `license-discuss` | **観測（Rosen 氏・承認の指針は独自性の証明・1 通）** | `2007-04-license-discuss-rosen-uniqueness-observed.txt` |
 | 2019-08 | `license-discuss` | **観測（"For Public Comment: The Libre Source License" から 4 通・個人の起草者に示された順序、list に出すことの適否）** | `2019-08-license-discuss-libre-source-license-observed.txt` |
+| 2020-01 | `license-review` | **観測（Smith 氏の 1 通・bare license で party の語を使う危うさ）** | `2020-01-license-review-mulan-psl-smith-party-bare-license-observed.txt` |
 | 2008-03・2012-04 | `license-discuss`・`license-review` | **観測（公有化の 2 スレッドから 7 通・公有のソフトウェアは open source か、FAQ の公有化と CC0 の答えの受け取られ方）** | `2008-03-and-2012-04-license-lists-public-domain-faq-observed.txt` |
 | 2015-10 | `license-discuss` | **観測（"Short permissive no attribution required open source license" から 4 通・公有化の献呈と帰属を求めない fallback の提案、「十分すぎるほど在る」）** | `2015-10-license-discuss-short-permissive-no-attribution-observed.txt` |
 | 2015-10 | `license-review` | **観測（"License Committee Report" から 1 通・Fontana 氏 2015-10-13・出所の記録）** | `2015-10-license-review-committee-report-fontana-provenance-observed.txt` |
@@ -189,6 +190,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2011-05〜08 | `license-review` | **観測（Python のライセンスの改訂の承認の求めから 3 通・先例は参考であって拘束しない、古い版を非推奨にしても効かない）** | `2011-05-to-08-license-review-python-license-changes-observed.txt` |
 | 2008-10 | `license-review` | **観測（AFL に論文の引用の義務を足したいという問いから 5 通・承認済みに似た条が在ることは新しい条を正当化しない）** | `2008-10-license-review-afl-citation-and-old-mistakes-observed.txt` |
 | 2007-08 | `license-discuss` | **観測（"Groklaw's OSI item" から 2 通・OSI は認証を取り消したことがない、提出者の素性で差別も優遇もしない）** | `2007-08-license-discuss-groklaw-certification-not-pulled-observed.txt` |
+| 2007-08 | `license-discuss` | **観測（Engelfriet 氏の 1 通・大陸法に bare license の概念は要らない）** | `2007-08-license-discuss-copyleft-blow-engelfriet-civil-law-observed.txt` |
 | 2008-05・2009-02 | `license-review` | **観測（EUPL の承認の求めから 2 通・言語の版の食い違いは受領者に有利に決めるべきだという提案と、それは要件にならなかったこと）** | `2008-05-to-2009-02-license-review-eupl-ties-in-favor-of-licensee-observed.txt` |
 | 2008-05 | `license-review` | **観測（Perens 氏の 1 通・大きな問題で通らないと分かれば小さな問題は誰も見ない）** | `2008-05-license-review-iwl-perens-bigger-issues-observed.txt` |
 | 2008-05 | `license-review` | **観測（Nelson 氏の 1 通・既存のライセンスから始めて適合を求めるのは良くない）** | `2008-05-license-review-iwl-nelson-existing-license-observed.txt` |
@@ -213,6 +215,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2015-01 | `license-discuss` | **観測（"FAQ entry on CLAs" から 3 通・OSI は外向きのライセンスだけを審査する）** | `2015-01-license-discuss-osi-reviews-outbound-only-observed.txt` |
 | 2015-01 | `license-discuss` | **観測（Woolley 氏の 1 通・公有のライセンスは放棄の試みと代わりの許諾の組み合わせ）** | `2015-01-license-discuss-pd-customized-woolley-no-pd-licence-observed.txt` |
 | 2005-08 | `license-discuss` | **観測（OVPL の会話から 6 通・委員長の逐語の再利用の要求と、認証の要件は OSD に限るべきだという理事の反対）** | `2005-08-license-discuss-ovpl-verbatim-reuse-observed.txt` |
+| 2005-08 | `license-discuss` | **観測（Rosen 氏の 1 通・受諾が無ければ bare license）** | `2005-08-license-discuss-bare-licenses-rosen-assent-observed.txt` |
 | 2002-08 | `license-discuss` | **観測（"A new "use" clause in the OSD" から 4 通・許される制限だけを列挙する OSD の条の案）** | `2002-08-license-discuss-osd-use-clause-observed.txt` |
 | 2018-10 | `license-review` | **観測（SSPL と OSD 9 の会話から 3 通・OSD は別の時代のために書かれた、承認済みのライセンスは OSD の隙を整えられる）** | `2018-10-license-review-osd9-written-for-another-time-observed.txt` |
 | 2018-10 | `license-review` | **観測（Phipps 氏の 1 通・著者に代わって未解決の論点を集めた、改訂版が要る）** | `2018-10-license-review-cfsl-phipps-open-issues-observed.txt` |
@@ -239,6 +242,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-08 | `license-review` | Villa 氏 2026-08-14 | `2026-08-license-review-openmdw-villa-mpl2-defensive-clause-observed.txt` |
 | 2024〜2026 | `license-review` | **観測（ドシエが引いていなかった決める側の 6 通・前例を論拠にするな、精確な語は品質の問題、AI 生成の表示はファイル単位で、完全な許諾は全法域の動詞を持つ）** | `2024-to-2026-license-review-unquoted-decider-messages-observed.txt` |
 | 2012-03 | `license-review` / `license-discuss` | **観測（"CC0 incompliant with OSD on patents" から 5 通・著作権だけのライセンスは滑りやすい坂、放棄の効果を論じるのは時間の無駄）** | `2012-03-license-review-cc0-incompliant-patents-observed.txt` |
+| 2012-03 | `license-review` | **観測（Piana 氏の 1 通・沈黙のライセンスは禁反言に頼れるが、明示に外したライセンスは頼れない）** | `2012-03-license-review-mxm-cc0-piana-agnostic-estoppel-observed.txt` |
 | 2020-02 | `license-discuss` | **観測（Persona non Grata の前文の会話から 2 通・採用の見込みは承認の基準ではなかった、拘束しない語は要らない）** | `2020-02-license-discuss-adoption-not-a-criterion-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2010-06 | `license-discuss` | **観測（Nelson 氏・オープンデータの定義・1 通）** | `2010-06-license-discuss-nelson-open-data-definition-observed.txt` |
