@@ -20,6 +20,22 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-16 の読了（新しいものが上）
 
+- 2026-11-16 に "Extending copyleft and out-of-the-box compliance"（通読・Ingo 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "On dual-licensing"（通読・Ingo 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "For approval: The Cryptographic Autonomy License (Beta 3)"（通読・Ingo 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "I've been asked to license my open source project CC0"（`license-discuss`・通読・Ingo 氏の候補の外）を `review-readings-2.md` §1.256 へ
+
+- 2026-11-16 に "open source licenses addressing malicious derivatives"（通読・Ingo 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "BSD 3-clause and copyright notices"（`license-discuss`・通読・Ingo 氏の候補の外）を `review-readings-2.md` §1.256 へ
+
+- 2026-11-16 に "PHP License v3.01 comments"（通読・Ingo 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "The alphabetical list"（通読・Ingo 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
 - 2026-11-16 に "Redistribution constraint"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
 
 - 2026-11-16 に ""open-source" x "free software""（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）

@@ -1,0 +1,44 @@
+Source: OSI license-discuss public archive, 2017-November.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 10 in "I've been asked to license my open source project CC0" (2017-11-07)
+Senders: Christopher Sean Morrison
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From brlcad at mac.com  Tue Nov  7 18:33:18 2017
+From: brlcad at mac.com (Christopher Sean Morrison)
+Date: Tue, 07 Nov 2017 13:33:18 -0500
+Subject: [License-discuss] I've been asked to license my open source
+ project	CC0
+In-Reply-To: <CAF3gKsysXDpsXpLGD4QwwzTe_VvcO75TBNhZYanV4K9EFn6qRQ@mail.gmail.com>
+References: <CAF3gKsysXDpsXpLGD4QwwzTe_VvcO75TBNhZYanV4K9EFn6qRQ@mail.gmail.com>
+Message-ID: <5F11D37C-496A-4C7E-9970-9A678AE5DBC2@mac.com>
+
+
+
+> On Nov 7, 2017, at 12:09 PM, Shahar Or <mightyiampresence at gmail.com> wrote:
+> 
+> I have been asked to change the license of an open source project of mine to CC0. I'm reluctant to do so, as it is not OSI approved.
+
+That?s a reasonable concern, imho.
+
+> https://github.com/mightyiam/shields-badge-data/issues/28
+> 
+> Is there good reason for this request, at all?
+
+There?s no technical reason.  Not permitting incorporation of permissively licensed code (eg MIT) predominantly means throwing away attribution.
+
+> I mean, can they not otherwise depend on my software, if their software is CC0 licensed?
+
+If your code used a license that applied to combined works (eg GPL), there?d be an issue.
+
+> When I conveyed my reluctance it was suggested that I dual-license.
+
+With CC0, I would suggest striking the patent provision or incorporating a patent grant from contributors in some manner.  Dual licensing with a permissive is an option too.
+
+Cheers!
+Sean
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20171107/c9d520a4/attachment.html>

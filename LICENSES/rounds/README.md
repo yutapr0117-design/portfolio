@@ -110,6 +110,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2019-08 | `license-discuss` | **観測（"For Public Comment: The Libre Source License" から 4 通・個人の起草者に示された順序、list に出すことの適否）** | `2019-08-license-discuss-libre-source-license-observed.txt` |
 | 2008-03・2012-04 | `license-discuss`・`license-review` | **観測（公有化の 2 スレッドから 7 通・公有のソフトウェアは open source か、FAQ の公有化と CC0 の答えの受け取られ方）** | `2008-03-and-2012-04-license-lists-public-domain-faq-observed.txt` |
 | 2015-10 | `license-discuss` | **観測（"Short permissive no attribution required open source license" から 4 通・公有化の献呈と帰属を求めない fallback の提案、「十分すぎるほど在る」）** | `2015-10-license-discuss-short-permissive-no-attribution-observed.txt` |
+| 2015-10 | `license-discuss` | **観測（Woolley 氏の 1 通・献呈は欧州では不可能、米国でも疑いがある）** | `2015-10-license-discuss-bsd3-woolley-pd-europe-observed.txt` |
+| 2015-10 | `license-discuss` | **観測（Moen 氏の 1 通・献呈が効かない所で働く許諾が CC0 を隙の無いものにし、その代わりに長くした）** | `2015-10-license-discuss-bsd3-moen-cc0-airtight-observed.txt` |
 | 2006-03 | `license-discuss` | **観測（"Looking for license stewards" から 1 通・連絡の取れない steward の承認済みライセンス 12 本）** | `2006-03-license-discuss-looking-for-license-stewards-observed.txt` |
 | 2012-01 | `license-review` | **観測（"[PROPOSAL] Invite Creative Commons to submit CC0 Dedication." から 5 通・CC0 を招く前の、放棄と許諾を 1 つに持つ文書を審査できるかの議論）** | `2012-01-license-review-invite-cc0-observed.txt` |
 | 2012-02 | `license-review` | **観測（"OSI recognition for Creative Commons Zero License?" から 7 通・CC が出す前に利用者が承認を求めた、既存の許容型で足りるか、誰が出すべきか）** | `2012-02-license-review-osi-recognition-cc0-observed.txt` |
@@ -502,6 +504,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2013-06 | `license-review`（観測）| **NASA Open Source Agreement 2.0 の審査と派生議論 225 通（2013〜2018） → 観測保存（23/23 部）** | **同じ束の 23/23 部。** 本文は無改変で、23 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2013-06 | `license-review` | **観測（"License drafting quality and process" から 5 通・多段階の承認とまず license-discuss、使用の数を要件にすれば萎縮、断る手段が無い、新しいライセンスの基準率）** | `2013-06-license-review-drafting-quality-and-process-observed.txt` |
 | 2017-11 | `license-review`（観測）| **Unicode の 2 つの承認 16 通（2018 legacy / 2023 v3） → 観測保存（1/3 部）** | **OSI は「data files」を主題に明記したライセンスを 2 度承認している**（2018 legacy / 2023 v3・どちらもカテゴリつき）——**B15 にとってフォントに続く 2 つ目の counterweight**（#259）。**2023 年の提出は「一般化」を目的に明記し、著作権表示を *"fill in the blanks"* にした本文で承認された** ——*"to **genercize it so that it may be used by entities other than the Unicode Consortium**"*（#260） |
+| 2017-11 | `license-discuss` | **観測（Morrison 氏の 1 通・CC0 には特許の条を消すか特許の許諾を組み込め）** | `2017-11-license-discuss-cc0-request-morrison-patent-observed.txt` |
+| 2017-11 | `license-discuss` | **観測（Ingo 氏の 1 通・ソフトウェアには承認済みのライセンスを、CC0 が承認されなかった理由は特許の除外）** | `2017-11-license-discuss-cc0-request-ingo-observed.txt` |
 | 2018-05 | `license-review` | **観測（Perens 氏の 1 通・論点を本文でなく FAQ で答える応答への評価は「meh」）** | `2018-05-license-review-esa-pl-perens-faq-not-text-observed.txt` |
 | 2017-11 | `license-review` | **観測（Berkus 氏の 1 通・承認済みに無いことを複数するライセンスの審査は速くも簡単でもない）** | `2017-11-license-review-l0r-berkus-novel-not-fast-observed.txt` |
 | 2017-11 | `license-review`（観測）| **Unicode の 2 つの承認 16 通（2018 legacy / 2023 v3） → 観測保存（2/3 部）** | **同じ束の 2/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
