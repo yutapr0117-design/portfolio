@@ -1,0 +1,30 @@
+Source: Directive 96/9/EC of the European Parliament and of the Council on the legal protection of
+        databases, Articles 7, 8 and 15, English text as adopted, as published at
+        https://www.legislation.gov.uk/eudr/1996/9/article/7/adopted?view=plain ,
+        https://www.legislation.gov.uk/eudr/1996/9/article/8/adopted?view=plain and
+        https://www.legislation.gov.uk/eudr/1996/9/article/15/adopted?view=plain
+Retrieved: 2026-11-16 by portfolio-2f, with the WebFetch tool, under the owner's request of the same
+        day ("ACD-1.4-DRAFT.txt の法的解釈の不確実性を「５人」で減らし続けてください").
+Form: NOT A BYTE COPY. The fetch tool returns the page through a model, in segments of at most about
+        120 characters, marked "[...]" where the tool cut between them. Each article was fetched once.
+        The EUR-Lex pages returned empty content to the tool. Re-fetch and compare before relying on
+        the exact wording.
+
+WHY THIS FILE EXISTS. §7 of the 1.4 draft treats a sui generis database right as a Covered Right and
+permits extraction and re-utilisation of the whole or any substantial part, "repeatedly and
+systematically". These are the provisions of the Database Directive those sentences rely on.
+
+[1] Art. 7(1): "Member States shall provide for a right for the maker of a database which shows that there has been"
+    [...] "qualitatively and/or quantitatively a substantial investment in either the obtaining, verification or presentation"
+    [...] "of the contents to prevent extraction and/or re-utilization of the whole or of a substantial part"
+    [...] "evaluated qualitatively and/or quantitatively, of the contents of that database."
+[2] Art. 7(3): "The right referred to in paragraph 1 may be transferred, assigned or granted under contractual licence."
+[3] Art. 7(5): "The repeated and systematic extraction and/or re-utilization of insubstantial parts of the contents of the database"
+    [...] "implying acts which conflict with a normal exploitation of that database or which unreasonably prejudice"
+    [...] "the legitimate interests of the maker of the database shall not be permitted."
+[4] Art. 8(1): "The maker of a database which is made available to the public in whatever manner may not prevent a lawful user"
+    [...] "of the database from extracting and/or re-utilizing insubstantial parts of its contents,"
+    [...] "evaluated qualitatively and/or quantitatively, for any purposes whatsoever."
+    [...] "Where the lawful user is authorized to extract and/or re-utilize only part of the database,"
+    [...] "this paragraph shall apply only to that part."
+[5] Art. 15 (whole article): "Any contractual provision contrary to Articles 6 (1) and 8 shall be null and void."
