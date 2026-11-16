@@ -129,7 +129,7 @@ the guidance for adopters should suggest a signed statement, which nothing in th
 **The clauses.** In ACD-1.3, §8.1 licenses *"every patent claim owned or controlled by the Dedicator, now or
 in future"* infringed by making, using, selling or importing the Work or a derivative, *"where the
 infringement is caused by subject matter contained in the Work as made available"*. §8.4 licenses
-claims infringed by Computational Use or by making or using *"any model, parameter set, weight,
+claims (in ACD-1.3) infringed by Computational Use or by making or using *"any model, parameter set, weight,
 embedding, or output resulting from that use"*, limited to claims *"whose infringement depends upon
 the use of the Work"* — *"a question of causation and not of quantity"*. The 1.4 draft replaces
 that limit (2026-11-04): a claim is reached only where *"the feature that infringes it results, in
@@ -138,7 +138,7 @@ taken so to result"*. §8.2 makes both unconditional and non-terminable; §8.6 a
 arises where a licence is held ineffective; the 1.4 draft makes it operate in every jurisdiction
 without waiting for a licence to be held ineffective (2026-11-01), because a covenant that arises only on a holding does not
 exist when the claim that produces the holding is first asserted. The 1.4 draft also ties the covenant's
-reach to "any act that those Sections describe"; 1.3 says "any use of the Work or of anything
+reach to "any act that those Sections describe"; ACD-1.3 says "any use of the Work or of anything
 resulting from Computational Use of it", and in a patent covenant "use" may name only one of the
 acts (making, selling, importing) that §8.1 and §8.4 license (errata E45).
 
