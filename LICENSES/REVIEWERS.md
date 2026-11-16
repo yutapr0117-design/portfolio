@@ -43,9 +43,9 @@ decide what is worth translating, and gives you the commands to check the claims
   short: it is *"still not a license"*, and CC0's *"most serious"* concern was its patent exclusion.
   An article on OSI's site named the fix in 2017: *"disclaim ownership for the jurisdictions where
   that is possible, and then grant a copyright license"*. ACD has both parts (§3, §4), its licence
-  applying everywhere, and grants patents (§8). It imposes no condition (§10.1), so one of the two
-  grounds on which submissions fail has nothing to attach to. Each of the eight published criteria has an answer in the
-  text (below).
+  applying everywhere, and grants patents (§8). It imposes no condition (§10.1), so conditions, field limits and
+  discrimination, one of the two grounds on which submissions fail, have nothing to attach to. Each
+  published criterion has an answer below.
 - **The gap it claims, in one sentence.** **No OSI-approved instrument grants all three of these
   at once**: (i) a **patent licence that survives the transformation of the work into a model** and
   its outputs; (ii) **no condition on you at all**; and (iii) a grant that expressly reaches
