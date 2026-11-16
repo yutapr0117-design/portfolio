@@ -202,7 +202,7 @@ AI がやること:
 | 8 | **提出文の材料を出す版に合わせる**（12 要件・利益相反の開示・AI 関与の開示を薄めない）。**材料は `SUBMISSION-MATERIALS.md`（2026-10-26 新設）**、送る文面の語はオーナーが書く（ゲート 0） | 7 | Check 463 / `SUBMISSION-MATERIALS.md` |
 | 9 | **オーナーが `license-review` へ送る** → 公開アーカイブで配信を確認 | 4・8 | ゲート 0 / ゲート 10 |
 | 10 | **審査対応** —— 受領文を `rounds/` へ無改変で保存し、分解・応答・改訂を 1 回にまとめる。**説明だけで返さない**（規則と 13 件の撤退線・赤線は `REVISION-PROTOCOL.md` §3.8 が正本・根拠は `ACD-1.0.board-decisions.md` §4a） | 9 | `REVISION-PROTOCOL.md` |
-| 11 | **承認後** —— SPDX 収録、REUSE 改名（G3）、`FROZEN.md` の削除、全面の更新 | 承認 | `FROZEN.md` の解除手順 |
+| 11 | **承認後** —— SPDX 収録、REUSE 改名（G3）、`FROZEN.md` の削除、全面の更新。**承認は 1 つの本文に付き、版を改めた本文は表記だけの改訂でも「OSI 承認済み」と呼べない**（Fontana 氏 2013-09-10 *"this revised version should not be characterized as an OSI-approved license, even if the revisions here are justifiably considered 'merely editorial'"*・`review-readings-2.md` §1.247）。承認の後に見つけた欠陥は errata に記録し、直した版は新しい提出として審査を受ける。§16.4 が名と識別子を 1 つの固定した本文に結ぶのは、この運用と同じ向きである。想定問答 Q32（`ACD-1.0.review-responses-boilerplate.md`）も、後の版は承認を引き継がず改めて審査を受けると答えている。**逆側**: 1.0 から 1.4 まで版を重ねてきた速さは、承認の後には版ごとの審査の費用に変わる（`against.md` #320） | 承認 | `FROZEN.md` の解除手順 |
 
 **段 5 は送る前に済ませる方が承認に近い**が、済まなくても送れる。**送るのを段 5 の後まで待たない** —— B1 は提出の場で論評を得る経路でもあり（#274 の限定つき）、待つことの費用は時計が動かないことである。ただし委員長は審査を *"not for workshopping a license"* と述べている（#298）。本文は提出の前に仕上げる。法律家の分析は 2007 年 12 月まで手順の要件で、そこで外れた（`review-rules.md` §1.141）。
 **段 0〜2 と 6 は AI が週次で進める。**
