@@ -255,7 +255,11 @@ consent in the licence text to acts that would otherwise infringe them (modifica
 the author's name) operate separately from a covenant not to exercise them? In Japan the integrity
 right is infringed by alteration "against the author's will" (Article 20(1)), which reads as if
 consent removes the infringement rather than the remedy; the United Kingdom provides that the rights
-are not infringed by an act to which the person entitled has consented (CDPA s.87(1)). If that is
+are not infringed by an act to which the person entitled has consented (CDPA s.87(1)). A waiver there
+must be an instrument in writing signed by the person giving up the right (s.87(2)), which a published
+dedication is not, but s.87(4) keeps *"the general law of contract or estoppel"* for *"an informal
+waiver"* (`rounds/2026-11-16-cdpa-1988-s87-s90-legislation-gov-uk-snapshot.txt`), so §12.1 and §12.2 rest
+in the United Kingdom on consent, contract or estoppel rather than on a statutory waiver. If that is
 right, consent reaches what a covenant may not: persons who are not party to the covenant, and the
 protection after death (Japan, Article 60). If it is wrong, or if courts refuse a consent given in
 advance to unspecified acts (and Article 113(11), on acts prejudicial to honour or reputation, is
@@ -309,8 +313,11 @@ for a payment You agreed to make"*. §5.2(d) carries only one of those exception
 statement or representation (Section 11.3). §11.1 grants no trademark right; §11.3 places
 misrepresentation of authorship or endorsement outside the Dedication's reach; §11.4 states that the §5 covenants are not limited by its own sentence on reach.
 
-**Our reading.** (Until 2026-11-16 the 1.4 draft said *"for a use"*; trial T90 put this reading into the words.) "For a use" keeps the claims that attack the use itself, such as unjust enrichment
-and unfair competition, and leaves out a claim that only accompanies a use, such as an injury
+**Our reading.** Until 2026-11-16 the 1.4 draft said *"for a use"*, and trial T90 put this reading into
+the words. The covenant keeps the claims that attack the use itself: those that treat it as wrongful,
+such as unfair competition, and those that treat it as without legal basis, such as unjust enrichment
+(German civil code section 812, Japan's civil code article 703). It leaves out a claim that only
+accompanies a use, such as an injury
 caused by a machine You run. A claim against selling a trained model stays in, because §1.7 makes
 that sale a Computational Use and so a use of the Work.
 
@@ -319,7 +326,8 @@ misrepresentation §11.3 excludes (`ACD-1.3-CHANGELIST.md`). That reading does n
 words: §5.2(d) uses the same *"use of the Work that this Dedication permits"* for rights §11.4 does
 not grant, and a fork that keeps the name and logo need not represent anything. A Dedicator with a
 mark could then be said to have licensed it without control, so the 1.4 draft says it in words.
-We have not tested whether "for" draws the line we describe, and the exception does not name data
+The words now draw the line we describe; how a court reads *"treats as wrongful, or as without legal
+basis"*, which no approved licence uses, we have not tested. The exception does not name data
 protection, because §5.2(d) was written to stop a Dedicator's own personal rights from defeating a
 permitted use (errata E31).
 
@@ -347,7 +355,11 @@ stay inside §5.2(b), and the key stays inside §5.2(a) as far as asserting righ
 (since T64 the 1.4 draft no longer forbids applying a measure, only asserting rights in respect of one
 or invoking the law of circumvention against You). If a court treated the installer as one
 piece of "other material", the exclusion would reach terms that in fact restrict the Work
-(`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.26).
+(`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.26). **The 1.4 draft closes this part (trial T91).** §5.2 now ends
+*"A copy of the Work, or of part of it, contained in that material remains the Work, or that part of
+it."*, so the installer's terms cannot
+reach the bundled copy through the exclusion. The cost is that a Dedicator who ships the Work inside
+its own product must keep the product's terms off that copy.
 
 The fourth question is who may rely on these covenants. §5.3 says they *"may be relied upon by You
 and by anyone who receives the Work from You, directly or indirectly, as an intended beneficiary, to the
@@ -383,10 +395,9 @@ front of its server and use that law against a crawler that defeats it; the purp
 meant to be learned from) is then kept only if copies remain obtainable by other means, and the text
 does not require that they do.
 
-**An answer would change** whether "for" is the right word, and whether data protection needs its
-own exception. An answer to the second question would change whether §11.3 needs the altered-work case in words.
-An answer to the third would change whether the end of §5.2 needs to say that it does not reach a term
-or measure in so far as it restricts the Work. An answer to the fourth would change whether §5.3 should keep the words *intended beneficiary*, and whether T66 should have extended them to §8.6. An answer to the fifth would change whether the second limb of §5.2(a) needs a carve-out for computer-misuse law.
+**An answer would change** whether §5.1's *"treats as wrongful, or as without legal basis"* is the right wording,
+and whether data protection needs its own exception. An answer to the second question would change whether §11.3 needs the altered-work case in words.
+The third is settled in the 1.4 draft by T91. An answer to the fourth would change whether §5.3 should keep the words *intended beneficiary*, and whether T66 should have extended them to §8.6. An answer to the fifth would change whether the second limb of §5.2(a) needs a carve-out for computer-misuse law.
 
 ## 6. Do the text-and-data-mining declarations do anything? (§6.2, §6.3)
 
