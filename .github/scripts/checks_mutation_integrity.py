@@ -597,7 +597,8 @@ def run(ctx):
             _seg479b = _ast479.get_source_segment(_s479b, _nd479b.args[2]) or ""
             if _sec479b is None or _seg479b in ('""', "''"):
                 continue
-            if not re.search(r"Check %d[a-z]?\b" % _sec479b, _seg479b):
+            # 枝番は英字 2 字まで (468nb・468ab —— 468 の 1 字の枝は a〜z を使い切った・2026-11-16)
+            if not re.search(r"Check %d[a-z]{0,2}\b" % _sec479b, _seg479b):
                 _unnum479.append(f"{_cf479b.name}:{_nd479b.lineno} (Check {_sec479b})")
     check(
         not _unnum479,

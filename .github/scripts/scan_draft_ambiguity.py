@@ -90,6 +90,38 @@ def law_phrases(cl: dict[str, str]) -> None:
             print(f"- §{k}: " + " / ".join(f"「{p}」" for p in ps))
 
 
+def this_section_hits(flat: dict[str, str]) -> list[tuple[str, str]]:
+    """(h) 小項 (N.M) の中の "this Section" —— 節か小項かが割れる。Check 468ab が 0 を保つ (T84〜T88 で 0 にした)。"""
+    out = []
+    for k, v in flat.items():
+        if "." in k:
+            for m in re.finditer(r"\b[Tt]his Section\b", v):  # 文頭の "This Section" も同じく割れる
+                out.append((k, v[max(0, m.start() - 40):m.end() + 40]))
+    return out
+
+
+def limiter_gaps(flat: dict[str, str]) -> list[tuple[str, str, list[str]]]:
+    """(k) 責任を外す条が、同じ節のどの条も例外として名指していない Dedicator の約束の条 (問い 9 (a) の型)。
+    Check 468ab が 0 を保つ (T83・T88 で 0 にした)。"""
+    out = []
+    # 責任を外す条だけ (保証の否認と依拠の否認は約束の違反の責任を外さないので数えない・初版は §6.3 と §13.2 で 26 件の雑音)
+    limiters = [k for k, v in flat.items() if re.search(r"NOT LIABLE|is not liable", v) and re.search(r"this dedication", v, re.I)]
+    # 約束の主語が Dedicator の文だけ (他の条の約束を名指すだけの条 —— §4.6・§11.4 —— は約束ではない・2026-11-16 に 2 件の雑音)
+    promises = [k for k, v in flat.items()
+                if re.search(r"\bDedicator(?:'s)?(?: further| also| irrevocably)? (?:covenants?|will not|undertakes?|agrees? not)\b", v)]
+    for lk in limiters:
+        # 同じ節の他の条が置く例外も数える (T83 は §14.1 の免責の例外を §14.2 に置いた)。"Section 5, 8.6, or 12.2" も読む
+        sib = " ".join(v for c, v in flat.items() if c.split(".")[0] == lk.split(".")[0])
+        named = set()
+        for grp in re.findall(r"(?:Section|SECTION)S? (\d+(?:\.\d+)?(?:(?:, | or | and |, or |, and )\d+(?:\.\d+)?)*)", sib):
+            named |= set(re.findall(r"\d+(?:\.\d+)?", grp))
+        open_ = [pk for pk in promises if pk != lk and pk not in named and pk.split(".")[0] not in named]
+        if open_:
+            m = re.search(r"arising out of this dedication[^,.]*|this dedication", flat[lk], re.I)
+            out.append((lk, m.group(0)[:60], open_))
+    return out
+
+
 def main(argv: list[str]) -> int:
     if argv and argv[0] in ("-h", "--help"):
         print(__doc__)
@@ -133,30 +165,13 @@ def main(argv: list[str]) -> int:
                 s = max(0, m.start() - 45)
                 found[typ].append(f"§{k} 「{m.group(0)}」: …{v[s:m.end() + 45]}…")
         # (h) 小項の中の "this Section"
-        if "." in k:
-            for m in re.finditer(r"\bthis Section\b", v):
-                s = max(0, m.start() - 40)
-                found["h"].append(f"§{k}: …{v[s:m.end() + 40]}… —— §{k.split('.')[0]} か §{k} か")
+        for _k, ctx in this_section_hits({k: v}):
+            found["h"].append(f"§{k}: …{ctx}… —— §{k.split('.')[0]} か §{k} か")
         for m in re.finditer(r"\band/or\b", v):
             found["i"].append(f"§{k}")
-    # (k) 免責・制限の条が同じ文書の約束を呑むか (2026-11-16・1c の依頼・問い 9 (a))
-    # 責任を外す条だけ (保証の否認と依拠の否認は約束の違反の責任を外さないので数えない・初版は §6.3 と §13.2 で 26 件の雑音)
-    limiters = [k for k, v in flat.items() if re.search(r"NOT LIABLE|is not liable", v) and re.search(r"this dedication", v, re.I)]
-    # 約束の主語が Dedicator の文だけ (他の条の約束を名指すだけの条 —— §4.6・§11.4 —— は約束ではない・2026-11-16 に 2 件の雑音)
-    promises = [k for k, v in flat.items()
-                if re.search(r"\bDedicator(?:'s)?(?: further| also| irrevocably)? (?:covenants?|will not|undertakes?|agrees? not)\b", v)]
-    for lk in limiters:
-        # 同じ節の他の条が置く例外も数える (2026-11-16・T83 は §14.1 の免責の例外を §14.2 に置いた)。"Section 5, 8.6, or 12.2" の
-        #   ように並べた番号も読む
-        sib = " ".join(v for c, v in flat.items() if c.split(".")[0] == lk.split(".")[0])
-        named = set()
-        for grp in re.findall(r"(?:Section|SECTION)S? (\d+(?:\.\d+)?(?:(?:, | or | and |, or |, and )\d+(?:\.\d+)?)*)", sib):
-            named |= set(re.findall(r"\d+(?:\.\d+)?", grp))
-        open_ = [pk for pk in promises if pk != lk and pk not in named and pk.split(".")[0] not in named]
-        if open_:
-            m = re.search(r"arising out of this dedication[^,.]*|this dedication", flat[lk], re.I)
-            found["k"].append(f"§{lk} の射程「{m.group(0)[:60]}」が、Dedicator の約束の条 {len(open_)} を名指して外していない: "
-                              + ", ".join("§" + x for x in open_))
+    for lk, phrase, open_ in limiter_gaps(flat):
+        found["k"].append(f"§{lk} の射程「{phrase}」が、Dedicator の約束の条 {len(open_)} を名指して外していない: "
+                          + ", ".join("§" + x for x in open_))
     # (c) 使われない定義
     for t, k in terms.items():
         uses = [c for c, v in flat.items() if c != k and re.search(r"\b" + re.escape(t) + r"s?\b", v)]
