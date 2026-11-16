@@ -95,7 +95,7 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 
 ## 1.354 FSF のライセンス一覧の一次資料 —— Unlicense は「献呈＋許諾」の形で GPL と両立する自由ソフトウェアのライセンスに載り、CC0 は特許の除外でソフトウェアに勧められず、0BSD は通知を外せることで「antisocial」とされる（2026-11-16）
 
-`https://www.gnu.org/licenses/license-list.html` を 2026-11-16 に取得した（オーナーの許可・同日。curl はこの環境の権限で止まり、WebFetch で取った。**WebFetch は要約の層を通るので、下の逐語は原文の頁で当て直してから外向きの文書に引く**。頁は最終更新日を表示していない）。2f の §1.253（FSF への自己点検）と `against-2.md` #328（Phipps 氏 2017 の「OSI・FSF・Debian のどれか 1 つだけの承認は未解決の問題の印」）の材料。
+`https://www.gnu.org/licenses/license-list.html` を 2026-11-16 に取得した（オーナーの許可・同日。curl はこの環境の権限で止まり、WebFetch で取った。**WebFetch は要約の層を通るので、下の逐語は原文の頁で当て直してから外向きの文書に引く**。頁は最終更新日を表示していない）。**照合（同日）**: portfolio-2f が別に WebFetch で取った写し（`rounds/2026-11-16-fsf-license-list-and-debian-dfsg-public-domain-snapshot.txt`・120 字ごとに分けた逐語）と、この節の FSF の引用 13 件を突き合わせた。10 件は写しにそのまま在り、3 件は写しが文を分けた所をまたぐだけで、語は一致した。2 つの独立した取得が同じ語を返したことは、要約の層が語を変えていない傍証になるが、どちらも byte の写しではない。2f の §1.253（FSF への自己点検）と `against-2.md` #328（Phipps 氏 2017 の「OSI・FSF・Debian のどれか 1 つだけの承認は未解決の問題の印」）の材料。
 
 | 項目（頁の見出し・anchor） | FSF の文 | ACD への当たり方 |
 | :-- | :-- | :-- |
