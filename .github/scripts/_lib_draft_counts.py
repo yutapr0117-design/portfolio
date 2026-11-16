@@ -131,20 +131,40 @@ def length_sites(lic: Path, skip, scope: str = "outward") -> tuple[list[dict], l
         (r"条文では ?([\d,]+) ?語長い(?!まま)", [ops - g_ops], "条文の GPL-3.0 との差"),
         (r"同じ数え方で [\d,]+ ?語・(\+[\d,]+)", [ops - g_ops], "条文の GPL-3.0 との差"),
     ]
+    # 「確定した ACD-N.M は」の行は、その版の凍結した本文で測る (2026-11-16・50 の決め: 確定の日に B3 と SUBMISSION-MATERIALS の
+    #   長さの行を「N.M 草案は」から「確定した ACD-N.M は」へ書き直す)。旧版は草案の名乗りだけを読んだので、書き直した日に
+    #   照らす行が 0 になり「1 つも見つからない」で RED になった (確定の予行で実測)
+    labels = [(f"{ver} 草案は", (title, ops), outward)]
+    for fp in sorted(lic.glob("ACD-[0-9]*.[0-9]*.txt")):
+        fv = re.match(r"ACD-(\d+\.\d+)\.txt$", fp.name)
+        if not fv:
+            continue
+        fb = fp.read_text(encoding="utf-8").split(RULE, 1)[-1]
+        fe, fs = fb.find("END OF TERMS"), re.search(r"^1\.\s", fb, re.M)
+        ft, fo = len(fb.split()), (len(fb[fs.start():fe].split()) if fs and fe > 0 else -1)
+        labels.append((f"確定した ACD-{fv.group(1)} は", (ft, fo), [
+            (r"題名から(?:は)? ?([\d,]+) ?語", [ft], "題名からの語数 (確定した本文)"),
+            (r"GPL-3\.0[^。、]*?より ?([\d,]+) ?語短", [g_title - ft], "題名からの GPL-3.0 との差 (確定した本文)"),
+            (r"END OF TERMS\*? ?(?:の手前)?までが ?([\d,]+) ?語", [fo], "条文の語数 (確定した本文)"),
+            (r"条文では ?([\d,]+) ?語長い(?!まま)", [fo - g_ops], "条文の GPL-3.0 との差 (確定した本文)"),
+            (r"同じ数え方で [\d,]+ ?語・(\+[\d,]+)", [fo - g_ops], "条文の GPL-3.0 との差 (確定した本文)"),
+        ]))
     for p in sorted(lic.glob("*.md")) + sorted((lic.parent / "docs/files/LICENSES").glob("*.md")):
         if skip(p.name) or "CLARITY-TRIAL" in p.name:
             continue
         for ln, line in enumerate(p.read_text(encoding="utf-8").splitlines(), 1):
-            if f"{ver} 草案は" not in line:
-                continue
-            a = line.index(f"{ver} 草案は")
-            cut = re.search(r"\*\*20\d\d-\d\d-\d\d|（20\d\d-\d\d-\d\d", line[a:])
-            b = a + cut.start() if cut else len(line)
-            for rx, vals, what in outward:
-                for m in re.compile(rx).finditer(line, a, b):
-                    add(p, ln, line, m, vals, what)
-            for m in re.finditer(r"条文では ?([\d,]+) ?語長いまま", line):
-                add(p, ln, line, m, [ops - g_ops], "条文の GPL-3.0 との差 (長いまま)")
+            for label, (_lt, lops), rxs in labels:
+                if label not in line:
+                    continue
+                a = line.index(label)
+                cut = re.search(r"\*\*20\d\d-\d\d-\d\d|（20\d\d-\d\d-\d\d", line[a:])
+                b = a + cut.start() if cut else len(line)
+                for rx, vals, what in rxs:
+                    for m in re.compile(rx).finditer(line, a, b):
+                        add(p, ln, line, m, vals, what)
+                for m in re.finditer(r"条文では ?([\d,]+) ?語長いまま", line):
+                    add(p, ln, line, m, [lops - g_ops], "条文の GPL-3.0 との差 (長いまま)")
+                break
     if scope == "all":
         prev = None
         hdr = re.search(r"ACD-(\d+\.\d+): (\d+) words, (\d+) clauses\. This draft: (\d+) words, (\d+) clauses\.", dtext)
