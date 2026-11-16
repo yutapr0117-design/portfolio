@@ -88,10 +88,11 @@ def run(ctx):
     # 本体 (check_repository_consistency.py) から 2026-11-12 に移した。map の `| N |` / `| Na |` の行の番号と、
     # 全 Check module の `# ── N.` の番号の集合が一致すること。加えて (監査 #12) 枝番の行だけでは足りず、実装した
     # 番号はどれも枝番でない行を持つこと、(監査 #13) 各区間が自分の番号を名指す check 呼び出しを持つこと
-    _map105 = ROOT / "docs" / "architecture" / "check-repository-consistency-map.md"
+    from _lib_check_map import check_map_paths, check_map_text  # 地図の file の一覧は 1 か所 (分けた日に 2 つ目を足す)
+    _map105 = (check_map_paths(ROOT) or [ROOT / "docs" / "architecture" / "check-repository-consistency-map.md"])[0]
     _srcs105 = getattr(ctx, "CHECK_SOURCE_FILES", None)
     if _map105.exists() and _srcs105:
-        _rows105 = re.findall(r"^\|\s*(\d+)([a-z]?)\s*\|", _map105.read_text(encoding="utf-8"), re.MULTILINE)
+        _rows105 = re.findall(r"^\|\s*(\d+)([a-z]?)\s*\|", check_map_text(ROOT), re.MULTILINE)
         _map_nums105 = {int(n) for n, _a in _rows105}
         _bare105 = {int(n) for n, a in _rows105 if not a}
         _, _impl_sec105 = ctx.aggregate_check_numbers()
