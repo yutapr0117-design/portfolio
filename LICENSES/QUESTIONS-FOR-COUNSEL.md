@@ -118,6 +118,16 @@ to it to that extent, Section 6 included."*, so that the text claims no more tha
 licence under §4 prevail over a later assignee of the copyright, and does it matter whether §3 has
 already taken effect, leaving nothing to transfer?
 
+A further question concerns the recipient who never saw the Dedication. In the 1.4 draft, §2.3 says
+*"To hold a permission granted here, You need not know of this Dedication"*, which matters because §10.2
+lets a copy travel with no notice. Where §4 is read as a contract, German civil code section 151 dispenses
+only with declaring acceptance to the offeror (*"ohne dass die Annahme dem Antragenden gegenüber erklärt zu
+werden braucht"*), and a person who does not know of an offer cannot accept it; Japan's civil code
+article 527 raises the same question. Does such a recipient hold the §4 permission? If not, does the
+public dedication still work as a unilateral consent of the kind the German Federal Court of Justice
+recognised in 2010 (I ZR 69/08, *Vorschaubilder I*), and if so, can the Dedicator revoke that consent
+despite §2.2? (`jurisdictions.md` §2 and §3; `against-2.md` #321.)
+
 **An answer would change** whether the text keeps three footings (register B4) and how §4.4 says
 "independent". An answer to (b) or (h) would change what the dossier says rather than the text: no
 wording contracts out of a statute that forbids it. An answer to (i) would change whether §2.5 needs
