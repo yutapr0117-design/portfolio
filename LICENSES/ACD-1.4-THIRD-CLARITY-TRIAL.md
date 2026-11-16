@@ -304,6 +304,20 @@ Before: *"No permission granted by this Dedication terminates for any reason."* 
 
 **反例の担当へ（30・50）** **反例の結果**: 50 —— (a) 立たない: §8.2 は Dedicator の力の否定、§10.4 は文書の中の終了の事由の否定で、別の命題。§8.2 は特許の licence で §203 は著作権の grant だけに届くので、§8.2 の言い切りは米国でも真。(b) 立たない: §2.2 *"The Dedicator may not withdraw it, and may not impose any further term, condition, or restriction"* と §5.2(b) が閉じる。逆側: 旧文は「契約でない許しは許諾者が自由に撤回できる」読み（Cowan 氏 2000・objection-map の *"a bare permission can be freely revoked by the licensor"* の行）にも本文の言葉で答えていたが、*under it* の後はその答えを §2.2（撤回しない）と §2.5（禁反言）が持つ —— §10.4 から抜けるのは重複で、失う答えは無い。 **1 冊目の記録との関係**: `ACD-1.4-CLARITY-TRIAL.md` の §4.4（F3）と CE9 は、§10.4 第 2 文の *because* の反対解釈（違反しうるものが見つかれば終了できる）を「第 1 文 *"No permission granted by this Dedication terminates for any reason"* が無条件なので立たない」で閉じた。T81 の後の第 1 文も、文書の中の終了の事由については *"for any reason"* のまま無条件なので、その結論は保たれる（引用の語だけが 1.4 の本文から外れる・portfolio-50）。登録した問い: (a) *under it* が、§8.2 の *"not terminable by the Dedicator on any ground"* と食い違う読みを作るか、(b) Dedicator が別の文書（例えば別の契約）で許しを終わらせうると読む余地を作るか（§2.2 の撤回不能と §5 の約束が閉じると読む）。
 
+### 15.22 T82 —— §14.1 の全部免責に、外せない責任の除外を先に置く（+16 語・2026-11-16・【反例待ち】）
+
+**種（portfolio-2f・§1.258）**: Chestek 氏 2023-02-18（個人として）*"My understanding is that the clause isn't effective in the same way in some countries and would instead be ignored altogether, leading to liability for everything, not just the unwaivable claims."* —— §14.1 の *"TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW"* はこの型で、縮減を認めない法域では §14 全体が落ちる読みが立つ。`jurisdictions.md` は縮減を §15.4（1.0 の番号）と §3 にだけ当て、§14 には当てていなかった。
+
+**先例（アーカイブ）**: EUPL の起草者 Schmitz 氏 2010-10-07（`license-review` "For Approval: The netX Public Lisense"）*"In European countries, and especially in Germany, courts have invalidated general exclusions, and even exclusions "to the extend allowed by the law" are considered as unfair regarding contract & protection of consumers law. This is the reason why the OSI-approved European Union Public License … does not exclude liability in case of wilful misconduct … and in case of damages to natural persons"*。EUPL-1.2 §8 *"Except in the cases of wilful misconduct or damages directly caused to natural persons"*。
+
+Before: *"TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, THE DEDICATOR IS NOT LIABLE …"* / After: *"EXCEPT FOR LIABILITY FOR WILFUL MISCONDUCT OR GROSS NEGLIGENCE, OR FOR DEATH OR PERSONAL INJURY, AND TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, THE DEDICATOR IS NOT LIABLE …"*
+
+**語の選び方**: 30 の予告への答え —— ドイツ BGB 309 条 7 号は a（生命・身体・健康の侵害は単なる過失でも）と b（その他の損害の重過失）を約款で外せない（30 が条文を取得）。初めの案（故意と死亡・身体の傷害）は b を覆わず、約款と読まれれば §14.1 は縮減されずに全体が落ちる。重過失を入れた。贈与と読まれれば 521 条で贈与者はもともと故意と重過失にしか責任を負わないので、失うものは無い。EUPL の *"damages directly caused to natural persons"* は個人へのあらゆる直接損害と読めるので、英国 UCTA s.2(1) の語（死亡・身体の傷害）に絞った。
+
+**⚠ 逆側**: (1) +16 語（B3）。(2) 全部免責の承認済みのライセンス（MIT・BSD）より免責が狭く見え、採用者が「責任が残る」と受け取りうる —— ただし残るのは、どの法域でも外せないか外しにくい責任だけで、Apache-2.0 §8 も *"(such as deliberate and grossly negligent acts)"* を名指す。(3) §14.2（法が許す最大の範囲に限る）は残し、ほかの外せない責任（消費者法など）を受ける。(4) §13（無保証）には同じ問いが立ちにくい（贈与なら 524 条で悪意の隠蔽だけ・30 の読み）ので変えない。(5) 日本の消費者契約法 8 条（故意・重過失の全部免責は無効）にも当たる形になる（`jurisdictions.md` の行）。
+
+**反例の担当へ（30・50）**: (a) *GROSS NEGLIGENCE* の語が、コモン・ローの法域で輪郭の争いを生むか（米国の州で gross negligence の定義が違う）、(b) 除外と *"TO THE FULLEST EXTENT"* の順で、除外が「法が許す限り」の下に入ると読まれないか、(c) §14.2 と重なる部分の整理。
+
 ## 16. 模擬委員会 —— 記録に立場が厚く残る審査者の目で 1.4 草案を通読する（2026-11-15〜）
 
 **仕組み**: オーナーの依頼（「5 人で話し合って、より良い案をガンガン実行して」）を受けて、portfolio-1c が出し 5 人で決めた。記録に立場が厚く残る 5 人の審査者を 1 人ずつ受け持ち（30 = Chestek 氏、50 = Fontana 氏、2f = Perens 氏、9b = Smith 氏、1c = Villa 氏）、その人の過去の文だけを根拠に、その人の目で 1.4 草案を頭から通読して「どこを突くか」を条番号つきで出す。根拠の無い推測は書かない（必ずその人の文を引く）。各節は表（基準と出典 | 当たる条 | 扱い済みの場所 | 残る点）と、条を変える指摘（試作の種）を持つ。**0 件でも表を残す** —— 審査者の基準を網羅して当てた記録になる。**この節が establish しないこと**: 模擬であって、その人が実際にそう言うことを意味しない。
