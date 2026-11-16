@@ -35,3 +35,5 @@ THIRD の §15.11・§15.12 は語の揺れを人の目で見つけ、T74〜T76 
 ## Audience-specific notes
 
 - **AI / 後任**: 試作の前後で回して差を見る（新しく出た候補が、その試作が持ち込んだ揺れ）。
+
+- **(d) 英米の綴りの混在（2026-11-16）**: 綴りの対（wilful / willful・authorise / authorize・endeavour / endeavor など 16 組）のうち、草案に両方がある語を出す。草案と 1.0・1.3 は英国綴りで揃っていて 0 件。いまの草案の authorise を 1 か所だけ authorize に変えた写しで ⚠ が出ることを確かめた。license / licence は名詞（licence）と動詞（license）を分けられないので数えない。
