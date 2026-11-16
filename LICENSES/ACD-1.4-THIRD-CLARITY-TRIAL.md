@@ -292,6 +292,18 @@ Before: *"since You could not determine whether one had been crossed"* / After: 
 
 **反例の担当へ（50・30）** **反例の結果**: 50 —— (a) は立つ: *always* は理由を真にするが、理由の句が「判定できない場合のための免除」と読まれると、判定できる者（自分のデータで微調整する者）について「理由が尽きれば規則も尽きる」の筋で閾値を持ち込む足場になる。T71 で閉じた E85（理由が範囲を狭める読み）と同じ型を新しく作る。(b) 句ごと外すと作用の句だけが残り、どの場合でも真で、狭める足場が無い。§6.5 後半の理由は §8.4 の閾値の有無を決めていないので、失うのは説明だけ（逐条の §8.4 の行へ移した）。(c) because / since / so that の句を機械で全部拾い、見落としなし。**→ 句ごと外す形に替えた（−12 語）**。登録した問い: (a) *always* が「判定できる者には閾値」の読みを作るか、(b) 外す案の方が当たる面が狭いか、(c) ほかの 34 の記述の文に、法域や場合で偽になるものを見落としていないか（35 の一覧は §15.18 と合わせて読む）。
 
+### 15.21 T81 —— §10.4 第 1 文を文書の中の終了に絞る（+2 語・2026-11-16・【反例待ち】）
+
+**種（portfolio-50・T80 の (c) の後半）**: §9〜§16 の記述の文 45 を「どの法域でも真か」で当て、§10.4 第 1 文 *"No permission granted by this Dedication terminates for any reason."* が当たった。米国では §4 の licence に 17 U.S.C. §203 の終了権が *"notwithstanding any agreement to the contrary"* で届く（`jurisdictions.md` §5a・法律家への問い 1）ので、35 年後に著作者が終了通知を出せば許しは終わりうる。文が法の命題として言い切っているので、一部の法域で偽になる。
+
+Before: *"No permission granted by this Dedication terminates for any reason."* / After: *"No permission granted by this Dedication terminates under it, for any reason."*
+
+**理由**: ドシエは既に「§10.4 は文書についての文で、外部の出来事まで生き残ると約束するライセンスは無い（§13.2 が免責）」と答えていた（`QUESTION-INDEX.md` の §8.2 と §10.4 の行）。本文の語をその答えに合わせた。第 2 文 *"contains no termination provision and no revival provision"* は文書の中身の言明で、もとから真。
+
+**⚠ 逆側**: (1) *under it* は「法による終了は在る」と本文が自分で示す読みを作る —— ただし `ADOPTING.md` が §203 を名指すので、隠す利益は無い（50）。(2) §2.2 *"This Dedication is irrevocable."* も同じ問いを持ちうるが、*irrevocable* は Apache-2.0 など承認済みのライセンスが使う慣用の語で、法定の終了権に負けることは前提として読まれる —— *"for any reason"* のような言い切りを持たないので、変えない。(3) 50 の案のもう 1 つ *"Nothing in this Dedication terminates a permission granted by it, for any reason."*（+3）は、主語を文書にする点で同じ。短い方を採った。
+
+**反例の担当へ（30・50）**: (a) *under it* が、§8.2 の *"not terminable by the Dedicator on any ground"* と食い違う読みを作るか、(b) Dedicator が別の文書（例えば別の契約）で許しを終わらせうると読む余地を作るか（§2.2 の撤回不能と §5 の約束が閉じると読む）。
+
 ## 16. 模擬委員会 —— 記録に立場が厚く残る審査者の目で 1.4 草案を通読する（2026-11-15〜）
 
 **仕組み**: オーナーの依頼（「5 人で話し合って、より良い案をガンガン実行して」）を受けて、portfolio-1c が出し 5 人で決めた。記録に立場が厚く残る 5 人の審査者を 1 人ずつ受け持ち（30 = Chestek 氏、50 = Fontana 氏、2f = Perens 氏、9b = Smith 氏、1c = Villa 氏）、その人の過去の文だけを根拠に、その人の目で 1.4 草案を頭から通読して「どこを突くか」を条番号つきで出す。根拠の無い推測は書かない（必ずその人の文を引く）。各節は表（基準と出典 | 当たる条 | 扱い済みの場所 | 残る点）と、条を変える指摘（試作の種）を持つ。**0 件でも表を残す** —— 審査者の基準を網羅して当てた記録になる。**この節が establish しないこと**: 模擬であって、その人が実際にそう言うことを意味しない。
