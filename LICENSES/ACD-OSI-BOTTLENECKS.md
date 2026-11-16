@@ -231,6 +231,8 @@ the 1.0 text.
 
 **2026-11-16 に足した（6 つ目）—— 派生に別の名を求めることは「自由」と両立する、と当時の理事が書いた（`review-readings-3.md` §1.312）。** Brian Behlendorf 氏 2001-03-20 *"I don't see asking someone to choose a different name for a derivative work as not qualifying as "free" as the FSF defines it."* §16.4（改変した本文は別の名で）を支える。**逆側**: Apache の製品名の条件について書いたもので、ライセンスの本文の名前の条ではない。
 
+**2026-11-16 に足した（7 つ目）—— 略称の衝突は、承認の投票の前に直すべき点として挙げられたことがある。ドシエはこの点検をしていなかった（portfolio-2f が見つけ、30 が当てた）。** Josh Berkus 氏 2020-12-27（`license-review`・OIN License）は、略称「OIN」がオープンソースの分野の Open Invention Network と重なることを *"seems like a pretty clear trademark infringement in my non-lawyer eyes"* とし、*"even were it otherwise acceptable I'd request a change of license acronym before voting to approve it."* と書いた。提出者は同じ日に略称を改め、SPDX の側も混同を避けて識別子を変えた（B11 の段）。**ACD について**: 上の段の「識別子は空いている」は SPDX の識別子（ACD-1.x）の話で、略称「ACD」が他の組織や製品と重なるかは確かめていなかった。ソフトウェアの会社 ACD Systems International Inc.（ACDSee）が実在する（2f が会社の頁で確かめた・2026-11-16）。オープンソースのライセンスや特許の分野で「ACD」を名乗る組織は、ドシエの記録の範囲では見つかっていない。**商標の登録の有無と範囲は確かめていない**（開いた項目）。**逆側**: 先例の引き金は同じ分野でのはっきりした衝突で、Berkus 氏は法律家でない目と断っている。分野の違う会社名との重なりが同じ扱いを受けるかは分からない。略称を変える費用は大きい（識別子・通知・文書の全面）。
+
 ## B8 —— §12 人格権。**同じ条項が「gap」と「mission creep」の両方で名指しされている**
 
 **この項目が難しいのは、賛否が割れているからではなく、賛否が同じ条項の別の面を見ているからである。**
