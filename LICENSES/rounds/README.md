@@ -463,6 +463,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（14/15 部）** | **同じ束の 14/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（15/15 部）** | **同じ束の 15/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2020-12 | `license-review`（観測）| **ViraTrace Public Source License と GDPR × ライセンス条項 35 通 → 観測保存（1/6 部）** | **データ保護法とライセンスの境界について、Chief Privacy Officer の明確な一文** —— Turner 氏 *"data protection law ... is about ... organisations **in control of personal data** ... **software licensors are not part of the picture**"*。**§1.5 が Covered Rights にデータ保護を含めず §11.4 が "It reaches nothing else" と述べることの外からの裏づけ**（#256）。**McCoy Smith 氏の *"Freedom Zero ... inherently, part of the OSD"* も在る**（#248 / #251 の line） |
+| 2020-12 | `license-review` | **観測（Brasseur 氏の 1 通・SPDX は既存の団体との混同を避けて識別子を変えた）** | `2020-12-license-review-oin-brasseur-spdx-identifier-observed.txt` |
+| 2020-12 | `license-review` | **観測（Berkus 氏の 1 通・承認の投票の前に、既存の団体と重なる略称の変更を求める）** | `2020-12-license-review-oin-berkus-acronym-observed.txt` |
 | 2020-12 | `license-review` | **観測（Phipps 氏の 1 通・OSI に承認されることがなぜ大事なのか簡潔に説明してほしい）** | `2020-12-license-review-viratrace-phipps-why-approval-observed.txt` |
 | 2020-12 | `license-review`（観測）| **ViraTrace Public Source License と GDPR × ライセンス条項 35 通 → 観測保存（2/6 部）** | **同じ束の 2/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2020-12 | `license-review`（観測）| **ViraTrace Public Source License と GDPR × ライセンス条項 35 通 → 観測保存（3/6 部）** | **同じ束の 3/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
@@ -612,6 +614,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2024-12-23 | `license-review`（観測）| **OSC License の提出の 1 通 → 観測保存** | *"there are currently no projects using the license. However, it is planned that the license will be used in mid/late January."* 計画段階の利用で承認された例である（`board-decisions.md` §2c）|
 | 2026-06-19 | `license-review`（観測）| **Carlo Piana 氏の Linkumori への 1 通 → 観測保存** | *"not having an active project with an urgency to adopt a license or to have it approved, I would suggest deferring license review"*。個人の自著の利用が足りるとは限らないことの逆側である（`board-decisions.md` §2c）|
 | 2020-08-04 | `license-review`（観測）| **委員会の MIT-0 の勧告と Rationale Document → 観測保存** | *"this is not a basis for rejection that the OSI has applied in the past (and the OSI has historically approved newly drafted licenses not yet in use)"*。理事会はこの勧告どおり承認した（`board-decisions.md` §2d）|
+| 2020-10 | `license-review` | **観測（Brasseur 氏の 1 通・リストの参加者は相談すべき法律家の代わりを務めない）** | `2020-10-license-review-digest95-brasseur-consult-lawyer-observed.txt` |
 | 2020-02 | `license-discuss` | **観測（委員長の Chestek 氏の 1 通・書いた本人が説明し、代理人はうまくいかなかった、直す意思が要る）** | `2020-02-license-discuss-authors-explain-not-proxies-observed.txt` |
 | 2021-09-12 | `license-review`（観測）| **委員会の Jam の勧告と Rationale Document → 観測保存** | *"to date, OSI has not used the number of projects adopting a license as a factor in deciding whether a license can be approved"*（`board-decisions.md` §2d）|
 | 2021-09 | `license-discuss` | **観測（Crane 氏の 1 通・AFL の文言は REUSE と SPDX の識別子での使用を妨げる）** | `2021-09-license-discuss-afl-reuse-crane-observed.txt` |
