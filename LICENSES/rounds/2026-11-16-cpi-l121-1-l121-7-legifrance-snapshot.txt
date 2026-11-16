@@ -1,0 +1,27 @@
+Source: Code de la propriété intellectuelle (France), Légifrance,
+        https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006278891 (article L121-1, in force since 3 July 1992)
+        https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006278899 (article L121-7, in force since 11 May 1994)
+        Version shown by both pages: in force as of 16 November 2026.
+Retrieved: 2026-11-16 by portfolio-30, with the WebFetch tool, one page at a time. (The identifier for L121-1 was taken
+        as the one before L121-4's, LEGIARTI000006278894, which the dossier already cites; the page confirmed it.)
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes. Re-fetch and compare
+        before relying on the exact wording.
+
+WHY THIS FILE EXISTS. Section 12.2 of the 1.4 draft applies where moral rights are "personal to the author,
+inalienable, or incapable of waiver"; Section 12.4 binds the persons entitled to exercise them after death.
+L121-1 is the French statement of those properties; L121-7 narrows them for software.
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+===== Article L121-1 =====
+1. "L'auteur jouit du droit au respect de son nom, de sa qualité et de son oeuvre."
+2. "Ce droit est attaché à sa personne."
+3. "Il est perpétuel, inaliénable et imprescriptible."
+4. "Il est transmissible à cause de mort aux héritiers de l'auteur."
+5. "L'exercice peut être conféré à un tiers en vertu de dispositions testamentaires."
+
+===== Article L121-7 =====
+6. "Sauf stipulation contraire plus favorable à l'auteur d'un logiciel, celui-ci ne peut :"
+7. "1° S'opposer à la modification du logiciel par le cessionnaire des droits mentionnés au 2° de l'article L. 122-6,"
+8. " lorsqu'elle n'est préjudiciable ni à son honneur ni à sa réputation ;"
+9. "2° Exercer son droit de repentir ou de retrait."
