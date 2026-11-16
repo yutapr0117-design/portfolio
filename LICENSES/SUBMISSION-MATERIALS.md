@@ -86,6 +86,7 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 | 1.0 からの redline | `python3 .github/scripts/make_redline.py --changed-only LICENSES/ACD-1.0.txt LICENSES/ACD-1.4-DRAFT.txt`（投稿の日に作る） | list に出ているのは 1.0 で、審査者が求めたのは redline か新しいところだけの抜粋（Sado 氏 2026-01-24・§1.206） |
 | 新しい語と、最も近い承認済みの文 | `REVIEWERS.md` の "The new language, next to the nearest approved text" の表 | Perens 氏 2026-01-21 の求め（§1.205）。2005 年に委員長が求めた逐語の再利用（*"verbatim code reuse"*・§1.198） |
 | 承認済み＋追加の許諾で足りない理由 | 同じ節の "Why not an approved licence plus an additional permission?" | Sado 氏の問いの後半。特許については「足りる」と認める形で答えている（B10 H1-g） |
+| 変更ごとの英文の理由 | 草案の冒頭の一覧は 2026-11-16 に理由の句を外して詰めた（1c・bd5d71e3・草案の行数のため）。理由つきの英文は外す前の版に在る: `git show bd5d71e3^:LICENSES/ACD-1.4-DRAFT.txt` の冒頭の一覧（その後の T の理由は `ACD-1.4-CHANGELIST.md` の日本語だけ）。投稿の日に、出す版の変更の一覧へ英文の理由を写した 1 枚を作り、redline の隣に URL で置く | 英語で読む審査者が変更の理由を読める面が、草案から外した後は日本語の CHANGELIST だけになった（30 の指摘）。Perens 氏の求め（新しい語を理由と一緒に）に答えるには理由が要る。**逆側**: 写した 1 枚は本文でも CHANGELIST でもないので、Check が数と照らさない —— 作った日の草案と一緒に固定する |
 
 **差だけを読む人が「狭めた・条件を足した」と読みうる箇所と、その 1 行の注**（1c が 1.3 → 1.4 の削除 94 箇所を、50 が追加 87 箇所を読んだ・`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.42）:
 
