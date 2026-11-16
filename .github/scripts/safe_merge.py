@@ -106,7 +106,17 @@ def resolve_numbers_only(text: str) -> tuple[str | None, list[str]]:
             if mt and (not mo or mo.group(1) != mt.group(1)):
                 MOVED_RECENT.append(mt.group(1))
             return ours
-        if all(ln.startswith("|") for ln in o + t) or all(re.match(r"\d{4}-\d{2}-\d{2}\t", ln) for ln in o + t):
+        if all(ln.startswith("|") for ln in o + t):
+            # 表の行は、先頭のセル (path や番号) が main 側に在る行を足さない —— 同じ path の行を両側とも残すと、予算表 (§2) に
+            #   同じ file の行が 2 つ並び Check 424c で止まった (2026-11-16・50 の報告・#3369 と #3372)。数は sync が実測から直す
+            #   先頭のセルで同じ行と見なすのは、セルが path か番号のとき (予算表・反映の表) だけ。rounds/README の在庫表のように
+            #   先頭が月 (「2002-10」) の表は、別の受領文の行まで落とすので、行全体で比べる
+            def key(ln):
+                c = ln.split("|")[1].strip() if ln.count("|") >= 2 else ln
+                return c if re.fullmatch(r"`?[\w./\-]+/[\w./\-]+`?|`?[\w.\-]+\.(?:md|txt|py|js|json|yml)`?(?: \d+\.\d+)?|\d+(?:\.\d+)?", c) else ln
+            have = {key(ln) for ln in o}
+            return ours + "".join(ln for ln in t if ln not in o and key(ln) not in have)
+        if all(re.match(r"\d{4}-\d{2}-\d{2}\t", ln) for ln in o + t):
             return ours + "".join(ln for ln in t if ln not in o)
         # READ-THREADS-LOG の先頭の項目 (`- …` と空行): 5 人が同じ位置に 1 項目ずつ挿す。両方を残す (main → PR の順)
         if all(ln.startswith("- ") or not ln.strip() for ln in o + t):
@@ -165,6 +175,7 @@ def reland(pr: str, info: dict) -> int:
                     log.write_text(lt[:h.end()] + item + lt[h.end():], encoding="utf-8")
                     run(["git", "add", str(log)], cwd=wt)
             run([sys.executable, ".github/scripts/sync_stated_counts.py", "--apply"], cwd=wt, check=False)
+            run([sys.executable, ".github/scripts/sync_size_table.py"], cwd=wt, check=False)  # 予算表の実測の行数
             run(["git", "add", "-u"], cwd=wt)
             if run(["git", "diff", "--cached", "--quiet"], cwd=wt, check=False).returncode == 0:
                 # 件数だけの commit は、main 側を採って sync で導き直すと変更が残らない。--continue は "nothing to commit" で
