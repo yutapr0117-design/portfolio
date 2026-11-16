@@ -1,0 +1,58 @@
+Source: (1) Free Software Foundation, "Various Licenses and Comments about Them",
+        https://www.gnu.org/licenses/license-list.html (entries #CC0, #Unlicense, #PublicDomain)
+        (2) Debian Wiki, "DFSGLicenses", https://wiki.debian.org/DFSGLicenses (section "Public Domain"
+        under "More Resources")
+Retrieved: 2026-11-16 by portfolio-2f, with the WebFetch tool, on the owner's authorization of the
+        same day ("FSF の一次資料を gnu.org から取得してよいです").
+Form: NOT A BYTE COPY. The fetch tool converts the page to text and returns it through a model, in
+        numbered verbatim quotes of at most 120 characters each, which the tool was asked to make
+        consecutive and complete for each entry. A direct download (curl) of the raw HTML was refused
+        by this session's automated permission check, and two retries returned HTTP 429. Treat every
+        line below as a verbatim quote of the page AS REPORTED BY THE TOOL; re-fetch and compare
+        before relying on the exact wording, and do not assume that nothing lies between two quotes.
+
+WHY THIS FILE EXISTS. On 2026-11-15 `review-readings-2.md` §1.229 asserted, from memory and without a
+source, that "Debian and the FSF do not recommend CC0 for software". portfolio-30 doubted the Debian
+half and suggested that the FSF's reason was CC0's express patent exclusion; the sentence was
+withdrawn. On 2026-11-16 `review-readings-2.md` §1.253 found a 2011 report from Creative Commons that
+"with the FSF we recently recommended [CC0] for software if public domain is the intention", and noted
+that this was not the FSF's own text. This file holds the FSF's and Debian's own current text.
+
+WHAT THIS FILE IS NOT. It is not a claim that these are the current pages, and it is not a statement
+by the FSF or Debian about ACD. Neither has evaluated ACD.
+
+===== (1) FSF license list, entry "CC0 1.0 Universal" (#CC0), as reported =====
+1. "CC0 is a public domain dedication from Creative Commons."
+2. "A work released under CC0 is dedicated to the public domain to the fullest extent permitted by law."
+3. "If that is not possible for any reason, CC0 also provides a lax, permissive license as a fallback."
+4. "Both public domain works and the lax license provided by CC0 are compatible with the GNU GPL."
+5. "If you want to release your non-software work to the public domain, we recommend you use CC0."
+6. "For works of software it is not recommended, as CC0 has a term expressly stating it does not grant you"
+7. "any patent licenses."
+8. "Because of this lack of patent grant, we encourage you to be careful about using software under this license;"
+9. "you should first consider whether the licensor might want to sue you for patent infringement."
+10. "If the developer is refusing users patent licenses, the program is in effect a trap for users"
+11. "and users should avoid the program."
+
+===== (1) FSF license list, entry "The Unlicense" (#Unlicense), as reported =====
+12. "The Unlicense is a public domain dedication."
+13. "A work released under the Unlicense is dedicated to the public domain to the fullest extent permitted by law,"
+14. "and also comes with an additional lax license that helps cover any cases where the dedication is inadequate."
+15. "Both public domain works and the lax license provided by the Unlicense are compatible with the GNU GPL."
+
+===== (1) FSF license list, entry "Public Domain" (#PublicDomain), as reported =====
+16. "Being in the public domain is not a license; rather, it means the material is not copyrighted and no license is needed."
+17. "Practically speaking, though, if a work is in the public domain, it might as well have an all-permissive"
+18. "non-copyleft free software license."
+19. "Public domain material is compatible with the GNU GPL."
+20. "If you want to release your work to the public domain, we encourage you to use formal tools to do so."
+(The tool also returned three further quotes after line 20 about contributors to GNU signing a disclaimer
+form. They may belong to a neighbouring entry; they are omitted here because their place could not be
+confirmed.)
+
+===== (2) Debian Wiki, DFSGLicenses, "Public Domain" (under "More Resources"), as reported =====
+21. "Public Domain could be a special case worth additional notes here."
+22. "Software placed in the public domain has all the freedoms required by the DFSG, and is free software."
+23. "The official viewpoint is that the software must meet the requirements of the DFSG. Generally, a CC0-style PD dedication is viewed as sufficient for all jurisdictions, and can satisfy the DFSG "
+24. "if source is available."
+(The tool reported that the page does not name the Unlicense and does not mention patent clauses.)
