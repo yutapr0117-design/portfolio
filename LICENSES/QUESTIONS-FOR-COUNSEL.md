@@ -105,6 +105,20 @@ notice of that. John Cowan (not a lawyer, by his own account) wrote in the same 
 itself irrevocable: *"All that is, is a promise to yourself, and it's not binding, any more than your
 publishing a promise never to tell a lie is."* (`review-readings-2.md` §1.242). That is the view under
 which §2.2 alone would do nothing, and §2.5 and §3.1 are what the text adds to it.
+In the United States the authorities we have read narrow (i) to one line. Rosen wrote in 2005 that
+licences *"are not contracts until the formalities of contract formation"* are completed, *"Until then
+they are bare licenses."* (`rounds/2005-08-license-discuss-bare-licenses-rosen-assent-observed.txt`);
+§2.3 asks for no acceptance, so on that view the Dedication is a bare licence there. The Ninth Circuit
+tied irrevocability to payment: *"because AMS paid consid-eration, this license is irrevocable"*
+(*Asset Marketing Systems v. Gagnon*, 2008, as the copy hyphenates it;
+`rounds/2026-11-16-us-asset-marketing-v-gagnon-consideration-snapshot.txt`). That leaves promissory
+estoppel, which section 90(1) of the Restatement (Second) of Contracts states as *"A promise which the promisor should
+reasonably expect to induce action or forbearance on the part of the"* promisee or a third person, and
+which does so, binding *"if injustice can be avoided"* only by enforcement
+(`rounds/2026-11-16-us-restatement-90-promissory-estoppel-snapshot.txt`, as quoted by state courts).
+§2.5's *"intending that others rely on it"* speaks to the first element on the face of the text; actual
+reliance and injustice are facts of each case, and Rosen's 2004 view above denies that the doctrine
+reaches a bare licence at all. So the open part is whether section 90 reaches a bare licence, and the facts.
 (j) A transfer after the Dedication. Under 17 U.S.C. section 205(e), a nonexclusive licence prevails over a
 conflicting transfer of copyright ownership only if it is evidenced by a written instrument signed by
 the owner of the rights licensed or the owner's agent, and was taken before the transfer was executed,
@@ -527,6 +541,12 @@ precedent, but Apache-2.0 gives no covenant for it to reach, and it excepts what
 requires, naming *"deliberate and grossly negligent acts"*. We found this by setting §14.1 beside
 the covenants, which share no term with it (`ACD-1.4-CHANGELIST.md`, the pre-finalisation checks).
 
+**The 1.4 draft answers this part (trials T83 and T88).** §14.2 now ends *"Section 14 does not limit the
+Dedicator's liability for asserting a claim, or exercising a right, in breach of a covenant in Section 2.5,
+5, 8.6, or 12.2"*. A recipient put to the cost of a suit the Dedicator promised not to bring keeps the
+claim for it. A breach that consists only of imposing terms (§5.2(b)) is outside that sentence until the
+Dedicator sues on them. What stays open for counsel is (b) below and the questions about the T82 exception.
+
 (b) A second question about the same clause concerns whom it protects. §1.4 defines the Dedicator
 *"to the extent that person or entity holds or may hold Covered Rights, Moral Rights, or patent claims
 in it"*. A maintainer who distributes a Work containing contributors' code, third-party material, or
@@ -587,8 +607,9 @@ personal injury resulting from negligence"*, which the T82 exception already lea
 reasonableness"* (`rounds/2026-11-16-ucta-1977-s1-s2-legislation-gov-uk-snapshot.txt`). Whether §14.1 is
 reasonable for a gratuitous grant is the open part.
 
-**An answer would change** whether §14.1 should exclude liability only for the use of the Work, as
-GPL-3.0 does, or say that it does not limit the covenants. An answer to (b) would change whether §14.1 needs its own subject.
+**An answer would change** the wording of the T82 exception, if it fails the transparency requirement
+or the United Kingdom's reasonableness test. Whether §14 should say that it does not limit the covenants
+is settled in the 1.4 draft by T83. An answer to (b) would change whether §14.1 needs its own subject.
 
 
 ## 10. Does the name or the short identifier collide with a mark in use? (§16.4, B6)
