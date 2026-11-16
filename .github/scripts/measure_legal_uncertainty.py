@@ -89,9 +89,14 @@ def baseline_items() -> tuple[str, set] | tuple[None, set]:
         return None, set()
 
 
+DEST = re.compile(r"問い ?\d+|jurisdictions|法律家|QUESTIONS|PRACTITIONERS|確立していない")
+NO_DEST: list[str] = []  # ③ の行で行き先 (問い N / jurisdictions / 法律家) を書いていない行 (count() が埋める)
+
+
 def count() -> tuple[dict[int, Counter], list[str]]:
     by: dict[int, Counter] = defaultdict(Counter)
     errs = []
+    NO_DEST.clear()
     for fname, key in (("QUESTIONS-FOR-COUNSEL.md", "Q"), ("QUESTIONS-FOR-PRACTITIONERS.md", "P")):
         for h in re.findall(r"^## \d+\. .*$", (L / fname).read_text(encoding="utf-8"), re.M):
             for n in sections(h):
@@ -124,6 +129,10 @@ def count() -> tuple[dict[int, Counter], list[str]]:
         n = int(m.group(1).split(".")[0].split("(")[0])
         by[n]["R"] += 1
         by[n]["R" + m.group(3)] += 1
+        # ③ は語では消せないので、法律家への問いか jurisdictions の段に置かれて初めて扱える (2026-11-16)。行き先が無い ③ は
+        #   第 18 節にだけ在って、台帳の Q / J に数えられない不確実性になる
+        if m.group(3) == "③" and m.group(4) != "法律家のみ" and not DEST.search(m.group(0)):
+            NO_DEST.append(f"§{m.group(1)}（行の形）")
         if m.group(4) in ("出典あり", "本文で消えた"):
             by[n]["狭まった"] += 1
         # 法源は「・」「,」で複数つないでよい (2026-11-16・30 が §12.2・§12.4 で 3 つの file をつないだ・2f の報告)
@@ -142,6 +151,8 @@ def count() -> tuple[dict[int, Counter], list[str]]:
         n = int(sec.group(1))
         by[n]["R"] += 1
         by[n]["R" + cls.group(0)] += 1
+        if cls.group(0) == "③" and not DEST.search(cells[-1]):
+            NO_DEST.append(f"{cells[0][:40]}（表の形）")
         srcs = re.findall(r"rounds/[\w.\-]+\.txt", line)
         # 試作で本文が変わり、命題が要らなくなった行も「狭まった」(行の形の「本文で消えた」と同じ・2026-11-16): 分類の欄に
         #   「T84 で入った」「T84〜T88 で入った」「本文で消えた」と書く
@@ -196,6 +207,10 @@ def main(argv: list[str]) -> int:
             print(f"#   + {x[0]} §{x[1]} {x[2][:70]}")
         for x in gone:
             print(f"#   − {x[0]} §{x[1]} {x[2][:70]}")
+    print(f"# ③ の行で行き先（問い N / jurisdictions / 法律家）を書いていない行: {len(NO_DEST)}"
+          "（語では消せない不確実性が第 18 節にだけ在り、台帳の Q / J に数えられない）")
+    for x in NO_DEST:
+        print(f"#   ・ {x}")
     for e in errs:
         print(f"# ⚠ {e}")
     if "--pin" in argv:
