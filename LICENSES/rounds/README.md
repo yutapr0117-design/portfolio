@@ -149,6 +149,9 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2000-08 | `license-discuss` | **観測（"The different between GPL and non-license" から 7 通・著作権者は自分で公有に置けるか、放棄の抗弁は 1976 年法の下で生きているか）** | `2000-08-license-discuss-gpl-and-non-license-observed.txt` |
 | 2002-10〜11 | `license-discuss` | **観測（"a proposed change to the OSD" から 12 通・委員長の「使用と改変を制限しない」案、受け入れの手順と免責をめぐる委員長と弁護士の対立）** | `2002-10-license-discuss-proposed-osd-change-use-and-click-wrap-observed.txt` |
 | 2004-02〜2005-02 | `license-discuss` | **観測（委員会報告 3 本と返信から 9 通・似たライセンスは「改善でない」が「望めば承認する」、使う人への引用の要求は使用の制限）** | `2004-license-discuss-committee-reports-observed.txt` |
+| 2004-02 | `license-discuss` | **観測（Rousskov 氏の 1 通・長いライセンスは使う人を遠ざける）** | `2004-02-license-discuss-non-lawyers-rousskov-100-page-observed.txt` |
+| 2004-02 | `license-discuss` | **観測（Taylor 氏の 1 通・承認済みのほとんどは法的な助言を受けて書かれた）** | `2004-02-license-discuss-non-lawyers-taylor-legal-advice-observed.txt` |
+| 2004-02 | `license-discuss` | **観測（Taylor 氏の 1 通・法的に確かであることの代価としての長さ）** | `2004-02-license-discuss-simple-permissive-taylor-length-soundness-observed.txt` |
 | 2004-03 | `license-discuss` | **観測（Cowan 氏の 1 通・公の許諾は常に取り消せないものとして扱われてきた、撤回は期待に反し禁反言に当たる）** | `2004-03-license-discuss-must-read-cowan-irrevocable-expectation-observed.txt` |
 | 2008-11〜2012-03 | `license-review` / `license-discuss` | **観測（委員会報告 3 本と "license committee" から 10 通・条件を放棄しても承認は外れないという案、簡単な方がよいとは限らない、何でもしてよい式の差し戻し）** | `2008-to-2012-license-lists-committee-reports-observed.txt` |
 | 2025-12 | `license-review` | **観測（BarrerSoftware License の審査から 4 通・OSD 6 で承認できない、本文が AI の道具で書かれたように読めることを読むのをやめる理由に挙げた審査者）** | `2025-12-license-review-barrersoftware-observed.txt` |
@@ -166,6 +169,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2013-05 | `license-discuss` | **観測（Villa 氏の 1 通・2013 年の承認の規則の 5 項目）** | `2013-05-license-discuss-akshar-villa-approval-rules-observed.txt` |
 | 2004-11・2007-12 | `license-discuss` / `license-review` | **観測（3 通・審査中に直すことへの法律家の受け止め、自動で新しい版へ移す条、曖昧でないライセンスと行数）** | `2004-11-and-2007-12-license-lists-rewriting-upgrade-and-length-observed.txt` |
 | 2003-07〜08 | `license-discuss` | **観測（"Academic Free License version 2.0" から 4 通・BSD 型が欠く細部を埋める、明確にするのに要る語数）** | `2003-07-and-08-license-discuss-afl-2-0-gaps-and-length-observed.txt` |
+| 2003-07 | `license-discuss` | **観測（Taylor 氏の 1 通・新しいライセンスの前に、既存のどれも合わない理由をリストに説明せよ）** | `2003-07-license-discuss-license-idea-taylor-first-step-observed.txt` |
 | 2007-10 | `license-discuss` | **観測（"For Approval: Microsoft Public License" から 2 通・残る異議は「また 1 つのライセンス」と「Microsoft だ」、ライセンスか提出者か）** | `2007-10-license-discuss-ms-pl-remaining-objections-observed.txt` |
 | 2012-06 | `license-discuss` | **観測（ライセンスの頁の再編の議論から 1 通・open source でも OSI に承認されない理由 3 つ）** | `2012-06-license-discuss-open-source-but-not-osi-approved-observed.txt` |
 | 2005-12〜2007-10 | `license-discuss` | **観測（Microsoft Community License と Reciprocal License の審査から 13 通・弁護士が指摘し提出者が認めた曖昧さが、本文を変えないまま承認された）** | `2005-12-to-2007-10-license-discuss-ms-cl-and-ms-rl-observed.txt` |

@@ -1,0 +1,65 @@
+Source: OSI license-discuss public archive, 2004-February.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 6 in "Inappropriate postings from non-lawyers" (2004-02-13)
+Senders: Ian Lance Taylor
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From ian at airs.com  Fri Feb 13 20:33:09 2004
+From: ian at airs.com (Ian Lance Taylor)
+Date: 13 Feb 2004 15:33:09 -0500
+Subject: Inappropriate postings from non-lawyers
+In-Reply-To: <20040213202039.GC1061@foghorn.dmz.rsmba.biz>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN>
+	<20040213014612.GC6404@foghorn.dmz.rsmba.biz>
+	<Pine.BSF.4.58.0402130915070.99625@measurement-factory.com>
+	<20040213202039.GC1061@foghorn.dmz.rsmba.biz>
+Message-ID: <m3k72qk9dm.fsf@gossamer.airs.com>
+
+Richard Schilling <rschi at rsmba.biz> writes:
+
+> I would like to see the opensource.org criteria clarified on the web
+> pages.  It would help clear up some confusion.  I suggested a few
+> changes in an earlier post.
+
+The criteria are here:
+    http://opensource.org/docs/definition.php
+If you want to suggest changes, I suggest that you make them in
+reference to that list.
+
+All that I saw you post was a brief list of points, some of which are
+already covered by the OSD, none of which were explained in any
+detail.
+
+> I too, want to see opensource.org accomodate the general public
+> . . . but it would be nice to see an effort by the list participants
+> to keep the discussion related to legal licensing issues and not moral
+> implications for the free world.
+
+OSI is specifically dedicated to working for ``the good of the
+community.''  The moral implications of open source licenses are not
+out of place, because they are aspects of the good of the community.
+
+> If us non-lawyers defer to lawyers and listen more we may have more
+> lawyers providing constructive input.
+
+That statement would be more convincing if you hadn't jumped all over
+Lawrence Rosen, who is in fact a lawyer.
+
+> Obviously, people are arguing that the GPL is invalid and providing
+> some detailed analysis.  I hope opensource.org pays attention to that
+> and gets self-critical about their criteria really quick.  At present,
+> they are endorsing licenses that don't mean anything in front of a
+> judge.  They're nice public statements and rhetoric, but not much else
+> at times.
+
+The arguments that the GPL is invalid are totally bogus.  Using those
+arguments to suggest that the OSI needs to be more self-critical about
+their criteria makes no sense.
+
+Also, note that most of the OSI approved licenses were in fact written
+with the benefit of legal advice, including the GPL.
+
+Ian
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

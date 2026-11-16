@@ -1,0 +1,57 @@
+Source: OSI license-discuss public archive, 2004-February.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 6 in "Inappropriate postings from non-lawyers" (2004-02-13)
+Senders: Alex Rousskov
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From rousskov at measurement-factory.com  Fri Feb 13 20:54:06 2004
+From: rousskov at measurement-factory.com (Alex Rousskov)
+Date: Fri, 13 Feb 2004 13:54:06 -0700 (MST)
+Subject: Inappropriate postings from non-lawyers
+In-Reply-To: <20040213202039.GC1061@foghorn.dmz.rsmba.biz>
+References: <00b101c3f1a5$c862ec90$927ba8c0@ROSENGARDEN>
+ <20040213014612.GC6404@foghorn.dmz.rsmba.biz>
+ <Pine.BSF.4.58.0402130915070.99625@measurement-factory.com>
+ <20040213202039.GC1061@foghorn.dmz.rsmba.biz>
+Message-ID: <Pine.BSF.4.58.0402131340380.99625@measurement-factory.com>
+
+
+> Look, folks the entire purpose of a license of any kind is to have
+> something to present to a judge in case something goes wrong, and to
+> clarify what rights are transferred to the end user.
+
+... and since the user is often not a lawyer, those who write licenses
+should try to strike a balance between users needs and legal needs.
+For example, open source software with new 100 page legal license
+attached has fewer chances succeeding in real world, no matter how
+many lawyers are happy about that license. I see a partial value of
+this mailing list in educating submitters what their primary user
+audience wants.
+
+> The true test of a license (for open source work in a business) is
+> what happens in court and in business negotiations.
+
+IMO, that's not the only test. The success or failure of a license is
+often tied to success or failure of the software that uses it. Open
+Source license is much more than a piece of legal text for courts. It
+has the power to attract or scare large number of users. If the
+submitter is serious about open source (and not just doing marketing),
+they should try to be friendly to as many open source users as
+possible, given other important factors.
+
+NASA license, for example, is not user-friendly at all, IMO. I am sure
+US Goverment has the resources to come up with a better license (while
+preserving the necessary level of protection). Hopefully, the
+discussion on this list will help them to do that.
+
+> If us non-lawyers defer to lawyers and listen more we may have more
+> lawyers providing constructive input.
+
+There needs to be a balance, IMO. Perhaps OSI should moderate this
+list.
+
+Alex.
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
