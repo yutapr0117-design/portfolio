@@ -1,0 +1,44 @@
+Source: Dr. Till Kreutzer (attorney-at-law, Berlin; i.e. Büro Berlin), "Validity of the Creative Commons
+        Zero 1.0 Universal Public Domain Dedication and its usability for bibliographic meta data from
+        the perspective of German Copyright Law", undated, c. 2011 (its Part 2 examines a draft agreement
+        "dating 5 May 2011"), PDF published by the Research Data Alliance at
+        https://rd-alliance.org/sites/default/files/cc0-analysis-kreuzer.pdf
+        (cited on `license-review` by McCoy Smith, 2020-03-30, Unlicense legacy-approval thread)
+Retrieved: 2026-11-16 by portfolio-2f, with the WebFetch tool, under the owner's request of the same
+        day ("ACD-1.4-DRAFT.txt の法的解釈の不確実性を「５人」で減らし続けてください").
+Form: NOT A BYTE COPY. The fetch tool could not read the compressed PDF and saved the file; its text
+        streams were decompressed in this session with the Python standard library (zlib) and the text
+        operators were joined. The PDF's font encoding turned some characters into others: en dashes
+        appear as "Ð", typographic quotes as "Ò"/"Ó"/"ã", and "§" as "¤". Below, those three were
+        restored to "–", straight quotes and "§". In the quotations below, spaces and line-break hyphens
+        that the extraction put inside words ("co n- sidered", "non - exclusive") were also closed up;
+        no word was changed. This is an attorney's opinion, not a court decision or statute.
+
+WHY THIS FILE EXISTS. `QUESTIONS-FOR-COUNSEL.md` question 1 asks whether a surrender and a licence of the
+same rights can stand side by side (§3, §4, §4.4 of the 1.4 draft). CC0 is the closest existing
+instrument in structure (waiver, fallback licence, non-assertion). This is a German attorney's published
+analysis of exactly that structure under German law.
+
+[1] "A waiver of the author's right as such is not valid under German copyright law. This results from the
+    monistic concept of the German copyright law, which does not allow for a transfer of the author's right
+    as such (Art. 29 para. 1 of the German Copyright Act). Accordingly, as concerning the copyright, the
+    waiver in sec. 2 of the CC0 is not legally effective under German copyright law."
+[2] "The bottom line is that the CC0 license fallback is – according to my opinion – legally effective. It is
+    especially possible to grant the users "a royalty-free, non transferable, non sublicensable, non
+    exclusive, irrevocable and unconditional license" in accordance with sec. 3 CC0."
+[3] "It is worth noting that the result would stay the same if CC0 would not even contain such an explicit
+    fallback rule. According to the prevailing opinion of the legal scholars, public domain licenses (which
+    cannot be interpreted as a waiver of rights under the German copyright, see above) are reinterpreted as
+    unconditional, unlimited, non-exclusive (i.e. public) licenses"
+[4] (3.4 Exclusion of legal actions) "Regardless of the extent of a possible transfer of rights under German
+    law such affirmation can be considered as a valid and binding assurance to desist from taking legal
+    actions."
+[5] (4. Conclusion) "the affirmer declares in sec. 3 CC0 a – from my point of view valid and legally binding –
+    pactum de non petendo that would prevent him from enforcing these rights anyway."
+[6] "sec. 32 c para 3 of the German Copyright Act provides for a special exemption from the mandatory right to
+    remuneration in cases where the author grants a non-exclusive and royalty-free license to the public.
+    With this and other special exemptions (which are also known as "Linux Clauses") the German legislator
+    has explicitly acknowledged the compatibility of public licenses with the German copyright law."
+[7] "According to the prevailing opinion among the German commentators global and unrestricted disclaimers
+    about moral rights positions are invalid. The effect, however, is not that the license"
+    (the sentence continues beyond the extracted window; not retrieved)
