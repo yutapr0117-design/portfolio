@@ -361,6 +361,7 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 | 個別 | `submission-reference.md` の長さの行（*"How long the text is"*・1.0 は GPLv3 より短い）| 1.0 の文として正しい。1.4 を提出の版にする日は、1.4 は GPL-3.0 より長いこと（2026-11-12 の T60 の後の測定で本文 5,214 語・GPL-3.0 は 4,617 語。題名からは 5,555 語で GPL-3.0 の 5,644 語より短い）を同じ行に書き、1.0 の比較は版を名乗って残す。数は当日に測り直す |
 | 個別 | `submission.md` §B.0 の本文の *ACD-1.0*（Check 472o）| 件名・冒頭・header・URL は 472f が見る。本文の 7 箇所のうち 6 箇所（OSD の宣言、gap、条件の段、§6.4 の段、§1.2 の段、*taken alone*）は版を替える。§1.2 の段は §1.3 へ替える。Provenance の *"The name ACD-1.0"* は履歴の文なので、版を替えず *"The name ACD"* とする |
 | 個別 | §2.8・§5.3・§12.4 の承継の限度を *"to the fullest extent the law permits the Dedicator to bind them"* と引き、*"Section 12.4 uses the same formula"* と述べる文（T74〜T76）: `review-responses-clauses.md` 56・563 | 1.0〜1.3 の文として正しい。1.4 では §5.3 と §12.4 が人を §2.8 から借り（*"the persons Section 2.8 names"*）、限度は 3 条とも *"to the fullest extent the law permits"* で、§2.8 の末文は無い。提出の版を 1.4 にする日は、この 2 か所を 1.4 の語へ替える（portfolio-30 が見つけた） |
+| 個別 | §11.3 の理由の文 *"because it was never the Dedicator's to permit"* を引く文（T77）: `against.md` #110 の行、`comparison.md` 528、`reviewer-positions.md` 504・630 | 1.0〜1.3 の文の引用としては正しい。ただし `reviewer-positions.md` 630 のように「Dedicator が持っていないものは渡せない」の論拠に使う段は、作者の表示では誤り（偽の帰属の権利は表示された本人のもので、英国 CDPA s.84・s.87(1) では本人の同意で侵害でなくなる）。提出の版を 1.4 にする日は、1.4 の §11.3（理由の文が無い）を引く。`submission-osd.md` の OSD 5 の行は、同じ命題を我々の地の文として述べていたので 2026-11-16 に直した（portfolio-30 が見つけた） |
 
 
 ### 切り替えの日に `REVIEWERS.md` の *Which text you are looking at* へ入れる英文（下書き・2026-11-11）
