@@ -214,8 +214,10 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 2.6, Section 5.3, Section 6.2, Section 6.3, Section 8.4,
       Section 11.3, Section 11.4, and Section 12.2 now name themselves by
       number. (0 words.)
-    * Section 14.2 now also names the undertaking in Section 2.5 among the
-      covenants whose breach Section 14 does not limit. (+1 word.)
+    * Section 2.5 now says that the Dedicator "covenants not to assert" that
+      this Dedication is revocable or ineffective, and Section 14.2 names
+      Section 2.5 among the covenants whose breach Section 14 does not limit.
+      (+2 words.)
     * Section 15.1 now joins its two sentences, so that "in respect of the
       Work" also governs the rule that the reading granting more to You
       prevails, and says on whom the least obligation falls, "upon You"
@@ -252,7 +254,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5583 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5584 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -397,7 +399,7 @@ PREAMBLE (informative; not part of the operative terms)
   2.5  The Dedicator makes this Dedication intending that others rely on it and
        incur effort and expense in doing so; that reliance is the purpose of
        this Dedication and not merely a foreseeable consequence of it. The
-       Dedicator will not assert that this Dedication is revocable or
+       Dedicator covenants not to assert that this Dedication is revocable or
        ineffective for want of consideration or formality, and is estopped from
        doing so to the extent the law of any jurisdiction gives that principle
        effect.
