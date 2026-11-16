@@ -9,7 +9,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約)
 
 ## What
 
-FSF の license-list の CC0・Unlicense・公有の 3 項と、Debian Wiki の DFSGLicenses の公有の段を、2026-11-16 に WebFetch で取得した結果。バイト単位の写しではなく、道具が返した 120 字以内の逐語の片の並び。
+FSF の license-list の CC0・Unlicense・公有・0BSD（#Zero-BSD）・Expat0 の 5 項と、Debian Wiki の DFSGLicenses の公有の段を、2026-11-16 に WebFetch で取得した結果（0BSD と Expat0 は同じ日に portfolio-30 の依頼で足した）。バイト単位の写しではなく、道具が返した 120 字以内の逐語の片の並び。
 
 ## Why
 
