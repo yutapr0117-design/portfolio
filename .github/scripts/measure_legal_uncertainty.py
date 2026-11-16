@@ -37,7 +37,7 @@ L = ROOT / "LICENSES"
 LEDGER = L / "LEGAL-UNCERTAINTY.md"
 ROW = re.compile(r"^- §(\d+(?:\.\d+)?(?:\([a-z]\))?) \| 命題: (.+?) \| ([①②③]) \| 状態: (出典なし|出典あり|本文で消えた|法律家のみ)"
                  r"(?: \| 法源: (\S+))?\s*$", re.M)
-KEYS = ("Q", "P", "J", "E", "R", "R①", "R②", "R③", "狭まった")
+KEYS = ("Q", "P", "J", "E", "R", "R①", "R②", "R③", "狭まった", "J出典")  # J出典 は末尾に足した (基準線の列の位置を変えない)
 
 
 def sections(text: str) -> set[int]:
@@ -116,6 +116,10 @@ def count() -> tuple[dict[int, Counter], list[str]]:
         if "**確立していないこと**" in p:
             for n in (sections(p) or sections(last_fix)):
                 by[n]["J"] += 1
+                # 段が法源 (rounds/ の file) を挙げていれば、問いは残るが狭まった (30 の提案・2026-11-16): 件数の増えが
+                #   「新しく見えた問い」か「法源で狭めた問い」かを分けて読む
+                if re.search(r"rounds/[\w.\-]+\.txt", p):
+                    by[n]["J出典"] += 1
     for line in (L / "ACD-1.0.errata.md").read_text(encoding="utf-8").splitlines():
         m = re.match(r"\|\s*\*{0,2}(E\d+)\*{0,2}\s*\|([^|]*)\|", line)
         if m and not re.search(r"\d+\.\d+ 草案で閉じた", line):
@@ -196,6 +200,7 @@ def main(argv: list[str]) -> int:
     print(f"| 計 | " + " | ".join(str(tot[k]) for k in KEYS) + f" | {'' if not base else f'{now - was:+d}'} |")
     print(f"\n# 開いている法的な問い (Q+P+J+E・節ごとに数えるので、2 つの節を名指す問いは 2 と数える): {now}"
           + (f"（基準線 {was}）" if base else "（基準線なし・--pin で今日の数を基準線にする）"))
+    print(f"# jurisdictions の「確立していないこと」{tot['J']} のうち、段の中に法源 (rounds/) を挙げて狭めたもの {tot['J出典']}")
     print(f"# §18 の記録: {tot['R']} 行 (① {tot['R①']} / ② {tot['R②']} / ③ {tot['R③']})・狭まった {tot['狭まった']}")
     # 基準線の後に足した問いと消えた問い (2f の依頼): 数の増減を「問いを分けた・足した」と「消えた・閉じた」に分ける
     bh, before = baseline_items()
