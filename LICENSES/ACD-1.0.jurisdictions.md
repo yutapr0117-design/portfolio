@@ -226,6 +226,8 @@ L121-4 の *cessionnaire* に当たるか。L121-4 の本文は、取得の道�
 
 ---
 
+**§8.2・§2.2 と贈与の撤回 —— フランスでは撤回の事由が法律で限られ、§8.2 が偽になる範囲は狭い（2026-11-16 追記・portfolio-30・portfolio-50 の依頼・条文は `rounds/2026-11-16-code-civil-931-953-955-957-960-legifrance-snapshot.txt`・我々の読み）**: 民法典 953 条は、生存者間の贈与の撤回を *"pour cause d'inexécution des conditions sous lesquelles elle"* *"aura été faite, pour cause d'ingratitude, et pour cause de survenance d'enfants."* の 3 つに限る。ACD に当てると: (i) 条件の不履行 —— ACD は条件を課さない（§10.1）ので当たらない。(ii) 忘恩 —— 955 条が 3 つの場合（*"1° Si le donataire a attenté à la vie du donateur ;"*、*"2° S'il s'est rendu coupable envers lui de sévices, délits ou injures graves ;"*、*"3° S'il lui refuse des aliments."*）に限る。§8.2 が名指す受け手の特許の訴訟はどれにも当たらない。当たりうるのは、受け手が Dedicator に重い犯罪などを犯した場合で、その受け手に対してだけ、1 年以内に（957 条）。(iii) 子の出生 —— 960 条は *"si l'acte de donation le prévoit"* に限る。ACD は定めないので当たらない。**前提がさらに狭める**: 931 条は *"Tous actes portant donation entre vifs seront passés devant notaires dans la forme ordinaire des contrats ;"* *"et il en restera minute, sous peine de nullité."* —— 公証の無い ACD は、方式の上では生存者間の贈与として成立しにくい。判例が方式を求めない手渡しの贈与（don manuel）や間接の贈与に当たるかは、確かめていない。**結論の向き**: ドイツ（§3 の段・530 条は「重い非行」と開いた語）よりフランスの方が、§8.2 の言い切りが偽になる範囲は狭い。**逆側**: 「重い犯罪」に当たる行為をした受け手に対しては、贈与と読まれる限り、§8.2 の *"on any ground"* は偽になる。
+
 ## 5. 米国
 
 **問い**: 著作権法に放棄の手続が無いのに、public domain に置けるのか。倒産したらどうなるか。
