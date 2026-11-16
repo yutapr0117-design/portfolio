@@ -236,6 +236,7 @@ def run(ctx):
     # 3 面を BLOCKING で縛る:
     #   451a: 記述子が引く clause 番号がすべて本文に実在する (引用先の捏造/番号ずれを防ぐ)
     #   451b: 記述子の notice が §16.1 の通知文と一致する (通知の二重管理を防ぐ)
+    #   451g: 確定の道具が次版の記述子に書く textRedistribution の注が、草案の §16.4 の鍵の語を落とさない (2026-11-16)
     #   451c: 公開 manifest の license ブロックと boolean が食い違わない
     #         (`ai_training_permitted` / `tdm_reservation` / `attribution_required`)
     _md451 = ROOT / "LICENSES" / "ACD-1.0.machine.json"
@@ -448,6 +449,20 @@ def run(ctx):
          "**記述子は自分の版の条文の索引**であり、凍結された記述子は自分を守る検査を名指ししている"),
         blocking=True,
     )
+
+    # 451g: 確定の道具が次版の記述子に書く textRedistribution の注が、草案の §16.4 の鍵の語を落とさないこと (2026-11-16・9b)。
+    #   errata E10 は「記述子が唯一の制限を記述していない」で、1.1〜1.3 の記述子は閉じたが、1.4 の注は道具に書き込まれた文で
+    #   作られる。草案の §16.4 が動いたのに注が「ACD- で始まる」のまま残り、確定すると記述子が本文と違うことを言う形だった
+    import prepare_version_freeze as _pvf451g
+    _d451g = _pvf451g.working_draft()
+    _m451g = re.search(r"^  16\.4 (.*?)(?=^  16\.5 )", _d451g.read_text(encoding="utf-8"), re.M | re.S) if _d451g else None
+    _c451g = " ".join(_m451g.group(1).split()) if _m451g else ""
+    _miss451g = [w for w in _pvf451g.TEXT_REDISTRIBUTION_TERMS if w in _c451g and w not in _pvf451g.TEXT_REDISTRIBUTION_NOTE]
+    check(bool(_c451g) and not _miss451g,
+          f"Check 451g: 確定の道具の textRedistribution の注が、草案 ({_d451g.name if _d451g else '?'}) の §16.4 の鍵の語を落としていない",
+          (f"Check 451g: 草案の §16.4 に在る語 {_miss451g or '(§16.4 を読めない)'} が、次版の記述子に書く注 "
+           "(prepare_version_freeze.TEXT_REDISTRIBUTION_NOTE) に無い。確定すると記述子が本文と違うことを言う (errata E10 の型)"),
+          blocking=True)
 
     # ── 452. 提出準備マーカーが実態と一致すること (BLOCKING) ─────────────────────────
     # `LICENSES/READY-TO-SUBMIT.md` は「レビュー結果を見たいと思える水準に達した」という判断を

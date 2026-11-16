@@ -193,6 +193,26 @@ def pointer(v: str, nxt: str, prev: str, date: str) -> str:
     ])
 
 
+# 次版の記述子の textRedistribution の注 (errata E10 を閉じる鍵・§16.4 の機械可読の写し)。Check 451g が、草案の §16.4 の鍵の語を
+#   この注が落としていないかを照らす (2026-11-16・9b: 1.4 草案の §16.4 は「ACD- を含む・大文字小文字を問わない・前の Steward・
+#   折り返しは改変でない」へ動いたが、注は「ACD- で始まる」のまま残っていた —— 確定すると記述子が本文と違うことを言う)
+TEXT_REDISTRIBUTION_NOTE = (
+    "The text of this Dedication may be copied and distributed verbatim by anyone. Making a modified text is not restricted; "
+    "what is restricted is distributing one under any name that contains \"Autonomous Commons Dedication\", regardless of case, "
+    "or under any identifier that contains \"ACD-\", regardless of case, followed by a digit, except by the Steward (section 16.5). "
+    "That exception reaches only a new version under a version number and identifier that no earlier text the Steward or a "
+    "former Steward has published, other than a draft identified as such, has borne. A modified text may be distributed under "
+    "a different name. A translation identified as one that states that the English text prevails, and a re-encoding with the "
+    "words unchanged that is identified as one, are not modified texts for this purpose; differences of line breaking, "
+    "indentation, or markup are not modifications. This restriction concerns the text of this Dedication as a document; it is "
+    "not a condition upon any use of the Work (sections 10.5 and 16.6).")
+# 草案の §16.4 に在れば注にも在るべき語 (Check 451g)
+#   語は「どの部分の語か」が分かる句にする: "contains" だけだと名前の側にも在り、識別子の側を「begins with」へ戻しても通った
+#   (mutation で実測・2026-11-16)
+TEXT_REDISTRIBUTION_TERMS = ("name that contains", "identifier that contains", "regardless of case", "former Steward",
+                             "different name", "translation", "re-encoding", "line breaking", "draft identified as such")
+
+
 def descriptor(v: str, prev: str, body: str, date: str) -> str:
     raw = (L / f"ACD-{prev}.machine.json").read_text(encoding="utf-8")
     d = json.loads(raw.replace(f"ACD-{prev}", f"ACD-{v}").replace(f'"{prev}"', f'"{v}"').replace(f"Dedication {prev}", f"Dedication {v}"))
@@ -219,15 +239,7 @@ def descriptor(v: str, prev: str, body: str, date: str) -> str:
                             "studyAndAnalysis": {"value": True, "clause": "4.2"},
                             "reverseEngineering": {"value": True, "clause": "4.2"},
                             **{k: x for k, x in d["permissions"].items() if k != "use"}}
-        d["reservationsAndLimits"]["textRedistribution"]["note"] = (
-            "The text of this Dedication may be copied and distributed verbatim by anyone. What is restricted is distributing "
-            "a MODIFIED text under the name \"Autonomous Commons Dedication\" or under any identifier that begins with \"ACD-\" "
-            "followed by a digit, except by the Steward (section 16.5), and by the Steward only as a new version under a version "
-            "number and identifier that no earlier text, other than a draft identified as such, has borne. A modified text may be "
-            "distributed under a different name. A translation identified as one that states that the English text prevails, and "
-            "a re-encoding with the words unchanged that is identified as one, are not modified texts for this purpose. This "
-            "restriction concerns the text of this Dedication as a document; it is not a condition upon any use of the Work "
-            "(sections 10.5 and 16.6).")
+        d["reservationsAndLimits"]["textRedistribution"]["note"] = TEXT_REDISTRIBUTION_NOTE
         out = {}
         for k, val in d.items():
             out[k] = val
