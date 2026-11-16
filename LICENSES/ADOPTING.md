@@ -16,6 +16,9 @@ choice. Section numbers below are the same in every version unless the page says
 - **The text gives you no way to take it back.** Nothing in it lets you end the surrender in §3 or
   the licence in §4.1, and what you have given stays given (§2.2). In the United States, 17 U.S.C.
   §203 may still reach the licence ([`ACD-1.0.jurisdictions.md`](ACD-1.0.jurisdictions.md) §5a).
+  If the law treats the act as a gift, Germany and France let a donor revoke a gift against a recipient
+  guilty of gross ingratitude, and that right cannot be waived in advance (§3 of the same file). It
+  reaches that recipient only, and no lawyer has checked how it applies here.
 - **You give up credit.** Nobody has to keep your name or any notice (§10.2).
 - **You give up more patent rights than most licences ask.** The patent licence has no condition
   and you cannot terminate it (§8.2), and it reaches models and outputs that result from using the
