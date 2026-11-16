@@ -133,7 +133,8 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §8.3（理由の文と規則・T71） | 第 3 文 *"A dedication that gives away copyright while withholding patent rights leaves the recipient exposed, because software cannot be practised without practising whatever patent claims it embodies."* と第 4 文 *"Any reading of this Dedication that would produce that result is to be rejected."* を外す | 理由の文が *software* を名指すので、§1.3 の Work がデータ・文書・視聴覚資料を含むのに、目的で読む人は第 4 文の解釈の規則をソフトウェアの Work に限りうる —— E78（§8.4 の理由の文が許諾を狭く読ませた）と同じ型（portfolio-30 の再提起・errata E85）。1 冊目の試作 CE8 は「結果を書き込む形」を試し、§8.4 が意図して許諾しない請求項まで退けるべき読みにして不成立だった。最初の形（第 2 文に *"and any reading to the contrary is to be rejected"* を結ぶ）は、作用の文に「反対の読みは退ける」を付けても何も足さない同語反復だった（portfolio-50）。曖昧なときの向きは §15.1 が持つ。説明は前文（*"… both leave the recipient of software exposed"*）に残る。**逆側**: 旧い第 4 文は、届く範囲を狭く読む読みも「受け手を晒す結果」として退けていた。外した後は §15.1 だけに頼り、§15.1 は *in respect of the Work* に限られる（30）（`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.7） | −40 | 反映済 |
 | 前文（語の調子・T72） | *"where the existing tools are silent or hostile"* を *"where the existing tools leave a gap"* へ（**後の行で再改**: 「前文（その前提・T73）」の行で *"where that assumption fails"* へ） | *hostile* は既存のライセンスへの強い評価語で、前文の第 1 段落が述べる 3 つ（機械生成物に権利が在るかが未決・学習について許可が沈黙・特許を明示に留保するか沈黙）のどれも「敵対」ではない。前文は *"informative; not part of the operative terms"* と述べるが、Chestek 氏 2020-12-28 *"It is a misperception to think that there is any "non-binding" part of a legal document."* のとおり意図の判断に読まれ、Atkinson 氏 2020 は GPL の前文を「中立な調子でも足りた」と評した（portfolio-2f・`review-readings-2.md` §1.251）。*gap* は B10 で我々が論じている語そのもので、前文の主張を広げも狭めもしない。**逆側**: *gap* は「既存では埋まらない」という我々の主張で、審査者が B10 で問う当の語である —— 前文がそれを当然のように述べると、B10 の答えを先取りしていると読まれうる（`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.8） | −1 | 反映済 |
 | 前文（その前提・T73） | *"where the existing tools leave a gap"* を *"where that assumption fails"* へ | T72 の *gap* は、前文の第 1 段落が道具を限って述べた正確な文（*"Permissive licences are silent …"*・*"dedications to the public domain either withhold patent rights expressly or say nothing"*）を、限定の無い「既存の道具」一般の断定に広げていた。特許の許諾を持つ Apache-2.0・Blue Oak・UPL も既存の道具なので、審査者が B10（H1-g: 0BSD＋特許の許諾で足りる）を問うとき、前文が答えを先取りして言い切る形になる（portfolio-30）。*"that assumption"* は第 1 段落の *"That assumption now fails in three places at once"* をそのまま受け、道具の良し悪しを言わない。30 の案 *"where those tools leave a gap"* は、*those* が第 1 段落の *"The legal tools in common use"* まで広がって読まれると効かない。**逆側**: 前文は非作用で、効くのは審査者が前文を意図の証拠として読むときだけ（`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.9） | −3 | 反映済 |
-| §5.3・§2.8（承継の列挙・T74） | §5.3 の *"bind the Dedicator's successors, assigns, heirs, and personal representatives, to the fullest extent the law permits the Dedicator to bind them, and may be relied upon"* を *"bind those whom Section 2.8 binds, and may be relied upon"* へ。§2.8 の末文 *"Neither Section 5.3 nor Section 12.4 narrows this Section."* を *"Section 12.4 does not narrow this Section."* へ | 1.4 で §2.8 が *"This Dedication, in respect of the Work, binds"* になり（E49）、承継人・譲受人・相続人・人格代表者と Covered Right や特許の譲受人を拘束するので、§5.3 の承継の列挙は何も足さず、§2.8 より短い列挙（特許の譲受人を名指さない）と違う限度（*"the law permits the Dedicator to bind them"*）を持っていた。特定の規定が一般の規定に勝つ読みで、特許を買った者は §8.6 に縛られないと主張される余地を、§2.8 の末文が止めていた —— 揺れの元とその防ぎの両方を外し、§5 を読む人には承継が §2.8 を名指して見える。Fontana 氏 2014 の「同じ問題を扱う部分どうしの subtle contradictions」（模擬委員会 §16.3・`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.12）。**逆側**: §5.3 だけを読む人は誰が拘束されるかを §2.8 で読む必要がある。§12.4 は死後に人格権を行使できる者を足すので列挙を残す | −17 | 反映済 |
+| §5.3・§2.8（承継の列挙・T74） | §5.3 の *"bind the Dedicator's successors, assigns, heirs, and personal representatives, to the fullest extent the law permits the Dedicator to bind them, and may be relied upon"* を *"bind those whom Section 2.8 binds, and may be relied upon"* へ（**後の行で再改**: 「§5.3・§2.8・§12.4（人だけを借りる・T75）」の行で *"bind the persons Section 2.8 names"* へ）。§2.8 の末文 *"Neither Section 5.3 nor Section 12.4 narrows this Section."* を *"Section 12.4 does not narrow this Section."* へ | 1.4 で §2.8 が *"This Dedication, in respect of the Work, binds"* になり（E49）、承継人・譲受人・相続人・人格代表者と Covered Right や特許の譲受人を拘束するので、§5.3 の承継の列挙は何も足さず、§2.8 より短い列挙（特許の譲受人を名指さない）と違う限度（*"the law permits the Dedicator to bind them"*）を持っていた。特定の規定が一般の規定に勝つ読みで、特許を買った者は §8.6 に縛られないと主張される余地を、§2.8 の末文が止めていた —— 揺れの元とその防ぎの両方を外し、§5 を読む人には承継が §2.8 を名指して見える。Fontana 氏 2014 の「同じ問題を扱う部分どうしの subtle contradictions」（模擬委員会 §16.3・`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.12）。**逆側**: §5.3 だけを読む人は誰が拘束されるかを §2.8 で読む必要がある。§12.4 は死後に人格権を行使できる者を足すので列挙を残す | −17 | 反映済 |
+| §5.3・§2.8・§12.4（人だけを借りる・T75） | §5.3 の *"bind those whom Section 2.8 binds"* を *"bind the persons Section 2.8 names"* へ。§2.8 の *"a Covered Right or a patent claim in the Work is transferred"* を *"a Covered Right, or a patent claim that Section 8 reaches, is transferred"* へ。§12.4 の *"bind the Dedicator's successors, assigns, heirs, personal representatives, and any person entitled"* を *"bind the persons Section 2.8 names and any person entitled"* へ | T74 の *"those whom Section 2.8 binds"* は、§2.8 が *"This Dedication, in respect of the Work, binds"* と書くので、人だけでなく *in respect of the Work* の範囲まで借りると読む余地があった。§8.6 の約束は §8.4 の行為（Work の Computational Use から生じたモデル・重み・出力）に及び、モデルについての行為が *in respect of the Work* かは争いうるので、T74 は約束の範囲を狭める読みを新しく生んでいた（portfolio-50 の反例 (a)）。*names* は人だけを借りる。§2.8 の *"a patent claim in the Work"* は、§8.1・§8.4 が請求項を行為で定める語と揃わず（50 の (c)）、草案の他の場所の *"the patent claims Section 8 reaches"* に揃えた（*Covered Right* に *Section 8 reaches* が掛からないよう、挿入句にした）。§12.4 も承継人を §2.8 から借り、死後の行使者だけを足す。**逆側**: §12.4 の限度 *"the law permits the Dedicator to bind them"* は残るので、§2.8 の末文 *"Section 12.4 does not narrow this Section."* は要る | −1 | 反映済 |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
@@ -188,19 +189,19 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
-1.3 の 5,443 語から 1.4 草案は +109 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
+1.3 の 5,443 語から 1.4 草案は +108 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
 
 | 束 | 増減 | 何のための語か |
 | :-- | --: | :-- |
 | 適用と通知（§1.9・§2.3・§2.6・§16.1〜§16.3）| +157 | タグや識別子だけの適用、通知が名指す素材、優先、大小の区別、寄与の宛先。採用者がファイル単位・パッケージ単位で使うときに、意図しない素材を撤回不能に出さないための語 |
 | 不行使と付随の約束（§5）| +103 | 商標と虚偽の表示、合意した支払い、特許の除外、Dedicator 自身のモデルとサービス。データだけを出す組織や、重みと API を両方出す組織が採用できるための語 |
 | 名前の保護（§16.4〜§16.6）| +64 | 1 つの名前と識別子が 1 つの本文を指し、Steward が出した新しい版を誰でもその名の下で配れるための語 |
-| その他の明瞭化 | +40 | 定義、承継（§2.8 の *to that extent*・T59、§5.3 の列挙を §2.8 へ寄せた T74）、撤回不能（§2.2 の後付けの制限・T65）、§4、§9 などの語の付き先 |
-| 人格権（§12）| +29 | 人格権を放棄できない法域での同意（T67・§2.4 の独立の列挙を含む）。約束が契約として効かない場面でも、行為がそもそも侵害にならないための語 |
+| その他の明瞭化 | +41 | 定義、承継（§2.8 の *to that extent*・T59、§5.3 の列挙を §2.8 へ寄せた T74）、撤回不能（§2.2 の後付けの制限・T65）、§4、§9 などの語の付き先 |
+| 人格権（§12）| +27 | 人格権を放棄できない法域での同意（T67・§2.4 の独立の列挙を含む）。約束が契約として効かない場面でも、行為がそもそも侵害にならないための語 |
 | 特許（§6.1・§8）| −44 | 行為を目的語にし、*reach* を 1 回で定め、三つの足場の説明と §8.6 の *alongside them*（T56）を外した |
 | 理由・説明の文を外したもの | −240 | §2.8・§11.4・§12.4・§8.4（T54）の理由の文と、§2.7・§8.5 の案内（Chestek 氏 *"I question whether they belong in the agreement at all."*・#295）|
 
-**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +260）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 656 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
+**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +260）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 655 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
 
 ## 外部資料・OSAID 1.0・opensource.org のページを当てた記録（2026-10-28）は別の file へ移した
 
@@ -374,7 +375,7 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 > §2 (scope and effect, 11) and §1 (definitions, 8); seven name the preamble or several clauses at
 > once. Further changes came from our own sweeps of the
 > later drafts and are listed, with their reasons, in each version's change list. The text is
-> longer: 5,552 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
+> longer: 5,551 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
 
 **⚠ 逆側**: 短い経路の語数が約 170 語増える（`REVIEWERS.md` の短い経路の表と Check 472m の値を同じ日に直す）。*"The direction is unchanged"* は、1.0 から変わらなかったものを 3 つだけ挙げる文で、ほかに変わらなかったものが無いとは言っていない。逆に、変わったものを errata の件数で数えるので、errata に載らない 1.4 生まれの変更（T34〜T52 の多く）は *"Further changes"* の 1 文にまとまる。数を当日に数え直すのは、草案が確定まで動くからである（2026-11-11 の時点でも 1.4 の閉鎖は 39 件で、まだ動きうる。**同日の訂正**: 最初の下書きは 1.3 で 5・1.4 で 38 と書いた。状態の列の版の語の最初の一致を数えていて、閉鎖の印でない語を拾っていた。portfolio-00 が印の正規表現で 4 と 39 を出し、同じ数え方で確かめた）。
 

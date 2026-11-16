@@ -471,10 +471,10 @@ MUTATIONS_ARCHIVE5 = [
     "check": CHECK,
 },
     {
-    "name": "Check 468u: §2.8 の末文から「§12.4 は本条を狭めない」が落ちる —— 試作 e で外した理由の文が担っていた反対解釈の封じが本文から消える（§5.3 の分は T74 で §5.3 の「bind those whom Section 2.8 binds」へ移った）",
+    "name": "Check 468u: §2.8 の末文から「§12.4 は本条を狭めない」が落ちる —— 試作 e で外した理由の文が担っていた反対解釈の封じが本文から消える（§5.3 の分は T74 で §5.3 の「bind the persons Section 2.8 names」へ移った）",
     "file": CURRENT_DRAFT,
-    "find": "Section 12.4 does not narrow this",
-    "replace": "Section 12.4 is read with this",
+    "find": "Section 6 included. Section 12.4 does not",
+    "replace": "Section 6 included. Section 12.4 is not read to",
     "check": CHECK,
 },
     {
