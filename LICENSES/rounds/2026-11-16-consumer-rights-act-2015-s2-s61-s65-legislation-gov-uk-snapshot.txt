@@ -1,0 +1,33 @@
+Source: Consumer Rights Act 2015 (c. 15), legislation.gov.uk, https://www.legislation.gov.uk/ukpga/2015/15/section/2,
+        /section/61 and /section/65 (latest available revised version as shown by the site).
+Retrieved: 2026-11-16 by portfolio-30, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes of at most 125
+        characters each. Re-fetch and compare before relying on the exact wording.
+
+WHY THIS FILE EXISTS. UCTA 1977 section 2(4) sends consumer contracts and consumer notices to this Act
+(rounds/2026-11-16-ucta-1977-s1-s2-legislation-gov-uk-snapshot.txt). Whether Part 2 reaches a Dedicator turns on
+"trader" and "consumer notice"; section 65 is the counterpart of UCTA section 2(1) for Section 14.1 of the 1.4 draft.
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+===== section 2(2) and (3) =====
+1. "(2)"Trader" means a person acting for purposes relating to that person's trade, business, craft or profession,"
+2. "whether acting personally or through another person acting in the trader's name or on the trader's behalf."
+3. "(3)"Consumer" means an individual acting for purposes that are wholly or mainly outside that individual's trade,"
+4. "business, craft or profession."
+
+===== section 61(1) to (4) and (7) =====
+5. "This Part applies to a contract between a trader and a consumer."
+6. "This does not include a contract of employment or apprenticeship."
+7. "A contract to which this Part applies is referred to in this Part as a "consumer contract"."
+8. "This Part applies to a notice to the extent that it—"
+9. "(a)relates to rights or obligations as between a trader and a consumer, or"
+10. "(b)purports to exclude or restrict a trader's liability to a consumer."
+11. "A notice to which this Part applies is referred to in this Part as a "consumer notice"."
+
+===== section 65(1) and (2) =====
+12. "A trader cannot by a term of a consumer contract or by a consumer notice exclude or restrict liability for death or"
+13. "personal injury resulting from negligence."
+14. "Where a term of a consumer contract, or a consumer notice, purports to exclude or restrict a trader's liability"
+15. "for negligence, a person is not to be taken to have voluntarily accepted any risk merely because the person"
+16. "agreed to or knew about the term or notice."
