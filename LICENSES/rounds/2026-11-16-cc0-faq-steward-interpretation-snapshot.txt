@@ -1,0 +1,27 @@
+Source: Creative Commons, "CC0 FAQ", https://wiki.creativecommons.org/wiki/CC0_FAQ
+Retrieved: 2026-11-16 by portfolio-2f, with the WebFetch tool, under the owner's request of the same
+        day ("ACD-1.4-DRAFT.txt の法的解釈の不確実性を「５人」で減らし続けてください").
+Form: NOT A BYTE COPY. The fetch tool returns the page through a model. A first fetch returned the
+        fragments below with the headings they sit under; a second fetch of the same page was asked
+        whether each exact string appears and answered YES for all seven. Apostrophes may differ in
+        style from the page. The FAQ is the licence steward's own published explanation, not a court
+        decision or statute, and it changes without notice.
+
+WHY THIS FILE EXISTS. CC0 has the same three-part structure as §3 to §5 of the 1.4 draft (surrender,
+licence, non-assertion). How the steward of that structure itself explains irrevocability, the licence
+that takes effect where the waiver does not, moral rights, and patents is the public interpretation
+`ACD-1.4-THIRD-CLARITY-TRIAL.md` §18 asks us to set beside each clause.
+
+[1] (heading "Who can use CC0?") "CC0 is a one-way street. Once you apply CC0 to your work you can't change your mind later"
+[2] (heading "How does it work?") "If the waiver isn't effective for any reason, then CC0 acts as a license from the affirmer"
+    [...] "granting the public an unconditional, irrevocable, non exclusive, royalty free license"
+[3] (heading "Does CC0 really eliminate all copyright and related rights, everywhere?")
+    "the laws of some jurisdictions don't allow authors and copyright owners to waive all of their own rights"
+    (the tool reported that the page names moral rights as an example and adds that licensing those rights
+    may also be ineffective in some places; that addition is the tool's paraphrase)
+[4] (heading "What about other IP related rights, such as trademark and patent rights?")
+    "CC0 very clearly states that trademark and patent rights of the affirmer are not affected"
+[5] (heading "May I apply CC0 to computer software? If so, is there a recommended implementation?")
+    CC0 "is suitable for dedicating your copyright and related rights in computer software to the public domain"
+[6] (same heading) "However, CC0 has not been approved by the Open Source Initiative" — the sentence continues,
+    in the tool's paraphrase, that CC0 does not license or affect any patent rights the user may have
