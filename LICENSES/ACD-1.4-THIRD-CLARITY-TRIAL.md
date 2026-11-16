@@ -252,6 +252,20 @@ portfolio-9b が §15.11〜§15.14 の型を道具にした（`scan_draft_terms.
 
 **⚠ 逆側**: §9.4 は「なぜ」の説明を失う。§11.3 の作用は「Dedication の届く範囲の外」という Dedicator の選択として残り、Dedicator が別に同意を与えることは妨げない。**反例待ち**（50・30）。
 
+### 15.18 T77 の目（理由が一部の場合に偽か）で、残りの理由の文を当てた（変えない・2026-11-16）
+
+T77 は、理由の文が結論より狭いだけでなく、**一部の場合に法の命題として偽**になりうることを見つけた（作者の表示と英国 CDPA s.84・s.87(1)）。同じ目で、作用の条に残る理由・目的の文（§15.1 の追記で数えた 11 のうち、T77 で外した §11.3・§9.4 と、法律家に委ねた §12.3 を除くもの）を当てた。
+
+| 条 | 理由・目的の文 | 偽になる場合があるか | 扱い |
+| :-- | :-- | :-- | :-- |
+| §10.4 | *"because it contains nothing that You could breach"* | §10.1 の *in respect of the Work* の下では真（§16.4 の本文の制限は Work についてではない）。反対解釈は第 1 文 *"No permission granted by this Dedication terminates for any reason"* が閉じる（1 冊目の F3・§4.4）| 変えない |
+| §6.5 第 1 文 | *"Section 6 states expressly what Sections 3 to 5 and 8 would in any event permit"* | 特許の面は E36 で *and 8* を足して真にした。§6.3 の留保の撤回は許可ではないが、許諾がある以上、撤回は許しの範囲を変えない。§6.1 が独立の力を失う読みは CE13 で通過 | 変えない |
+| §6.5 第 2 文 | *"silence on this subject has proved ambiguous in practice"* と *"a permission that an automated system cannot determine is … no permission at all"* | 前者は経験の言明で、法の命題ではない。後者は規範の言明で、§2.6・§8.4 から 3 か所で引かれる（1 冊目の CE11）| 変えない |
+| §1.6（1.0 では §1.4） | *"so that no permission fails for want of a legal person to hold it"* | 目的の句で、命題を言わない | 変えない |
+| §2.5 | *"intending that others rely on it … that reliance is the purpose of this Dedication and not merely a foreseeable consequence of it"* | Dedicator の意図の表明で、Dedicator 自身について真 | 変えない |
+
+**結果**: T77 のほかに、法の命題として偽になる理由の文は見つからなかった。**⚠ 逆側**: 法の命題か否かの判断は我々の読みで、法律家の確認は無い（B1）。§6.5 の「沈黙が曖昧だった」は経験の言明として出典を問われうる（1 冊目の T1 は外す案を検討し、§2.6・§8.4 が指すのは後半なので前半を外す案は CE14 で不成立）。
+
 ## 16. 模擬委員会 —— 記録に立場が厚く残る審査者の目で 1.4 草案を通読する（2026-11-15〜）
 
 **仕組み**: オーナーの依頼（「5 人で話し合って、より良い案をガンガン実行して」）を受けて、portfolio-1c が出し 5 人で決めた。記録に立場が厚く残る 5 人の審査者を 1 人ずつ受け持ち（30 = Chestek 氏、50 = Fontana 氏、2f = Perens 氏、9b = Smith 氏、1c = Villa 氏）、その人の過去の文だけを根拠に、その人の目で 1.4 草案を頭から通読して「どこを突くか」を条番号つきで出す。根拠の無い推測は書かない（必ずその人の文を引く）。各節は表（基準と出典 | 当たる条 | 扱い済みの場所 | 残る点）と、条を変える指摘（試作の種）を持つ。**0 件でも表を残す** —— 審査者の基準を網羅して当てた記録になる。**この節が establish しないこと**: 模擬であって、その人が実際にそう言うことを意味しない。
