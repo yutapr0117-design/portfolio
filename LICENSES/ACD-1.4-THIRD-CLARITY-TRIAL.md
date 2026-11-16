@@ -255,6 +255,8 @@ Check 468y は 2 冊目とこの file の両方の「変えない」「退けた
 
 Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く引かれている審査者の 1 人である。決める側の役に無い時期の文も多いが、OSD の起草者として審査の場で重く読まれる。下の表は、その文だけを根拠に、1.4 草案の頭から終わりまでを Perens 氏の目で通読した結果である。
 
+**集め方（2026-11-16 に足した・portfolio-30 の当て直しを受けて）**: 最初はドシエに在る Perens 氏の文だけから集めた。ドシエに在る文だけで当てると、ドシエが既に扱った基準しか出てこないので、アーカイブの写しの全月で Perens 氏の通 1,139 通を拾い、ACD の論点の語（公有・献呈・特許の許諾・法律家・増殖・重複・crayon など）に当たる 308 通のうち、ドシエに 40 字の窓で見つからない 137 通を読んだ。新しく行に足したのは 2 つ（下の表の最後の 2 行）で、どちらも条を変える指摘ではなかった。語に当たらない通は読んでいない。
+
 | 基準と出典 | 当たる条 | 扱い済みの場所 | 残る点 |
 | :-- | :-- | :-- | :-- |
 | 使うだけの人には *"as close to *no legal load* as possible"*（2017-10・`review-readings-2.md` §1.229）、誰でも何の目的でも *"should not have to hire a lawyer just to run it"*（2018-12・`review-readings-2.md` §1.237） | §2.3・§10.1・§10.2 | §2.3 は受諾を要さず、§10.1 は何の条件も課さない。使う人に法的な負担は無い | 無し。むしろ有利な面（配る人・改変する人にも負担が無い） |
@@ -267,6 +269,8 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 | 指摘に本文でなく FAQ で答える応答への評価は *"meh"*（2018-05・ESA-PL・`review-readings-2.md` §1.248） | 「本文を変えない」と判断した条（§2.6・§16.4 など） | 本文を変えない判断は、その読みを本文のどの語が持つかを引いて理由にしている（この文書の 15.8 節） | 審査で同じ形を取るとき、答えを本文の語で示すこと（手順の問い） |
 | *"I don't think anyone has bothered to focus on smaller issues of the license after seeing that the bigger ones would keep it from passing."*（2008-05・IWL・`review-readings-2.md` §1.238） | 全体 | `REVISION-PROTOCOL.md` の 3.8 節（細部の指摘の 2 波目の見込み・portfolio-30） | 最初の指摘が少なくても、細部の指摘は後から来る |
 | 標準の団体が API の実装を禁じうる条項は承認しないよう強く勧める（2019-01・`review-readings-2.md` §1.249） | 無し | ACD は使用や実装に条件を置かない（§10.1） | 無し |
+| CC0 に特許と商標の許諾を足した「True Zero License」（2024）に、特許の許諾は *"necessarily practiced in the work as issued by the grantor"* に限るべきだとし、*"It is probably going to be parsed in court as a dedication to the public domain rather than a contract. There is thus some question of how binding the terms could be on the grantor."*（2024-04-06・`ACD-1.0.review-corpus.md` §1.79） | §8.1・§8.4・§3〜§5・§2.5 | §8.1 は *"caused by subject matter contained in the Work as made available by the Dedicator"* で同じ種類の限定を持つ（§8.4 はモデルのために意図して外す・#305）。拘束の疑いには、献呈（§3）・許諾（§4・§8）・不行使の約束（§5）の 3 つの足場と §2.5 の禁反言で答える（review-corpus §1.79 の読み） | ACD の型に最も近い先例で、同じ人の目では「献呈の中の約束は許諾者を拘束するか」がまず突かれる。答えが効くかは法律家への問い（`QUESTIONS-FOR-COUNSEL.md` の問 (i)）のまま |
+| *"As far as I am aware, where the previous OSI board has worst "screwed up" has been in accepting crayon licenses that can be harmful to the community"*、*"The OSD would not, on its own, have stopped this regardless of the literal-ness of the reading."*（2018-12-13・`rounds/2018-12-license-discuss-decision-process-perens-crayon-ofl-observed.txt`） | 全体（B1） | 入口が法律家の不在を先に言い切る | Perens 氏にとって法律家の手を経ない文書は、OSD の適合と別に承認の失敗の種類で、B1 は OSD の逐条では答えられない |
 
 **結果**: 条を変える指摘は 0 件。Perens 氏の目で突かれるのは、本文の語ではなく、B1（法律家の不在）と B10（既存と重複しないか）と B2（採用）で、どれも register の側の問いである。本文に向く基準（使う人の負担、著作権の拡張、サイトに依らない効力、本文の不変、特許の除外）は、1.4 草案がそれぞれ §2.3・§10.1、§2.7・§6.4、§16.2、§16.4、§8 で既に満たしている。
 
