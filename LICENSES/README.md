@@ -90,7 +90,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | 未読のスレッドを読んだ記録（節 1.350 から・2004〜2005 のスレッド） | [`ACD-1.0.review-readings-4.md`](ACD-1.0.review-readings-4.md) —— 2026-11-15 に未読の 285 本を 5 人で読むため、年の帯ごとに書き場所を分けた |
 | 未読のスレッドを読んだ記録（節 1.400 から・2006〜2008 のスレッド） | [`ACD-1.0.review-readings-5.md`](ACD-1.0.review-readings-5.md) —— 2026-11-15 に未読の 285 本を 5 人で読むため、年の帯ごとに書き場所を分けた |
 | 未読のスレッドを読んだ記録（節 1.450 から・2002〜2003 と 2009〜2010 のスレッド） | [`ACD-1.0.review-readings-6.md`](ACD-1.0.review-readings-6.md) —— 2026-11-15 に未読の 285 本を 5 人で読むため、年の帯ごとに書き場所を分けた |
-| 読んだスレッドの件名の一覧（AS-OF の未読数の元） | [`READ-THREADS.txt`](READ-THREADS.txt) —— 1 行 1 件名。読んだら同じ commit で足す |
+| 読んだスレッドの件名の一覧（AS-OF の未読数の元） | [`READ-THREADS.txt`](READ-THREADS.txt)（2009 年までの会話）と [`READ-THREADS-2010.txt`](READ-THREADS-2010.txt)（2010 年以後）—— 1 行 1 件名。会話の始まりの年で分ける（2026-11-16・`record_read.py` が書く file を選ぶ）。読んだら同じ commit で足す |
 | 古い節（§1.242 より前）の反映先の表 | [`REFLECTION-BACKFILL.md`](REFLECTION-BACKFILL.md) —— 1 節 1 行。提出のゲート 6c が求める「読んだ節がすべて反映されている」を、1,000 行の上限に当たらずに満たすため（2026-11-15） |
 | 読みの合成（未読 0 の後の全体） | [`READINGS-SYNTHESIS.md`](READINGS-SYNTHESIS.md) —— 読みの節 244 の反映先を、条文・register・入口に分けて数えた。本文を変える指摘は残っておらず、残るのは B1・B10・B2（2026-11-16） |
 | 未読数の母数になる候補のスレッドの一覧 | [`THREAD-CANDIDATES.txt`](THREAD-CANDIDATES.txt) —— 1 行 1 件名。一度候補になったら外さない。道具の `--pin` が足す |
@@ -102,7 +102,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | 機械可読な記述子 | [`ACD-1.0.machine.json`](ACD-1.0.machine.json) / [`ACD-1.0.spdx.xml`](ACD-1.0.spdx.xml) |
 | 「**その記述は、本当に確かめられたのか**」 | [`AUDIT-LEDGER.md`](AUDIT-LEDGER.md) —— **ドシエ自身への敵対的検証の台帳**。主張を種類（逐語引用 / 件数 / 不在の主張 / 条項の挙動…）に分け、種類ごとに母数・確認済み・道具を持つ。**進捗は宣言せず道具から導出する** |
 | 「**前の回の台帳はどこへ行ったのか**」 | [`AUDIT-LEDGER-ARCHIVE.md`](AUDIT-LEDGER-ARCHIVE.md) —— 台帳から退避した日付つきの回（2026-09-27〜10-10）。**本文は無改変**で、引用の分類規則の原典もここにある。新しい回は本台帳へ |
-| 「**どの未読スレッドを読んで、どの節へ運んだのか**」 | [`READ-THREADS-LOG.md`](READ-THREADS-LOG.md) —— 読了の記録（新しいものが上）。`AS-OF.md` のセルから 2026-11-15 に**無改変**で移した。読んだ件名の一覧は `READ-THREADS.txt` |
+| 「**どの未読スレッドを読んで、どの節へ運んだのか**」 | [`READ-THREADS-LOG.md`](READ-THREADS-LOG.md) —— 読了の記録（新しいものが上）。`AS-OF.md` のセルから 2026-11-15 に**無改変**で移した。読んだ件名の一覧は `READ-THREADS.txt` と `READ-THREADS-2010.txt` |
 | 「**外部の敵対的監査（172 観点）は、どれが既知でどれが新しく、何を直したのか**」 | [`ACD-1.4-ADVERSARIAL-TRIAGE.md`](ACD-1.4-ADVERSARIAL-TRIAGE.md) —— 2026-11-01 に別の AI から届いた 1.4 草案への監査を 1 件ずつ当てた表。**AI のレビューであって法的レビューではない**。報告書の本文は置かない |
 | 「**法的効果を保ったまま、言い直しと読みの分岐を減らせるか**」 | [`ACD-1.4-CLARITY-TRIAL.md`](ACD-1.4-CLARITY-TRIAL.md) —— 1.4 草案の B3 / B13（明瞭性・解釈の負荷）の試作。草案を上書きせず、候補・試作・効果の対照・反例を置き、**反例が出ず効果の保存を条ごとに説明できたものだけ**を草案へ反映する。§10 からは [`ACD-1.4-SECOND-CLARITY-TRIAL.md`](ACD-1.4-SECOND-CLARITY-TRIAL.md)、§15 からは [`ACD-1.4-THIRD-CLARITY-TRIAL.md`](ACD-1.4-THIRD-CLARITY-TRIAL.md) に続く |
 | 「**機械可読な面（記述子・spdx.xml・LICENSE・REUSE.toml・manifest）が述べていることは、いま真か**」 | [`MACHINE-SURFACES-AUDIT.md`](MACHINE-SURFACES-AUDIT.md) —— 2026-09-24 の検証報告。**欠陥は直さず候補として列挙**してある |
