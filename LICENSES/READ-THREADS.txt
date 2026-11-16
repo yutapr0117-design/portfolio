@@ -325,6 +325,7 @@
 2005-08-25	Contracts vs. bare licenses
 2005-08-31	License Proliferation
 2005-08-31	There is a separate list for license proliferation discussions
+2005-09-01	Proposal: criteria for license approval
 2005-09-03	License Proliferation Committee Response
 2005-09-06	When can licenses be revoked?
 2005-09-08	License Committee Report for September 2005
@@ -353,6 +354,7 @@
 2005-11-14	Questions to OSI Board quorum
 2005-11-16	License in question
 2005-11-25	Open Source and Contributor Agreements
+2005-11-26	OPEN Source
 2005-11-30	GPL v3
 2005-12-09	For Approval: Microsoft Community License
 2006-01-19	Question Regarding GPL

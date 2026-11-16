@@ -20,6 +20,10 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-16 の読了（新しいものが上）
 
+- 2026-11-16 に "OPEN Source"（`license-discuss` 2005-11・11 通・候補の外・Taylor 氏の通）。ACD に当たる新しい論点は無かった（節は立てない・`review-readings-4.md` §1.355 の末尾に記録）
+
+- 2026-11-16 に、5 人（portfolio-2f・-30・-50・-1c・-9b）で分担して未読を 0 にした。2026-11-15 の時点の未読は候補の 285 本と、候補の外で話題の語（撤回・放棄）に当たる 19 本で、年で 5 つに分けて読み、各自の `review-readings-*.md` に節を書き、`record_read.py --log-only` で記録した。候補の外の話題の未読も 0 件。読んだ節は末尾の反映の欄（Check 501）か `REFLECTION-BACKFILL.md` の表で反映先を持つ。**限界**: 抜き出しを切り詰めて読んだ分は、全文で当て直して読み落としを拾った（2f の §1.253、30 の 1999〜2001）が、語で当てたので語に当たらない読み落としは残りうる。アーカイブの写しは 2026-10-24 の取得で、それより後の通は数えていない（提出の日に取り直すのがゲート 6c）。**2026-11-16 01:59 UTC に両リストの 10 月を月が終わった後の取得へ置き換えて回し直しても 0 のまま**（portfolio-50・`fetch_osi_watch.py --to-cache`）。11 月の頁は両リストとも 404 で、写しに 11 月の通は無い
+
 - 2026-11-16 に "Approval: OIN License (Open Innovation License) -- Trademark Issue"（`license-review` 2020-12・通読）を `review-readings-2.md` §1.254 へ（承認の投票の前に既存の団体と重なる略称を変えよ・Berkus 氏、SPDX も識別子を変えた・Brasseur 氏）
 
 - 2026-11-16 に "License-review Digest, Vol 95, Issue 14"（`license-review` 2020-10・通読）を `review-readings-2.md` §1.254 へ（リストの参加者は相談すべき法律家の代わりを務めない・Brasseur 氏）
