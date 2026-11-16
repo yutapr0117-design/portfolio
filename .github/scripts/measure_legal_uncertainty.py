@@ -54,8 +54,9 @@ def open_items(read) -> set[tuple[str, int, str]]:
     鍵: Q/P は見出しの文、J は段の先頭 60 字、E は errata の番号。基準線の後に足した問いと消えた問いを分けるため (2f の依頼)。"""
     items = set()
     for fname, key in (("QUESTIONS-FOR-COUNSEL.md", "Q"), ("QUESTIONS-FOR-PRACTITIONERS.md", "P")):
-        for h in re.findall(r"^## \d+\. .*$", read(fname), re.M):
-            items |= {(key, n, re.sub(r"^## \d+\. ", "", h).strip()) for n in sections(h)}
+        # 鍵は問いの番号 (見出しの文にすると、見出しに § を足しただけで「消えた + 足された」と出た・2026-11-16 の問い 1)
+        for num, h in re.findall(r"^## (\d+)\. (.*)$", read(fname), re.M):
+            items |= {(key, n, f"{key}{num}") for n in sections(h)}
     jfiles = sorted({"ACD-1.0.jurisdictions.md"} | {p.name for p in L.glob("ACD-1.0.jurisdictions*.md")})
     for jf in jfiles:
         last_fix = ""
