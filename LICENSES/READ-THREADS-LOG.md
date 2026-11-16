@@ -20,6 +20,36 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 
 ## 2026-11-16 の読了（新しいものが上）
 
+- 2026-11-16 に "Redistribution constraint"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に ""open-source" x "free software""（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "Submitting a new license or using the current ones"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "Question regarding modules/pluggins license?"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "Licenses and subterfuge"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "Inappropriate postings from non-lawyers"（`license-discuss`・通読・Taylor 氏の候補の外）を `review-readings-2.md` §1.255 へ
+
+- 2026-11-16 に "Copyright Act preempts the wave theory of light"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "For Approval: Simple Permissive License"（`license-discuss`・通読・Taylor 氏の候補の外）を `review-readings-2.md` §1.255 へ
+
+- 2026-11-16 に "Corba interfaces and GPL freedom"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "Commercial Open Source- state of play"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "license idea"（`license-discuss`・通読・Taylor 氏の候補の外）を `review-readings-2.md` §1.255 へ
+
+- 2026-11-16 に "violating a license b4 product release"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "Licensing Model: open downstream apps or proprietary license"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "Optimal license for Java projects ..."（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
+- 2026-11-16 に "Limiting the use of an OpenSource application"（`license-discuss`・通読・Taylor 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）
+
 - 2026-11-16 に "OPEN Source"（`license-discuss` 2005-11・11 通・候補の外・Taylor 氏の通）。ACD に当たる新しい論点は無かった（節は立てない・`review-readings-4.md` §1.355 の末尾に記録）
 
 - 2026-11-16 に "Proposal: criteria for license approval"（`license-discuss` 2005-09・5 通・候補の外・Taylor 氏の通）を `review-readings-4.md` §1.355 へ（承認は共同体の益も見るべき、見慣れないライセンスは取り残される、機能で選ばれる新しいライセンスは稀）

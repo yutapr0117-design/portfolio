@@ -1,0 +1,38 @@
+Source: OSI license-discuss public archive, 2004-February.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 4 in "For Approval: Simple Permissive License" (2004-02-08)
+Senders: Ian Lance Taylor
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From ian at airs.com  Mon Feb  9 03:10:05 2004
+From: ian at airs.com (Ian Lance Taylor)
+Date: 08 Feb 2004 22:10:05 -0500
+Subject: For Approval: Simple Permissive License
+In-Reply-To: <E1Aptm8-0004zM-00@localhost>
+References: <E1Aptm8-0004zM-00@localhost>
+Message-ID: <m3n07tj6cy.fsf@gossamer.airs.com>
+
+"Zooko O'Whielacronx" <zooko at zooko.com> writes:
+
+> The Simple Permissive License is most similar to The MIT License.  The MIT 
+> License does not suffice for my needs because it is too long and complex for the 
+> programmers that I work with to read.
+
+Personally, I recommend that you tell your programmers to either learn
+to read, or to trust you or the OSI.
+
+I don't see how it serves the purposes of the OSI to approve a license
+which is intended to be identical to an existing license merely
+because programmers can't read.  This is a small benefit for your
+programmers right now, and increased confusion for all people in the
+future who tries to understand when and whether they should use your
+new license.
+
+For that matter, for people who want something like the MIT license, I
+recommend the Academic Free License, which is rather more likely to be
+legally sound.  However, for that very reason, it is much longer.
+
+Ian
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

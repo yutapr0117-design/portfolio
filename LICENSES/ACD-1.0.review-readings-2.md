@@ -626,4 +626,23 @@ census の決める側の一覧（DECIDERS）に、OSI の公の宛名で書い�
 
 **この節が establish しないこと。** 「ACD」の商標の登録の有無と範囲。ACD の名前が審査で問われるかどうか。
 
-**反映**: B6（略称「ACD」の衝突の点検が抜けていたこと・Berkus 氏 2020 の先例と、同名の会社の実在・30 へ）/ B11（SPDX に出すとき識別子の衝突が問われうる・30 へ）/ 入口（法律家への問いに「ACD」の商標の調査を足すかの判断・`QUESTIONS-FOR-COUNSEL.md`・50 へ）。
+**反映**: B6（略称「ACD」の衝突は against の新しい行にせず B6 の段に置いた。先例の引き金は同じ分野でのはっきりした衝突で、ACD には記録の範囲で同じ分野の衝突が無い。ACD Systems の実在と商標の検索が未了であることを明記・portfolio-30）/ B11（SPDX の側の識別子の変更）/ against #1（Brasseur 氏の「提出前に法律家に見てもらう」という期待）/ 入口（法律家への問いに「ACD」の商標の調査を足すかの判断・`QUESTIONS-FOR-COUNSEL.md`・50 へ）。
+
+## 1.255 新しいライセンスを書く前に、既存のどれも合わない理由をリストに説明せよ（2003）。承認済みのほとんどは法的な助言を受けて書かれた（2004）。長さは確かさの代価でもある（2004）（2026-11-16）
+
+Ian Lance Taylor 氏（`ian at airs.com`・両リストで 232 通）の発言した会話のうち、census の候補の外の 31 本を 5 人で分けた（portfolio-9b の分担）。portfolio-2f は 2002〜2004 年の 15 本を通読した。各通を切らずに ACD の論点の語（献呈・取り消し・特許・増殖・法律家・承認・長さ）で当て直してから記録した。4 本から 4 通を置いた（`rounds/2003-07-license-discuss-license-idea-taylor-first-step-observed.txt`・`rounds/2004-02-license-discuss-{simple-permissive-taylor-length-soundness,non-lawyers-taylor-legal-advice,non-lawyers-rousskov-100-page}-observed.txt`）。残る 11 本は、GPL の派生物の範囲や再頒布の制限の相談で、ACD に当たる新しい論点は無かった。**Taylor 氏が OSI の理事や委員だったという一次の記録は見つかっていない**（portfolio-50 の判断で DECIDERS には足さない）ので、ここでは常連の参加者の発言として読む。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"If you can't use an existing license, then your first step should not be to write a license, but instead to write to the list and explain clearly why no existing license will work for your situation."* 続けて、リストの答えは 3 つ —— *"1) actually, license X satisfies your needs; or 2) you're right, there is no current license for your needs, but what you want to do would be OSI approved, so go ahead and write a license; or 3) ... because what you want to do would not be OSI approved."* | Ian Lance Taylor 氏 2003-07-16（"license idea"） | **B10 の手順の材料。** ACD は「既存のどれも合わない理由」を `ACD-OSI-BOTTLENECKS-B10.md`（G1）に書いている。**逆側**: ACD は理由を先に問わず、本文を書いてから 1.0 を `license-discuss` に出した。その問いへの返信は無い（`REVIEWERS.md`）ので、リストの答え 1)〜3) のどれも得ていない |
+| *"I don't see how it serves the purposes of the OSI to approve a license which is intended to be identical to an existing license merely because programmers can't read."* / *"for people who want something like the MIT license, I recommend the Academic Free License, which is rather more likely to be legally sound. However, for that very reason, it is much longer."* | Ian Lance Taylor 氏 2004-02-08（"For Approval: Simple Permissive License"） | **B3 の両面。** 長さが法的な確かさの代価になりうる、という参加者の読みで、ACD の長さ（B3）を擁護する向きに使える。同じ提出は、委員会が「既存と同じ効果は改善ではない」として退けた（`board-decisions.md` の 2004 年の表）。**逆側**: Taylor 氏の文で長さを正当化したのは、法律家（Rosen 氏）が起草した AFL の長さである。ACD の長さは法律家が起草した結果ではない（B1） |
+| *"Also, note that most of the OSI approved licenses were in fact written with the benefit of legal advice, including the GPL."* | Ian Lance Taylor 氏 2004-02-13（"Inappropriate postings from non-lawyers"） | **不利な面（B1）。** 承認済みのライセンスの起草に法的な助言が伴うのが普通だった、という 2004 年の観察。`review-rules.md` §1.141（法律家の分析は 2007 年 12 月まで提出の要件）と同じ向き |
+| *"For example, open source software with new 100 page legal license attached has fewer chances succeeding in real world, no matter how many lawyers are happy about that license."* | Alex Rousskov 氏 2004-02-13（同じ会話） | **不利な面（B3・B2）。** 長さは法律家の満足と別に、使う人を遠ざける。ACD の本文は 1.4 草案で 5,000 語を超える（`ACD-1.4-DRAFT.txt` の `This draft:` の行）。**逆側**: Rousskov 氏は同じ通で、使う人の必要と法の必要の「釣り合い」を求めており、短さだけを求めてはいない |
+
+**読み。** 2003〜2004 年のリストの常連は、新しいライセンスの前に「既存のどれも合わない理由」を問い、長さを確かさの代価と認めつつ、使う人への費用としても数えていた。ACD の答えの場所はどれも既に在る（B10 の G1、B3 の長さの説明、B1 の法律家への問い）。
+
+**逆側。** どれも委員会の決定ではなく、参加者の発言である。Taylor 氏の役は確かめられていない。2004 年の承認の手続き（法律家の分析を求めていた時期）は、提出の日の手続きとは違う。
+
+**この節が establish しないこと。** 審査者が提出の日に「既存のどれも合わない理由」を先に問うかどうか。長さが ACD の確かさを上げているかどうか（法律家の目を経ていないので、それは測れない）。
+
+**反映**: B10（「書く前にリストに理由を尋ねよ」と、ACD が本文を先に書いて出した逆側の 1 文・portfolio-30）/ B3（長さを確かさの代価とする Taylor 氏の読みと Rousskov 氏の逆の文を対で置き、どちらも法律家の起草を前提にするので ACD には半分しか当たらない、と書く・portfolio-30）/ B1 は足さない（承認済みの多くが法律家の助言を経たという同じ向きの文が、B1 と against #1 に既に厚く在るので、足すと padding になる・portfolio-30 の判断）。
