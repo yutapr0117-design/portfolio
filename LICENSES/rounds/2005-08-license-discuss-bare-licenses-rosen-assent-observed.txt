@@ -1,0 +1,94 @@
+Source: OSI license-discuss public archive, 2005-August.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 4 in "Contracts vs. bare licenses (was RE: Change ot topic, back to OVPL)" (2005-08-25)
+Senders: Lawrence Rosen
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Thu Aug 25 15:40:17 2005
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Thu, 25 Aug 2005 08:40:17 -0700
+Subject: Contracts vs. bare licenses (was RE: Change ot topic, back to OVPL)
+In-Reply-To: <7E88DA5E2D4F32D5E1CE6424@[192.168.100.25]>
+Message-ID: <20050825114024.GA88397@mail26a.sbc-webhosting.com>
+
+> I'm very confused by this. I quote from the top of p181 of your book:
+> 	"Both the OSL and the AFL are unilateral contracts."
+
+I'm sorry for the confusion. 
+
+The OSL and AFL are *worded* to be unilateral contracts rather than
+bilateral contracts.
+
+But they are not contracts until the formalities of contract formation
+(particularl assent) are completed. Until then they are bare licenses.
+
+I have argued before that contracts have additional enforcement options than
+bare licenses. That's why I put the "Acceptance and Termination" section
+into the OSL/AFL. I want to encourage the formation of contracts, and thus
+to encourage licensors to design "I ACCEPT" buttons or other mechanisms to
+obtain assent. But such steps are defined to be those "reasonable under the
+circumstances" to deal with situations where obtaining assent is simply not
+possible.
+
+/Larry
+
+Lawrence Rosen
+Rosenlaw & Einschlag, technology law offices (www.rosenlaw.com)
+3001 King Ranch Road, Ukiah, CA 95482
+707-485-1242  *  fax: 707-485-1243
+Author of "Open Source Licensing: Software Freedom and 
+   Intellectual Property Law" (Prentice Hall 2004) 
+   [Available also at www.rosenlaw.com/oslbook.htm]
+ 
+ 
+
+> -----Original Message-----
+> From: Alex Bligh [mailto:alex at alex.org.uk] 
+> Sent: Thursday, August 25, 2005 3:13 AM
+> To: lrosen at rosenlaw.com; license-discuss at opensource.org
+> Cc: Alex Bligh
+> Subject: Contracts vs. bare licenses (was RE: Change ot 
+> topic, back to OVPL)
+> 
+> Larry,
+> 
+> --On 24 August 2005 17:25 -0700 Lawrence Rosen 
+> <lrosen at rosenlaw.com> wrote:
+> 
+> > 1) The OSL is a license, not a contract. If you want a 
+> contract out of 
+> > the OSL or the OVPL or any other license, you generally 
+> need to get assent.
+> > That's what turns it into a contract. So don't distinguish the OSL 
+> > from other licenses on that basis. Any license without assent is 
+> > probably just a bare license.
+> 
+> Let's just put aside the OVPL for a moment (hence I'm 
+> replying to your email in two separate threads).
+> 
+> I'm very confused by this. I quote from the top of p181 of your book:
+> 	"Both the OSL and the AFL are unilateral contracts."
+> 
+> Obviously one obligation of the offeror under such a 
+> unilateral contract is, conditional upon acceptance by any 
+> offeree (which in general can be
+> anyone) and their compliance with any conditions therein, to 
+> grant a licence to the accepting offeree. But the "license" 
+> document seems to me to be a promise to grant a license, 
+> subject to various conditions. As you spend a long time 
+> pointing out in your book, in order for there to be a 
+> contract, the license has to be framed in terms of offer, 
+> acceptance & consideration. You go on to describe why the AFL 
+> and OSL are framed that way, as opposed to bare licenses such 
+> as the GPL and MPL (and, though it's not mentioned in your 
+> book, the CDDL).
+> 
+> The reason I'm curious (and thus not just trying to pick 
+> holes in what you said) is that we seriously considered 
+> framing the OVPL in contractual terms (which would have 
+> involved adding a contractual framework like the OSL on top 
+> of the CDDL). We didn't, because despite its attractions from 
+> an enforcement point of view, we wanted to keep changes to a minimum.
+> 
+> Alex
