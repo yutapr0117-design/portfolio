@@ -189,7 +189,7 @@ After: The covenants in Sections 5.1, 5.2, and 8.6 bind those whom Section 2.8 b
 
 **⚠ 逆側**: (1) §5.3 だけを読む人は、誰が拘束されるかを §2.8 で読む必要がある（参照 1 つ）。(2) §5.3 の *"the law permits the Dedicator to bind them"* は、約束が承継人を縛れるかが法域で違うことを、約束の側で言っていた。§2.8 の *"the law permits"* はそれを含むが、語は一般になる。SELF-AUDIT の E（*"to the fullest extent the law permits"* の法域差・起草では閉じられない）は T74 で閉じない。(3) 1.0〜1.3 の §5.3 を引く外向きの文は、1.4 の §5.3 の語と違う（`QUESTION-INDEX.md` の「§2.8 and §12.4 bind successors」は 1.4 でもそのまま正しい）。
 
-**反例の担当へ（50・30）**: (a) §8.6 の約束を受けた後に特許を譲り受けた者が、§2.8 の *"any person to whom … a patent claim in the Work is transferred"* と §5.3 の *"those whom Section 2.8 binds"* の組で縛られない読みが残るか。(b) §4.6 の *"on the terms Section 5.3 states"* が、承継の列挙を失った §5.3 から何か落とすか。
+**反例の担当へ（50・30）**: (a) §8.6 の約束を受けた後に特許を譲り受けた者が、§2.8 の *"any person to whom … a patent claim in the Work is transferred"* と §5.3 の *"those whom Section 2.8 binds"* の組で縛られない読みが残るか。(b) §4.6 の *"on the terms Section 5.3 states"* が、承継の列挙を失った §5.3 から何か落とすか。 **反例の結果**: §15.13 の冒頭（portfolio-50）—— (a) は当たった（範囲まで借りる読み）ので T75 で *names* にした。(b) は落ちるもの無し。続く §15.14（portfolio-30）で、T75 が限度を落としたことが当たり、T76 で限度を揃えた。
 
 ### 15.13 T75 —— T74 の §5.3 を「人だけを借りる」語へ、§2.8 の特許の譲受人の語と §12.4 を揃える（採った・−1 語・2026-11-16）
 
