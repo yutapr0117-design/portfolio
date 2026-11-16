@@ -49,6 +49,46 @@ def sections(text: str) -> set[int]:
     return {n for n in out if 1 <= n <= 16}
 
 
+def open_items(read) -> set[tuple[str, int, str]]:
+    """開いている法的な問い Q / P / J / E を (種類, 節, 鍵) の集合で返す。read(相対 path) は本文 (無ければ "")。
+    鍵: Q/P は見出しの文、J は段の先頭 60 字、E は errata の番号。基準線の後に足した問いと消えた問いを分けるため (2f の依頼)。"""
+    items = set()
+    for fname, key in (("QUESTIONS-FOR-COUNSEL.md", "Q"), ("QUESTIONS-FOR-PRACTITIONERS.md", "P")):
+        for h in re.findall(r"^## \d+\. .*$", read(fname), re.M):
+            items |= {(key, n, re.sub(r"^## \d+\. ", "", h).strip()) for n in sections(h)}
+    jfiles = sorted({"ACD-1.0.jurisdictions.md"} | {p.name for p in L.glob("ACD-1.0.jurisdictions*.md")})
+    for jf in jfiles:
+        last_fix = ""
+        for p in re.split(r"\n\s*\n", read(jf)):
+            if "**本文の手当て**" in p:
+                last_fix = p
+            if "**確立していないこと**" in p:
+                k = " ".join(p.split("**確立していないこと**", 1)[1].split())[:60]
+                items |= {("J", n, k) for n in (sections(p) or sections(last_fix))}
+    for line in read("ACD-1.0.errata.md").splitlines():
+        m = re.match(r"\|\s*\*{0,2}(E\d+)\*{0,2}\s*\|([^|]*)\|", line)
+        if m and not re.search(r"\d+\.\d+ 草案で閉じた", line):
+            items |= {("E", n, m.group(1)) for n in sections(m.group(2))}
+    return items
+
+
+def baseline_items() -> tuple[str, set] | tuple[None, set]:
+    """基準線を置いた commit (LEGAL-UNCERTAINTY.md を足した commit) の時点の開いている問い。浅い clone では None。"""
+    import subprocess
+    try:
+        h = subprocess.run(["git", "-C", str(ROOT), "log", "--diff-filter=A", "--format=%h", "--",
+                            "LICENSES/LEGAL-UNCERTAINTY.md"], capture_output=True, text=True, check=True).stdout.split()
+        if not h:
+            return None, set()
+
+        def read(rel):
+            r = subprocess.run(["git", "-C", str(ROOT), "show", f"{h[-1]}:LICENSES/{rel}"], capture_output=True, text=True)
+            return r.stdout if r.returncode == 0 else ""
+        return h[-1], open_items(read)
+    except (OSError, subprocess.CalledProcessError):
+        return None, set()
+
+
 def count() -> tuple[dict[int, Counter], list[str]]:
     by: dict[int, Counter] = defaultdict(Counter)
     errs = []
@@ -86,8 +126,11 @@ def count() -> tuple[dict[int, Counter], list[str]]:
         by[n]["R" + m.group(3)] += 1
         if m.group(4) in ("出典あり", "本文で消えた"):
             by[n]["狭まった"] += 1
-        if m.group(4) == "出典あり" and not (m.group(5) and (ROOT / "LICENSES" / m.group(5)).exists()):
-            errs.append(f"§{m.group(1)} は「出典あり」だが法源の file が LICENSES/ の下に無い: {m.group(5)}")
+        # 法源は「・」「,」で複数つないでよい (2026-11-16・30 が §12.2・§12.4 で 3 つの file をつないだ・2f の報告)
+        if m.group(4) == "出典あり":
+            for src in [s for s in re.split(r"[・,、]\s*", m.group(5) or "") if s] or [""]:
+                if not (src and (L / src).exists()):
+                    errs.append(f"§{m.group(1)} は「出典あり」だが法源の file が LICENSES/ の下に無い: {src or '(空)'}")
     # 表の形 (50 の §18.3 と 1c の §18.1 が先に使った形・2026-11-16): `| §N.M … | 命題 | 当て | 分類 |`。分類の欄 (最後の欄)
     #   の最初の ①②③ を読み、行に rounds/ の file 名が在れば「狭まった」に数え、その file が無ければ ⚠。並べた条は最初の条の節に数える
     for line in body18.splitlines():
@@ -143,6 +186,16 @@ def main(argv: list[str]) -> int:
     print(f"\n# 開いている法的な問い (Q+P+J+E・節ごとに数えるので、2 つの節を名指す問いは 2 と数える): {now}"
           + (f"（基準線 {was}）" if base else "（基準線なし・--pin で今日の数を基準線にする）"))
     print(f"# §18 の記録: {tot['R']} 行 (① {tot['R①']} / ② {tot['R②']} / ③ {tot['R③']})・狭まった {tot['狭まった']}")
+    # 基準線の後に足した問いと消えた問い (2f の依頼): 数の増減を「問いを分けた・足した」と「消えた・閉じた」に分ける
+    bh, before = baseline_items()
+    if bh:
+        after = open_items(lambda rel: (L / rel).read_text(encoding="utf-8") if (L / rel).exists() else "")
+        added, gone = sorted(after - before), sorted(before - after)
+        print(f"# 基準線の commit {bh} の後に足された問い {len(added)}・消えた問い {len(gone)}（種類, 節, 鍵）")
+        for x in added:
+            print(f"#   + {x[0]} §{x[1]} {x[2][:70]}")
+        for x in gone:
+            print(f"#   − {x[0]} §{x[1]} {x[2][:70]}")
     for e in errs:
         print(f"# ⚠ {e}")
     if "--pin" in argv:
