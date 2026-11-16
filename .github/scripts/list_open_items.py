@@ -136,6 +136,28 @@ def question_items() -> list[tuple[str, str, str, str]]:
     return out
 
 
+def legal_uncertainty_items() -> list[tuple[str, str, str, str]]:
+    """法的解釈の不確実性の台帳から、手を打てる行 (2026-11-16・オーナーの依頼の 9b の持ち分・50 の「list_open_items の拡張」):
+    ② (語で消せる) のうち試作でまだ閉じていない第 18 節の行と、③ なのに行き先 (問い / jurisdictions / 法律家) の無い行。"""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import measure_legal_uncertainty as mlu
+    mlu.count()
+    out = [(x.split("（")[0], "③ の行き先なし", "問い N / jurisdictions / 法律家 のどこへ運ぶかを分類の欄に書く", "その帯の人")
+           for x in mlu.NO_DEST]
+    third = L / "ACD-1.4-THIRD-CLARITY-TRIAL.md"
+    t = third.read_text(encoding="utf-8") if third.exists() else ""
+    s18 = re.search(r"^## (?:§)?18[ .].*?(?=^## (?:§)?\d+[ .]|\Z)", t, re.M | re.S)
+    for line in (s18.group(0) if s18 else "").splitlines():
+        cells = [c.strip() for c in line.strip().strip("|").split("|")] if line.startswith("| §") else []
+        if len(cells) >= 3 and (m := re.search(r"[①②③]", cells[-1])) and m.group(0) == "②" \
+                and not re.search(r"T\d+(?:〜T\d+)?\s*で入った|本文で消えた|rounds/", line):
+            out.append((cells[0][:40], "② 未着手", cells[-1][:100], "1c (試作)"))
+        mm = mlu.ROW.match(line)
+        if mm and mm.group(3) == "②" and mm.group(4) not in ("本文で消えた",):
+            out.append((f"§{mm.group(1)}", "② 未着手", mm.group(2)[:100], "1c (試作)"))
+    return out
+
+
 def pass_fail_items() -> list[tuple[str, str, str, str]]:
     out = []
     for line in against_text(L).splitlines():
@@ -211,6 +233,7 @@ def main(argv: list[str]) -> int:
               ("合成の文書 §6 の残り（読みの側）", synthesis_items()),
               ("合否の基準を書いて、まだ満たしていない register の行", pass_fail_items()),
               ("オーナーにしかできない行為", owner_items()), ("法律家と実務家への問い（未回答）", question_items()),
+              ("法的解釈の不確実性の台帳で手を打てる行（② の未着手・③ の行き先なし）", legal_uncertainty_items()),
               ("閉じた印の無い SELF-AUDIT の 🔴 と、答えの記録の無い先に登録した反例", candidate_items())]
     if "--advisory" in argv:
         groups.append(("ADVISORY の警告", advisory_items()))
