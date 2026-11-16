@@ -1,0 +1,42 @@
+Source: (1) Mission Product Holdings, Inc. v. Tempnology, LLC, Supreme Court of the United States,
+        No. 17-1657, decided 2019-05-20, opinion of the Court by Justice Kagan (joined by Roberts, C.J.,
+        and Thomas, Ginsburg, Breyer, Alito, Sotomayor and Kavanaugh, JJ.), as published by the Legal
+        Information Institute, https://www.law.cornell.edu/supremecourt/text/17-1657
+        (2) 11 U.S.C. §365, as published by the Legal Information Institute,
+        https://www.law.cornell.edu/uscode/text/11/365
+Retrieved: 2026-11-16 by portfolio-2f, with the WebFetch tool, under the owner's request of the same
+        day ("ACD-1.4-DRAFT.txt の法的解釈の不確実性を「５人」で減らし続けてください").
+Form: NOT A BYTE COPY. The fetch tool converts the page to text and returns it through a model. The
+        four sentences of (1) below were returned by a first fetch and then confirmed by a second
+        fetch of the same page, which was asked whether each exact string appears in the page and
+        answered YES for all four. Fetches of the same opinion from supreme.justia.com (HTTP 403),
+        supremecourt.gov (two PDF paths, HTTP 404) and oyez.org (template only) failed, so the
+        confirmation is from one source, fetched twice. For (2) the tool returned only the opening
+        clause of §365(n)(1) verbatim and paraphrased the rest; the paraphrase is marked as such.
+        Re-fetch and compare before relying on the exact wording.
+
+WHY THIS FILE EXISTS. `QUESTIONS-FOR-COUNSEL.md` question 8 asks whether the Dedication survives the
+Dedicator's insolvency (§2.9 of the 1.4 draft), and says that whether a trustee can reject the licence
+as an executory contract is for the forum's insolvency law. The dossier cited Jaffé v. Samsung (4th
+Cir. 2013) and §365(n), but not the Supreme Court's 2019 decision on what rejection does, which bears
+on the US half of the question.
+
+---- (1) Mission Product Holdings v. Tempnology (2019) — verbatim sentences as returned ----
+
+[1] "Rejection of a contract—any contract—in bankruptcy operates not as a rescission but as a breach."
+[2] "Such an act cannot rescind rights that the contract previously granted."
+[3] "Instead, the counterparty retains the rights it has received under the agreement."
+[4] (definition, as quoted in the opinion) "A contract is executory if 'performance remains due to some
+    extent on both sides.'"
+
+---- (2) 11 U.S.C. §365(n)(1) ----
+
+[5] (verbatim, opening clause only) "If the trustee rejects an executory contract under which the
+    debtor is a licensor of a right to intellectual property,"
+[6] (PARAPHRASE BY THE TOOL, not verbatim) the licensee may elect either (A) to treat the contract as
+    terminated, if the rejection would entitle it to do so under the contract's terms, applicable
+    nonbankruptcy law, or its own agreements with others, or (B) to retain its rights under the
+    contract and any supplementary agreement, including any exclusivity provision, for the duration of
+    the contract and any extension the licensee may make as of right.
+[7] The definition of "intellectual property" in 11 U.S.C. §101(35A) was not on the fetched page and
+    was not retrieved.
