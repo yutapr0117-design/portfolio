@@ -244,6 +244,14 @@ portfolio-9b が §15.11〜§15.14 の型を道具にした（`scan_draft_terms.
 
 **⚠ 逆側**: (1) *"never the Dedicator's to permit"* は法の命題として争いうる —— 自分の名の使用は Dedicator が許せる（パブリシティ）。ただし許せば表明は真になるので、作用は変わらない。命題の正しさを審査者が問う余地は残る（Chestek 氏の「説明は合意に入れない」の線・against #295）。(2) 理由の文を残すことは、B3 の長さで −8 語を見送ることである。
 
+### 15.17 T77 —— §11.3 の理由の文を外す（採った・−18 語・2026-11-16・§15.16 の読みを覆した）
+
+**反例の結果**（portfolio-30・§15.16 への反例・§11.3 と §9.4）: §15.16 は「Dedicator が許しうるのに虚偽のままの表明は組み立てられない」としたが、*authored* は許しても真にならない。英国 CDPA s.84（偽の帰属）の権利は表示された本人のもので、s.87(1) *"It is not an infringement of any of the rights conferred by this Chapter to do any act to which the person entitled to the right has consented."* により本人の同意で侵害でなくなる（`QUESTIONS-FOR-COUNSEL.md` 問 3 (e)）。理由の文 *"because it was never the Dedicator's to permit"* は法の命題として一部の場合に誤りで、*"when that is not the case"* は分岐を閉じない。**§15.16 の結論は誤りだった。**
+
+**直したもの**: §11.3 の理由の文を外し（−8）、§9.4 を *"Section 11.3 governs a false claim of authorship"* に（−10）。30 の案 (B)（*"because permission does not make it true"*）は第 1 文 *"This Dedication does not make a false statement true"* と同じ命題の繰り返しになるので採らなかった。
+
+**⚠ 逆側**: §9.4 は「なぜ」の説明を失う。§11.3 の作用は「Dedication の届く範囲の外」という Dedicator の選択として残り、Dedicator が別に同意を与えることは妨げない。**反例待ち**（50・30）。
+
 ## 16. 模擬委員会 —— 記録に立場が厚く残る審査者の目で 1.4 草案を通読する（2026-11-15〜）
 
 **仕組み**: オーナーの依頼（「5 人で話し合って、より良い案をガンガン実行して」）を受けて、portfolio-1c が出し 5 人で決めた。記録に立場が厚く残る 5 人の審査者を 1 人ずつ受け持ち（30 = Chestek 氏、50 = Fontana 氏、2f = Perens 氏、9b = Smith 氏、1c = Villa 氏）、その人の過去の文だけを根拠に、その人の目で 1.4 草案を頭から通読して「どこを突くか」を条番号つきで出す。根拠の無い推測は書かない（必ずその人の文を引く）。各節は表（基準と出典 | 当たる条 | 扱い済みの場所 | 残る点）と、条を変える指摘（試作の種）を持つ。**0 件でも表を残す** —— 審査者の基準を網羅して当てた記録になる。**この節が establish しないこと**: 模擬であって、その人が実際にそう言うことを意味しない。
