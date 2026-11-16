@@ -1,0 +1,32 @@
+---
+file: LICENSES/rounds/2026-11-16-us-ucc-vara-and-eu-trademark-snapshot.txt
+audience: ai, human (新卒), 監査人, 第三者全般
+last-updated: 2026-11-16
+canonical-ref: LICENSES/rounds/README.md (置き方の規約)
+---
+
+# LICENSES/rounds/2026-11-16-us-ucc-vara-and-eu-trademark-snapshot.txt
+
+## What
+
+米国の統一商事法典（UCC）§2-316（商品性の黙示の保証の否認は商品性に触れ、書面なら目立つ形で・"as is" の語）と §2-312(2)（権原の保証の否認は特定の語か事情による）、米国著作権法 §106A（VARA・視覚芸術の著作者の権利・放棄は作品と利用を特定した署名ある書面による）、EU 商標規則 2017/1001 第 14 条（商品を権利者のものとして指し示す使用は、誠実な慣行に従えば商標の効力が及ばない）を、2026-11-16 に WebFetch で取得した結果。バイト単位の写しではない。
+
+## Why
+
+`ACD-1.4-THIRD-CLARITY-TRIAL.md` §18.4（§11〜§13 の法の命題を 5 法域で当てる）の米国と EU の法源。オーナーの依頼（2026-11-16）の portfolio-2f の受け持ち。
+
+## How
+
+各項目を 1 度ずつ WebFetch で取得した。UCC は州ごとに制定されるモデル法で、ここの文はモデルの文。
+
+## Constraints
+
+写しは道具を通ったもので、片と片の間に語が無いとは保証しない。UCC は物品の売買の法で、無償の公のライセンスにそもそも当たるかは決まっていない（当たる場合に ACD の §13 が要件を満たす、という読みに使う）。どの法源も ACD を扱っていない。
+
+## Change impact
+
+この写しを引く THIRD §18.4 の行と、`jurisdictions.md` の米国・EU の節を直すときは、ここの番号の片を取り直して確かめる。
+
+## Audience-specific notes
+
+- **監査人**: VARA の放棄の要件（作品と利用を特定した署名ある書面）を、公のライセンスが満たすかは我々の読みで、判決は取っていない。
