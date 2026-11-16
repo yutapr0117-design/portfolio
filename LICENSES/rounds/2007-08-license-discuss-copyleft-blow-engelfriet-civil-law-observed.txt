@@ -1,0 +1,59 @@
+Source: OSI license-discuss public archive, 2007-August.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 67 in "(OT) - Major Blow to Copyleft Theory" (2007-08-24)
+Senders: Arnoud Engelfriet
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From arnoud at engelfriet.net  Mon Aug 27 13:52:48 2007
+From: arnoud at engelfriet.net (Arnoud Engelfriet)
+Date: Mon, 27 Aug 2007 15:52:48 +0200
+Subject: (OT) - Major Blow to Copyleft Theory
+In-Reply-To: <20070827124704.GC32363@mercury.ccil.org>
+References: <e52efbe10708240636y62d89afclb03e2af03094d3ff@mail.gmail.com> <20070827114555.GA1899@nandini.home> <20070827124704.GC32363@mercury.ccil.org>
+Message-ID: <20070827135248.GA73709@stack.nl>
+
+John Cowan wrote:
+> I understand why most common lawyers don't grasp this: they are so
+> used to seeing a license ("You can publish my book") embedded in
+> a contract ("You can publish my book if you pay me $5000") that the
+> distinction seems over-subtle.  Pointing to licenses to trespass
+> on land sometimes helps make the mental leap.
+
+It's the "if" bit that causes the trouble, in my view. Is it
+possible to add conditions onto the permission without straying
+into contract land? 
+
+"You can enter my home if you promise not to smoke inside."
+"You can enter my home but only until 5PM today."
+"You can enter my home if you pay me $25."
+"You can enter my home and stay for a month if you pay $300."
+
+Which one is a bare license and which a contract?
+
+> I don't understand why civil lawyers have so much trouble.  Methods
+> of contract formation aside, the unilateral/bilateral distinction
+> should be exactly the same.  Copyright breach is a delict, but like
+> lots of delicts, there can be a waiver either before or after the
+> fact, and it can be conditional.  Where's the contract element?
+
+As a civil lawyer, the main problem for me is that even the simplest
+interaction between the parties creates a contract.
+
+"Would you like a cookie?" - "Yes."
+Offer, acceptance - contract. 
+
+"It's raining, why don't you come in?" - "Great, thanks!"
+Offer, acceptance - contract.
+
+And so are all the four above.
+
+I don't think I *need* the concept of a bare license in civil law.
+If it's not a contract, then usually it's something like an easement.
+
+Arnoud
+
+-- 
+Arnoud Engelfriet, Dutch & European patent attorney - Speaking only for myself
+Patents, copyright and IPR explained for techies: http://www.iusmentis.com/
+              Arnoud blogt nu ook: http://blog.iusmentis.com/

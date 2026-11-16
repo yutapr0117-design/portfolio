@@ -741,3 +741,22 @@ census の unquoted-decider（候補の外の会話の、ドシエが 1 文も�
 **この節が establish しないこと。** 審査者が ACD の撤回不能の 4 か所の語と §10.4 を冗長と読むかどうか。
 
 **反映**: B10 の着地は `review-precedents.md` §1.47 の有利な読みの後の逆側の段（Berkus 氏 2025・結論が変わらない理由として批判の主は MIT-I の別の義務・portfolio-30）/ B15（Maffulli 氏 2024 と Berkus 氏 2024 の非ソフトウェアの一覧の案・portfolio-30）/ B3（撤回不能の繰り返しの段。4 か所は別々の権利 —— 献呈 §2.2・放棄 §3.1・著作権の許諾 §4.1・特許の許諾 §8.1 —— に付くので、まとめると読みが割れうる、を逆側に・portfolio-30）/ 1c（語数を減らす候補になるかの判断を送った）。
+
+## 1.261 受諾が無ければ bare license（Rosen 氏 2005）、大陸法に bare license の概念は要らない（Engelfriet 氏 2007）、明示に外したライセンスは禁反言に頼れない（Piana 氏 2012）—— §2.3・§2.5 の撤回不能の足場を、リストの法律家の文に当てる（2026-11-16）
+
+オーナーの依頼（2026-11-16「ACD-1.4-DRAFT.txt の法的解釈の不確実性を 5 人で減らし続けて」）の portfolio-2f の受け持ち（リストの法律家の発言を条ごとに当てる・portfolio-30 の重ね）。直前に置いた米国の 2 つの法源 —— 撤回不能を対価に結びつけた Asset Marketing v. Gagnon（2008・`rounds/2026-11-16-us-asset-marketing-v-gagnon-consideration-snapshot.txt`）と、約束的禁反言のリステイトメント 90 条 1 項（`rounds/2026-11-16-us-restatement-90-promissory-estoppel-snapshot.txt`）—— の間を、リストの法律家の文で埋める。アーカイブの写しで、法律家の差出人（Rosen・Fontana・Chestek・Welch・Smith・Piana・Radcliffe・Kuhn・Engelfriet ほか）の通を "promissory estoppel"・"bare license"・"revocable"・"gratuitous license"・"nudum pactum" で当てた 14 通のうち、ドシエに 8 語連鎖の無い 11 通を読み、4 通を置いた（`rounds/2012-03-license-review-mxm-cc0-piana-agnostic-estoppel-observed.txt`・`rounds/2005-08-license-discuss-bare-licenses-rosen-assent-observed.txt`・`rounds/2007-08-license-discuss-copyleft-blow-engelfriet-civil-law-observed.txt`・`rounds/2020-01-license-review-mulan-psl-smith-party-bare-license-observed.txt`）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"The OSL and AFL are \*worded\* to be unilateral contracts rather than bilateral contracts. But they are not contracts until the formalities of contract formation (particularl assent) are completed. Until then they are bare licenses. I have argued before that contracts have additional enforcement options than bare licenses."* | Lawrence Rosen 氏 2005-08-25（"Contracts vs. bare licenses"） | **§2.3 の帰結（米国）。** ACD の §2.3 は *"This Dedication takes effect without any act of acceptance by You"* —— 受諾の手続きを置かないので、Rosen 氏の線では米国で ACD は契約ではなく bare license である。Gagnon は撤回不能を対価（契約）に結びつけたので、ACD の撤回不能は契約の道からは立たず、§2.5 の禁反言（リステイトメント 90 条）が足場になる。**これで米国の撤回不能の問いは 1 本の線に狭まる**: bare license（§2.3・Rosen 氏）→ 対価の道は無い（Gagnon）→ §2.5 がリステイトメント 90 条の要件を満たすか（実際の信頼と不正義は事実の問い） |
+| *"As a civil lawyer, the main problem for me is that even the simplest interaction between the parties creates a contract."* / *"I don't think I \*need\* the concept of a bare license in civil law. If it's not a contract, then usually it's something like an easement."* | Arnoud Engelfriet 氏 2007-08-27（オランダの特許弁理士・"(OT) - Major Blow to Copyleft Theory"） | **大陸法の側（独・仏・日は portfolio-30）。** 大陸法では、受諾の手続きが無くても行為から契約が成り立ちうるので、ACD の撤回不能は契約として支えられる読みが立つ。同時に、契約なら贈与の撤回（独 BGB 530 条・仏 民法典 953 条 —— `ACD-1.4-THIRD-CLARITY-TRIAL.md` §18.3 の §8.2 の行）が当たりうる。米国と大陸法で、撤回不能の足場が違う（禁反言 / 契約） |
+| *"At least the hyperpermissive licenses don't say anything, so you can rely on promissory estoppel, /contra se venire/ or all other legal theories. But the agnostic ones -- and I put both MXM and CC0 in that category -- are in this more dangerous, as you cannot construe against what it's clearly spelt out."* | Carlo Piana 氏 2012-03-05（"MXM compared to CC0"・特許について） | **有利な面（§8・§2.5）。** 沈黙のライセンスは禁反言に頼れるが、特許を明示に外した MXM・CC0 は「明記されたことに反して」解釈できない。ACD は特許を明示に許諾し（§8.1）、禁反言を明示に置く（§2.5）ので、Piana 氏の言う「不可知の」型に当たらず、禁反言を明記された側に置いている。**逆側**: Piana 氏の文は特許の沈黙と除外についてで、撤回不能を禁反言で支えることの効き目を述べてはいない |
+| （逐語は引かない —— 写しで引用符が "?" に化けている）bare license として書かれた文書で "party" の語を使うと、双方に拘束力のある義務を作ろうとしていると読まれうる、契約として読ませたいなら受領者の義務を明らかにせよ | McCoy Smith 氏 2020-01-01（Mulan PSL V1 の審査・同じ文が後の Chestek 氏の通に印なしで引かれている） | **有利な面（語の選び方）。** ACD の 1.4 草案は "party" の語を本文で使わない（Dedicator と You だけ）。bare license の読みと語が食い違うことを避けている |
+
+**読み。** リストの法律家の文を当てると、米国の撤回不能の問い（`QUESTIONS-FOR-COUNSEL.md` 問い 1 の一部）は、「§2.3 で ACD は bare license → 対価の道は無い → §2.5 がリステイトメント 90 条を満たすか」の 1 本の線に狭まる。大陸法では足場が契約に移り、代わりに贈与の撤回が問いになる。
+
+**逆側。** Rosen 氏の「bare license」は米国の学説の 1 つで、オープンソースのライセンスを契約と読む判決（Jacobsen v. Katzer の後の読みなど）もある。契約と読まれれば対価の問い（条件の無い ACD に対価は在るか）が戻る。Engelfriet 氏は「usually」と書き、オランダ法を念頭に置く。どの文も ACD を扱っていない。
+
+**この節が establish しないこと。** §2.5 の禁反言が米国の裁判所で撤回を実際に止めるか。大陸法で ACD が贈与と読まれるか。
+
+**反映**: 入口（法律家への問い 1 に「米国では §2.3 → bare license → §2.5 とリステイトメント 90 条」の線を、出典と共に・50 へ）/ 1c（THIRD §18.1 の §2.2・§2.3・§2.5 の行に、この線と 4 つの法源を）/ B4（撤回不能の足場が米国と大陸法で違うこと・30 へ）。
