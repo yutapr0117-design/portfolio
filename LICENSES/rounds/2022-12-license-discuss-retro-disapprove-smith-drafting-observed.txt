@@ -1,0 +1,29 @@
+Source: OSI license-discuss public archive, 2022-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 14 in "Retroactively disapproving licenses" (2022-12-13)
+Senders: McCoy Smith
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From mccoy at lexpan.law  Wed Dec 14 19:30:26 2022
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Wed, 14 Dec 2022 11:30:26 -0800
+Subject: [License-discuss] Retroactively disapproving licenses
+In-Reply-To: <080f01d90f6e$e0d6c110$a2844330$@rosenlaw.com>
+References: <080f01d90f6e$e0d6c110$a2844330$@rosenlaw.com>
+Message-ID: <03f001d90ff2$8543dde0$8fcb99a0$@lexpan.law>
+
+>>From: License-discuss <license-discuss-bounces at lists.opensource.org> On Behalf Of Lawrence Rosen
+>>Sent: Tuesday, December 13, 2022 7:48 PM
+>>To: license-discuss at lists.opensource.org
+>>Subject: [License-discuss] Retroactively disapproving licenses
+
+
+>>For what my own limited opinion is worth, I certainly do not delegate to him, nor to the OSI board of directors, the right to retroactively disapprove my own licenses along with my own carefully-considered >>jurisdictional provisions. And I readily admit, I do not profess to be an authority on German or French licenses capable to telling them to change their provisions. Brad and the OSI have ONLY the authority to >>determine whether licenses satisfy the Open Source Definition AND NOTHING MORE.
+
+FWIW, I've got to disagree with Larry on some of this. I think it is within the power of the OSI board of directors to "disapprove" previously approved licenses (i.e., remove them from the approve license list), and in fact, there are a handful of licenses (none of them written by Larry) which I -- and I believe others -- maintain should not have been approved by the OSI because they have provisions that violate the OSD. I also think that there are other factors, beyond OSI conformance, that can, and should, go into license approval (for example, a license is so poorly or ambiguously drafted that it can create problems for users, or -- for example -- it explicitly omits certain rights -- like patent -- that can result in them being non-open).
+
+In fact, a couple of years ago, I ran for the OSI board with this issue as one of my platform positions:
+https://wiki.opensource.org/bin/Main/OSI%20Board%20of%20Directors/Board%20Member%20Elections/2020%20Individual%20and%20Affiliate%20Elections/Smith2020 
+
+Of course, I wasn't elected so I suspect the OSI board has no interest in pursuing my ideas, but I do believe the Board can -- if it wants -- remove license from the list or indicate that a particular licenses have problematic or disfavorable provisions or results and not approve them or flag them for potential users.
