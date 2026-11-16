@@ -82,16 +82,29 @@ def run(ctx):
         # 条項の境界は**行頭 2 空白**で決まる。本文は 7 空白の字下げなので、折り返し行が
         # "8.3 rejects…" で始まっても条項見出しには見えない（初版はこれを取り違え、§8.3 の
         # 本文を §8.4 の途中から取り、**正しい引用を「実在しない」と報告しかけた**）。
-        _ls470 = _lic470.read_text(encoding="utf-8").split("\n")
-        _st470 = []
-        for _n470, _l470 in enumerate(_ls470):
-            _m470 = re.match(r"^  (\d{1,2}\.\d{1,2})\s", _l470)
-            if _m470:
-                _st470.append((_m470.group(1), _n470))
-        _clause470 = {}
-        for _k470, (_c470, _n470) in enumerate(_st470):
-            _e470 = _st470[_k470 + 1][1] if _k470 + 1 < len(_st470) else len(_ls470)
-            _clause470[_c470] = _norm470("\n".join(_ls470[_n470:_e470]))
+        def _clauses470(_path):
+            # 条は次の条か、節の見出し (`11. TRADEMARKS…`) か END OF TERMS で切る。見出しで切らないと、節の見出しの語が
+            #   前の条の語に数えられる (版の地図を足したとき §10.5 に "TRADEMARKS, NAMES, …" が入って誤検出した)
+            _ls = _path.read_text(encoding="utf-8").split("\n")
+            _st = [(_m.group(1), _n) for _n, _l in enumerate(_ls) for _m in [re.match(r"^  (\d{1,2}\.\d{1,2})\s", _l)] if _m]
+            _hd = [_n for _n, _l in enumerate(_ls) if re.match(r"^\d{1,2}\. [A-Z]|^END OF TERMS", _l)]
+            def _end(_n, _nx):
+                return min([_h for _h in _hd if _n < _h < _nx] + [_nx])
+            return {_c: _norm470("\n".join(_ls[_n:_end(_n, _st[_k + 1][1] if _k + 1 < len(_st) else len(_ls))]))
+                    for _k, (_c, _n) in enumerate(_st)}
+        _clause470 = _clauses470(_lic470)
+        # 版を名乗る段落は、その版の本文の条の地図で照らす (2026-11-16・30 の報告): 1.0 と 1.1 以降は §1 と §15・§16 の
+        #   番号の中身が違い (1.0 の §1.3 = "Dedicator" は 1.4 草案の §1.4)、1.4 草案の §1.4 を正しく引いた段落を、1.0 の地図で
+        #   「§1.3 の語を §1.4 に帰属させた」と誤って RED にした。名乗りは段落の中の「1.N 草案 / 1.N draft / ACD-1.N」
+        _vers470 = {"1.0": _clause470}
+        for _vp in sorted((ROOT / "LICENSES").glob("ACD-1.[1-9].txt")):
+            _vers470[_vp.stem.split("-")[1]] = _clauses470(_vp)
+        for _vp in sorted((ROOT / "LICENSES").glob("ACD-1.[1-9]-DRAFT.txt")):
+            if "HAS BEEN FROZEN" not in _vp.read_text(encoding="utf-8").split("\n", 1)[0]:
+                _vers470[_vp.stem.split("-")[1]] = _clauses470(_vp)
+        # 名乗りは明示の形だけ (ACD-1.N / 1.N 草案 / 1.N draft / version 1.N)。裸の「1.1」は「§11.1」の中にも在り、1.0 の番号で
+        #   書いた表を 1.1 の地図で照らして誤検出した (AUDIT-LEDGER の表・2026-11-16)
+        _verrx470 = re.compile(r"(?<![\d.§])(?:ACD-1\.([1-9])(?![\d\-])|1\.([1-9])\s*(?:草案|draft)|version 1\.([1-9])(?!\d))")
 
         _sec470 = re.compile(r"\u00a7\s?(\d{1,2}(?:\.\d{1,2})?)(?![0-9a-zA-Z.])")
         _q470 = re.compile(r'\*"([^"]{6,300})"\*|"([A-Za-z][^"\u201c\u201d]{8,300})"|\u201c([^\u201d]{8,300})\u201d')
@@ -114,22 +127,34 @@ def run(ctx):
                 _refs470 = {_m.group(1) for _m in _sec470.finditer(_txt470)}
                 if not _refs470:
                     continue
-                _cov470 = set()
-                for _r470 in _refs470:
-                    _cov470.add(_r470)
-                    if "." not in _r470:  # \u00a715 は \u00a715.2 を覆う
-                        _cov470 |= {_k for _k in _clause470 if _k.startswith(_r470 + ".")}
+                # 版を名に持つ作業の文書 (ACD-1.4-…-TRIAL・CHANGELIST など) は自分の節にも § を振る (§14.22) ので、条の番号と
+                #   区別できない。版の地図はそれ以外の文書 (1.0 のドシエと入口) の、版を 1 つだけ名乗る段落に当てる
+                # 引用の中の語は名乗りに数えない ("LicenseRef-ACD-1.1 while …" を引いた段落が 1.1 を名乗ったことになった)
+                _named470 = ({f"1.{next(_g for _g in _m.groups() if _g)}" for _m in _verrx470.finditer(_q470.sub(" ", _txt470))}
+                             & set(_vers470)
+                             if not re.match(r"ACD-1\.[1-9]-", _f470.name) else set())
+                # 1.0 の地図と、名乗った版の地図のどれかで帰属が合えば良しとする (置き換えると、1.0 の番号で引きながら後の版も
+                #   名乗る register の行を誤検出した)。どの地図でも合わないときだけ RED
+                _maps470 = [_clause470] + [_vers470[_v] for _v in sorted(_named470) if _v != "1.0"]
+                def _cov_of470(_m):
+                    _c = set()
+                    for _r470 in _refs470:
+                        _c.add(_r470)
+                        if "." not in _r470:  # \u00a715 は \u00a715.2 を覆う
+                            _c |= {_k for _k in _m if _k.startswith(_r470 + ".")}
+                    return _c
                 for _n470, _l470 in _blk470:
                     for _qm470 in _q470.finditer(_l470):
                         _quote470 = re.sub(r"\*\*|\\", "", next(_g for _g in _qm470.groups() if _g))
                         if len(_quote470.split()) < 5 or not re.search(r"[A-Za-z]{3}", _quote470):
                             continue
                         _nq470 = re.sub(r"[.,;:]+$", "", _norm470(_quote470)).strip()
-                        _own470 = {_k for _k, _v in _clause470.items() if _nq470 in _v}
+                        _owns470 = [({_k for _k, _v in _m.items() if _nq470 in _v}, _cov_of470(_m)) for _m in _maps470]
+                        _own470 = next((_o for _o, _c in _owns470 if _o), set())
                         if not _own470:
                             continue  # \u30e9\u30a4\u30bb\u30f3\u30b9\u672c\u6587\u3067\u306a\u3044\u3082\u306e\u306f\u6bcd\u6570\u5916
                         _pop470 += 1
-                        if not (_own470 & _cov470):
+                        if not any(_o & _c for _o, _c in _owns470):
                             _bad470.append(
                                 f"{_f470.name}:{_n470} \u5f15\u7528\u306f \u00a7{sorted(_own470)[0]} \u306e\u8a9e\u3060\u304c\u3001"
                                 f"\u6bb5\u843d\u304c\u6319\u3052\u308b\u306e\u306f \u00a7{sorted(_refs470)[:4]}: \"{_quote470[:70]}\"")
