@@ -147,13 +147,13 @@ Check 468y は 2 冊目とこの file の両方の「変えない」「退けた
 | Moral Rights | 9 | CC0 の *moral rights*・ベルヌ条約 6 条の 2 | 同じ語 |
 | the Steward | 4 | EPL の *Agreement Steward*・MPL の *license steward* | 同じ語（`review-readings-2.md` §1.226 の先例）|
 | Reservation | 7 | EU 指令 2019/790 の 4 条 3 項の *reserved … in an appropriate manner* | 法令の語に結ぶ |
-| Dedicator | 77 | CC0 の *Affirmer*・Apache-2.0 の *Licensor* | **ACD に独特**。*Licensor* にすると §3 の放棄（許諾ではない）と食い違う。CC0 も自分の語（*Affirmer*）を立てている |
+| Dedicator | 77 | CC0 の *Affirmer*・Apache-2.0 の *Licensor* | **ACD に独特**。Dedicator はまず権利を放棄し（§3）、許諾は放棄が効かない分の予備（§4）と特許（§8）である —— *Licensor* にすると、許諾が主で放棄が無いように読める。CC0 の *Affirmer* も同じ構造（放棄が先、許諾は予備の §3）で、自分の語を立てている |
 | Covered Rights | 9 | CC0 の *Copyright and Related Rights*・MPL の *Covered Software* | ACD に独特だが、*Covered* は MPL と同じ型 |
 | Computational Use | 5 | 承認済みに無い | **前文の 3 つの場所（機械学習）に対応する新しい語** |
 | Machine-Generated Material | 4 | 承認済みに無い | **前文の 3 つの場所（機械による著作）に対応する新しい語** |
 | Dedication | — | CC0 の *dedication*（本文中の語）| ほぼ同じ語 |
 
-**結果（変えない）**: 11 個のうち 6 個は承認済みのライセンスか法令と同じ語、1 個（*Dedication*）はほぼ同じ語で、*Covered Rights* は MPL と同じ型である。独特なのは *Dedicator* と、前文が名指す場所に対応する 2 つの新しい語（*Computational Use*・*Machine-Generated Material*）—— 後の 2 つは、ACD が既存に無いと主張する効果（B10）そのものを名指す語で、承認済みの語に置き換えると、何が新しいかを本文が言えなくなる。*Dedicator* は 77 回使われ、置き換えの候補（*Licensor*）は §3 の放棄と食い違う。審査者の理解の費用は、本文ではなく入口の 1 行（定義語と承認済みの語の対応）で下げる —— portfolio-50 に `REVIEWERS.md` への 1 行を依頼した。
+**結果（変えない）**: 11 個のうち 6 個は承認済みのライセンスか法令と同じ語、1 個（*Dedication*）はほぼ同じ語で、*Covered Rights* は MPL と同じ型である。独特なのは *Dedicator* と、前文が名指す場所に対応する 2 つの新しい語（*Computational Use*・*Machine-Generated Material*）—— 後の 2 つは、ACD が既存に無いと主張する効果（B10）そのものを名指す語で、承認済みの語に置き換えると、何が新しいかを本文が言えなくなる。*Dedicator* は 77 回使われ、置き換えの候補（*Licensor*）は、放棄が先で許諾が予備という構造（§3・§4、CC0 と同じ）を隠す。審査者の理解の費用は、本文ではなく入口の 1 行（定義語と承認済みの語の対応）で下げる —— portfolio-50 に `REVIEWERS.md` への 1 行を依頼した。
 
 **⚠ 逆側**: (1) Fontana 氏の評は文体全体（*style*）についてで、定義語だけではない。ACD の長さと文の形（B3）は、この表では測っていない。(2) 「同じ語」と書いた語も、定義の中身は承認済みのものと違う（例えば *Contribution* は §1.9 で場を名指す）—— 同じ語が別の意味で使われると、かえって誤読を招きうる。(3) 置き換えないので、1.3 との差（redline）には何も出ない。
 
