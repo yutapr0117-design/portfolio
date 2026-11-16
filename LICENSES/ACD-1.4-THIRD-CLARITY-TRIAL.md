@@ -376,3 +376,40 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 **集め方**: ドシエに引かれている同氏の文に加え、portfolio-30 の道具でアーカイブの同氏の通 458 通から、ドシエが 1 文も引いていない 60 語以上の 99 通を出し、ACD に関わる語の多い上位 16 通を読んだ（2026-11-16）。PBZC（2024-12-18）・PUWL（2025-10-01）・特許の射程（2017-03-30）・起草の手入れ（2025-09-22）・汎用の定義（2026-08-29）・Anti-IP（2020-10-16）・pre-review の重複分類（2020-03-05）はこちらから足した。
 
 **逆側**: 同氏の文はどれも他の提出についてのもので、ACD に当てたのは我々である。99 通のうち読んだのは 16 通。同氏は委員会の報告者として書く通（*"on behalf of the Licensing Committee"*）と個人として書く通があり、上の表は区別していない。
+
+## 17. SECOND に先に登録されたまま答えの無かった反例への答え（2026-11-16〜）
+
+`list_open_items.py` が、`ACD-1.4-SECOND-CLARITY-TRIAL.md` の「先に登録する反例（bb へ）」のうち「**反例の結果**」の段を持たないものを 8 件出した。SECOND は 2026-11-16 に閉じたので、答えはここに書き、SECOND の節の番号で名指す。分担は 50 が 4 件（§14.15・§14.20・§14.22・§14.23）、30 が 4 件。当てた本文は、2026-11-16 の main の 1.4 草案（T76 の後）。
+
+### 17.1 SECOND §14.15（T34・§9.2）への反例（portfolio-50）
+
+**反例の結果**（SECOND §14.15 の先に登録する反例）: **当たらない（4 点とも）。** いまの §9.2 は第 3 文の列挙を持たず、*"Where a right that this Dedication reaches subsists, or is later held to subsist, this Dedication applies to it."* と述べる。
+(a) *"a right that this Dedication reaches"* が受領者に「reach するか」の判定を求める読みは、§9.3 の *"No permission granted here depends on that question"* に当たって立たない —— §9.2 の第 3 文は Dedicator の側の適用を述べ、受領者の行為を条件にしない。
+(b) 旧文の *"in full"* はもう無い。「適用する」は §12 を含む各条をその語のとおりに適用することで、§12 の *"to the extent stated"* の限定を外す読みは立たない。
+(c) 後に権利が生じた部分には、文書全体（§2.2 の撤回不能を含む）が適用される。旧文が §2 を挙げなかった欠けは、列挙を外したことで消えた。
+(d) §14.15 の (A)（列挙が §5 を権利のある場合の側に置く）は、列挙が無いので立たない。§9.2 の第 2 文 *"adds nothing … as to that right and takes nothing away"* は「その権利について」に限られ、§5.2(b) の約束（Dedicator 自身の行為）を消さない。(B)（免責が権利の無い部分に及ばない）は、§13.2 の *"DOES NOT WARRANT THAT ANY RIGHT SUBSISTS IN THE WORK"* と、免責が受領者の自由を「奪う」ものでないことから立たない。
+**逆側**: (d) の (B) は弱い読みとして残りうる —— 権利の無い部分について免責がどの法に依って立つかは、法律家への問い 9（§14.1）の側にある。
+
+### 17.2 SECOND §14.20（T46・§16.4 の大小文字）への反例（portfolio-50）
+
+**反例の結果**（SECOND §14.20 の先に登録する反例）: **当たらない（3 点とも）。** いまの §16.4 は *"under any identifier that contains "ACD-", regardless of case, followed by a digit"*。
+(a) *regardless of case* は読点で挟まれて *"ACD-"* に掛かり、数字には大小が無いので、数字の書式まで広げる読みは意味を持たない。
+(b) 翻訳の文は *"may be distributed under the name and the identifier if it is identified as a translation"* で、照合の大小とは別の許しなので食い違わない。
+(c) 縛られるのは「この文書の改変した本文」を配ることだけで（§16.4 の *"A modified text may not be distributed under …"*）、*ACD-* を名に含む別のライセンスやプロジェクトの本文は、ACD の本文の改変でない限り縛られない。§16.6 は *"They are not terms of the Work, they bind no one in respect of the Work"* と述べる。
+**逆側**: 「改変した本文」かどうかの境（ACD を下敷きに大きく書き換えた別のライセンス）は語で決まらず、名に *ACD-* と数字を含めたい書き手には、その境が費用になる。
+
+### 17.3 SECOND §14.22（T48〜T50）への反例（portfolio-50）
+
+**反例の結果**（SECOND §14.22 の先に登録する反例）: **(a)(b) は当たらない。(c) は書き方の問いで、試作の種にしない。**
+(a) §5 の末尾の外しは *"the use of a service through which the Dedicator runs the Work for others without providing a copy of the Work"* に限られる。写しを受け取った人への約束は外れない。同じサービスが写しの取得も許すなら、それは写しを提供しているので外しの外である。
+(b) *a former Steward* は §16.5 の定義（最初に公表した者か、その役を譲り受けた者）の過去の保有者で、役を持たずに版を出した者（違反者を含む）は Steward でなかったので含まれない。
+(c) 2 つの *regardless of case* を 1 つにまとめると、どちらの句に掛かるかの読みが新しく生じる。いまの形（それぞれの句の直後）は長いが、掛かり先が 1 つに決まる。
+**逆側**: (a) で、サービスの利用規約が写しの取得の条件を兼ねる形（ダウンロードにログインと規約への同意を求める）は、写しを提供しているので §5.2(b) の内に在る —— Dedicator がこの形を取れば約束に反する。外しの境を Dedicator に読み違えられる余地はある。
+
+### 17.4 SECOND §14.23（T51・§15.1 を許可に絞る）への反例（portfolio-50）
+
+**反例の結果**（SECOND §14.23 の先に登録する反例）: **(a)(b) は当たらない。(c) は 1 つ残る。** いまの §15.1 は *"This Dedication, in respect of the Work, is to be construed so as to give the widest permission and the least obligation upon You that its words allow, and so that, where a provision is capable of more than one reading, the reading that grants more to You prevails."*
+(a) §5 の約束は *"in respect of the Work"*（§5.2 の柱書き）で、約束を広く読むことは受領者に「より多くを与える」読みなので、§15.1 は §5 の範囲の読みに効く。§2.4 も *"Section 15.1 governs their construction"* と述べる。
+(b) §2.4 の 3 つの足場の読みは §2.4 の最後の文がそのまま §15.1 に結ぶので、影響しない。
+(c) **残る点**: *"grants more to You"* の *grants* は、免責（§13・§14）の読みが分かれたときに、受領者に有利な（免責を狭くする）読みまで含むかを決めない。許可と義務の側では向きが 1 つに決まるが、免責は Dedicator を守る条で、どちらが「より多くを与える」かが語から決まらない。E20 と E75 が §15.1 の 2 つの文の射程を *in respect of the Work* に置いた後も、この点は扱っていない。
+**逆側**: 免責の読みを受領者に有利へ倒す規則を本文に足すと、承認済みのライセンスが持つ免責の型（`SUBMISSION-MATERIALS.md` §1c の基準 2 の行・#265）から外れ、かえって審査者に「免責が効かないかもしれない」と読ませる。試作の種にするかは 1c が決める（50 は「変えない」を勧める）。
