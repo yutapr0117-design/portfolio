@@ -359,6 +359,33 @@ def report(version: str) -> int:
     return 0
 
 
+def archive_cache_staleness(today: "datetime.date | None" = None) -> list[str]:
+    """census の写しが提出の日に新しいか (6c の逆側「未読 0 は写しの上の数」を手順でなく止めにする・2026-11-16)。
+
+    先月の両リストは月が終わった後に取ったもの、今月の両リストは 3 日以内に取ったものが写しに在ること。今月の初め 3 日は、
+    投稿が無いと月の file が無い (404) ので今月を求めない。写しが無い機械では「写しが無い」と止まる。
+    """
+    import datetime
+    import os
+    today = today or datetime.date.today()
+    cache = Path(os.environ.get("DOSSIER_ARCHIVE_CACHE", Path.home() / "osi-archive-cache"))
+    if not cache.is_dir():
+        return [f"census の写し {cache} が無い (未読 0 を確かめられない)"]
+    first = today.replace(day=1)
+    prev = first - datetime.timedelta(days=1)
+    out = []
+    for lst in ("review", "discuss"):
+        for d, need_after in ((prev, first), (today, today - datetime.timedelta(days=3))):
+            if d is today and today.day <= 3:
+                continue
+            f = cache / f"license-{lst}-{d.strftime('%Y-%B')}.txt"
+            got = datetime.date.fromtimestamp(f.stat().st_mtime) if f.exists() else None
+            if got is None or got < need_after:
+                out.append(f"写しの {f.name} が{'無い' if got is None else f' {got} の取得で古い'} —— "
+                           "fetch_osi_watch.py --to-cache で取り直し、census を --pin で回し直して未読を確かめる")
+    return out
+
+
 def gate_6c() -> list[str]:
     """提出のゲート 6c (REVISION-PROTOCOL.md §3.6・SUBMISSION-MATERIALS §0 の 0a): 未読が 0 で、読んだ節がすべて反映されている。
 
@@ -377,6 +404,7 @@ def gate_6c() -> list[str]:
     _n, bad, pending = reflect_field_misses(L)
     if bad or pending:
         out.append(f"§1.242 以降の節の反映の欄が欠けるか未定: {len(bad)} 件・未定 {len(pending)} 件")
+    out += archive_cache_staleness()
     _n, bad_b, missing = backfill_table_misses(L)
     if bad_b or missing or BACKFILL_PENDING:
         out.append(f"古い節の反映: 表の誤り {len(bad_b)} 件・反映の無い節 {len(missing)} 件・未定の行 {len(BACKFILL_PENDING)} 件")

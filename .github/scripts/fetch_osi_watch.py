@@ -2,6 +2,7 @@
 """OSI の監視対象 10 URL を 1 回取り、前回との差を出す (手で回す道具・CI には入れない)。
 
     python3 .github/scripts/fetch_osi_watch.py [保存先]      # 既定は ~/osi-fetch/watch
+    python3 .github/scripts/fetch_osi_watch.py --to-cache    # 両リストの今月と先月を census の写しにも置く (提出の日に・6c)
 
 外部情報は Mac で動くセッションしか取れない (`PEER-REVIEW-WATCH.md`)。日次の取得は 10-30 に、取得役の
 session の終了とともに止まった。手順が session の中にしか無かったからなので、ここに置く。
@@ -50,7 +51,8 @@ def summarize(name: str, data: bytes) -> str:
 
 
 def main() -> int:
-    root = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else pathlib.Path.home() / "osi-fetch" / "watch"
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    root = pathlib.Path(args[0]) if args else pathlib.Path.home() / "osi-fetch" / "watch"
     now = datetime.datetime.now(JST)
     day = root / now.strftime("%Y-%m-%d")
     day.mkdir(parents=True, exist_ok=True)
@@ -78,6 +80,18 @@ def main() -> int:
     if failed:
         print("⚠ 取れなかったものがある。取れなかったことは世界についての証拠ではない:", failed)
     (day / "summary.json").write_text(json.dumps(current, ensure_ascii=False, indent=1), encoding="utf-8")
+    if "--to-cache" in sys.argv:
+        # census の写し (DOSSIER_ARCHIVE_CACHE・既定 ~/osi-archive-cache) へ、今月と先月の両リストを写しの名前で置く
+        #   (2026-11-16・提出のゲート 6c の「写しを提出の日に取り直す」: 未読 0 は写しの上の数で、写しは 10 月までだった)
+        import os
+        import shutil
+        cache = pathlib.Path(os.environ.get("DOSSIER_ARCHIVE_CACHE", pathlib.Path.home() / "osi-archive-cache"))
+        for name, _url in targets(now):
+            m = re.match(r"license-(review|discuss)_(\d{4}-\w+)\.txt$", name)
+            if m and (day / name).exists() and name not in failed:
+                shutil.copyfile(day / name, cache / f"license-{m.group(1)}-{m.group(2)}.txt")
+                print(f"写しへ: {cache / f'license-{m.group(1)}-{m.group(2)}.txt'}")
+        print("次に census を回し直す: DOSSIER_ARCHIVE_CACHE=… python3 .github/scripts/census_decision_statements.py threads <out> --pin")
     good = {n: v for n, v in current.items() if n not in failed}
     base_path.write_text(json.dumps({**base, **good}, ensure_ascii=False, indent=1), encoding="utf-8")
     return 0
