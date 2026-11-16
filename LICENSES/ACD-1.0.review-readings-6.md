@@ -145,3 +145,20 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 
 **反映**: B1（承認されたライセンスの起草者は読み手を法律家と置き、企業の弁護士の審査を経た・30 へ）/ B13（自前の定義語と法令の語・1c へ種）/ against #124（§1.450 の逆側が頼る §15.1 に、契約でない許諾の解釈の文の効きという問いが当たる・30 へ）/ against #321（BXAPL の「契約でないという主張は戯言」—— 30 が PR 3336 で入れた・入口の法的性質の言い切りは 50 へ）。本文は変えない。
 
+
+## 1.457 受け手が実行してよいと OSD が明記していればもっと安心だ —— 理事の「適法に受け取ったコピーは使うのが自由だ」を引いた参加者の通（"Subscription/Service Fees - OSD Intent"・2001-03）（2026-11-16）
+
+census の外の 31 本（Ian Lance Taylor 氏が多く書いた会話・Taylor 氏は OSI の役を一次資料で確かめられていないので DECIDERS に入れていない・50 の判断）のうち、9b が 1999〜2001 の 14 本を全文で読んだ。13 本は GPL・LGPL の一般論で、ACD に当たる新しい論点は無かった（READ-THREADS-LOG）。この節は残る 1 本で、2 通を置いた（`rounds/2001-03-license-discuss-subscription-fees-taylor-nelson-quote-observed.txt`・`rounds/2001-03-license-discuss-subscription-fees-taylor-run-observed.txt`）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"If you have legally received a copy of a program (and OSD #1 guarantees the right of the person giving you a copy to do so), you are free to use it or not, as you wish. Copyright law only restricts copying. You could only restrict the activities of a *recipient* if you could require them to execute a license, but OSD #7 prohibits that."* | Russell Nelson 氏（当時の理事）の文を、Ian Lance Taylor 氏が 2001-03-28 の通で引いた（*"Russ Nelson (who is on the OSI board) said this"*。元の通は未特定） | **有利な面（B10・§1.451 と同じ線）。** 理事は、受け手の使用を縛る手段が OSD の下では無いと書いた。ACD は使用を縛らず、1.4 草案の §3・§4・§6.1 で使用の許可を明文で述べる |
+| *"I myself am uncertain, which is why I would be happier if the OSD had an explicit statement that a recipient of a program was permitted to run it."* | Ian Lance Taylor 氏 2001-03-28（決める側とは確かめられていない参加者） | **有利な面（B13・§1.455 と同じ線）。** 使用の許可を明文で書くことへの求めは、承認された OSL の起草者（§1.455）だけでなく、参加者の側にも在った。ACD の §6.5 の「他の条が既に許すことを明文で言い直す」理由と同じ向き |
+
+**読み。** 2001 年の list で、受け手が使ってよいことは OSD から導けるが明文ではない、という不安が書かれ、理事の「使用を縛る手段は無い」が引かれた。ACD はそれを明文で書く側に在る。
+
+**逆側。** Taylor 氏は決める側と確かめられていないので、この節の重みは §1.451・§1.455 より低い。Nelson 氏の文は Taylor 氏の引用で、元の通をこの節では特定していない。明文化は長さ（B3）の費用を持つ。
+
+**この節が establish しないこと。** OSD が後に実行の明文を足したかは、この会話からは分からない。
+
+**反映**: B10（§1.451 の有利な面の補強 —— 理事の「使用を縛る手段は無い」を参加者が引いた・重みは低い・30 へ）/ B13（§6.5 の明文化の求めは参加者の側にも在った・1c へ種）。本文は変えない。

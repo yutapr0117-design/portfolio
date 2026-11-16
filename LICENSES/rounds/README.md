@@ -140,6 +140,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2000-03 | `license-discuss` | **観測（"Wired Article on the GPL" から 15 通・cphack の譲渡のあとで GPL を撤回できるか、署名した書面が無い許諾は譲渡に優先するか（17 U.S.C. §205(e)）、条件が対価になるか）** | `2000-03-license-discuss-gpl-revocation-cphack-observed.txt` |
 | 2000-03 | `license-discuss` | **観測（Cowan 氏の 1 通・無条件の公の許諾は公有への献呈と取られうる）** | `2000-03-license-discuss-rms-position-cowan-unconditional-dedication-observed.txt` |
 | 2000-08 | `license-discuss` | **観測（"Public Domain and liability" と "Abandonment" から 3 通・公有化した作品の免責、登録の無い宣言による公有化）** | `2000-08-license-discuss-public-domain-liability-and-abandonment-observed.txt` |
+| 2001-03 | `license-discuss` | **観測（"Subscription/Service Fees - OSD Intent" から 1 通・Taylor 氏 2001-03-28）** | `2001-03-license-discuss-subscription-fees-taylor-run-observed.txt` |
+| 2001-03 | `license-discuss` | **観測（"Subscription/Service Fees - OSD Intent" から 1 通・Taylor 氏 2001-03-28・Nelson 氏の引用）** | `2001-03-license-discuss-subscription-fees-taylor-nelson-quote-observed.txt` |
 | 2005-09 | `license-discuss` | **観測（"When can licenses be revoked?" から 5 通・対価の無い許諾だけが随意に撤回できる、受領者の義務は免責の受け入れまで対価になりうる）** | `2005-09-license-discuss-when-can-licenses-be-revoked-observed.txt` |
 | 2011-05 | `license-discuss` | **観測（"GPL revokability" から 3 通・GPL 3.0 は条件を守る限り撤回できないと定めた、1.0 と 2.0 は事実と法域による）** | `2011-05-license-discuss-gpl-revokability-observed.txt` |
 | 2011-08 | `license-discuss` | **観測（Linksvayer 氏の 1 通・CC0 は FSF と共に公有を望むソフトウェアに推奨した・2011）** | `2011-08-license-discuss-dual-licence-linksvayer-cc0-fsf-observed.txt` |

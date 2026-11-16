@@ -1,0 +1,85 @@
+Source: OSI license-discuss public archive, 2001-March.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-16)
+Messages: 1 of 39 in "Subscription/Service Fees - OSD Intent" (2001-03-28)
+Senders: Ian Lance Taylor
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From ian at airs.com  Thu Mar 29 04:51:43 2001
+From: ian at airs.com (Ian Lance Taylor)
+Date: 28 Mar 2001 20:51:43 -0800
+Subject: Subscription/Service Fees - OSD Intent
+In-Reply-To: <PstOfc.3ac2b94d.c67ea6@localhost>
+References: <C1896BD5E8B1D311BE75009027CB019019A91A@mail.mediazone.co.jp>
+	<01032819311200.00353@weathertop> <PstOfc.3ac2b94d.c67ea6@localhost>
+Message-ID: <si8zlp6uu8.fsf@daffy.airs.com>
+
+Eric Jacobs <eaj at ricochet.net> writes:
+
+> David Johnson <david at usermode.org>:
+> 
+> > 
+> > It may certainly be possible to have a registration fee for Open Source 
+> > software. I am not denying that. However, until such a time as the 
+> > registration fee is paid, the software cannot be considered Open Source. 
+> > If a
+> > registration fee were allowed in an Open Source license, then if Andy 
+> > has
+> > paid the registration fee, then gives the software to Bob, Bob does not 
+> > have to pay the registration fee, since all the rights attached to the 
+> > Andy's copy of the software transfer to Bob (#7).
+> 
+> It is this sort of illogical argument that will prevent this issue from
+> ever coming to rest. Let me offer an analogy.
+> 
+> ) It may certainly be possible to have a [requirement that derivative works
+> ) be licensed under the GPL] for Open Source software. I am not denying
+> ) that. However, until such a time as the [requirement that derivative
+> ) works be licensed under the GPL] is [met], the software cannot be
+> ) considered Open Source. If a [requirement that derivative works be
+> ) licensed under the GPL] were allowed in an Open Source license, then
+> ) if Andy has [met the requirement by distributing his derivative work
+> ) under the GPL], then gives the software to Bob, Bob does not have to
+> ) [meet the requirement to distribute derivative works under the GPL],
+> ) since all the rights attached to the Andy's copy of the software
+> ) transfer to Bob (#7).
+> 
+> Plainly, this is not what #7 means.
+
+Argument by analogy is always tricky.  In this case, I don't think
+your analogy is correct.
+
+Your analogy presumes a scenario in which Andy has a legally obtained
+copy of the source but is not under the requirement that derivative
+works be licensed under the GPL.  That is implied by your statement
+that Bob has all the rights which Andy has but does not have the
+requirement of distributing under the GPL.
+
+Here is my interpretation of David Johnson's point.  If Andy has a
+copy of a program under an open source license which requires paying a
+license fee, and Andy pays that license fee, and Andy distributes the
+program to Bob, then by OSD #7 Bob has all the rights that Andy has.
+If Andy has the right to run the program, then Bob also has the right
+to run the program.
+
+If we apply your analogy to this, you are quite correct that if Andy
+has a copy of a program under an open source license which does not
+require redistribution under the GPL, and Andy distributes the program
+to Bob, then Bob is not require to redistribute under the GPL.  But
+that argument proves nothing interesting.
+
+A way to work around this is to provide a license which is an open
+source license but which says that every time you run the program you
+must pay the developer a dollar.  This gets back to the fact we've
+discussed before, which is that the OSD does not clearly state that
+the recipient is permitted to run the program.  The last time this was
+discussed, Russ Nelson (who is on the OSI board) said this:
+
+| If you have legally received a copy of a program (and
+| OSD #1 guarantees the right of the person giving you a copy to do so),
+| you are free to use it or not, as you wish.  Copyright law only
+| restricts copying.  You could only restrict the activities of a
+| *recipient* if you could require them to execute a license, but OSD #7
+| prohibits that.
+
+Ian
