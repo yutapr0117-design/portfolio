@@ -1,0 +1,28 @@
+Source: TransCore, LP v. Electronic Transaction Consultants Corp., 563 F.3d 1271 (Fed. Cir. 2009),
+        decided 2009-04-08, opinion by Circuit Judge Gajarsa, as published at
+        https://hallapproved.com/us/cases/cafc/2009/208974 ; cross-checked against
+        https://case-law.vlex.com/vid/transcore-v-electronic-transaction-890446192
+Retrieved: 2026-11-16 by portfolio-2f, with the WebFetch tool, under the owner's request of the same
+        day ("ACD-1.4-DRAFT.txt の法的解釈の不確実性を「５人」で減らし続けてください").
+Form: NOT A BYTE COPY. The fetch tool returns the page through a model. The three strings below were
+        returned by a first fetch of hallapproved.com and confirmed present by a second fetch of the same
+        page (asked YES/NO for each exact string; YES for all three; the tool reported that the page holds
+        the full opinion). The vLex page, which appears to show only part of the opinion, confirmed [3]
+        and did not contain [1] or [2]. The tool declined to quote the full sentence containing [1]
+        because of its length; it paraphrased the sentence as saying that the court and its predecessors
+        have repeatedly explained this. Re-fetch from a court source before relying on the exact wording.
+
+WHY THIS FILE EXISTS. The 1.4 draft gives covenants not to sue alongside its licences (§5, §8.6, §12.2).
+`QUESTIONS-FOR-COUNSEL.md` question 8 asks whether a covenant falls outside the protection that
+11 U.S.C. §365(n) gives a licence, and question 2 asks whether the patent provisions reach what they are
+meant to reach. In the United States the Federal Circuit treats a non-exclusive patent licence and a
+covenant not to sue as having the same effect.
+
+[1] "a non-exclusive patent license is equivalent to a covenant not to sue"
+    (part of a sentence that begins, as returned by the tool, "To like effect, this court and its
+    predecessors have on numerous occasions explained that")
+[2] "A nonexclusive patent license is simply a promise not to sue for infringement."
+    (quoted in the opinion from U.S. Philips Corp. v. ITC)
+[3] "As a license passes no interest in the monopoly, it has been described as a mere waiver of the right to sue by the patentee."
+    (quoted in the opinion from De Forest Radio Telephone & Telegraph Co. v. United States; this full
+    sentence was returned by the vLex page)
