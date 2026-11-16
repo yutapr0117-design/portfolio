@@ -129,7 +129,7 @@ the guidance for adopters should suggest a signed statement, which nothing in th
 **The clauses.** In ACD-1.3, §8.1 licenses *"every patent claim owned or controlled by the Dedicator, now or
 in future"* infringed by making, using, selling or importing the Work or a derivative, *"where the
 infringement is caused by subject matter contained in the Work as made available"*. §8.4 licenses
-claims infringed by Computational Use or by making or using *"any model, parameter set, weight,
+claims (in ACD-1.3) infringed by Computational Use or by making or using *"any model, parameter set, weight,
 embedding, or output resulting from that use"*, limited to claims *"whose infringement depends upon
 the use of the Work"* — *"a question of causation and not of quantity"*. The 1.4 draft replaces
 that limit (2026-11-04): a claim is reached only where *"the feature that infringes it results, in
@@ -138,7 +138,7 @@ taken so to result"*. §8.2 makes both unconditional and non-terminable; §8.6 a
 arises where a licence is held ineffective; the 1.4 draft makes it operate in every jurisdiction
 without waiting for a licence to be held ineffective (2026-11-01), because a covenant that arises only on a holding does not
 exist when the claim that produces the holding is first asserted. The 1.4 draft also ties the covenant's
-reach to "any act that those Sections describe"; 1.3 says "any use of the Work or of anything
+reach to "any act that those Sections describe"; ACD-1.3 says "any use of the Work or of anything
 resulting from Computational Use of it", and in a patent covenant "use" may name only one of the
 acts (making, selling, importing) that §8.1 and §8.4 license (errata E45).
 
@@ -474,8 +474,16 @@ subject *"any Contributor"*, defined to include the Licensor. We did not change 
 named the parts without rights produced a sentence about a Dedicator who, for those parts, is not one
 (`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.19).
 
+(c) Two further points about the same clause, raised on the list about another licence (Pamela
+Chestek, 2023, `review-readings-2.md` §1.258): in some countries a clause that limits liability *"to
+the fullest extent permitted"* may be *"ignored altogether, leading to liability for everything, not
+just the unwaivable claims"*, and some countries apply *"different standards of liability for gifts
+versus an exchange"*. Does §14.2 (a liability that cannot be excluded *"is limited to the greatest extent that law
+permits"*) survive where §14.1's qualifying phrase is ignored, and does a dedication given without exchange fall under a gift's
+standard of liability?
+
 **An answer would change** whether §14.1 should exclude liability only for the use of the Work, as
-GPL-3.0 does, or say that it does not limit the covenants. An answer to (b) would change whether §14.1 needs its own subject.
+GPL-3.0 does, or say that it does not limit the covenants. An answer to (b) would change whether §14.1 needs its own subject. An answer to (c) would change whether §14.2 should state its fallback without relying on the phrase.
 
 
 ## 10. Does the name or the short identifier collide with a mark in use? (§16.4, B6)

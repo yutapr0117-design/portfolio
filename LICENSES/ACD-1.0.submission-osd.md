@@ -53,8 +53,8 @@ criteria the committee asks submitters to speak to directly:
   10.5 and 16.6 state this expressly. *(Corrected 2026-11-01: this said "10.5 and 16.5"; in
   ACD-1.0 §16.5 is the translation rule and §16.6 is the clause that says §16.4 and §16.5 are not
   terms of the Work. In 1.1 and later the same clause is §16.6 as well.)*
-- **OSD 5 (No discrimination against persons or groups).** §4.3 states the licence is not
-  conditioned "on the identity, character, or purpose of the user, or on any restriction as to
+- **OSD 5 (No discrimination against persons or groups).** §4.3 of ACD-1.0 states the licence is not
+  conditioned (ACD-1.0 wording) "on the identity, character, or purpose of the user, or on any restriction as to
   persons, groups, technologies, endeavours, or jurisdictions." §2.3 adds that the grant takes
   effect without any act of acceptance, so there is no gate at which a person could be excluded.
 - **OSD 6 (No discrimination against fields of endeavour).** The same sentence of §4.3 excludes
