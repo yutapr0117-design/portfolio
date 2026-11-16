@@ -282,6 +282,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2010-10-07 | Schmitz 氏（EUPL の起草者） | **観測（netX の審査・一般的な免責は欧州で不当とされ、EUPL は故意と自然人への損害を除外しない理由・Wilson 氏の問いの引用つき）** | `2010-10-license-review-netx-schmitz-liability-exclusion-observed.txt` |
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 276 条 3 項・307 条 1 項・309 条 7 号・521 条・524 条 1 項・WebFetch の逐語の片）** | `2026-11-16-bgb-276-307-309-521-524-gesetze-im-internet-snapshot.txt` |
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 151 条・受諾の表示を要しない場合・WebFetch の逐語の片）** | `2026-11-16-bgb-151-gesetze-im-internet-snapshot.txt` |
+| 2026-11-16 | 独・日・仏の公式の条文サイト | **観測（不当利得: BGB 812 条 1 項 1 文・民法 703 条・Code civil 1303 条と 1303-1 条・WebFetch）** | `2026-11-16-unjust-enrichment-bgb-812-minpo-703-code-civil-1303-snapshot.txt` |
 | 2026-11-16 | 仏 Légifrance | **観測（CPI L121-1 条・L121-7 条・人格権の性質とソフトウェアの例外・WebFetch）** | `2026-11-16-cpi-l121-1-l121-7-legifrance-snapshot.txt` |
 | 2026-11-16 | 英 legislation.gov.uk | **観測（UCTA 1977 1 条 3 項・2 条 1 項 2 項・免責の規制は事業上の責任に限る・WebFetch の逐語の片）** | `2026-11-16-ucta-1977-s1-s2-legislation-gov-uk-snapshot.txt` |
 | 2026-11-16 | デジタル庁（e-Gov 法令 API） | **観測（民法 527・549・550 条、著作権法 59・60・63・63 条の 2・WebFetch）** | `2026-11-16-minpo-chosakukenho-e-gov-api-snapshot.txt` |
