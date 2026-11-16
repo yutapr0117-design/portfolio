@@ -535,15 +535,16 @@ def run(ctx):
     # Check 105 は map ↔ 実装の「番号」だけを照合する。所在列を持つ行が分割前の module を
     # 指したままでも緑のまま —— 2026-09-28 に 4 行中 2 行 (468 / 469) がそうだった。
     # 読み手は存在しない場所で実装を探す。所在列が 0 行になったら (書式が変わったら) RED。
-    _map478 = ROOT / "docs" / "architecture" / "check-repository-consistency-map.md"
+    from _lib_check_map import check_map_paths, check_map_text  # 地図の file の一覧は 1 か所 (分けた日に 2 つ目を足す)
+    _map478 = (check_map_paths(ROOT) or [ROOT / "docs" / "architecture" / "check-repository-consistency-map.md"])[0]
     _rows478 = re.findall(
         r"^\|\s*(\d+)[a-z]?\s*\|.*\|\s*(?:BLOCKING|ADVISORY)[^|]*\|\s*`((?:checks_[a-z_0-9]+|check_repository_consistency)\.py)`\s*\|",
-        _map478.read_text(encoding="utf-8") if _map478.exists() else "", re.MULTILINE)
+        check_map_text(ROOT), re.MULTILINE)
     # 説明の欄の「実装: `.github/scripts/X.py`」も所在として読む (2026-11-11)。所在列だけを読むと、この書き方の
     #   行は照合されず、473 の行は分割前の checks_license_submission.py を指したままだった (実体は provenance)
     _rows478 += [(_m.group(1), _m.group(2)) for _m in re.finditer(
         r"^\|\s*(\d+)[a-z]?\s*\|[^\n]*?実装[:：]\s*`(?:\.github/scripts/)?((?:checks_[a-z_0-9]+|check_repository_consistency)\.py)`",
-        _map478.read_text(encoding="utf-8") if _map478.exists() else "", re.MULTILINE)]
+        check_map_text(ROOT), re.MULTILINE)]
     _bad478 = []
     for _n478, _mod478 in _rows478:
         _p478 = ROOT / ".github" / "scripts" / _mod478
