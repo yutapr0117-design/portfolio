@@ -11,7 +11,9 @@
   E  `ACD-1.0.errata.md` の開いている行 (「N.M 草案で閉じた」の印が無い行・2 列目の §)
   R  `ACD-1.4-THIRD-CLARITY-TRIAL.md` §18 の記録の行 (下の形)。①②③ と状態ごとに数える
 
-**§18 の記録の行の形** (5 人の決め・50 の方法の (c) と 2f の (iv)):
+**§18 の記録の行の形** (2 つの形を読む。50 の §18.3 と 1c の §18.1 が先に表の形を使った):
+    | §14.1 *"…"* | <頼っている法の命題> | <当て・法源は rounds/<file>> | **②** … |
+  表の形では、分類の欄 (最後の欄) の最初の ①②③ を読み、行に rounds/ の file 名が在れば「狭まった」に数える。行の形:
     - §14.1 | 命題: <その条が頼る法の命題> | ② | 状態: 出典あり | 法源: rounds/<file>
   ① どこでも真 (記録だけ) / ② 語を変えれば法域に依らなくできる (試作の種) / ③ 語では消せない (法律家への問いか jurisdictions へ)
   状態: 出典なし / 出典あり (法源の rounds/ の file が在る) / 本文で消えた (試作で命題が要らなくなった) / 法律家のみ
@@ -69,7 +71,8 @@ def count() -> tuple[dict[int, Counter], list[str]]:
     third = L / "ACD-1.4-THIRD-CLARITY-TRIAL.md"
     t = third.read_text(encoding="utf-8") if third.exists() else ""
     s18 = re.search(r"^## (?:§)?18[ .].*?(?=^## (?:§)?\d+[ .]|\Z)", t, re.M | re.S)
-    for m in ROW.finditer(s18.group(0) if s18 else ""):
+    body18 = s18.group(0) if s18 else ""
+    for m in ROW.finditer(body18):
         n = int(m.group(1).split(".")[0].split("(")[0])
         by[n]["R"] += 1
         by[n]["R" + m.group(3)] += 1
@@ -77,6 +80,21 @@ def count() -> tuple[dict[int, Counter], list[str]]:
             by[n]["狭まった"] += 1
         if m.group(4) == "出典あり" and not (m.group(5) and (ROOT / "LICENSES" / m.group(5)).exists()):
             errs.append(f"§{m.group(1)} は「出典あり」だが法源の file が LICENSES/ の下に無い: {m.group(5)}")
+    # 表の形 (50 の §18.3 と 1c の §18.1 が先に使った形・2026-11-16): `| §N.M … | 命題 | 当て | 分類 |`。分類の欄 (最後の欄)
+    #   の最初の ①②③ を読み、行に rounds/ の file 名が在れば「狭まった」に数え、その file が無ければ ⚠。並べた条は最初の条の節に数える
+    for line in body18.splitlines():
+        cells = [c.strip() for c in line.strip().strip("|").split("|")] if line.startswith("| §") else []
+        cls = re.search(r"[①②③]", cells[-1]) if len(cells) >= 3 else None
+        sec = re.match(r"§(\d+)", cells[0]) if cells else None
+        if not (cls and sec):
+            continue
+        n = int(sec.group(1))
+        by[n]["R"] += 1
+        by[n]["R" + cls.group(0)] += 1
+        srcs = re.findall(r"rounds/[\w.\-]+\.txt", line)
+        if srcs:
+            by[n]["狭まった"] += 1
+            errs += [f"{cells[0][:30]} の法源の file が LICENSES/ の下に無い: {s}" for s in srcs if not (L / s).exists()]
     return by, errs
 
 
