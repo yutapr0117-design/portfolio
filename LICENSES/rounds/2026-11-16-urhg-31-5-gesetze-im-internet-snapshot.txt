@@ -1,0 +1,27 @@
+Source: Gesetz über Urheberrecht und verwandte Schutzrechte (Urheberrechtsgesetz - UrhG), § 31
+        "Einräumung von Nutzungsrechten", Absatz 5,
+        https://www.gesetze-im-internet.de/urhg/__31.html (Bundesministerium der Justiz / juris)
+Retrieved: 2026-11-16 by portfolio-30, with the WebFetch tool, under the owner's delegation of the same
+        day ("FSF の一次資料を gnu.org から取得してよいです。というか、「５人」全員に全委任しているので …").
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes of at most 125
+        characters, which it was asked to make consecutive and complete for Absatz 5. Re-fetch and compare
+        before relying on the exact wording; do not assume that nothing lies between two quotes.
+
+WHY THIS FILE EXISTS. On 2026-11-16 portfolio-30 used § 31(5) UrhG (the purpose-transfer rule) as a
+counterexample to trial T79 of the 1.4 draft: where the kinds of use are not expressly named, German law
+reads a grant by the purpose of the contract, so a licence's silence on machine learning does not leave a
+permission to be inferred. The dossier had never cited the provision. This file holds its text.
+
+WHAT THIS FILE IS NOT. It is not legal advice, and it does not say how a German court would apply § 31(5)
+to a unilateral public grant such as §4 of ACD, which is the question for counsel (QUESTIONS-FOR-COUNSEL.md
+question 6). It is a statute, not a statement about ACD.
+
+===== § 31 UrhG, heading, as reported =====
+1. "Einräumung von Nutzungsrechten"
+
+===== § 31 Absatz 5 UrhG, as reported =====
+2. "Sind bei der Einräumung eines Nutzungsrechts die Nutzungsarten nicht ausdrücklich einzeln bezeichnet,"
+3. "so bestimmt sich nach dem von beiden Partnern zugrunde gelegten Vertragszweck, auf welche Nutzungsarten es sich erstreckt."
+4. "Entsprechendes gilt für die Frage, ob ein Nutzungsrecht eingeräumt wird, ob es sich um ein einfaches"
+5. "oder ausschließliches Nutzungsrecht handelt, wie weit Nutzungsrecht und Verbotsrecht reichen und"
+6. "welchen Einschränkungen das Nutzungsrecht unterliegt."
