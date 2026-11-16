@@ -288,7 +288,7 @@ whether adopters should be told to keep a signed statement from contributors.
 **The clause.** In ACD-1.3 §5.1 covenants not to assert *"any claim or cause of action, whether now
 known or unknown, arising from or relating to a use of the Work that this Dedication permits"*.
 The 1.4 draft reads *"any claim or cause of action, whether now known or unknown, that treats as
-wrongful, or as without legal ground, a use of the Work that this Dedication permits, other than for
+wrongful, or as without legal basis, a use of the Work that this Dedication permits, other than for
 patent infringement (Section 8), under trademark
 rights or rights in a name (Section 11.1), for a false statement or representation (Section 11.3), or
 for a payment You agreed to make"*. §5.2(d) carries only one of those exceptions, the one for a false
