@@ -1,0 +1,26 @@
+Source: Asset Marketing Systems, Inc. v. Gagnon, 542 F.3d 748 (9th Cir. 2008), from a PDF titled
+        "Microsoft Word - 542_F_3d_748.doc" (reporter-style text with star paging such as [*758] and
+        [**24]) hosted at https://higgslaw.com/wp-content/uploads/2015/10/154.pdf
+Retrieved: 2026-11-16 by portfolio-2f, with the WebFetch tool, under the owner's request of the same
+        day ("ACD-1.4-DRAFT.txt の法的解釈の不確実性を「５人」で減らし続けてください").
+Form: NOT A BYTE COPY, AND NOT FROM A COURT SITE. The fetch tool could not read the compressed PDF and
+        saved the file; its text streams were decompressed in this session with the Python standard
+        library (zlib) and the text inside the PDF text operators was joined. Hyphenation from the line
+        breaks of the PDF ("consid-eration", "nonex-clusive") is kept below as it came out. The copies
+        at law.justia.com (HTTP 403) could not be fetched. The PDF is hosted by a law firm and its
+        origin (which reporter service produced it) is not stated; compare with a court copy before
+        relying on the exact wording.
+
+WHY THIS FILE EXISTS. The 1.4 draft calls its licences irrevocable (§2.2, §3.1, §4.1, §8.1) and asks
+nothing in return of anyone (§4.3, §10.1). `ACD-1.4-THIRD-CLARITY-TRIAL.md` §18.3 recorded that in the
+United States and the United Kingdom a licence given without consideration may be read as revocable.
+This is the Ninth Circuit's statement of why a licence it found was irrevocable: the licensee had paid.
+
+[1] "For the reasons outlined, we hold that Gagnon granted AMS an unlimited, nonexclu-sive license to retain,
+    use, and modify the soft-ware. Furthermore, because AMS paid consid-eration, this license is irrevocable."
+[2] "See Lu-lirama Ltd., Inc. v. Axcess Broad. Servs., Inc., 128 F.3d 872, 882 (5th Cir. 1997); 3-10 Mel-ville
+    B. Nimmer & David Nimmer, Nimmer on Copyright § 10.02[B][5] (2008)."
+[3] "\"[A] nonex-clusive license supported by consideration is a contract.\" Lulirama, 128 F.3d at 882;"
+[4] "If an implied license accompanied by consideration were revocable at will, the contract would be
+    illusory. Lu-lirama, 128 F.3d at 882-83."
+    (heading of the part, as extracted: "4. Scope and Irrevocability of Implied Li-cense")
