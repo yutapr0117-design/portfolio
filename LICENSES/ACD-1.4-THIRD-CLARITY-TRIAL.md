@@ -398,7 +398,7 @@ After: *"Nothing in this Dedication is, under its terms, conditioned on, suspend
 
 **反例の担当へ（30・50）** **反例の結果**: 30（法律家の確認なし・EU の法源は 2f の帯）—— (a) 立たない: 第 1 文は「選ばない」の言明として足りる。Rome I 3 条 1 項は契約の一部についての選択を認めるので、旧第 2 文は部分ごとの選択と読まれる余地があり、外せばその読みは消える。契約と読まれた場合の 4 条 2 項（Dedicator の常居所地）の費用はもともと在った。事業者の Dedicator と消費者の受け手なら 6 条が受け手の常居所地の強行規定を残す。(b) 立たない: §11.1 *"grants no right"*・§11.4 *"does not purport to give it"* が自分で「称さない」ことを言うので、*purports to permit* が §11 へ約束を広げる道は本文が閉じている（逆側: §15.1 が *purports* に掛かると範囲が広がる余地 —— Dedicator 自身の約束なので受け手の害にはならない）。(c) 立たない: *no forum* は Brussels I bis 25 条の合意管轄が無いと言うだけで、一般の管轄はそのまま働く。登録した問い: (a) T92 の後、§15.3 が 1 文だけで、Rome I の下で「準拠法を選ばない」意思表示として足りるか、(b) T93 の *purports to permit* が、Dedication が許さないもの（§11 の商標・私権）まで「許すと称する」と読まれて約束が広がる道が無いか、(c) 第 1 文の *"no forum"* が Brussels I bis の下で何をするか。
 
-### 15.29 T94 —— 特許の行為の列挙に、主要な法域の法の語を足す（+6 語・2026-11-16・【反例待ち】）
+### 15.29 T94 —— 特許の行為の列挙に、主要な法域の法の語を足す（+6 語・2026-11-16）
 
 **種**: 法律家への問い 2 (g)。§8.1・§8.4 の *"make, have made, use, offer to sell, sell, import, and otherwise practise or transfer"* は、日本の特許法 2 条 3 項（貸渡し・輸出）、ドイツ PatG 9 条（所持）、英国 Patents Act 1977 60 条 1 項 (a)（*keeps*）の行為を *otherwise practise* に頼り、記録は「試していない」と書く。
 
@@ -408,7 +408,7 @@ After（2 か所）: *"make, have made, use, offer, sell, lend, lease, import, e
 
 **先の反例（portfolio-50・予告への答え）**: (1) 列挙は挙げた物以外を外す読みを招く —— *keep*（英国）を足した。(2) *possess* は PatG 9 条では「挙げた目的のため」の所持で、目的なしの所持に許諾が要る読みを本文が認めることにはならない。許諾は広く与える側なので、余計な行為を挙げても受け手は損をしない。
 
-**⚠ 逆側**: (1) 列挙はそれでも尽きない（日本の *展示* は *譲渡等の申出* の一部・米国の 35 U.S.C. §271 は *offers to sell* と *imports*）。(2) +8 語（B3）。(3) §8.1 と §8.4 の列挙の並行（同じ語で同じ効果）は保った。
+**⚠ 逆側**: (1) 列挙はそれでも尽きない（日本の *展示* は *譲渡等の申出* の一部）。(1b) 裸の *offer* は、米国 35 U.S.C. §271(a) と Apache-2.0 §3 の *offer to sell* より広い —— 審査者が承認済みの語との差を問えば、理由は英・独・仏の「使用の申出」（50）。目的語は列挙の後の *the Work or anything derived from it*・*any model … resulting from Computational Use* が決め、§8.5 が請求を Dedicator の持つものに閉じるので、Dedicator の想定外の負担は増えない。**反例の結果**: 30・50 とも反例なし（50: §8.6 の *any act that those Sections describe* は新しい列挙をそのまま受ける）。(2) +8 語（B3）。(3) §8.1 と §8.4 の列挙の並行（同じ語で同じ効果）は保った。
 
 **反例の担当へ（30・50）** **反例の結果**: 30（4 法域の条文は rounds に）—— (a) 立たない: *keep*（英 s.60(1)(a)）と *possess*（独 9 条 *besitzen*・仏 L613-3 *la détention*）は法域ごとに別の語で、両方を挙げると各法域の語に名指しで当たる。**(b) は立った**: 日本の「貸渡し」は有償・無償を問わないが、英語の *lend* は無償の貸与を指す → *lease* を足した（+1）。(c) 立たない: *export* は行為の名で、§2.7 は請求項の範囲を限る文。(d) 列挙に無い語: 仏 L613-3 の *le transbordement* と日本の「電気通信回線を通じた提供」は *otherwise practise or transfer* に入ると読める —— ソフトウェアの特許ではネット経由の提供が中心の行為になるので、名指すかは語数との取引（*provide over a network*・+4）で、今回は見送る。(e) 立たない: 申出の *transfer* と末の *transfer* は同じもの（譲渡）を指す。ただし (b) を採るなら申出の側も *lease* を含めないと、日本の「貸渡しの申出」が名指しから落ちる → *offer to sell, lease, or transfer* にした。9b —— 英 s.60(1)(a) の *offers to dispose of* → 初めは *offer to … transfer*、30 の法源への当てで、英・独（*anzubieten*）・仏（*l'offre*）とも申出を売る申出に限らず、方法の発明の「使用の申出」も数えると分かり、**申出を *offer* だけにした**（−5 語ずつ・申出の対象の列挙が要らなくなる）。仏 L613-3 の *le transbordement*（積み替え）は *otherwise practise or transfer* に任せて見送った。登録した問い: (a) *keep* と *possess* の重なり（英国の *keeps* は所持の一種）を両方挙げる害、(b) *lend* が日本の 2 条 3 項の *貸渡し* に当たるか（有償・無償を問わない語として）、(c) *export* が §2.7（Dedicator の持つ請求項だけ）と食い違わないか。
 
