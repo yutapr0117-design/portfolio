@@ -49,6 +49,9 @@ def sections(text: str) -> set[int]:
     return {n for n in out if 1 <= n <= 16}
 
 
+SNIP: dict[str, str] = {}  # 鍵 → 段の先頭 (表示だけに使う・比べるのは鍵)
+
+
 def open_items(read) -> set[tuple[str, int, str]]:
     """開いている法的な問い Q / P / J / E を (種類, 節, 鍵) の集合で返す。read(相対 path) は本文 (無ければ "")。
     鍵: Q/P は見出しの文、J は段の先頭 60 字、E は errata の番号。基準線の後に足した問いと消えた問いを分けるため (2f の依頼)。"""
@@ -59,12 +62,19 @@ def open_items(read) -> set[tuple[str, int, str]]:
             items |= {(key, n, f"{key}{num}") for n in sections(h)}
     jfiles = sorted({"ACD-1.0.jurisdictions.md"} | {p.name for p in L.glob("ACD-1.0.jurisdictions*.md")})
     for jf in jfiles:
-        last_fix = ""
+        last_fix, head, nth = "", "", 0
         for p in re.split(r"\n\s*\n", read(jf)):
+            # 鍵は「ファイル・直前の見出し・その見出しの下で何番目の段か」(2026-11-17): 段の文の先頭を鍵にすると、30 が法源で
+            #   段を狭めて書き換えたとき、同じ段が「消えた + 足された」と出た
+            hm = re.match(r"#{2,4} (.+)", p.strip())
+            if hm:
+                head, nth = hm.group(1)[:40], 0
             if "**本文の手当て**" in p:
                 last_fix = p
             if "**確立していないこと**" in p:
-                k = " ".join(p.split("**確立していないこと**", 1)[1].split())[:60]
+                nth += 1
+                k = f"{jf.replace('ACD-1.0.', '')} {head} #{nth}"
+                SNIP[k] = " ".join(p.split("**確立していないこと**", 1)[1].split())[:50]
                 items |= {("J", n, k) for n in (sections(p) or sections(last_fix))}
     for line in read("ACD-1.0.errata.md").splitlines():
         m = re.match(r"\|\s*\*{0,2}(E\d+)\*{0,2}\s*\|([^|]*)\|", line)
@@ -210,9 +220,9 @@ def main(argv: list[str]) -> int:
         added, gone = sorted(after - before), sorted(before - after)
         print(f"# 基準線の commit {bh} の後に足された問い {len(added)}・消えた問い {len(gone)}（種類, 節, 鍵）")
         for x in added:
-            print(f"#   + {x[0]} §{x[1]} {x[2][:70]}")
+            print(f"#   + {x[0]} §{x[1]} {x[2][:50]} {SNIP.get(x[2], '')[:40]}")
         for x in gone:
-            print(f"#   − {x[0]} §{x[1]} {x[2][:70]}")
+            print(f"#   − {x[0]} §{x[1]} {x[2][:50]} {SNIP.get(x[2], '')[:40]}")
     print(f"# ③ の行で行き先（問い N / jurisdictions / 法律家）を書いていない行: {len(NO_DEST)}"
           "（語では消せない不確実性が第 18 節にだけ在り、台帳の Q / J に数えられない）")
     for x in NO_DEST:
