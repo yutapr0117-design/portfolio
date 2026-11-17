@@ -1,0 +1,263 @@
+Source: OSI license-discuss public archive, 2002-August.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-18)
+Messages: 1 of 3 in "RPSL pre-discussion" (2002-08-01)
+Senders: Lawrence E. Rosen
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Mon Aug  5 11:40:33 2002
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Mon, 5 Aug 2002 04:40:33 -0700
+Subject: RPSL pre-discussion
+In-Reply-To: <Pine.WNT.4.43.0208011921370.258-100000@robla350.dev.prognet.com>
+Message-ID: <021801c23c74$e8e945f0$927ba8c0@ROSENGARDEN>
+
+Rob,
+
+Here are some comments on the RPSL:
+
+* Your license would be more useful generally if you changed the first
+sentence ["This License applies to any program or other work which
+RealNetworks, Inc. ("RealNetworks") makes publicly available and which
+contains a notice placed by RealNetworks identifying..."] to read "This
+License applies to any program or other work which contains a notice
+identifying...."  Why shouldn't other companies be allowed to use the
+RPSL?  Then, define "Licensor" and let the license be general purpose.
+
+* Section 1.1 is rather limiting.  I'm particularly saddened [:-)] by
+the exclusion from the list of the Jabber Open Source License, which I
+wrote to be clearer and more understandable than the MPL 1.1.  Why did
+you exclude the Common Public License, the IBM Public License, and
+several others?  Is there a characteristic of the approved licenses that
+you're trying to identify?  Why would it not be up to the licensee to
+ensure license compatibility?
+
+* To make section 1.2 more general, 1.2(a) should refer to patent grants
+from the *Licensor*.  It also seems the grant in (a)(i) is too narrow,
+since you want to permit people to use those patent rights to create
+derivative works.  Otherwise, the grant is largely useless in the open
+source community.  Here's how I write that in the Open Software License:
+
+   Licensor hereby grants You a world-wide, royalty-free,
+   non-exclusive, perpetual, non-sublicenseable license,
+   under patent claims owned or controlled by the Licensor
+   that are embodied in the Original Work as furnished by
+   the Licensor ("Licensed Claims"), to make, use, sell 
+   and offer for sale the Original Work.  Licensor hereby
+   grants You a world-wide, royalty-free, non-exclusive,
+   perpetual, non-sublicenseable license under the 
+   Licensed Claims to make, use, sell and offer for 
+   sale Derivative Works.
+
+* Section 1.2(b) appears to grant patent rights from the licensee
+("You") even when he/she doesn't deploy his Modifications.  That's not
+fair.    Perhaps I don't understand what you mean by "in the case where
+You are the grantor of rights...."  It also suffers from the same
+deficiencies as I noted in 1.2(a).  
+
+* In section 1.3, to be a Contributor, doesn't the person also have to
+Deploy his contributions?  Simply because I modify a program for my own
+personal use, I may not intend to give those modifications to you or
+anyone else. 
+
+* In section 1.6, I am troubled by the inclusion of the concepts of
+"containing" and "combination" in the definition of Derivative Work.
+These may make the definition so broad as to bring under its scope the
+packaging of your program with other programs not meant to be covered by
+this license.  The concept of "Derivative Work" is is one of the most
+difficult to get across in any open source license; even the GPL fails
+to make that clear.  I fear you haven't quite gotten it right either.
+
+* I very much like the definition of Externally Deploy in section 1.7.
+It is succint and clear.  I'm going to try to incorporate that concept
+into my licenses.  [I have since received some feedback that is critical
+of restricting such deployment in an open source license.  Maybe we
+should just watch the commentary in license-discuss and both of us try
+to decide how far we can go on this.]
+
+* I'm trying to reconcile your definition of Modifications in section
+1.9 with the earlier definition of Derivative Work.  Do you mean those
+to be two ways to define the same concept?
+
+* In section 1.10, once again, I note the reference to RealNetworks
+rather than Licensor, which limits the general applicability of this
+license.  
+
+* In section 1.12, you refer to forming "larger applications including
+Derivative Works."  What is a "larger application?"  Is it different
+from a Derivative Work?  How does it fit within the definition in
+section 1.6?
+
+* The last sentence of 1.13 is unclear.  Are you referring to "all
+cases" of Runtime Linking?  And do you mean to say that one can't use a
+combination of runtime linking and static linking?
+
+* In the first sentence of 2, you imply that downloading or using
+Covered Code is tantamount to acceptance of the License.  I'm aware of
+no court that has ever made such a broad statement.  The issue of
+license acceptance deserves a section of its own.  Here's how I
+addressed it in the Open Software License:
+
+   Nothing else but this License (or another 
+   written agreement between Licensor and You)
+   grants You permission to create Derivative
+   Works based upon the Original Work, and any
+   attempt to do so except under the terms of
+   this License (or another written agreement
+   between Licensor and You) is expressly
+   prohibited by U.S. copyright law, the
+   equivalent laws of other countries, and by
+   international treaty.  Therefore, by
+   exercising any of the rights granted to You
+   in Section 1 herein, You indicate Your
+   acceptance of this License and all of its
+   terms and conditions.
+
+This is similar to what the GPL says.  I'm not sure that solves the
+problem either, but at least it expresses what the court seemed to hold
+in the Sun v. Microsoft case.
+
+* In section 2, do you expect the license to be sublicenseable?  If so,
+how will you deal with the privity issue?  If not, then you must make it
+clear that all licensees obtain their license to the Original Code
+(including both copyright and patent licenses) from the Licensor.
+Hardly anyone wants their patents licenses to be sublicenseable.
+
+* The grant-back patent license in section 3 may be too broad.  For one
+thing, as I noted earlier, there should be no grant-back license for
+patent rights except for *deployed* modifications.  Merely making a
+modification for personal use doesn't not require a grant-back.  Second,
+this grant-back is worded as a sublicenseable patent license, which is
+generally unacceptable to companies that want to retain privity with all
+licensees to enforce their own patents.  
+
+* Once again, in section 4, you subtly modify the definition of a
+Derivative Work by using the word "combining" and then introducing the
+new concept of "integrated product."  Then you use the phrase "larger
+works" which is perhaps the same as "larger applications" from 1.12.
+Mere "aggregation" doesn't do it, but "integration" seems to.  I'm no
+longer sure just what you intend by the term Derivative Work!  This is a
+complicated problem that would probably benefit from us talking directly
+rather than me trying to write my thoughts out in email.  
+
+* The last sentence of section 5 raises difficult problems with the GPL
+and LGPL.  Take a look at section 7 of the GPL, in particular.  Rather
+than reserve for yourself "sole discretion" to decide the scope of your
+patent licenses, it would be best to define that scope up front.
+Certainly you can grant a broader license in the future.
+
+* How is the licensee supposed to obtain a [sub]licensee's "agreement"
+to the Additional Terms described in section 6?  What if he doesn't?
+Why do you care?
+
+* Does the last sentence of section 7 mean that someone can't create a
+derivative work and license it under a license that is merely
+"compatible" with this license?  No derivative works licensed under the
+GPL, for example?  Is this still compatible with section 4.2?
+
+* In section 8, why can't RealNetworks provide a warranty that it owns
+the copyrights to the Original Code?  If it cannot, is your licensee
+accepting a risk he/she shouldn't accept?  Here's how I wrote the
+warranty in the OSL:
+
+   LICENSOR WARRANTS THAT THE COPYRIGHT IN AND TO
+   THE ORIGINAL WORK IS OWNED BY THE LICENSOR OR THAT
+   THE ORIGINAL WORK IS DISTRIBUTED BY LICENSOR UNDER
+   A VALID CURRENT LICENSE FROM THE COPYRIGHT OWNER.
+   EXCEPT AS EXPRESSLY STATED IN THE IMMEDIATELY
+   PRECEEDING SENTENCE, THE ORIGINAL WORK IS PROVIDED
+   UNDER THIS LICENSE ON AN "AS IS" BASIS, WITHOUT
+   WARRANTY, EITHER EXPRESS OR IMPLIED, INCLUDING,
+   WITHOUT LIMITATION, THE WARRANTY OF NON-INFRINGEMENT
+   AND WARRANTIES THAT THE ORIGINAL WORK IS MERCHANTABLE
+   OR FIT FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS
+   TO THE QUALITY OF THE ORIGINAL WORK IS WITH YOU.
+   THIS DISCLAIMER OF WARRANTY CONSTITUTES AN ESSENTIAL
+   PART OF THIS LICENSE....
+
+* A further point in section 8:  Why would you need to provide any
+warranty statement at all for the Covered Code (as opposed to the
+Original Code) when you're not the one creating or distributing it?
+Your license should extend simply to the Original Code.  If someone
+creates a derivative work, that person may be required to license that
+derivative work under the same license, but then he/she is the licensor
+of his/her own "Original Code."  That's one reason that I like it better
+when a license imposes reciprocity obligations and uses the term
+"Licensor" rather than have it always appear to be "RealNetworks" that
+is doing the licensing.  
+
+* Is a liquidated damages amount of $10.00 (in section 9) going to be
+acceptable in every jurisdiction?
+
+* Why a section 10 when section 5 seems to say the same thing?
+
+* Section 11 is an example of a provision that is only needed because
+you've made the license to derivative works extend from you to the
+licensee.  That is not a clean reciprocal license.  You (RealNetworks)
+should only license your original work, and then require creators of
+derivative works to license their own works under the same license in
+whey THEY, not you, are the "Licensor."  That's another reason to not
+have RealNetworks be the name of the licensor in this license.
+
+* In section 12.1(a), "becoming aware" is a lot different "are told by
+us."  I'm not sure I'd ever agree to an automatic termination provision
+where my own subjective awareness became a subject of discovery.
+
+* I'm not fond of section 12.1(d).  That's a free license for you to
+infringe any of your licensee's patents.  I am willing to live with a
+defensive termination provision that takes effect if your licensee sues
+you for infringement of any patent relating to the Original Work.
+
+* Section 12.2 finally deals with the complex issue of sublicensing, but
+in an almost off-hand way.  Why should you permit sublicensing at all?
+Refer to my comments on sections 2 and 6, above.
+
+* What makes you think that a court would enforce the last sentence of
+section 13.4 in this unexecuted license?  I suggest you exercise a
+degree of caution in drafting this license that would be appropriate if
+the court will construe the language against RealNetworks.
+
+* Minor point: In 13.5(a), should the phrase be "shall be enforced"
+rather than "will be enforced"?  Similarly, should it be "shall continue
+in full force and effect?"
+
+* The severability provision in 13.5(b) is a little harsh.  If a court
+rules against you, I could understand your halting any further
+distribution or licensing of the Original Code.  But to require your
+users to discontinue any use and destroy all copies is quite draconian.
+
+* Section 13.7 is problematic.  If your Original Code cannot be exported
+to certain nations because of Dept. of State or DOD restrictions, you
+may simply have to include a notice separate from the license.  OSI has
+long held that article 5 of the Open Source Definition ["No
+Discrimination Against Persons or Groups"] prevents such explicit
+restrictions on export.  Here's the relevant portion of the commentary
+to OSD #5:
+
+   Some countries, including the United States,
+   have export restrictions for certain types of
+   software. An OSD-conformant license may warn
+   licensees of applicable restrictions and remind
+   them that they are obliged to obey the law;
+   however, it may not incorporate such restrictions
+   itself.
+
+* Is the notice in section 13.8 regarding parties from Quebec requesting
+that this license be drafted in English in fact true.  Which license has
+requested anything?
+
+* The "please obtain a copy of the License ... and read it before using"
+language of Exhibit A has been deemed by some courts to be insufficient
+to bind anyone to the license.  It is merely an invitation, with no
+assurance that anyone has actually done so.
+
+Please contact me directly to discuss any of these points further.
+
+/Larry Rosen
+lrosen at rosenlaw.com
+www.rosenlaw.com
+707-485-2142
+fax: 707-485-1243
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3

@@ -98,6 +98,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2015-09 | `license-review` | **観測（Berkus 氏の 1 通・既にそうなら条は要らず、そうでないなら条は悪い）** | `2015-09-license-review-oset-ns-berkus-not-needed-observed.txt` |
 | 2015-09 | `license-review` | **観測（Fontana 氏の 1 通・OSD に合っても OSI が承認するとは考えられないライセンスがある）** | `2015-09-license-review-oset-ns-fontana-inconceivable-observed.txt` |
 | 2002-08 | `license-discuss` | **観測（"Legal soundness comes to open source distribution" から 4 通・契約でないライセンスと保証の否認、AFL の承認）** | `2002-08-license-discuss-legal-soundness-observed.txt` |
+| 2002-08 | `license-discuss` | **観測（Rosen 氏の 1 通・切り離しの条で利用者に写しの破棄を求めるのは苛酷）** | `2002-08-license-discuss-rpsl-rosen-severability-harsh-observed.txt` |
 | 2002-08 | `license-discuss` | **観測（"why does allowing click-through licenses …" から 1 通・Behlendorf 氏 2002-08-06）** | `2002-08-license-discuss-click-through-behlendorf-ignore-observed.txt` |
 | 2014-04 | `license-discuss` | **観測（"why standard licenses" の FAQ の下書きから 4 通・承認は受け入れの床か信頼か）** | `2014-04-license-discuss-why-standard-licenses-observed.txt` |
 | 2015-05・08 | `license-discuss` | **観測（Apache の第三者ライセンス方針の 2 件名から 7 通・下流の一覧は各組織が決める、opensource.org からの返信）** | `2015-05-and-08-license-discuss-apache-third-party-policy-observed.txt` |
@@ -205,6 +206,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2003-08 | `license-discuss` | **観測（"Open Source Licensing" の全 3 通・OSL の perpetual と 17 U.S.C. §203、法はどのみち勝つので書く必要は無いという文の引用）** | `2003-08-license-discuss-osl-perpetual-and-section-203-observed.txt` |
 | 2007-07〜08 | `license-discuss` | **観測（GPLv3 の審査の進め方から 2 通・審査を OSD だけに絞る主張と、その前提だった採用と検討）** | `2007-07-license-discuss-gplv3-review-scope-observed.txt` |
 | 2018-06 | `license-review` | **観測（"moving to an issue tracker" から 5 通・理事会が変更を求める 2 つの場面と、独自の価値の問い）** | `2018-06-license-review-board-change-requests-and-unique-value-observed.txt` |
+| 2018-06 | `license-review` | **観測（Perens 氏の 1 通・切り離しの攻撃は起きていない）** | `2018-06-license-review-nosa-perens-no-severability-attack-observed.txt` |
 | 2018-06 | `license-review` | Villa 氏 2018-06-19 | `2018-06-license-review-submitter-notes-villa-industry-changed-observed.txt` |
 | 2018-09 | `license-review` | **観測（Smith 氏の 1 通・先例の主張への否定的な反応、運用は OSD の文言より厳しい）** | `2018-09-license-review-cfsl-smith-interpretive-history-observed.txt` |
 | 2018-06 | `license-review` | **観測（Perens 氏の 1 通・ライセンスに関心を持つ人を紹介してほしい）** | `2018-06-license-review-l0r-perens-interest-observed.txt` |
@@ -247,6 +249,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2012-03 | `license-review` / `license-discuss` | **観測（"CC0 incompliant with OSD on patents" から 5 通・著作権だけのライセンスは滑りやすい坂、放棄の効果を論じるのは時間の無駄）** | `2012-03-license-review-cc0-incompliant-patents-observed.txt` |
 | 2012-03 | `license-review` | **観測（Piana 氏の 1 通・沈黙のライセンスは禁反言に頼れるが、明示に外したライセンスは頼れない）** | `2012-03-license-review-mxm-cc0-piana-agnostic-estoppel-observed.txt` |
 | 2020-02 | `license-discuss` | **観測（Persona non Grata の前文の会話から 2 通・採用の見込みは承認の基準ではなかった、拘束しない語は要らない）** | `2020-02-license-discuss-adoption-not-a-criterion-observed.txt` |
+| 2020-02 | `license-review` | **観測（Chestek 氏の 1 通・CAL 7.6 の切り離しの文を引く）** | `2020-02-license-review-cal-chestek-text-severability-7-6-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2010-06 | `license-discuss` | **観測（Nelson 氏・オープンデータの定義・1 通）** | `2010-06-license-discuss-nelson-open-data-definition-observed.txt` |
 | 2010-10 | `license-review` | **観測（Phipps 氏の 1 通・特定の相手への通知を条件にすると、相手が消えれば許諾が使えなくなり OSD に合わない）** | `2010-10-license-review-netx-phipps-unreachable-observed.txt` |
