@@ -485,6 +485,16 @@ choice of law provisions are necessary or advisable in open source licenses"* (`
 the dossier records that as a cost: #23 is answered only in part, and #170 lists national rules a
 forum could apply against several clauses.
 
+The board's sentence is not alone. In the December 2022 thread on choice of law, Carlo Piana wrote *"I
+strongly invite drafters NOT to include choice-of-law provisions in their licenses."*, noting *"Another
+notable license dropping it for good is Creative Commons (v3 -> v4)"*, and Mike Milinkovich, steward of
+the EPL, recalled lawyers who *"found the EPL-1.0 USA-centric because of its choice of law provision"*
+and avoided it (`rounds/2022-04-license-review-open-logistics-license-observed-10of15.txt` and `-12of15.txt`,
+the second as Lawrence Rosen quoted it). Rosen answered by asking whether omitting the clause sends the
+licence to the licensee's law at all. In the European Union the paragraph below answers in two parts:
+infringement follows the country for which protection is claimed, and the contract side, if any, the
+Dedicator's.
+
 **What the law already settles in the European Union (added 2026-11-16).** For infringement, the law is
 that of the country for which protection is claimed: Rome II, Article 8(1), *"shall be the law of the
 country for which protection is claimed"*, and Article 8(3), *"may not be derogated from by an
