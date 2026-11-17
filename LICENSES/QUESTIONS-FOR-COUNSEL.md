@@ -251,7 +251,12 @@ Japanese practice already uses (a covenant not to exercise rights that Article 5
 Act makes inalienable), without reaching other works.
 
 **Why we doubt it.** (a) Whether a covenant given to the public at large, rather than to a known
-counterparty, is enforceable in Japan, Germany or France. (b) Whether §12.4 can bind persons who,
+counterparty, is enforceable in Japan, Germany or France. For Germany, Till Kreutzer wrote of CC0 that
+broad waivers of moral rights are invalid in the prevailing opinion, but *"The effect, however, is not
+that the license itself is void."*; the author could still, for example, *"prohibit distortions of his
+work"* (`rounds/2026-11-16-kreutzer-cc0-german-law-analysis-snapshot.txt`). On that view what fails is the reach of §12, not
+the licence, and the part that stays with the author is the core against distortion (UrhG section 14).
+(b) Whether §12.4 can bind persons who,
 after the author's death, act in their own right (Japan, Articles 60 and 116). (c) Whether a court
 would treat a covenant this broad as contrary to public order even though §12.3 confines it. A second
 point under (c): §12.3 ends by saying that the covenant and the consent *"are given in respect of a work
@@ -631,7 +636,10 @@ The 1.4 draft (trial T82) now opens §14.1 with *"EXCEPT FOR ANY LIABILITY FOR W
 NEGLIGENCE, DEATH, OR PERSONAL INJURY THAT APPLICABLE LAW DOES NOT PERMIT TO BE EXCLUDED, WHICH NOTHING IN
 SECTION 14 LIMITS,"*, following EUPL-1.2 §8. Our reading is that this keeps the exclusion standing in Germany
 if the Dedication is standard terms, because the excepted categories match those that German civil code
-section 309 no. 7 protects. Two points we cannot settle. Does tying the exception to what "applicable law does
+section 309 no. 7 protects. Section 309 reaches only a recipient who is a consumer: section 310(1) says
+that section 309 does not apply to standard terms *"die gegenüber einem Unternehmer, einer juristischen
+Person des öffentlichen Rechts"* are used (`rounds/2026-11-16-bgb-305-310-gesetze-im-internet-snapshot.txt`),
+so against a business recipient only section 307 applies. Two points we cannot settle. Does tying the exception to what "applicable law does
 not permit" meet the transparency requirement of section 307(1), second sentence? And does EUPL's unconditional
 form, which leaves the licensor liable for these categories even where the law would let them be excluded,
 stand better, at the cost of more liability for adopters elsewhere? The texts we rely on are in
