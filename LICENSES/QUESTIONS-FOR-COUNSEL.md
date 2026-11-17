@@ -452,7 +452,7 @@ von beiden Partnern zugrunde gelegten Vertragszweck, auf welche Nutzungsarten es
 §4.2 and §6 name the uses expressly, and §6.5 now gives as its reason that silence *"leaves it to be inferred
 whether this is permitted"*. Does section 31(5) apply to a unilateral grant to the public, where there is no
 counterparty whose purpose can be read? If it does, is the purpose the Work's stated one (the preamble's
-*"works meant to be learned from"* and §6), and does the express list in §4.2 and §6 take the grant outside
+*"works that are meant to be learned from"* and §6), and does the express list in §4.2 and §6 take the grant outside
 the rule altogether?
 
 **What the law already settles in the European Union (added 2026-11-16).** The reservation in Article
