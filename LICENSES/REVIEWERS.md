@@ -300,6 +300,13 @@ the Unlicense, 2020, on a legacy basis we cannot use — and one contemporary at
 unresolved, whose author was told on this list that a waiver of this kind needs a lawyer (#87).
 **Those are the three things we cannot fix, and we state them here rather than leave them to be found.**
 
+**What we did instead, and what it is not.** We read the statutes, and the few decisions we could
+obtain, that the 1.4 draft relies on in the United States, the United Kingdom, Germany, France and
+Japan, kept each text in `rounds/`, and wrote under each question in
+[`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) what the law already settles and what it
+leaves open. Where a reading turned on our own words, the draft was changed instead. This narrows the
+questions a lawyer would be asked. It is not legal review, and it does not answer #1 or #2.
+
 ## What to open first
 
 **Reading order.** If you have ten minutes: the table under *The new language* above (what is new, next to the nearest approved text), the objection map, then the licence. If you are deciding: add what was actually sent, and the errata. **The case against is the full record and the longest document in this directory** — it is where the objection map points, not a substitute for it. Nothing in it is summarised away anywhere else, and **nothing in it will be shortened**: this directory treats a shrinking adverse list as erasure rather than improvement (`REVISION-PROTOCOL.md` §2).
