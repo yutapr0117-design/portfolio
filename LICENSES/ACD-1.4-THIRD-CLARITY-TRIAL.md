@@ -398,11 +398,11 @@ After: *"Nothing in this Dedication is, under its terms, conditioned on, suspend
 
 **反例の担当へ（30・50）** **反例の結果**: 30（法律家の確認なし・EU の法源は 2f の帯）—— (a) 立たない: 第 1 文は「選ばない」の言明として足りる。Rome I 3 条 1 項は契約の一部についての選択を認めるので、旧第 2 文は部分ごとの選択と読まれる余地があり、外せばその読みは消える。契約と読まれた場合の 4 条 2 項（Dedicator の常居所地）の費用はもともと在った。事業者の Dedicator と消費者の受け手なら 6 条が受け手の常居所地の強行規定を残す。(b) 立たない: §11.1 *"grants no right"*・§11.4 *"does not purport to give it"* が自分で「称さない」ことを言うので、*purports to permit* が §11 へ約束を広げる道は本文が閉じている（逆側: §15.1 が *purports* に掛かると範囲が広がる余地 —— Dedicator 自身の約束なので受け手の害にはならない）。(c) 立たない: *no forum* は Brussels I bis 25 条の合意管轄が無いと言うだけで、一般の管轄はそのまま働く。登録した問い: (a) T92 の後、§15.3 が 1 文だけで、Rome I の下で「準拠法を選ばない」意思表示として足りるか、(b) T93 の *purports to permit* が、Dedication が許さないもの（§11 の商標・私権）まで「許すと称する」と読まれて約束が広がる道が無いか、(c) 第 1 文の *"no forum"* が Brussels I bis の下で何をするか。
 
-### 15.29 T94 —— 特許の行為の列挙に、主要な法域の法の語を足す（+8 語・2026-11-16・【反例待ち】）
+### 15.29 T94 —— 特許の行為の列挙に、主要な法域の法の語を足す（+12 語・2026-11-16・【反例待ち】）
 
 **種**: 法律家への問い 2 (g)。§8.1・§8.4 の *"make, have made, use, offer to sell, sell, import, and otherwise practise or transfer"* は、日本の特許法 2 条 3 項（貸渡し・輸出）、ドイツ PatG 9 条（所持）、英国 Patents Act 1977 60 条 1 項 (a)（*keeps*）の行為を *otherwise practise* に頼り、記録は「試していない」と書く。
 
-After（2 か所）: *"make, have made, use, offer to sell, sell, lend, import, export, keep, possess, and otherwise practise or transfer"*
+After（2 か所）: *"make, have made, use, offer to sell or transfer, sell, lend, import, export, keep, possess, and otherwise practise or transfer"*（*offer to … transfer* は 9b の反例: 英国 s.60(1)(a) の *offers to dispose of*）
 
 **消える／狭まる問い**: 問 2 (g) は、名指した 4 つの行為については消え、残りを *otherwise practise* が受けるかの問いに狭まる。
 
