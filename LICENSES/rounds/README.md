@@ -289,6 +289,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2010-10-07 | Schmitz 氏（EUPL の起草者） | **観測（netX の審査・一般的な免責は欧州で不当とされ、EUPL は故意と自然人への損害を除外しない理由・Wilson 氏の問いの引用つき）** | `2010-10-license-review-netx-schmitz-liability-exclusion-observed.txt` |
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 276 条 3 項・307 条 1 項・309 条 7 号・521 条・524 条 1 項・WebFetch の逐語の片）** | `2026-11-16-bgb-276-307-309-521-524-gesetze-im-internet-snapshot.txt` |
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 151 条・受諾の表示を要しない場合・WebFetch の逐語の片）** | `2026-11-16-bgb-151-gesetze-im-internet-snapshot.txt` |
+| 2017-02-13 | 英控訴院（Find Case Law・2026-11-17 取得） | **観測（Harvey v Dunbar Assets [2017] EWCA Civ 60 第 62 段落・約束的禁反言は盾であって剣でない・WebFetch）** | `2026-11-17-harvey-v-dunbar-2017-ewca-civ-60-promissory-estoppel-snapshot.txt` |
 | 2026-11-16 | 日・独・英・仏の公式の条文サイト | **観測（特許の及ぶ行為: 特許法 2 条 3 項・PatG 9 条・Patents Act 1977 s.60(1)・CPI L613-3・WebFetch）** | `2026-11-16-patent-acts-jp-de-uk-fr-snapshot.txt` |
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 305 条 1 項・310 条・標準約款の定義と適用範囲・WebFetch の逐語の片）** | `2026-11-16-bgb-305-310-gesetze-im-internet-snapshot.txt` |
 | 2026-11-16 | 日・英・独の公式の条文サイト | **観測（第三者のための契約: 民法 537 条・Contracts (Rights of Third Parties) Act 1999 s.1・BGB 328 条 1 項・WebFetch）** | `2026-11-16-third-party-beneficiary-minpo-537-crtpa-1999-bgb-328-snapshot.txt` |
