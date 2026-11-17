@@ -41,7 +41,9 @@ is not named (retrieval at inference time, generating synthetic data from the Wo
 vector index, an agent reading the Work as a tool result) is still covered.
 
 **Why we doubt it.** A reader looking for their own act in the list and not finding it may take
-the list as the boundary. **The question:** which acts in your pipelines would you not recognise
+the list as the boundary. **The 1.4 draft answers that reading:** §15.5 says that "including" and "in
+particular" *"introduce examples and do not limit what precedes them"*, so the list is not the boundary in
+the text. **The question:** which acts in your pipelines would you not recognise
 in these words, and would you rely on the general words for them?
 
 ## 2. Do the five nouns name every artefact you produce? (§1.7, §6.4, §8.4)
