@@ -1,0 +1,48 @@
+Source: OSI license-review public archive, 2019-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-18)
+Messages: 1 of 14 in "[license review] Mulan PSL V1" (2019-12-03)
+Senders: Carlo
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From carlo at piana.eu  Fri Dec  6 06:03:01 2019
+From: carlo at piana.eu (Carlo)
+Date: Fri, 6 Dec 2019 07:03:01 +0100
+Subject: [License-review] [license review] Mulan PSL V1
+In-Reply-To: <3981ed31-f83b-c87d-0774-26c5657227db@berkus.org>
+References: <026901d5a9ae$b1e5f8e0$15b1eaa0$@pku.edu.cn>
+ <527ac956-a32b-a59d-2743-68d23ed7e37e@piana.eu>
+ <39e81f41-8302-0050-a92c-82b8e64e8ad2@pku.edu.cn>
+ <3981ed31-f83b-c87d-0774-26c5657227db@berkus.org>
+Message-ID: <8758dd37-e375-90b6-a332-cf8002d2ac80@piana.eu>
+
+On 06/12/19 01:23, Josh Berkus wrote:
+> On 12/4/19 1:31 AM, zhou minghui wrote:
+>> As for your criticism, I totally understand your angle. However, you may
+>> understand we did that for a reason. We intended to make it easier for
+>> Chinese developers to read and understand, not inducing legal issues
+>> they don't want.? After all, we have about ten million developers in
+>> China, who are desperate to develop their software in open source
+>> fashion.? And they represent thousands of companies that may boost the
+>> Internet technologies.? They are not against English at all (we are in
+>> the same earth village, and we are applying for OSI approval here), but
+>> a Chinese version make them understand what they are licensed and
+>> license to.?
+> I think Carlo was arguing that this license should state that the
+> Chinese version is authoritative.  Certainly that would make sense to me.
+>
+Thanks Josh for spotting the point. Pretty much so. **One** version
+should be authoritative, IMHO. Which one, that's up to the author of the
+license to decide.
+
+Suppose one contributor picks the English and another, for an unrelated
+project, the Chinese, and the two differ substantially due to a glitch
+in the translation. And a third party combines them. It's a minor hiccup
+here, as it's no copyleft, yet it's unnecessary added entropy. Which one
+applies? You would have two inbound and most of all two outbound
+licenses in a superstate, with the same name and different legal
+consequences.
+
+Again, not a big issue, rather a matter of elegance and "ecology".
+
+Carlo

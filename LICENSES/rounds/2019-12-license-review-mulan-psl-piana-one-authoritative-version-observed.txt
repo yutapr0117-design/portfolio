@@ -1,0 +1,516 @@
+Source: OSI license-review public archive, 2019-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-18)
+Messages: 1 of 14 in "[license review] Mulan PSL V1" (2019-12-03)
+Senders: Carlo Piana
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From carlo at piana.eu  Tue Dec  3 08:54:01 2019
+From: carlo at piana.eu (Carlo Piana)
+Date: Tue, 3 Dec 2019 09:54:01 +0100
+Subject: [License-review] [license review] Mulan PSL V1
+In-Reply-To: <026901d5a9ae$b1e5f8e0$15b1eaa0$@pku.edu.cn>
+References: <026901d5a9ae$b1e5f8e0$15b1eaa0$@pku.edu.cn>
+Message-ID: <527ac956-a32b-a59d-2743-68d23ed7e37e@piana.eu>
+
+Dear professor Zhou,
+
+I have one observation and one criticism.
+
+The observation is that this looks like a couple of licenses like the 
+BSD+patents. While arguably the text is more streamlined and modern, 
+building on the experience in licensing that we have accrued since the 
+BSD times, I wonder if there is such desperate need for yet another 
+license. Except perhaps one in Chinese.
+
+The criticism is founded on a long debated issue about whether 
+multi-language licenses are a good idea. As you know, GNU GPL family 
+decided that the only ever authoritative version is the English one, and 
+I tend to agree with the rationale underneath. It is tremendously 
+difficult to exactly match the same meaning across multiple languages, 
+and my experience in dissecting legal instruments of the EU -- limiting 
+to those few languages I am reasonably confident perusing -- is that it 
+is very difficult to find a single meaning. Often one should find it 
+comparing different versions and with the help of the recitals, and yet 
+it is very difficult to reach a final point.
+
+Moreover, you state in your introduction that the rule is (roughly) 
+"either is normative". But that rule is nowhere expressed in the license 
+itself. I am afraid this would then be totally left to the local court, 
+in case. Yet, a license lives not only in court, but also in the current 
+interpretation of those using it, who would not have the benefit of a 
+third party picking up one version or the other.
+
+Frankly, I see little merit in creating confusion by using two languages 
+on equal footing. On the other hand, the fact that the license is 
+non-copyleft reduces the concerns on possible negative consequences.
+
+I wonder if those concerns have also been tackled in your legal 
+analysis, and what the answer were, in case.
+
+I totally love the name of the license.
+
+With best regards,
+
+Carlo Piana
+
+
+
+
+On 03/12/19 08:53, Zhou Minghui wrote:
+>
+> Dear OSI board members and license reviewers,
+>
+> Below isthe submission of Mulan Permissive Software License, Version 
+> 1(Mulan PSL v1) for approval.
+>
+> Minghui ZHOU
+>
+> Professor, PhD
+>
+> Peking University
+>
+> ============================
+>
+> *Type of submission: *Approval
+>
+> *License name: *???????,?1??Mulan Permissive Software 
+> License?Version 1?
+>
+> *Short Identifier: *Mulan PSL v1
+>
+> *URL: *http://license.coscl.org.cn/MulanPSL
+>
+> *Rationale:*
+>
+> 1. Mulan PSL v1 is expressed in both Chinese and English, which have 
+> the same legal effect. It is convenient for open source participants 
+> to read and use.
+>
+> 2. In order to solve the existing litigation problems, Mulan PSL v1 
+> clarifies the authorization of copyright, patent and trademark and 
+> provides better legal protection.
+>
+> 3. For the sake of simplicity and understandability <javascript:;>, 
+> Mulan PSL v1 was revised jointly by technical experts and legal 
+> experts to simplify the terms and optimize the expression as much as 
+> possible on the premise of clarifying the behavior constraints of both 
+> parties in the License. Mulan PSL v1 is easy for users to follow.
+>
+> *Distinguish (from other OSI-approved permissive licenses):*
+>
+> Mulan PSL v1 differs from BSD 3-clause License and Apache License V2.0 
+> in terms of statement obligation, copyright license, patent license 
+> and patent retaliation.
+>
+> 1. Statement obligation. Mulan PSL v1 only requires that the licensed 
+> software to be distributed with a copy of this License and copyright, 
+> patent, trademark and disclaimer statements in the software.
+>
+> 2. Copyright license. Original licensor, subsequent contributor, and 
+> Affiliates of those licensors provide the Copyright license.
+>
+> 3. Patent license. Original licensor, subsequent contributor, and 
+> Affiliates of those licensors provide the patent license.
+>
+> 4. Patent retaliation: If a user or its Affiliates directly or 
+> indirectly (including through an agent, patent licensee or assignee) 
+> institute patent litigation (including a cross claim or counterclaim 
+> in a litigation) or other patent enforcement activities against any 
+> individual or entity by alleging that the Software or any Contribution 
+> in it infringes patents, then any patent license granted to the user 
+> or its Affiliates under this License for the Software shall terminate 
+> as of the date such litigation or activity is filed or taken.
+>
+> A comparison to existing OSS licenses and clauses, is attached to this 
+> submission as a license commentary.
+>
+> ?
+>
+> 	
+>
+> Mulan PSL v1
+>
+> 	
+>
+> BSD 3-Clause License
+>
+> 	
+>
+> Apache License V2.0
+>
+> Permissions
+>
+> 	
+>
+> ?Commercial use
+>
+> 	
+>
+> ?Commercial use
+>
+> 	
+>
+> ?Commercial use
+>
+> ?Modification
+>
+> 	
+>
+> ?Modification
+>
+> 	
+>
+> ?Modification
+>
+> ?Distribution
+>
+> 	
+>
+> ?Distribution
+>
+> 	
+>
+> ?Distribution
+>
+> ?Private use
+>
+> 	
+>
+> ?Private use
+>
+> 	
+>
+> ?Private use
+>
+> ?Patent license from all codes licensors their affiliates
+>
+> 	
+> 	
+>
+> ?Patent license from subsequent contributors and their affiliates and 
+> original licensor
+>
+> Limitations
+>
+> 	
+>
+> ?Liability
+>
+> 	
+>
+> ?Liability
+>
+> 	
+>
+> ?Liability
+>
+> ?Warranty
+>
+> 	
+>
+> ?Warranty
+>
+> 	
+>
+> ?Warranty
+>
+> ?Trademark use
+>
+> 	
+>
+> ?
+>
+> 	
+>
+> ?Trademark use
+>
+> Conditions
+>
+> 	
+>
+> ?License and copyright notice when distribution
+>
+> 	
+>
+> ?License and copyright notice when distribution
+>
+> 	
+>
+> ?License and copyright notice when distribution
+>
+> ?User's patent license automatically terminates when such user 
+> directly or indirectly enforces its patents on the work
+>
+> 	
+> 	
+>
+> ?User's patent license automatically terminates when such user sues 
+> infringement of its patents on the work
+>
+>
+> 	
+> 	
+>
+> ?State changes
+>
+> *Legal Review:*
+>
+> Mulan PSL v1 was drafted by software experts and lawyers from 
+> colleges, research institutions, enterprise <javascript:;>s and open 
+> source communities. It has been reviewed by lawyers specialized in the 
+> field of intellectual property and open source software.
+>
+> Both the Chinese and English versions of Mulan PSL v1 have the same 
+> legal effect. Users can select the appropriate version in their 
+> jurisdiction. Mulan PSL v1 meets OSI?s definition of ?Open Source? of 
+> OSI and OSI?s requirements. The rationale of the license is to create 
+> a license with easy compliance, better compatibility and comprehensive 
+> patent protection.
+>
+> *License proliferation category:*
+>
+> Licenses that are popular and widely used or with strong communities
+>
+> Mulan PSL v1 has been widely used in China open source community, more 
+> than 1,000 projects are licensed under Mulan PSL v1, here is a few 
+> typical examples:
+>
+> Hutool
+>
+> 	
+>
+> https://gitee.com/loolly/hutool
+>
+> OpenArkCompiler
+>
+> 	
+>
+> https://gitee.com/harmonyos/OpenArkCompiler
+>
+> IJPay
+>
+> 	
+>
+> https://gitee.com/javen205/IJPay
+>
+> IMI
+>
+> 	
+>
+> https://gitee.com/yurunsoft/IMI
+>
+> SimpleDFS
+>
+> 	
+>
+> https://gitee.com/FusionStack/SimpleDFS
+>
+> *Text of the license:*
+>
+> *????**???? ?1? *
+>
+> 2019?8? http://license.coscl.org.cn/MulanPSL
+>
+> ????????????????????????????1??????????????????
+>
+> *0.**??***
+>
+> *????*????????????????????????????????
+>
+> *?????*??????????????????????????????????
+>
+> *??????*??????????????????
+>
+> *??????*??????????????????????????????????????????????????????50%????????????????????
+>
+> *????*???????????????????????????????
+>
+> *1.**??????*
+>
+> ??????????????????????????????????????????????????????????????????????????
+>
+> *2.**??????*
+>
+> ???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+>
+> *3.**?????*
+>
+> ?????????????????????????????????????????????4????????????????
+>
+> *4.**????*
+>
+> ?????????????????????????????????????????????????????????????????????????????????
+>
+> *5.**?????????*
+>
+> ????????????????????????????????????????????????????????????????????????????????????????????????????????,????????????????? 
+>
+>
+> *???? *
+>
+> *????????????1?????????*
+>
+> ???????????????1???????????????????????????????
+>
+> 1?????????????????????????????????????????
+>
+> 2?????????????????LICENSE??????????????????????
+>
+> 3? ??????????????????????
+>
+>
+> Copyright (c) [2019] [name of copyright holder]
+>
+> [Software Name] is licensed under the *Mulan PSL v1*.
+> You can use this software according to the terms and conditions of the 
+> *Mulan PSL v1.*
+>
+> You may obtain a copy of*Mulan PSL v1 *at:
+>
+> http://license.coscl.org.cn/MulanPSL**
+>
+> THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT warranties of 
+> any kind, either express or implied, including but not limited to 
+> non-infringement, merchantability or fit for a particular purpose.
+>
+> See the*Mulan PSL v1 *for more details.
+>
+> *Mulan Permissive**Software License**?**Version 1**(Mulan PSL v1)*
+>
+> August 2019 http://license.coscl.org.cn/MulanPSL
+>
+> Your reproduction, use, modification and distribution of the Software 
+> shall be subject to Mulan PSL v1 (this License) with following terms 
+> and conditions:
+>
+> *0. Definition*
+>
+> *Software*means the program and related documents which are comprised 
+> of those Contribution and licensed under this License.
+>
+> *Contributor*means the Individual or Legal Entity who licenses its 
+> copyrightable work under this License.
+>
+> *Legal Entity*means the entity making a Contribution and all its 
+> Affiliates.
+>
+> *Affiliates*means entities that control, or are controlled by, or are 
+> under common control with a party to this License, ?control?means 
+> direct or indirect ownership of at least fifty percent (50%) of the 
+> voting power, capital or other securities of controlled or commonly 
+> controlled entity.
+>
+> *Contribution *means the copyrightable work licensed by a particular 
+> Contributor under this License.
+>
+> *1. Grant of Copyright License*
+>
+> Subject to the terms and conditions of this License, each Contributor 
+> hereby grants to you a perpetual, worldwide, royalty-free, 
+> non-exclusive, irrevocable copyright license to reproduce, use, 
+> modify, or distribute its Contribution, with modification or not.
+>
+> *2. Grant of Patent License *
+>
+> Subject to the terms and conditions of this License, each Contributor 
+> hereby grants to you a perpetual, worldwide, royalty-free, 
+> non-exclusive, irrevocable (except for revocation under this Section) 
+> patent license to make, have made, use, offer for sale, sell, import 
+> or otherwise transfer its Contribution where such patent license is 
+> only limited to the patent claims owned or controlled by such 
+> Contributor now or in future which will be necessarily infringed by 
+> its Contribution alone, or by combination of the Contribution with the 
+> Software to which the Contribution was contributed, excluding of any 
+> patent claims solely be infringed by your or others?modification or 
+> other combinations.If you or your Affiliates directly or indirectly 
+> (including through an agent, patent licensee or assignee) institute 
+> patent litigation (including a cross claim or counterclaim in a 
+> litigation) or other patent enforcement activities against any 
+> individual or entity by alleging that the Software or any Contribution 
+> in it infringes patents, then any patent license granted to you under 
+> this License for the Software shall terminate as of the date such 
+> litigation or activity is filed or taken.
+>
+> *3. No Trademark License*
+>
+> No trademark license is granted to use the trade names, trademarks, 
+> service marks, or product names of Contributor, except as required to 
+> fulfill notice requirements in section 4.
+>
+> *4. Distribution Restriction*
+>
+> You may distribute the Software in any medium with or without 
+> modification,whether in source or executable forms, provided that you 
+> provide recipients with a copy of this License and retain copyright, 
+> patent, trademark and disclaimer statements in the Software.
+>
+> *5. Disclaimer of Warranty and Limitation of Liability*
+>
+> The Software and Contribution in it are provided without warranties of 
+> any kind, either express or implied. In no event shall any Contributor 
+> or copyright holder be liable to you for any damages, including, but 
+> not limited to any direct, or indirect, special or consequential 
+> damages arising from your use or inability to use the Software or the 
+> Contribution in it, no matter how it?s caused or based on which legal 
+> theory, even if advised of the possibility of such damages.
+>
+> *End of the Terms and Conditions*
+>
+> *How to apply the Mulan Permissive Software License**?**Version 1 
+> (Mulan PSL v1) to your software*
+>
+> To apply the Mulan PSL v1 to your work, for easy identification by 
+> recipients, you are suggested to complete following three steps:
+>
+> i Fill in the blanks in following statement, including insert your 
+> software name, the year of the first publication of your software, and 
+> your name identified as the copyright owner;
+>
+> ii Create a file named ?LICENSE?which contains the whole context of 
+> this License in the first directory of your software package;
+>
+> iii Attach the statement to the appropriate annotated syntax at the 
+> beginning of each source file.
+>
+>
+> Copyright (c) [2019] [name of copyright holder]
+>
+> [Software Name] is licensed under the *Mulan PSL v1.*
+> You can use this software according to the terms and conditions of the 
+> *Mulan PSL v1.*
+>
+> You may obtain a copy of *Mulan PSL v1* at:
+>
+> http://license.coscl.org.cn/MulanPSL
+>
+> THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT warranties of 
+> any kind, either express or implied, including but not limited to 
+> non-infringement, merchantability or fit for a particular purpose.
+>
+> See the *Mulan PSL v1* for more details.
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191203/c9daae75/attachment-0001.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: image001.png
+Type: image/png
+Size: 666 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191203/c9daae75/attachment-0002.png>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: image002.png
+Type: image/png
+Size: 650 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20191203/c9daae75/attachment-0003.png>

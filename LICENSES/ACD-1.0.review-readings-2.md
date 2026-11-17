@@ -779,3 +779,21 @@ census の unquoted-decider（候補の外の会話の、ドシエが 1 文も�
 **この節が establish しないこと。** 外国で訴えられた受け手にとって、名指しが無いことが不利に働くか。
 
 **反映**: 入口（問い 7 の "Why we doubt it" の理事会の 1 文に、Piana 氏・Milinkovich 氏の理由と Rosen 氏の逆側を並べるか・50 へ）/ B8（準拠法を選ばないことの支えと費用・30 へ）。
+
+## 1.263 「正本は 1 つにすべきだ」（Piana 氏 2019）—— Mulan PSL の提出者は v2 で「食い違えば中国語版が優先する」を足し、承認された。§15.4（英語を正本とする）と同じ形（2026-11-18）
+
+オーナーの依頼（2026-11-16「法的解釈の不確実性を 5 人で減らし続けて」）の portfolio-2f の受け持ち（リストの法律家の発言を条ごとに当てる）。1.4 草案の §15.4 は *"English is the authoritative language of this Dedication. A translation is for convenience only; in the event of conflict, this English text prevails."* —— この条を論じた審査の文は、ドシエの分析に無かった（`review-readings.md` の Berkus 氏 2016 の ZenTao の 1 行「正本が中国語なら中国語の読み手に見てもらえるか」だけ）。Mulan PSL の審査（`license-review` 2019-12〜2020）から 3 通を置いた（`rounds/2019-12-license-review-mulan-psl-{piana-one-authoritative-version,piana-translation-glitch,v2-chinese-prevails}-observed.txt`）。
+
+| 発言 | 誰が | §15.4 への当たり方 |
+| :-- | :-- | :-- |
+| *"Frankly, I see little merit in creating confusion by using two languages on equal footing."* と、GPL の族が英語だけを正本と決めたことに同意し、どちらが正本かがライセンスの中に書かれていなければ地域の裁判所に委ねられる、と書いた | Carlo Piana 氏 2019-12-03 | **有利な面。** 正本を 1 つに決める §15.4 の形を、決める側の人が求めた |
+| *"**One** version should be authoritative, IMHO. Which one, that's up to the author of the license to decide."* と、訳の不具合で 2 つの版が大きく違い、第三者がそれを組み合わせると、同じ名で法的な帰結の違うライセンスが並ぶ、という例 | Carlo Piana 氏 2019-12-06 | **有利な面。** どの言語を正本にするかは著者の選択とした —— ACD が英語を選ぶことは、この線で問われない |
+| v1 の中国語版と英語版の食い違いが主な懸念だったので、v2 で「食い違いがあれば中国語版が優先する」という文を条に足した、Piana・Berkus・Phipps・Chestek の諸氏の示唆に感謝する | Zhou Minghui 氏（提出者）2019-12-30 | **先例。** 正本を 1 つにする文は、審査の指摘に応えて提出の版に足され、Mulan PSL は 2020 年に承認された（`board-decisions.md` の理由書の段）。§15.4 の形は、審査が求めて承認に至った形と同じ |
+
+**読み。** §15.4 が英語を正本とし訳を便宜とする形は、決める側の人が求め、提出者がそれに応えて承認に至った先例と同じ形で、この条の解釈の不確実性（どの版が効くか）は、条の文が自分で決めている。
+
+**逆側。** 正本が英語であることは、英語以外の法域の裁判所が英語の文を読むことを前提にする。訳が便宜にすぎないと言っても、地域の裁判所が自国語の訳を参照することまで止められるとは限らない（Piana 氏も「地域の裁判所に委ねられる」のは正本を書かない場合として述べた）。
+
+**この節が establish しないこと。** 英語を正本とする条が、各法域の裁判所で訳より優先して扱われるか。
+
+**反映**: 1c（`ACD-1.4-THIRD-CLARITY-TRIAL.md` §18.5 の §15.4 の行の支え —— 審査が正本を 1 つにすることを求め、Mulan PSL v2 が足して承認された・9b の帯）/ 入口（§15.4 の説明に、審査が求めた形であることを添えるか・50 へ）。

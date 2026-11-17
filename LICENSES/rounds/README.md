@@ -108,6 +108,9 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2007-06 | `license-discuss` | **観測（Phipps 氏・法体系は書くか何も書かないか・1 通）** | `2007-06-license-discuss-phipps-fixed-law-or-none-observed.txt` |
 | 2007-04 | `license-discuss` | **観測（Rosen 氏・承認の指針は独自性の証明・1 通）** | `2007-04-license-discuss-rosen-uniqueness-observed.txt` |
 | 2019-08 | `license-discuss` | **観測（"For Public Comment: The Libre Source License" から 4 通・個人の起草者に示された順序、list に出すことの適否）** | `2019-08-license-discuss-libre-source-license-observed.txt` |
+| 2019-12 | `license-review` | **観測（Piana 氏の 1 通・正本の言語は 1 つに）** | `2019-12-license-review-mulan-psl-piana-one-authoritative-version-observed.txt` |
+| 2019-12 | `license-review` | **観測（提出者の 1 通・正本を 1 つにする文を v2 で足した）** | `2019-12-license-review-mulan-psl-v2-chinese-prevails-observed.txt` |
+| 2019-12 | `license-review` | **観測（Piana 氏の 1 通・訳の不具合で同名の別のライセンスが生まれる）** | `2019-12-license-review-mulan-psl-piana-translation-glitch-observed.txt` |
 | 2020-01 | `license-review` | **観測（Smith 氏の 1 通・bare license で party の語を使う危うさ）** | `2020-01-license-review-mulan-psl-smith-party-bare-license-observed.txt` |
 | 2008-03・2012-04 | `license-discuss`・`license-review` | **観測（公有化の 2 スレッドから 7 通・公有のソフトウェアは open source か、FAQ の公有化と CC0 の答えの受け取られ方）** | `2008-03-and-2012-04-license-lists-public-domain-faq-observed.txt` |
 | 2015-10 | `license-discuss` | **観測（"Short permissive no attribution required open source license" から 4 通・公有化の献呈と帰属を求めない fallback の提案、「十分すぎるほど在る」）** | `2015-10-license-discuss-short-permissive-no-attribution-observed.txt` |
