@@ -44,3 +44,10 @@ those sources.
     [...] "of a product or service, in particular as accessories or spare parts."
 [7] Art. 14(2): "Paragraph 1 shall only apply where the use made by the third party"
     [...] "is in accordance with honest practices in industrial or commercial matters."
+
+---- added 2026-11-17: UCC §2-719(3), https://www.law.cornell.edu/ucc/2/2-719 (fetched once) ----
+
+[8] §2-719(3): "Consequential damages may be limited or excluded unless the limitation or exclusion is unconscionable."
+    [...] "Limitation of consequential damages for injury to the person in the case of consumer goods is prima facie unconscionable"
+    [...] "but limitation of damages where the loss is commercial is not."
+
