@@ -1,0 +1,56 @@
+Source: the provisions that define the acts a patent reaches, in four jurisdictions, each fetched with the WebFetch
+        tool on 2026-11-16 by portfolio-30, one page at a time:
+        - 特許法 第二条第三項, e-Gov 法令 API, https://laws.e-gov.go.jp/api/1/articles;lawId=334AC0000000121;article=2
+        - Patentgesetz § 9, https://www.gesetze-im-internet.de/patg/__9.html
+        - Patents Act 1977 (c. 37) section 60(1), https://www.legislation.gov.uk/ukpga/1977/37/section/60
+        - Code de la propriété intellectuelle article L613-3, Légifrance, https://www.legifrance.gouv.fr/codes/section_lc/
+          LEGITEXT000006069414/LEGISCTA000006179056/ (shown as in force since 1 June 2023)
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes of at most 125 characters
+        each. Re-fetch and compare before relying on the exact wording.
+
+WHY THIS FILE EXISTS. Trial T94 of the 1.4 draft names, in Sections 8.1 and 8.4, the acts the patent licences reach
+("make, have made, use, offer to sell, sell, lend, import, export, keep, possess, and otherwise practise or transfer").
+These are the statutory lists of acts that a patent reaches in Japan, Germany, the UK and France, to check the named
+acts against (QUESTIONS-FOR-COUNSEL.md question 2 (g)).
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+===== 特許法 第二条第三項 =====
+1. 「この法律で発明について「実施」とは、次に掲げる行為をいう。」
+2. 「物（プログラム等を含む。以下同じ。）の発明にあつては、その物の生産、使用、譲渡等」
+3. 「（譲渡及び貸渡しをいい、その物がプログラム等である場合には、電気通信回線を通じた提供を含む。以下同じ。）、輸出若しくは輸入又は譲渡等の申出（譲渡等のための展示を含む。以下同じ。）をする行為」
+4. 「方法の発明にあつては、その方法の使用をする行為」
+5. 「物を生産する方法の発明にあつては、前号に掲げるもののほか、その方法により生産した物の使用、譲渡等、輸出若しくは輸入又は譲渡等の申出をする行為」
+
+===== § 9 PatG (Satz 1, Satz 2 Nr. 1 to 3), as reported =====
+6. "Das Patent hat die Wirkung, dass allein der Patentinhaber befugt ist, die patentierte Erfindung im Rahmen des geltenden"
+7. "Rechts zu benutzen. Jedem Dritten ist es verboten, ohne seine Zustimmung"
+8. "1. ein Erzeugnis, das Gegenstand des Patents ist, herzustellen, anzubieten, in Verkehr zu bringen oder zu gebrauchen"
+9. "oder zu den genannten Zwecken entweder einzuführen oder zu besitzen;"
+10. "2. ein Verfahren, das Gegenstand des Patents ist, anzuwenden oder, wenn der Dritte weiß oder es auf Grund der Umstände"
+11. "offensichtlich ist, daß die Anwendung des Verfahrens ohne Zustimmung des Patentinhabers verboten ist,"
+12. "zur Anwendung im Geltungsbereich dieses Gesetzes anzubieten;"
+13. "3. das durch ein Verfahren, das Gegenstand des Patents ist, unmittelbar hergestellte Erzeugnis anzubieten,"
+14. "in Verkehr zu bringen oder zu gebrauchen oder zu den genannten Zwecken entweder einzuführen oder zu besitzen."
+
+===== Patents Act 1977, section 60(1) =====
+15. "(1)Subject to the provisions of this section, a person infringes a patent for an invention if, but only if,"
+16. " while the patent is in force, he does any of the following things in the United Kingdom in relation to the invention"
+17. " without the consent of the proprietor of the patent, that is to say—"
+18. "(a)where the invention is a product, he makes, disposes of, offers to dispose of, uses or imports"
+19. " the product or keeps it whether for disposal or otherwise;"
+20. "(b)where the invention is a process, he uses the process or he offers it for use in the United Kingdom when he knows,"
+21. " or it is obvious to a reasonable person in the circumstances, that its use there without the consent of the proprietor would"
+22. " be an infringement of the patent;"
+23. "(c)where the invention is a process, he disposes of, offers to dispose of, uses or imports"
+24. " any product obtained directly by means of that process or keeps any such product whether for disposal or otherwise."
+
+===== Code de la propriété intellectuelle, article L613-3 =====
+25. "Sont interdites, à défaut de consentement du propriétaire du brevet :"
+26. "a) La fabrication, l'offre, la mise sur le marché, l'utilisation, l'importation, l'exportation, le"
+27. "transbordement, ou la détention aux fins précitées du produit objet du brevet ;"
+28. "b) L'utilisation d'un procédé objet du brevet ou, lorsque le tiers sait ou lorsque les circonstances rendent"
+29. "évident que l'utilisation du procédé est interdite sans le consentement du propriétaire du brevet,"
+30. "l'offre de son utilisation sur le territoire français ;"
+31. "c) L'offre, la mise sur le marché, l'utilisation, l'importation, l'exportation, le transbordement"
+32. "ou la détention aux fins précitées du produit obtenu directement par le procédé objet du brevet."
