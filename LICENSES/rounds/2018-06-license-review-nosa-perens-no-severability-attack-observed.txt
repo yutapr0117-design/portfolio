@@ -1,0 +1,84 @@
+Source: OSI license-review public archive, 2018-June.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-18)
+Messages: 1 of 47 in "NOSA 2.0 and Government licensing [was: moving to an issue tracker [was Re: Some notes for license submitters]]" (2018-06-20)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From bruce at perens.com  Wed Jun 20 18:12:18 2018
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 20 Jun 2018 11:12:18 -0700
+Subject: [License-review] NOSA 2.0 and Government licensing [was: moving
+ to an issue tracker [was Re: Some notes for license submitters]]
+In-Reply-To: <CADaGzk4drCrhcBoZnGmPnaV1tJnhOULkL0G9T+waf0YZTFNgvw@mail.gmail.com>
+References: <CAK2MWOshAdEHk2NFKVg+7j8gGW7t17Q5bXdcHkdBkSrKkdJX+Q@mail.gmail.com>
+ <CADaGzk4drCrhcBoZnGmPnaV1tJnhOULkL0G9T+waf0YZTFNgvw@mail.gmail.com>
+Message-ID: <CAK2MWOsRo4JuFPtuE=kKEkg=LXqft=YPNkrJnEavKxV18JWSFQ@mail.gmail.com>
+
+On Wed, Jun 20, 2018 at 10:34 AM, Nigel T <nigel.2048 at gmail.com> wrote:
+>
+> Cem mentioned that he discussed these concerns at length in the past.  If
+> you are unaware of what the concerns are then how can you be so
+> declaratively insistent in your assertions that they can just leave code in
+> the public domain?
+>
+
+I was around for Bryan discussing this once. However, as I laid out in
+another message, the problem of public domain isn't unique to the
+government, and actually effects every Open Source program, simply because
+not all work can be copyrighted and all programs have portions that can not
+be copyrighted. And yet we haven't had a severability attack on an Open
+Source license that I am aware of.
+
+It's not necessarily in the public domain in all jurisdictions.  This is
+> one of the concerns that Cem and others have covered in the past.
+>
+That's correct. And as long as the license provides the required
+permissions for the entire work, that's not a problem.
+
+In contrast, the attempt to assert control over the public domain in the
+U.S. by applying contractual terms and terms regarding NASA as a secondary
+beneficiary create legal ambiguity as written, and also establishes a
+really harmful precedent that is damaging for Open Source. We need the
+public domain to be public domain without restrictions, or Open Source
+can't really function. If public domain material is contractually
+restricted, it takes away all potential to for Open Source to interoperate
+with proprietary software. So for us to accept those terms would be
+damaging to all Open Source.
+
+
+> https://github.com/USArmyResearchLab/ARL-Open-Source-
+> Guidance-and-Instructions
+>
+
+ This one accepts CC0 as a viable license for the public domain. CC0 is a
+dedication to the public domain with no restrictive contractual terms. I
+don't see why CC0 is acceptable here and the BSD license, for example, is
+not.
+
+https://github.com/Code-dot-mil/code.mil
+>
+
+What statement in there? It's the entire code.mil site.
+
+https://github.com/openjournals/joss/issues/179
+>
+
+This is regarding JOSS acceptance policy, they note that licenses exist and
+that it is better to use one even if you don't actually have rights to
+grant.
+
+
+> You also keep dodging the point that one of your primary concerns of
+> license proliferation does not apply in the case of NOSA.
+>
+
+This is predicated on the Open Source community not actually attempting to
+incorporate the work into anything.  I don't think it's realistic.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20180620/d633929e/attachment-0001.html>
