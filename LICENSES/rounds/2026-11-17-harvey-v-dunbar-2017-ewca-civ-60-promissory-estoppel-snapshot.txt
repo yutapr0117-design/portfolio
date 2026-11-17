@@ -1,0 +1,20 @@
+Source: Harvey v Dunbar Assets Plc [2017] EWCA Civ 60 (Court of Appeal, Civil Division, handed down 13 February 2017),
+        The National Archives, Find Case Law, https://caselaw.nationalarchives.gov.uk/ewca/civ/2017/60
+        (found through the site's search for "promissory estoppel" "shield" "sword" in the Court of Appeal)
+Retrieved: 2026-11-17 by portfolio-30, with the WebFetch tool. (BAILII returned HTTP 403 to the same tool on 2026-11-16.)
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes of at most 125 characters.
+        The two quotes below are from the same paragraph; the tool did not say whether words lie between them.
+        Re-fetch and compare before relying on the exact wording.
+
+WHY THIS FILE EXISTS. Section 2.5 of the 1.4 draft relies on estoppel to stop the Dedicator asserting that the
+Dedication is revocable or ineffective. In English law the doctrine is said to act as a shield and not a sword;
+jurisdictions.md section 7 had recorded that point without a source.
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD. The case is about a guarantee, not a
+licence; it is cited only for its statement of the general doctrine.
+
+===== paragraph 62 (Henderson LJ), as reported =====
+1. "it cannot alone confer positive rights on the promisee"
+2. "(often expressed by saying that the doctrine operates as a shield and not as a sword)"
+
+The tool reported that the judgment does not cite Combe v Combe.
