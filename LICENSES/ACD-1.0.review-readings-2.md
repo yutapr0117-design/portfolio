@@ -760,3 +760,22 @@ census の unquoted-decider（候補の外の会話の、ドシエが 1 文も�
 **この節が establish しないこと。** §2.5 の禁反言が米国の裁判所で撤回を実際に止めるか。大陸法で ACD が贈与と読まれるか。
 
 **反映**: 入口（法律家への問い 1 に「米国では §2.3 → bare license → §2.5 とリステイトメント 90 条」の線を、出典と共に・50 へ）/ 1c（THIRD §18.1 の §2.2・§2.3・§2.5 の行に、この線と 4 つの法源を）/ B4（撤回不能の足場が米国と大陸法で違うこと・30 へ）。
+
+## 1.262 「起草者は準拠法の条項を入れないでほしい」（Piana 氏 2022）—— §15.3 が準拠法も法廷地も名指さないことへの、決める側の人とライセンスの steward の理由。逆側は「省けば受け手の法域へ行く、というのは魔法か」（Rosen 氏 2022）（2026-11-18）
+
+オーナーの依頼（2026-11-16「法的解釈の不確実性を 5 人で減らし続けて」）の portfolio-2f の受け持ち（リストの法律家の発言を条ごとに当てる）。`QUESTIONS-FOR-COUNSEL.md` 問い 7（§15.3）は、理事会の 1 文（*"it does not believe that choice of law provisions are necessary or advisable in open source licenses"*・`against.md` #254）だけを省くことの支えに挙げていた。同じ論点を論じた 2022-12 の `license-review` の会話（Open Logistics License の審査から分かれた・件名 "in opposition of 'choice of law' provisions in FOSS licenses"）は、決める側の人の通 12 通がドシエのどの分析にも引かれていなかった（逐語は `rounds/2022-04-license-review-open-logistics-license-observed-10of15.txt`〜`12of15` に既に在る）。
+
+| 発言 | 誰が | §15.3 への当たり方 |
+| :-- | :-- | :-- |
+| *"Another notable license dropping it for good is Creative Commons (v3 -> v4)"* / *"I strongly invite drafters NOT to include choice-of-law provisions in their licenses."* | Carlo Piana 氏 2022-12-14（`rounds/…-10of15.txt`） | **有利な面。** 決める側の人が、準拠法の条項を入れないよう起草者に求めた。CC も 4.0 で外した。§15.3 の省き方と同じ向き |
+| 準拠法の条項が嫌われる実務上の理由として、多くの法律家が嫌う（EPL-1.0 は準拠法の条項のために米国寄りと見られ、避けられた）と、多くの法律家が読まない、の 2 つを挙げた（`rounds/…-10of15.txt` の 204〜205 行） | Mike Milinkovich 氏 2022-12-13（Eclipse の EPL の steward・当時 OSI の宛名） | **有利な面。** 準拠法を選ぶことが利用の妨げになった steward の経験。ACD の利用者が法域の偏りを感じない形 |
+| 準拠法の条項は、選ばれた法域に不慣れな参加者に偏りを生み、FOSS のライセンスは同じ文で世界中に働き、全ての法域を等しく扱うべきだ、という理由の列挙 | Bradley M. Kuhn 氏 2022-12-12（アーカイブの写し・`license-review` 2022-12） | **有利な面。** §15.3 が法域を選ばない理由と同じ |
+| *"Does anyone on here believe that omitting a "choice of law" provision entirely from a software license will necessarily result in the license being sent to the licensee's jurisdiction for court enforcement?"* / *"How does that default work? Is it magic?"*（写しでは引用符が "?" に化けている） | Lawrence Rosen 氏 2022-12-17（`rounds/…-12of15.txt`・OSL の起草者で、OSL は許諾者の所在地の法を名指す） | **逆側。** 省けば受け手の法域で裁かれる、とは限らない。`rounds/2026-11-16-eu-tdm-and-conflict-of-laws-snapshot.txt` のローマ I 第 4 条 2 項（選択が無ければ特徴的な給付をする当事者の常居所地）は、契約の側では許諾者（Dedicator）の法を指す —— Rosen 氏の問いの向きを EU の条が裏づける。侵害の側はローマ II 第 8 条で保護が求められる国の法で、合意では動かない |
+
+**読み。** §15.3 の省き方は、理事会（#254）に加え、決める側の人（Piana 氏）と steward（Milinkovich 氏）と常連（Kuhn 氏）の理由で支えられる。残る費用（受け手が外国で訴えられたとき、指す条項が無い・契約の側は Dedicator の法へ向く）は、Rosen 氏の問いとローマ I が同じ所を指しており、問い 7 の 1.4 草案の段（T92 の後）が既に問うている。
+
+**逆側。** 準拠法の条項を持つ承認済みのライセンスは多い（OSL 3.0・MPL 2.0 の法廷地・CAL 7.2 —— 同じ会話の Chestek 氏・Fontana 氏の列挙）。省くことは承認の要件ではなく、好みの線である。
+
+**この節が establish しないこと。** 外国で訴えられた受け手にとって、名指しが無いことが不利に働くか。
+
+**反映**: 入口（問い 7 の "Why we doubt it" の理事会の 1 文に、Piana 氏・Milinkovich 氏の理由と Rosen 氏の逆側を並べるか・50 へ）/ B8（準拠法を選ばないことの支えと費用・30 へ）。
