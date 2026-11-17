@@ -60,11 +60,12 @@ there a word that would cover them without reaching things that are not artefact
 
 §8.4 reaches a patent claim *"only where the feature that infringes it results, in whole or in
 part, from the content of the Work; a feature that the Work teaches or embodies is taken so to
-result"*, and says *"no threshold of how much of the Work was used is imposed, since You could not
-determine whether one had been crossed"*.
+result"*, and says *"That is a question of causation and not of quantity: no threshold of how much of
+the Work was used is imposed."* (ACD-1.3 gave the reason in the text: *"since You could not determine
+whether one had been crossed"*; the 1.4 draft dropped it in trial T80.)
 
-**Why we doubt it.** The clause drops a quantity test because a user cannot measure it, and then
-uses a causal test. Whether a capability of a trained model results from one document in its
+**Why we doubt it.** The clause drops a quantity test, which a user cannot measure, and uses a causal
+test instead. Whether a capability of a trained model results from one document in its
 training data may be no easier to establish. **The question:** in your experience, can a model
 builder, or a court with expert help, decide that a feature results from particular training
 content? If not, does the second half (*"teaches or embodies"*) do the work on its own?
