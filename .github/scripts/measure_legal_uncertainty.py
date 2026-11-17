@@ -102,12 +102,14 @@ def baseline_items() -> tuple[str, set] | tuple[None, set]:
 
 DEST = re.compile(r"問い ?\d+|jurisdictions|法律家|QUESTIONS|PRACTITIONERS|確立していない")
 NO_DEST: list[str] = []  # ③ の行で行き先 (問い N / jurisdictions / 法律家) を書いていない行 (count() が埋める)
+NO_SRC: list[str] = []   # ③ の行で法源 (rounds/) も試作の着地も無い行 —— 30 と 2f が次に取りに行く法源の一覧 (2026-11-18)
 
 
 def count() -> tuple[dict[int, Counter], list[str]]:
     by: dict[int, Counter] = defaultdict(Counter)
     errs = []
     NO_DEST.clear()
+    NO_SRC.clear()
     for fname, key in (("QUESTIONS-FOR-COUNSEL.md", "Q"), ("QUESTIONS-FOR-PRACTITIONERS.md", "P")):
         for h in re.findall(r"^## \d+\. .*$", (L / fname).read_text(encoding="utf-8"), re.M):
             for n in sections(h):
@@ -148,6 +150,8 @@ def count() -> tuple[dict[int, Counter], list[str]]:
         #   第 18 節にだけ在って、台帳の Q / J に数えられない不確実性になる
         if m.group(3) == "③" and m.group(4) != "法律家のみ" and not DEST.search(m.group(0)):
             NO_DEST.append(f"§{m.group(1)}（行の形）")
+        if m.group(3) == "③" and m.group(4) not in ("出典あり", "本文で消えた"):
+            NO_SRC.append(f"§{m.group(1)} —— {m.group(2)[:60]}")
         if m.group(4) in ("出典あり", "本文で消えた"):
             by[n]["狭まった"] += 1
         # 法源は「・」「,」で複数つないでよい (2026-11-16・30 が §12.2・§12.4 で 3 つの file をつないだ・2f の報告)
@@ -172,6 +176,8 @@ def count() -> tuple[dict[int, Counter], list[str]]:
         # 試作で本文が変わり、命題が要らなくなった行も「狭まった」(行の形の「本文で消えた」と同じ・2026-11-16): 分類の欄に
         #   「T84 で入った」「T84〜T88 で入った」「本文で消えた」と書く
         trial = re.search(r"T\d+(?:〜T\d+)?\s*で入った|本文で消えた", cells[-1])
+        if cls.group(0) == "③" and not (srcs or trial):
+            NO_SRC.append(f"{cells[0][:40]} —— {cells[1][:60] if len(cells) > 1 else ''}")
         if srcs or trial:
             by[n]["狭まった"] += 1
             errs += [f"{cells[0][:30]} の法源の file が LICENSES/ の下に無い: {s}" for s in srcs if not (L / s).exists()]
@@ -226,6 +232,9 @@ def main(argv: list[str]) -> int:
     print(f"# ③ の行で行き先（問い N / jurisdictions / 法律家）を書いていない行: {len(NO_DEST)}"
           "（語では消せない不確実性が第 18 節にだけ在り、台帳の Q / J に数えられない）")
     for x in NO_DEST:
+        print(f"#   ・ {x}")
+    print(f"# ③ の行で法源（rounds/）がまだ無い行: {len(NO_SRC)}（30 = 独・英・仏・日、2f = 米国・EU が次に取りに行く候補）")
+    for x in NO_SRC:
         print(f"#   ・ {x}")
     for e in errs:
         print(f"# ⚠ {e}")
