@@ -24,3 +24,15 @@ This is the Ninth Circuit's statement of why a licence it found was irrevocable:
 [4] "If an implied license accompanied by consideration were revocable at will, the contract would be
     illusory. Lu-lirama, 128 F.3d at 882-83."
     (heading of the part, as extracted: "4. Scope and Irrevocability of Implied Li-cense")
+
+---- added 2026-11-17 from the same extraction: the implied-licence test (question 4, §2.6) ----
+
+[5] "Though exclusive licenses must be in writ-ing, 17 U.S.C. § 204, grants of nonexclusive licenses need not be
+    in writing, and may be granted [**14] orally or by implication. Foad Consulting Group, Inc. v. Azzalino,
+    270 F.3d 821, 825-26 (9th Cir. 2001)."
+[6] "The relevant intent is the licensor's objective intent at the time of the creation and delivery of the
+    software as manifested by the parties' conduct. See Effects, 908 F.2d at 559 n.6 (noting that "every
+    objective fact concerning the transac-tion" supported the finding that an implied li-cense existed)"
+[7] "Courts have looked to contracts, even if unexecuted, as evidence of the intent of the party submitting the
+    contract."
+
