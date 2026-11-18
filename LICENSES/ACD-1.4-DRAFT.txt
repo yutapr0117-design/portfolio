@@ -218,7 +218,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       offer to sell, and also name lending, leasing, exporting, keeping, and
       possessing among the acts they license. (+6 words.)
     * Section 8.2 now says that the licences are not terminable by the
-      Dedicator "under this Dedication" on any ground. (+3 words.)
+      Dedicator "under this Dedication" on any ground (errata E86). (+3
+      words.)
     * Section 8.6 now says that its covenant "is given for every
       jurisdiction", where it said that it "operates" in every jurisdiction.
       (+1 word.)

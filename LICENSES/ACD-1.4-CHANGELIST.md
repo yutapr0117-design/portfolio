@@ -209,6 +209,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | E82 | §5.2(a) | *"apply, or"* を外す（−2 語・上の表の「§5.2(a)（*apply*・T64）」行と同じ変更） | **反映済み**（2026-11-15）|
 | E83 | §5.3 | 主語に §8.6 を足す（+1 語・上の表の「§5.3（受益者・T66）」行と同じ変更） | **反映済み**（2026-11-15）|
 | E85 | §8.3 | 第 3・第 4 文を外す（−40 語・上の表の「§8.3（理由の文と規則・T71）」行と同じ変更） | **反映済み**（2026-11-15）|
+| E86 | §8.2 | *"not terminable by the Dedicator on any ground"* を *"not terminable by the Dedicator under this Dedication on any ground"* へ（+3 語・T85 と同じ変更・errata は 2026-11-17 に後から記録した） | **反映済み**（2026-11-16）|
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
@@ -395,11 +396,11 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 > **If you read ACD-1.0 on `license-discuss`, this is what is different in the version submitted.**
 > The direction is unchanged: no condition is placed on You in respect of the Work (§10.1), the
 > surrender, the licence and the covenant stand side by side (§2.4, §4.4), and the patent grant
-> reaches models and outputs (§8.4). What changed is precision. Of the 84 defects recorded against
-> 1.0 in [`ACD-1.0.errata.md`](ACD-1.0.errata.md), 82 are closed: 36 in 1.1 to 1.3 (19, 13 and 4)
-> and 46 for the first time in 1.4. E10 is carried into finalisation and E6 is left as it is by
+> reaches models and outputs (§8.4). What changed is precision. Of the 85 defects recorded against
+> 1.0 in [`ACD-1.0.errata.md`](ACD-1.0.errata.md), 83 are closed: 36 in 1.1 to 1.3 (19, 13 and 4)
+> and 47 for the first time in 1.4. E10 is carried into finalisation and E6 is left as it is by
 > design. By the clause
-> each entry names first, most were in §8 (patents, 14), §16 (applying the text and its name, 13),
+> each entry names first, most were in §8 (patents, 15), §16 (applying the text and its name, 13),
 > §2 (scope and effect, 11) and §1 (definitions, 8); seven name the preamble or several clauses at
 > once. Further changes came from our own sweeps of the
 > later drafts and are listed, with their reasons, in each version's change list. The text is
