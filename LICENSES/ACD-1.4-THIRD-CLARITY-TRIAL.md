@@ -757,17 +757,17 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 
 **反例の結果**: 50（§8.4 の側）—— 反例なし（*in each case* を行為ごとと読む別の読みは、行為が *resulting from* の主語になれないので外れる。他人の作品と混ぜて学習したモデルは §8.4 の因果の文 *in whole or in part* が絞る）。30 —— §6.4・§8.4 は反例なし（*in each case* は範囲を定める語で立証の負担を割り当てない）。**§1.7 に反例**: §1.7 の文は外側に 3 つの並びを持ち、文の末尾の *in each case* がその「各場合」にも掛かると読め、T96 が新しい割れを持ち込んだ → §1.7 だけ *"other data that results from that processing"*（関係節は *any* が束ねる名詞の束に付き、外側の並びに届かない）。逆側: last antecedent rule で *other data* だけに付く余地は残るが、*any* と単数の *results* が束ねの読みを支える。登録した問い: (a) *in each case* が、§6.4 で「各項ごとに Computational Use の結果であることを示せ」という立証の負担を受け手に課すと読まれないか、(b) §1.7 の他の列挙（*"reproduction, extraction, normalisation, indexing, retrieval, analysis, and text and data mining"*）に同じ型の割れが無いか。
 
-### 15.32 T97・T98・T99 —— 一意化の束 1（+20 語・2026-11-18・【反例待ち】）
+### 15.32 T97・T98・T99 —— 一意化の束 1（+23 語・2026-11-18）
 
 §19 の 3 つの帯が出した試作の種を 1 本の束にした（反例を一度に当てられるように）。
 
 | 試作 | 条 | Before → After | 別の読み（§19 の行）|
 | :-- | :-- | :-- | :-- |
 | T97 | §4.5 | *"incompatible with these"* → *"incompatible with this Dedication"*（+1）| *these* が直前の *terms*・*conditions* を指す（§19.1）|
-| T98 | §5.2 末段 | 末に *"and Section 5 reaches those terms and measures to the extent they govern that copy"*（+16）| 自分の素材の利用条件が、中の Work の写しにも §5 の外で効く（§19.2・30）。30 の案の *apply to it* は *it* が割れるので *that copy* と名指した |
-| T99 | §8.3 第 2 文 | *"or leaves unaffected any patent claim they reach"* → *"…, as to those acts, any patent claim they reach"*（+4）| 第 2 文だけを引くと請求全体を残さないと読める（§19.3・50）|
+| T98 | §5.2 末段 | 末に *"and Section 5 reaches those terms to the extent they restrict what may be done with that copy"*（+16）| 自分の素材の利用条件が、中の Work の写しにも §5 の外で効く（§19.2・30）。30 の案の *apply to it* は *it* が割れるので *that copy* と名指した |
+| T99 | §8.3 第 2 文 | *"or leaves unaffected any patent claim they reach"* → *"Nothing in this Dedication, as to those acts, reserves, …"*（+4）| 第 2 文だけを引くと請求全体を残さないと読める（§19.3・50）|
 
-**反例の担当へ（30・50）**: (a) T97 の *this Dedication* が、§4.5 の「受け手の加える条件はこの Dedication と両立しなくてよい」を「Dedication の効力を損なう条件も可」と読ませないか（§4.6 第 2 文が受ける、と読む）、(b) T98 の *that copy* が、Dedicator が自分で改変した写し（改変していない部分は Work のまま）に及ぶか、(c) T99 の *they* の先行詞（第 1 文の *Sections 8.1 and 8.4*）。
+**反例の結果**: T97 —— 30・50 とも反例なし（You は Dedicator でないので、You の条件が Dedication の効力を損なうことはできず、受け手の側は §4.6 第 1 文が閉じる・30）。T98 —— 2 つ立った: 30 は *govern* が条件の「対象」を問う語として狭く読まれる（「モデルの条件はモデルを規律し、中の写しを規律しない」）として §2.2 の語 *restrict what may be done with* を勧め、50 は *measures* が写しだけを切り分けられず §5.2(a) が Dedicator 自身のモデルの保護全体に届くとして *measures* を外すことを勧めた → 両方を採った（+18）。T99 —— 30 は *they* の先行詞を第 1 文の主語と確かめ（*acts* は請求に「届く」ことができない）、50 は挟んだ句が直前の *leaves unaffected* だけに掛かる読みを示した → 句を主語の直後へ移した（語数同じ）。登録した問い: (a) T97 の *this Dedication* が、§4.5 の「受け手の加える条件はこの Dedication と両立しなくてよい」を「Dedication の効力を損なう条件も可」と読ませないか（§4.6 第 2 文が受ける、と読む）、(b) T98 の *that copy* が、Dedicator が自分で改変した写し（改変していない部分は Work のまま）に及ぶか、(c) T99 の *they* の先行詞（第 1 文の *Sections 8.1 and 8.4*）。
 
 ## 19. 法的解釈を一意に定める —— 各条の「最も強い別の読み」を 1 つ書き、立つなら語で消す（2026-11-18〜・オーナーの依頼）
 
