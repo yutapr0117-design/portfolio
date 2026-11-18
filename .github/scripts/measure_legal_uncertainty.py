@@ -188,14 +188,16 @@ ROW19 = re.compile(r"^- §(\d+(?:\.\d+)?(?:\([a-z]\))?)[^|]*\| 別の読み: (.+
 
 
 def section19() -> tuple[Counter, list[str]]:
-    """THIRD §19 (本文の語が 2 通り以上に読める所・2026-11-18 のオーナーの依頼「法的解釈が一意に定まるように」) の行を数える。
+    """§19 (ACD-1.4-UNIQUE-READING.md・本文の語が 2 通り以上に読める所・2026-11-18 のオーナーの依頼「法的解釈が一意に定まるように」) の行を数える。
     行の形 (2f の案で 5 人が決めた): `- §x.y | 別の読み: … | 一意 / 試作 Tnn / 法の側 | 根拠: …`。
       一意   —— 他の条が既に一方に閉じている。根拠に閉じている条 (§N.M) を名指す
       試作   —— 語を変えれば定まる。T 番号を書き、本文に入ったら「Tnn で入った」、退けたら「退けた」と書く (開いている ② に当たる)
       法の側 —— 語では定まらず法が決める。根拠に問い N か §18 の行か jurisdictions を名指す
     返り値: (数, 直すべき行)。"""
-    third = L / "ACD-1.4-THIRD-CLARITY-TRIAL.md"
-    t = third.read_text(encoding="utf-8") if third.exists() else ""
+    # 2026-11-18 に THIRD から ACD-1.4-UNIQUE-READING.md へ移した (5 人が同じ末尾に足して衝突が続いたため)。草案の版が上がれば
+    #   ACD-N.M-UNIQUE-READING.md を読む
+    f19 = sorted(L.glob("ACD-1.*-UNIQUE-READING.md"))
+    t = f19[-1].read_text(encoding="utf-8") if f19 else ""
     s19 = re.search(r"^## (?:§)?19[ .].*?(?=^## (?:§)?\d+[ .]|\Z)", t, re.M | re.S)
     c, bad = Counter(), []
     for m in ROW19.finditer(s19.group(0) if s19 else ""):
