@@ -118,6 +118,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `LICENSES/ACD-1.0.jurisdictions-sources.md` | 315 | 400 | `advisory` | `jurisdictions.md` の §9（外から届いた法源）と §9a（その原典の読み）。**2026-11-16 に元の文書から分けた** —— 法域ごとの読みに一次の法源を足し続けると元の文書が 1,000 行（Check 365）に届くため。 |
 | `LICENSES/ACD-1.0.gap-measurements.md` | 864 | 900 | `advisory` | 差の測定と、差を左右する審査の記録（§1.133〜§1.160）。**2026-11-08 に §1.160 を足して 800 行を越え、Check 454 で登録した。** 次に分けるなら、審査の記録を読んだ節（§1.143 以降）が独立した塊である |
 | `LICENSES/ACD-1.0.review-readings.md` | 1021 | 900 | `advisory` | 未読のスレッドと審査の帰結を読んだ記録（§1.164 以降）。**2026-11-09 に、reviewer-positions と gap-measurements が予算に近づいたので新しい節の置き場として作った（既存の節は動かしていない）。** |
+| `LICENSES/ACD-1.4-THIRD-CLARITY-TRIAL.md` | 802 | 950 | `advisory` | 1.4 草案の三つ目の明確さの試作の記録（§15〜）と、§18（法の側の不確かさ）・§19（本文の語の割れ）の 5 人の帯の行。**2026-11-18 に §19.4 で 800 行を超えたので登録した**（portfolio-2f）。分けるか（例えば §18・§19 を別の file へ）は持ち主の portfolio-1c の判断 |
 | `LICENSES/ACD-1.0.review-readings-2.md` | 817 | 950 | `advisory` | portfolio-2f の読みの記録（§1.218〜・未読の会話、ドシエが引いていない決める側の通、法的解釈の不確実性を減らすためのリストの法律家の発言）。**2026-11-18 に §1.264 で 800 行を超えたので登録した**（portfolio-2f）。§1.2xx の番号の帯が尽きるか 950 行に近づいたら、新しい file（`review-readings-7.md` 以降）に節を置く |
 | `LICENSES/ACD-1.0.review-labels.md` | 207 | 500 | `advisory` | **リストが我々の類型に付ける呼び名の記録（§1.98 クレヨン / §1.99 vanity）。**2026-09-19 に `reviewer-positions.md` が 1,000 行に当たったので切り出した —— 境界は「**特定の人・特定の提出についての記録か、呼び名についての記録か**」。**節番号は変えていない**ので既存参照は解決する。**分割の disposition**: 次に越えたら**呼び名ごと**に割る（呼び名は互いに独立で、読む動機も別々である）|
 | `LICENSES/ACD-1.0.objection-map.md` | 97 | 300 | `advisory` | 既知の反論が ACD-1.0 に当たるかを 1 表にした文書（§1.62 のみ）。**2026-09-09 に `review-precedents.md` が advisory を越えたので切り出した** —— ただし理由は規模だけではない。**他の節の合成であって precedent の記録ではなく、審査者が最初に読むべきもの**なので、900 行の末尾に置いておくのは #6（長さ）への数少ない実務的対処を捨てることになる。**節番号 §1.62 は変えていない**ので既存の参照は解決する。**分割の disposition**: 表が 2 つ以上になったら「当たる」「当たらない」で割らない —— **並べて読めることがこの文書の唯一の機能**である |
@@ -667,6 +668,7 @@ LICENSES/ACD-1.0.jurisdictions.md | 900 | advisory
 LICENSES/ACD-1.0.jurisdictions-sources.md | 400 | advisory
 LICENSES/ACD-1.0.gap-measurements.md | 900 | advisory
 LICENSES/ACD-1.0.review-readings.md | 900 | advisory
+LICENSES/ACD-1.4-THIRD-CLARITY-TRIAL.md | 950 | advisory
 LICENSES/ACD-1.0.review-readings-2.md | 950 | advisory
 LICENSES/ACD-1.0.review-labels.md | 500 | advisory
 LICENSES/ACD-1.0.objection-map.md | 300 | advisory
