@@ -815,3 +815,19 @@ census の unquoted-decider（候補の外の会話の、ドシエが 1 文も�
 **この節が establish しないこと。** 各法域の裁判所が §15.2 の改めの指示に従うか。
 
 **反映**: 1c（`ACD-1.4-THIRD-CLARITY-TRIAL.md` §18.5 の §15.2 の行の支え —— 承認済みの CAL 7.6 と同じ型で、切り離しを法域に限る点で狭い・9b の帯）/ 入口（§15.2 の説明に CAL 7.6 との同じ型と違いを添えるか・50 へ）。
+
+## 1.265 「作成者に不利な解釈の規則は、法域で違い、当たらないこともある」（Piana 氏 2017）—— §15.6 が法の解釈の規則を外し、§15.1 が受け手に有利な読みを本文で定める理由（2026-11-18）
+
+オーナーの依頼（2026-11-16「法的解釈の不確実性を 5 人で減らし続けて」）の portfolio-2f の受け持ち（リストの法律家の発言を条ごとに当てる）。1.4 草案の §15.1 は *"This Dedication, in respect of the Work, is to be construed so as to give the widest permission and the least obligation upon You that its words allow, and so that, where a provision is capable of more than one reading, the reading that grants more to You prevails."* —— 受け手に有利な読みを、法の規則に任せず本文で定める。§15.6 は *"No rule of construction that resolves ambiguity against the drafter applies to this Dedication, and no rule that construes a grant narrowly against the grantee applies to it."* と、両向きの法の解釈の規則を外す。アーカイブの写しで法律家と決める側の人の通を "contra proferentem" と「起草者に不利に解釈」の語で当て、ドシエに無い 1 通を置いた（`rounds/2017-08-license-review-w3c-piana-contra-proferentem-observed.txt`）。起草者に不利に解釈する規則を外す条が承認済みのライセンスの定型であること（MPL 1.1 系・CDDL・CPAL、MPL 2.0 は貢献者の側だけに狭めた）は、`review-responses-boilerplate.md` の §15.6 の段に既に在る。
+
+| 発言 | 誰が | §15.1 への当たり方 |
+| :-- | :-- | :-- |
+| *"a license might be interpreted beyond the intentions of the drafter and sometimes also not against her interests; in many laws there is a \*contra proferentem\* rule, but that may be recessive or non applicable, and anyway being based on contractual law, \*the rule itself\* would largely vary, never mind \*its concrete application\*."* | Carlo Piana 氏 2017-08-09（W3C Software and Document License の審査・特許を明示しないことの危うさについて） | **有利な面（§15.6 と §15.1 の組の理由）。** 作成者に不利な解釈の規則は、法域で違い、劣後するか当たらないことがある —— 法の規則に任せると、受け手に有利な読みが法域ごとに変わる。§15.6 が法域ごとの規則を外し、§15.1 が受け手に有利な読みを本文で定めるので、この揺れを文書の側で消す |
+
+**読み。** §15.6 と §15.1 の組は、Piana 氏が「法域で違い、当たらないこともある」とした規則を外し、同じ向き（受け手に有利）の解釈の指示を本文に置く。規則を外す側は承認済みの定型（MPL 1.1 系ほか）で、本文が解釈の向きを自分で定める側が ACD の加えた部分である。
+
+**逆側。** 本文の解釈の指示が、法域の解釈の規則（強行的な消費者法の解釈の規則など）より優先するかは、法域に依る。`review-responses-boilerplate.md` の §15.6 の段が書くとおり、規則を外す条は「起草者が保護規則から逃げている」と読まれうる —— §15.1 が同じ向きの読みを本文で残すことは、その読みへの答えになる。ACD の §15.1 は Dedicator にとって最も不利な読みを選ぶ指示で、受け手の側からこれを争う動機は乏しいが、Dedicator の承継人が争う場面は残る。
+
+**この節が establish しないこと。** §15.1 の解釈の指示を各法域の裁判所が採るか。
+
+**反映**: 1c（`ACD-1.4-THIRD-CLARITY-TRIAL.md` §18.5 の §15.1・§15.6 の行の支え —— 法の規則の揺れを本文で消す・9b の帯）/ 入口（`review-responses-boilerplate.md` の §15.6 の段に、Piana 氏の指摘を「外す理由」として添えるか・50 へ）。
