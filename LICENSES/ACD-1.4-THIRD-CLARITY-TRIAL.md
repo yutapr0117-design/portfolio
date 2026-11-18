@@ -769,3 +769,23 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 - §7.2 | 別の読み: *"without limit and without condition"* が、Dedicator 以外の者のデータベース権まで許す | 一意 | 根拠: 同じ文が *"so far as the Covered Rights of the Dedicator are concerned (Section 2.7)"* と限る。
 
 **§19.2 の結果**: 10 行のうち、立つ別の読みは 1 つ（§5.2 末段・試作の種）。§6.5 は一意だが、受け手に少なく与える側に本文が定めていることを逆側に記録した。
+
+### 19.3 §8〜§10（portfolio-50・main の 1.4 草案・T95 の後・2026-11-18）
+
+各条で、語の構造から立つ最も強い別の読みを 1 つずつ書いた。「一意」は他の語か他の条が既にその読みを閉じているもの（根拠にその条を名指す）、「試作」は語を変えれば 1 つに定まるもの、「法の側」は語では定まらず §18 の ③ に送るもの。
+
+- §8.1 | 別の読み: *"now or in future"* が *"owned or controlled"* でなく *"that those acts would infringe"*（侵害の時点）に掛かる | 一意 | 根拠: §8.5 が *"patent claims the Dedicator owns or controls, now or in future"* と、同じ句を保有の側に置いて繰り返す
+- §8.1 | 別の読み: *"where the infringement is caused by subject matter contained in the Work as made available by the Dedicator"* が許諾の「条件」で、§8.2 の *"subject to no condition"* と食い違う | 一意 | 根拠: §10.1 の *"condition … upon You"* は受け手に課すものを言い、この句は届く請求の範囲（何が侵害の原因か）を言う。§8.3 も *"reach a patent claim only as to the acts they describe"* と範囲の語で受ける
+- §8.2 | 別の読み: *"by You"* が *"participation in patent litigation"* だけに掛かり、*"commencement of"* は誰が始めても当たる | 一意 | 根拠: どちらの読みでも終了の事由にならない（*"on any ground"*）ので、読みが割れても効果は同じ
+- §8.3 | 別の読み: 第 2 文 *"Nothing in this Dedication reserves, preserves, or leaves unaffected any patent claim they reach"* が、届いた請求を（第 1 文の行為に限らず）全体として残さないと言い、第 1 文 *"only as to the acts they describe"* と食い違う | **試作の種（1c へ）** | 根拠: 第 2 文に行為の限定が無い。案: *"… leaves unaffected, as to those acts, any patent claim they reach."*（+4）。逆側: 第 1 文を読めば限定は明らかだという読みも立つが、2 つの文が別々に引かれると第 2 文だけが広く読まれる
+- §8.4 | 別の読み: *"resulting from Computational Use of the Work"* が *"other data"* だけに掛かり（直前の先行詞の規則）、*"any model"* はどのモデルでも許諾に入る | 試作 T96（1c・【反例待ち】・*"in each case resulting from"*） | 根拠: 1c の最初の当たり（§1.7・§6.4・§8.4 の同じ列挙）。§8.4 の第 6 文 *"reaches a claim only where the feature that infringes it results … from the content of the Work"* が因果で絞るので、特許の届く範囲はどちらの読みでも Work に由来する特徴に限られる —— 割れるのは「許される行為」の側
+- §8.4 | 別の読み: *"Section 8.1 alone governs a feature added to the Work, by whatever means"* の *"by whatever means"* が *"governs"* に掛かる、または §8.1 が足された特徴に許諾を与えると読む | 一意 | 根拠: §8.1 の但し書き（*"caused by subject matter contained in the Work as made available by the Dedicator"*）が、足された特徴による侵害を §8.1 の外に置く。この文は「§8.4 がそれを拾わない」と言うだけ
+- §8.5 | 別の読み: *"at the time in question"* が行為の時点を指し、Dedicator が行為の後に取得した請求は、その行為については届かない | 一意（効果の側） | 根拠: §8.6 の約束が *"not to assert … the patent claims that Sections 8.1 and 8.4 reach, in respect of any act that those Sections describe"* と主張の時点で働くので、後に取得した請求で過去の行為を訴えることはどちらの読みでも約束に反する。時点の語そのものは E60 が「各時点で読む」と閉じた
+- §8.6 | 別の読み: *"either licence"* が §8.1・§8.4 でなく §4.1 と §8 を指す | 一意 | 根拠: 同じ文の主語が *"Sections 8.1 and 8.4"* の請求で、*"either"* は 2 つのうちの一方
+- §9.2 | 別の読み: *"asserts no right in Machine-Generated Material"* が、Dedicator 以外の者の権利も主張されないと言う | 一意 | 根拠: 主語が *"The Dedicator"* で、§2.7 が届く範囲を Dedicator の権利に閉じる
+- §9.2 | 別の読み: 末文 *"Where a right that this Dedication reaches subsists, or is later held to subsist, this Dedication applies to it"* の *"it"* が *"a right"* でなく Work を指す | 一意 | 根拠: 単数の先行詞は *"a right"* だけで、Work はこの文に出ない
+- §10.1 | 別の読み: *"in respect of the Work"* が、モデル・出力について条件を課す余地を残す | 一意 | 根拠: §6.4 *"You owe nothing under this Dedication in respect of any of them"* がモデル・出力の側を閉じる
+- §10.3 | 別の読み: *"Under this Dedication"* が文頭に在るので、Dedicator が別の契約で同じ要望を条件にしたとき、それも「条件ではない」と読む | 一意 | 根拠: 文頭の句は「この Dedication の下では」と範囲を限り、別の契約の効果を言わない。§5.2(b) が、別の手段で義務を課さない約束を Dedicator に負わせる側を受け持つ
+- §10.4 | 別の読み: *"No permission granted by this Dedication terminates under it, for any reason"* の *"it"* が *"permission"* を指す | 一意 | 根拠: 第 2 文が *"This Dedication … contains no termination provision"* と同じ主語で受ける
+
+**§19.3 の結果**: 13 行のうち、立つ別の読みは 2 つ —— §8.3 第 2 文（試作の種）と §8.4 の列挙の後の修飾（1c の T96 が既に試作）。一意 11、法の側 0。
