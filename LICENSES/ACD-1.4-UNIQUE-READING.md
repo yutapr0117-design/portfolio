@@ -64,7 +64,7 @@ THIRD（`ACD-1.4-THIRD-CLARITY-TRIAL.md`）にあった第 19 節を 2026-11-18 
 - §10.3 | 別の読み: *"Under this Dedication"* が文頭に在るので、Dedicator が別の契約で同じ要望を条件にしたとき、それも「条件ではない」と読む | 一意 | 根拠: 文頭の句は「この Dedication の下では」と範囲を限り、別の契約の効果を言わない。§5.2(b) が、別の手段で義務を課さない約束を Dedicator に負わせる側を受け持つ
 - §10.4 | 別の読み: *"No permission granted by this Dedication terminates under it, for any reason"* の *"it"* が *"permission"* を指す | 一意 | 根拠: 第 2 文が *"This Dedication … contains no termination provision"* と同じ主語で受ける
 
-**§19.3 の結果**: 13 行のうち、立つ別の読みは 2 つ —— §8.3 第 2 文（1c の T99・【反例待ち】）と §8.4 の列挙の後の修飾（T96 で入った）。一意 11、法の側 0。
+**§19.3 の結果**: 13 行のうち、立つ別の読みは 2 つ —— §8.3 第 2 文（T99 で入った・句は主語の直後に置いて 3 つの動詞すべてに掛けた）と §8.4 の列挙の後の修飾（T96 で入った）。開いている試作は 0。一意 11、法の側 0。
 
 ### 19.4 §11〜§13（portfolio-2f・main の 1.4 草案）
 
