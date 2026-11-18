@@ -147,9 +147,11 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2015-07〜08 | `license-review` | **観測（"Request for approval of the Non-Coercive Copyleft Licence (NCCL) 1.0" から 4 通・本文を添えずに配ることへの懸念、同意を求めない形、誰も賛成せず 18 日で「却下」）** | `2015-07-and-08-license-review-nccl-observed.txt` |
 | 2012-04 | `license-discuss` | **観測（"Draft of new OSI licenses landing page; please review." から 4 通・短い一覧へ導く案、特許を正しく扱うこと、献呈の型を勧める弁護士の文）** | `2012-04-license-discuss-licenses-landing-page-observed.txt` |
 | 2003-08 | `license-discuss` | **観測（"Can abandonment be irrevocable?" から 7 通・放棄の代わりに撤回できない許諾を、と勧めた翌日に、撤回された許諾も放棄と変わらないかもしれないと書いた弁護士の文、禁反言は依拠した人しか守らないという読み）** | `2003-08-license-discuss-can-abandonment-be-irrevocable-observed.txt` |
+| 2003-09 | `license-discuss` | **観測（Cowan 氏の 1 通・"may not" は読み違えられやすい）** | `2003-09-license-discuss-ossal-cowan-may-not-misreading-observed.txt` |
 | 2000-03 | `license-discuss` | **観測（"Wired Article on the GPL" から 15 通・cphack の譲渡のあとで GPL を撤回できるか、署名した書面が無い許諾は譲渡に優先するか（17 U.S.C. §205(e)）、条件が対価になるか）** | `2000-03-license-discuss-gpl-revocation-cphack-observed.txt` |
 | 2000-03 | `license-discuss` | **観測（Cowan 氏の 1 通・無条件の公の許諾は公有への献呈と取られうる）** | `2000-03-license-discuss-rms-position-cowan-unconditional-dedication-observed.txt` |
 | 2000-08 | `license-discuss` | **観測（"Public Domain and liability" と "Abandonment" から 3 通・公有化した作品の免責、登録の無い宣言による公有化）** | `2000-08-license-discuss-public-domain-liability-and-abandonment-observed.txt` |
+| 2001-02 | `license-discuss` | **観測（Cowan 氏の 1 通・"may not" は "must not" に）** | `2001-02-license-discuss-osd-wording-cowan-may-not-must-not-observed.txt` |
 | 2001-03 | `license-discuss` | **観測（"Subscription/Service Fees - OSD Intent" から 1 通・Taylor 氏 2001-03-28）** | `2001-03-license-discuss-subscription-fees-taylor-run-observed.txt` |
 | 2001-03 | `license-discuss` | **観測（"Subscription/Service Fees - OSD Intent" から 1 通・Taylor 氏 2001-03-28・Nelson 氏の引用）** | `2001-03-license-discuss-subscription-fees-taylor-nelson-quote-observed.txt` |
 | 2005-09 | `license-discuss` | **観測（"When can licenses be revoked?" から 5 通・対価の無い許諾だけが随意に撤回できる、受領者の義務は免責の受け入れまで対価になりうる）** | `2005-09-license-discuss-when-can-licenses-be-revoked-observed.txt` |

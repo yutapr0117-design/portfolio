@@ -831,3 +831,20 @@ census の unquoted-decider（候補の外の会話の、ドシエが 1 文も�
 **この節が establish しないこと。** §15.1 の解釈の指示を各法域の裁判所が採るか。
 
 **反映**: 1c（`ACD-1.4-THIRD-CLARITY-TRIAL.md` §18.5 の §15.1・§15.6 の行の支え —— 法の規則の揺れを本文で消す・9b の帯）/ 入口（`review-responses-boilerplate.md` の §15.6 の段に、Piana 氏の指摘を「外す理由」として添えるか・50 へ）。
+
+## 1.266 「"may not" は読み違えられやすい、"must not" と書け」（Cowan 氏 2001・2003）—— 審査で実際に 2 通りの読みを指摘された語が、1.4 草案の §2.2 と §16.4 に在る（2026-11-18）
+
+オーナーの依頼（2026-11-18「ACD-1.4-DRAFT.txt の法的解釈が一意に定まるように 5 人で連携しながら」）の portfolio-2f の受け持ち（審査者が他のライセンスの同じ語を実際に 2 通りに読んだ例を集め、ACD の同じ語に当てる）。アーカイブの写しで、決める側の人と法律家の通のうち「曖昧・読み違え・2 通りに読める」を述べた段の近くで引用符に入った語を、1.4 草案の本文と突き合わせた。草案の本文に在る語で、審査者が読み違えの恐れを名指したのは "may not" だけだった（"for any purpose" を「広すぎる」とした通は提出者 Hruska 氏の文で、審査者の文ではなかった）。2 通を置いた（`rounds/2001-02-license-discuss-osd-wording-cowan-may-not-must-not-observed.txt`・`rounds/2003-09-license-discuss-ossal-cowan-may-not-misreading-observed.txt`）。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"I think you are absolutely right, and "may not" should be changed to "must not" everywhere. As evidence that "may not" means "must not" in this document, however, consider clause 6."* | John Cowan 氏 2001-02-16（"Wording in Open Source Definition"・OSD 自身の語について） | **割れの型。** "may not" は禁止（must not）とも、可能性（might not）とも読める。Cowan 氏は、同じ文書の中の対の文（一般の原則が "must not"、例が "may not"）から、その文書では禁止の意味だと読めると示した —— 文書の中の別の文が読みを閉じる、の型 |
+| *"It would be better to word this "must not" rather than "may not", which latter is subject to misreading."* | John Cowan 氏 2003-09-25（Open Source Software Alliance License の審査） | **同じ型の 2 度目。** 審査で提出の文に対し、"may not" を "must not" に替えるよう求めた |
+
+**1.4 草案の "may not"**: 本文に 2 か所 —— §2.2 *"The Dedicator may not withdraw it, and may not impose any further term, condition, or restriction"*（1c の帯）と、§16.4 *"A modified text may not be distributed under any name"*（9b の帯）。どちらも禁止の読み（Dedicator は撤回してはならない・改変した本文はその名で頒布してはならない）が意図。別の読み（Dedicator は撤回しないかもしれない・頒布されないかもしれない）は文脈から弱いが、審査者が実際に名指した割れの型である。§2.2 は同じ条の第 1 文 *"This Dedication is irrevocable."* が禁止の読みに閉じ（Cowan 氏の 2001 年の型と同じ —— 一般の文が読みを閉じる）、§16.4 には同じ条の中に閉じる文が在るかを 9b が確かめる。
+
+**逆側。** 法の起草の慣行では "may not" は禁止として広く通る。"must not" に替えることは語数が増えず（±0）、別の読みを消すが、既に読みが閉じている §2.2 では語を変える利点は小さい。
+
+**この節が establish しないこと。** 審査で ACD の "may not" が実際に問われるか。
+
+**反映**: 1c（THIRD §19.1 の §2.2 の行 —— 一意・根拠: §2.2 第 1 文 "This Dedication is irrevocable."、Cowan 氏 2001 の型）/ 9b（THIRD §19.5 の §16.4 の行 —— "may not" の禁止の読みが同じ条の中で閉じているか、閉じていなければ "must not" の試作の種）。

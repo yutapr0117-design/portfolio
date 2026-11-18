@@ -1,0 +1,62 @@
+Source: OSI license-discuss public archive, 2003-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-18)
+Messages: 1 of 119 in "For Approval: Open Source Software Alliance License" (2003-09-24)
+Senders: John Cowan
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From cowan at mercury.ccil.org  Thu Sep 25 04:21:45 2003
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Thu, 25 Sep 2003 00:21:45 -0400
+Subject: For Approval: Open Source Software Alliance License
+In-Reply-To: <m3k77xerrr.fsf@gossamer.airs.com>
+References: <20030924220553.GA19624@perrin.nxad.com> <m3k77xerrr.fsf@gossamer.airs.com>
+Message-ID: <20030925042145.GD31788@mercury.ccil.org>
+
+Ian Lance Taylor scripsit:
+
+> That said, I don't see any reason why your license does not conform to
+> the OSD.
+
+I agree.
+
+> >     3. All advertising materials mentioning features or use of this software
+> >        should, in good faith, display the following acknowledgment:
+> >     This product includes software developed by the <AUTHOR> and its contributors.
+> > 
+> > Discussion: Non-legally binding clause that asks for recognition, but
+> > isn't required.
+> 
+> With regard to this clause, your discussion says that it does not
+> require recognition, but a plain reading of the clause is that
+> recognition is required if any features or use of the software are
+> mentioned.  Which is it?
+
+The former.  Note the presence of "should" rather than "must" or "shall".
+
+> 
+> >     4. Redistributions of source code may not be used in conjunction
+> >        with any software license that requires disclosure of source
+> >        code (ex: the GNU Public License, hereafter known as the GPL).
+> 
+> This is also not entirely clear.  Perhaps you mean something like
+> ``this source code may not be relicensed under any software license
+> which requires disclosure of source code.''
+
+Technically, source code is not (cannot be) normally relicensed.
+What is meant is that derivative works in non-textual form can't be
+licensed under a copyleft license, for an appropriate definition of
+"copyleft".
+
+It would be better to word this "must not" rather than "may not", which
+latter is subject to misreading.
+
+-- 
+John Cowan  jcowan at reutershealth.com  www.reutershealth.com  www.ccil.org/~cowan
+If a soldier is asked why he kills people who have done him no harm, or a
+terrorist why he kills innocent people with his bombs, they can always
+reply that war has been declared, and there are no innocent people in an
+enemy country in wartime.  The answer is psychotic, but it is the answer
+that humanity has given to every act of aggression in history.  --Northrop Frye
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
