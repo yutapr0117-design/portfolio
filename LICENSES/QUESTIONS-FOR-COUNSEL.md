@@ -119,6 +119,13 @@ which does so, binding *"if injustice can be avoided"* only by enforcement
 §2.5's *"intending that others rely on it"* speaks to the first element on the face of the text; actual
 reliance and injustice are facts of each case, and Rosen's 2004 view above denies that the doctrine
 reaches a bare licence at all. So the open part is whether section 90 reaches a bare licence, and the facts.
+In England and Wales the doctrine is narrower and fits what §2.5 asks of it. The Court of Appeal said
+that promissory estoppel *"cannot alone confer positive rights on the promisee"*, *"(often expressed by
+saying that the doctrine operates as a shield and not as a sword)"* (*Harvey v Dunbar Assets*, 2017, a
+case on a guarantee; `rounds/2026-11-17-harvey-v-dunbar-2017-ewca-civ-60-promissory-estoppel-snapshot.txt`).
+§2.5 needs only the shield: a recipient sued by a Dedicator who says the Dedication is revocable answers
+with the estoppel. Whether an English court applies it to a promise made to the public, and on what
+reliance, is the open part there.
 (j) A transfer after the Dedication. Under 17 U.S.C. section 205(e), a nonexclusive licence prevails over a
 conflicting transfer of copyright ownership only if it is evidenced by a written instrument signed by
 the owner of the rights licensed or the owner's agent, and was taken before the transfer was executed,
