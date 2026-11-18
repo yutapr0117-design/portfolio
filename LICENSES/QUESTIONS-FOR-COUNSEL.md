@@ -219,11 +219,16 @@ testing what the Work contains and §8.4 as testing where a feature of a model o
 A reader may instead see one limit taken away and the same limit put back.
 
 (g) In ACD-1.3 the acts sit in a relative clause that selects the claims, so the licence reads as a
-licence under the claim. The 1.4 draft (2026-11-07) makes the acts the object: *"licence to make,
+licence under the claim. The 1.4 draft of 2026-11-07 made the acts the object: *"licence to make,
 have made, use, offer to sell, sell, import, and otherwise practise or transfer the Work or anything
-derived from it"*, and §8.4 follows it. Does that list leave out an act a national law names, such
-as export and lending (Japan, Patent Act Art. 2(3)) or possession (Germany, PatG §9)? We added
-*"otherwise practise"* so that it should not, and we have not tested the phrase.
+derived from it"*, and §8.4 followed it. Did that list leave out an act a national law names, such
+as export and lending (Japan, Patent Act Art. 2(3)) or possession (Germany, PatG §9)? We had added
+*"otherwise practise"* so that it should not, and we have not tested the phrase. **The 1.4 draft answers this part (trial T94).** The list now reads *"make,
+have made, use, offer, sell, lend, lease, import, export, keep, possess, and otherwise practise or transfer
+the Work or anything derived from it"*, in §8.1 and in §8.4, so the acts that Japanese, German and United
+Kingdom patent law name are in the words. *"offer"* replaces *"offer to sell"* because those laws also
+count an offer to use a patented method; it is wider than the *"offer to sell"* of 35 U.S.C. §271(a) and
+of Apache-2.0 §3. *"otherwise practise"* stays for any act a law names that the list still misses.
 (h) The 1.4 draft adds to §8.4 *"Section 8.1 alone governs a feature added to the Work, by whatever
 means."* Does it hold the line between a feature added to the Work and a feature of a model or
 output, including where the Work is itself a model?
