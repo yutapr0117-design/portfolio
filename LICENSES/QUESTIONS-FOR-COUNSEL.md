@@ -663,9 +663,9 @@ what a recipient already holds; neither reading is settled. Is that reading righ
 of §8? The 1.4 draft (T85) now says that the licences are not terminable *"under this Dedication"* on
 any ground, so the text no longer speaks for what the law may allow.
 
-The 1.4 draft (trial T82) now opens §14.1 with *"EXCEPT FOR ANY LIABILITY FOR WILFUL MISCONDUCT, GROSS
-NEGLIGENCE, DEATH, OR PERSONAL INJURY THAT APPLICABLE LAW DOES NOT PERMIT TO BE EXCLUDED, WHICH NOTHING IN
-SECTION 14 LIMITS,"*, following EUPL-1.2 §8. Our reading is that this keeps the exclusion standing in Germany
+The 1.4 draft (trials T82 and T102) now opens §14.1 with *"EXCEPT FOR ANY LIABILITY FOR WILFUL MISCONDUCT,
+GROSS NEGLIGENCE, DEATH, OR PERSONAL INJURY, IN EACH CASE WHERE APPLICABLE LAW DOES NOT PERMIT IT TO BE
+EXCLUDED, WHICH NOTHING IN SECTION 14 LIMITS,"*, following EUPL-1.2 §8. Our reading is that this keeps the exclusion standing in Germany
 if the Dedication is standard terms, because the excepted categories match those that German civil code
 section 309 no. 7 protects. Section 309 reaches only a recipient who is a consumer: section 310(1) says
 that section 309 does not apply to standard terms *"die gegenüber einem Unternehmer, einer juristischen
