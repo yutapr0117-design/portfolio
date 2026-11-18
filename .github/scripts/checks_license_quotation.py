@@ -184,7 +184,11 @@ def run(ctx):
         # 作業中の版の逐条リファレンスも同じ形で照らす (2026-11-18・50 の提案: 試作のたびに手で回して古い逐語を 6 つ見つけた)
         _cref470b = [_p.name for _p in sorted((ROOT / "LICENSES").glob("ACD-1.[1-9]-CLAUSE-REFERENCE-DRAFT.md"))
                      if not (ROOT / "LICENSES" / _p.name.replace("-CLAUSE-REFERENCE-DRAFT.md", ".txt")).exists()]
-        for _qf470b in ["QUESTIONS-FOR-COUNSEL.md", "QUESTIONS-FOR-PRACTITIONERS.md"] + _cref470b:
+        # 作業中の版の「一意に定める」記録も (2026-11-19): 試作で草案の文が変わると、§19 の行が古い文を「別の読み」として引いたままになる
+        _uniq470b = [
+            _p.name for _p in sorted((ROOT / "LICENSES").glob("ACD-1.[1-9]-UNIQUE-READING.md"))
+            if not (ROOT / "LICENSES" / _p.name.replace("-UNIQUE-READING.md", ".txt")).exists()]
+        for _qf470b in ["QUESTIONS-FOR-COUNSEL.md", "QUESTIONS-FOR-PRACTITIONERS.md"] + _cref470b + _uniq470b:
             _qt470b = (ROOT / "LICENSES" / _qf470b).read_text(encoding="utf-8") if (ROOT / "LICENSES" / _qf470b).exists() else ""
             # 表の行は 1 行ずつを段落として読む (表全体を 1 段落にすると、別の行の版の名乗りが他の行の引用まで除いた)
             _paras470b = [_x for _b in re.split(r"\n\s*\n", _qt470b)
@@ -203,7 +207,7 @@ def run(ctx):
                             _stale470b.append(f"{_qf470b}: \"{_fr470b[:70]}\"")
         check(
             not _stale470b,
-            "Check 470 (問いの引用・ADVISORY): 法律家と実務家への問いと逐条リファレンスが引く草案の文は、いまの草案に逐語で在る",
+            "Check 470 (問いの引用・ADVISORY): 法律家と実務家への問い・逐条リファレンス・一意に定める記録が引く草案の文は、いまの草案に逐語で在る",
             (f"Check 470 (問いの引用・ADVISORY): 問いが、いまの草案に無い ACD の文を引いている（試作で文が変わったか、言い回しがずれた）: "
              f"{_stale470b}。草案の文に揃えるか、旧版の文なら段落のその引用より前で版を名乗れ"),
             blocking=False,
