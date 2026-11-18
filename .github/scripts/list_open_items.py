@@ -155,6 +155,12 @@ def legal_uncertainty_items() -> list[tuple[str, str, str, str]]:
         mm = mlu.ROW.match(line)
         if mm and mm.group(3) == "②" and mm.group(4) not in ("本文で消えた",):
             out.append((f"§{mm.group(1)}", "② 未着手", mm.group(2)[:100], "1c (試作)"))
+    # §19 (本文の語の割れ・2026-11-18): 開いている試作と、形の足りない行
+    for m in mlu.ROW19.finditer(s18_all := (third.read_text(encoding="utf-8") if third.exists() else "")):
+        if m.group(3) == "試作" and not re.search(r"で入った|退けた", m.group(4) + m.group(5)):
+            out.append((f"§{m.group(1)}", "§19 試作で開いている", m.group(2)[:100], "1c (試作)・30 (反例)"))
+    for x in mlu.section19()[1]:
+        out.append((x.split(":")[0], "§19 形が足りない", x.split(": ", 1)[-1], "その帯の人"))
     return out
 
 
@@ -233,7 +239,7 @@ def main(argv: list[str]) -> int:
               ("合成の文書 §6 の残り（読みの側）", synthesis_items()),
               ("合否の基準を書いて、まだ満たしていない register の行", pass_fail_items()),
               ("オーナーにしかできない行為", owner_items()), ("法律家と実務家への問い（未回答）", question_items()),
-              ("法的解釈の不確実性の台帳で手を打てる行（② の未着手・③ の行き先なし）", legal_uncertainty_items()),
+              ("法的解釈の台帳で手を打てる行（§18 の ② の未着手・③ の行き先なし、§19 の開いている試作）", legal_uncertainty_items()),
               ("閉じた印の無い SELF-AUDIT の 🔴 と、答えの記録の無い先に登録した反例", candidate_items())]
     if "--advisory" in argv:
         groups.append(("ADVISORY の警告", advisory_items()))
