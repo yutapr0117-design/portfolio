@@ -161,8 +161,8 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §1.7・§6.4・§8.4（処理の産物・T95） | 閉じた 5 語 *"model, parameter set, weight, embedding, or output"* を 3 か所とも *"model, parameter set, weight, embedding, output, or other data"* へ | 実務家への問い 2: LoRA のアダプター、量子化・統合したチェックポイント、KV キャッシュ、ベクトル索引、モデルの出力から蒸留したデータセットが 5 語のどれかに入るかは語の読みに依り、Chestek 氏 2025-12-06 は *"the vocabulary for AI is fluid and constantly changing"* と警告した。どれもデータなので *other data* で覆う。初めの案 *other artefact* は物理の物を含み、§8.4 の特許の許諾がハードウェアの製造・販売まで伸びる入口を開くので採らなかった（portfolio-50 の先の反例・B7）。範囲は §1.7 の *resulting from that processing* と §6.4・§8.4 の *resulting from Computational Use of the Work* が処理の産物に縛る。**逆側**: §8.4 の特許の許諾が名指さないデータの産物にも及ぶ（因果の限定は残る）。学習データそのもの（Work の写し）が *data resulting from Computational Use* と読まれる余地 | 6 | 反映済 |
 | §1.7・§6.4・§8.4（修飾の掛かり先・T96） | *"…, output, or other data resulting from …"* を §6.4・§8.4 は *"…, output, or other data, in each case resulting from …"* へ、§1.7 は *"…, output, or other data that results from that processing"* へ（§1.7 だけ形が違うのは portfolio-30 の反例: §1.7 の文は外側に 3 つの並び —— 複製・抽出など、学習への使用、モデルの作成など —— を持ち、文の末尾の *in each case* がその 3 つの「各場合」にも掛かると読め、T96 が新しい割れを持ち込んだ。関係節 *that results* は *any* が束ねる名詞の束に付き、外側の並びには届かない） | 法的解釈を一意に定める依頼（2026-11-18 オーナー）の最初の試作。列挙の後ろの *resulting from …* が、列挙の全部に掛かるか、最後の *other data* だけに掛かるか（直前の語にだけ掛ける last antecedent rule）が語で決まらなかった。後者で読むと、§8.4 の特許の許諾が「あらゆるモデル」に及び、§6.4 は「あらゆるモデル」について請求が生じないと言うことになる。*in each case* は修飾が列挙の各項に掛かることを定める法務の定型の語（T95 の前の *or output resulting from* にも同じ割れが在った）。**逆側**: +9 語（B3） | 7 | 反映済 |
 | §4.5（these の先行詞・T97） | *"terms that are incompatible with these"* を *"… incompatible with this Dedication"* へ | 一意化（THIRD §19.1）: *these* は、この Dedication の条項とも、直前の *terms* や *conditions upon Your own recipients* とも読めた。先行詞を語に置いた | 1 | 反映済 |
-| §5.2 末段（自分の素材の条件と Work の写し・T98） | 末文の後ろに *"and Section 5 reaches those terms and measures to the extent they govern that copy"* を足す | 一意化（THIRD §19.2・portfolio-30）: T91 の *"A copy of the Work … remains the Work"* は写しが Work だと言うだけで、Dedicator が自分の素材（例えば自分のモデル）に含めた Work の写しまで、その素材の利用条件で縛れるかを閉じていなかった —— 前の文が *"the terms or measures the Dedicator applies to that material"* を §5 の外に置くので、写しに効く条件も外と読めた。30 の案の *so far as they apply to it* は *it* が写し・部分・素材のどれとも読めるので、*that copy* と名指し、*so far as … apply* は「いまの状態」の語（468r）と §0d の表の前提に当たるので *to the extent they govern* にした。**逆側**: SaaS（写しを渡さない）の規約は前の文が外に置いたまま | 15 | 反映済 |
-| §8.3 第 2 文（作用の範囲・T99） | *"or leaves unaffected any patent claim they reach"* を *"or leaves unaffected, as to those acts, any patent claim they reach"* へ | 一意化（THIRD §19.3・portfolio-50）: 第 1 文 *"only as to the acts they describe"* の限定が第 2 文に無く、第 2 文だけを引くと請求全体を残さないと読めた。**逆側**: 第 1 文と並べて読めば限定は明らか、という読みも立つ | 4 | 反映済 |
+| §5.2 末段（自分の素材の条件と Work の写し・T98） | 末文の後ろに *"and Section 5 reaches those terms to the extent they restrict what may be done with that copy"* を足す | 一意化（THIRD §19.2・portfolio-30）: T91 の *"A copy of the Work … remains the Work"* は写しが Work だと言うだけで、Dedicator が自分の素材（例えば自分のモデル）に含めた Work の写しまで、その素材の利用条件で縛れるかを閉じていなかった —— 前の文が *"the terms or measures the Dedicator applies to that material"* を §5 の外に置くので、写しに効く条件も外と読めた。30 の案の *so far as they apply to it* は *it* が写し・部分・素材のどれとも読めるので、*that copy* と名指し、*so far as … apply* は「いまの状態」の語（468r）と §0d の表の前提に当たるので *to the extent they govern* にした。1 巡で 2 つ直した: (i) *govern* は条件の「対象」を問う語として読め、「このモデルの条件はモデルを規律し、中の写しを規律していない」と言える余地を残したので、§2.2 の *"on what may be done with any copy"* と同じ語 *restrict what may be done with* にした（30）。(ii) *measures* を外した —— 技術的手段は写しの部分だけを切り分けられず、重み全体の暗号化が「写しを治める手段」になって §5.2(a) が Dedicator 自身のモデルの保護全体に届く読みが立った（50）。**逆側**: SaaS（写しを渡さない）の規約は前の文が外に置いたまま。手段の側は、受け手が写しを Work の公開の写しから取れることで足りる（§2.1・§4）—— Work を公開しない Dedicator には届かない | 18 | 反映済 |
+| §8.3 第 2 文（作用の範囲・T99） | *"Nothing in this Dedication reserves, preserves, or leaves unaffected any patent claim they reach"* を *"Nothing in this Dedication, as to those acts, reserves, preserves, or leaves unaffected any patent claim they reach"* へ（句を主語の直後に置き、3 つの動詞すべてに掛ける・50 の 1 巡） | 一意化（THIRD §19.3・portfolio-50）: 第 1 文 *"only as to the acts they describe"* の限定が第 2 文に無く、第 2 文だけを引くと請求全体を残さないと読めた。**逆側**: 第 1 文と並べて読めば限定は明らか、という読みも立つ | 4 | 反映済 |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
@@ -218,19 +218,19 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
-1.3 の 5,443 語から 1.4 草案は +200 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
+1.3 の 5,443 語から 1.4 草案は +203 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
 
 | 束 | 増減 | 何のための語か |
 | :-- | --: | :-- |
 | 適用と通知（§1.9・§2.3・§2.6・§16.1〜§16.3）| +157 | タグや識別子だけの適用、通知が名指す素材、優先、大小の区別、寄与の宛先。採用者がファイル単位・パッケージ単位で使うときに、意図しない素材を撤回不能に出さないための語 |
-| 不行使と付随の約束（§5）| +163 | 商標と虚偽の表示、合意した支払い、特許の除外、Dedicator 自身のモデルとサービス。データだけを出す組織や、重みと API を両方出す組織が採用できるための語 |
+| 不行使と付随の約束（§5）| +166 | 商標と虚偽の表示、合意した支払い、特許の除外、Dedicator 自身のモデルとサービス。データだけを出す組織や、重みと API を両方出す組織が採用できるための語 |
 | 名前の保護（§16.4〜§16.6）| +64 | 1 つの名前と識別子が 1 つの本文を指し、Steward が出した新しい版を誰でもその名の下で配れるための語 |
 | その他の明瞭化 | +106 | 定義、承継（§2.8 の *to that extent*・T59、§5.3 の列挙を §2.8 へ寄せた T74）、免責の除外（§14.1・T82）と約束の違反（§14.2・T83）、撤回不能（§2.2 の後付けの制限・T65）、§4、§9 などの語の付き先 |
 | 人格権（§12）| +22 | 人格権を放棄できない法域での同意（T67・§2.4 の独立の列挙を含む）。約束が契約として効かない場面でも、行為がそもそも侵害にならないための語 |
 | 特許（§6.1・§8）| −37 | 行為を目的語にし、*reach* を 1 回で定め、三つの足場の説明と §8.6 の *alongside them*（T56）を外した |
 | 理由・説明の文を外したもの | −275 | §2.8・§11.4・§12.4・§8.4（T54）の理由の文と、§2.7・§8.5 の案内（Chestek 氏 *"I question whether they belong in the agreement at all."*・#295）|
 
-**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +320）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 747 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
+**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +323）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 750 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
 
 ## 外部資料・OSAID 1.0・opensource.org のページを当てた記録（2026-10-28）は別の file へ移した
 
@@ -409,7 +409,7 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 > §2 (scope and effect, 11) and §1 (definitions, 8); seven name the preamble or several clauses at
 > once. Further changes came from our own sweeps of the
 > later drafts and are listed, with their reasons, in each version's change list. The text is
-> longer: 5,643 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
+> longer: 5,646 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
 
 **⚠ 逆側**: 短い経路の語数が約 170 語増える（`REVIEWERS.md` の短い経路の表と Check 472m の値を同じ日に直す）。*"The direction is unchanged"* は、1.0 から変わらなかったものを 3 つだけ挙げる文で、ほかに変わらなかったものが無いとは言っていない。逆に、変わったものを errata の件数で数えるので、errata に載らない 1.4 生まれの変更（T34〜T52 の多く）は *"Further changes"* の 1 文にまとまる。数を当日に数え直すのは、草案が確定まで動くからである（2026-11-11 の時点でも 1.4 の閉鎖は 39 件で、まだ動きうる。**同日の訂正**: 最初の下書きは 1.3 で 5・1.4 で 38 と書いた。状態の列の版の語の最初の一致を数えていて、閉鎖の印でない語を拾っていた。portfolio-00 が印の正規表現で 4 と 39 を出し、同じ数え方で確かめた）。
 
