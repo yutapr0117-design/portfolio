@@ -1,0 +1,21 @@
+Source: Bürgerliches Gesetzbuch § 306, https://www.gesetze-im-internet.de/bgb/__306.html
+Retrieved: 2026-11-18 by portfolio-30, with the WebFetch tool.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes of at most 125 characters each.
+        Re-fetch and compare before relying on the exact wording.
+
+WHY THIS FILE EXISTS. Sections 14.2 ("limited to the greatest extent that law permits") and 15.2 ("reformed to the
+minimum extent necessary ... If it cannot be reformed, it is severed ... and the remainder continues") of the 1.4 draft
+rely on a court cutting an invalid clause down. Where the Dedication is standard business terms (AGB) in German law
+(rounds/2026-11-16-bgb-305-310-gesetze-im-internet-snapshot.txt), section 306 says what happens instead. The rule
+that courts do not cut an invalid AGB clause down to what is still allowed (Verbot der geltungserhaltenden
+Reduktion) is case law of the Federal Court of Justice; no judgment was fetched.
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+===== § 306 BGB (Rechtsfolgen bei Nichteinbeziehung und Unwirksamkeit), as reported =====
+1. "(1) Sind Allgemeine Geschäftsbedingungen ganz oder teilweise nicht Vertragsbestandteil geworden oder"
+2. " unwirksam, so bleibt der Vertrag im Übrigen wirksam."
+3. "(2) Soweit die Bestimmungen nicht Vertragsbestandteil geworden oder unwirksam sind, richtet sich der Inhalt"
+4. " des Vertrags nach den gesetzlichen Vorschriften."
+5. "(3) Der Vertrag ist unwirksam, wenn das Festhalten an ihm auch unter Berücksichtigung der nach Absatz 2"
+6. " vorgesehenen Änderung eine unzumutbare Härte für eine Vertragspartei darstellen würde."
