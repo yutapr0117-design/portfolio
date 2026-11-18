@@ -769,4 +769,17 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 
 **反例の結果**: T97 —— 30・50 とも反例なし（You は Dedicator でないので、You の条件が Dedication の効力を損なうことはできず、受け手の側は §4.6 第 1 文が閉じる・30）。T98 —— 2 つ立った: 30 は *govern* が条件の「対象」を問う語として狭く読まれる（「モデルの条件はモデルを規律し、中の写しを規律しない」）として §2.2 の語 *restrict what may be done with* を勧め、50 は *measures* が写しだけを切り分けられず §5.2(a) が Dedicator 自身のモデルの保護全体に届くとして *measures* を外すことを勧めた → 両方を採った（+18）。**measures を外した理由と逆側**（30 の 2 巡目の問い）: 外したのは意図した削除で、語の状態（468r）のためではない。技術的手段は写しの部分だけを切り分けられないので、*measures* を残すと「重み全体の暗号化は中の写しへの扱いも縛る手段」となり、§5.2(a) が Dedicator 自身の素材の保護全体に届く —— 前の文が素材を §5 の外に置いた意味が消える（50）。逆側: Dedicator が自分のモデルに掛けた技術的手段が同梱した写しの取り出しを妨げても、§5 はそれに届かない。受け手はその写しを Work の公開の写し（§2.1・§4）から取れるので、許諾は失われないが、Work を他で公開しない Dedicator には届かない（その Dedicator の写しは §5.2(a) の外）。9b の *terms or measures* との接続詞のそろいは、*measures* を外したので生じない。T99 —— 30 は *they* の先行詞を第 1 文の主語と確かめ（*acts* は請求に「届く」ことができない）、50 は挟んだ句が直前の *leaves unaffected* だけに掛かる読みを示した → 句を主語の直後へ移した（語数同じ）。登録した問い: (a) T97 の *this Dedication* が、§4.5 の「受け手の加える条件はこの Dedication と両立しなくてよい」を「Dedication の効力を損なう条件も可」と読ませないか（§4.6 第 2 文が受ける、と読む）、(b) T98 の *that copy* が、Dedicator が自分で改変した写し（改変していない部分は Work のまま）に及ぶか、(c) T99 の *they* の先行詞（第 1 文の *Sections 8.1 and 8.4*）。
 
+### 15.33 T100・T101・T102・T103 —— 一意化の束 2（+12 語・2026-11-18・【反例待ち】）
+
+| 試作 | 条 | Before → After | 別の読み（UNIQUE-READING の行）|
+| :-- | :-- | :-- | :-- |
+| T100 | §11.2 | *"Nominative reference is unaffected."* → *"Nominative reference requires no right in a mark or name and is unaffected."*（+9）| 最後の文の *"You may name the Dedicator"* が §11.1 の与えない名の権利を与える（§19.4・2f）|
+| T101 | §12.2 | *"personal to the author, inalienable, or incapable of waiver"* → *"personal to the author or incapable of waiver"*（−1）| 譲渡できず放棄できる法域でも §12.1 が外れる（§19.4・30）|
+| T102 | §14.1 | *"OR PERSONAL INJURY THAT APPLICABLE LAW DOES NOT PERMIT TO BE EXCLUDED"* → *"OR PERSONAL INJURY, IN EACH CASE WHERE APPLICABLE LAW DOES NOT PERMIT IT TO BE EXCLUDED"*（+4）| 条件が最後の *PERSONAL INJURY* だけに掛かる（§19.5・9b）|
+| T103 | §12.3 | *"in respect of a work that the Dedicator has chosen"* → *"in respect of the Work, which the Dedicator has chosen"*（0）| *a work* が他の文書で共有地に置いた作品まで広げる（§19.4・30）|
+
+§2.2 の *may not* は試作にせず、UNIQUE-READING §19.1 に一意の行を置いた（*has no power* は法についての言明になり、E86 の型で偽になる）。
+
+**反例の担当へ（30・50）**: (a) T100 の *mark or name* が §11.1 の *logo* と *trade name* を受けるか、*requires no right* が「言及なら商標法の主張を受けない」と Dedicator の約束に読まれないか（§11.1 は権利を与えないだけで、第三者の商標権は扱わない）、(b) T101 で、ドイツのように「譲渡できず、放棄は一部だけ」の法域が *incapable of waiver* に当たるか（当たらなければ §12.1 が働き、放棄できない部分が残る）、(c) T102 の *IN EACH CASE WHERE* が「法が除外を許す場合は除外される」を積極に言うと読まれ、§14.2 と重ならないか、(d) T103 の非制限の関係節が、問い 3 (c)（目的の句が同意を狭めるか）の読みを変えるか —— 説明の句なら狭めない読みに寄る。
+
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。

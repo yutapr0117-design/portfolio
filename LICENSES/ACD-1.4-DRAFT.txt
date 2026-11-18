@@ -249,6 +249,18 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 8.3 now says that nothing, "as to those acts", reserves,
       preserves, or leaves unaffected any patent claim Section 8.1 and Section
       8.4 reach. (+4 words.)
+    * Section 11.2 now says that nominative reference "requires no right in a
+      mark or name", so that its last sentence is not read as granting a
+      right Section 11.1 withholds. (+9 words.)
+    * Section 12.2 no longer names moral rights that are "inalienable" as a
+      reason to replace Section 12.1, since a right that cannot be
+      transferred may still be waived. (-1 words.)
+    * Section 12.3 now says the covenant and the consent are given in
+      respect of "the Work, which the Dedicator has chosen to place in the
+      commons", where it said "a work". (0 words.)
+    * Section 14.1 now says "IN EACH CASE WHERE APPLICABLE LAW DOES NOT
+      PERMIT IT TO BE EXCLUDED", so that the condition reaches each of the
+      four kinds of liability it names. (+4 words.)
     * Section 15.1 now joins its two sentences, so that "in respect of the
       Work" also governs the rule that the reading granting more to You
       prevails, and says on whom the least obligation falls, "upon You"
@@ -285,7 +297,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5646 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5658 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -757,9 +769,9 @@ PREAMBLE (informative; not part of the operative terms)
        document and not of the Work, and it asks nothing of You in respect of
        the Work (Section 10.5).
 
-  11.2 Nominative reference is unaffected. You may state truthfully what the
-       Work is, where it came from, and who made it, and You may name the
-       Dedicator for that purpose.
+  11.2 Nominative reference requires no right in a mark or name and is
+       unaffected. You may state truthfully what the Work is, where it came
+       from, and who made it, and You may name the Dedicator for that purpose.
 
   11.3 This Dedication does not make a false statement true. Representing that
        the Dedicator authored, endorsed, approved, sponsored, or is associated
@@ -787,20 +799,19 @@ PREAMBLE (informative; not part of the operative terms)
        Dedicator waives and agrees not to assert Moral Rights in the Work.
 
   12.2 Where the law of a jurisdiction provides that Moral Rights are personal
-       to the author, inalienable, or incapable of waiver, Section 12.1 does
-       not apply in that jurisdiction, and instead the Dedicator covenants not
-       to exercise Moral Rights in the Work against You or against any person
-       who receives the Work from You, directly or indirectly. The Dedicator
-       also consents to any act by You or by any such person that would
-       otherwise infringe those rights. You are not required to determine which
-       of Section 12.1 and Section 12.2 applies in a jurisdiction, and nothing
-       permitted by this Dedication depends on that question or on how it is
-       answered.
+       to the author or incapable of waiver, Section 12.1 does not apply in that
+       jurisdiction, and instead the Dedicator covenants not to exercise Moral
+       Rights in the Work against You or against any person who receives the
+       Work from You, directly or indirectly. The Dedicator also consents to any
+       act by You or by any such person that would otherwise infringe those
+       rights. You are not required to determine which of Section 12.1 and
+       Section 12.2 applies in a jurisdiction, and nothing permitted by this
+       Dedication depends on that question or on how it is answered.
 
   12.3 The covenant and the consent in Section 12.2 are limited to the Work.
        They extend to no other work of the Dedicator, whether existing or
-       future, and they are given in respect of a work that the Dedicator has
-       chosen to place in the commons for the purpose stated in Section 6.
+       future, and they are given in respect of the Work, which the Dedicator
+       has chosen to place in the commons for the purpose stated in Section 6.
 
   12.4 The covenant and the consent in Section 12.2 bind the persons Section 2.8
        names and any person entitled to exercise or enforce Moral Rights in the
@@ -833,13 +844,13 @@ PREAMBLE (informative; not part of the operative terms)
 14. LIMITATION OF LIABILITY
 
   14.1 EXCEPT FOR ANY LIABILITY FOR WILFUL MISCONDUCT, GROSS NEGLIGENCE, DEATH,
-       OR PERSONAL INJURY THAT APPLICABLE LAW DOES NOT PERMIT TO BE EXCLUDED,
-       WHICH NOTHING IN SECTION 14 LIMITS, AND TO THE FULLEST EXTENT PERMITTED
-       BY APPLICABLE LAW, THE DEDICATOR IS NOT LIABLE TO YOU OR TO ANY OTHER
-       PERSON, ON ANY LEGAL THEORY, FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-       CONSEQUENTIAL, PUNITIVE, EXEMPLARY, OR SPECIAL LOSS OR DAMAGE ARISING OUT
-       OF THIS DEDICATION OR THE USE OF THE WORK, EVEN IF ADVISED OF THE
-       POSSIBILITY OF SUCH LOSS OR DAMAGE.
+       OR PERSONAL INJURY, IN EACH CASE WHERE APPLICABLE LAW DOES NOT PERMIT IT
+       TO BE EXCLUDED, WHICH NOTHING IN SECTION 14 LIMITS, AND TO THE FULLEST
+       EXTENT PERMITTED BY APPLICABLE LAW, THE DEDICATOR IS NOT LIABLE TO YOU OR
+       TO ANY OTHER PERSON, ON ANY LEGAL THEORY, FOR ANY DIRECT, INDIRECT,
+       INCIDENTAL, CONSEQUENTIAL, PUNITIVE, EXEMPLARY, OR SPECIAL LOSS OR DAMAGE
+       ARISING OUT OF THIS DEDICATION OR THE USE OF THE WORK, EVEN IF ADVISED OF
+       THE POSSIBILITY OF SUCH LOSS OR DAMAGE.
 
   14.2 Where applicable law does not permit the exclusion or limitation of a
        liability, that liability is limited to the greatest extent that law
