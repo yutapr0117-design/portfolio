@@ -187,6 +187,9 @@ def count() -> tuple[dict[int, Counter], list[str]]:
 ROW19 = re.compile(r"^- §(\d+(?:\.\d+)?(?:\([a-z]\))?)[^|]*\| 別の読み: (.+?) \| (一意|試作|法の側)([^|]*)\| 根拠: (.+)$", re.M)
 
 
+MISSING19: list[str] = []  # §19 に行の無い草案の条 (section19() が埋める)
+
+
 def section19() -> tuple[Counter, list[str]]:
     """§19 (ACD-1.4-UNIQUE-READING.md・本文の語が 2 通り以上に読める所・2026-11-18 のオーナーの依頼「法的解釈が一意に定まるように」) の行を数える。
     行の形 (2f の案で 5 人が決めた): `- §x.y | 別の読み: … | 一意 / 試作 Tnn / 法の側 | 根拠: …`。
@@ -200,7 +203,19 @@ def section19() -> tuple[Counter, list[str]]:
     t = f19[-1].read_text(encoding="utf-8") if f19 else ""
     s19 = re.search(r"^## (?:§)?19[ .].*?(?=^## (?:§)?\d+[ .]|\Z)", t, re.M | re.S)
     c, bad = Counter(), []
-    for m in ROW19.finditer(s19.group(0) if s19 else ""):
+    body19 = s19.group(0) if s19 else ""
+    # 行の無い条 (2026-11-19・2f の依頼): 草案の条のうち §19 のどの行も名指さないもの。「全条を見た」を数で言うため。行の頭の §x.y と、
+    #   行の頭で並べた条 (「§16.3・§16.6」) を数える
+    seen = set()
+    for hm in re.finditer(r"^- (§[^|]+?) \|", body19, re.M):
+        seen |= set(re.findall(r"(\d+\.\d+)", re.sub(r"（[^）]*）|\([^)]*\)", "", hm.group(1))))  # 「（1.0 では §1.2）」は数えない
+    drafts = [p for p in sorted(L.glob("ACD-1.*-DRAFT.txt")) if "HAS BEEN FROZEN" not in p.read_text(encoding="utf-8").split("\n", 1)[0]]
+    if drafts:
+        dbody = drafts[0].read_text(encoding="utf-8").split("-" * 80, 1)[-1]
+        allc = sorted(set(re.findall(r"^  (\d+\.\d+) ", dbody, re.M)), key=lambda x: tuple(map(int, x.split("."))))
+        MISSING19[:] = [x for x in allc if x not in seen]
+        c["条"] = len(allc)
+    for m in ROW19.finditer(body19):
         kind, rest, why = m.group(3), m.group(4), m.group(5)
         c["行"] += 1
         c[kind] += 1
@@ -277,6 +292,7 @@ def main(argv: list[str]) -> int:
           f"開いている {c19['試作で開いている']}）/ 法の側 {c19['法の側']}。合格の線: 開いている試作 0、一意の行の根拠がすべて辿れる")
     for x in bad19:
         print(f"#   ⚠ {x}")
+    print(f"# §19 に行の無い条: {len(MISSING19)} / {c19['条']}（全条を見たと言うには 0）: " + ", ".join("§" + x for x in MISSING19))
     for e in errs:
         print(f"# ⚠ {e}")
     if "--pin" in argv:
