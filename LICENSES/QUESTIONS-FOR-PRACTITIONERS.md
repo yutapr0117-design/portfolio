@@ -48,7 +48,8 @@ in these words, and would you rely on the general words for them?
 
 ## 2. Do the five nouns name every artefact you produce? (§1.7, §6.4, §8.4)
 
-Three clauses use the same closed list: *"model, parameter set, weight, embedding, or output"*.
+In ACD-1.3 three clauses use the same closed list: *"model, parameter set, weight, embedding, or
+output"*.
 §6.4 says no claim arises in respect of them; §8.4 grants a patent licence for them.
 
 **Why we doubt it.** A reviewer has already warned that *"the vocabulary for AI is fluid and
@@ -57,6 +58,12 @@ constantly changing"* (Pamela Chestek, 2025-12-06, `reviewer-positions.md` §1.1
 model, an agent's tool configuration, or a dataset distilled from model outputs may or may not
 be one of the five. **The question:** which artefacts would you put outside all five, and is
 there a word that would cover them without reaching things that are not artefacts of processing?
+
+**The 1.4 draft answers this part (trial T95).** The list in §1.7, §6.4 and §8.4 now ends *"output, or
+other data"*, so every artefact above that is data is named, while a physical product made from an
+output is left out on purpose, because §8.4 would otherwise grant a patent licence to manufacture it.
+*"artefact"* was tried first and dropped for that reason. **What remains:** is there an artefact of
+processing in your work that is neither data nor an output?
 
 ## 3. Can anyone tell whether a model's feature "results from" the Work? (§8.4)
 
