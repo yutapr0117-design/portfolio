@@ -14,7 +14,7 @@
 **§18 の記録の行の形** (2 つの形を読む。50 の §18.3 と 1c の §18.1 が先に表の形を使った):
     | §14.1 *"…"* | <頼っている法の命題> | <当て・法源は rounds/<file>> | **②** … |
   表の形では、分類の欄 (最後の欄) の最初の ①②③ を読み、行に rounds/ の file 名が在るか、分類の欄に「T84 で入った」
-  「本文で消えた」と書いてあれば「狭まった」に数える。行の形:
+  「本文で消えた」と書いてあれば「狭まった」に数える。§19 (語の割れ) の数え方は section19() の docstring。行の形:
     - §14.1 | 命題: <その条が頼る法の命題> | ② | 状態: 出典あり | 法源: rounds/<file>
   ① どこでも真 (記録だけ) / ② 語を変えれば法域に依らなくできる (試作の種) / ③ 語では消せない (法律家への問いか jurisdictions へ)
   状態: 出典なし / 出典あり (法源の rounds/ の file が在る) / 本文で消えた (試作で命題が要らなくなった) / 法律家のみ
@@ -184,6 +184,38 @@ def count() -> tuple[dict[int, Counter], list[str]]:
     return by, errs
 
 
+ROW19 = re.compile(r"^- §(\d+(?:\.\d+)?(?:\([a-z]\))?)[^|]*\| 別の読み: (.+?) \| (一意|試作|法の側)([^|]*)\| 根拠: (.+)$", re.M)
+
+
+def section19() -> tuple[Counter, list[str]]:
+    """THIRD §19 (本文の語が 2 通り以上に読める所・2026-11-18 のオーナーの依頼「法的解釈が一意に定まるように」) の行を数える。
+    行の形 (2f の案で 5 人が決めた): `- §x.y | 別の読み: … | 一意 / 試作 Tnn / 法の側 | 根拠: …`。
+      一意   —— 他の条が既に一方に閉じている。根拠に閉じている条 (§N.M) を名指す
+      試作   —— 語を変えれば定まる。T 番号を書き、本文に入ったら「Tnn で入った」、退けたら「退けた」と書く (開いている ② に当たる)
+      法の側 —— 語では定まらず法が決める。根拠に問い N か §18 の行か jurisdictions を名指す
+    返り値: (数, 直すべき行)。"""
+    third = L / "ACD-1.4-THIRD-CLARITY-TRIAL.md"
+    t = third.read_text(encoding="utf-8") if third.exists() else ""
+    s19 = re.search(r"^## (?:§)?19[ .].*?(?=^## (?:§)?\d+[ .]|\Z)", t, re.M | re.S)
+    c, bad = Counter(), []
+    for m in ROW19.finditer(s19.group(0) if s19 else ""):
+        kind, rest, why = m.group(3), m.group(4), m.group(5)
+        c["行"] += 1
+        c[kind] += 1
+        if kind == "一意" and not re.search(r"§\d+", why):
+            bad.append(f"§{m.group(1)}: 一意 だが根拠に閉じている条 (§N.M) が無い")
+        if kind == "試作":
+            if not re.search(r"T\d+", rest + why):
+                bad.append(f"§{m.group(1)}: 試作 だが T 番号が無い")
+            if re.search(r"で入った|退けた", rest + why):
+                c["試作で閉じた"] += 1
+            else:
+                c["試作で開いている"] += 1
+        if kind == "法の側" and not re.search(r"問い ?\d+|§18|jurisdictions|法律家", why):
+            bad.append(f"§{m.group(1)}: 法の側 だが行き先 (問い N / §18 / jurisdictions) が無い")
+    return c, bad
+
+
 def baseline() -> dict[int, dict[str, int]]:
     if not LEDGER.exists():
         return {}
@@ -236,6 +268,11 @@ def main(argv: list[str]) -> int:
     print(f"# ③ の行で法源（rounds/）がまだ無い行: {len(NO_SRC)}（30 = 独・英・仏・日、2f = 米国・EU が次に取りに行く候補）")
     for x in NO_SRC:
         print(f"#   ・ {x}")
+    c19, bad19 = section19()
+    print(f"# §19（本文の語の割れ）: {c19['行']} 行 —— 一意 {c19['一意']} / 試作 {c19['試作']}（本文に入ったか退けた {c19['試作で閉じた']}・"
+          f"開いている {c19['試作で開いている']}）/ 法の側 {c19['法の側']}。合格の線: 開いている試作 0、一意の行がすべて閉じている条を名指す")
+    for x in bad19:
+        print(f"#   ⚠ {x}")
     for e in errs:
         print(f"# ⚠ {e}")
     if "--pin" in argv:
