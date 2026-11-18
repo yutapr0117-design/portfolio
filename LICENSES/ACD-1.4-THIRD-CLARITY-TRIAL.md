@@ -769,3 +769,21 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 - §7.2 | 別の読み: *"without limit and without condition"* が、Dedicator 以外の者のデータベース権まで許す | 一意 | 根拠: 同じ文が *"so far as the Covered Rights of the Dedicator are concerned (Section 2.7)"* と限る。
 
 **§19.2 の結果**: 10 行のうち、立つ別の読みは 1 つ（§5.2 末段・試作の種）。§6.5 は一意だが、受け手に少なく与える側に本文が定めていることを逆側に記録した。
+
+### 19.4 §11〜§13（portfolio-2f・main の 1.4 草案）
+
+試作の種 2 つは 1c が T100・T101 の番号を付けた（T96 の merge の後の束で【反例待ち】として出す見込み・portfolio-1c 2026-11-18）。
+
+- §11.1 | 別の読み: 第 2 文 "Nothing in Section 11 reduces what any other Section of this Dedication gives" に反し、§11.4 の "It reaches nothing else" が §5 の約束を狭める | 一意 | 根拠: §11.4 自身が "save that the covenants in Section 5 are promises about the Dedicator's own conduct and are not limited by this sentence" と閉じている
+- §11.2 | 別の読み: §11.2 の "You may name the Dedicator for that purpose" は、§11.1 が否定した Dedicator の人の名についての権利を与えており、2 つの文が食い違う | 試作 T100 | 根拠: 案は §11.2 の第 1 文を "Nominative reference is not a use of a right in a name, and is unaffected." にする（§11.1 を保ち、§11.2 を付与と読ませない・portfolio-1c が採る見込み）。逆側: "Except as Section 11.2 states," を §11.1 に足す案は §11.2 を例外＝付与と読ませるので採らない
+- §11.3 | 別の読み: 虚偽の帰属（Dedicator が改変版を書いた・推奨したと表すこと）をすれば許しを失う（条件として読む） | 一意 | 根拠: §11.3 の第 3 文 "it is not a condition upon You" と §10.1
+- §11.3(a) | 別の読み: 改変した Work に元の作者の表示を残すことが、Dedicator が改変版を書いたと「表す」ことに当たる | 法の側 | 根拠: 表示を残すことが虚偽の表示に当たるかは各法域の不正表示の法が決める（文書はそれを "outside what this Dedication reaches" と述べるだけ）→ 問い 5（§5.1・§5.2(d)・§11 の約束の射程）
+- §11.4 | 別の読み: 貢献者（§2.6 で Dedicator になる人）の権利は "any right held by a person other than the Dedicator" に当たり、許されない | 一意 | 根拠: 1.4 草案の §1.4（1.3 までの §1.3）の "this Dedication operates severally as to each"（Dedicator はそれぞれで、各自の部分について Dedicator である）と §2.6 の "becomes a Dedicator as to that Contribution"
+- §12.1 | 別の読み: "To the fullest extent permitted by the law of each jurisdiction" が、放棄そのものではなく放棄の範囲だけを法に委ね、法が放棄を許さない法域でも一部の放棄が残る | 一意 | 根拠: §12.2 がその法域では §12.1 を外して約束と同意に替えると定め、§12.2 の最後の文が受け手に判定を求めない
+- §12.2 | 別の読み: 引き金 "personal to the author, inalienable, or incapable of waiver" の "inalienable" が、譲渡はできないが放棄はできる法域（英国 CDPA 87 条・米国 17 U.S.C. §106A(e) "may not be transferred, but ... may be waived"）でも §12.1 を外し、法が許す放棄を捨てて約束と同意だけにする | 試作 T101 | 根拠: 案は "and instead" を "and in addition" にする（±0 語・§12.1 と §12.2 を並べ、§12.2 の最後の文「どちらが当たるかを判定しなくてよい」と合う・portfolio-1c が採る見込み）。逆側: §12.1 の放棄と §12.2 の同意が同じ法域で重なる読み。法源は rounds/2026-11-16-us-ucc-vara-and-eu-trademark-snapshot.txt の [5]
+- §12.3 | 別の読み: 末尾の "for the purpose stated in Section 6" が、§12.2 の同意を §6 の目的（学習と計算の利用）の行為に限る | 法の側 | 根拠: 目的の句が同意の範囲を狭めるかは同意の解釈の法に依る → 問い 3 (c)（`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.1 の追記・portfolio-30）
+- §12.5 | 別の読み: 作者の表示を省くこと（偽りの帰属でない）も §11.3 に当たり、§12.2 の同意から外れる | 一意 | 根拠: §11.3 は "Representing that the Dedicator authored, endorsed, approved, sponsored, or is associated with a work, when that is not the case" で、表示の省略を含まない。§12.2 の同意は "any act ... that would otherwise infringe those rights" を覆う
+- §12.6 | 別の読み: §12.2 が一部で無効になると、§12.1 が復活してその法域で働く | 一意 | 根拠: §12.6 は §15.2 を当て "the invalidity affects no other Section" と述べ、§12.2 の第 1 文が §12.1 をその法域で外している（復活の語は無い）
+- §13.1 | 別の読み: "WITHOUT WARRANTY OR CONDITION OF ANY KIND" の "CONDITION" が、受け手への条件（§10.1）を指す | 一意 | 根拠: "INCLUDING WITHOUT LIMITATION ANY WARRANTY OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY, FITNESS ..." の列挙が保証の文脈に閉じ、"CONDITION" は英国法の黙示の condition（保証の一種）を指す。受け手への条件は §10.1 が別に扱う
+- §13.2 | 別の読み: "THAT ANY SECTION OF THIS DEDICATION IS EFFECTIVE IN ANY JURISDICTION" を否認することで、Dedication 全体の効力を Dedicator が争える | 一意 | 根拠: §13.2 は保証の否認で、効力の主張ではない。§2.5 が Dedicator に "not to assert that this Dedication is revocable or ineffective" を約束させ、禁反言を置く
+- §13.3 | 別の読み: "no duty to ... continue to make the Work available" が §2.2 の撤回不能に反し、提供の停止で許しが終わる | 一意 | 根拠: §13.3 は提供の義務の否定で、許しの終了ではない。§10.4 が "No permission granted by this Dedication terminates under it" と閉じる
