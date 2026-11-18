@@ -68,3 +68,14 @@ of Rome I or Rome II.
 [10] Art. 8(1): "The law applicable to a non-contractual obligation arising from an infringement of an intellectual property right"
      [...] "shall be the law of the country for which protection is claimed."
 [11] Art. 8(3): "The law applicable under this Article may not be derogated from by an agreement pursuant to Article 14."
+
+---- added 2026-11-18: Regulation (EU) 2024/1689 (AI Act), Article 53(1)(c) ----
+Source: https://artificialintelligenceact.eu/article/53/ (a third-party publisher of the text; the page
+        does not state that the text is official; EUR-Lex returned empty content to the tool). The same
+        wording was returned by a web search as the text of Article 53(1)(c). Fetched once.
+
+[12] Art. 53(1)(c) (obligation of providers of general-purpose AI models):
+     "put in place a policy to comply with Union law on copyright and related rights, and in particular to identify"
+     [...] "and comply with, including through state-of-the-art technologies, a reservation of rights expressed pursuant to"
+     [...] "Article 4(3) of Directive (EU) 2019/790;"
+
