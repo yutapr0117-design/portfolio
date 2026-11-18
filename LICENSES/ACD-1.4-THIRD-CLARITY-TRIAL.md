@@ -755,6 +755,23 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 
 **依頼**: オーナー 2026-11-18「ACD-1.4-DRAFT.txt の法的解釈が一意に定まるように「５人」で連携しながら続けてください」。**§18 との分け**: §18 は法の側の不確かさ（どの法域で効くか）を扱った。§19 は **本文の語が 2 通り以上に読める所** を扱う。**方法**（portfolio-2f の案で 5 人が決めた）: 各条の最も強い別の読みを 1 つ書き、立たない → 一意（閉じている条を根拠に名指す）、立つ → 1c の試作（Tnn・【反例待ち】）で語を消す、法の側に依る → 既存の問い・§18 の ③。探す手がかりの型: 先行詞・修飾の掛かり先・量化・or・including・定義語の混用・時点・主語・否定の範囲。**行の形**: `- §x.y | 別の読み: … | 一意 / 試作 Tnn / 法の側 | 根拠: …`。**小節**: 19.1 = §1〜§4（1c）、19.2 = §5〜§7（30）、19.3 = §8〜§10（50）、19.4 = §11〜§13（2f）、19.5 = §14〜§16（9b）。各自、自分の小節を見出しごと足す（番号順に並べる）。
 
+### 19.1 §1〜§4（portfolio-1c・main の 1.4 草案・T96 の前）
+
+- §1.3（1.0 では §1.2） | 別の読み: *"any collection or compilation of these"* の *these* が、列挙した種類でなく素材一般を指し、Work の外の素材との集合物まで Work になる | 一意 | 根拠: *these* は直前の列挙を受け、Work は *"the material to which the Dedicator has applied this Dedication"* に限られる（§2.7・§16.2 の適用の範囲。E61 で *in whole or in part* を外した）
+- §1.4 第 1 文 | 別の読み: *"holds or may hold … in it"* の *it* が Dedication を指す | 一意 | 根拠: Dedication に権利を持つ読みは意味を成さず、§1.5 の *"in the Work"* と揃う
+- §1.6 第 3 文 | 別の読み: *"on whose behalf it acts"* の *it* が permission を指す | 一意 | 根拠: *acts* の主語は同じ節の *an automated system*
+- §1.7 | 別の読み: 列挙の後ろの *"resulting from that processing"* が最後の *other data* だけに掛かる（last antecedent rule）—— どのモデルの作成・頒布・使用も Computational Use になる | 試作 T96 | 根拠: *"in each case resulting from"* で列挙の各項に掛ける（§6.4・§8.4 も同じ試作）
+- §2.2 第 2 文 | 別の読み: *"any copy of the Work that has been made available"* の *that has been made available* が *Work* でなく *copy* に掛かり、Dedicator がまだ頒布していない写しには後から条件を付けられる | 一意 | 根拠: どちらの掛かり方でも、頒布された写しには条件を付けられない。*Work* に掛ける読みの方が受け手に多く与えるので、§15.1 *"the reading that grants more to You prevails"* がそれを選ぶ
+- §2.3 第 2 文 | 別の読み: *"cause You to lose one"* の *one* が *act* を指す | 一意 | 根拠: 同じ文の *"To hold a permission granted here"* の *permission* を受ける
+- §2.8 第 2 文 | 別の読み: *"takes subject to it to that extent"* の *that extent* が第 1 文の *"to the fullest extent the law permits"* 以外（Dedicator の持つ権利の範囲）を指す | 一意 | 根拠: 直前の文の唯一の *extent*（T59 で足した語）
+- §2.9 第 2 文 | 別の読み: *"Such an officer"* が第 1 文の officer の一部だけを指す | 一意 | 根拠: *such* は第 1 文の列挙全体（*trustee, administrator, receiver, liquidator, or equivalent officer*）を受ける
+- §3.1 | 別の読み: *"to the fullest extent permitted by the law of each jurisdiction"* が後半の *"places the Work in the public domain"* にも掛かり、公有にする法域を限らない | 一意 | 根拠: 後半は自分の限定 *"in each jurisdiction that gives effect to such an act"* を持つ
+- §4.2 | 別の読み: *"any adaptation of it"* の *it* が licence を指す | 一意 | 根拠: 同じ列挙の目的語 *the Work* を受ける
+- §4.5 第 1 文 | 別の読み: *"terms that are incompatible with these"* の *these* が、この Dedication の条項でなく、直前の *terms* や *conditions upon Your own recipients* を指す | 試作 T97 | 根拠: *"incompatible with this Dedication"*（+1）で先行詞を語に置く
+- §4.6 第 2 文 | 別の読み: *"Terms You add govern what You give"* が、You の加えた条件が Dedicator の約束（§5.3 の受益者）まで狭めると読む | 一意 | 根拠: 同じ文の後半 *"they do not narrow what the Dedicator has already given in respect of the Work"*
+
+**結果**: §1〜§4 の立つ別の読みは 2 つ（§1.7 は T96・§4.5 は T97）。ほかの 10 行は他の条（§15.1・§1.5・§2.7・§16.2）か同じ文の語が一方に閉じている。
+
 ### 19.2 §5〜§7（portfolio-30・main の 1.4 草案・T95 の後）
 
 - §5.1 第 1 文 | 別の読み: *"in respect of any use of the Work"* の *use* を狭い意味（使用だけで、複製・頒布・改変を含まない）に読み、約束が複製や頒布の権利の主張に及ばない | 一意 | 根拠: *use* は定義されていないが、§15.1 が *"the reading that grants more to You prevails"* と受け手に多く与える読みを選ばせ、同じ文の *"any Covered Right"* が複製・頒布の権利を含む。
