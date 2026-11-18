@@ -750,3 +750,22 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 | §16.5 *"the Steward"* | 役の譲渡で Steward の地位が移る | 文書の中の定義で、法の命題でない | ① |
 
 **結果**: ② が 1 つ（§14.1 の射程・T83 と T88）、③ が 5 つ（§14.2・§15.2 の効力維持的縮減の禁止、§15.3 の準拠法、§15.4 のトゥーボン法、§16.4 の名）、残りは ①。**1c へ**: ② の 1 つ（§14.1・T83 で入り、§2.5 は T88）。§15.5 の重ね書きは 1c の判断で ① に替えた（2026-11-16）。**30 へ**: 独 305c 条 2 項・306 条 2 項と効力維持的縮減の禁止の判例、英 UCTA 2 条 1 項、仏トゥーボン法、日 消費者契約法 8 条の取得。**2f へ**: 指令 93/13 の 5 条、ローマ I 規則 4 条、ローマ II 規則 8 条、ベルヌ条約 5 条 2 項。**⚠ 逆側**: §14.2 と §15.2 の ③ は、ACD が約款に当たるか（問い 9）に依り、当たらなければドイツの禁止は及ばない。① の多くは「文が法に条件づけて自分を限る」ことに頼っていて、その形はどの法域でも真だが、受け手が実際に得る保護の大きさは法域で違う。
+
+## 19. 法的解釈を一意に定める —— 各条の「最も強い別の読み」を 1 つ書き、立つなら語で消す（2026-11-18〜・オーナーの依頼）
+
+**依頼**: オーナー 2026-11-18「ACD-1.4-DRAFT.txt の法的解釈が一意に定まるように「５人」で連携しながら続けてください」。**§18 との分け**: §18 は法の側の不確かさ（どの法域で効くか）を扱った。§19 は **本文の語が 2 通り以上に読める所** を扱う。**方法**（portfolio-2f の案で 5 人が決めた）: 各条の最も強い別の読みを 1 つ書き、立たない → 一意（閉じている条を根拠に名指す）、立つ → 1c の試作（Tnn・【反例待ち】）で語を消す、法の側に依る → 既存の問い・§18 の ③。探す手がかりの型: 先行詞・修飾の掛かり先・量化・or・including・定義語の混用・時点・主語・否定の範囲。**行の形**: `- §x.y | 別の読み: … | 一意 / 試作 Tnn / 法の側 | 根拠: …`。**小節**: 19.1 = §1〜§4（1c）、19.2 = §5〜§7（30）、19.3 = §8〜§10（50）、19.4 = §11〜§13（2f）、19.5 = §14〜§16（9b）。各自、自分の小節を見出しごと足す（番号順に並べる）。
+
+### 19.2 §5〜§7（portfolio-30・main の 1.4 草案・T95 の後）
+
+- §5.1 第 1 文 | 別の読み: *"in respect of any use of the Work"* の *use* を狭い意味（使用だけで、複製・頒布・改変を含まない）に読み、約束が複製や頒布の権利の主張に及ばない | 一意 | 根拠: *use* は定義されていないが、§15.1 が *"the reading that grants more to You prevails"* と受け手に多く与える読みを選ばせ、同じ文の *"any Covered Right"* が複製・頒布の権利を含む。
+- §5.1 第 2 文 | 別の読み: 例外の *"for a payment You agreed to make"* が、第三者への支払いの約束を根拠に Dedicator が請求を立てることを許す | 一意 | 根拠: 約束は Dedicator 自身の請求の主張についての文で（*"The Dedicator further covenants not to assert against You"*）、第三者への支払いの請求権を Dedicator は持たない。例外は Dedicator 自身が当事者の支払いに限って働く。
+- §5.2 末段 | 別の読み: Dedicator が自分の素材（例: 自分のモデル）に Work の写しを含め、その素材の利用条件で中の写しまで縛るとき、条件は *"the terms or measures the Dedicator applies to that material"* として §5 の外に在り、§5.2(b) は当たらない（最後の文 *"A copy of the Work … remains the Work"* は写しが Work であることを言うだけで、条件が §5 の内に入るとは言わない） | **試作の種（1c へ）** | 根拠: 最後の文の目的（T91・同梱した写しは Work のまま）は読み A（条件はその写しには及ばず §5.2(b) が禁じる）を示すが、語は「素材に当てた条件」を丸ごと外に出しており、写しへの効き目を閉じていない。案: 最後の文の後に *"and Section 5 reaches those terms and measures so far as they apply to it"*（+12 語）か、外に出す文を *"…applies to that material, other than so far as they apply to a copy of the Work it contains,"* とする。逆側: SaaS の規約（写しを渡さない）は、前の文が外に置いたままで、この案はそこへ戻さない。
+- §5.3 | 別の読み: 末文 *"Sections 3 and 4 operate in their favour independently of Section 5.3"* の *their* が §2.8 の者（拘束される側）を指す | 一意 | 根拠: 直前の文の主語は約束、*relied upon by You and by anyone who receives the Work from You* が受益者で、§3・§4 は受け手に働く条なので、*their* は受益者を指す読みしか意味をなさない。
+- §6.1 | 別の読み: *"by any person or automated system"* が、自動の仕組みそのものを許しの持ち主にする | 一意 | 根拠: §1.6 が、自動の仕組みが行使した許しはその背後の人と運用者に与えられると定める。
+- §6.2 | 別の読み: *"whoever placed it there"* が、他の権利者が置いた留保まで留保でないと読ませる | 一意 | 根拠: 同じ文が *"So far as the Covered Rights and patent claims of the Dedicator are concerned"* と範囲を Dedicator の権利に限り、次の文が *"does not purport to defeat a Reservation made by another rightsholder"* と明示する。
+- §6.4 | 別の読み: 学習データに Work と他人の作品が混ざったモデルは、*"resulting from Computational Use of the Work"* に当たらない（Work だけから生じたものに限る） | 一意 | 根拠: 文は *"under this Dedication or under any Covered Right of the Dedicator"* の請求に限るので、他人の作品が混ざっても、Dedicator の権利の側の結果は変わらない。混ざったモデルについての他人の権利は、もともとこの文の外。
+- §6.5 | 別の読み: §6.1 の *"expressly permitted"* が §3〜§5・§8 から独立した許しで、§4 が効かない法域でも §6 だけで許しが立つ | 一意（読み A: §6 は宣言的） | 根拠: §6.5 自身が *"Section 6 states expressly what Sections 3 to 5 and 8 would in any event permit"* と述べる。逆側: §4 が効かない法域で §6.1 が独自の許しとして読まれることを、この文は封じる —— 受け手に少なく与える読みを本文が選んでいる。§15.1 との関係は、§6.5 の明示が優先すると読む。
+- §7.1 | 別の読み: *"Sections 3 to 6 apply to it"* が §8（特許）を外すことに意味があり、データベース権について特許の許諾は働かない | 一意 | 根拠: データベース権は特許とは別の権利で、§8 はもともと特許の請求項にしか届かない。外しているのではなく、当たる条を挙げている。
+- §7.2 | 別の読み: *"without limit and without condition"* が、Dedicator 以外の者のデータベース権まで許す | 一意 | 根拠: 同じ文が *"so far as the Covered Rights of the Dedicator are concerned (Section 2.7)"* と限る。
+
+**§19.2 の結果**: 10 行のうち、立つ別の読みは 1 つ（§5.2 末段・試作の種）。§6.5 は一意だが、受け手に少なく与える側に本文が定めていることを逆側に記録した。
