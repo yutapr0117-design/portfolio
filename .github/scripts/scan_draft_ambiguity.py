@@ -21,6 +21,8 @@
   (j) 優先の連鎖 —— "subject to Section X" / "notwithstanding Section X" / "Section X prevails" の向きを並べ、循環を出す。
   (k) 免責・制限の条が同じ文書の約束を呑むか —— 射程を "this Dedication" で言う免責・制限の条 (§13・§14 など) と、Dedicator が
       約束する条 (covenants / will not) の組で、免責の条がその約束を名指して外していないもの (1c の依頼・問い 9 (a) の型)。
+  (l) 同じ条の中の "X or Y" と "X and Y" —— 同じ 2 語を一方で or、他方で and で並べると、and が「両方が揃ったときだけ」と
+      読まれる余地が出る (2026-11-18・T98 の §5.2 の "terms or measures" と "those terms and measures")。
 
 **--law** (2026-11-16・50 の方法の (a)): 条ごとに「法に頼る句」(to the extent / applicable law / where … permits /
 in a jurisdiction / held invalid / takes effect / is not / does not …) を抜き、5 人の帯 (1c §1〜4・30 §5〜7・50 §8〜10・
@@ -211,6 +213,12 @@ def main(argv: list[str]) -> int:
     for lk, phrase, open_ in limiter_gaps(flat):
         found["k"].append(f"§{lk} の射程「{phrase}」が、Dedicator の約束の条 {len(open_)} を名指して外していない: "
                           + ", ".join("§" + x for x in open_))
+    # (l) 同じ条の中の "X or Y" と "X and Y"
+    for k, v in flat.items():
+        def _pairs(conj):
+            return {tuple(sorted(w.lower().rstrip("s") for w in m)) for m in re.findall(r"\b([a-z]{4,}s?) " + conj + r" ([a-z]{4,}s?)\b", v)}
+        for a, b in sorted(_pairs("or") & _pairs("and")):
+            found["l"].append(f"§{k}: \"{a} or {b}\" と \"{a} and {b}\" が同じ条に在る")
     # (c) 使われない定義
     for t, k in terms.items():
         uses = [c for c, v in flat.items() if c != k and re.search(r"\b" + re.escape(t) + r"s?\b", v)]
@@ -233,7 +241,8 @@ def main(argv: list[str]) -> int:
              "d": "§15.5 が覆う語の重ね書き (person or entity)", "e": "事実の評価に委ねる基準の語",
              "f": "義務の助動詞 (shall / must / will) —— 受け手を主語にしていないか", "g": "古い指示語",
              "h": "小項の中の \"this Section\" —— 節か小項か", "i": "and/or", "j": "優先の連鎖 (subject to / notwithstanding …)",
-             "k": "免責・制限の条が同じ文書の約束を呑むか (問い 9 (a) の型)"}
+             "k": "免責・制限の条が同じ文書の約束を呑むか (問い 9 (a) の型)",
+             "l": "同じ条の中の \"X or Y\" と \"X and Y\""}
     for typ, name in names.items():
         xs = found.get(typ, [])
         print(f"\n## ({typ}) {name}: {len(xs)}")
