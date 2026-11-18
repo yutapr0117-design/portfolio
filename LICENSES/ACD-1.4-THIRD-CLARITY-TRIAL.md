@@ -751,8 +751,8 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 
 **結果**: ② が 1 つ（§14.1 の射程・T83 と T88）、③ が 5 つ（§14.2・§15.2 の効力維持的縮減の禁止、§15.3 の準拠法、§15.4 のトゥーボン法、§16.4 の名）、残りは ①。**1c へ**: ② の 1 つ（§14.1・T83 で入り、§2.5 は T88）。§15.5 の重ね書きは 1c の判断で ① に替えた（2026-11-16）。**30 へ**: 独 305c 条 2 項・306 条 2 項と効力維持的縮減の禁止の判例、英 UCTA 2 条 1 項、仏トゥーボン法、日 消費者契約法 8 条の取得。**2f へ**: 指令 93/13 の 5 条、ローマ I 規則 4 条、ローマ II 規則 8 条、ベルヌ条約 5 条 2 項。**⚠ 逆側**: §14.2 と §15.2 の ③ は、ACD が約款に当たるか（問い 9）に依り、当たらなければドイツの禁止は及ばない。① の多くは「文が法に条件づけて自分を限る」ことに頼っていて、その形はどの法域でも真だが、受け手が実際に得る保護の大きさは法域で違う。
 
-### 15.31 T96 —— 列挙の後ろの修飾句の掛かり先を in each case で定める（+9 語・2026-11-18・【反例待ち】）
+### 15.31 T96 —— 列挙の後ろの修飾句の掛かり先を定める（+7 語・2026-11-18）
 
 **依頼**: オーナー 2026-11-18「ACD-1.4-DRAFT.txt の法的解釈が一意に定まるように『５人』で連携しながら続けてください」の最初の試作。**別の読み**: §1.7・§6.4・§8.4 の *"…, output, or other data resulting from …"* の *resulting from* が、最後の *other data* だけに掛かる（last antecedent rule）—— §8.4 の特許の許諾が「あらゆるモデル」に及び、§6.4 は「あらゆるモデル」について請求が生じないと言うことになる。After: *"…, output, or other data, in each case resulting from …"*（各 +3）。記録は THIRD の一意化の節（portfolio-50 が枠を置く）の 1c の小節の行と CHANGELIST の主表の行。機械層: §8.4 の 468u の mutation の anchor と §6.4 の *under this Dedication* の anchor を、新しい折り返しの 1 行の句へ移した（手で RED を確認）。
 
-**反例の担当へ（30・50）**: (a) *in each case* が、§6.4 で「各項ごとに Computational Use の結果であることを示せ」という立証の負担を受け手に課すと読まれないか、(b) §1.7 の他の列挙（*"reproduction, extraction, normalisation, indexing, retrieval, analysis, and text and data mining"*）に同じ型の割れが無いか。
+**反例の結果**: 50（§8.4 の側）—— 反例なし（*in each case* を行為ごとと読む別の読みは、行為が *resulting from* の主語になれないので外れる。他人の作品と混ぜて学習したモデルは §8.4 の因果の文 *in whole or in part* が絞る）。30 —— §6.4・§8.4 は反例なし（*in each case* は範囲を定める語で立証の負担を割り当てない）。**§1.7 に反例**: §1.7 の文は外側に 3 つの並びを持ち、文の末尾の *in each case* がその「各場合」にも掛かると読め、T96 が新しい割れを持ち込んだ → §1.7 だけ *"other data that results from that processing"*（関係節は *any* が束ねる名詞の束に付き、外側の並びに届かない）。逆側: last antecedent rule で *other data* だけに付く余地は残るが、*any* と単数の *results* が束ねの読みを支える。登録した問い: (a) *in each case* が、§6.4 で「各項ごとに Computational Use の結果であることを示せ」という立証の負担を受け手に課すと読まれないか、(b) §1.7 の他の列挙（*"reproduction, extraction, normalisation, indexing, retrieval, analysis, and text and data mining"*）に同じ型の割れが無いか。
