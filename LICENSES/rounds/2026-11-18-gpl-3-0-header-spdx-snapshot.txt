@@ -1,0 +1,25 @@
+Source: The text of the GNU General Public License version 3 as held by SPDX in the license-list-data
+        repository, file text/GPL-3.0-only.txt, at the last commit that touched it,
+        60fbd82486310a2d0d70dd4d2cca1165c14d59b5 (2023-06-09T02:47:57Z),
+        https://github.com/spdx/license-list-data/blob/60fbd82486310a2d0d70dd4d2cca1165c14d59b5/text/GPL-3.0-only.txt
+Retrieved: 2026-11-18 by portfolio-2f, with `gh api` (raw content), under the owner's request of
+        2026-11-16 ("ACD-1.4-DRAFT.txt の法的解釈の不確実性を「５人」で減らし続けてください").
+Form: BYTE COPY of the first six lines of the file as returned by the GitHub API (no model in between).
+        The FSF's own copy at gnu.org could not be fetched (three attempts by portfolio-2f and one by
+        portfolio-50 ended in a reset connection), and the OSI's page for GPL-3.0 does not carry this
+        preface (portfolio-50, 2026-11-18). SPDX's text is a copy of the FSF's, not the FSF's own file.
+
+WHY THIS FILE EXISTS. §16.4 of the 1.4 draft restricts distributing a modified text of the Dedication
+under its name or identifier. `ACD-1.4-THIRD-CLARITY-TRIAL.md` §18.5 lists that row as one with no source.
+An OSI-approved licence's own preface forbids changing the licence text altogether, which is a stronger
+restriction than §16.4's (§16.4 restricts only the name and identifier of a modified text).
+`ACD-1.4-SECOND-CLARITY-TRIAL.md` already quotes this sentence without a copy in rounds/.
+
+----- begin verbatim (first six lines) -----
+GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
+
+Copyright © 2007 Free Software Foundation, Inc. <https://fsf.org/>
+
+Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
+----- end verbatim -----
