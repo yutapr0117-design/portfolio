@@ -757,4 +757,16 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 
 **反例の結果**: 50（§8.4 の側）—— 反例なし（*in each case* を行為ごとと読む別の読みは、行為が *resulting from* の主語になれないので外れる。他人の作品と混ぜて学習したモデルは §8.4 の因果の文 *in whole or in part* が絞る）。30 —— §6.4・§8.4 は反例なし（*in each case* は範囲を定める語で立証の負担を割り当てない）。**§1.7 に反例**: §1.7 の文は外側に 3 つの並びを持ち、文の末尾の *in each case* がその「各場合」にも掛かると読め、T96 が新しい割れを持ち込んだ → §1.7 だけ *"other data that results from that processing"*（関係節は *any* が束ねる名詞の束に付き、外側の並びに届かない）。逆側: last antecedent rule で *other data* だけに付く余地は残るが、*any* と単数の *results* が束ねの読みを支える。登録した問い: (a) *in each case* が、§6.4 で「各項ごとに Computational Use の結果であることを示せ」という立証の負担を受け手に課すと読まれないか、(b) §1.7 の他の列挙（*"reproduction, extraction, normalisation, indexing, retrieval, analysis, and text and data mining"*）に同じ型の割れが無いか。
 
+### 15.32 T97・T98・T99 —— 一意化の束 1（+20 語・2026-11-18・【反例待ち】）
+
+§19 の 3 つの帯が出した試作の種を 1 本の束にした（反例を一度に当てられるように）。
+
+| 試作 | 条 | Before → After | 別の読み（§19 の行）|
+| :-- | :-- | :-- | :-- |
+| T97 | §4.5 | *"incompatible with these"* → *"incompatible with this Dedication"*（+1）| *these* が直前の *terms*・*conditions* を指す（§19.1）|
+| T98 | §5.2 末段 | 末に *"and Section 5 reaches those terms and measures to the extent they govern that copy"*（+16）| 自分の素材の利用条件が、中の Work の写しにも §5 の外で効く（§19.2・30）。30 の案の *apply to it* は *it* が割れるので *that copy* と名指した |
+| T99 | §8.3 第 2 文 | *"or leaves unaffected any patent claim they reach"* → *"…, as to those acts, any patent claim they reach"*（+4）| 第 2 文だけを引くと請求全体を残さないと読める（§19.3・50）|
+
+**反例の担当へ（30・50）**: (a) T97 の *this Dedication* が、§4.5 の「受け手の加える条件はこの Dedication と両立しなくてよい」を「Dedication の効力を損なう条件も可」と読ませないか（§4.6 第 2 文が受ける、と読む）、(b) T98 の *that copy* が、Dedicator が自分で改変した写し（改変していない部分は Work のまま）に及ぶか、(c) T99 の *they* の先行詞（第 1 文の *Sections 8.1 and 8.4*）。
+
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。
