@@ -412,6 +412,22 @@ After（2 か所）: *"make, have made, use, offer, sell, lend, lease, import, e
 
 **反例の担当へ（30・50）** **反例の結果**: 30（4 法域の条文は rounds に）—— (a) 立たない: *keep*（英 s.60(1)(a)）と *possess*（独 9 条 *besitzen*・仏 L613-3 *la détention*）は法域ごとに別の語で、両方を挙げると各法域の語に名指しで当たる。**(b) は立った**: 日本の「貸渡し」は有償・無償を問わないが、英語の *lend* は無償の貸与を指す → *lease* を足した（+1）。(c) 立たない: *export* は行為の名で、§2.7 は請求項の範囲を限る文。(d) 列挙に無い語: 仏 L613-3 の *le transbordement* と日本の「電気通信回線を通じた提供」は *otherwise practise or transfer* に入ると読める —— ソフトウェアの特許ではネット経由の提供が中心の行為になるので、名指すかは語数との取引（*provide over a network*・+4）で、今回は見送る。(e) 立たない: 申出の *transfer* と末の *transfer* は同じもの（譲渡）を指す。ただし (b) を採るなら申出の側も *lease* を含めないと、日本の「貸渡しの申出」が名指しから落ちる → *offer to sell, lease, or transfer* にした。9b —— 英 s.60(1)(a) の *offers to dispose of* → 初めは *offer to … transfer*、30 の法源への当てで、英・独（*anzubieten*）・仏（*l'offre*）とも申出を売る申出に限らず、方法の発明の「使用の申出」も数えると分かり、**申出を *offer* だけにした**（−5 語ずつ・申出の対象の列挙が要らなくなる）。仏 L613-3 の *le transbordement*（積み替え）は *otherwise practise or transfer* に任せて見送った。登録した問い: (a) *keep* と *possess* の重なり（英国の *keeps* は所持の一種）を両方挙げる害、(b) *lend* が日本の 2 条 3 項の *貸渡し* に当たるか（有償・無償を問わない語として）、(c) *export* が §2.7（Dedicator の持つ請求項だけ）と食い違わないか。
 
+### 15.30 T95 —— 処理の産物の閉じた 5 語に other data を足す（+6 語・2026-11-18・【反例待ち】）
+
+**種**: 実務家への問い 2。§1.7・§6.4・§8.4 は *"model, parameter set, weight, embedding, or output"* の閉じた 5 語を使う。LoRA のアダプター、量子化・統合したチェックポイント、KV キャッシュ、ベクトル索引、モデルの出力から蒸留したデータセットが入るかは語の読みに依る。Chestek 氏 2025-12-06 *"the vocabulary for AI is fluid and constantly changing"*（`reviewer-positions.md` §1.159）。
+
+After（3 か所）: *"model, parameter set, weight, embedding, output, or other data"*
+
+**語の選び方**: 初めの案 *other artefact* は、portfolio-50 の先の反例で退けた —— *artefact* は作られた物一般で物理の物を含み、§8.4 の特許の許諾が、モデルの出力の設計図から作ったチップや装置の製造・販売まで伸びる入口を開く（B7・CERN-OHL-P の Product の帯へ自分から入る）。挙げた産物はどれもデータなので *other data* で覆え、綴りの問いも消える。
+
+**消える／狭まる問い**: 実務家への問い 2 は、データの産物については消え、データでない産物（物理の装置）は意図して外に残る。
+
+**機械層**: 468u の §8.4 の mutation の anchor（*resulting from Computational* を *that processing* へ縮める）を、新しい行の形（次の行まで含めて一意に）へ移した。§6.4 の anchor の行（*not decided here*）は動かしていない —— そのため §6.4 に短い行が 1 つできた。
+
+**⚠ 逆側**: (1) §8.4 の特許の許諾が、名指さないデータの産物にも及ぶ（因果の限定 —— 侵害する特徴が Work の内容から生じる —— は残る）。(2) 学習データそのもの（Work の写しを含むデータセット）が *data resulting from Computational Use of the Work* と読まれる余地 —— その写しは Work であり §4 が受けるので害は無いと読むが、§6.4 の「権利が在るかを決めない」の範囲に Work の写しが入ると読まれると、§6.4 と §4 が重なる。(3) +6 語（B3）。
+
+**反例の担当へ（30・50）**: (a) 上の (2) の読み —— Work の写しを含むデータセットが §6.4 の *other data* に入るか、(b) *output* と *other data* の重なり（出力はデータ）が、5 語のうち *output* を空にする読みを作るか、(c) *data* が法域で特別の意味（EU の Data Act の *data*、データベース権）を持つ読み。
+
 ## 16. 模擬委員会 —— 記録に立場が厚く残る審査者の目で 1.4 草案を通読する（2026-11-15〜）
 
 **仕組み**: オーナーの依頼（「5 人で話し合って、より良い案をガンガン実行して」）を受けて、portfolio-1c が出し 5 人で決めた。記録に立場が厚く残る 5 人の審査者を 1 人ずつ受け持ち（30 = Chestek 氏、50 = Fontana 氏、2f = Perens 氏、9b = Smith 氏、1c = Villa 氏）、その人の過去の文だけを根拠に、その人の目で 1.4 草案を頭から通読して「どこを突くか」を条番号つきで出す。根拠の無い推測は書かない（必ずその人の文を引く）。各節は表（基準と出典 | 当たる条 | 扱い済みの場所 | 残る点）と、条を変える指摘（試作の種）を持つ。**0 件でも表を残す** —— 審査者の基準を網羅して当てた記録になる。**この節が establish しないこと**: 模擬であって、その人が実際にそう言うことを意味しない。
