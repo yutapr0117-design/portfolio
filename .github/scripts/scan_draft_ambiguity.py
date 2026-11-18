@@ -26,6 +26,11 @@
 in a jurisdiction / held invalid / takes effect / is not / does not …) を抜き、5 人の帯 (1c §1〜4・30 §5〜7・50 §8〜10・
 2f §11〜13・9b §14〜16) に分けて出す。各人が THIRD の第 18 節に「命題」を書き出すときの入力。
 
+**--split** (2026-11-18・オーナーの依頼「法的解釈が一意に定まるように」・THIRD §19 の入力): 本文の語が 2 通りに読める候補を、
+5 人の帯に分けて出す。(p) 代名詞 (it / its / they / them / their) の文の中に、その前に先行詞の候補が 2 つ以上ある所。(m) 3 項
+以上の列挙の後ろの修飾 (resulting from / derived from / in respect of / that / which / held by / made by …) —— 最後の項だけに掛かるか、
+列挙の全体に掛かるかで割れる。どちらも候補で、各帯の人が §19 に「別の読み」として書くか、立たないと判断する。
+
 使い方:
     python3 .github/scripts/scan_draft_ambiguity.py                    # いまの草案
     python3 .github/scripts/scan_draft_ambiguity.py --law              # 法に頼る句を帯ごとに
@@ -79,6 +84,35 @@ LAW = re.compile(r"\b(to the (?:fullest |greatest |maximum )?extent(?: (?:that |
 BANDS = (("1c", 1, 4), ("30", 5, 7), ("50", 8, 10), ("2f", 11, 13), ("9b", 14, 16))
 
 
+ANTE_SG = ("the Work", "this Dedication", "the Dedicator", "the licence", "a licence", "the permission", "a permission",
+           "the covenant", "a covenant", "the right", "a right", "the claim", "a claim", "the notice", "a notice", "the text",
+           "the model", "the material", "the Reservation", "a Reservation", "the identifier", "the name")
+LIST_MOD = re.compile(r"((?:[\w\-]+(?: [\w\-]+){0,3}, ){2,}(?:and |or )[\w\-]+(?: [\w\-]+){0,3}) "
+                      r"(resulting from|derived from|in respect of|arising from|arising out of|held by|made by|owned or controlled by|"
+                      r"that|which|of the Work|in the Work)\b", re.I)  # 全大文字の条 (§13・§14) も読む (初版は §14.1 を取りこぼした)
+
+
+def split_candidates(cl: dict[str, str]) -> None:
+    """--split: 本文の語が 2 通りに読める候補 (代名詞の先行詞・列挙の後の修飾の掛かり先) を帯ごとに出す。"""
+    for who, lo, hi in BANDS:
+        rows = []
+        for k, v in cl.items():
+            if "." not in k or not (lo <= int(k.split(".")[0]) <= hi):
+                continue
+            flat = " ".join(v.split())
+            for sent in re.split(r"(?<=[.;:])\s+", flat):
+                for m in re.finditer(r"\b(it|its)\b", sent):
+                    before = sent[:m.start()]
+                    cands = sorted({a for a in ANTE_SG if a.lower() in before.lower()})
+                    if len(cands) >= 2:
+                        rows.append(f"§{k} (p) '{m.group(1)}' の先行詞の候補 {cands}: …{sent[max(0, m.start() - 70):m.end() + 30]}…")
+                for m in LIST_MOD.finditer(sent):
+                    rows.append(f"§{k} (m) 列挙「{m.group(1)[-60:]}」の後の '{m.group(2)}' —— 最後の項だけか、全体か")
+        print(f"\n## {who}（§{lo}〜§{hi}）: {len(rows)} 件")
+        for r in rows:
+            print(f"- {r[:260]}")
+
+
 def law_phrases(cl: dict[str, str]) -> None:
     """--law: 条ごとに法に頼る句を抜き、5 人の帯に分けて出す。"""
     for who, lo, hi in BANDS:
@@ -127,7 +161,8 @@ def main(argv: list[str]) -> int:
         print(__doc__)
         return 0
     law = "--law" in argv
-    argv = [a for a in argv if a != "--law"]
+    split = "--split" in argv
+    argv = [a for a in argv if a not in ("--law", "--split")]
     path = Path(argv[0]) if argv else sorted((ROOT / "LICENSES").glob("ACD-*-DRAFT.txt"),
                                              key=lambda p: len(p.read_text(encoding="utf-8")))[-1]
     text = path.read_text(encoding="utf-8")
@@ -137,6 +172,10 @@ def main(argv: list[str]) -> int:
     if law:
         print(f"# {path.name}: 法に頼る句 (条ごと・5 人の帯)")
         law_phrases(cl)
+        return 0
+    if split:
+        print(f"# {path.name}: 本文の語が 2 通りに読める候補 (代名詞の先行詞・列挙の後の修飾・5 人の帯・THIRD §19 の入力)")
+        split_candidates(cl)
         return 0
     print(f"# {path.name}: 条 {len(cl)}・定義語 {len(terms)} ({', '.join(sorted(terms))})")
     found: dict[str, list[str]] = defaultdict(list)
