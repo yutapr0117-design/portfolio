@@ -115,7 +115,7 @@ this one.
 
 **One definition a reader may misread.** In the 1.4 draft §1.7 defines *Computational Use* to include
 *"the making, distribution, and use of any model, parameter set, weight, embedding, output, or other
-data resulting from that processing"* (ACD-1.0 to 1.3 end the list at *"or output"*). That defines acts so that §6.1 can permit them; it does not say outputs are
+data, in each case resulting from that processing"* (ACD-1.0 to 1.3 end the list at *"or output"*). That defines acts so that §6.1 can permit them; it does not say outputs are
 derivative works. §6.4 of the 1.4 draft: *"You owe nothing under this Dedication in respect of any of them"*, and
 *"Whether a right subsists in any such thing is not decided here and does not need to be."* A
 licence that deems outputs derivative and puts its terms on them (TRPL, `license-discuss`
