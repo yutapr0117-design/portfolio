@@ -1,0 +1,22 @@
+Source: Loi n° 94-665 du 4 août 1994 relative à l'emploi de la langue française ("loi Toubon"), Légifrance,
+        https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000349929 (shown as "En vigueur au 18/11/2026")
+Retrieved: 2026-11-18 by portfolio-30, with the WebFetch tool.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes of at most 125 characters each.
+        Only the first paragraphs of articles 2 and 5 were fetched. Re-fetch and compare before relying on the exact wording.
+
+WHY THIS FILE EXISTS. Section 15.4 of the 1.4 draft makes English authoritative and translations for convenience only.
+This French statute requires French in certain settings.
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+===== Article 2, first paragraph =====
+1. "Dans la désignation, l'offre, la présentation, le mode d'emploi ou d'utilisation, la description de l'étendue"
+2. "et des conditions de garantie d'un bien, d'un produit ou d'un service, ainsi que dans les factures et quittances,"
+3. "l'emploi de la langue française est obligatoire."
+
+===== Article 5, first paragraph =====
+4. "Quels qu'en soient l'objet et les formes, les contrats auxquels une personne morale de droit public ou une personne privée"
+5. "exécutant une mission de service public sont parties sont rédigés en langue française."
+6. "Ils ne peuvent contenir ni expression ni terme étrangers lorsqu'il existe une expression ou un terme français"
+7. "de même sens approuvés dans les conditions prévues par les dispositions réglementaires relatives à"
+8. "l'enrichissement de la langue française."
