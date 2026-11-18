@@ -866,3 +866,11 @@ T48（2026-11-09）は、*"Paragraphs (a) and (b) do not reach a service through
 **この掃引が establish しないこと**: 5 組は #280 が挙げた 4 組に §2.2 の網を足したもので、重なる組の全数ではない。比べた 5 つの観点も全部ではない（発動の時点・法域の扱いは見ていない）。確定の前の読み（`OSI-APPROVAL-PLAN.md` §4 の段 7）でもう一度やる。
 
 **一般形**: **同じ働きの文が複数あるとき、明示を 1 つだけに足すと、明示の無い方が「無い」と読まれる。** 依拠・承継・終了のような横断の性質は、1 か所で全体に掛けるか（§2.8 の形）、全部に書くかのどちらかにする。§5.3 と §12.4 は承継を別々に書き、§2.8 が全体に掛けて両方を狭めないと言う —— 依拠にはその全体の文が無い。
+
+## 3zc. 1.2 が §2.9 に持ち込んだ言い切り —— *"suspended by ... any act of a trustee"* はドイツの倒産の否認に負けうる（2026-11-16〜17）
+
+**なに**: 1.0 の §2.9 の結果の言い切り（*"No insolvency … affects a permission granted here"*）は errata E30 が記録した。1.2 はそれを *"Nothing in this Dedication is conditioned on, suspended by, or revived by an insolvency, bankruptcy, administration, receivership, liquidation, dissolution, or similar proceeding in respect of the Dedicator, or by any act of a trustee, administrator, receiver, liquidator, or equivalent officer."* に書き換えた（1.3 も同じ）。*conditioned on* は文書の中身の言明で真だが、*suspended by … any act of … administrator* は法の効果の言明で、ドイツの倒産法では偽になりうる: InsO 134 条 1 項は申立ての前 4 年以内の無償の給付を否認の対象にし（*"Anfechtbar ist eine unentgeltliche Leistung des Schuldners, es sei denn, sie ist früher als vier Jahre"* *"vor dem Antrag auf Eröffnung des Insolvenzverfahrens vorgenommen worden."*）、否認は管財人の行為である（`rounds/2026-11-16-inso-103-129-134-143-gesetze-im-internet-snapshot.txt`・`jurisdictions.md` §3）。1.0 の文には無い（E30 の文は別の言い切り）ので、errata ではなくここに記録する。
+
+**閉じ方**: 1.4 草案の T89 —— *"Nothing in this Dedication is, under its terms, conditioned on, suspended by, or revived by …"*（+3 語）。文書の中の仕組みが無いことを述べる文になり、法律が管財人に与える否認は外に出た。InsO 103 条（双務契約の履行選択）は、受け手が何も負わない ACD には当たりにくい（同じ写し）。
+
+**一般形**: E30 で結果の言い切りを外した後に、同じ根（文書の外の法が決めることを文書が言い切る）が別の語で戻っていた。T81（§10.4）・T85（§8.2）・T89（§2.9）は 1.4 で同じ型の 3 か所を *"under it" / "under this Dedication" / "under its terms"* で閉じた。**この記録が establish しないこと**: 否認が実際に、既に写しを持つ受け手の許しに及ぶか（問い 8）。
