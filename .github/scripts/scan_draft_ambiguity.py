@@ -23,6 +23,8 @@
       約束する条 (covenants / will not) の組で、免責の条がその約束を名指して外していないもの (1c の依頼・問い 9 (a) の型)。
   (l) 同じ条の中の "X or Y" と "X and Y" —— 同じ 2 語を一方で or、他方で and で並べると、and が「両方が揃ったときだけ」と
       読まれる余地が出る (2026-11-18・T98 の §5.2 の "terms or measures" と "those terms and measures")。
+  (m) "may not" —— 禁止 (許されない) か、可能性 (しないかもしれない) かで割れる (2026-11-18・2f の §1.266・Cowan 氏「may not は
+      読み違えられやすい」)。文の中に禁止を示す語 (restricted / prohibited / no … may) が在れば読みは閉じやすいが、候補として出す。
 
 **--law** (2026-11-16・50 の方法の (a)): 条ごとに「法に頼る句」(to the extent / applicable law / where … permits /
 in a jurisdiction / held invalid / takes effect / is not / does not …) を抜き、5 人の帯 (1c §1〜4・30 §5〜7・50 §8〜10・
@@ -219,6 +221,10 @@ def main(argv: list[str]) -> int:
             return {tuple(sorted(w.lower().rstrip("s") for w in m)) for m in re.findall(r"\b([a-z]{4,}s?) " + conj + r" ([a-z]{4,}s?)\b", v)}
         for a, b in sorted(_pairs("or") & _pairs("and")):
             found["l"].append(f"§{k}: \"{a} or {b}\" と \"{a} and {b}\" が同じ条に在る")
+    # (m) "may not"
+    for k, v in flat.items():
+        for m in re.finditer(r"\bmay not\b", v):
+            found["m"].append(f"§{k}: …{v[max(0, m.start() - 50):m.end() + 40]}…")
     # (c) 使われない定義
     for t, k in terms.items():
         uses = [c for c, v in flat.items() if c != k and re.search(r"\b" + re.escape(t) + r"s?\b", v)]
@@ -242,7 +248,8 @@ def main(argv: list[str]) -> int:
              "f": "義務の助動詞 (shall / must / will) —— 受け手を主語にしていないか", "g": "古い指示語",
              "h": "小項の中の \"this Section\" —— 節か小項か", "i": "and/or", "j": "優先の連鎖 (subject to / notwithstanding …)",
              "k": "免責・制限の条が同じ文書の約束を呑むか (問い 9 (a) の型)",
-             "l": "同じ条の中の \"X or Y\" と \"X and Y\""}
+             "l": "同じ条の中の \"X or Y\" と \"X and Y\"",
+             "m": "\"may not\" —— 禁止か可能性か"}
     for typ, name in names.items():
         xs = found.get(typ, [])
         print(f"\n## ({typ}) {name}: {len(xs)}")
