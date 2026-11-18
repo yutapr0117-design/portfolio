@@ -261,8 +261,8 @@ MUTATIONS_ARCHIVE6 = [
     {
     "name": "Check 468: §6.4 から「under this Dedication」を落とす —— 何の下で負わないのかが消え、他の法源の義務まで否定すると読める (468u の目印・#2655)",
     "file": CURRENT_DRAFT,
-    "find": "You owe nothing under this Dedication in respect",
-    "replace": "You owe nothing in respect",
+    "find": "You owe nothing under this",
+    "replace": "You owe nothing as to the Work under this",
 },
     {
     "name": 'Check 161: robots.txt に Disallow: /portfolio/ を足す —— サイトは /portfolio/ の下に在るので全サイトの拒否なのに、/ と /* だけを全拒否と見ていた',
