@@ -757,6 +757,18 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 
 **反例の結果**: 50（§8.4 の側）—— 反例なし（*in each case* を行為ごとと読む別の読みは、行為が *resulting from* の主語になれないので外れる。他人の作品と混ぜて学習したモデルは §8.4 の因果の文 *in whole or in part* が絞る）。30 —— §6.4・§8.4 は反例なし（*in each case* は範囲を定める語で立証の負担を割り当てない）。**§1.7 に反例**: §1.7 の文は外側に 3 つの並びを持ち、文の末尾の *in each case* がその「各場合」にも掛かると読め、T96 が新しい割れを持ち込んだ → §1.7 だけ *"other data that results from that processing"*（関係節は *any* が束ねる名詞の束に付き、外側の並びに届かない）。逆側: last antecedent rule で *other data* だけに付く余地は残るが、*any* と単数の *results* が束ねの読みを支える。登録した問い: (a) *in each case* が、§6.4 で「各項ごとに Computational Use の結果であることを示せ」という立証の負担を受け手に課すと読まれないか、(b) §1.7 の他の列挙（*"reproduction, extraction, normalisation, indexing, retrieval, analysis, and text and data mining"*）に同じ型の割れが無いか。
 
+### 15.32 T97・T98・T99 —— 一意化の束 1（+20 語・2026-11-18・【反例待ち】）
+
+§19 の 3 つの帯が出した試作の種を 1 本の束にした（反例を一度に当てられるように）。
+
+| 試作 | 条 | Before → After | 別の読み（§19 の行）|
+| :-- | :-- | :-- | :-- |
+| T97 | §4.5 | *"incompatible with these"* → *"incompatible with this Dedication"*（+1）| *these* が直前の *terms*・*conditions* を指す（§19.1）|
+| T98 | §5.2 末段 | 末に *"and Section 5 reaches those terms and measures to the extent they govern that copy"*（+16）| 自分の素材の利用条件が、中の Work の写しにも §5 の外で効く（§19.2・30）。30 の案の *apply to it* は *it* が割れるので *that copy* と名指した |
+| T99 | §8.3 第 2 文 | *"or leaves unaffected any patent claim they reach"* → *"…, as to those acts, any patent claim they reach"*（+4）| 第 2 文だけを引くと請求全体を残さないと読める（§19.3・50）|
+
+**反例の担当へ（30・50）**: (a) T97 の *this Dedication* が、§4.5 の「受け手の加える条件はこの Dedication と両立しなくてよい」を「Dedication の効力を損なう条件も可」と読ませないか（§4.6 第 2 文が受ける、と読む）、(b) T98 の *that copy* が、Dedicator が自分で改変した写し（改変していない部分は Work のまま）に及ぶか、(c) T99 の *they* の先行詞（第 1 文の *Sections 8.1 and 8.4*）。
+
 ## 19. 法的解釈を一意に定める —— 各条の「最も強い別の読み」を 1 つ書き、立つなら語で消す（2026-11-18〜・オーナーの依頼）
 
 **依頼**: オーナー 2026-11-18「ACD-1.4-DRAFT.txt の法的解釈が一意に定まるように「５人」で連携しながら続けてください」。**§18 との分け**: §18 は法の側の不確かさ（どの法域で効くか）を扱った。§19 は **本文の語が 2 通り以上に読める所** を扱う。**方法**（portfolio-2f の案で 5 人が決めた）: 各条の最も強い別の読みを 1 つ書き、立たない → 一意（閉じている条を根拠に名指す）、立つ → 1c の試作（Tnn・【反例待ち】）で語を消す、法の側に依る → 既存の問い・§18 の ③。探す手がかりの型: 先行詞・修飾の掛かり先・量化・or・including・定義語の混用・時点・主語・否定の範囲。**行の形**: `- §x.y | 別の読み: … | 一意 / 試作 Tnn / 法の側 | 根拠: …`。**小節**: 19.1 = §1〜§4（1c）、19.2 = §5〜§7（30）、19.3 = §8〜§10（50）、19.4 = §11〜§13（2f）、19.5 = §14〜§16（9b）。各自、自分の小節を見出しごと足す（番号順に並べる）。
