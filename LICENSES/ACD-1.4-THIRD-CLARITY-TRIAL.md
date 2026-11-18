@@ -769,3 +769,16 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 - §7.2 | 別の読み: *"without limit and without condition"* が、Dedicator 以外の者のデータベース権まで許す | 一意 | 根拠: 同じ文が *"so far as the Covered Rights of the Dedicator are concerned (Section 2.7)"* と限る。
 
 **§19.2 の結果**: 10 行のうち、立つ別の読みは 1 つ（§5.2 末段・試作の種）。§6.5 は一意だが、受け手に少なく与える側に本文が定めていることを逆側に記録した。
+
+
+### 19.5 §14〜§16（portfolio-9b・main の 1.4 草案）
+
+入力: `scan_draft_ambiguity.py --split` の 9b の帯（10 件）と、§14 の 2 つの条を並べて読んだ結果。§15.1（受け手に多く与える読みが勝つ）は受け手に与えるものについての割れを閉じるが、Dedicator の責任の範囲や文書の規律（§16）の割れは閉じない —— この帯の割れの多くはそちら側にある。
+
+- §14.1 | 別の読み: "LIABILITY FOR WILFUL MISCONDUCT, GROSS NEGLIGENCE, DEATH, OR PERSONAL INJURY THAT APPLICABLE LAW DOES NOT PERMIT TO BE EXCLUDED" の "THAT …" が最後の "PERSONAL INJURY" だけに掛かると読むと、故意・重過失・死亡の責任は法が除外を許しても除外されない（T82 が狙った「法に条件づける」が 3 つの範疇で外れる） | 試作 T102 | 根拠: 1c の案は T96 と揃えた "… OR PERSONAL INJURY, IN EACH CASE WHERE APPLICABLE LAW DOES NOT PERMIT IT TO BE EXCLUDED, WHICH NOTHING IN SECTION 14 LIMITS" —— 修飾が 4 つの範疇のどれにも掛かることを語で示す。9b の "SUCH AS" の案（4 つを例示にする）は、外せない責任すべてを除外に入れて §14.2 の働く先を無くすので採らない（1c の判断）。逆側: いまの語順でも "LIABILITY … THAT" と読むのが自然
+- §14.1 | 別の読み: 法が除外を許さないが制限は許す責任について、§14.1 の "WHICH NOTHING IN SECTION 14 LIMITS" は「§14 のどれも制限しない」、§14.2 第 1 文 "that liability is limited to the greatest extent that law permits" は「法の許す限り制限する」と読める | 一意 | 根拠: §14.1 の "WHICH NOTHING IN SECTION 14 LIMITS" が §14.2 を名指しで含む（§15.22 で「変えない」と決め、30 も同意・1c）。逆側: 名指しで含むことは、2 つの文が同じ責任に掛かる場面で §14.1 が勝つと読ませるが、§14.2 の文そのものはその場面を除かない
+- §14.1 | 別の読み: "SPECIAL LOSS OR DAMAGE ARISING OUT OF THIS DEDICATION OR THE USE OF THE WORK" の "ARISING OUT OF …" が最後の "SPECIAL" だけに掛かる | 一意 | 根拠: §14.1 —— "LOSS OR DAMAGE" が名詞で、形容詞の列（DIRECT … SPECIAL）はどれもその名詞に掛かるので、修飾は名詞句の全体に掛かる
+- §15.1 | 別の読み: "its words" の "its" が "the Work" を指す | 一意 | 根拠: §15.1 —— 文の主語が "This Dedication" で、"its words" はその Dedication の語（"is to be construed so as to give … that its words allow"）
+- §16.2 | 別の読み: "the material it identifies" の "it" が "this Dedication" を指す | 一意 | 根拠: §16.2 —— 主語の "A notice a Dedicator places" を受け、"whether by its words, by its place in a comment within a file …" と通知の性質が続く
+- §16.4 | 別の読み: "may be distributed under the name and the identifier if it is identified as a translation" の "it" が "the name" / "the identifier" を指す | 一意 | 根拠: §16.4 —— 文の主語が "A translation" で、"identified as a translation" は翻訳についてしか意味をなさない
+- §16.5 | 別の読み: "the name and the identifier it bears" の "it" が "the identifier" を指す | 一意 | 根拠: §16.5 —— "first published this text under the name and the identifier it bears" で、名と識別子を帯びるのは "this text"
