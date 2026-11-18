@@ -1,0 +1,40 @@
+Source: OSI license-discuss public archive, 2001-February.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-18)
+Messages: 1 of 6 in "Wording in Open Source Definition" (2001-02-16)
+Senders: John Cowan
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From cowan at mercury.ccil.org  Fri Feb 16 12:11:09 2001
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Fri, 16 Feb 2001 07:11:09 -0500 (EST)
+Subject: Wording in Open Source Definition
+In-Reply-To: <20010216094915.C8998@ixion.tartarus.org> from Richard Boulton at
+ "Feb 16, 2001 09:49:15 am"
+Message-ID: <E14TjjB-0007pM-00@mercury.ccil.org>
+
+Richard Boulton scripsit:
+
+> We were unable to come to a satisfactory agreement, so I am asking this
+> list:  "Is it permissible in any circumstances for an Open Source license
+> to require a royalty or other fee for sale of the software?"
+
+The answer is clearly "no".
+
+> If the answer is no, I humbly suggest that the "may not" be changed to
+> "must not" where it appears in clause 1, and that "free" be changed to
+> "free-of-cost" in the rationale for clause 1, to avoid others falling into
+> this same argument.
+
+I think you are absolutely right, and "may not" should be changed to
+"must not" everywhere.
+
+As evidence that "may not" means "must not" in this document, however,
+consider clause 6.  The second sentence purports to be an example of
+the general principle given in the first sentence, yet the second
+sentence reads "may not" where the first reads "must not".
+
+-- 
+John Cowan                                   cowan at ccil.org
+One art/there is/no less/no more/All things/to do/with sparks/galore
+	--Douglas Hofstadter
