@@ -181,12 +181,20 @@ def run(ctx):
         _d470b = _n470b(_dr470b[0].read_text(encoding="utf-8").split("-" * 80, 1)[-1]) if _dr470b else ""
         _G470b = _g470b(" ".join(_n470b(_p.read_text(encoding="utf-8")) for _p in sorted((ROOT / "LICENSES").glob("ACD-1.*.txt"))))
         _stale470b = []
-        for _qf470b in ("QUESTIONS-FOR-COUNSEL.md", "QUESTIONS-FOR-PRACTITIONERS.md"):
+        # 作業中の版の逐条リファレンスも同じ形で照らす (2026-11-18・50 の提案: 試作のたびに手で回して古い逐語を 6 つ見つけた)
+        _cref470b = [_p.name for _p in sorted((ROOT / "LICENSES").glob("ACD-1.[1-9]-CLAUSE-REFERENCE-DRAFT.md"))
+                     if not (ROOT / "LICENSES" / _p.name.replace("-CLAUSE-REFERENCE-DRAFT.md", ".txt")).exists()]
+        for _qf470b in ["QUESTIONS-FOR-COUNSEL.md", "QUESTIONS-FOR-PRACTITIONERS.md"] + _cref470b:
             _qt470b = (ROOT / "LICENSES" / _qf470b).read_text(encoding="utf-8") if (ROOT / "LICENSES" / _qf470b).exists() else ""
-            for _p470b in re.split(r"\n\s*\n", _qt470b):
+            # 表の行は 1 行ずつを段落として読む (表全体を 1 段落にすると、別の行の版の名乗りが他の行の引用まで除いた)
+            _paras470b = [_x for _b in re.split(r"\n\s*\n", _qt470b)
+                          for _x in (_b.split("\n") if _b.lstrip().startswith("|") else [_b])]
+            for _p470b in _paras470b:
                 _fl470b = " ".join(_p470b.split())
                 for _m470b in re.finditer(r'\*"([^"]{12,})"\*', _fl470b):
-                    if re.search(r"(?<![\d.§])(?:ACD-)?1\.[0-3](?![\d])|earlier version", _fl470b[:_m470b.start()]):
+                    # 旧版の名乗り・試作の前の文 (「T85 の前」「as adopted on」)・発言者と日付の付いた引用 (審査者の文) は除く
+                    if re.search(r"(?<![\d.§])(?:ACD-)?1\.[0-3](?![\d])|earlier version|T\d+ ?(?:の前|より前)|before T\d+|as adopted on"
+                                 r"|氏 \d{4}-\d{2}", _fl470b[:_m470b.start()] + _fl470b[_m470b.end():_m470b.end() + 40]):
                         continue
                     for _fr470b in re.split(r"\s*(?:…|\.\.\.)\s*", _m470b.group(1)):
                         _nf470b, _gs470b = _n470b(_fr470b), _g470b(_fr470b)
@@ -195,7 +203,7 @@ def run(ctx):
                             _stale470b.append(f"{_qf470b}: \"{_fr470b[:70]}\"")
         check(
             not _stale470b,
-            "Check 470 (問いの引用・ADVISORY): 法律家と実務家への問いが引く草案の文は、いまの草案に逐語で在る",
+            "Check 470 (問いの引用・ADVISORY): 法律家と実務家への問いと逐条リファレンスが引く草案の文は、いまの草案に逐語で在る",
             (f"Check 470 (問いの引用・ADVISORY): 問いが、いまの草案に無い ACD の文を引いている（試作で文が変わったか、言い回しがずれた）: "
              f"{_stale470b}。草案の文に揃えるか、旧版の文なら段落のその引用より前で版を名乗れ"),
             blocking=False,
