@@ -841,10 +841,12 @@ census の unquoted-decider（候補の外の会話の、ドシエが 1 文も�
 | *"I think you are absolutely right, and "may not" should be changed to "must not" everywhere. As evidence that "may not" means "must not" in this document, however, consider clause 6."* | John Cowan 氏 2001-02-16（"Wording in Open Source Definition"・OSD 自身の語について） | **割れの型。** "may not" は禁止（must not）とも、可能性（might not）とも読める。Cowan 氏は、同じ文書の中の対の文（一般の原則が "must not"、例が "may not"）から、その文書では禁止の意味だと読めると示した —— 文書の中の別の文が読みを閉じる、の型 |
 | *"It would be better to word this "must not" rather than "may not", which latter is subject to misreading."* | John Cowan 氏 2003-09-25（Open Source Software Alliance License の審査） | **同じ型の 2 度目。** 審査で提出の文に対し、"may not" を "must not" に替えるよう求めた |
 
-**1.4 草案の "may not"**: 本文に 2 か所 —— §2.2 *"The Dedicator may not withdraw it, and may not impose any further term, condition, or restriction"*（1c の帯）と、§16.4 *"A modified text may not be distributed under any name"*（9b の帯）。どちらも禁止の読み（Dedicator は撤回してはならない・改変した本文はその名で頒布してはならない）が意図。別の読み（Dedicator は撤回しないかもしれない・頒布されないかもしれない）は文脈から弱いが、審査者が実際に名指した割れの型である。§2.2 は同じ条の第 1 文 *"This Dedication is irrevocable."* が禁止の読みに閉じ（Cowan 氏の 2001 年の型と同じ —— 一般の文が読みを閉じる）、§16.4 には同じ条の中に閉じる文が在るかを 9b が確かめる。
+**1.4 草案の "may not"**: 本文に 2 か所あり、意図する意味が違う（portfolio-30 の反例で直した。最初の版は 2 か所とも禁止の読みが意図と書いていた）。
+- §2.2 *"The Dedicator may not withdraw it, and may not impose any further term, condition, or restriction"*（1c の帯）: 意図は「力が無い」（撤回しても効かない）で、第 1 文 *"This Dedication is irrevocable."* の言い換え。Cowan 氏の勧めどおり "must not" にすると禁止の読みになり、「撤回は効くが約束に反する」という別の読みを作る —— T81 などで閉じてきた「法の効果の言い切りと義務の混同」の逆向き。直すなら、草案の §6.3 が他の権利者の留保について既に使う「力が無い」の言い方（§6.3 の "the Dedicator has no power to withdraw it"）と同じ形か "cannot withdraw it" の形で、法定の撤回（独 42 条・仏 L121-4・贈与の撤回）との関係（"under this Dedication" を添えるか）は 1c の判断。
+- §16.4 *"A modified text may not be distributed under any name"*（9b の帯）: 意図は頒布の禁止で、Cowan 氏どおり "must not" が合う（±0 語）。§16.6 が Work の条件ではないと述べるので、受け手の Work の利用には及ばない。
 
 **逆側。** 法の起草の慣行では "may not" は禁止として広く通る。"must not" に替えることは語数が増えず（±0）、別の読みを消すが、既に読みが閉じている §2.2 では語を変える利点は小さい。
 
 **この節が establish しないこと。** 審査で ACD の "may not" が実際に問われるか。
 
-**反映**: 1c（THIRD §19.1 の §2.2 の行 —— 一意・根拠: §2.2 第 1 文 "This Dedication is irrevocable."、Cowan 氏 2001 の型）/ 9b（THIRD §19.5 の §16.4 の行 —— "may not" の禁止の読みが同じ条の中で閉じているか、閉じていなければ "must not" の試作の種）。
+**反映**: 1c（THIRD §19.1 の §2.2 の行 —— 意図は「力が無い」で、"must not" にすると禁止の読みを作る。第 1 文が力の無さに閉じるか、"has no power" の形にするかの判断）/ 9b（THIRD §19.5 の §16.4 の行 —— 意図は禁止で、"must not" の試作の種・±0 語）。
