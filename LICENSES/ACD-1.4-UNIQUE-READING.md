@@ -28,7 +28,27 @@ THIRD（`ACD-1.4-THIRD-CLARITY-TRIAL.md`）にあった第 19 節を 2026-11-18 
 - §4.5 第 1 文 | 別の読み: *"terms that are incompatible with these"* の *these* が、この Dedication の条項でなく、直前の *terms* や *conditions upon Your own recipients* を指す | 試作 T97 で入った | 根拠: §4.5 *"incompatible with this Dedication"*（+1）で先行詞を語に置いた（30・50 とも反例なし）
 - §4.6 第 2 文 | 別の読み: *"Terms You add govern what You give"* が、You の加えた条件が Dedicator の約束（§5.3 の受益者）まで狭めると読む | 一意 | 根拠: §4.6 第 2 文の後半 *"they do not narrow what the Dedicator has already given in respect of the Work"*
 
+- §1.1 | 別の読み: *"this document"* が、草案の冒頭の変更一覧や前文まで Dedication に含める | 一意 | 根拠: §1.1 の *"comprising Sections 1 to 16"* が範囲を条で閉じる
+- §1.2 | 別の読み: *"the rights of an author … of a work"* の *a work* が、Dedicator の他の作品の人格権まで §12 の放棄と約束に入れる | 一意 | 根拠: §12.1 *"Moral Rights in the Work"* と §12.3 *"limited to the Work"* が働く範囲を Work に限る。§1.2 は権利の種類を定めるだけ
+- §1.5 | 別の読み: *"any right of similar effect"* が特許・商標・人格権まで Covered Rights に入れる | 一意 | 根拠: §1.5 第 2 文がその 4 つを名指しで除き、扱う条（§8・§11・§12・§11.4）を指す
+- §1.8 | 別の読み: *"directed, prompted, reviewed, edited, or selected it"* の *it* が、部分でなく *an automated system* を指す | 一意 | 根拠: §1.8 —— どちらを先行詞に取っても、人の関与の有無を問わないという効果は同じで、範囲が割れない
+- §1.9 | 別の読み: *"in either case offering the Work"* が repository・forum だけに掛かり、Dedicator 宛ての提出は Work の公開と通知が無くても Contribution になる | 一意 | 根拠: §1.9 の *"in either case"* が、先の *"to the Dedicator or to a repository or forum"* の両方を受ける
+- §1.9(b) | 別の読み: *"…, in either case offering the Work, with a notice of this Dedication, to the public …"* の *with a notice of this Dedication* が、受け手が Work を告知つきで提供していることでなく、提出そのものに掛かり、告知を付けずに出した貢献は Contribution でなくなる（portfolio-2f） | 試作の種 T107 | 根拠: 案は 2 つのカンマを外して *"in either case offering the Work with a notice of this Dedication to the public or to those invited to contribute"*（語数同じ・句が *offering the Work* に密着する）。逆側: カンマを外すと、*to the public …* が *offering* でなく *submits* に掛かる読みが近くなる —— 反例の担当に当てる
+- §1.10 | 別の読み: *"for text and data mining or for the use of a work in developing a machine learning model"* の *or* が並びでなく言い換えで、学習への利用の留保だけを数える | 一意 | 根拠: §1.10 —— 2 つの *for* 句が同じ形で並び、§1.7 の *Computational Use* も 2 つを別に挙げる
+- §2.1 | 別の読み: *"every separable part"* が、切り離せない部分を外す | 一意 | 根拠: §2.1 の *"the Work as a whole"* が切り離せない部分を含む全体を受ける
+- §2.4 | 別の読み: *"Sections 3, 4, 5, and 6 are independent"* の列挙に無い §8・§12 は、他の条の効力に依る | 一意 | 根拠: §2.4 の同じ文 *"as is every other grant, permission, consent, and covenant in this Dedication"*
+- §2.5 第 2 文 | 別の読み（1c・2f が同じ読みを別々に挙げた）: *"assert that this Dedication is revocable or ineffective for want of consideration or formality"* の *for want of …* が *ineffective* だけに掛かり、撤回できるという主張はどんな理由でも約束に反する —— 法が与える撤回（E86 の贈与の撤回）を主張することまで約束の違反になり、§8.2 が T85 で *"under this Dedication"* に退いた範囲と食い違う | 試作の種 T106 | 根拠: 案は *"assert that, for want of consideration or formality, this Dedication is revocable or ineffective"*（語数同じ）—— 理由の句を前に出して 2 つの述語の両方に掛ける。逆側: 撤回の主張を理由を問わず約束で封じる方が受け手に強いが、法が与える撤回は約束で封じきれない（E86・ドイツ民法 533 条は事前の放棄を許さない）
+- §2.6 第 1 文 | 別の読み: *"unless they state otherwise"* の *they* が Dedicator を指す | 一意 | 根拠: §2.6 第 2 文 *"Where a person states otherwise"* が、述べるのは提出する人だと受ける
+- §2.7 第 1 文 | 別の読み: *"now or in future"* が *reaches* に掛かり、Dedication が働く時を限る | 一意 | 根拠: §1.5 *"holds or may come to hold … now or in future"* —— 同じ句は権利を持つ時を受ける
+- §3.2 | 別の読み: *"includes any right to compensation, remuneration, levy, or royalty"* が、法が放棄を許さない報酬請求権（例: 集中管理の分配）まで放棄すると言い切る | 一意 | 根拠: §3.1 *"to the fullest extent permitted by the law of each jurisdiction"* が §3.2 の放棄にも掛かる（§3.2 は §3.1 の *surrender* の範囲を言う）。法が放棄を許さない分は §5.1 の約束も届かない —— 何が残るかは法の側
+- §3.3 | 別の読み: 放棄も譲渡もできない法域では、§3 が何もしないので許しが無くなる | 一意 | 根拠: §4.4 *"it takes effect whether or not Section 3 does"*
+- §4.1 | 別の読み: *"transferable"* が、You が licence を譲ると You が許しを失う、と読ませる | 一意 | 根拠: §4.1 —— *non-exclusive* の licence は Dedicator が §1.6 の *You* の各人に与えるので、譲っても各人はそれぞれ §4.1 の下に在る（§2.3 *"To hold a permission granted here"*）
+- §4.3 第 2 文 | 別の読み: *"In particular"* の後の列挙が、条件の無いことを列挙した種類に限る | 一意 | 根拠: §4.3 第 1 文 *"subject to no condition of any kind"*
+- §4.4 第 2 文 | 別の読み: *"no permission granted here"* の *here* が §4.4 だけを指す | 一意 | 根拠: §4.4 第 1 文が §4.1 の licence を受け、*here* はその licence を含む Dedication の許し —— §9.3・§12.2 の同じ型の文と揃う
+
 **結果**: §1〜§4 の立つ別の読みは 2 つ（§1.7 は T96・§4.5 は T97）。ほかの 10 行は他の条（§15.1・§1.5・§2.7・§16.2）か同じ文の語が一方に閉じている。
+
+**追記（2026-11-19・portfolio-2f の数え直しを受けて）**: 行の無かった 16 小項（§1.1・§1.2・§1.5・§1.8〜§1.10・§2.1・§2.4〜§2.7・§3.2・§3.3・§4.1・§4.3・§4.4）を足した。立つ別の読みは §2.5 第 2 文の 1 つで、試作の種 T106 にした。2f の外からの当て（§19.6 の下書き）で §1.9 の告知の句の掛かり先がもう 1 つ立ち、T107 にした（1c が一意とした §1.9 の行とは別の読み）。
 
 ### 19.2 §5〜§7（portfolio-30・main の 1.4 草案・T95 の後）
 
