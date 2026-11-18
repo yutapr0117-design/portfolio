@@ -63,10 +63,11 @@ THIRD（`ACD-1.4-THIRD-CLARITY-TRIAL.md`）にあった第 19 節を 2026-11-18 
 - §9.2 | 別の読み: *"asserts no right in Machine-Generated Material"* が、Dedicator 以外の者の権利も主張されないと言う | 一意 | 根拠: 主語が *"The Dedicator"* で、§2.7 が届く範囲を Dedicator の権利に閉じる
 - §9.2 | 別の読み: 末文 *"Where a right that this Dedication reaches subsists, or is later held to subsist, this Dedication applies to it"* の *"it"* が *"a right"* でなく Work を指す | 一意 | 根拠: 単数の先行詞は *"a right"* だけで、Work はこの文に出ない
 - §10.1 | 別の読み: *"in respect of the Work"* が、モデル・出力について条件を課す余地を残す | 一意 | 根拠: §6.4 *"You owe nothing under this Dedication in respect of any of them"* がモデル・出力の側を閉じる
+- §10.2 | 別の読み: *"license anything under these or any other terms"* の *these* に先行する名詞が無く（§10.2 の中に *terms* は出ない）、「§10.2 が挙げた行為」や §10.1 の *"condition, obligation, restriction, or requirement"* を指すと読める | **試作の種（1c へ）** | 根拠: T97 が §4.5 の *"incompatible with these"* を *"with this Dedication"* に替えたのと同じ型。案: *"license anything under this Dedication or under any other terms"*（+3）
 - §10.3 | 別の読み: *"Under this Dedication"* が文頭に在るので、Dedicator が別の契約で同じ要望を条件にしたとき、それも「条件ではない」と読む | 一意 | 根拠: 文頭の句は「この Dedication の下では」と範囲を限り、別の契約の効果を言わない。§5.2(b) が、別の手段で義務を課さない約束を Dedicator に負わせる側を受け持つ
 - §10.4 | 別の読み: *"No permission granted by this Dedication terminates under it, for any reason"* の *"it"* が *"permission"* を指す | 一意 | 根拠: 第 2 文が *"This Dedication … contains no termination provision"* と同じ主語で受ける
 
-**§19.3 の結果**: 13 行のうち、立つ別の読みは 2 つ —— §8.3 第 2 文（T99 で入った・句は主語の直後に置いて 3 つの動詞すべてに掛けた）と §8.4 の列挙の後の修飾（T96 で入った）。開いている試作は 0。一意 11、法の側 0。
+**§19.3 の結果**: 14 行のうち、立つ別の読みは 3 つ —— §8.3 第 2 文（T99 で入った・句は主語の直後に置いて 3 つの動詞すべてに掛けた）、§8.4 の列挙の後の修飾（T96 で入った）、§10.2 の *these*（試作の種・2026-11-19 の 2 巡目）。開いている試作は 1。一意 11、法の側 0。
 
 ### 19.4 §11〜§13（portfolio-2f・main の 1.4 草案）
 
