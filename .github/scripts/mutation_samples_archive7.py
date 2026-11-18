@@ -347,8 +347,8 @@ MUTATIONS_ARCHIVE7 = [
     {
     "name": "Check 468r: §6.4 の除外の句を書き換える —— 句で持つ除外が条から消えたら、読み直しの合図として RED (2026-11-12・§6.5 の句が T79 で消えたので §6.4 へ移した 2026-11-16)",
     "file": CURRENT_DRAFT,
-    "find": "       them. Whether a right subsists in any such thing is not decided here and",
-    "replace": "       them. Whether a right subsists in any such thing is not settled here and",
+    "find": "such thing is not decided here",
+    "replace": "such thing is not settled here",
     "check": CHECK,
 },
     {

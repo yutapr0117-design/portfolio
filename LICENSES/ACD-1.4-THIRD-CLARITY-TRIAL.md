@@ -412,7 +412,7 @@ After（2 か所）: *"make, have made, use, offer, sell, lend, lease, import, e
 
 **反例の担当へ（30・50）** **反例の結果**: 30（4 法域の条文は rounds に）—— (a) 立たない: *keep*（英 s.60(1)(a)）と *possess*（独 9 条 *besitzen*・仏 L613-3 *la détention*）は法域ごとに別の語で、両方を挙げると各法域の語に名指しで当たる。**(b) は立った**: 日本の「貸渡し」は有償・無償を問わないが、英語の *lend* は無償の貸与を指す → *lease* を足した（+1）。(c) 立たない: *export* は行為の名で、§2.7 は請求項の範囲を限る文。(d) 列挙に無い語: 仏 L613-3 の *le transbordement* と日本の「電気通信回線を通じた提供」は *otherwise practise or transfer* に入ると読める —— ソフトウェアの特許ではネット経由の提供が中心の行為になるので、名指すかは語数との取引（*provide over a network*・+4）で、今回は見送る。(e) 立たない: 申出の *transfer* と末の *transfer* は同じもの（譲渡）を指す。ただし (b) を採るなら申出の側も *lease* を含めないと、日本の「貸渡しの申出」が名指しから落ちる → *offer to sell, lease, or transfer* にした。9b —— 英 s.60(1)(a) の *offers to dispose of* → 初めは *offer to … transfer*、30 の法源への当てで、英・独（*anzubieten*）・仏（*l'offre*）とも申出を売る申出に限らず、方法の発明の「使用の申出」も数えると分かり、**申出を *offer* だけにした**（−5 語ずつ・申出の対象の列挙が要らなくなる）。仏 L613-3 の *le transbordement*（積み替え）は *otherwise practise or transfer* に任せて見送った。登録した問い: (a) *keep* と *possess* の重なり（英国の *keeps* は所持の一種）を両方挙げる害、(b) *lend* が日本の 2 条 3 項の *貸渡し* に当たるか（有償・無償を問わない語として）、(c) *export* が §2.7（Dedicator の持つ請求項だけ）と食い違わないか。
 
-### 15.30 T95 —— 処理の産物の閉じた 5 語に other data を足す（+6 語・2026-11-18・【反例待ち】）
+### 15.30 T95 —— 処理の産物の閉じた 5 語に other data を足す（+6 語・2026-11-18）
 
 **種**: 実務家への問い 2。§1.7・§6.4・§8.4 は *"model, parameter set, weight, embedding, or output"* の閉じた 5 語を使う。LoRA のアダプター、量子化・統合したチェックポイント、KV キャッシュ、ベクトル索引、モデルの出力から蒸留したデータセットが入るかは語の読みに依る。Chestek 氏 2025-12-06 *"the vocabulary for AI is fluid and constantly changing"*（`reviewer-positions.md` §1.159）。
 
@@ -422,7 +422,7 @@ After（3 か所）: *"model, parameter set, weight, embedding, output, or other
 
 **消える／狭まる問い**: 実務家への問い 2 は、データの産物については消え、データでない産物（物理の装置）は意図して外に残る。
 
-**機械層**: 468u の §8.4 の mutation の anchor（*resulting from Computational* を *that processing* へ縮める）を、新しい行の形（次の行まで含めて一意に）へ移した。§6.4 の anchor の行（*not decided here*）は動かしていない —— そのため §6.4 に短い行が 1 つできた。
+**機械層と折り返し**: 50 の 1 巡（語に反例なし）の指摘で、§6.4・§8.4 と T94 の §8.1 に残っていた不揃いの折り返し（1 行に 3 語の行・行の途中の改行）を、凍結する本文に残さないよう 3 条とも詰め直した（語数は変えない）。そのために外れた mutation の anchor 4 つ（468r の §6.4 *not decided here*・468 の §8.4 *alone*・468u の §8.4 *resulting from Computational Use of the Work*・468o の §6.4 *license*）を、折り返しに依らない 1 行の短い句へ移し、4 つとも手で RED を確かめた。**反例の結果（50）**: *output* と *data* の重なりは害が無く、*output* はデータでない出力（ロボットの動きなど）を受けるので残す意味がある。§1.7 の reproduction・extraction で Work の写しも「処理から生じたデータ」に入るが、§6.4 は Dedicator の Covered Rights の請求だけを外し、§8.4 は因果の限定と *Section 8.1 alone governs a feature added to the Work* を残すので、§8.1 の但し書きを迂回する道は開かない。
 
 **⚠ 逆側**: (1) §8.4 の特許の許諾が、名指さないデータの産物にも及ぶ（因果の限定 —— 侵害する特徴が Work の内容から生じる —— は残る）。(2) 学習データそのもの（Work の写しを含むデータセット）が *data resulting from Computational Use of the Work* と読まれる余地 —— その写しは Work であり §4 が受けるので害は無いと読むが、§6.4 の「権利が在るかを決めない」の範囲に Work の写しが入ると読まれると、§6.4 と §4 が重なる。(3) +6 語（B3）。
 
