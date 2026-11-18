@@ -798,20 +798,20 @@ census の unquoted-decider（候補の外の会話の、ドシエが 1 文も�
 
 **反映**: 1c（`ACD-1.4-THIRD-CLARITY-TRIAL.md` §18.5 の §15.4 の行の支え —— 審査が正本を 1 つにすることを求め、Mulan PSL v2 が足して承認された・9b の帯）/ 入口（§15.4 の説明に、審査が求めた形であることを添えるか・50 へ）。
 
-## 1.264 §15.2（改めと切り離し）は承認済みの CAL 7.6 と同じ形。「オープンソースのライセンスへの切り離しの攻撃は起きていない」（Perens 氏 2018）、「切り離しで利用者に写しの破棄を求めるのは苛酷」（Rosen 氏 2002）（2026-11-18）
+## 1.264 §15.2（改めと切り離し）は承認済みの CAL 7.6 と同じ型で、切り離しを法域に限る点で狭い。「オープンソースのライセンスへの切り離しの攻撃は起きていない」（Perens 氏 2018）、「切り離しで利用者に写しの破棄を求めるのは苛酷」（Rosen 氏 2002）（2026-11-18）
 
 オーナーの依頼（2026-11-16「法的解釈の不確実性を 5 人で減らし続けて」）の portfolio-2f の受け持ち（リストの法律家の発言を条ごとに当てる）。1.4 草案の §15.2 は *"If a provision of this Dedication is held invalid or unenforceable in a jurisdiction, it is to be reformed to the minimum extent necessary to make it valid and enforceable there while preserving its purpose. If it cannot be reformed, it is severed as to that jurisdiction only, and the remainder continues in full force everywhere."*。アーカイブの写しで法律家と決める側の人の通を "severab" で当て、ドシエに引かれていない 3 通を置いた（`rounds/2018-06-license-review-nosa-perens-no-severability-attack-observed.txt`・`rounds/2002-08-license-discuss-rpsl-rosen-severability-harsh-observed.txt`・`rounds/2020-02-license-review-cal-chestek-text-severability-7-6-observed.txt`）。
 
 | 発言 | 誰が | §15.2 への当たり方 |
 | :-- | :-- | :-- |
-| *"If any provision of this License is held to be unenforceable, such provision shall be reformed only to the extent necessary to make it enforceable. Any invalid or unenforceable portion will be interpreted to the effect and intent of the original portion. If such a construction is not possible, the invalid or unenforceable portion will be severed from this License but the rest of this License will remain in full force"* | Cryptographic Autonomy License の 7.6（Pamela Chestek 氏 2020-02-09 の通が引いた CAL の文・CAL 1.0 は 2020 年に承認） | **先例（同じ形）。** 必要な限りで改め、目的に沿って読み、できなければ切り離して残りを保つ —— §15.2 の 2 段（改め → 切り離し）と同じ。承認済みのライセンスが持つ形。**限り**: 引かれた文が承認された版の 7.6 と一字一句同じかは確かめていない |
+| *"If any provision of this License is held to be unenforceable, such provision shall be reformed only to the extent necessary to make it enforceable. Any invalid or unenforceable portion will be interpreted to the effect and intent of the original portion. If such a construction is not possible, the invalid or unenforceable portion will be severed from this License but the rest of this License will remain in full force"* | Cryptographic Autonomy License の 7.6（Pamela Chestek 氏 2020-02-09 の通が引いた CAL の文・CAL 1.0 は 2020 年に承認） | **先例（同じ型・2 点の違い）。** 必要な限りで改め、できなければ切り離して残りを保つ —— §15.2 の 2 段（改め → 切り離し）と同じ型。違いは 2 つ: (1) CAL は *"severed from this License"* と法域を限らずに切り離すが、1.4 草案の §15.2（1.3 までの §15.4）は *"severed as to that jurisdiction only, and the remainder continues in full force everywhere"* とその法域に限る —— ACD の方が狭く、他の法域では条項が生きる。(2) 改めの基準は、CAL が *"interpreted to the effect and intent of the original portion"*、§15.2 が *"while preserving its purpose"* で、近いが語が違う（portfolio-30 の反例で直した）。**限り**: 引かれた文が承認された版の 7.6 と一字一句同じかは確かめていない |
 | *"And yet we haven't had a severability attack on an Open Source license that I am aware of."* | Bruce Perens 氏 2018-06-20（NOSA 2.0 の審査・公有の部分の問題は全てのオープンソースのプログラムに及ぶ、という文の後） | **参考。** 2018 年までに、切り離しを争点にしたオープンソースのライセンスへの攻撃は知られていない、という決める側の人の観察 |
 | *"The severability provision in 13.5(b) is a little harsh. If a court rules against you, I could understand your halting any further distribution or licensing of the Original Code. But to require your users to discontinue any use and destroy all copies is quite draconian."* | Lawrence Rosen 氏 2002-08-05（RealNetworks の RPSL の事前の議論） | **有利な対比。** 切り離しの条が利用者に使用の停止や写しの破棄を求める形は苛酷とされた。§15.2 は無効な条項をその法域についてだけ切り離し、残りを全ての所で保つので、利用者に何も求めない |
 
-**読み。** §15.2 の形は承認済みの CAL 7.6 と同じで、リストの法律家が苛酷とした形（切り離しが利用者の側に義務を生む）を避けている。
+**読み。** §15.2 は承認済みの CAL 7.6 と同じ型で（切り離しを法域に限る点で狭い）、リストの法律家が苛酷とした形（切り離しが利用者の側に義務を生む）を避けている。
 
-**逆側。** 改め（reformation）は、縮減を認めない法域（ドイツの標準約款の *geltungserhaltende Reduktion* の不可）では使えない読みが立つ（`against.md` #25・`jurisdictions.md` のドイツの節）—— その場合は §15.2 の第 2 文（その法域に限った切り離し）が働く。Perens 氏の観察は 2018 年までの、知る限りのもの。
+**逆側。** 改め（reformation）は、縮減を認めない法域では使えない読みが立つ（`against.md` #25・`jurisdictions.md` のドイツの節）—— ドイツの縮減の不可は標準約款（AGB）についての規則で、ACD が AGB と読まれた場合だけの問い（BGB 305 条 1 項の AGB の定義と、310 条で事業者の受け手には 309 条が当たらないこと・`rounds/2026-11-16-bgb-305-310-gesetze-im-internet-snapshot.txt`・ACD が AGB かは確立していない）。その場合は §15.2 の第 2 文（その法域に限った切り離し）が働く。Perens 氏の観察は 2018 年までの、知る限りのもの。
 
 **この節が establish しないこと。** 各法域の裁判所が §15.2 の改めの指示に従うか。
 
-**反映**: 1c（`ACD-1.4-THIRD-CLARITY-TRIAL.md` §18.5 の §15.2 の行の支え —— 承認済みの CAL 7.6 と同じ形・9b の帯）/ 入口（§15.2 の説明に CAL 7.6 との同形を添えるか・50 へ）。
+**反映**: 1c（`ACD-1.4-THIRD-CLARITY-TRIAL.md` §18.5 の §15.2 の行の支え —— 承認済みの CAL 7.6 と同じ型で、切り離しを法域に限る点で狭い・9b の帯）/ 入口（§15.2 の説明に CAL 7.6 との同じ型と違いを添えるか・50 へ）。
