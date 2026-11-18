@@ -135,6 +135,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2005-04 | `license-discuss` | **観測（"Official License Anti-Proliferation policy?" から 4 通・OSI の 2005-04-08 の声明の写しと、3 つの新しい基準の当てはめ方の説明）** | `2005-04-license-discuss-proliferation-statement-observed.txt` |
 | 2016-06・2017-01 | `license-review` | **観測（"Approval request for ZENTAO PUBLIC LICENSE" から 4 通と 2017-01 の委員会報告の会話から 1 通・badgeware、中国語の正本、利用者の多さでは足りなかった提出）** | `2016-06-license-review-zentao-public-license-observed.txt` |
 | 2017-05・07 | `license-review` | **観測（"EUPL v1.2" から 2 通・International の分類の目的、全ての言語の版に及ぶ承認）** | `2017-05-and-07-license-review-eupl-1-2-observed.txt` |
+| 2017-08 | `license-review` | **観測（Piana 氏の 1 通・contra proferentem は法域で違い、当たらないこともある）** | `2017-08-license-review-w3c-piana-contra-proferentem-observed.txt` |
 | 2019-02 | `license-review` | **観測（"For Approval: Twente License" から 4 通・プライバシーと人権の条件を利用に課して OSD 6 で退けられた）** | `2019-02-license-review-twente-license-observed.txt` |
 | 2002-10 | `license-discuss` | **観測（"click-wrap is legally supportable?" から 3 通・同意を求めないライセンスの条項は争われうるか）** | `2002-10-license-discuss-click-wrap-observed.txt` |
 | 2002-10 | `license-discuss` | **観測（"BXAPL - request for comments" から 1 通・Rosen 氏 2002-10-27）** | `2002-10-license-discuss-bxapl-rosen-not-a-contract-observed.txt` |
