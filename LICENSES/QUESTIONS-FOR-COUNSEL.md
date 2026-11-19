@@ -487,7 +487,13 @@ Dedicator, and would have left the limb empty where the surrender in §3 takes e
 cuts both ways. If the limb does not reach computer-misuse law, a Dedicator may put a bot challenge in
 front of its server and use that law against a crawler that defeats it; the purpose of §6 (a work
 meant to be learned from) is then kept only if copies remain obtainable by other means, and the text
-does not require that they do.
+does not require that they do. Trial T124 sharpens the line without answering it: §5.2 now also says
+that the Dedicator *"authorises the circumvention of any technological measure that is applied at any time
+by or on behalf of the Dedicator to a copy of the Work"* in a permitted use, and waives any power under a law
+concerning such circumvention to forbid it. A measure on the Dedicator's own server is not applied to a copy,
+so neither the authorisation nor the waiver reaches it, and the question above stays where it was for those
+measures; for a measure applied to a copy, the authorisation is the Dedicator's own act and does not depend on
+how a court reads *"any law concerning the circumvention"*.
 
 A sixth question was what *"a use of the Work that this Dedication permits"* means where the permission
 fails. In a jurisdiction where §4 does not take effect, is the use still one the Dedication permits, so
