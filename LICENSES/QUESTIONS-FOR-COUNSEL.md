@@ -141,9 +141,17 @@ He added that *"The licence is revocable unless the defendant has acted to his d
 would be unconscionable."* (paragraph 136; `rounds/2026-11-19-uk-fisher-v-brooker-2008-paras-136-141-snapshot.txt`):
 on that view what stops revocation of an implied gratuitous licence is reliance to the licensee's detriment, which is
 what §2.5 invites, and a recipient who has not relied would have no footing in §2.5 against revocation.
-The Dedication is an express licence that calls itself irrevocable, not a presumed one, and the appeal to the
-House of Lords ([2009] UKHL 41) we have not obtained. Does an English court treat an express gratuitous licence
-to the public as irrevocable on its words, or as revocable on notice like the presumed licence?
+The House of Lords ([2009] UKHL 41) allowed the claimant's appeal and restored the declaration that the
+implied licence had been revoked; we have its outcome only as a later judgment summarises it: *"The claimant’s
+appeal to the House of Lords was allowed and the second and third declarations"* *"made by the judge at first
+instance were restored."*, quoting Lord Hope, *"it would be a very strong thing, in the absence of a
+proprietary estoppel, to deny him the opportunity of"* *"exercising his right of property in his own share of
+the copyright."* (`rounds/2026-11-19-uk-noel-redding-v-sony-2026-fisher-v-brooker-hl-snapshot.txt`). So the
+majority of the Court of Appeal was reversed on the point decided there, laches and estoppel, not on the
+general statement in paragraph 34(2). All of this concerns a licence presumed from conduct. The Dedication is an
+express licence that calls itself irrevocable. Does an English court treat an express gratuitous licence to
+the public as irrevocable on its words, or, as with the presumed licence, as revocable unless an estoppel
+(which §2.5 invites) stops it?
 (j) A transfer after the Dedication. Under 17 U.S.C. section 205(e), a nonexclusive licence prevails over a
 conflicting transfer of copyright ownership only if it is evidenced by a written instrument signed by
 the owner of the rights licensed or the owner's agent, and was taken before the transfer was executed,
