@@ -809,4 +809,21 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 
 登録した 1 巡目の問い: (a) T110 の *Under this Dedication* が第 2 文の *may not impose any further term* にも掛かり、Dedicator が Dedication の外で（契約で）条件を課すことを許すと読まれないか —— §5.2(b) が別に禁じる、と読む、(b) T110 の後、第 1 文 *irrevocable* が限定の無いまま法についての言明と読まれ、E86 の型で偽になるか、(c) T109 の *its terms* の *its* の先行詞。
 
+### 15.36 T111〜T116 —— 一意化の束 5（2 巡目・交差読みの種・+32 語・2026-11-20・【反例待ち】）
+
+2 巡目は帯を入れ替えて読み、30 の型の一覧に「条どうしの食い違い」と「同じ働きの句が片側にだけ在る」を足した。6 本のうち 4 本（T111・T112・T115・T116）が後者の型である。
+
+| 試作 | 条 | Before → After | 別の読み |
+| :-- | :-- | :-- | :-- |
+| T111 | §5.3 | *"Sections 5.1, 5.2, and 8.6"* → *"Sections 2.5, 5.1, 5.2, and 8.6"*（+1）| 受益者として頼れる約束から §2.5 が外れる（1c）|
+| T112 | §5.2(b) | 除外に *"or for a payment You agreed to make for a copy"*（+11）| Dedicator が写しを売ることまで禁じる（50）|
+| T113 | §6.3 | *"operates in every case"* → *"is given in every case"*（+1）| *operates* が効果の言い切りに読まれる（50・T86 の型）|
+| T114 | §10.4 | *"because it contains nothing that You could breach"* → *"because it asks nothing of You in respect of the Work"*（+3）| *it* が限定から外れ §16.4 と食い違う（30）|
+| T115 | §12.2 | *"covenants not to exercise, and not to authorise or assist any other person to exercise, Moral Rights"*（+11）| 委ねた者の行使が約束の外（30・2f）|
+| T116 | §2.6 | *"binds that Dedicator, is subject to Section 14, and imposes nothing upon You"*（+5）| §2.6 の違反が §14 で免責されるかが反対解釈に委ねられる（2f・9b）|
+
+**束 4 の記録に足すこと（50 の 3 巡目）**: §2.2 から「撤回できない」を正面から言う文は消えたが、撤回を主張しない約束（§2.5）と禁反言が受けるので、受け手の足場は減らない。
+
+**反例の担当へ（30・50・2f）**: (a) T112 の *for a copy* が、写しの入手の後の更新や保守の対価を外に置くか、(b) T115 で §12.2 の文が長くなり、*any such person*（第 2 文）の先行詞が *any other person* に移らないか、(c) T116 の *is subject to Section 14* が §14.2 第 1 文（法が除外を許さない責任）まで §2.6 から外すと読まれないか、(d) T114 の後、§10.4 の *it* と §11.1 の語が揃ったことで、§16.4 の頒布の制限が「Work について」でないことが一意か。
+
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。
