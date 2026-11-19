@@ -302,7 +302,9 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 
 **What we did instead, and what it is not.** We read the statutes, and the few decisions we could
 obtain, that the 1.4 draft relies on in the United States, the United Kingdom, Germany, France and
-Japan, kept each text in `rounds/`, and wrote under each question in
+Japan, with Canada for moral rights, the EU directives on text and data mining, databases and
+technological measures, and the Berne Convention and TRIPS, kept each text in `rounds/`, and wrote
+under each question in
 [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) what the law already settles and what it
 leaves open. Where a reading turned on our own words, the draft was changed instead. This narrows the
 questions a lawyer would be asked. It is not legal review, and it does not answer #1 or #2.
