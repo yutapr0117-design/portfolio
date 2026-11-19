@@ -167,8 +167,14 @@ def legal_uncertainty_items() -> list[tuple[str, str, str, str]]:
     import measure_law_coverage as mlc
     band = {k: w for a, b, w in mlu.BAND for k in range(a, b + 1)}
     for c, line in mlc.s18_rows():
-        for u in re.findall(r"[^（(、。；|]{0,40}未取得", line):
-            out.append((f"§{c}", "§18 法源が未取得", u.strip(" ・（(")[:100], f"{band.get(int(c.split('.')[0]), '?')} (取得は add_law_snapshot.py)"))
+        for mu in re.finditer(r"[^（(、。；|]{0,40}未取得", line):
+            u = mu.group(0)
+            # 取った後の行が「取得経路が閉じている（403 など）」と書いていれば、手を打てる行でなく経路待ちとして出す (2026-11-20・30 と
+            #   9b: BAILII・parliament.uk が 403 の英国の判決)。読み手が「残りの作業」と取り違えないため
+            after = line[mu.end():mu.end() + 60]
+            closed = re.search(r"取得経路|403|404", after)
+            out.append((f"§{c}", "§18 法源の取得経路が閉じている（待ち）" if closed else "§18 法源が未取得", u.strip(" ・（(")[:100],
+                        f"{band.get(int(c.split('.')[0]), '?')} (取得は add_law_snapshot.py)"))
     snaps = mlc.snapshots()
     for s, cs in snaps.items():
         if not cs and mlc.LAW_HOST.search((L / "rounds" / s).read_text(encoding="utf-8")[:1500]):
