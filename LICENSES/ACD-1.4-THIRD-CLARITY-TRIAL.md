@@ -930,6 +930,6 @@ T127 の確かめ（2f・30）: 2f —— *material* は §1.3 と同じ語、*r
 
 **取ったが当てていない写し 4 組（1c の帯・9b の list_open_items）**: §19.1 に行を足した —— §1.4 と §1.9 ← 職務著作（`rounds/2026-11-19-jp-chosakukenho-15-urhg-43-69b-employee-works-snapshot.txt`・`rounds/2026-11-19-us-17-usc-101-wmfh-106-201-snapshot.txt`）、§2.9 ← 米国倒産法の知的財産の定義（`rounds/2026-11-19-us-11-usc-101-35a-intellectual-property-snapshot.txt`）。
 
-**反例の担当へ（30・50・9b）**: (a) T133 の後の *Section 6.5 states why it matters* の *it* が、前の文の *This undertaking* でなく前の前の文の *what this Dedication does not cover* を受けると読まれないか（どちらでも「識別が要る理由」で同じ）、(b) T132 で §4.4 と §8.6 が *is effective*、§12.2 が *has effect* —— 条をまたぐ揃いを要るか。
+**1 巡目（50）**: 反例なし。(a) T133 の後の *it* は直前の文の主語 *This undertaking* で、分ける前と同じ先行詞。(b) *is effective* は §4.4 と §8.6 で揃い、§12.2 の *has effect* は主語が別で条をまたいで揃える必要は無い。T134 に 3 つ当てた（§16 の本文の制限・Dedicator の役の約束・§8.2 *subject to no condition*）—— どれも理由を偽にしない。逆側: §10.1 は *imposes*、§10.4 は *attaches* —— §10.1 は You に課すこと、§10.4 は許しに付けることを言い、目的語が違うので揃えない。登録した問い: (a) T133 の後の *Section 6.5 states why it matters* の *it* が、前の文の *This undertaking* でなく前の前の文の *what this Dedication does not cover* を受けると読まれないか（どちらでも「識別が要る理由」で同じ）、(b) T132 で §4.4 と §8.6 が *is effective*、§12.2 が *has effect* —— 条をまたぐ揃いを要るか。
 
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。
