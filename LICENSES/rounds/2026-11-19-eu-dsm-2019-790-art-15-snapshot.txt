@@ -1,0 +1,18 @@
+Source: https://www.legislation.gov.uk/eudr/2019/790/article/15/adopted?view=plain
+Law: Directive (EU) 2019/790 (DSM Directive), English text as adopted, as published at legislation.gov.uk
+Articles: Article 15 (1 sections below; 5 lines of verbatim passages, 0 note lines)
+Retrieved: 2026-11-19 03:26 UTC by portfolio-2f, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: 9299f5b9cd8f71a427ac223bbb46e5d71531064fe1c6b1eacb0fca3564bbac1e (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 1.5
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+===== Directive (EU) 2019/790 Article 15 (Protection of press publications concerning online uses) =====
+15(1) "Member States shall provide publishers of press publications established in a Member State with the rights provided"
+      [...] "for the online use of their press publications by information society service providers."
+15(2) "The rights provided for in paragraph 1 shall leave intact and shall in no way affect any rights provided"
+      [...] "for in Union law to authors and other rightholders, in respect of the works and other subject matter incorporated"
+      [...] "in a press publication."
