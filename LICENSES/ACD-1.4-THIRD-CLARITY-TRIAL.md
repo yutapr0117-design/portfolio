@@ -901,4 +901,12 @@ T120 と T121 は同じ型（1 人が受け手と Dedicator の両方の役を�
 
 **反例の担当へ（30・50・9b）**: (a) *material* が、Dedicator が権利を持たない素材にも当てられると読ませないか —— 同じ文の *in which they hold or may hold rights of their own* が限る、(b) §16.3 と §1.3（1.0 では §1.2・*"the material to which the Dedicator has applied this Dedication"*）が同じ語になり、当てる前の素材と当てた後の Work の区別が保たれるか。
 
+### 15.45 8・9 巡目と T127 の確かめ（立つもの 0・2026-11-20）
+
+8 巡目（同じ語の 2 つの働き・Section N が節か条か）: "Section N"（節の番号だけ）を名指す 33 か所を当てた。§11.1 "Nothing in Section 11 reduces what any other Section of this Dedication gives" は同じ文の Nothing in Section 11 と対で節の単位、§14.2 の "the remainder of Section 14" と "Section 14 does not limit" は §14.1 の NOTHING IN SECTION 14 と同じく節の単位、§2.8 "Section 6 included"・§5.3 "Sections 3 and 4" も節。§1.1 "comprising Sections 1 to 16" が節の単位の Section を定め、条は "Section N.M" の形で名指されるので、割れる読みは立たない。
+
+T127 の確かめ（2f・30）: 2f —— *material* は §1.3 と同じ語、*rights of their own* は特許や人格権だけを持つ者も受け §1.4 と同じ広さ、*the authors of this Dedication* は文書の起草者で役の入れ替わりに当たらない。30 —— (a)(b) は立たない（権利を持たない素材について §16.3 は何も許さず何も禁じない・§9.2 *this Dedication adds nothing*）。6 巡目の数（小文字の *work* 9 か所）は条の本文の段落だけで、§16.1 の通知の見本の 2 か所（*This work is released under …*・*No rights in this work are reserved*）は 9b の scan の (a) が拾い、§19 で一意として受けている（通知の当たる物は §16.2 が決め、通知の文の語は Dedication の範囲を狭めない・CC 4.0 も同じ語の慣行・30）。逆側（30）: 通知の文は外へ出る面で最初に読まれる —— *This material* にすれば型は閉じるが、英語として硬く慣行から外れる。
+
+9 巡目（文の主語・受け身の文で行為者は誰か）: 受け身の文（§2.2 *is made irrevocably*・§3.2 *are made*・§4.3 *is granted*・§6.1 *is expressly permitted*・§6.2 *is to be read*・§12.6 *is held invalid*・§16.4 *may not be distributed … except by the Steward*）を当てた。§6.1 の *by any person or automated system* は *Computational Use* に掛かる（2 巡目の一意の読み）、§16.4 は頒布する者を縛る（§19.5 の一意の行）、ほかは行為者が文脈（Dedicator・法廷）で一つに決まり、立つものは無い。
+
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。
