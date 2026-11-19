@@ -169,6 +169,9 @@ def legal_uncertainty_items() -> list[tuple[str, str, str, str]]:
     for c, line in mlc.s18_rows():
         for u in re.findall(r"[^（(、。；|]{0,40}未取得", line):
             out.append((f"§{c}", "§18 法源が未取得", u.strip(" ・（(")[:100], f"{band.get(int(c.split('.')[0]), '?')} (取得は add_law_snapshot.py)"))
+    for s, c in mlc.unapplied():
+        out.append((f"§{c}", "法令の写しを取ったが、その条の読みに当てていない", s[:60],
+                    f"{band.get(int(c.split('.')[0]), '?')} (§18 の行か jurisdictions の段か §19 の行に写しの名を書いて読む)"))
     snaps = mlc.snapshots()
     for s, cs in snaps.items():
         if not cs and mlc.LAW_HOST.search((L / "rounds" / s).read_text(encoding="utf-8")[:1500]):
