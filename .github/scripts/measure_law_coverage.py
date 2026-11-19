@@ -80,7 +80,10 @@ def main(argv: list[str]) -> int:
     for c, line in rows:
         b = by_clause[c]
         b["rows"] += 1
-        b["unfetched"] += [x.strip(" ・（(") for x in re.findall(r"[^（(、。；|]{0,40}未取得", line)]
+        for mu in re.finditer(r"[^（(、。；|]{0,40}未取得", line):
+            # 「取得経路が閉じている（403 など）」と書いた句は経路待ちとして印を付ける (2026-11-20)
+            mark = "［経路待ち］" if re.search(r"取得経路|403|404", line[mu.end():mu.end() + 60]) else ""
+            b["unfetched"].append(mu.group(0).strip(" ・（(") + mark)
         b["snaps"] |= {s for s in SNAP.findall(line) if s in snaps}
     for s, cs in snaps.items():
         for c in cs:
@@ -97,7 +100,9 @@ def main(argv: list[str]) -> int:
             print(f"| §{c} | {b['rows']} | {'<br>'.join(sorted(b['snaps'])) or '—'} | {'；'.join(b['unfetched']) or '—'} |")
         return 0
     print(f"# 法源の対応（草案 {len(clauses)} 条）: §18 の行を持つ条 {len(with_row)}・写しが当たる条 {len(with_snap)}（rounds/ の写し {len(snaps)} 本・うち法令と判例 {len(law)} 本）")
-    print(f"# §18 の行 {len(rows)} のうち写しを引く行 {sum(1 for _, l in rows if SNAP.search(l))}・「未取得」の句 {len(unf)}: "
+    waiting = sum(1 for _, u in unf if u.endswith("［経路待ち］"))
+    print(f"# §18 の行 {len(rows)} のうち写しを引く行 {sum(1 for _, l in rows if SNAP.search(l))}・「未取得」の句 {len(unf)}"
+          f"（うち取得経路が閉じている {waiting}）: "
           + "；".join(f"§{c} {u}" for c, u in unf))
     print(f"# 草案のどの条にも当たっていない法令・判例の写し {len(orphan)}（§18・jurisdictions が名を引かず、ヘッダに Applied to も無い）: " + ", ".join(orphan))
     return 0
