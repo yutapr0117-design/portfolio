@@ -22,10 +22,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 # 確定の直後に残って正しい RED。直し方は docs/files/.github/scripts/prepare_version_freeze.py.md の表にある。
-EXPECTED = {"362", "444m"}
-# 362 は番号が同じまま別の mutation の anchor でも RED になるので、名指された mutation まで見る。
+# 2026-11-20: 予行が提出の前提の止め (段 6b) で毎週止まっていた間に、確定の道具が「人が直す」と出す 460 (x) (B3 の見出しの
+#   「N.M 草案は」) と、版に固有の anchor を持つ 444・468x・498 の mutation が加わっていた (main でも同じ RED を確かめた)
+EXPECTED = {"362", "444m", "460"}
+# 362 は番号が同じまま別の mutation の anchor でも RED になるので、orphan の数が確定の道具の一覧の数と同じかを見る。
 #   2026-11-08 の予行で、Check 496 の mutation が空の次版 CHANGELIST を指して 362 に加わっていたが、番号では見えなかった。
-EXPECTED_ORPHANS = ("Check 444m",)
 
 
 def git(*args: str, cwd: Path = ROOT) -> str:
@@ -33,10 +34,26 @@ def git(*args: str, cwd: Path = ROOT) -> str:
 
 
 def rehearse(tree: Path) -> list[str]:
-    tool = subprocess.run([sys.executable, ".github/scripts/prepare_version_freeze.py", "--date", datetime.date.today().isoformat()],
+    # 予行は確定の仕組みが届くかを見るので、提出の前提 (段 6b の 30 日・ゲート 6c) は外す (2026-11-20: 前提の止めが入った後、
+    #   予行は毎週ここで止まり、仕組みの壊れを見ていなかった)。前提の止めそのものは prepare_version_freeze の gate が持つ
+    tool = subprocess.run([sys.executable, ".github/scripts/prepare_version_freeze.py", "--date", datetime.date.today().isoformat(),
+                           "--not-for-submission"],
                           cwd=tree, text=True, capture_output=True)
     if tool.returncode != 0:
         return [f"確定の道具が止まった: {(tool.stderr or tool.stdout)[-300:]}"]
+    # 付録に変更の一覧の箇条が逐語で入ったか (2026-11-20・30: 一覧を草案の外 CHANGES-ACD-N.M.txt へ出した後、道具が草案の
+    #   ファイルだけを読むと付録から一覧が落ちる)。確定した版は作業中の草案の版 (予行の木の前の状態) から読む
+    ver = re.match(r"ACD-(\d+\.\d+)-DRAFT", next(p for p in sorted((ROOT / "LICENSES").glob("ACD-*-DRAFT.txt"))
+                                                if "HAS BEEN FROZEN" not in p.read_text(encoding="utf-8").split("\n", 1)[0]).name).group(1)
+    cl = (tree / "LICENSES" / f"ACD-{ver}-CHANGELIST.md").read_text(encoding="utf-8")
+    app = cl.split("## 付録: 確定時点の草案ヘッダ（逐語）", 1)[-1] if "## 付録: 確定時点の草案ヘッダ（逐語）" in cl else ""
+    # 状態の箇条 ("    * It has had no legal review") も同じ形なので、「Changes in this draft」より後の箇条だけを数える
+    lst = app.split("Changes in this draft", 1)[1] if "Changes in this draft" in app else ""
+    if len(re.findall(r"^    \* (?!ACD-\d+\.\d+: )", lst, re.M)) == 0:
+        return [f"確定した ACD-{ver} の CHANGELIST の付録に、変更の一覧の箇条が無い (草案の外の一覧を写していない)"]
+    major, minor = ver.split(".")
+    if not (tree / "LICENSES" / f"CHANGES-ACD-{major}.{int(minor) + 1}.txt").exists():
+        return [f"次版の変更の一覧 CHANGES-ACD-{major}.{int(minor) + 1}.txt が作られていない"]
     applied = re.search(r"^SPDX-License-Identifier: (\S+)$", (ROOT / "LICENSE").read_text(encoding="utf-8"), re.M).group(1)
     for name in ("LICENSE", "llms-full.txt"):
         if not re.search(rf"this\s+repository\s+applied\s+{re.escape(applied)}\b", (tree / name).read_text(encoding="utf-8")):
@@ -53,9 +70,14 @@ def rehearse(tree: Path) -> list[str]:
     if "362" in red and not m362:
         problems.append("Check 362 の RED の形が読めない (名指された mutation を照合できない)")
     elif m362:
-        names = re.findall(r"\[(?:E2E_)?MUTATIONS\] (Check \d+[a-z]?)", m362.group(2))
-        if len(names) < int(m362.group(1)) or not all(n.startswith(EXPECTED_ORPHANS) for n in names):
-            problems.append(f"Check 362 が {EXPECTED_ORPHANS} の外の mutation を名指す: {names} (全 {m362.group(1)} 件)")
+        # 362 の文は先頭の 5 件しか名指さないので、全件は確定の道具が出す一覧 (orphan_mutations の "  - <名>") から読む (2026-11-20)
+        names = [ln[4:] for ln in tool.stdout.splitlines() if ln.startswith("  - Check ")]
+        # 作業中の版のファイル (CHANGELIST・CHANGES・逐条の下書き・記述子の下書き) を打つ mutation は、確定で次版の空のファイルに
+        #   替わるので的を外す (道具が退役の候補として名を出す)。予行が見るのは、362 の orphan がすべて道具の一覧に在ること
+        #   (一覧の外の orphan = 道具が知らずに壊した anchor)。2026-11-20 に 18 件 (468n・468y・468z・471 (d)・460 (x)・444・498 …)
+        if len(names) != int(m362.group(1)):
+            problems.append(f"Check 362 の orphan {m362.group(1)} 件と、確定の道具が退役の候補に出した一覧 {len(names)} 件が合わない "
+                            "(道具の一覧の外で anchor が壊れた)")
     return problems
 
 
