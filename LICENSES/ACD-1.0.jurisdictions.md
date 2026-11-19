@@ -274,6 +274,8 @@ L121-4 の *cessionnaire* に当たるか。L121-4 の本文は、取得の道�
 
 **確立していないこと**: (i) の分類を裁判所が採るか。国境を越える場合の *Jaffé v. Samsung* の衡量（#178）。米国の外では、ドイツの倒産法を 30 が読んだ（§3 の §2.9 の段・`rounds/2026-11-16-inso-103-129-134-143-gesetze-im-internet-snapshot.txt`）: 管財人の履行選択（103 条）は、受け手が何も負わないので当たりにくいが、無償の給付の否認（134 条）は申立ての前 4 年の内の付与に当たりうる —— 米国と違い、ドイツでは「与えた権利は消えない」とまでは言えない（2026-11-16 に予定の書き方から結果へ書き換えた・portfolio-50）。
 
+**§8 と §2.8 —— 特許の移転と、ドイツの承継保護・米国の登録（2026-11-20 追記・portfolio-50・条文は `rounds/2026-11-20-patent-usc-patg-berne-trips-snapshot.txt`・我々の読み）**: ドイツ PatG 15 条 3 項 *"Ein Rechtsübergang oder die Erteilung einer Lizenz berührt nicht Lizenzen, die Dritten vorher erteilt worden sind."* —— §8.1・§8.4 の許諾は、後に特許を譲り受けた者に対しても残る（§2.8 が言うことを法が既にする）。米国 35 U.S.C. 261 条は *"An interest that constitutes an assignment, grant or conveyance shall be void as against any subsequent purchaser"* *"or mortgagee for a valuable consideration, without notice, unless it is recorded in the Patent and Trademark Office"* —— 公への非独占の許諾がこの *interest* に当たるかは判例を読んでいない（**確立していないこと**・問い 1 (j)）。侵害の行為は 271 条 (a) が *makes, uses, offers to sell, or sells* と *imports* を挙げ、§8.1・§8.4 の列挙（T94）はそれを含む。条約の側では、TRIPS 28 条 1 項 (b) が方法の特許を *"the product obtained directly by that process"* に及ぼし、特許の学習方法で直接得たモデルも §8.4 の語の内に在る。
+
 ### 5a. 法定の終了権（17 U.S.C. §203）—— 「irrevocable」は、米国の §4 については statute に負ける
 
 **2026-09-19 に原典で確認した**（`https://www.law.cornell.edu/uscode/text/17/203`）。
