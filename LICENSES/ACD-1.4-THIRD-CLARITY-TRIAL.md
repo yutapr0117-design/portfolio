@@ -258,7 +258,7 @@ T77 は、理由の文が結論より狭いだけでなく、**一部の場合�
 
 | 条 | 理由・目的の文 | 偽になる場合があるか | 扱い |
 | :-- | :-- | :-- | :-- |
-| §10.4 | *"because it contains nothing that You could breach"* | §10.1 の *in respect of the Work* の下では真（§16.4 の本文の制限は Work についてではない）。反対解釈は第 1 文 *"No permission granted by this Dedication terminates for any reason"* が閉じる（1 冊目の F3・§4.4）| 変えない |
+| §10.4 | *"because it contains nothing that You could breach"* | §10.1 の *in respect of the Work* の下では真（§16.4 の本文の制限は Work についてではない）。反対解釈は第 1 文 *"No permission granted by this Dedication terminates for any reason"* が閉じる（1 冊目の F3・§4.4）| 変えない（**後に変えた**: T114 で *"asks nothing of You in respect of the Work"*、最終の通読の T134 で *"attaches no condition to any permission in respect of the Work"*・§15.48）|
 | §6.5 第 1 文 | *"Section 6 states expressly what Sections 3 to 5 and 8 would in any event permit"* | 特許の面は E36 で *and 8* を足して真にした。§6.3 の留保の撤回は許可ではないが、許諾がある以上、撤回は許しの範囲を変えない。§6.1 が独立の力を失う読みは CE13 で通過 | 変えない |
 | §6.5 第 2 文 | *"silence on this subject has proved ambiguous in practice"* と *"a permission that an automated system cannot determine is … no permission at all"* | 前者は経験の言明で、法の命題ではない。後者は規範の言明で、§2.6・§8.4 から 3 か所で引かれる（1 冊目の CE11）| 変えない |
 | §1.6（1.0 では §1.4） | *"so that no permission fails for want of a legal person to hold it"* | 目的の句で、命題を言わない | 変えない |
