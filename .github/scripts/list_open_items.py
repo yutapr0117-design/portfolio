@@ -45,6 +45,12 @@ OURS = {"TEXT": "1c", "DOSSIER": "30", "OPEN": "30", "UNTRIAGED": "30"}
 
 def register_items() -> tuple[list[tuple[str, str, str, str]], list[tuple[str, str, str, str]]]:
     ours, external = [], []
+    # 作業中の版の CHANGELIST の「N.M から持ち越したもの」が名指す against の番号は、確定の日に (記述子など) 閉じるもので、
+    #   いま手を打てる作業ではない (2026-11-20・30: #269 は 1.4 の記述子に §9 のキーを足すだけで、Check 451e が強制済み)
+    carried = set()
+    for cl in sorted(L.glob("ACD-1.*-CHANGELIST.md"))[-1:]:
+        sec = re.search(r"^## \d+\.\d+ から持ち越したもの\n(.*?)(?=^## |\Z)", cl.read_text(encoding="utf-8"), re.M | re.S)
+        carried = set(re.findall(r"against\.md`?\s*#(\d+)", sec.group(1))) if sec else set()
     for line in against_text(L).splitlines():
         m = re.match(r"^\| (\d+) \|\s*(.*)$", line)
         if not m:
@@ -54,7 +60,8 @@ def register_items() -> tuple[list[tuple[str, str, str, str]], list[tuple[str, s
         if state in ("CLOSED", "TRADE"):
             continue
         title = re.sub(r"\*\*", "", m.group(2).split("|")[0]).strip()
-        item = (f"against #{m.group(1)}", state, title[:110], OURS.get(state, "30"))
+        item = (f"against #{m.group(1)}", f"{state}・確定の日に閉じる（待ち）" if m.group(1) in carried else state, title[:110],
+                OURS.get(state, "30"))
         (external if state == "EXTERNAL" else ours).append(item)
     return ours, external
 
