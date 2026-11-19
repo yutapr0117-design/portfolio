@@ -406,7 +406,13 @@ write it, in part, so nothing false is represented; on the other the altered who
 Dedicator wrote. We did not widen §11.3 to name an altered work presented as unaltered, because that
 would turn §10.2 into a condition in practice (`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.18, T41). Which
 reading a court would take, and whether an author's claim for this survives in a jurisdiction where
-§12.2 applies (§12.5 keeps false attribution outside the covenant), we cannot say.
+§12.2 applies (§12.5 keeps false attribution outside the covenant), we cannot say. **The 1.4 draft
+answers the first part (trial T123).** §11.3 now adds *"Retaining a notice that accompanied or was
+contained in the Work is not such a representation."*, so leaving the original authorship line in an
+altered file is not within §11.3, and since trial T122 §12.5 keeps only §11.3 conduct outside the waiver,
+the covenant and the consent. A new statement that the altered file is the unaltered original is not
+retaining and stays within §11.3. Whether a court applying a statute such as the United Kingdom's CDPA
+section 84 reads retention the same way is the open part.
 
 A third question sits at the end of §5.2. The 1.4 draft says *"Section 5 does not reach the Dedicator's
 rights in material, other than the Work, that the Dedicator itself makes or makes available, or the
