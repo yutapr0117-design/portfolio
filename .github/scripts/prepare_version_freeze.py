@@ -180,17 +180,28 @@ def next_draft_header(v: str, nxt: str, applied: str, versions: list[str], w: in
             bullet(f"It has had no legal review, like {plain}."),
             bullet("It has not been posted to any list."),
             bullet(f"It is at present identical to ACD-{v} apart from the version number and the identifiers that name it. "
-                   "An empty change list below means nothing has been changed yet -- not that the record is missing; a list "
-                   "with entries in it is the whole of the difference."),
+                   f"An empty list in LICENSES/CHANGES-ACD-{nxt}.txt means nothing has been changed yet -- not that the "
+                   "record is missing; a list with entries in it is the whole of the difference."),
             bullet(f"Clause numbers follow ACD-{v}, not ACD-1.0. Citations to an earlier version must keep using that "
                    "version's text."),
             bullet(f"Changes are recorded in LICENSES/ACD-{nxt}-CHANGELIST.md."),
         ]),
-        f"  Changes in this draft, relative to ACD-{v}:",
-        bullet(f"ACD-{v}: {w} words, {c} clauses. This draft: {w} words, {c} clauses."),
+        # 変更の一覧は草案の外 (CHANGES-ACD-N.M.txt) に置く (2026-11-20・案 A)。草案の冒頭は在りかだけを書く
+        para(f"The list of changes from ACD-{v}, one entry per change with its word count, is in "
+             f"LICENSES/CHANGES-ACD-{nxt}.txt."),
         para(still_open),
         "",
     ])
+
+
+def next_changes(v: str, nxt: str, w: int, c: int) -> str:
+    """次版の変更の一覧の雛形 (草案の外・CHANGES-ACD-N.M.txt)。要約の行だけを持ち、試作を採るたびに箇条を足す。"""
+    return "\n\n".join([
+        f"ACD-{nxt} -- CHANGES FROM ACD-{v} (DRAFT). Not part of the Dedication.",
+        para(f"The reasons for each change are in LICENSES/ACD-{nxt}-CHANGELIST.md (in Japanese)."),
+        f"  Changes in this draft, relative to ACD-{v}:",
+        bullet(f"ACD-{v}: {w} words, {c} clauses. This draft: {w} words, {c} clauses."),
+    ]) + "\n"
 
 
 def pointer(v: str, nxt: str, prev: str, date: str) -> str:
@@ -561,9 +572,16 @@ def main() -> int:
     nxt = f"{major}.{int(minor) + 1}"
     versions = frozen_versions()
     prev = versions[-1]
-    draft = draft_path.read_text(encoding="utf-8")
+    # 付録へ写す冒頭は、草案の外の変更の一覧 (CHANGES-ACD-N.M.txt) をもとの位置へ戻した文 (2026-11-20・30 の指摘: 草案のファイル
+    #   だけを読むと付録から一覧が落ち、frozen_header の "its appendix keeps … the change list" が偽になる)
+    from _lib_draft_counts import with_changes
+    draft = with_changes(draft_path)
+    changes_path = draft_path.with_name("CHANGES-" + draft_path.name.replace("-DRAFT.txt", ".txt"))
     prev_text = (L / f"ACD-{prev}.txt").read_text(encoding="utf-8")
     header, body = draft.split(RULE, 1)
+    if "Changes in this draft" not in header:
+        print("STOP: 草案の冒頭にも CHANGES-ACD-N.M.txt にも変更の一覧が無い (付録に写すものが無い)")
+        return 1
     (pw, pc), (w, c) = size(prev_text), size(draft)
 
     (L / f"ACD-{v}.txt").write_text(frozen_header(v, prev, nxt, args.date, pw, pc, w, c) + RULE + body, encoding="utf-8")
@@ -579,6 +597,21 @@ def main() -> int:
     next_body = body.replace(f"ACD-{v}", f"ACD-{nxt}").replace(f"Version {v}", f"Version {nxt}").replace(f"Dedication {v}", f"Dedication {nxt}")
     (L / f"ACD-{nxt}-DRAFT.txt").write_text(
         next_draft_header(v, nxt, f"ACD-{v}", versions + [v], w, c, still_open) + RULE + next_body, encoding="utf-8")
+    # 確定した版の一覧は付録に逐語で入ったので、草案の外の一覧は次版のものに置き換える (mirror も)
+    (L / f"CHANGES-ACD-{nxt}.txt").write_text(next_changes(v, nxt, w, c), encoding="utf-8")
+    if changes_path.exists():
+        # 消さずに pointer にする (予算表・mirror の行を残す・2026-11-20 の予行で、消すと Check 424 が開けずに traceback で止まった)
+        changes_path.write_text(
+            f"ACD-{v} -- CHANGES FROM ACD-{prev}. THIS LIST HAS BEEN FROZEN WITH ACD-{v}.\n\n"
+            + para(f"ACD-{v} was frozen on {args.date}. This list is kept word for word in the appendix of "
+                   f"LICENSES/ACD-{v}-CHANGELIST.md. The list for the next version is LICENSES/CHANGES-ACD-{nxt}.txt.") + "\n",
+            encoding="utf-8")
+        old_mirror = MIRROR / f"{changes_path.name}.md"
+        if old_mirror.exists():
+            (MIRROR / f"CHANGES-ACD-{nxt}.txt.md").write_text(
+                old_mirror.read_text(encoding="utf-8").replace(f"CHANGES-ACD-{v}.txt", f"CHANGES-ACD-{nxt}.txt")
+                .replace(f"ACD-{v}-DRAFT.txt", f"ACD-{nxt}-DRAFT.txt").replace(f"ACD-{v}-CHANGELIST.md", f"ACD-{nxt}-CHANGELIST.md"),
+                encoding="utf-8")
     (L / f"ACD-{nxt}-CHANGELIST.md").write_text(
         f"---\nfile: LICENSES/ACD-{nxt}-CHANGELIST.md\naudience: OSI license-discuss / license-review participants, licence "
         f"reviewers, a future drafter\nlast-updated: {args.date}\ncanonical-ref: LICENSES/ACD-{nxt}-DRAFT.txt (草案) / "
