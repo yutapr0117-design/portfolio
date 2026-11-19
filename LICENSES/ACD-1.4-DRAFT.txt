@@ -275,9 +275,11 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 10.2 now speaks of licensing under "this Dedication or any
       other terms", where it said "these". (+1 word.)
     * Section 2.2 now says that "This Dedication is made irrevocably" and
-      that "Nothing in this Dedication permits the Dedicator to withdraw
-      it", so that it describes the document and not the effect of the
-      law, as Section 8.2 does for the patent licences. (+7 words.)
+      that "Nothing in this Dedication permits the Dedicator to withdraw it
+      or to impose any further term", so that it describes the document and
+      not the effect of the law, as Section 8.2 does for the patent
+      licences; terms imposed by other means are for Section 5.2(b). (+4
+      words.)
     * Section 16.2 now says that an identifier is sufficient "notice of this
       Dedication", the words Section 1.9 uses, where it said "of these
       terms". (0 words.)
@@ -317,7 +319,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5664 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5661 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -442,11 +444,10 @@ PREAMBLE (informative; not part of the operative terms)
        part of it.
 
   2.2  This Dedication is made irrevocably. Nothing in this Dedication permits
-       the Dedicator to withdraw it, and the Dedicator may not impose any
-       further term, condition, or restriction on what may be done with any copy
-       of the Work that has been made available. Silence, delay, or
-       non-enforcement by the Dedicator does not revive, reserve, or narrow
-       anything this Dedication gives away.
+       the Dedicator to withdraw it or to impose any further term, condition, or
+       restriction on what may be done with any copy of the Work that has been
+       made available. Silence, delay, or non-enforcement by the Dedicator does
+       not revive, reserve, or narrow anything this Dedication gives away.
 
   2.3  This Dedication takes effect without any act of acceptance by You. To
        hold a permission granted here, You need not know of this Dedication,
