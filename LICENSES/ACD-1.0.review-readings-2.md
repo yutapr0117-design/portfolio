@@ -850,3 +850,22 @@ census の unquoted-decider（候補の外の会話の、ドシエが 1 文も�
 **この節が establish しないこと。** 審査で ACD の "may not" が実際に問われるか。
 
 **反映**: 1c（THIRD §19.1 の §2.2 の行 —— 意図は「力が無い」で、"must not" にすると禁止の読みを作る。第 1 文が力の無さに閉じるか、"has no power" の形にするかの判断）/ 9b（THIRD §19.5 の §16.4 の行 —— 意図は禁止で、"must not" の試作の種・±0 語）。
+
+## 1.267 審査者が他のライセンスで名指した語の割れ —— 定義されない大文字の語（Piana 氏 2017）、否認の主語と許諾の主語の不揃い（Piana 氏 2025）、定義されない語は普通の意味で読まれる（Cowan 氏 2018）、語の使い方の不一致（Smith 氏 2025）。1.4 草案の同じ型を当てた（2026-11-19）
+
+オーナーの依頼（2026-11-18・19「ACD-1.4-DRAFT.txt の法的解釈が一意に定まるように 5 人で連携しながら」）の portfolio-2f の受け持ち（審査者が他のライセンスで実際に指摘した語の割れを集め、ACD の同じ型に当てる・portfolio-30 の 3 巡目の型 (1) 名づけで外れる (2) 同じ語が条ごとに違う範囲）。アーカイブの写しで、決める側の人と法律家の通を「定義されない語・大文字・語の使い方の不一致・違う意味で使う」の語で当て、ドシエに引かれていない通のうち型の分かる 4 通を置いた（`rounds/2017-07-license-review-hooyami-piana-capitalised-undefined-observed.txt`・`rounds/2025-12-license-review-qmdeve-piana-authors-contributors-observed.txt`・`rounds/2018-10-license-review-sspl-cowan-functionality-undefined-observed.txt`・`rounds/2025-09-license-review-mgb-smith-inconsistent-terminology-observed.txt`）。
+
+| 審査者が名指した型 | 誰が | 1.4 草案に当てた結果 |
+| :-- | :-- | :-- |
+| *"I also note that you have inserted an explicit patent license with capitalized terms like "Contributor" or "You", but those terms are not defined elsewhere."* | Carlo Piana 氏 2017-07-27（Hooyami License） | **当たらない。** 草案の本文の大文字の語を機械で拾い、定義の文（*"... means"*）と突き合わせた: 大文字で使われる語は Dedication・Moral Rights・Work・Dedicator・Covered Rights・You（Your）・Computational Use・Machine-Generated Material・Contribution・Reservation・the Steward で、すべて §1 か §16.5 で定義されている（ほかに大文字で現れるのは §16.1 の告知の文の中の名前だけ） |
+| *"This comes to relevance since the disclaimer of liability refers to Authors or Copyright holders (not sure capitalized, since it's all caps). I am not sure if Authors includes Contributors"* | Carlo Piana 氏 2025-12-01（QmDeve License） | **当たらない。** §13 と §14 の否認と制限の主語は "THE DEDICATOR" で、許しの主語も "the Dedicator"。§2.6 が貢献者を "a Dedicator as to that Contribution" にするので、否認の主語に貢献者が入るかの割れは起きない（§1.4 の "operates severally as to each" と合わせて） |
+| *"While we are at it, the use of "functionality" is extremely problematic. Since it is not a defined term, it must be read in its ordinary sense in connection with computers"* | John Cowan 氏 2018-10-18（SSPL） | **当たりうる（50 の帯へ）。** 草案の作用の条で、定義されずに範囲を決める語として §8.4 の "feature"（*"Section 8.1 alone governs a feature added to the Work"*・*"the feature that infringes it"*）が在る。普通の意味の「機能・特徴」で読むと、特許の請求項を侵害するのは製品や方法であって 1 つの特徴ではない、という点と噛み合わず、「特徴の 1 つが Work から来れば足りる」か「侵害する組み合わせの全体が Work から来ることを要する」かが割れうる |
+| *"inconsistent use of terminology (Definition of "Source Form" and "Object Form" is different than in Apache, but body of license uses the formulation of Apache"* | McCoy Smith 氏 2025-09-22（MGB 1.0） | **当たらない（記録）。** 草案は "source code, object code"（§1.3・素材の種類）と "in source form, in object form, or in any other form"（§4.2・許しの及ぶ形）を使い分け、どちらも定義語ではない普通の語で、役が違う |
+
+**読み。** 審査者が他のライセンスで名指した型のうち、1.4 草案に当たりうるのは「定義されない語が作用の条で範囲を決める」型（§8.4 の feature）だけだった。大文字の語の未定義と、否認と許諾の主語の不揃いは、草案には無い。
+
+**逆側。** 機械で拾ったのは大文字の語だけで、小文字の普通の語が条ごとに違う範囲で使われる型（30 の型 (2)）は、語ごとに読む必要がある（9b の `scan_draft_ambiguity.py` の型 (a) が定義語の小文字を拾う）。
+
+**この節が establish しないこと。** §8.4 の "feature" の 2 つの読みのどちらが審査で採られるか。
+
+**反映**: 1c・50（UNIQUE-READING §19.3 の §8.4 の行 —— "feature" が定義されない語として範囲を決める点を、別の読みとして 2 巡目の行に・50 の帯）。

@@ -135,6 +135,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2005-04 | `license-discuss` | **観測（"Official License Anti-Proliferation policy?" から 4 通・OSI の 2005-04-08 の声明の写しと、3 つの新しい基準の当てはめ方の説明）** | `2005-04-license-discuss-proliferation-statement-observed.txt` |
 | 2016-06・2017-01 | `license-review` | **観測（"Approval request for ZENTAO PUBLIC LICENSE" から 4 通と 2017-01 の委員会報告の会話から 1 通・badgeware、中国語の正本、利用者の多さでは足りなかった提出）** | `2016-06-license-review-zentao-public-license-observed.txt` |
 | 2017-05・07 | `license-review` | **観測（"EUPL v1.2" から 2 通・International の分類の目的、全ての言語の版に及ぶ承認）** | `2017-05-and-07-license-review-eupl-1-2-observed.txt` |
+| 2017-07 | `license-review` | **観測（Piana 氏の 1 通・大文字の語が定義されていない）** | `2017-07-license-review-hooyami-piana-capitalised-undefined-observed.txt` |
 | 2017-08 | `license-review` | **観測（Piana 氏の 1 通・contra proferentem は法域で違い、当たらないこともある）** | `2017-08-license-review-w3c-piana-contra-proferentem-observed.txt` |
 | 2019-02 | `license-review` | **観測（"For Approval: Twente License" から 4 通・プライバシーと人権の条件を利用に課して OSD 6 で退けられた）** | `2019-02-license-review-twente-license-observed.txt` |
 | 2002-10 | `license-discuss` | **観測（"click-wrap is legally supportable?" から 3 通・同意を求めないライセンスの条項は争われうるか）** | `2002-10-license-discuss-click-wrap-observed.txt` |
@@ -167,6 +168,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2004-03 | `license-discuss` | **観測（Cowan 氏の 1 通・公の許諾は常に取り消せないものとして扱われてきた、撤回は期待に反し禁反言に当たる）** | `2004-03-license-discuss-must-read-cowan-irrevocable-expectation-observed.txt` |
 | 2008-11〜2012-03 | `license-review` / `license-discuss` | **観測（委員会報告 3 本と "license committee" から 10 通・条件を放棄しても承認は外れないという案、簡単な方がよいとは限らない、何でもしてよい式の差し戻し）** | `2008-to-2012-license-lists-committee-reports-observed.txt` |
 | 2025-12 | `license-review` | **観測（BarrerSoftware License の審査から 4 通・OSD 6 で承認できない、本文が AI の道具で書かれたように読めることを読むのをやめる理由に挙げた審査者）** | `2025-12-license-review-barrersoftware-observed.txt` |
+| 2025-12 | `license-review` | **観測（Piana 氏の 1 通・否認の主語と許諾の主語が揃わない）** | `2025-12-license-review-qmdeve-piana-authors-contributors-observed.txt` |
 | 2025-12 | `license-discuss` | **観測（Berkus 氏の 1 通・非対称を作らない限り OSD 違反は無い）** | `2025-12-license-discuss-contributor-clauses-berkus-asymmetry-observed.txt` |
 | 2025-12 | `license-discuss` | **観測（Smith 氏の 1 通・提出する行為が同意の表示になる）** | `2025-12-license-discuss-contributor-clauses-smith-manifestation-observed.txt` |
 | 2025-12 | `license-discuss` | **観測（Chestek 氏の 1 通・inbound=outbound の明示に賛成、受諾を通じて執行できる）** | `2025-12-license-discuss-contributor-clauses-chestek-express-observed.txt` |
@@ -226,6 +228,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2005-08 | `license-discuss` | **観測（Rosen 氏の 1 通・受諾が無ければ bare license）** | `2005-08-license-discuss-bare-licenses-rosen-assent-observed.txt` |
 | 2002-08 | `license-discuss` | **観測（"A new "use" clause in the OSD" から 4 通・許される制限だけを列挙する OSD の条の案）** | `2002-08-license-discuss-osd-use-clause-observed.txt` |
 | 2018-10 | `license-review` | **観測（SSPL と OSD 9 の会話から 3 通・OSD は別の時代のために書かれた、承認済みのライセンスは OSD の隙を整えられる）** | `2018-10-license-review-osd9-written-for-another-time-observed.txt` |
+| 2018-10 | `license-review` | **観測（Cowan 氏の 1 通・定義されない語は普通の意味で読まれる）** | `2018-10-license-review-sspl-cowan-functionality-undefined-observed.txt` |
 | 2018-10 | `license-review` | **観測（Phipps 氏の 1 通・著者に代わって未解決の論点を集めた、改訂版が要る）** | `2018-10-license-review-cfsl-phipps-open-issues-observed.txt` |
 | 2018-10 | `license-review` | **観測（Phipps 氏の 1 通・指摘が改訂版で扱われていないので理事会は判断を延ばした）** | `2018-10-license-review-cfsl-phipps-postponed-observed.txt` |
 | 2019-06 | `license-discuss` | **観測（"Copyright on APIs" から 2 通・在るか分からない権利を主張すること、名指すことが権利の拡張の例になること）** | `2019-06-license-discuss-api-copyright-claiming-rights-observed.txt` |
@@ -681,6 +684,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（11/11 部）** | **同じスレッドの 11/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
 | 2023〜2025 | `license-review` | **観測（3 つの提出から 3 通・直した版は新しいスレッドで、1 つの完全な本文で、変更は番号つきの一覧で）** | `2023-to-2025-license-review-revised-versions-and-diffs-observed.txt` |
 | 2025-09-11 | `license-review`（観測）| **委員会の Tiwaz への保留（Berkus 氏の報告）→ 観測保存** | *"voted to \*defer\* any recommendation"* と、解く条件 *"one or more projects begin using this license or express an interest in doing so"* が在る。B2 に効く決定で、窓の外にあって 14 か月未収録だった（`board-decisions.md` §2c / `against.md` #285）|
+| 2025-09 | `license-review` | **観測（Smith 氏の 1 通・語の使い方の不一致）** | `2025-09-license-review-mgb-smith-inconsistent-terminology-observed.txt` |
 | 2025-10 | `license-review` | **観測（Orivex への Piana 氏の所見 1 通・licensor と貢献者の扱いの差は OSD 5 に触れうる、改変物を頒布する語）** | `2025-10-license-review-orivex-licensor-contributor-observed.txt` |
 | 2025-10 | `license-discuss` | **観測（PUWL の草案から 4 通・人格権は放棄＋不行使の約束＋虚偽の著者表示の除外＋可分、特許の許諾は CC0 との違い）** | `2025-10-license-discuss-puwl-moral-rights-observed.txt` |
 | 2024-12-23 | `license-review`（観測）| **OSC License の提出の 1 通 → 観測保存** | *"there are currently no projects using the license. However, it is planned that the license will be used in mid/late January."* 計画段階の利用で承認された例である（`board-decisions.md` §2c）|
