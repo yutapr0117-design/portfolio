@@ -353,9 +353,10 @@ The 1.4 draft reads *"any claim or cause of action, whether now known or unknown
 wrongful, or as without legal basis, a use of the Work that this Dedication permits or purports to
 permit, other than for patent infringement (Section 8), under trademark rights or rights in a name
 (Section 11.1), for a false statement or representation (Section 11.3), or for a payment You agreed
-to make for a copy or a service"*. §5.2(d) carries only one of those exceptions, the one for a false
-statement or representation (Section 11.3). §11.1 grants no trademark right; §11.3 places
-misrepresentation of authorship or endorsement outside the Dedication's reach; §11.4 states that the §5 covenants are not limited by its own sentence on reach.
+to make for providing a copy or for a service that is not permission to use the Work"*. §5.2(d) carries
+only one of those exceptions, the one for a false statement or representation (Section 11.3). §11.1
+grants no trademark right; §11.3 places misrepresentation of authorship or endorsement outside the
+Dedication's reach; §11.4 states that the §5 covenants are not limited by its own sentence on reach.
 
 **Our reading.** Until 2026-11-16 the 1.4 draft said *"for a use"*, and trial T90 put this reading into
 the words. The covenant keeps the claims that attack the use itself: those that treat it as wrongful,
@@ -375,9 +376,12 @@ basis"*, which no approved licence uses, we have not tested. The exception does 
 protection, because §5.2(d) was written to stop a Dedicator's own personal rights from defeating a
 permitted use (errata E31).
 
-The 1.4 draft also excepts a payment You agreed to make (2026-11-07) and patent infringement
-(2026-11-06): in 1.2 and 1.3 the words can be read to bar a patent claim that §8.4 does not license,
-because the use is permitted as to the Covered Rights.
+The 1.4 draft also excepts a payment You agreed to make (2026-11-07; since trial T118, a payment *"for
+providing a copy or for a service that is not permission to use the Work"*, and §5.2(b) carries the same
+exception, so that calling a permission a service does not bring a fee for it inside the exception) and
+patent
+infringement (2026-11-06): in 1.2 and 1.3 the words can be read to bar a patent claim that §8.4 does not
+license, because the use is permitted as to the Covered Rights.
 
 A second question sits between §10.2 and §11.3. §10.2 says You need not *"state that the Work was
 modified"*; §11.3 keeps outside the Dedication *"Representing that the Dedicator authored, endorsed,
