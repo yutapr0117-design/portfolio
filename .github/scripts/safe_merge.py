@@ -254,6 +254,14 @@ def main(argv: list[str]) -> int:
         return 1
     run(["git", "fetch", "-q", "origin", info["headRefName"]])
     head = info["headRefOid"]
+    # PR の head が origin の branch の先頭に追いついているか (2026-11-20 #3735: 9b が 2 つ目の commit を push した後、GitHub の PR の
+    #   head が数分古いまま残り、その間に merge が走って 2 つ目の commit が main に入らなかった)。確かめるのは古い head の CI と
+    #   consistency なので、追いつくまで merge しない。merge にも --match-head-commit で同じ SHA を渡し、間に push されても止まる
+    remote = run(["git", "ls-remote", "origin", f"refs/heads/{info['headRefName']}"]).stdout.split()
+    if remote and remote[0] != head:
+        print(f"STOP: #{pr} の PR の head ({head[:8]}) が origin の {info['headRefName']} の先頭 ({remote[0][:8]}) に追いついていない —— "
+              "push の直後は GitHub の更新を待ってから回す (古い head の CI で merge しない)")
+        return 1
     # main は 5 人の merge で数分ごとに動く。確かめている間に動いたら、新しい main に重ね直して回し直す (最大 3 回)
     for attempt in range(1, 4):
         run(["git", "fetch", "-q", "origin", "main"])
@@ -280,7 +288,7 @@ def main(argv: list[str]) -> int:
     if dry:
         print("dry-run: merge はしない")
         return 0
-    r = run(["gh", "pr", "merge", pr, "--rebase"], check=False)
+    r = run(["gh", "pr", "merge", pr, "--rebase", "--match-head-commit", head], check=False)
     state = json.loads(run(["gh", "pr", "view", pr, "--json", "state"]).stdout)["state"]
     if state != "MERGED" and "already in progress" in (r.stdout + r.stderr):
         # 別の人が同じ PR を同時に merge している (2026-11-15・#3139 で 50 と重なった)。少し待って状態を読み直す
