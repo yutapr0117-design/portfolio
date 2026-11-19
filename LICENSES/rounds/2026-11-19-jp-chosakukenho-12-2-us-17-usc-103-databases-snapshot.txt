@@ -1,0 +1,26 @@
+Source: https://laws.e-gov.go.jp/api/1/articles;lawId=345AC0000000048;article=12_2
+        https://www.law.cornell.edu/uscode/text/17/103
+Law: 著作権法（昭和四十五年法律第四十八号）・17 U.S.C.
+Articles: 著作権法 第十二条の二, 17 U.S.C. § 103 (2 sections below; 10 lines of verbatim passages, 0 note lines)
+Retrieved: 2026-11-19 12:08 UTC by portfolio-30, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: ff1a891e2660d296c36b8728acddc92960a3c1141aa5866e21205e4caae6fc9b (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 7.1, 7.2
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+===== 著作権法 第十二条の二（データベースの著作物）第一項・第二項 =====
+「データベースでその情報の選択又は体系的な構成によつて創作性を有するものは、著作物として保護する。」
+「前項の規定は、同項のデータベースの部分を構成する著作物の著作者の権利に影響を及ぼさない。」
+
+===== 17 U.S.C. § 103 (Subject matter of copyright: Compilations and derivative works) (a) and (b) =====
+"The subject matter of copyright as specified by section 102 includes compilations and derivative works,"
+"but protection for a work employing preexisting material in which copyright subsists does not extend to any part of the work"
+"in which such material has been used unlawfully."
+"The copyright in a compilation or derivative work extends only to the material contributed by the author of such work,"
+"as distinguished from the preexisting material employed in the work, and does not imply any exclusive right"
+"in the preexisting material."
+"The copyright in such work is independent of, and does not affect or enlarge the scope, duration, ownership, or"
+"subsistence of, any copyright protection in the preexisting material."
