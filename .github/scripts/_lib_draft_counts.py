@@ -12,6 +12,22 @@ from pathlib import Path
 RULE = "-" * 80
 
 
+def with_changes(path: Path, text: str | None = None) -> str:
+    """作業中の草案の文に、草案の外へ出した変更の一覧 (ACD-N.M-CHANGES.txt) を区切りの線の前へ戻した文を返す (2026-11-20)。
+
+    冒頭の変更一覧は試作のたびに伸び、草案が Check 365 の 1,000 行に当たり続けた (11-20 だけで 3 回詰めた・1c)。一覧を草案の
+    外へ出す (案 A) ための準備で、一覧の語を読む Check と道具はこの関数を通して読む。CHANGES のファイルが無ければ (凍結した
+    版・移す前) 草案の文をそのまま返すので、移す前と後で読む文は同じになる。行の番号を書き換えに使う道具 (sync_stated_counts) は
+    この文でなくファイルそのものを読む。
+    """
+    text = path.read_text(encoding="utf-8") if text is None else text
+    ch = path.with_name(path.name.replace("-DRAFT.txt", "-CHANGES.txt"))
+    if not ch.exists() or RULE not in text:
+        return text
+    head, body = text.split(RULE, 1)
+    return head.rstrip("\n") + "\n\n" + ch.read_text(encoding="utf-8").strip("\n") + "\n\n" + RULE + body
+
+
 def bullet_components(hdr: str, prev: dict, cur: dict, changed: set, prev_body: str, cur_body: str, prev_ver: str):
     """468n (箇条ごと): 冒頭の変更一覧の語数申告を、箇条のまとまりごとに本文の差と照らす。
 

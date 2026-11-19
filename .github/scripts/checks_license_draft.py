@@ -88,7 +88,7 @@ import re
 
 from _lib_draft_markers import EFFECT_MARKERS_468U, state_hits  # 一覧は _lib_draft_markers.py (measure_clause_overlap.py --guard と共有)
 from _lib_dossier import errata_draft_quote_misses, dossier_draft_quote_misses  # 草案の逐語の照合 (468w / 468a)
-from _lib_draft_counts import bullet_components, changelist_table_total, defined_term_uses, errata_list_mismatch, materials_0d_mismatches, draft_has_changes  # 468n / 468s / 定義語 / 468i / §0d
+from _lib_draft_counts import with_changes, bullet_components, changelist_table_total, defined_term_uses, errata_list_mismatch, materials_0d_mismatches, draft_has_changes  # 468n / 468s / 定義語 / 468i / §0d
 
 def run(ctx):
     ROOT = ctx.ROOT
@@ -106,7 +106,7 @@ def run(ctx):
     _dr468 = (_cands468[0] if len(_cands468) == 1
               else ROOT / "LICENSES" / "ACD-UNRESOLVED-DRAFT.txt")
     if _dr468.exists():
-        _t468 = _dr468.read_text(encoding="utf-8")
+        _t468 = with_changes(_dr468)  # 外へ出した変更の一覧も冒頭として読む (2026-11-20・案 A の準備)
         _bad468 = []
         _comps468nb, _uses468d = [], {}  # 468n (箇条ごと) のまとまりと定義語の使用回数。OK の行に数を出す
         for _phrase in ("NOT IN FORCE", "NOT SUBMITTED", "NOT APPLIED"):
