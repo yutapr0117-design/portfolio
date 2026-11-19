@@ -46,7 +46,7 @@ THIRD（`ACD-1.4-THIRD-CLARITY-TRIAL.md`）にあった第 19 節を 2026-11-18 
 - §2.6 第 1 文 | 別の読み: *"unless they state otherwise"* の *they* が Dedicator を指す | 一意 | 根拠: §2.6 第 2 文 *"Where a person states otherwise"* が、述べるのは提出する人だと受ける
 - §2.6(b) | 別の読み: *"unless they state otherwise at the time of submission"* が、後からの申し出も含む（portfolio-30） | 一意 | 根拠: §2.6 の *"at the time of submission"* が時点を限る
 - §2.7 第 1 文 | 別の読み: *"now or in future"* が *reaches* に掛かり、Dedication が働く時を限る | 一意 | 根拠: §1.5 *"holds or may come to hold … now or in future"* —— 同じ句は権利を持つ時を受ける
-- §3.2 | 別の読み: *"includes any right to compensation, remuneration, levy, or royalty"* が、法が放棄を許さない報酬請求権（例: 集中管理の分配）まで放棄すると言い切る | 一意 | 根拠: §3.1 *"to the fullest extent permitted by the law of each jurisdiction"* が §3.2 の放棄にも掛かる（§3.2 は §3.1 の *surrender* の範囲を言う）。法が放棄を許さない分は §5.1 の約束も届かない —— 何が残るかは法の側
+- §3.2 | 別の読み: *"include any right to compensation, remuneration, levy, or royalty"*（T117 の前は *includes*）が、法が放棄を許さない報酬請求権（例: 集中管理の分配）まで放棄すると言い切る | 一意 | 根拠: §3.1 *"to the fullest extent permitted by the law of each jurisdiction"* が §3.2 の放棄にも掛かる（§3.2 は §3.1 の *surrender* の範囲を言う）。法が放棄を許さない分は §5.1 の約束も届かない —— 何が残るかは法の側
 - §3.3 | 別の読み: 放棄も譲渡もできない法域では、§3 が何もしないので許しが無くなる | 一意 | 根拠: §4.4 *"it is granted whether or not Section 3 takes effect"*
 - §4.1 | 別の読み: *"transferable"* が、You が licence を譲ると You が許しを失う、と読ませる | 一意 | 根拠: §4.1 —— *non-exclusive* の licence は Dedicator が §1.6 の *You* の各人に与えるので、譲っても各人はそれぞれ §4.1 の下に在る（§2.3 *"To hold a permission granted here"*）
 - §4.1(b) | 別の読み: *"to exercise all Covered Rights"* が、第三者を訴える力（執行の地位）まで受け手に与える（portfolio-30） | 一意 | 根拠: §4.1 の licence は *non-exclusive* で、§4.2 が許す行為を列挙する。非独占の許諾が執行の地位を与えないことは我々の読みで、法の側の問いとしては残りうる
