@@ -185,7 +185,7 @@ PREAMBLE (informative; not part of the operative terms)
        notice may identify material under Section 16.2, so that a person or an
        automated system reading the Work can determine what this Dedication does
        not cover. This undertaking binds that Dedicator, is subject to
-       Section 14, and imposes nothing upon You, and Section 6.5 states why it
+       Section 14, and imposes nothing upon You. Section 6.5 states why it
        matters. This Dedication requires no separate instrument, assignment, or
        agreement to place a Contribution under it. Whether the Dedicator asks a
        contributor for anything else is a matter of project governance and is
@@ -251,10 +251,10 @@ PREAMBLE (informative; not part of the operative terms)
        technologies, endeavours, or jurisdictions.
 
   4.4  The licence in Section 4.1 is granted independently of Section 3, and not
-       as a fallback for it: it is granted whether or not Section 3 takes
-       effect. You are not required to determine whether Section 3 is effective
-       in any jurisdiction, and no permission granted here depends on that
-       question or on how it is answered.
+       as a fallback for it: it is granted whether or not Section 3 is
+       effective. You are not required to determine whether Section 3 is
+       effective in any jurisdiction, and no permission granted here depends on
+       that question or on how it is answered.
 
   4.5  Because this licence imposes no condition, You may distribute the Work,
        and any adaptation or collection containing it, under any terms You
@@ -497,8 +497,8 @@ PREAMBLE (informative; not part of the operative terms)
 
   10.4 No permission granted by this Dedication terminates under it, for any
        reason. This Dedication, in respect of the Work, contains no termination
-       provision and no revival provision, because it asks nothing of You in
-       respect of the Work.
+       provision and no revival provision, because it attaches no condition to
+       any permission (Section 10.1).
 
   10.5 Section 16 concerns the text of this Dedication as a document, and not
        the Work. Nothing in Section 16 is a condition upon Your use of the

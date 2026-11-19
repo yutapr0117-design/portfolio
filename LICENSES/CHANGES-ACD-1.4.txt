@@ -237,9 +237,9 @@ ACD-1.4 -- CHANGES FROM ACD-1.3 (DRAFT). Not part of the Dedication.
     * Section 6.3 now says the disclaimer of reliance "is given in every
       case", where it said that it "operates", as Section 8.6 says its
       covenant is given. (+1 word.)
-    * Section 10.4 now gives as its reason that this Dedication "asks
-      nothing of You in respect of the Work", the words Section 11.1 uses.
-      (+3 words.)
+    * Section 10.4 now gives as its reason that this Dedication "attaches no
+      condition to any permission (Section 10.1)", where it gave as its
+      reason that there was nothing You could breach. (+2 words.)
     * Section 12.2 now covenants also "not to authorise or assist any other
       person to exercise" Moral Rights, as Section 8.6 does. (+11 words.)
     * Section 4.5 now says that it "does not permit a person to impose what
@@ -262,7 +262,7 @@ ACD-1.4 -- CHANGES FROM ACD-1.3 (DRAFT). Not part of the Dedication.
     * Section 16.3 now says that this Dedication may be applied "to any
       material", where it said "to any work". (0 words.)
     * Section 4.4 now says that the licence "is granted whether or not
-      Section 3 takes effect". (+1 word.)
+      Section 3 is effective", the words its next sentence uses. (+1 word.)
     * Section 15.2 now says that a provision that cannot be reformed "is to
       be treated as severed", and the remainder "as continuing in full
       force". (+5 words.)
@@ -270,6 +270,8 @@ ACD-1.4 -- CHANGES FROM ACD-1.3 (DRAFT). Not part of the Dedication.
       affecting no other Section". (+5 words.)
     * Section 6.4 now opens "To the fullest extent the law permits". (+7
       words.)
+    * Section 2.6 now states in a sentence of its own that "Section 6.5
+      states why it matters". (-1 word.)
     * Section 15.1 now joins its two sentences, and "in respect of the Work"
       now also governs the rule that the reading granting more to You
       prevails, and says on whom the least obligation falls, "upon You"
@@ -299,4 +301,4 @@ ACD-1.4 -- CHANGES FROM ACD-1.3 (DRAFT). Not part of the Dedication.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5878 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5876 words, 80 clauses.

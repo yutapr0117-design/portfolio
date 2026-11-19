@@ -922,4 +922,14 @@ T127 の確かめ（2f・30）: 2f —— *material* は §1.3 と同じ語、*r
 
 **1 巡目（50）**: 反例なし。(a) 後半は文書の中身の言明なので掛かっても狭まらない。(b) 入口の B10 の対置の表の §6.4 の行・REVIEWERS 119 行・292 行（*§6.4 attaches nothing to outputs*）は、どれも後半の *owe nothing under this Dedication* の側に立ち、T131 が限った前半に頼っていない —— 入口を直す所は無い。(c) SECOND の *Section 6.4 alone would leave …* の前提（§6.4 は Covered Rights だけを言う）は変わらない。逆側: 法が Dedicator の権利の行使を許す場面では前半が空になり、§5.1 の約束と §4 の許しが受ける（§2.4 の独立の足場の形）。登録した問い: (a) 句が後半 *and You owe nothing under this Dedication* にも掛かり、文書が受け手に何も課さないことまで法に条件づけると読まれないか（30 の読み: 掛かっても狭まらない）、(b) B10 の gap の主張（モデルと出力に請求が生じない）が §6.4 の言い切りを根拠にしていないか —— していれば入口の文を「法の許す限り」に合わせる（50）、(c) §8.4 の理由の記録（SECOND の *"Section 6.4 alone would leave …"*）の前提が動かないか。
 
+### 15.48 T132・T133・T134 —— 最終の通読で立った 3 つ（−2 語・2026-11-20・【反例待ち】）
+
+凍結の手順の段 7（最終の通読）を、確定の判断とは分けて帯ごとに回す（5 人の合意）。1c は §1〜§4 を頭から終わりまで読み、試作を重ねた文が崩れていないか、条の参照が今の条を指すか、CHANGES の箇条と本文が合うかを見た。立ったのは 2 つ: T132 §4.4 —— T128 の後、第 1 文の *takes effect* と次の文の *is effective* が同じ問いを別の語で言う → *is effective* に揃えた（0 語）。T133 §2.6 —— T116 の後、1 文に *and* が 2 度続いた → 2 文に分けた（−1 語）。ほかの条（§1.1〜§1.10・§2.1〜§2.5・§2.7〜§2.9・§3・§4.1〜§4.3・§4.5・§4.6）は、参照（§1.6・§2.3・§5.3・§15.1・§16.2・§6.5・§8・§11・§11.4・§12・§14）がどれも今の条を指し、CHANGES の箇条とも合う。
+
+50 の帯（§8〜§10）の通読で 1 つ: T134 §10.4 —— T120 の後、主語が Dedication 全体の *"because it asks nothing of You in respect of the Work"*（T114）が §10.1 と食い違った → *"because it attaches no condition to any permission (Section 10.1)"*（−1 語・50 の案）。
+
+**取ったが当てていない写し 4 組（1c の帯・9b の list_open_items）**: §19.1 に行を足した —— §1.4 と §1.9 ← 職務著作（`rounds/2026-11-19-jp-chosakukenho-15-urhg-43-69b-employee-works-snapshot.txt`・`rounds/2026-11-19-us-17-usc-101-wmfh-106-201-snapshot.txt`）、§2.9 ← 米国倒産法の知的財産の定義（`rounds/2026-11-19-us-11-usc-101-35a-intellectual-property-snapshot.txt`）。
+
+**反例の担当へ（30・50・9b）**: (a) T133 の後の *Section 6.5 states why it matters* の *it* が、前の文の *This undertaking* でなく前の前の文の *what this Dedication does not cover* を受けると読まれないか（どちらでも「識別が要る理由」で同じ）、(b) T132 で §4.4 と §8.6 が *is effective*、§12.2 が *has effect* —— 条をまたぐ揃いを要るか。
+
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。
