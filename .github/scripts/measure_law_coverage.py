@@ -72,6 +72,33 @@ def snapshots() -> dict[str, set[str]]:
     return snaps
 
 
+def unapplied() -> list[tuple[str, str]]:
+    """写しのヘッダの Applied to が挙げる条のうち、§18 のその条の行も、jurisdictions*.md の段 (写しの名とその §x.y を持つ段) も、§19 の行も
+    その写しを引いていない組 (写し, 条) (2026-11-20)。「取ったが、その条の読みにまだ当てていない」を数える。"""
+    cited = {}
+    for c, line in s18_rows():
+        for s in SNAP.findall(line):
+            cited.setdefault(s, set()).add(c)
+    for f in sorted(L.glob("ACD-1.*.jurisdictions*.md")):
+        for para in f.read_text(encoding="utf-8").split("\n\n"):
+            for s in SNAP.findall(para):
+                cited.setdefault(s, set()).update(re.findall(r"§(\d+\.\d+)", para))
+    # §19 (一意に定める記録) の行が写しを引いて読みを書いた条も、当てたと数える (2f の §1.5 と DSM 指令 15 条の行など)
+    for f in sorted(L.glob("ACD-1.*-UNIQUE-READING.md"))[-1:]:
+        for line in f.read_text(encoding="utf-8").splitlines():
+            h = re.match(r"^- (§[^|]+?) \|", line)
+            if h:
+                for s in SNAP.findall(line):
+                    cited.setdefault(s, set()).update(re.findall(r"(\d+\.\d+)", h.group(1)))
+    out = []
+    for p in sorted((L / "rounds").glob("*-snapshot.txt")):
+        a = re.search(r"^Applied to: .*?Sections? ([\d., ]+)$", p.read_text(encoding="utf-8")[:2000], re.M)
+        for c in sorted(set(re.findall(r"\d+\.\d+", a.group(1))) if a else (), key=ckey):
+            if c not in cited.get(p.name, set()):
+                out.append((p.name, c))
+    return out
+
+
 def main(argv: list[str]) -> int:
     clauses = draft_clauses()
     rows = s18_rows()
@@ -104,6 +131,9 @@ def main(argv: list[str]) -> int:
     print(f"# §18 の行 {len(rows)} のうち写しを引く行 {sum(1 for _, l in rows if SNAP.search(l))}・「未取得」の句 {len(unf)}"
           f"（うち取得経路が閉じている {waiting}）: "
           + "；".join(f"§{c} {u}" for c, u in unf))
+    un = unapplied()
+    print(f"# 写しのヘッダが挙げる条のうち、§18 の行にも jurisdictions の段にも §19 の行にも引かれていない組 {len(un)}（取ったが、その条の読みに"
+          f"まだ当てていない）: " + "；".join(f"§{c} ← {s[11:50]}" for s, c in un))
     print(f"# 草案のどの条にも当たっていない法令・判例の写し {len(orphan)}（§18・jurisdictions が名を引かず、ヘッダに Applied to も無い）: " + ", ".join(orphan))
     return 0
 
