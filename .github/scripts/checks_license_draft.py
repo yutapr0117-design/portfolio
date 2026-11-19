@@ -82,6 +82,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        **468ac は、§19（一意に定める記録・ACD-1.N-UNIQUE-READING.md）の "- §" の行がすべて形に合い、分類ごとの根拠を持つことを見る** ——
        形に合わない行（分類の太字・見出しの括弧）は台帳が数えず、開いている試作が 0 に見えて合格の線が偽に満たされた（2026-11-19・50）。
        一意は辿れる根拠、試作は T 番号、法の側は行き先（問い N・§18・jurisdictions）を持つ。数え方は measure_legal_uncertainty.section19()。 (BLOCKING)
+       **468ad は、§19 が「試作 Tnn で入った」と言う T が、作業中の版の CHANGELIST に名指されていることを見る** —— 台帳が「本文に入った」と
+       言う試作が変更の記録に無いと、§19 の合格の線（開いている試作 0）が記録の無い変更の上に立つ（2026-11-20）。 (BLOCKING)
 """
 import json
 import re
@@ -298,6 +300,22 @@ def run(ctx):
             (f"Check 468ac: §19 に直すべき行がある（{len(_bad468ac)}）: {_bad468ac[:4]}。行の形「- §x.y | 別の読み: … | 一意 / 試作 Tnn / 法の側 | "
              "根拠: …」に揃えよ（分類の太字・見出しの括弧は外す）。形の崩れた行は台帳が数えず、合格の線を偽に満たす"
              if _c468ac["行"] else "Check 468ac: §19 の行が 1 つも読めない（UNIQUE-READING の改名・節の見出しの変更なら section19() を直す）"),
+            blocking=True,
+        )
+
+        # ── 468ad: §19 が「試作 Tnn で入った」と言う T が CHANGELIST に名指されている (2026-11-20) ──
+        _u468ad = sorted((ROOT / "LICENSES").glob("ACD-1.*-UNIQUE-READING.md"))[-1:]
+        _cl468ad = _dr468.with_name(_dr468.name.replace("-DRAFT.txt", "-CHANGELIST.md"))
+        _in468ad = {_m.group(1) for _f in _u468ad for _l in _f.read_text(encoding="utf-8").splitlines() if _l.startswith("- §")
+                    for _m in re.finditer(r"試作 (T\d+) で入った", _l)}
+        _named468ad = set(re.findall(r"\b(T\d+)\b", _cl468ad.read_text(encoding="utf-8"))) if _cl468ad.exists() else set()
+        _miss468ad = sorted(_in468ad - _named468ad, key=lambda _x: int(_x[1:]))
+        check(
+            bool(_u468ad) and _cl468ad.exists() and not _miss468ad,
+            f"Check 468ad: §19 が「本文に入った」と言う試作 {len(_in468ad)} 件が、すべて {_cl468ad.name} に名指されている",
+            (f"Check 468ad: §19 が「試作 Tnn で入った」と言うのに {_cl468ad.name} に名の無い T: {_miss468ad}" if _u468ad and _cl468ad.exists()
+             else "Check 468ad: §19 の記録 (ACD-1.N-UNIQUE-READING.md) か作業中の版の CHANGELIST が無い") +
+            "。台帳が本文に入ったと言う試作は、変更の記録 (CHANGELIST の主表) に行を持つ",
             blocking=True,
         )
 
