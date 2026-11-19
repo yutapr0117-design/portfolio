@@ -1,0 +1,29 @@
+Source: https://www.law.cornell.edu/uscode/text/17/203
+        https://www.law.cornell.edu/uscode/text/17/1201
+Law: 17 U.S.C. (United States Code, Title 17), as published by the Legal Information Institute, Cornell Law School (a secondary publisher; the official text is uscode.house.gov)
+Articles: §203, §1201 (2 sections below)
+Retrieved: 2026-11-19 02:08 UTC by portfolio-9b, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: 90e66c4f454298edc41be4b710eed0e073a3eeaa6bb4c8b5e3b102a63f079325 (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 2.2, 4.1, 5.2, 8.2
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+===== 17 U.S.C. §203 (Termination of transfers and licenses granted by the author) =====
+(a) "In the case of any work other than a work made for hire, the exclusive or nonexclusive grant of a transfer"
+(a)(3) "Termination of the grant may be effected at any time during a period of five years beginning at the end of thirty-five"
+(a)(4) "The termination shall be effected by serving an advance notice in writing, signed by the number and proportion of owners"
+(a)(5) "Termination of the grant may be effected notwithstanding any agreement to the contrary"
+(b) "Upon the effective date of termination, all rights under this title that were covered by the terminated grants revert"
+(The tool truncated each passage at 125 characters; the remainder of each sentence is not reproduced here.)
+
+===== 17 U.S.C. §1201 (Circumvention of copyright protection systems) =====
+(a)(1)(A) "No person shall circumvent a technological measure that effectively controls access to a work protected under this title."
+(a)(3)(A) "to “circumvent a technological measure” means to descramble a scrambled work, to decrypt an encrypted work,"
+          "or otherwise to avoid, bypass, remove, deactivate, or impair a technological measure,"
+          "without the authority of the copyright owner; and"
+(a)(3)(B) "a technological measure “effectively controls access to a work” if the measure, in the ordinary course of its operation,"
+          "requires the application of information, or a process or a treatment, with the authority of the copyright owner,"
+          "to gain access to the work."

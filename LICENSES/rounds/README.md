@@ -294,6 +294,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-11-16 | EU データベース指令 | **観測（96/9/EC 第 7 条 1・3・5 項、第 8 条 1 項、第 15 条・WebFetch の逐語の片で、バイト単位の写しではない・THIRD §18.6 の §7 の法源）** | `2026-11-16-eu-database-directive-snapshot.txt` |
 | 2026-11-16 | 弁護士の公開の分析（独・CC0） | **観測（Kreutzer 氏の CC0 のドイツ法上の有効性の分析・2011 年頃・放棄は無効、fallback の許諾は有効、公有の宣言は公の許諾と読み替えられるのが通説、不行使の約束は有効・PDF からこの session で取り出した・問い 1 の法源）** | `2026-11-16-kreutzer-cc0-german-law-analysis-snapshot.txt` |
 | 2026-11-18 | SPDX が保持する GPL-3.0 | **観測（GPL-3.0 の頭の 6 行・「逐語の写しは誰でも頒布できるが変更は許されない」・GitHub の API で byte のまま・commit 60fbd82 に固定・§16.4 の法源）** | `2026-11-18-gpl-3-0-header-spdx-snapshot.txt` |
+| 2026-11-19 | 米国法典 | **観測（17 U.S.C. §203(a)・(a)(3)〜(5)・(b) と §1201(a)(1)(A)・(a)(3) の定義・Cornell LII から WebFetch の逐語の片で、バイト単位の写しではない・§203 は 125 字で切れた片）** | `2026-11-19-us-17-usc-203-1201-snapshot.txt` |
 | 2026-11-16 | CC0 FAQ（steward の説明） | **観測（CC0 は一方通行・放棄が効かない所では無条件で撤回不能の許諾・法域によっては全ての権利を放棄できない・商標と特許は影響を受けない・ソフトウェアに適する・OSI の承認は無い・WebFetch の逐語の片で、2 度の取得で確認）** | `2026-11-16-cc0-faq-steward-interpretation-snapshot.txt` |
 | 2026-11-16 | 米国連邦巡回区 | **観測（TransCore v. Electronic Transaction Consultants（2009）の、非独占の特許の許諾は訴えない約束と同じ効果、の 3 文・WebFetch の逐語の片で、バイト単位の写しではない・問い 2・8 の法源）** | `2026-11-16-us-transcore-covenant-equals-license-snapshot.txt` |
 | 2026-11-16 | 米国第 9 巡回区 | **観測（Asset Marketing Systems v. Gagnon（2008）の「対価を払ったので撤回できない」「対価に支えられた非独占の許諾は契約」の段・法律事務所の PDF からこの session で取り出した・裁判所の写しではない・撤回不能の不利な側の法源）** | `2026-11-16-us-asset-marketing-v-gagnon-consideration-snapshot.txt` |
