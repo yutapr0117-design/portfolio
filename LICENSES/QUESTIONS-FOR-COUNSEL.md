@@ -148,7 +148,7 @@ instance were restored."*, quoting Lord Hope, *"it would be a very strong thing,
 proprietary estoppel, to deny him the opportunity of"* *"exercising his right of property in his own share of
 the copyright."* (`rounds/2026-11-19-uk-noel-redding-v-sony-2026-fisher-v-brooker-hl-snapshot.txt`). So the
 majority of the Court of Appeal was reversed on the point decided there, laches and estoppel, not on the
-general statement in paragraph 34(2). All of this concerns a licence presumed from conduct. The Dedication is an
+general statement in paragraph 34(2). Formation is the smaller question in England: infringement is an act done *"without the licence of the copyright owner"*, with no element of the licensee's knowledge or acceptance (CDPA section 16(2)), and section 92(1) asks for writing and a signature only of an *"exclusive licence"* (`rounds/2026-11-19-cdpa-1988-s16-s92-licence-snapshot.txt`). A recipient who has never heard of the Dedication (§2.3) therefore plausibly holds the licence, and the question moves to revocation, where that recipient, having relied on nothing, has no footing in §2.5. All of this concerns a licence presumed from conduct. The Dedication is an
 express licence that calls itself irrevocable. Does an English court treat an express gratuitous licence to
 the public as irrevocable on its words, or, as with the presumed licence, as revocable unless an estoppel
 (which §2.5 invites) stops it?
