@@ -13,7 +13,7 @@ RULE = "-" * 80
 
 
 def with_changes(path: Path, text: str | None = None) -> str:
-    """作業中の草案の文に、草案の外へ出した変更の一覧 (ACD-N.M-CHANGES.txt) を区切りの線の前へ戻した文を返す (2026-11-20)。
+    """作業中の草案の文に、草案の外へ出した変更の一覧 (CHANGES-ACD-N.M.txt) を区切りの線の前へ戻した文を返す (2026-11-20)。
 
     冒頭の変更一覧は試作のたびに伸び、草案が Check 365 の 1,000 行に当たり続けた (11-20 だけで 3 回詰めた・1c)。一覧を草案の
     外へ出す (案 A) ための準備で、一覧の語を読む Check と道具はこの関数を通して読む。CHANGES のファイルが無ければ (凍結した
@@ -21,11 +21,16 @@ def with_changes(path: Path, text: str | None = None) -> str:
     この文でなくファイルそのものを読む。
     """
     text = path.read_text(encoding="utf-8") if text is None else text
-    ch = path.with_name(path.name.replace("-DRAFT.txt", "-CHANGES.txt"))
+    ch = path.with_name("CHANGES-" + path.name.replace("-DRAFT.txt", ".txt"))  # ACD-*.txt の glob に当たらない名
     if not ch.exists() or RULE not in text:
         return text
     head, body = text.split(RULE, 1)
-    return head.rstrip("\n") + "\n\n" + ch.read_text(encoding="utf-8").strip("\n") + "\n\n" + RULE + body
+    lst = ch.read_text(encoding="utf-8").strip("\n")
+    # 一覧のもとの位置 (状態の箇条の後・「Still open in this draft」の前) へ戻す。Check 468f は一覧を「Still open」の手前で切る
+    at = head.find("\n  Still open in this draft")
+    if at < 0:
+        return head.rstrip("\n") + "\n\n" + lst + "\n\n" + RULE + body
+    return head[:at].rstrip("\n") + "\n\n" + lst + "\n" + head[at:] + RULE + body
 
 
 def bullet_components(hdr: str, prev: dict, cur: dict, changed: set, prev_body: str, cur_body: str, prev_ver: str):
@@ -186,15 +191,21 @@ def length_sites(lic: Path, skip, scope: str = "outward") -> tuple[list[dict], l
                 break
     if scope == "all":
         prev = None
-        hdr = re.search(r"ACD-(\d+\.\d+): (\d+) words, (\d+) clauses\. This draft: (\d+) words, (\d+) clauses\.", dtext)
+        # 要約の行は 2026-11-20 から草案の外の一覧 (CHANGES-ACD-N.M.txt) に在る。行の番号で書き換えるので、在るファイルそのものを読む
+        chg_p = drafts[0].with_name("CHANGES-" + drafts[0].name.replace("-DRAFT.txt", ".txt"))
+        src_p, src_t = drafts[0], dtext
+        hdr = re.search(r"ACD-(\d+\.\d+): (\d+) words, (\d+) clauses\. This draft: (\d+) words, (\d+) clauses\.", src_t)
+        if not hdr and chg_p.exists():
+            src_p, src_t = chg_p, chg_p.read_text(encoding="utf-8")
+            hdr = re.search(r"ACD-(\d+\.\d+): (\d+) words, (\d+) clauses\. This draft: (\d+) words, (\d+) clauses\.", src_t)
         if hdr and (lic / f"ACD-{hdr.group(1)}.txt").exists():
             pb = (lic / f"ACD-{hdr.group(1)}.txt").read_text(encoding="utf-8").split(RULE, 1)[-1]
             prev = (len(pb.split()), len(set(re.findall(r"^  (\d+\.\d+) ", pb, re.M))))
-            ln = dtext[:hdr.start()].count("\n") + 1
-            line = dtext.splitlines()[ln - 1]
+            ln = src_t[:hdr.start()].count("\n") + 1
+            line = src_t.splitlines()[ln - 1]
             m = re.search(r"ACD-\d+\.\d+: (\d+) words, (\d+) clauses\. This draft: (\d+) words, (\d+) clauses\.", line)
             if m:
-                add(drafts[0], ln, line, m, [prev[0], prev[1], title, clauses], "草案冒頭の語数と条数")
+                add(src_p, ln, line, m, [prev[0], prev[1], title, clauses], "草案冒頭 (外の一覧) の語数と条数")
         o10 = (lic / "ACD-1.0.txt").read_text(encoding="utf-8").split(RULE, 1)[-1]
         w10 = (len(o10.split()), len(set(re.findall(r"^  (\d+\.\d+) ", o10, re.M))))
         cl = lic / f"ACD-{ver}-CHANGELIST.md"
