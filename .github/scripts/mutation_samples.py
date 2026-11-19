@@ -526,6 +526,15 @@ _MUTATIONS_TAIL.append({
     "replace": "| 試作 T999 で入った | 根拠: T999（PR 3742）で",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 467d: LICENSES/README.md の「次版に反映するものの集約点」の行を同じ表の中で 2 行に重ねる —— 重なった行は数を揃える"
+            "道具にも Check にも別の場所と数えられる (2026-11-20・50: SUBMISSION-MATERIALS の「| 長さ |」が T77 から 2 行だった)",
+    "file": ROOT / "LICENSES" / "README.md",
+    "find": "| **次版に反映するものの集約点（1.4）** | [`ACD-1.4-CHANGELIST.md`](ACD-1.4-CHANGELIST.md) |\n",
+    "replace": "| **次版に反映するものの集約点（1.4）** | [`ACD-1.4-CHANGELIST.md`](ACD-1.4-CHANGELIST.md) |\n"
+               "| **次版に反映するものの集約点（1.4）** | [`ACD-1.4-CHANGELIST.md`](ACD-1.4-CHANGELIST.md) |\n",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

@@ -36,6 +36,10 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        実測 (2026-08-27) では orphan は 0 件だったが、**入口が存在しないため将来 orphan が
        生まれても誰も気付けない**状態だった。Check 361 / 408 / 454 と同じ
        「実在 ⟹ 登録」族の、ライセンス文書面。(BLOCKING)
+  467d. **LICENSES/*.md の 1 つの表の中で、先頭 150 字が同じ行が 2 度出ないこと** (BLOCKING): SUBMISSION-MATERIALS §2 の
+       「| 長さ |」の行が 11-16 の T77 から 2 行に重なり、sync_stated_counts が両方を揃え続けたので、Check 460 (x) は 13 か所として
+       通っていた (2026-11-20・50 が #3818 で外した)。表は連続する "|" の行の塊で、見出しの行と区切りの行は数えない。別の表に
+       同じ行が在るのは正しい (案と採用の文の 2 つの表など)。
   467. **発信を止めているかどうかの記録が単一ソースと一致すること** (BLOCKING): 2026-09-09 に
        OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と
        投稿したため発信を止めた (`against.md` #119 / `ACD-OSI-BOTTLENECKS.md` B14)。
@@ -588,6 +592,39 @@ def run(ctx):
              "FROZEN.md を復元せよ"),
             blocking=True,
         )
+
+    # ── 467d. 1 つの表の中で、先頭 150 字が同じ行が 2 度出ないこと (BLOCKING・2026-11-20・50 の依頼) ──────────
+    #   重なった行は数を揃える道具にも Check にも「2 か所」と数えられ、誤りを持ったまま網羅を名乗る。見出しと区切りの行は除く
+    _sep467d = re.compile(r"^\|(?:\s*:?-+:?\s*\|)+\s*$")
+    _dup467d = []
+    for _p467d in sorted((ROOT / "LICENSES").glob("*.md")):
+        _ls467d = _p467d.read_text(encoding="utf-8").splitlines()
+        _i = 0
+        while _i < len(_ls467d):
+            if not _ls467d[_i].startswith("|"):
+                _i += 1
+                continue
+            _j = _i
+            while _j < len(_ls467d) and _ls467d[_j].startswith("|"):
+                _j += 1
+            _blk = _ls467d[_i:_j]
+            _seen467d = {}
+            for _k, _l in enumerate(_blk):
+                if _sep467d.match(_l) or (_k + 1 < len(_blk) and _sep467d.match(_blk[_k + 1])) or len(_l.strip("| ")) <= 20:
+                    continue
+                _key = _l[:150]
+                if _key in _seen467d:
+                    _dup467d.append(f"{_p467d.name}:{_seen467d[_key]} と {_i + _k + 1}: {_l[:60]!r}")
+                else:
+                    _seen467d[_key] = _i + _k + 1
+            _i = _j
+    check(
+        not _dup467d,
+        "Check 467d: LICENSES/*.md の表に、同じ表の中で先頭 150 字が重なる行が無い",
+        (f"Check 467d: 同じ表の中で行が重なっている: {_dup467d[:5]}。重なった行は数を揃える道具 (sync_stated_counts) にも Check にも"
+         "別の場所と数えられ、片方が古くても網羅を名乗る。1 行にまとめよ"),
+        blocking=True,
+    )
 
     # ── 476. 「OSI 承認済みライセンスは N 本」の申告が、実測した版の実数であること (BLOCKING) ──
     #   **量が偶然一致すると、片方の一括更新がもう片方を巻き込む。** 2026-09-19 に不利な事実の
