@@ -1,0 +1,107 @@
+#!/usr/bin/env python3
+"""measure_law_coverage.py — 1.4 草案の条ごとに、その読みが頼る法令の写し (rounds/ の *-snapshot.txt) を結ぶ対応表 (2026-11-20・5 人の分担の 9b の (2))。
+
+**なぜ在るか**: 法令の一次資料を 5 人で分担して読む (オーナーの依頼・2026-11-20)。読んだ写しが草案のどの条に当たったか、§18 の
+「頼っている法の命題」の行がどの写しを引き、どれがまだ「未取得」と書いているかを、条ごとに数で言えないと、分担の残りが見えない。
+
+**数え方**:
+  - §18 (THIRD の「## 18.」の節) の行 —— 表の行 (`| §x.y …`) と箇条の行 (`- §x.y | 命題: …`)。行の頭の §x.y を条とする。
+    行が引く写し (`…-snapshot.txt` の名) と、行に残る「未取得」の句を数える。
+  - 写しの側 —— rounds/ の `*-snapshot.txt`。新しい形 (add_law_snapshot.py) はヘッダの `Applied to: … Sections 2.2, 4.1` を、
+    古い形は §18 の行と jurisdictions*.md がその写しの名を引く所の条を、写しが当たる条とする。
+  - 「未取得」が残るのに、行が名指す法令の写しが rounds/ に在るもの (取った後で行を直していない) は、drift として出す。
+出力: 条ごとの表 (--table)、要約 (既定)。
+
+使い方:
+    python3 .github/scripts/measure_law_coverage.py          # 要約
+    python3 .github/scripts/measure_law_coverage.py --table  # 条ごとの対応表 (Markdown)
+"""
+from __future__ import annotations
+
+import re
+import sys
+from collections import defaultdict
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+L = ROOT / "LICENSES"
+SNAP = re.compile(r"(\d{4}-\d{2}-\d{2}-[a-z0-9-]+-snapshot\.txt)")
+# 法令・判例の出所 (OSI の頁や FAQ の写しは法源でないので、当たっていない写しの数に入れない)
+LAW_HOST = re.compile(r"https?://[^/\s]*(?:gesetze-im-internet|legislation\.gov\.uk|e-gov\.go\.jp|legifrance|law\.cornell|uscode\.house|"
+                      r"govinfo|eur-lex|wipo\.int|caselaw\.|courtlistener|lexaris)")
+
+
+def ckey(c: str) -> tuple:
+    return tuple(int(x) for x in re.findall(r"\d+", c))
+
+
+def draft_clauses() -> list[str]:
+    d = next(p for p in sorted(L.glob("ACD-1.*-DRAFT.txt")) if "HAS BEEN FROZEN" not in p.read_text(encoding="utf-8").split("\n", 1)[0])
+    body = d.read_text(encoding="utf-8").split("-" * 80, 1)[-1]
+    return sorted(set(re.findall(r"^  (\d+\.\d+) ", body, re.M)), key=ckey)
+
+
+def s18_rows() -> list[tuple[str, str]]:
+    th = sorted(L.glob("ACD-1.*-THIRD-CLARITY-TRIAL.md"))[-1].read_text(encoding="utf-8")
+    m = re.search(r"^## (?:§)?18[ .].*?(?=^## (?:§)?\d+[ .]|\Z)", th, re.M | re.S)
+    out = []
+    for line in (m.group(0) if m else "").split("\n"):
+        h = re.match(r"^(?:\| |- )§(\d+\.\d+)", line)
+        if h:
+            out.append((h.group(1), line))
+    return out
+
+
+def snapshots() -> dict[str, set[str]]:
+    """写しの名 → 当たる条の集合 (ヘッダの Applied to か、§18・jurisdictions の引用から)。"""
+    snaps = {p.name: set() for p in sorted((L / "rounds").glob("*-snapshot.txt"))}
+    for name in snaps:
+        head = (L / "rounds" / name).read_text(encoding="utf-8")[:2000]
+        a = re.search(r"^Applied to: .*?Sections? ([\d., ]+)$", head, re.M)
+        if a:
+            snaps[name] |= set(re.findall(r"\d+\.\d+", a.group(1)))
+    for c, line in s18_rows():
+        for s in SNAP.findall(line):
+            if s in snaps:
+                snaps[s].add(c)
+    for f in sorted(L.glob("ACD-1.*.jurisdictions*.md")):
+        for para in f.read_text(encoding="utf-8").split("\n\n"):
+            for s in SNAP.findall(para):
+                if s in snaps:
+                    snaps[s] |= {x for x in re.findall(r"§(\d+\.\d+)", para)}
+    return snaps
+
+
+def main(argv: list[str]) -> int:
+    clauses = draft_clauses()
+    rows = s18_rows()
+    snaps = snapshots()
+    by_clause = defaultdict(lambda: {"rows": 0, "unfetched": [], "snaps": set()})
+    for c, line in rows:
+        b = by_clause[c]
+        b["rows"] += 1
+        b["unfetched"] += [x.strip(" ・（(") for x in re.findall(r"[^（(、。；|]{0,40}未取得", line)]
+        b["snaps"] |= {s for s in SNAP.findall(line) if s in snaps}
+    for s, cs in snaps.items():
+        for c in cs:
+            by_clause[c]["snaps"].add(s)
+    law = {s for s in snaps if LAW_HOST.search((L / "rounds" / s).read_text(encoding="utf-8")[:1500])}
+    orphan = [s for s, cs in snaps.items() if not cs and s in law]
+    unf = [(c, u) for c in sorted(by_clause, key=ckey) for u in by_clause[c]["unfetched"]]
+    with_snap = [c for c in clauses if by_clause[c]["snaps"]]
+    with_row = [c for c in clauses if by_clause[c]["rows"]]
+    if "--table" in argv:
+        print("| 条 | §18 の行 | 当たる写し | 未取得と書かれた法源 |\n| :-- | --: | :-- | :-- |")
+        for c in clauses:
+            b = by_clause[c]
+            print(f"| §{c} | {b['rows']} | {'<br>'.join(sorted(b['snaps'])) or '—'} | {'；'.join(b['unfetched']) or '—'} |")
+        return 0
+    print(f"# 法源の対応（草案 {len(clauses)} 条）: §18 の行を持つ条 {len(with_row)}・写しが当たる条 {len(with_snap)}（rounds/ の写し {len(snaps)} 本・うち法令と判例 {len(law)} 本）")
+    print(f"# §18 の行 {len(rows)} のうち写しを引く行 {sum(1 for _, l in rows if SNAP.search(l))}・「未取得」の句 {len(unf)}: "
+          + "；".join(f"§{c} {u}" for c, u in unf))
+    print(f"# 草案のどの条にも当たっていない法令・判例の写し {len(orphan)}（§18・jurisdictions が名を引かず、ヘッダに Applied to も無い）: " + ", ".join(orphan))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))
