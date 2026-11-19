@@ -827,15 +827,15 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 
 **反例の結果（30・50）**: 7 本とも反例なし。逆側として記録する点が 4 つ。(i) T112 の *for a copy* は §5.1 の除外 *for a payment You agreed to make* より狭く、同じ働きの除外が 2 つの条で範囲を違える —— Dedicator が使用料の契約を課し（(b) の違反）、You が同意したなら、その支払いの請求は §5.1 の約束の外に残る（30）。30 の勧めに従い §5.1 にも *for a copy* を足す形を T118 として束 6 で出す（§5.1 を動かすので別の 1 巡を当てる）。(ii) T116 の明示 *is subject to Section 14* は、明示の無い条に §14 が当たらないと読む反対解釈を開きうる（30）—— ただし §2.6 のほかに義務を負わせる条は §14.2 の列が名指す約束だけで、反対解釈の向かう先が無いので、明示は残す。識別を怠った Dedicator への受け手の請求は §14 で狭まる（50）。(iii) T115 の *assist* は、共同著作者が自分の人格権を行使する訴えで Dedicator が証言などで「助ける」ことまで約束に入ると読まれうる —— §5.1・§8.6 も同じ語で、*assist* は権利の行使を目的とする助力に限る、と読む（50・逐条リファレンスに書く候補）。(iv) T117 は §1.5 で一意と読む余地もあった（9b の 1 巡目）。登録した問い: (a) T112 の *for a copy* が、写しの入手の後の更新や保守の対価を外に置くか、(b) T115 で §12.2 の文が長くなり、*any such person*（第 2 文）の先行詞が *any other person* に移らないか、(c) T116 の *is subject to Section 14* が §14.2 第 1 文（法が除外を許さない責任）まで §2.6 から外すと読まれないか、(d) T114 の後、§10.4 の *it* と §11.1 の語が揃ったことで、§16.4 の頒布の制限が「Work について」でないことが一意か。
 
-### 15.37 T118 —— 支払いの除外を 2 つの条で同じ線に（+27 語・2026-11-20）
+### 15.37 T118 —— 支払いの除外を 2 つの条で同じ線に（+29 語・2026-11-20）
 
 | 試作 | 条 | Before → After |
 | :-- | :-- | :-- |
-| T118 | §5.1・§5.2(b) | *"or for a payment You agreed to make"*（§5.1）と *"… for a copy"*（§5.2(b)・T112）→ どちらも *"or for a payment You agreed to make for providing a copy or for a service other than permission to use the Work"*（§5.1 +15・§5.2(b) +12・1 巡と 2 巡の後に形を変えた）|
+| T118 | §5.1・§5.2(b) | *"or for a payment You agreed to make"*（§5.1）と *"… for a copy"*（§5.2(b)・T112）→ どちらも *"or for a payment You agreed to make for providing a copy or for a service that is not permission to use the Work"*（§5.1 +16・§5.2(b) +13・1 巡と 2 巡の後に形を変えた）|
 
 30 の勧め（§5.1 にも *for a copy* を足す）を採らなかった理由: §5.1 の除外は有償サポートの代金請求を約束の外に置くために足した（#272・faq A30）。写しに限るとサポートの代金請求が約束に反する。§5.2(b) を §5.1 の広さに揃える案は、使用料の契約を (b) の外に置く。*for a copy or a service* はその間に線を引く。
 
-**1 巡目の結果（30）**: (a)(c) は立たない（SaaS の利用料は §5.2 末段と同じ向きで約束の外、faq A30 の答えは変わらない）。(b) が立つ: 許しそのものを「サービス」と名づけた代金が除外に入る → *a service* を *a service other than permission to use the Work* にした（30 の案 *a service the Dedicator performs* は「承認は行うサービスか」の問いを残す）。**2 巡目の結果（50）**: 反例なし。*other than permission to use the Work* は *a service* に掛かる（写しは許しでないので *a copy* に掛かる読みは意味を持たない）。逆側の「使うたびの写し」の従量課金 → *for providing a copy*。登録した 2 巡目の問い: (d) (b) の頭で 2 つの *other than* が入れ子になり、2 つ目が (b) の除外の列に読まれないか、(e) *permission to use the Work* が §4.1 の licence の再許諾（sublicensable）の代金まで外すか —— 外すのが意図（再許諾は無償の許しの受け渡し）。
+**1 巡目の結果（30）**: (a)(c) は立たない（SaaS の利用料は §5.2 末段と同じ向きで約束の外、faq A30 の答えは変わらない）。(b) が立つ: 許しそのものを「サービス」と名づけた代金が除外に入る → *a service* を *a service other than permission to use the Work* にした（30 の案 *a service the Dedicator performs* は「承認は行うサービスか」の問いを残す）。**2 巡目の結果（50）**: 反例なし。*other than permission to use the Work* は *a service* に掛かる（写しは許しでないので *a copy* に掛かる読みは意味を持たない）。逆側の「使うたびの写し」の従量課金 → *for providing a copy*。30 —— (d) 入れ子の *other than* はほぼ一意だが、同じ語が 1 文に違う働きで 2 度出る → 2 つ目を *that is not* に。(e) 再許諾の代金は You が受け取るもので Dedicator の請求にならない（意図どおり）。登録した 2 巡目の問い: (d) (b) の頭で 2 つの *other than* が入れ子になり、2 つ目が (b) の除外の列に読まれないか、(e) *permission to use the Work* が §4.1 の licence の再許諾（sublicensable）の代金まで外すか —— 外すのが意図（再許諾は無償の許しの受け渡し）。
 
 登録した 1 巡目の問い: (a) *a service* が、§5.2 末段の *"a service through which the Dedicator runs the Work for others"*（SaaS）と同じ語になり、SaaS の利用料の請求が §5.1 の約束の外に置かれるか —— §5.2 末段が SaaS の条件を §5 の外に置くのと向きが揃う、と読む、(b) 使用料を「サービスの代金」と名づける余地、(c) faq A30 と SELF-AUDIT の §5.1 第 2 肢の行の答えが変わらないか。
 
