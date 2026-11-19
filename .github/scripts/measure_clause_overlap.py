@@ -615,7 +615,8 @@ def guard(path: Path) -> int:
     当てて出す。一覧は Check と同じ 1 か所 (_lib_draft_markers.py) から読む (468r は 2026-11-12 に足した)。"""
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     from _lib_draft_markers import EFFECT_MARKERS_468U, gap_losses, state_hits
-    _txt = path.read_text(encoding="utf-8")
+    from _lib_draft_counts import with_changes
+    _txt = with_changes(path)  # 外へ出した変更の一覧も冒頭として読む (2026-11-20・案 A の準備)
     cl = clauses(_txt)
     lack = [(s, mk) for s, mk in EFFECT_MARKERS_468U if mk not in cl.get(s, "")]
     print(f"# {path.name}: 468u の目印 {len(EFFECT_MARKERS_468U)} 件のうち欠けているもの {len(lack)} 件")

@@ -281,7 +281,8 @@ def run(ctx):
     old_k = re.search(r"1\.0 の ([\d,]+) 語から見ると (\d+) 語長い", sec_k)
     sn = lambda s: int(s.replace("−", "-").replace(",", ""))
     from _lib_draft_counts import draft_has_changes
-    if not sec_k and drafts_k and not draft_has_changes(text(drafts_k[0])):
+    from _lib_draft_counts import with_changes as _wc_k
+    if not sec_k and drafts_k and not draft_has_changes(_wc_k(drafts_k[0])):
         pass  # 確定の直後 (変更 0 件) は「語数の内訳」の節がまだ無くて正しい (2026-11-15 の確定の試走)
     elif not (m_k and rows_k and sum_k and old_k and (L / f"ACD-{m_k.group(1)}.txt").exists()):
         bad.append(f"(k) ACD-{ver_k}-CHANGELIST.md の「## 語数の内訳」の文 (前版の語数と差・束の表・N 束の和・1.0 との差) が読めない")
@@ -380,7 +381,8 @@ def run(ctx):
     # 投稿の日に 1c が「Changes since the version posted on <日付>」の節を足し、状態の箇条を書き換える (2026-11-16 の合意)。片方だけを
     #   直すと、草案が自分の状態について嘘をつき、確定の道具 (gate_6b) は節の日付で 30 日を数える
     from prepare_version_freeze import RULE as _RULE502, working_draft as _wd502
-    _h502 = _wd502().read_text(encoding="utf-8").split(_RULE502, 1)[0]
+    from _lib_draft_counts import with_changes as _wc502
+    _h502 = _wc502(_wd502()).split(_RULE502, 1)[0]
     _sec502 = re.search(r"Changes since the version posted on (\d{4}-\d{2}-\d{2})", _h502)
     _not502 = "It has not been posted to any list." in _h502
     _was502 = re.search(r"It was posted to license-discuss on (\d{4}-\d{2}-\d{2})", _h502)

@@ -66,7 +66,8 @@ def errata_items() -> list[tuple[str, str, str, str]]:
     from prepare_version_freeze import RULE, errata_closures, working_draft
     _t, _c, unmarked, _s = errata_closures()
     text = (L / "ACD-1.0.errata.md").read_text(encoding="utf-8")
-    head = " ".join(working_draft().read_text(encoding="utf-8").split(RULE, 1)[0].split())
+    from _lib_draft_counts import with_changes
+    head = " ".join(with_changes(working_draft()).split(RULE, 1)[0].split())
     still = head[head.find("Still open in this draft"):]
     out = []
     for e in unmarked:

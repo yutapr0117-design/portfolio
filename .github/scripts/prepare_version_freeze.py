@@ -474,7 +474,8 @@ def gate_6b(today: "datetime.date | None" = None) -> list[str]:
     """
     import datetime
     today = today or datetime.date.today()
-    head = working_draft().read_text(encoding="utf-8").split(RULE, 1)[0]
+    from _lib_draft_counts import with_changes
+    head = with_changes(working_draft()).split(RULE, 1)[0]
     m = re.search(r"Changes since the version posted on (\d{4}-\d{2}-\d{2})", head)
     if not m:
         return ["段 6b: 出す版を license-discuss に出した記録が草案の冒頭に無い (\"Changes since the version posted on <日付>\")"
