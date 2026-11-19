@@ -40,8 +40,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 1.5 now says "Covered Rights exclude", where it said "Covered
       Rights excludes" (errata E51). (0 words.)
     * Section 1.9 now reaches material submitted to the Dedicator or to any
-      repository or forum "in either case offering the Work, with a notice of
-      this Dedication, to the public or to those invited to contribute", where
+      repository or forum "in either case offering the Work with a notice of
+      this Dedication to the public or to those invited to contribute", where
       it reached any submission to the Dedicator or to a repository or forum
       the Dedicator maintains (errata E65, E73). (+18 words.)
     * Section 2.2 now bars a further term, condition, or restriction "on what
@@ -263,6 +263,17 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 14.1 now says "IN EACH CASE WHERE APPLICABLE LAW DOES NOT
       PERMIT IT TO BE EXCLUDED", so that the condition reaches each of the
       four kinds of liability it names. (+4 words.)
+    * Section 1.9 no longer sets "with a notice of this Dedication" between
+      commas, so that it qualifies the offering of the Work. (0 words.)
+    * Section 2.5 now places "for want of consideration or formality" before
+      "revocable or ineffective", so that it qualifies both. (0 words.)
+    * Section 5.2(b) now excepts "trademark rights or rights in a name
+      (Section 11.1)", as Section 5.1 does. (+12 words.)
+    * Section 6.5 now says that Section 6 "operates on its own footing
+      (Section 2.4)" as well as stating what Section 3, Section 4, Section 5,
+      and Section 8 would permit. (+9 words.)
+    * Section 10.2 now speaks of licensing under "this Dedication or any
+      other terms", where it said "these". (+1 word.)
     * Section 15.1 now joins its two sentences, so that "in respect of the
       Work" also governs the rule that the reading granting more to You
       prevails, and says on whom the least obligation falls, "upon You"
@@ -299,7 +310,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5635 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5657 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -404,12 +415,11 @@ PREAMBLE (informative; not part of the operative terms)
   1.9  "Contribution" means any work of authorship, including any modification,
        addition, correction, translation, or accompanying material, that a
        person intentionally submits to the Dedicator or to a repository or
-       forum, in either case offering the Work, with a notice of this
-       Dedication, to the public or to those invited to contribute, for
-       inclusion in the Work. A submission is intentional if it is made by or
-       on behalf of the person for that purpose; material sent for discussion
-       only, and material a person marks as not being a Contribution, are
-       excluded.
+       forum, in either case offering the Work with a notice of this Dedication
+       to the public or to those invited to contribute, for inclusion in the
+       Work. A submission is intentional if it is made by or on behalf of the
+       person for that purpose; material sent for discussion only, and material
+       a person marks as not being a Contribution, are excluded.
 
   1.10 "Reservation" means any act, notice, marking, metadata, protocol
        element, header, machine-readable signal, contractual term, or other
@@ -444,10 +454,10 @@ PREAMBLE (informative; not part of the operative terms)
   2.5  The Dedicator makes this Dedication intending that others rely on it and
        incur effort and expense in doing so; that reliance is the purpose of
        this Dedication and not merely a foreseeable consequence of it. The
-       Dedicator covenants not to assert that this Dedication is revocable or
-       ineffective for want of consideration or formality, and is estopped from
-       doing so to the extent the law of any jurisdiction gives that principle
-       effect.
+       Dedicator covenants not to assert that, for want of consideration or
+       formality, this Dedication is revocable or ineffective, and is estopped
+       from doing so to the extent the law of any jurisdiction gives that
+       principle effect.
 
   2.6  A Contribution is submitted under this Dedication, and the person making
        it becomes a Dedicator as to that Contribution, unless they state
@@ -563,10 +573,11 @@ PREAMBLE (informative; not part of the operative terms)
             restricts access to or use of the Work, or invoke against You any
             law concerning the circumvention of such measures;
 
-       (b)  impose by contract, terms of service, acceptable-use policy,
-            access condition, click-through, registration requirement, or any
-            other collateral means an obligation in respect of the Work that
-            this Dedication does not itself impose, and this Dedication
+       (b)  other than under trademark rights or rights in a name
+            (Section 11.1), impose by contract, terms of service, acceptable-use
+            policy, access condition, click-through, registration requirement,
+            or any other collateral means an obligation in respect of the Work
+            that this Dedication does not itself impose, and this Dedication
             imposes none (Section 10.1);
 
        (c)  assert that any permission granted here is narrower than Section
@@ -632,11 +643,12 @@ PREAMBLE (informative; not part of the operative terms)
        Dedication requires You to license, disclose, or attribute any such
        thing.
 
-  6.5  Section 6 states expressly what Sections 3 to 5 and 8 would in any event
-       permit. It is stated expressly because silence on this subject leaves it
-       to be inferred whether this is permitted, and because a permission that
-       an automated system cannot determine is, for the purposes of a work meant
-       to be learned from, no permission at all.
+  6.5  Section 6 operates on its own footing (Section 2.4) and also states
+       expressly what Sections 3 to 5 and 8 would in any event permit. It is
+       stated expressly because silence on this subject leaves it to be inferred
+       whether this is permitted, and because a permission that an automated
+       system cannot determine is, for the purposes of a work meant to be
+       learned from, no permission at all.
 
 
 7. SUI GENERIS DATABASE RIGHTS
@@ -739,10 +751,10 @@ PREAMBLE (informative; not part of the operative terms)
   10.1 This Dedication imposes no condition, obligation, restriction, or
        requirement upon You in respect of the Work.
 
-  10.2 In particular, You need not give attribution, reproduce any notice,
-       state that the Work was modified, make source available, license
-       anything under these or any other terms, retain this file, or inform
-       anyone of anything.
+  10.2 In particular, You need not give attribution, reproduce any notice, state
+       that the Work was modified, make source available, license anything under
+       this Dedication or any other terms, retain this file, or inform anyone of
+       anything.
 
   10.3 Under this Dedication, any request, preference, custom, or expectation
        expressed by the Dedicator in respect of the Work, wherever expressed

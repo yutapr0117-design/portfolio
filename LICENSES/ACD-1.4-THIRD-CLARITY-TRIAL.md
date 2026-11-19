@@ -784,4 +784,16 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 
 登録した 1 巡目の問い: (a) T100 の *mark or name* が §11.1 の *logo* と *trade name* を受けるか、*requires no right* が「言及なら商標法の主張を受けない」と Dedicator の約束に読まれないか（§11.1 は権利を与えないだけで、第三者の商標権は扱わない）、(b) T101 で、ドイツのように「譲渡できず、放棄は一部だけ」の法域が *incapable of waiver* に当たるか（当たらなければ §12.1 が働き、放棄できない部分が残る）、(c) T102 の *IN EACH CASE WHERE* が「法が除外を許す場合は除外される」を積極に言うと読まれ、§14.2 と重ならないか、(d) T103 の非制限の関係節が、問い 3 (c)（目的の句が同意を狭めるか）の読みを変えるか —— 説明の句なら狭めない読みに寄る。
 
+### 15.34 T104〜T108 —— 一意化の束 3（+22 語・2026-11-19・【反例待ち】）
+
+| 試作 | 条 | Before → After | 別の読み（UNIQUE-READING の行）|
+| :-- | :-- | :-- | :-- |
+| T104 | §5.2(b) | 頭に *"other than under trademark rights or rights in a name (Section 11.1),"*（+12）| Dedicator の商標の指針が (b) の違反になる（§19.2・30）|
+| T105 | §10.2 | *"under these or any other terms"* → *"under this Dedication or any other terms"*（+1）| *these* の先行詞（§19.3・50・2f）|
+| T106 | §2.5 第 2 文 | *"… is revocable or ineffective for want of consideration or formality"* → *"that, for want of consideration or formality, this Dedication is revocable or ineffective"*（0）| 理由の句が *ineffective* だけに掛かり、法定の撤回の主張まで封じる（§19.1・1c・2f）|
+| T107 | §1.9 | *"offering the Work, with a notice of this Dedication, to the public"* のカンマを外す（0）| 通知の句が提出に掛かる（§19.1・2f）|
+| T108 | §6.5 第 1 文 | *"Section 6 operates on its own footing (Section 2.4) and also states expressly what …"*（+9）| §2.4 と §6.5 の食い違い（§19.1・§19.2・30）|
+
+**反例の担当へ（30・50・2f）**: (a) T104 の *under* が「商標の権利から生じる義務」だけを外し、商標法の届かない名指しまで縛る契約の義務は (b) の内に残る、と読めるか、(b) T107 でカンマを外すと *to the public or to those invited to contribute* が *submits* の宛先に読まれる余地が戻らないか（T35 が閉じた読み）、(c) T108 の後の §6.5 第 2 文 *"It is stated expressly because …"* の *It* の先行詞、(d) T106 の後、錯誤など 2 つの理由以外の無効の主張は約束の外で、§2.2 と §15.2 が受ける、という 30 の読みが保たれるか。
+
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。
