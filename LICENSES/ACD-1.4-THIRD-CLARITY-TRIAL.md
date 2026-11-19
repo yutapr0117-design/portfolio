@@ -876,7 +876,7 @@ T120 と T121 は同じ型（1 人が受け手と Dedicator の両方の役を�
 
 ### 15.41 T125 —— T124 の頭の句を法の限度に（−1 語・2026-11-20・【反例待ち】）
 
-§5.2 の T124 の文の頭 *"To the fullest extent the Dedicator is able"* を *"To the fullest extent the law permits"* にした。*is able* は事実の上の力（契約・技術の権利）でも狭まり、Dedicator が「できない」と言えば授権が縮む（9b の型 (2)）。範囲は後半の *applied at any time by or on behalf of the Dedicator* が既に限る。§6.3 の *is able* は他人の留保を撤回する文で、働きが違うので変えない。
+§5.2 の T124 の文の頭 *"To the fullest extent the Dedicator is able"* を *"To the fullest extent the law permits, the Dedicator authorises"* にした。*is able* は事実の上の力（契約・技術の権利）でも狭まり、Dedicator が「できない」と言えば授権が縮む（9b の型 (2)）。範囲は後半の *applied at any time by or on behalf of the Dedicator* が既に限る。§6.3 の *is able* は他人の留保を撤回する文で、働きが違うので変えない。
 
 **反例の担当へ（30・50・2f）**: (a) *the law permits* が、法が授権を要しない場面（§3 が効き Work が保護の外の法域）で文を空にするか —— 空でも害が無い、と読む、(b) Dedicator が配布者との契約で DRM を外さない義務を負うとき、*the law permits* の下でも授権は立ち、契約の違反は Dedicator と配布者の間に残る —— それで良いか。
 
