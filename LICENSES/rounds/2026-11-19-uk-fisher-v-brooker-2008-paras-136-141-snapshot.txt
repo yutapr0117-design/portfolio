@@ -1,0 +1,30 @@
+Source: https://caselaw.nationalarchives.gov.uk/ewca/civ/2008/287
+Law: Fisher v Brooker [2008] EWCA Civ 287 (Court of Appeal, Civil Division)
+Articles: Fisher v Brooker [2008] EWCA Civ 287 paragraph 136, Fisher v Brooker [2008] EWCA Civ 287 paragraph 138, Fisher v Brooker [2008] EWCA Civ 287 paragraph 140, Fisher v Brooker [2008] EWCA Civ 287 paragraph 141 (4 sections below; 9 lines of verbatim passages, 2 note lines)
+Retrieved: 2026-11-19 03:42 UTC by portfolio-30, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: babb7e027a23e72d949cc7461b6e1fe9e58b5b40605eb3e116017ebf74ebfad5 (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 2.2, 2.5, 4.1
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+===== Fisher v Brooker [2008] EWCA Civ 287 paragraph 136 (David Richards J) =====
+"The implied gratuitous licence treated as arising in cases such as the present can be viewed as equivalent to acquiescence."
+"The licence is revocable unless the defendant has acted to his detriment such that revocation would be unconscionable."
+（注）136 段落の他の文は写していない。
+
+===== Fisher v Brooker [2008] EWCA Civ 287 paragraph 138 (David Richards J) =====
+"As that makes clear, nothing less than estoppel could terminate the right to revoke the implied licence."
+（注）138 段落の他の文（先の控訴院判決の要約と、Jonathan Parker LJ の判決の引用）は写していない。
+
+===== Fisher v Brooker [2008] EWCA Civ 287 paragraph 140 (David Richards J) =====
+"I would therefore dismiss the appeal against the second declaration, as to joint ownership of the copyright,"
+" as well as the first declaration, as to authorship."
+"The third declaration, to the effect that Mr Fisher has revoked the implied licence, is not essential"
+" but it may be of assistance in clarifying the position and I would accordingly dismiss the appeal against it."
+
+===== Fisher v Brooker [2008] EWCA Civ 287 paragraph 141 (Sir Paul Kennedy) =====
+"I agree with Lord Justice Mummery that this appeal should be allowed to the extent that he has indicated"
+"for the reasons he has given."
