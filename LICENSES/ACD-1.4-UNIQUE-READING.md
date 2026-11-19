@@ -98,6 +98,8 @@ THIRD（`ACD-1.4-THIRD-CLARITY-TRIAL.md`）にあった第 19 節を 2026-11-18 
 - §10.4 | 別の読み: *"No permission granted by this Dedication terminates under it, for any reason"* の *"it"* が *"permission"* を指す | 一意 | 根拠: 第 2 文が *"This Dedication … contains no termination provision"* と同じ主語で受ける
 - §10.5 | 別の読み: *"Nothing in Section 16 is a condition upon Your use of the Work"* が、§16.4 の改変した本文の頒布の制限まで（本文を Work と一緒に配るとき）外す | 一意 | 根拠: 第 1 文 *"Section 16 concerns the text of this Dedication as a document, and not the Work"* が対象を分け、§16.4 は本文の頒布を縛る文で Work の使用の条件ではない（§16.6）
 
+- §10.4（2 巡目・portfolio-30） | 別の読み: 第 2 文 *"This Dedication, in respect of the Work, contains no termination provision and no revival provision, because it contains nothing that You could breach"* の理由の句の *it* が「この Dedication」全体を受け、*in respect of the Work* の限定から外れる —— そう読むと、§16.4 が改変した本文の頒布を制限し、自分で *"Both provisos are conditions upon distributing the text"* と言うので、理由の句は偽になる（条どうしの食い違い） | 試作の種（1c へ） | 根拠: 主語の後の挿入句 *in respect of the Work* は主節に掛かるが、*because* の節の *it* が挿入句ごと受けるかは語から決まらない。§10.5 と §16.6 は §16 が Work の条件でないと言うが、「You が破りうるものが無い」とは言わない。案: 理由の句を、§11.1 第 3 文の「Work について You に何も求めない」と同じ語にする（−1 語前後・語は 1c の試作が定める）。逆側: *asks nothing* は「破りうるものが無い」より弱い語に見えるが、§10.1 が「条件・義務・制限・要求」を 0 にしているので、効果は同じ。
+
 **§19.3 の結果**: 18 行（§8〜§10 の小項 15 のすべてに少なくとも 1 行）のうち、立つ別の読みは 3 つ —— §8.3 第 2 文（T99 で入った・句は主語の直後に置いて 3 つの動詞すべてに掛けた）、§8.4 の列挙の後の修飾（T96 で入った）、§10.2 の *these*（T105 で入った・2026-11-19 の 2 巡目）。開いている試作は 0。一意 15、法の側 0。
 
 ### 19.4 §11〜§13（portfolio-2f・main の 1.4 草案）
@@ -119,6 +121,8 @@ THIRD（`ACD-1.4-THIRD-CLARITY-TRIAL.md`）にあった第 19 節を 2026-11-18 
 - §13.1 | 別の読み: "WITHOUT WARRANTY OR CONDITION OF ANY KIND" の "CONDITION" が、受け手への条件（§10.1）を指す | 一意 | 根拠: "INCLUDING WITHOUT LIMITATION ANY WARRANTY OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY, FITNESS ..." の列挙が保証の文脈に閉じ、"CONDITION" は英国法の黙示の condition（保証の一種）を指す。受け手への条件は §10.1 が別に扱う
 - §13.2 | 別の読み: "THAT ANY SECTION OF THIS DEDICATION IS EFFECTIVE IN ANY JURISDICTION" を否認することで、Dedication 全体の効力を Dedicator が争える | 一意 | 根拠: §13.2 は保証の否認で、効力の主張ではない。§2.5 が Dedicator に "not to assert that this Dedication is revocable or ineffective" を約束させ、禁反言を置く
 - §13.3 | 別の読み: "no duty to ... continue to make the Work available" が §2.2 の撤回不能に反し、提供の停止で許しが終わる | 一意 | 根拠: §13.3 は提供の義務の否定で、許しの終了ではない。§10.4 が "No permission granted by this Dedication terminates under it" と閉じる
+
+- §12.2（2 巡目・portfolio-30・帯の外から） | 別の読み: §5.1・§5.2(d)・§8.6 の約束はどれも *"not to authorise or assist any other person to assert"* を持つが、§12.2 の約束 *"The Dedicator covenants not to exercise Moral Rights in the Work against You …"* はそれを持たない —— Dedicator が他の者に人格権を行使させること（フランスの CPI L121-1 は *"L'exercice peut être conféré à un tiers en vertu de dispositions testamentaires."*）は、§12.2 の語の外に残る（同じ働きの語が片方にだけ在る） | 試作の種（1c へ） | 根拠: 代理人による行使は Dedicator の行使と読めるが、行使を委ねられた第三者（遺言の指定者・管理団体）が自分の名で行使する場合は §12.2 の語に当たらない。§12.4 は死後に権利を行使する者を拘束するが、生前の委託は覆わない。案: §12.2 の約束に、§8.6 と同じ「他の者に行使させず、行使を助けない」の句を足す（+9 語・語は 1c の試作が定める）。逆側: 人格権の行使を他人に委ねられる法域は限られ、委ねた者の行使は Dedicator の意思とも読める —— ただし語で揃えれば読みが要らなくなる。
 
 ### 19.5 §14〜§16（portfolio-9b・main の 1.4 草案）
 
