@@ -28,6 +28,9 @@
   (n) 指示の限定詞 (these / those / such + 名詞) の名詞が、同じ条のその前に無い所 —— 先行詞が条の外にあるか、別の語で呼ばれていて、
       指し先が割れる (2026-11-19・1c の掃引: §16.2 の "these terms" と §8.5 の "these licences")。"those invited" のような分詞と
       "these or any other …" は数えない。
+  (o) 同じ働きの除外が片方にだけ在る所 —— 同じ節の Dedicator の約束の項どうしで、除外の句 ("other than for / under …") の集合を比べ、
+      他の項が持つ除外を持たない項を出す (2026-11-19・30 の 2 巡目の型: §5.1 と §5.2(d) は §11.3 を外し §5.2(b) は外さなかった)。
+      除外が無いのが正しい項 (技術的手段・§15.1 の読み) も出るので、候補として読む。
 
 **--law** (2026-11-16・50 の方法の (a)): 条ごとに「法に頼る句」(to the extent / applicable law / where … permits /
 in a jurisdiction / held invalid / takes effect / is not / does not …) を抜き、5 人の帯 (1c §1〜4・30 §5〜7・50 §8〜10・
@@ -237,6 +240,31 @@ def main(argv: list[str]) -> int:
             stem = noun[:-1] if noun.endswith("s") else noun
             if not re.search(r"\b" + re.escape(stem) + r"s?\b", v[:m.start()].lower()):
                 found["n"].append(f"§{k}: '{m.group(0)}' —— 同じ条のその前に '{stem}' が無い: …{v[max(0, m.start() - 50):m.end() + 30]}…")
+    # (o) 同じ節の約束の項どうしの除外の食い違い
+    PROM_O = re.compile(r"\bcovenants? (?:not|that)\b|\bwill not\b|\bnot to assert\b")
+    def _excl_o(u):
+        out = []
+        for m in re.finditer(r"\bother than ((?:for|under) .+?)(?:\.\s|;|, (?:impose|assert)\b|$)", u):
+            for part in re.split(r",\s*(?:or\s+)?(?=(?:for|under)\b)", m.group(1)):
+                r = re.search(r"\(Sections? ([\d.]+)\)", part)
+                out.append("§" + r.group(1) if r else " ".join(part.split()[:4]))
+        return out
+    groups_o = {}
+    for k, v in flat.items():
+        units = re.split(r"\s(?=\([a-z]\)\s)", v)
+        lead_prom = bool(PROM_O.search(units[0]))
+        for i, u in enumerate(units):
+            if i == 0 and len(units) > 1 and u.rstrip().endswith(":"):
+                continue  # 列挙の導入の句は項に約束を渡すだけ
+            if (i and lead_prom) or (i == 0 and PROM_O.search(u)):
+                lab = f"§{k}" + (re.match(r"\(([a-z])\)", u).group(0) if i else "")
+                groups_o.setdefault(k.split(".")[0], []).append((lab, _excl_o(u)))
+    for sec, items in groups_o.items():
+        union = sorted({x for _, e in items for x in e})
+        for lab, e in items:
+            miss = [x for x in union if x not in e]
+            if union and miss:
+                found["o"].append(f"{lab}: 除外 {e or '無し'} —— 同じ節の他の約束が持つのに無い除外 {miss}")
     # (c) 使われない定義
     for t, k in terms.items():
         uses = [c for c, v in flat.items() if c != k and re.search(r"\b" + re.escape(t) + r"s?\b", v)]
@@ -262,7 +290,8 @@ def main(argv: list[str]) -> int:
              "k": "免責・制限の条が同じ文書の約束を呑むか (問い 9 (a) の型)",
              "l": "同じ条の中の \"X or Y\" と \"X and Y\"",
              "m": "\"may not\" —— 禁止か可能性か",
-             "n": "指示の限定詞 (these / those / such) の名詞が同じ条のその前に無い"}
+             "n": "指示の限定詞 (these / those / such) の名詞が同じ条のその前に無い",
+             "o": "同じ働きの除外が片方にだけ (同じ節の約束の項どうしの除外の食い違い)"}
     for typ, name in names.items():
         xs = found.get(typ, [])
         print(f"\n## ({typ}) {name}: {len(xs)}")
