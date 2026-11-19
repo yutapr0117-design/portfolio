@@ -1,0 +1,23 @@
+Source: https://www.courts.go.jp/hanrei/92503/detail8/index.html
+        https://www.courts.go.jp/assets/hanrei/hanrei-point_pdf-92503.pdf
+Law: 知的財産高等裁判所 令和5年10月4日判決 令和3年(ネ)第10061号（判決要旨）
+Articles: 知財高裁 令和5年10月4日 令和3年(ネ)第10061号 判決要旨 2(1), 知財高裁 令和5年10月4日 令和3年(ネ)第10061号 判決要旨 2(3) (2 sections below; 5 lines of verbatim passages, 0 note lines)
+Retrieved: 2026-11-19 04:33 UTC by portfolio-30, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: e71e98678f08c3e5664d7dc8f612dedeaaaa985f61881acdcb675cae888381e7 (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 5.1, 8.1, 8.6
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+（注）裁判所の判例検索（courts.go.jp）の「判決要旨」の PDF（hanrei-point_pdf-92503.pdf）の逐語の片。判決の全文ではなく、裁判所が作成した要旨。
+
+===== 知財高裁 令和5年10月4日 令和3年(ネ)第10061号 判決要旨 2(1)（実施許諾契約の解釈について） =====
+「実施許諾契約においては特許権侵害の排除及び予防は特許権者である一審被告が行うこととされており、不起訴の合意に関する条項もないから、」
+「実施許諾契約の当事者ではない参加人による米国特許権の侵害に係る行為について、一審被告がその侵害の排除及び予防の措置を取ることについて、実施許諾契約にはこれを妨げる条項はない。」
+「そうすると、一審被告は、実施許諾契約に基づき、一審原告が販売した機械装置により本件の特許権を実施して生産された当該製品に対し、本件の特許権を行使してはならないとの義務を負うと解することはできない。」
+
+===== 知財高裁 令和5年10月4日 令和3年(ネ)第10061号 判決要旨 2(3)（一審被告による米国訴訟の提起又は追行が不法行為になるかについて） =====
+「実施許諾契約には、不起訴の合意など、一審被告による特許権の侵害行為に対する権利行使を制限する条項は存しないのであるから、」
+「一審被告が参加人に対して米国訴訟を提起し、これを追行したこと自体が実施許諾契約の存在によって直ちに違法になるとはいえない。」
