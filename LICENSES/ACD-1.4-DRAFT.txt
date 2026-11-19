@@ -50,22 +50,17 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 2.3 now says that to hold a permission You need not know of this
       Dedication. (+7 words.)
     * Section 2.6 now undertakes to identify any material that Section 1.9
-      excludes from being a Contribution, not only material a person marks as
-      not being one, and the undertaking binds only "a Dedicator who includes
-      that material with the Work, or causes it to be included", where any
-      inclusion in the Work bound every Dedicator, and it gives the undertaking
-      and whom it binds as two sentences. The material is now identified "as
-      a notice may identify material under Section 16.2", by its place, a file
-      name, or markers. (+15 words.)
+      excludes from being a Contribution, binds only "a Dedicator who includes
+      that material with the Work, or causes it to be included", and
+      identifies the material "as a notice may identify material under
+      Section 16.2". (+15 words.)
     * Section 2.7 now limits the rights reached to those the Dedicator holds
       "now or in future", the words Sections 8.1 and 8.4 use (errata E60), and
       no longer points to Section 13.2. (-4 words.)
-    * Sections 2.8 and 12.4 no longer state why they bind successors expressly,
-      and Section 2.8 now says that "This Dedication, in respect of the Work,"
-      binds successors and transferees, where it named Sections 3, 4, 6, and 8
-      (errata E46, E49). Section 2.8 now says that a transferee takes subject
-      to it "to that extent", where it said so without the limit its first
-      sentence states (errata E79). (-77 words.)
+    * Sections 2.8 and 12.4 no longer state why they bind successors
+      expressly, and Section 2.8 now binds successors and transferees "in
+      respect of the Work" and "to that extent" (errata E46, E49, E79). (-77
+      words.)
     * Section 2.9 now says that nothing in this Dedication is, "under its
       terms", conditioned on, suspended by, or revived by an insolvency or an
       officer's act. (+3 words.)
@@ -106,13 +101,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       that they "bind the persons Section 2.8 names, to the fullest extent
       the law permits", the limit Section 2.8 states. (-8 words.)
     * Section 2.8 now names a transferee of "a patent claim that Section 8
-      reaches", where it said "a patent claim in the Work", and Section 12.4
-      binds "the persons Section 2.8 names" and those entitled to Moral
-      Rights after the Dedicator's death, where it listed the persons Section
-      2.8 lists, "to the fullest extent the law permits", where it said "the
-      law permits the Dedicator to bind them". With one list and one limit,
-      no Section binds fewer persons or less than Section 2.8 does. (-6
-      words.)
+      reaches", and Section 12.4 binds "the persons Section 2.8 names" "to the
+      fullest extent the law permits". (-6 words.)
     * Section 6.5 now says that silence on this subject "leaves it to be
       inferred whether this is permitted". (+4 words.)
     * Section 10.4 now says that no permission terminates "under it", where it
