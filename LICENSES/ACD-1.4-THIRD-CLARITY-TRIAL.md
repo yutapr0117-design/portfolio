@@ -839,7 +839,7 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 
 登録した 1 巡目の問い: (a) *a service* が、§5.2 末段の *"a service through which the Dedicator runs the Work for others"*（SaaS）と同じ語になり、SaaS の利用料の請求が §5.1 の約束の外に置かれるか —— §5.2 末段が SaaS の条件を §5 の外に置くのと向きが揃う、と読む、(b) 使用料を「サービスの代金」と名づける余地、(c) faq A30 と SELF-AUDIT の §5.1 第 2 肢の行の答えが変わらないか。
 
-### 15.38 T119〜T121 —— 一意化の束 7（3 巡目・名づけと役の型・+30 語・2026-11-20・【反例待ち】）
+### 15.38 T119〜T121 —— 一意化の束 7（3 巡目・名づけと役の型・+30 語・2026-11-20）
 
 | 試作 | 条 | Before → After | 別の読み |
 | :-- | :-- | :-- | :-- |
@@ -849,6 +849,6 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 
 T120 と T121 は同じ型（1 人が受け手と Dedicator の両方の役を持つ）の 2 つの面である。T120 は「受け手として何も課されない」が Dedicator の約束を消さないことを（Dedicator の役だけを §10.1 から外して）、T121 は「受け手として何でも課せる」が Dedicator の約束を越えないことを、それぞれ語で定める。
 
-**1 巡目の結果**: 50 —— 3 本とも反例なし。30 —— T119・T121 は反例なし。T120 に 1 つ: *as a person exercising permissions* は、許しを要しない使い方だけをする受け手を §10.1 の外に置く → 狭める向きを逆にし *other than in Your capacity as a Dedicator* にした（受け手の役は全部 §10.1 の内）。登録した問い: (a) T120 の後の §10.1 と §10.2〜§10.5 の *upon You* の文が同じ役の言明として揃うか（9b の問い）、(b) §16.4 の *"conditions upon distributing the text, not upon any use of the Work (Section 10.5)"* と役の限定が噛み合うか（9b）、(c) T121 の *material as to which that person is a Dedicator* が、§2.6 で寄与の Dedicator になった者の寄与だけを指し、製品の他の部分に及ばないか、(d) T121 が §4.6 第 2 文（*"Terms You add govern what You give"*）と食い違わないか。
+**1 巡目の結果**: 50 —— 3 本とも反例なし。30 —— T119・T121 は反例なし。T120 に 1 つ: *as a person exercising permissions* は、許しを要しない使い方だけをする受け手を §10.1 の外に置く → 狭める向きを逆にし *other than in Your capacity as a Dedicator* にした（受け手の役は全部 §10.1 の内）。**2 巡目（30）**: (e) 立たない —— Dedicator の役に掛かる義務（§2.6 の識別、§5・§8.6・§12.2 の約束）はどれも Dedicator 自身の行為（課す・主張する・行使する・識別する）についての「しない」約束で、受け手としての行為（複製・頒布・改変・計算の利用）はその対象にならないので、*in Your capacity as a Dedicator* が受け手の行為を §10.1 の外に出す読みは、出しても掛かる義務が無く空になる。逆側: 同じ人が 2 つの役を兼ねると、どの行為がどちらの役かを問われる場面が理論上は残る。登録した問い: (a) T120 の後の §10.1 と §10.2〜§10.5 の *upon You* の文が同じ役の言明として揃うか（9b の問い）、(b) §16.4 の *"conditions upon distributing the text, not upon any use of the Work (Section 10.5)"* と役の限定が噛み合うか（9b）、(c) T121 の *material as to which that person is a Dedicator* が、§2.6 で寄与の Dedicator になった者の寄与だけを指し、製品の他の部分に及ばないか、(d) T121 が §4.6 第 2 文（*"Terms You add govern what You give"*）と食い違わないか。
 
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。
