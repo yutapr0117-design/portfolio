@@ -188,6 +188,42 @@ ROW19 = re.compile(r"^- §(\d+(?:\.\d+)?(?:\([a-z]\))?)[^|]*\| 別の読み: (.+
 
 
 MISSING19: list[str] = []  # §19 に行の無い草案の条 (section19() が埋める)
+BAND = [(1, 4, "1c"), (5, 7, "30"), (8, 10, "50"), (11, 13, "2f"), (14, 16, "9b")]  # 1 巡目の帯 (2026-11-18)
+
+
+def scan_uncovered() -> tuple[int, list[str]]:
+    """scan_draft_ambiguity の候補のうち、§19 のどの行も語で受けていないもの (2026-11-19)。
+
+    候補 (条・型・語) は、§19 の行の頭がその条を名指してその語を持つか、行の本文が「§条」とその語を持つとき受けたと数える。
+    受けた行の分類 (一意・試作・法の側) は問わない —— 「候補を見て、読みを書いた」を数で言うため。型の (b)(c)(g)(i)(k)(l)(h) は
+    0 を保つ型なので、出たら必ず受けていない側に数える。返り値: (候補の数, 受けていない候補の list)。
+    """
+    import subprocess
+    out = subprocess.run([sys.executable, str(ROOT / ".github/scripts/scan_draft_ambiguity.py")], capture_output=True, text=True).stdout
+    u = next(iter(sorted(L.glob("ACD-1.*-UNIQUE-READING.md"))[-1:]), None)
+    rows = [(set(re.findall(r"(\d+\.\d+)", m.group(1))), m.group(0).lower())
+            for m in re.finditer(r"^- (§[^|]+?) \|(.*)$", u.read_text(encoding="utf-8") if u else "", re.M)]
+    tok_of = {"o": "除外", "q": "2.8", "m": "may not"}
+    typ, seen, miss = None, [], []
+    for line in out.split("\n"):
+        h = re.match(r"^## \((\w)\)", line)
+        if h:
+            typ = h.group(1)
+            continue
+        m = re.match(r"^- §(\d+\.\d+)", line)
+        if not m:
+            continue
+        q = re.search(r"「([^」]+)」|'([^']+)'", line)
+        tok = tok_of.get(typ) or (next(g for g in q.groups() if g) if q else "")
+        key = (typ, m.group(1), tok)
+        if key in seen:
+            continue
+        seen.append(key)
+        c, tl = m.group(1), tok.lower()
+        if not tl or not any((c in hs and tl in r) or (tl in r and "§" + c in r) for hs, r in rows):
+            who = next((w for a, b, w in BAND if a <= int(c.split(".")[0]) <= b), "?")
+            miss.append(f"({typ}) §{c}「{tok}」[{who}]")
+    return len(seen), miss
 
 
 def section19() -> tuple[Counter, list[str]]:
@@ -293,6 +329,8 @@ def main(argv: list[str]) -> int:
     for x in bad19:
         print(f"#   ⚠ {x}")
     print(f"# §19 に行の無い条: {len(MISSING19)} / {c19['条']}（全条を見たと言うには 0）: " + ", ".join("§" + x for x in MISSING19))
+    n_scan, un_scan = scan_uncovered()
+    print(f"# scan_draft_ambiguity の候補のうち §19 の行が語で受けていないもの: {len(un_scan)} / {n_scan}（[帯の人]・候補を見たと言うには 0）: " + ", ".join(un_scan))
     for e in errs:
         print(f"# ⚠ {e}")
     if "--pin" in argv:
