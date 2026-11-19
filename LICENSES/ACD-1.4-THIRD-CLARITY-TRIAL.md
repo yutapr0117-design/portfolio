@@ -864,4 +864,14 @@ T120 と T121 は同じ型（1 人が受け手と Dedicator の両方の役を�
 
 **1 巡目（30）**: 向き (B) はよい。反例: §10.2 は改変の表示を求めないので、付いていた Dedicator の名を残したまま改変版を頒布する受け手が、CDPA 84 条 1 項の黙示の帰属として §11.3 に当たると読まれ、T122 の後は放棄も約束も届かない → T123 で付いていた表示を残すことを §11.3 から外した。**2 巡目（30）**: (d)(e) は立たない。*accompanied* がファイルの中の作者のヘッダーを外す読み（§16.2 が *accompanied by* と *within a file* を書き分ける）→ *accompanied or was contained in the Work*。**50**: T122・T123 とも反例なし。T41（改変を改変していないと示す型を §11.3 に入れない）と同じ向き。逆側: 残すだけでなく「改変していない原本」と新たに言う行為は *retaining* でなく能動の表示なので §11.3 に残る —— 境は *retaining* の語が引く。**反例の担当へ（30・50・2f）**: (d) T123 の *a notice that accompanied the Work* が、Dedicator 以外の者が付けた表示（寄与者の名、第三者の表示）も含むか、(e) *is not such a representation* が法の効果の言い切り（英国の裁判所が 84 条の黙示の帰属と見るか）に読まれないか —— §11.3 の語の範囲を言う文で、84 条の当てはめは言わない、と読む、(a) *"Neither … nor the covenant and the consent … extend"* の動詞の数（近い主語に揃えた複数）、(b) *survives all three* が §12.6（§12.2 の一部無効）と食い違わないか、(c) §12.1 の *"To the fullest extent permitted"* の放棄から §11.3 の行為を外すことで、放棄を許す法域で放棄の範囲が割れる（どこまでが「偽の帰属」か）読みが立たないか。
 
+### 15.40 T124 —— 回避の授権と、回避を禁じる力の放棄（+68 語・2026-11-20・【反例待ち】）
+
+| 試作 | 条 | 足した文 |
+| :-- | :-- | :-- |
+| T124 | §5.2（列の後・末段の前）| *"To the extent the Dedicator is able, the Dedicator authorises the circumvention of any technological measure that restricts access to or use of the Work and is applied by or on behalf of the Dedicator, where the circumvention is effected in a use of the Work that this Dedication permits or purports to permit, and waives any power under a law concerning such circumvention to forbid that circumvention."* |
+
+法源: 9b の写し（17 U.S.C. §1201(a)(3)(A) *"without the authority of the copyright owner"*）と 2f の GPL-3.0 §3 の 2 段の読み。設計（50 と 2f）: (1) 行為の動詞（*authorises*・*waives*）と *To the extent the Dedicator is able* で法の効果を言い切らない（50・2f の *So far as* は 468r の状態の語に当たったので替えた）、(2) 動詞を分けて *the circumvention* の掛かり先を一意に、(3) 授権は Dedicator が掛けた手段とそのために掛けられた手段だけ（§4.5 の受け手の DRM は入らない）、(4) 放棄は §5.2(a) 第 2 肢と同じ語の法に限る。1c は 75 語の起草を 68 語に詰めた（*the Dedicator applies, or that another applies on the Dedicator's behalf* → *is applied by or on behalf of the Dedicator*、*in making a use* → *in a use*、*the circumvention of technological measures* → *such circumvention*）。§5.2(a) の語を借りる 62 語の形は、*described there* の先行詞が割れ、定義を他の条に預ける改めになるので採らない。CHANGELIST・逐条リファレンス・SUBMISSION の「GPL-3.0 §3 と同じ形」は事実と違った（T64 の形は第 2 段の約束の一部だけ）ので直した。
+
+**反例の担当へ（30・50・2f）**: (a) *such circumvention* の *such* が、直前の *the circumvention of any technological measure that … is applied by or on behalf of the Dedicator* を受け、放棄の範囲が授権の範囲と同じになるか、(b) *a use of the Work that this Dedication permits or purports to permit* の *purports to permit* が、許しが効かない法域での回避まで授権すると読まれ、法の効果を言い切ることにならないか（*To the extent the Dedicator is able* が受ける、と読む）、(c) §5.2(a) 第 1 肢（手段について権利を主張しない）と重なり、2 つの文の射程が割れないか。
+
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。
