@@ -318,7 +318,7 @@ Work（データセット、文書）である。ドイツの UrhG 42 条も同�
 | 第 1.10 条と第 6 条が指令 2019/790 の 4 条 3 項を直接引く | `ACD-1.4-DRAFT.txt` | **半分だけ正しい**。指令を名指すのは §1.10（*"contemplated by Article 4(3) of Directive (EU) 2019/790"*）だけで、§6 は指令を名指さず、§1.10 で定義した Reservation の語で受ける |
 | 日本では著作権の完全な放棄（パブリックドメイン化）が認められない | `ACD-1.0.jurisdictions.md` §2 | **言い過ぎ**。§2 は「著作権法は放棄の手続を定めておらず、放棄の可否は条文上明らかではない」と書く —— 認められないとは言えない。人格権の放棄については、59 条の一身専属から認められないとするのが一般的な理解、という §2 の書き方と合う |
 | 日本の法制ゆえに、ACD-1.4 は許諾（§4）と不行使の約束（§5・§12.2）を重ねる | `QUESTIONS-FOR-COUNSEL.md` 問い 1・問い 3 | **理由の帰属が狭い**。§3・§4・§5 の 3 つの足場は法域を問わず放棄が効くかに依らない形（CC0 の形・§2.4）で、日本だけが理由ではない。§12.2 の約束の形が日本の実務（59 条の下の不行使特約）に倣うことは問い 3 の *Meant to do* に在る |
-| 英国の CDPA 1988 がデータベース権を定める | 未取得（30 が取得中） | **確かめ中**。英国の独自のデータベース権は CDPA の本体でなく、Copyright and Rights in Databases Regulations 1997 に在ると 30 は理解している —— 30 の写しが入ったら結果をここに書く |
+| 英国の CDPA 1988 がデータベース権を定める | `rounds/2026-11-19-uk-database-regulations-1997-cdpa-29a-snapshot.txt`（30 が取得） | **違う**。英国の独自のデータベース権は Copyright and Rights in Databases Regulations 1997 の 13 条 1 項 *"A property right ("database right") subsists, in accordance with this Part, in a database if there has been a substantial"* *"investment in obtaining, verifying or presenting the contents of the database."* に在る。CDPA に在るのは著作物の側と TDM の例外（29A 条）。§7 が独自の権利と著作権を分けて扱う前提とは合う |
 | 著作権法 30 条の 4 が情報解析（AI の学習）に、18〜20 条・59 条が人格権に関係する | `ACD-1.0.jurisdictions.md` §2a・§2b | **合う**（§2a が 30 条の 4 とその但書を、§2b が 59・60 条を原典で読んでいる） |
 | 独自のデータベース権は主に EU と英国に特有 | 指令 96/9/EC（2f が取得） | **合う**（§7 の手当ての前提と同じ） |
 
