@@ -283,6 +283,16 @@ company that has not applied it (§2.7), and a claim transferred to an affiliate
 bound by §2.8. Is the remaining gap (a claim the affiliate already holds) a defect a reviewer would
 press, and if so, is a covenant by the Dedicator not to cause an affiliate to assert it effective?
 
+**A Japanese decision on the gap §8.6 fills (added 2026-11-20).** The IP High Court (4 October 2023,
+Reiwa 3 (ne) 10061, patent licence) held that a licensor could assert its patent against products a third
+party made with machines the licensee had sold, because the licence had no non-assertion clause:
+*「不起訴の合意に関する条項もないから、」* and *「本件の特許権を行使してはならないとの義務を負うと解することはできない。」*
+(the court's own summary, not the full judgment;
+`rounds/2026-11-19-jp-ip-high-court-2023-10-04-r3-ne-10061-non-assert-snapshot.txt`). ACD has what that
+licence lacked: a covenant not to assert (§8.6) and a grant that names no counterparty (§1.6, §2.3). The court
+did not hold that such a covenant would have worked, and whether a person who is not party to it can rely on
+it in Japan (civil code article 537, the beneficiary's declaration) is the fourth question under question 5.
+
 **An answer would change** the wording of §8.4 (register B7; errata E6 and E15).
 
 ## 3. Are the moral-rights covenants enforceable where waiver is not? (§12.1 to §12.5)
