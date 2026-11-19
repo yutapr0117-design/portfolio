@@ -119,13 +119,13 @@ which does so, binding *"if injustice can be avoided"* only by enforcement
 §2.5's *"intending that others rely on it"* speaks to the first element on the face of the text; actual
 reliance and injustice are facts of each case, and Rosen's 2004 view above denies that the doctrine
 reaches a bare licence at all. So the open part is whether section 90 reaches a bare licence, and the facts.
-In England and Wales the doctrine is narrower and fits what §2.5 asks of it. The Court of Appeal said
+In England and Wales the doctrine is narrower and, on our reading, fits what §2.5 asks of it. The Court of Appeal said
 that promissory estoppel *"cannot alone confer positive rights on the promisee"*, *"(often expressed by
 saying that the doctrine operates as a shield and not as a sword)"* (*Harvey v Dunbar Assets*, 2017, a
 case on a guarantee; `rounds/2026-11-17-harvey-v-dunbar-2017-ewca-civ-60-promissory-estoppel-snapshot.txt`).
 §2.5 needs only the shield: a recipient sued by a Dedicator who says the Dedication is revocable answers
 with the estoppel. Whether an English court applies it to a promise made to the public, and on what
-reliance, is the open part there. Nor can the Dedication bind as a deed in England and Wales: the Law of
+reliance, is the open part there. Nor, on our reading, can the Dedication bind as a deed in England and Wales: the Law of
 Property (Miscellaneous Provisions) Act 1989, section 1(2), requires that an instrument *"makes it clear on
 its face that it is intended to be a deed"* and *"is validly executed as a deed"*, which for an individual
 means a signature attested by a witness and delivery (`rounds/2026-11-19-uk-lpmpa-1989-s1-deeds-snapshot.txt`).
@@ -148,7 +148,7 @@ instance were restored."*, quoting Lord Hope, *"it would be a very strong thing,
 proprietary estoppel, to deny him the opportunity of"* *"exercising his right of property in his own share of
 the copyright."* (`rounds/2026-11-19-uk-noel-redding-v-sony-2026-fisher-v-brooker-hl-snapshot.txt`). So the
 majority of the Court of Appeal was reversed on the point decided there, laches and estoppel, not on the
-general statement in paragraph 34(2). Formation is the smaller question in England: infringement is an act done *"without the licence of the copyright owner"*, with no element of the licensee's knowledge or acceptance (CDPA section 16(2)), and section 92(1) asks for writing and a signature only of an *"exclusive licence"* (`rounds/2026-11-19-cdpa-1988-s16-s92-licence-snapshot.txt`). A recipient who has never heard of the Dedication (§2.3) therefore plausibly holds the licence, and the question moves to revocation, where that recipient, having relied on nothing, has no footing in §2.5. All of this concerns a licence presumed from conduct. The Dedication is an
+general statement in paragraph 34(2). On our reading, formation is the smaller question in England: infringement is an act done *"without the licence of the copyright owner"*, with no element of the licensee's knowledge or acceptance (CDPA section 16(2)), and section 92(1) asks for writing and a signature only of an *"exclusive licence"* (`rounds/2026-11-19-cdpa-1988-s16-s92-licence-snapshot.txt`). A recipient who has never heard of the Dedication (§2.3) therefore plausibly holds the licence, and the question moves to revocation, where that recipient, having relied on nothing, has no footing in §2.5. The revocation holdings above concern a licence presumed from conduct. The Dedication is an
 express licence that calls itself irrevocable. Does an English court treat an express gratuitous licence to
 the public as irrevocable on its words, or, as with the presumed licence, as revocable unless an estoppel
 (which §2.5 invites) stops it?
