@@ -131,6 +131,14 @@ its face that it is intended to be a deed"* and *"is validly executed as a deed"
 means a signature attested by a witness and delivery (`rounds/2026-11-19-uk-lpmpa-1989-s1-deeds-snapshot.txt`).
 A published dedication is neither, so a gratuitous promise in it is enforced there, if at all, as a contract
 where the recipient gives something in return, or through the estoppel above.
+On whether a gratuitous licence can be irrevocable at all, the Court of Appeal in *Fisher v Brooker* (2008)
+said of a copyright licence that *"It may be for a consideration or gratuitous, exclusive or non-exclusive,
+revocable or irrevocable"* (paragraph 34(2)). Against that, the judge who partly dissented said of a licence
+presumed from conduct that *"Such a presumed licence is prima facie revocable on reasonable notice."*
+(paragraph 120; `rounds/2026-11-19-uk-fisher-v-brooker-2008-ewca-civ-287-gratuitous-licence-snapshot.txt`).
+The Dedication is an express licence that calls itself irrevocable, not a presumed one, and the appeal to the
+House of Lords ([2009] UKHL 41) we have not obtained. Does an English court treat an express gratuitous licence
+to the public as irrevocable on its words, or as revocable on notice like the presumed licence?
 (j) A transfer after the Dedication. Under 17 U.S.C. section 205(e), a nonexclusive licence prevails over a
 conflicting transfer of copyright ownership only if it is evidenced by a written instrument signed by
 the owner of the rights licensed or the owner's agent, and was taken before the transfer was executed,
