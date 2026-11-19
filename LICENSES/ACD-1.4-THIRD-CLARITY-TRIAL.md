@@ -884,6 +884,6 @@ T120 と T121 は同じ型（1 人が受け手と Dedicator の両方の役を�
 
 4 巡目の型「否定の範囲（no / not / nothing が並びのどこまでに掛かるか）」を全条に当てた（1c）。立ったのは §14.2 第 1 文の 1 つ: *"does not permit the exclusion or limitation of a liability"* の *not* が並びの両方に掛かると「除外も制限も許さない場合」だけになり、後半の「法の許す限り制限する」が空になる。*"does not permit a liability to be excluded"* にした。ほかの否定（§2.3 *need not* の列、§6.4 *No … under A or under B*、§8.2 *no condition* / *not terminable*、§8.5 *neither … nor*、§11.4、§12.3 *extend to no other work*）は、並びの全部に掛かる読みしか立たない。
 
-**反例の担当へ（30・50・9b）**: (a) 制限も許さない法域で、新しい文が「その責任は法の許す限り（＝ 0）制限される」と読まれ、§14 の残り（*"the remainder of Section 14 continues to apply"*）と合うか、(b) *a liability* の不定冠詞が §14.1 の 4 つの範疇（*WILFUL MISCONDUCT* など）だけに限られる読みを作らないか。
+**1 巡目（50）**: 反例なし。除外も制限も許さない法域では「法が許す最大限」が 0 になり責任は制限されない —— 文は偽にならない。形: 2 行目の短い折り返しを §14.2 全体で詰め直した（mutation の anchor は残った）。**反例の担当へ（30・50・9b）**: (a) 制限も許さない法域で、新しい文が「その責任は法の許す限り（＝ 0）制限される」と読まれ、§14 の残り（*"the remainder of Section 14 continues to apply"*）と合うか、(b) *a liability* の不定冠詞が §14.1 の 4 つの範疇（*WILFUL MISCONDUCT* など）だけに限られる読みを作らないか。
 
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。
