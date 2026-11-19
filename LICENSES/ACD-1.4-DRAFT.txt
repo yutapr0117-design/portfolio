@@ -239,8 +239,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       words.)
     * Section 6.4 and Section 8.4 now say "in each case" before "resulting
       from", and Section 1.7 now says "other data that results from that
-      processing", so that the qualifier reaches every item of the list. (+7
-      words.)
+      processing". (+7 words.)
     * Section 4.5 now speaks of terms "incompatible with this Dedication",
       where it said "with these". (+1 word.)
     * Section 5.2 now says that Section 5 reaches the terms the Dedicator
@@ -250,8 +249,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       preserves, or leaves unaffected any patent claim Section 8.1 and Section
       8.4 reach. (+4 words.)
     * Section 11.2 now says that "Section 11.1 does not restrict nominative
-      reference", and no longer says "You may", so that it is not read as
-      granting a right Section 11.1 withholds. (0 words.)
+      reference", and no longer says "You may". (0 words.)
     * Section 12.2 no longer replaces Section 12.1 where the law makes
       moral rights personal to the author or incapable of waiver. Its
       covenant and consent are now "given for every jurisdiction, whether or
@@ -260,13 +258,12 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 12.3 now says the covenant and the consent are given in
       respect of "the Work, which the Dedicator has chosen to place in the
       commons", where it said "a work". (0 words.)
-    * Section 14.1 now says "IN EACH CASE WHERE APPLICABLE LAW DOES NOT
-      PERMIT IT TO BE EXCLUDED", so that the condition reaches each of the
-      four kinds of liability it names. (+4 words.)
+    * Section 14.1 now says "IN EACH CASE WHERE APPLICABLE LAW DOES NOT PERMIT
+      IT TO BE EXCLUDED". (+4 words.)
     * Section 1.9 no longer sets "with a notice of this Dedication" between
-      commas, so that it qualifies the offering of the Work. (0 words.)
+      commas. (0 words.)
     * Section 2.5 now places "for want of consideration or formality" before
-      "revocable or ineffective", so that it qualifies both. (0 words.)
+      "revocable or ineffective". (0 words.)
     * Section 5.2(b) now excepts "trademark rights or rights in a name
       (Section 11.1)", as Section 5.1 does. (+12 words.)
     * Section 6.5 now says that Section 6 "operates on its own footing
@@ -274,17 +271,17 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       and Section 8 would permit. (+9 words.)
     * Section 10.2 now speaks of licensing under "this Dedication or any
       other terms", where it said "these". (+1 word.)
-    * Section 2.2 now says that "This Dedication is made irrevocably" and
-      that "Nothing in this Dedication permits the Dedicator to withdraw it
-      or to impose any further term", so that it describes the document and
-      not the effect of the law, as Section 8.2 does for the patent
-      licences; terms imposed by other means are for Section 5.2(b). (+4
-      words.)
+    * Section 2.2 now says that "This Dedication is made irrevocably" and that
+      "Nothing in this Dedication permits the Dedicator to withdraw it or to
+      impose any further term". (+4 words.)
     * Section 16.2 now says that an identifier is sufficient "notice of this
       Dedication", the words Section 1.9 uses, where it said "of these
       terms". (0 words.)
     * Section 2.6 now says that the undertaking to identify excluded material
       "is subject to Section 14". (+5 words.)
+    * Section 3.2 now gives the full term and the rights to remuneration to
+      "any waiver under Section 3.3" as well as to the surrender in
+      Section 3.1. (+6 words.)
     * Section 5.2(b) now also excepts "a payment You agreed to make for a
       copy", as Section 5.1 excepts "a payment You agreed to make". (+11
       words.)
@@ -298,8 +295,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       (+3 words.)
     * Section 12.2 now covenants also "not to authorise or assist any other
       person to exercise" Moral Rights, as Section 8.6 does. (+11 words.)
-    * Section 15.1 now joins its two sentences, so that "in respect of the
-      Work" also governs the rule that the reading granting more to You
+    * Section 15.1 now joins its two sentences, and "in respect of the Work"
+      now also governs the rule that the reading granting more to You
       prevails, and says on whom the least obligation falls, "upon You"
       (errata E63, E75). (+5 words.)
     * Section 15.5 now says that "person" includes an entity (errata E58). (+4
@@ -317,10 +314,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 16.4 now restricts any name that contains "Autonomous Commons
       Dedication" and any identifier that contains "ACD-" followed by a digit,
       both "regardless of case", where it restricted the name and identifiers
-      of the form "ACD-N" or "ACD-N.N", so that "LicenseRef-ACD-1.4", the form
-      Sections 16.1 and 16.2 name, is reached too; the Steward may use them
-      for a modified text only as a new version, under a number and identifier
-      not borne by an earlier text it or a former Steward published, drafts
+      of the form "ACD-N" or "ACD-N.N"; the Steward may use them for a
+      modified text only as a new version, under a number and identifier not
+      borne by an earlier text it or a former Steward published, drafts
       identified as such aside (errata E76, E77). It now says that both
       provisos, not only the one for translations, are conditions upon
       distributing the text and not upon any use of the Work (Section 10.5),
@@ -334,7 +330,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5693 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5699 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -491,10 +487,10 @@ PREAMBLE (informative; not part of the operative terms)
        included, will identify it in a form that accompanies the Work, as a
        notice may identify material under Section 16.2, so that a person or an
        automated system reading the Work can determine what this Dedication does
-       not cover. This undertaking binds that Dedicator, is subject to Section
-       14, and imposes nothing upon You, and Section 6.5 states why it matters.
-       This Dedication requires no separate instrument, assignment, or agreement
-       to place a Contribution under it. Whether the Dedicator asks a
+       not cover. This undertaking binds that Dedicator, is subject to
+       Section 14, and imposes nothing upon You, and Section 6.5 states why it
+       matters. This Dedication requires no separate instrument, assignment, or
+       agreement to place a Contribution under it. Whether the Dedicator asks a
        contributor for anything else is a matter of project governance and is
        not addressed here. Nothing in Section 2.6 obliges anyone to submit
        anything, or obliges the Dedicator to accept anything.
@@ -525,10 +521,11 @@ PREAMBLE (informative; not part of the operative terms)
        of each jurisdiction, and places the Work in the public domain in each
        jurisdiction that gives effect to such an act.
 
-  3.2  The surrender in Section 3.1 is made for the full term for which the
-       Covered Rights would otherwise subsist, including any extension,
-       restoration, or revival of term, and includes any right to compensation,
-       remuneration, levy, or royalty arising from any use of the Work.
+  3.2  The surrender in Section 3.1, and any waiver under Section 3.3, are made
+       for the full term for which the Covered Rights would otherwise subsist,
+       including any extension, restoration, or revival of term, and include any
+       right to compensation, remuneration, levy, or royalty arising from any
+       use of the Work.
 
   3.3  Where the law of a jurisdiction does not permit a Covered Right to be
        surrendered but permits it to be waived, the Dedicator waives it.

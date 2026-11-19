@@ -180,6 +180,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §10.4 第 2 文（理由の句・T114） | *"because it contains nothing that You could breach"* を *"because it asks nothing of You in respect of the Work"* へ | 一意化（UNIQUE-READING §19.3・2 巡目・portfolio-30）: *it* が文頭の *in respect of the Work* の限定から外れて Dedication 全体を指すと読めると、§16.4（改変した本文の頒布の制限）と食い違った。§11.1 第 3 文の *"asks nothing of You in respect of the Work"* と同じ語にした | 3 | 反映済 |
 | §12.2（委ねた者の行使・T115） | *"The Dedicator covenants not to exercise Moral Rights"* を *"The Dedicator covenants not to exercise, and not to authorise or assist any other person to exercise, Moral Rights"* へ | 一意化（UNIQUE-READING §19.4・2 巡目・portfolio-30・2f）: §5.1・§5.2(d)・§8.6 が持つ *not to authorise or assist any other person* の句が §12.2 にだけ無く、Dedicator が行使を委ねた者（CPI L121-1 は遺言で第三者に委ねられる・代理人）の行使が約束の外に残った。**逆側**: 人格権の多くは譲渡できないので場面は狭い（死後の行使者は §12.4 が別に縛る）| 11 | 反映済 |
 | §2.6（識別の約束と免責・T116） | *"This undertaking binds that Dedicator and imposes nothing upon You"* を *"This undertaking binds that Dedicator, is subject to Section 14, and imposes nothing upon You"* へ | 一意化（UNIQUE-READING §19.5・2 巡目・portfolio-2f・9b）: §14.2 第 2 文が免責しない約束を *"a covenant in Section 2.5, 5, 8.6, or 12.2"* と列挙し、§2.6 の約束が無いので、違反が免責されるかが反対解釈に委ねられていた。§14.2 の列に足す案（2f・9b の (a)）は、頭の *for asserting a claim, or exercising a right* が不作為と噛み合わず、組み替えると Dedicator の責任が広がるので採らず、約束の条の側で §14 の下に在ると名指した（9b の (c)）。**逆側**: §2.6 を破って混ぜた素材で受け手が訴えられても、Dedicator に賠償を求められない —— 受け手は §2.7 と §14 のもとで、もとから同じ位置に在る | 5 | 反映済 |
+| §3.2（§3.3 の放棄の範囲・T117） | *"The surrender in Section 3.1 is made for the full term … and includes"* を *"The surrender in Section 3.1, and any waiver under Section 3.3, are made for the full term … and include"* へ | 一意化（UNIQUE-READING §19.1・2 巡目・portfolio-9b の交差読み）: §3.2 が §3.1 だけを名指すので、放棄だけを許す法域（§3.3）では、存続期間の全体と報酬の請求権に放棄が及ばないという反対解釈が立った。**逆側**: §1.5 の定義（*every right … however arising … whether or not presently subsisting*）で一意と読む余地もあった（9b の 1 巡目の記録）—— 名指しの非対称を語で消した | 6 | 反映済 |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
@@ -235,19 +236,19 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
-1.3 の 5,443 語から 1.4 草案は +250 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
+1.3 の 5,443 語から 1.4 草案は +256 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
 
 | 束 | 増減 | 何のための語か |
 | :-- | --: | :-- |
 | 適用と通知（§1.9・§2.3・§2.6・§16.1〜§16.3）| +162 | タグや識別子だけの適用、通知が名指す素材、優先、大小の区別、寄与の宛先。採用者がファイル単位・パッケージ単位で使うときに、意図しない素材を撤回不能に出さないための語 |
 | 不行使と付随の約束（§5）| +190 | 商標と虚偽の表示、合意した支払い、特許の除外、Dedicator 自身のモデルとサービス。データだけを出す組織や、重みと API を両方出す組織が採用できるための語 |
 | 名前の保護（§16.4〜§16.6）| +64 | 1 つの名前と識別子が 1 つの本文を指し、Steward が出した新しい版を誰でもその名の下で配れるための語 |
-| その他の明瞭化 | +128 | 定義、承継（§2.8 の *to that extent*・T59、§5.3 の列挙を §2.8 へ寄せた T74）、免責の除外（§14.1・T82）と約束の違反（§14.2・T83）、撤回不能（§2.2 の後付けの制限・T65）、§4、§9 などの語の付き先 |
+| その他の明瞭化 | +134 | 定義、承継（§2.8 の *to that extent*・T59、§5.3 の列挙を §2.8 へ寄せた T74）、免責の除外（§14.1・T82）と約束の違反（§14.2・T83）、撤回不能（§2.2 の後付けの制限・T65）、§4、§9 などの語の付き先 |
 | 人格権（§12）| +18 | 人格権を放棄できない法域での同意（T67・§2.4 の独立の列挙を含む）。約束が契約として効かない場面でも、行為がそもそも侵害にならないための語 |
 | 特許（§6.1・§8）| −37 | 行為を目的語にし、*reach* を 1 回で定め、三つの足場の説明と §8.6 の *alongside them*（T56）を外した |
 | 理由・説明の文を外したもの | −275 | §2.8・§11.4・§12.4・§8.4（T54）の理由の文と、§2.7・§8.5 の案内（Chestek 氏 *"I question whether they belong in the agreement at all."*・#295）|
 
-**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +352）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 797 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
+**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +352）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 803 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
 
 ## 外部資料・OSAID 1.0・opensource.org のページを当てた記録（2026-10-28）は別の file へ移した
 
@@ -426,7 +427,7 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 > §2 (scope and effect, 11) and §1 (definitions, 8); seven name the preamble or several clauses at
 > once. Further changes came from our own sweeps of the
 > later drafts and are listed, with their reasons, in each version's change list. The text is
-> longer: 5,693 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
+> longer: 5,699 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
 
 **⚠ 逆側**: 短い経路の語数が約 170 語増える（`REVIEWERS.md` の短い経路の表と Check 472m の値を同じ日に直す）。*"The direction is unchanged"* は、1.0 から変わらなかったものを 3 つだけ挙げる文で、ほかに変わらなかったものが無いとは言っていない。逆に、変わったものを errata の件数で数えるので、errata に載らない 1.4 生まれの変更（T34〜T52 の多く）は *"Further changes"* の 1 文にまとまる。数を当日に数え直すのは、草案が確定まで動くからである（2026-11-11 の時点でも 1.4 の閉鎖は 39 件で、まだ動きうる。**同日の訂正**: 最初の下書きは 1.3 で 5・1.4 で 38 と書いた。状態の列の版の語の最初の一致を数えていて、閉鎖の印でない語を拾っていた。portfolio-00 が印の正規表現で 4 と 39 を出し、同じ数え方で確かめた）。
 
