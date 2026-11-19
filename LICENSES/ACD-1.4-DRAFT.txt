@@ -277,6 +277,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       covenant and the consent in Section 12.2. (+7 words.)
     * Section 5.2 now also authorises circumvention of a measure on a copy
       and waives the power to forbid it. (+78 words.)
+    * Section 5.2's authorisation of circumvention now applies "To the
+      fullest extent the law permits". (-1 word.)
     * Section 15.1 now joins its two sentences, and "in respect of the Work"
       now also governs the rule that the reading granting more to You
       prevails, and says on whom the least obligation falls, "upon You"
@@ -306,7 +308,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5859 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5858 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -593,7 +595,7 @@ PREAMBLE (informative; not part of the operative terms)
             Dedicator's own conduct and not a grant: Section 11.4 is unaffected,
             and rights of this kind held by any other person are untouched.
 
-       To the fullest extent the Dedicator is able, the Dedicator authorises the
+       To the fullest extent the law permits, the Dedicator authorises the
        circumvention of any technological measure that is applied at any time by
        or on behalf of the Dedicator to a copy of the Work and restricts access
        to or use of that copy, where the circumvention is effected in a use of

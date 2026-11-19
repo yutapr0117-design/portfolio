@@ -874,4 +874,10 @@ T120 と T121 は同じ型（1 人が受け手と Dedicator の両方の役を�
 
 **1 巡目**: 50 —— 反例なし（放棄の範囲は授権と同じ、*purports to permit* は §5.1・§5.2(d) と同じ向き、§5.2(a) とは役が違う。逆側: 同じ「手段」の語が §5.2(a) と T124 で違う範囲を持つ —— 逐条で並べて書く）。2f —— 2 つ立った: (i) 授権の範囲が Dedicator の配布サーバの関門を含み、授権の側に法の限定が無いので不正アクセスの法の authorization と読まれる → *to a copy of the Work and restricts access to or use of that copy* に、(ii) §6.3 の *to the fullest extent the Dedicator is able* と語を揃えた。逆側: 接続の認証だけで配る Dedicator の access control は授権の外（§5.2(a) 第 2 肢の約束は残る）。EU では手段の定義（2001/29/EC 6 条 3 項）が決めるので、範囲の句は米国向け。**2 巡目（2f）**: (d)(e) は立たない（ストアが代理で掛ける DRM は *on behalf of* が受け、自分の計算で仕入れたストアは §4.5 の B と同じ。*such circumvention* はサーバの関門に届かない。逆側: phone-home 型の DRM の回避は同時にサーバへのアクセスでもあり、放棄がその範囲で不正アクセスの法に掛かりうる —— 意図と同じ向き）。(f) 立つ: 現在形の *is applied* が当てる前に売った写しの DRM を外す → *applied at any time*。30 —— (a)(b)(c) は立たない（放棄の対象は *that circumvention* で絞られ、*To the fullest extent* は授権と放棄の両方に掛かる）。T98 との衝突の読み（Dedicator が暗号化した自分のモデルの中の写し）は、T124 が §5.2 の末段の前に在り、末段が素材に掛けた手段を §5 の外に置くので閉じている。登録した問い: (a) *such circumvention* の *such* が、直前の *the circumvention of any technological measure that … is applied by or on behalf of the Dedicator* を受け、放棄の範囲が授権の範囲と同じになるか、(b) *a use of the Work that this Dedication permits or purports to permit* の *purports to permit* が、許しが効かない法域での回避まで授権すると読まれ、法の効果を言い切ることにならないか（*To the extent the Dedicator is able* が受ける、と読む）、(c) §5.2(a) 第 1 肢（手段について権利を主張しない）と重なり、2 つの文の射程が割れないか。
 
+### 15.41 T125 —— T124 の頭の句を法の限度に（−1 語・2026-11-20・【反例待ち】）
+
+§5.2 の T124 の文の頭 *"To the fullest extent the Dedicator is able"* を *"To the fullest extent the law permits"* にした。*is able* は事実の上の力（契約・技術の権利）でも狭まり、Dedicator が「できない」と言えば授権が縮む（9b の型 (2)）。範囲は後半の *applied at any time by or on behalf of the Dedicator* が既に限る。§6.3 の *is able* は他人の留保を撤回する文で、働きが違うので変えない。
+
+**反例の担当へ（30・50・2f）**: (a) *the law permits* が、法が授権を要しない場面（§3 が効き Work が保護の外の法域）で文を空にするか —— 空でも害が無い、と読む、(b) Dedicator が配布者との契約で DRM を外さない義務を負うとき、*the law permits* の下でも授権は立ち、契約の違反は Dedicator と配布者の間に残る —— それで良いか。
+
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。
