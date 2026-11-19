@@ -1,0 +1,20 @@
+Source: https://copyright.or.kr/eng/laws-and-treaties/copyright-law/chapter09.do
+Law: Copyright Act of the Republic of Korea (English translation by the Korea Copyright Commission, copyright.or.kr — not an official text)
+Articles: Article 128 (1 sections below; 6 lines of verbatim passages, 1 note lines)
+Retrieved: 2026-11-19 06:03 UTC by portfolio-9b, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: 6e8960404dce3a0e815d9b15186c2be98c9bf5f6bacf1ee86a11fb7efc86032c (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 12.4
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+===== Copyright Act of the Republic of Korea Article 128 (Protection of Author's Moral Interests after Death) =====
+"After the death of an author, his/her bereaved family (referring to the surviving spouse, children, parents,"
+" grand children, grand parents, brothers and sisters of the deceased author)"
+" or the executor of his/her will may, pursuant to Article 123, claim compensation from a person who has violated"
+" or is likely to violate the provisions of Article 14 (2) in respect of the work concerned, or, may,"
+" pursuant to Article 127, demand restoration of his/her reputation from a person who has infringed"
+" on author’s moral right intentionally or by negligence or who has violated the provisions of Article 14 (2)."
+（注）The article number and heading are as the page shows them. The page's word "compensation" in the third segment is reproduced as returned; Article 123 of the Act is the provision it cites, and its own text was not fetched.
