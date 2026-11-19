@@ -281,6 +281,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       "other than in Your capacity as a Dedicator". (+8 words.)
     * Section 16.2 now speaks of "material to which a Dedicator has applied
       this Dedication", where it said "a work". (-1 word.)
+    * Section 12.5 now names the waiver in Section 12.1 as well as the
+      covenant and the consent in Section 12.2. (+7 words.)
     * Section 15.1 now joins its two sentences, and "in respect of the Work"
       now also governs the rule that the reading granting more to You
       prevails, and says on whom the least obligation falls, "upon You"
@@ -310,7 +312,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5758 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5765 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -838,9 +840,10 @@ PREAMBLE (informative; not part of the operative terms)
        names and any person entitled to exercise or enforce Moral Rights in the
        Work after the Dedicator's death, to the fullest extent the law permits.
 
-  12.5 Neither the covenant nor the consent in Section 12.2 extends to conduct
-       falling within Section 11.3, so the interest that Moral Rights protect
-       against false attribution survives both.
+  12.5 Neither the waiver in Section 12.1 nor the covenant and the consent in
+       Section 12.2 extend to conduct falling within Section 11.3, so the
+       interest that Moral Rights protect against false attribution survives all
+       three.
 
   12.6 If Section 12.2 is held invalid in whole or in part in a jurisdiction,
        Section 15.2 applies, and the invalidity affects no other Section.
