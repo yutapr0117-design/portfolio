@@ -869,3 +869,25 @@ census の unquoted-decider（候補の外の会話の、ドシエが 1 文も�
 **この節が establish しないこと。** §8.4 の "feature" の 2 つの読みのどちらが審査で採られるか。
 
 **反映**: 1c・50（UNIQUE-READING §19.3 の §8.4 の行 —— "feature" が定義されない語として範囲を決める点を、別の読みとして 2 巡目の行に・50 の帯）。
+
+## 1.268 米国の著作権法と特許法、EU の DSM 指令の一次資料を 1.4 草案に当てた —— 新しく効くのは 17 U.S.C. §203(b)(1)（終了の後も残る派生物）、§101 と §204(a)（非独占の許諾に署名した書面は要らない）、35 U.S.C. §271(a)（侵害するのは発明であって特徴ではない・§8.4 の feature）の 3 つ（2026-11-19）
+
+オーナーの提案（2026-11-19・1.4 草案が拠る法令の一次資料を 5 人で分担して読む。貼られた別の AI の一覧は材料で結論ではない）の portfolio-2f の受け持ち（米国と EU）。読む前に `rounds/` と `jurisdictions.md` を grep し、既に在るもの（DSM 4 条と前文 18・DB 指令 7・8・15 条・VARA 106A 条 (e)(1)・17 U.S.C. §205(e)）を除いて取った。写しは `rounds/2026-11-19-us-title-17-35-and-dsm-2-3-7-snapshot.txt`（WebFetch の逐語の片で、バイト単位の写しではない。§203 の 3 つの文字列と DSM 2 条 2 号・7 条 1 項は 2 度目の取得で確かめた）。
+
+| 法源（写しの番号） | 当てた 1.4 草案の条 | 結果 |
+| :-- | :-- | :-- |
+| 17 U.S.C. §203(b)(1) *"A derivative work prepared under authority of the grant before its termination may continue to be utilized under the terms of the grant after its termination, but this privilege does not extend to the preparation after the termination of other derivative works"*（[9]） | §4.1 の licence（`jurisdictions.md` の §203 の表は「§4 に届く。終了されうる」とだけ書く） | **新しい（有利と不利の両方）。** 著作者が 35 年後に §4 の licence を終了しても、終了の前に作られた派生物は許諾の条件のまま使い続けられる。逆に、終了の後に新しい派生物を作る許しは §4 からは来ない（残るのは §3 と §5 の足場で、`jurisdictions.md` の表のとおり不確実が直列につながる）。派生物に当たらない写しの扱いは (b)(1) は言わない |
+| 17 U.S.C. §101 *"but not including a nonexclusive license"*（[1]）と §204(a) *"is not valid unless an instrument of conveyance, or a note or memorandum of the transfer, is in writing and signed by the owner of the rights conveyed"*（[10]） | §4.1 *"non-exclusive"*。ACD は署名しない文書として当てられる | **新しい（有利）。** §4.1 の licence は「著作権の移転」に当たらないので、§204(a) の署名した書面の要件は掛からない。**逆側**: 後の移転に対する優先（§205(e)）は署名した書面を要する（`errata.md` に在る）、視覚芸術の人格権の放棄も同じ（VARA 106A 条 (e)(1)・`rounds/2026-11-16-us-ucc-vara-and-eu-trademark-snapshot.txt`）。§203(a) の *"executed by the author"* が署名の無い付与に当たるかは制定法の文からは決まらない（法の側） |
+| 35 U.S.C. §271(a) *"whoever without authority makes, uses, offers to sell, or sells any patented invention … or imports into the United States any patented invention … infringes the patent"*（[13]） | §8.4 *"the feature that infringes it"*、§8.1 の動詞 | **新しい（§8.4 の feature の種を強める）。** 制定法の上で侵害するのは *"patented invention"*（請求項の全体）であって 1 つの特徴ではない。§1.267 で 50 へ送った「特徴の 1 つが Work から来れば足りるか、侵害する組み合わせの全体を要するか」の割れは、§8.4 の語が侵害の主語を特徴に置いたことから来る。§8.1 の動詞（make, have made, use, offer, sell, … import）は §271(a) の 5 つの行為を全て覆い、*offer* は *offers to sell* より広いので、当たらない |
+| 35 U.S.C. §261 の最後の段 *"shall be void as against any subsequent purchaser … unless it is recorded"*（[12]） | §8 の約束と許諾が特許の譲受人に及ぶか | **当たらない（法の側のまま）。** 登録の要件が掛かるのは *"assignment, grant or conveyance"* で、直前の段の *grant* は独占の権利の付与を指す。非独占の許諾が後の譲受人を拘束するかは制定法の文からは決まらず判例法の側 |
+| DSM 指令 2 条 2 号 *"'text and data mining' means any automated analytical technique aimed at analysing text and data in digital form in order to generate information"*（[15]） | §1.7 と §1.10 の定義されない語 *"text and data mining"* | **当たらない（一意）。** EU では ACD の *text and data mining* がこの定義に当てて読まれうるが、§1.7 は TDM を *"any automated processing of the Work"* の例の 1 つに置き、§1.10 は *"permission for text and data mining or for the use of a work in developing a machine learning model"* と学習を別に挙げる。学習が 2 条 2 号の TDM に入るかの争いは、ACD の範囲を割らない |
+| DSM 指令 7 条 1 項 *"Any contractual provision contrary to the exceptions provided for in Articles 3, 5 and 6 shall be unenforceable."*（[17]） | §6.2・§6.3（Reservation を置かない・取り消す） | **当たらない（記録）。** 4 条（商業の TDM）は 7 条 1 項に挙がらないので、権利者は契約や留保で 4 条の例外を外せる —— だから §1.10 は *"contractual term"* を Reservation に含め、§6.3 は Dedicator が置いた留保を *"to the fullest extent the Dedicator is able"* で取り消す。3 条（研究機関の TDM）はもともと契約で外せないので、ACD の許しと重なるだけ |
+| 17 U.S.C. §107（[2]）・DB 指令 9 条（[19]）・§201(d)（[3][4]） | ACD の許しの外の例外、権利の分割 | **当たらない。** フェアユースと DB の例外は ACD と独立に働く。§201(d)(2) が権利を分けて持たせるので、Dedicator が一部の権利しか持たない場合に ACD が及ぶのは持つ分だけ —— §13 が権原を保証しないことと整合する |
+
+**読み。** 米国と EU の一次資料のうち、1.4 草案の読みを動かすのは §271(a)（§8.4 の feature の割れの根）だけで、§203(b)(1) と §101・§204(a) は法の側の記述（`jurisdictions.md` の §203 の表と THIRD §18 の米国の行）を正確にする材料である。
+
+**逆側。** 写しは法典の文で、判例（§203 の "executed" の解釈、非独占の特許の許諾の承継、TDM の定義の範囲）を取っていない。§203(b)(1) が派生物を残すのは「許諾の条件のまま」なので、§4.1 の licence が終了した後にその条件が何を意味するかは読みが要る。
+
+**この節が establish しないこと。** ACD の §4 の licence が §203 の *"executed by the author"* に当たるか。学習済みのモデルが §203(b)(1) の派生物に当たるか。
+
+**反映**: 50・1c（§8.4 の feature —— §1.267 の種に §271(a) の根を足す・UNIQUE-READING §19.3）、30（`jurisdictions.md` の §203 の表の §4 の行に §203(b)(1) の残るもの、§204(a) の書面の要件が掛からないこと）。

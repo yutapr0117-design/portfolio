@@ -305,6 +305,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-11-20 | 英 legislation.gov.uk | **観測（CDPA 1988 9 条・78 条・79 条・81 条・84 条・94 条・人格権の章のうちプログラムとコンピュータ生成物の例外と偽の帰属・WebFetch の逐語の片）** | `2026-11-20-cdpa-1988-s9-s78-s79-s81-s84-s94-legislation-gov-uk-snapshot.txt` |
 | 2026-11-18 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 306 条・約款の無効の効果 —— 法律の規定が代わる・WebFetch の逐語の片）** | `2026-11-18-bgb-306-gesetze-im-internet-snapshot.txt` |
 | 2026-11-18 | 仏 Légifrance | **観測（トゥーボン法 2 条・5 条の第 1 段・フランス語の使用・WebFetch の逐語の片）** | `2026-11-18-loi-toubon-94-665-art-2-5-legifrance-snapshot.txt` |
+| 2026-11-19 | 米 LII（17 U.S.C.・35 U.S.C.）・英 legislation.gov.uk（EU 指令） | **観測（17 U.S.C. の 101 条の定義・107 条・201 条 (d)・203 条・204 条 (a)、35 U.S.C. の 261 条・271 条 (a)、DSM 指令 2 条・3 条 1 項・7 条、DB 指令 9 条・WebFetch の逐語の片・2026-11-19 のオーナーの提案の 2f の分担）** | `2026-11-19-us-title-17-35-and-dsm-2-3-7-snapshot.txt` |
 | 2017-02-13 | 英控訴院（Find Case Law・2026-11-17 取得） | **観測（Harvey v Dunbar Assets [2017] EWCA Civ 60 第 62 段落・約束的禁反言は盾であって剣でない・WebFetch）** | `2026-11-17-harvey-v-dunbar-2017-ewca-civ-60-promissory-estoppel-snapshot.txt` |
 | 2026-11-16 | 日・独・英・仏の公式の条文サイト | **観測（特許の及ぶ行為: 特許法 2 条 3 項・PatG 9 条・Patents Act 1977 s.60(1)・CPI L613-3・WebFetch）** | `2026-11-16-patent-acts-jp-de-uk-fr-snapshot.txt` |
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 305 条 1 項・310 条・標準約款の定義と適用範囲・WebFetch の逐語の片）** | `2026-11-16-bgb-305-310-gesetze-im-internet-snapshot.txt` |
