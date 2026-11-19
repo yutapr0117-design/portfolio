@@ -141,9 +141,14 @@ def length_sites(lic: Path, skip, scope: str = "outward") -> tuple[list[dict], l
     ops = len(body[sec1.start():end].split()) if sec1 and end > 0 else -1
     g_title, g_ops = (int(g.replace(",", "")) for g in gpl.groups())
     sites: list[dict] = []
+    errs: list[str] = []
 
     def add(path, ln, line, m, values, what):
         for gi, v in enumerate(values, 1):
+            if v is not None and m.group(gi) is not None and v < 0 and "GPL-3.0 との差" in what:
+                # 負の差は向きの語 (短い / 長い) が逆になったということ。数だけ書き換えると「-2 語短く」になる (2026-11-20・30)
+                errs.append(f"{path.name}:{ln} の{what}が負 ({v}) —— 「より N 語短 / 長」の向きの語を人が書き換える")
+                continue
             if v is not None and m.group(gi) is not None:
                 sites.append({"path": path, "line": ln, "start": m.start(gi), "end": m.end(gi),
                               "old": m.group(gi), "new": _fmt(m.group(gi), v), "what": what})
@@ -151,6 +156,9 @@ def length_sites(lic: Path, skip, scope: str = "outward") -> tuple[list[dict], l
     outward = [  # (正規表現, 値, 何の数か) —— 「N.M 草案は」から日付の手前まで
         (r"題名から(?:は)? ?([\d,]+) ?語", [title], "題名からの語数"),
         (r"GPL-3\.0[^。、]*?より ?([\d,]+) ?語短", [g_title - title], "題名からの GPL-3.0 との差"),
+        # 長くなった後の言い方 (2026-11-20・30): 草案が GPL-3.0 を越えると「より -2 語短く」と書かれ、負の数は上の
+        #   ([\d,]+) に合わず、その行は照らされないまま古い数で止まった (B3 の見出しが 5,860 語で「-2 語短く」)
+        (r"GPL-3\.0[^。、]*?より ?([\d,]+) ?語長", [title - g_title], "題名からの GPL-3.0 との差 (長い側)"),
         (r"END OF TERMS\*? ?(?:の手前)?までが ?([\d,]+) ?語", [ops], "条文の語数"),
         (r"条文では ?([\d,]+) ?語長い(?!まま)", [ops - g_ops], "条文の GPL-3.0 との差"),
         (r"同じ数え方で [\d,]+ ?語・(\+[\d,]+)", [ops - g_ops], "条文の GPL-3.0 との差"),
@@ -169,6 +177,7 @@ def length_sites(lic: Path, skip, scope: str = "outward") -> tuple[list[dict], l
         labels.append((f"確定した ACD-{fv.group(1)} は", (ft, fo), [
             (r"題名から(?:は)? ?([\d,]+) ?語", [ft], "題名からの語数 (確定した本文)"),
             (r"GPL-3\.0[^。、]*?より ?([\d,]+) ?語短", [g_title - ft], "題名からの GPL-3.0 との差 (確定した本文)"),
+            (r"GPL-3\.0[^。、]*?より ?([\d,]+) ?語長", [ft - g_title], "題名からの GPL-3.0 との差 (確定した本文・長い側)"),
             (r"END OF TERMS\*? ?(?:の手前)?までが ?([\d,]+) ?語", [fo], "条文の語数 (確定した本文)"),
             (r"条文では ?([\d,]+) ?語長い(?!まま)", [fo - g_ops], "条文の GPL-3.0 との差 (確定した本文)"),
             (r"同じ数え方で [\d,]+ ?語・(\+[\d,]+)", [fo - g_ops], "条文の GPL-3.0 との差 (確定した本文)"),
@@ -230,7 +239,7 @@ def length_sites(lic: Path, skip, scope: str = "outward") -> tuple[list[dict], l
                           r"against (\d+)", line)
             if m:
                 add(cl, ln, line, m, [title, w10[0], clauses, w10[1]], "英文の語数と条数")
-    return sites, []
+    return sites, errs
 
 
 def apply_sites(sites: list[dict]) -> int:
