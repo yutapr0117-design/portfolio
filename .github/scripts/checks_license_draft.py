@@ -77,7 +77,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        古くなるのを読みでしか見ていなかった (portfolio-aa・2026-11-12)。旧文を示す引用 (where it said / no longer says /
        instead of など) と、"ACD-N.N" のような識別子の型の例は除く。 (BLOCKING)
        **468ab は、読みが割れる 2 つの型を 0 に保つ** —— 小項の中の "this Section"（節か小項か）と、責任を外す条が
-       例外にしていない Dedicator の約束（問い 9 (a)）。T84〜T88 と T83・T88 で 0 にした（2026-11-16・オーナーの依頼）。 (BLOCKING)
+       例外にしていない Dedicator の約束（問い 9 (a)）。T84〜T88 と T83・T88 で 0 にした（2026-11-16・オーナーの依頼）。
+       2026-11-20 に 3 つ目の型を足した: 否定の条件が "X or Y" に掛かる句（T126 で §14.2 を 0 にした）。 (BLOCKING)
        **468ac は、§19（一意に定める記録・ACD-1.N-UNIQUE-READING.md）の "- §" の行がすべて形に合い、分類ごとの根拠を持つことを見る** ——
        形に合わない行（分類の太字・見出しの括弧）は台帳が数えず、開いている試作が 0 に見えて合格の線が偽に満たされた（2026-11-19・50）。
        一意は辿れる根拠、試作は T 番号、法の側は行き先（問い N・§18・jurisdictions）を持つ。数え方は measure_legal_uncertainty.section19()。 (BLOCKING)
@@ -270,14 +271,18 @@ def run(ctx):
         #   例外として名指さない Dedicator の約束を残すと、文字どおりにはその約束の違反まで免責する (問い 9 (a)・T83 と T88 で 13 → 0)。
         #   型の定義は scan_draft_ambiguity.py の this_section_hits / limiter_gaps (道具と Check が同じ関数を使う)
         from measure_clause_overlap import clauses as _cl468ab
-        from scan_draft_ambiguity import limiter_gaps, this_section_hits
+        from scan_draft_ambiguity import limiter_gaps, negated_condition_hits, this_section_hits
         _flat468ab = {_k: " ".join(_v.split()) for _k, _v in _cl468ab(_t468).items()}
         _h468ab, _k468ab = this_section_hits(_flat468ab), limiter_gaps(_flat468ab)
+        # (r) 否定の条件が "X or Y" に掛かる (2026-11-20・1c の 4 巡目・T126 で §14.2 を 0 にした): 「どちらも許さない場合」と
+        #   「片方を許さない場合」に割れ、条件の真偽が場面で変わる
+        _r468ab = negated_condition_hits(_flat468ab)
         check(
-            not _h468ab and not _k468ab,
-            "Check 468ab: 草案に、小項の中の \"this Section\" と、約束を例外にしない免責の条が無い",
+            not _h468ab and not _k468ab and not _r468ab,
+            "Check 468ab: 草案に、小項の中の \"this Section\"・約束を例外にしない免責の条・否定の条件が or の並びに掛かる句が無い",
             (f"Check 468ab: 読みが割れる型が戻った —— 小項の中の \"this Section\": {[_k for _k, _c in _h468ab]} / "
-             f"免責の条が例外にしていない Dedicator の約束: {[(_lk, _o) for _lk, _p, _o in _k468ab]}。"
+             f"免責の条が例外にしていない Dedicator の約束: {[(_lk, _o) for _lk, _p, _o in _k468ab]} / "
+             f"否定の条件が or の並びに掛かる句: {[(_k, _c[:60]) for _k, _c in _r468ab]}。"
              "\"this Section\" は \"Section N.M\" と名指し、免責の例外の列に約束の条を足せ (scan_draft_ambiguity.py で確かめる)"),
             blocking=True,
         )
