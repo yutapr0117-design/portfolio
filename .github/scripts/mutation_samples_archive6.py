@@ -131,8 +131,8 @@ MUTATIONS_ARCHIVE6 = [
     {
     "name": "Check 468: §16.2 の通知の主語「a Dedicator」を落とす —— タグを残しただけの取り込み手まで通知の適用に入る (468u の目印)",
     "file": CURRENT_DRAFT,
-    "find": "accompanies the work. A notice a Dedicator places applies this",
-    "replace": "accompanies the work. A notice placed applies this",
+    "find": "accompanies that material. A notice a Dedicator places applies this",
+    "replace": "accompanies that material. A notice placed applies this",
 },
     {
     "name": "Check 496: CHANGELIST の表の見出しから「件数」の列を外す —— 行は 4 セルのままなので、GFM は 4 列目を描かずに捨てる (2026-11-08 まで実際にこの状態だった)",

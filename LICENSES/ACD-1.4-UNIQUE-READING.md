@@ -42,7 +42,7 @@ THIRD（`ACD-1.4-THIRD-CLARITY-TRIAL.md`）にあった第 19 節を 2026-11-18 
 - §2.1 | 別の読み: *"every separable part"* が、切り離せない部分を外す | 一意 | 根拠: §2.1 の *"the Work as a whole"* が切り離せない部分を含む全体を受ける
 - §2.4 | 別の読み: *"Sections 3, 4, 5, and 6 are independent"* の列挙に無い §8・§12 は、他の条の効力に依る | 一意 | 根拠: §2.4 の同じ文 *"as is every other grant, permission, consent, and covenant in this Dedication"*
 - §2.4(b) | 別の読み: §2.4 は §6 を独立の足場に数え（*"Sections 3, 4, 5, and 6 are independent … Each operates on its own footing"*）、§6.5 は §6 を宣言的とする（T108 の前の文 *"Section 6 states expressly what Sections 3 to 5 and 8 would in any event permit"*）—— §4 が効かない法域で §6.1 が独立の許しとして立つかが、どちらの条を取るかで逆になる（portfolio-30・§19.2 の §6.5 の行への 30 自身の反例） | 試作 T108 で入った | 根拠: 案は §6.5 第 1 文を *"Section 6 operates on its own footing (Section 2.4) and also states expressly what Sections 3 to 5 and 8 would in any event permit."*（+9 語）—— §2.4 と §15.1 の両方に揃う。逆側: §6 が独立の許しになると、§6.1 の *"so far as the Covered Rights of the Dedicator, and the patent claims Section 8 reaches, are concerned"* が許しの範囲を決める文になる —— 範囲は §4・§8 と同じなので広がらない
-- §2.5 第 2 文 | 別の読み（1c・2f が同じ読みを別々に挙げた）: T106 の前の文 *"assert that this Dedication is revocable or ineffective for want of consideration or formality"* の *for want of …* が *ineffective* だけに掛かり、撤回できるという主張はどんな理由でも約束に反する —— 法が与える撤回（E86 の贈与の撤回）を主張することまで約束の違反になり、§8.2 が T85 で *"under this Dedication"* に退いた範囲と食い違う | 試作 T106 で入った | 根拠: 案は *"assert that, for want of consideration or formality, this Dedication is revocable or ineffective"*（語数同じ）—— 理由の句を前に出して 2 つの述語の両方に掛ける。逆側: 撤回の主張を理由を問わず約束で封じる方が受け手に強いが、法が与える撤回は約束で封じきれない（E86・ドイツ民法 533 条は事前の放棄を許さない）
+- §2.5 第 2 文 | 別の読み: （1c・2f が同じ読みを別々に挙げた）T106 の前の文 *"assert that this Dedication is revocable or ineffective for want of consideration or formality"* の *for want of …* が *ineffective* だけに掛かり、撤回できるという主張はどんな理由でも約束に反する —— 法が与える撤回（E86 の贈与の撤回）を主張することまで約束の違反になり、§8.2 が T85 で *"under this Dedication"* に退いた範囲と食い違う | 試作 T106 で入った | 根拠: 案は *"assert that, for want of consideration or formality, this Dedication is revocable or ineffective"*（語数同じ）—— 理由の句を前に出して 2 つの述語の両方に掛ける。逆側: 撤回の主張を理由を問わず約束で封じる方が受け手に強いが、法が与える撤回は約束で封じきれない（E86・ドイツ民法 533 条は事前の放棄を許さない）
 - §2.6 第 1 文 | 別の読み: *"unless they state otherwise"* の *they* が Dedicator を指す | 一意 | 根拠: §2.6 第 2 文 *"Where a person states otherwise"* が、述べるのは提出する人だと受ける
 - §2.6(b) | 別の読み: *"unless they state otherwise at the time of submission"* が、後からの申し出も含む（portfolio-30） | 一意 | 根拠: §2.6 の *"at the time of submission"* が時点を限る
 - §2.7 第 1 文 | 別の読み: *"now or in future"* が *reaches* に掛かり、Dedication が働く時を限る | 一意 | 根拠: §1.5 *"holds or may come to hold … now or in future"* —— 同じ句は権利を持つ時を受ける
@@ -52,6 +52,10 @@ THIRD（`ACD-1.4-THIRD-CLARITY-TRIAL.md`）にあった第 19 節を 2026-11-18 
 - §4.1(b) | 別の読み: *"to exercise all Covered Rights"* が、第三者を訴える力（執行の地位）まで受け手に与える（portfolio-30） | 一意 | 根拠: §4.1 の licence は *non-exclusive* で、§4.2 が許す行為を列挙する。非独占の許諾が執行の地位を与えないことは我々の読みで、法の側の問いとしては残りうる
 - §4.3 第 2 文 | 別の読み: *"In particular"* の後の列挙が、条件の無いことを列挙した種類に限る | 一意 | 根拠: §4.3 第 1 文 *"subject to no condition of any kind"*
 - §4.4 第 2 文 | 別の読み: *"no permission granted here"* の *here* が §4.4 だけを指す | 一意 | 根拠: §4.4 第 1 文が §4.1 の licence を受け、*here* はその licence を含む Dedication の許し —— §9.3・§12.2 の同じ型の文と揃う
+
+- §1.9(c)（3 巡目・scan の候補） | 別の読み: *"any work of authorship"* の *any work* が Work と同じ範囲を持つ | 一意 | 根拠: §1.9 —— *any work of authorship* は提出物の種類を言い、Work への取り込みは同じ文の *"for inclusion in the Work"* が受ける
+- §1.10(c)（3 巡目・scan の候補） | 別の読み: *"any provision of national or international law of similar effect"* の *similar effect* が、形の似た規定だけを数える | 一意 | 根拠: §1.10 —— *of similar effect* は Article 4(3) と同じ働き（留保を許す働き）を数える語で、形は問わない
+- §2.6(c)（3 巡目・scan の候補） | 別の読み: *"will identify it"* の *will* が予測（将来そうなる）で、約束でない | 一意 | 根拠: §2.6 の次の文 *"This undertaking binds that Dedicator"* が約束と定める
 
 **結果**: §1〜§4 の立つ別の読みは 2 つ（§1.7 は T96・§4.5 は T97）。ほかの 10 行は他の条（§15.1・§1.5・§2.7・§16.2）か同じ文の語が一方に閉じている。
 

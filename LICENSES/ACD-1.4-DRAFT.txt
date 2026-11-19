@@ -274,6 +274,13 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       (+3 words.)
     * Section 12.2 now covenants also "not to authorise or assist any other
       person to exercise" Moral Rights, as Section 8.6 does. (+11 words.)
+    * Section 4.5 now says that it "does not permit a person to impose what
+      Section 5 forbids on material as to which that person is a
+      Dedicator". (+23 words.)
+    * Section 10.1 now imposes nothing upon You "as a person exercising
+      permissions under this Dedication". (+8 words.)
+    * Section 16.2 now speaks of "material to which a Dedicator has applied
+      this Dedication", where it said "a work". (-1 word.)
     * Section 15.1 now joins its two sentences, and "in respect of the Work"
       now also governs the rule that the reading granting more to You
       prevails, and says on whom the least obligation falls, "upon You"
@@ -282,9 +289,9 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       words.)
     * Section 16.1 now names the forms in Section 16.2 alongside the long
       notice. (+7 words.)
-    * Section 16.2 now speaks of "a work to which a Dedicator has applied this
-      Dedication", says what material a notice a Dedicator places applies this
-      Dedication to, lets a narrower notice of the Dedicator prevail, and
+    * Section 16.2 now speaks of "material to which a Dedicator has applied
+      this Dedication", says what material a notice a Dedicator places applies
+      this Dedication to, lets a narrower notice of the Dedicator prevail, and
       matches its identifiers without regard to case (errata E69). It also
       says that "a notice that is only a Reservation assigns nothing to other
       terms". (+104 words.)
@@ -303,7 +310,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5728 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5758 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -538,6 +545,8 @@ PREAMBLE (informative; not part of the operative terms)
        and including terms that are incompatible with this Dedication. Nothing
        here limits what those terms may be, requires them to reproduce this
        text, or places any obligation on You in respect of Your recipients.
+       Section 4.5 does not permit a person to impose what Section 5 forbids on
+       material as to which that person is a Dedicator.
 
   4.6  Section 4.5 does not cut Your recipients off from this Dedication: a
        person who exercises a permission granted here is You in their own right
@@ -746,7 +755,8 @@ PREAMBLE (informative; not part of the operative terms)
 10. ABSENCE OF CONDITIONS
 
   10.1 This Dedication imposes no condition, obligation, restriction, or
-       requirement upon You in respect of the Work.
+       requirement upon You in respect of the Work as a person exercising
+       permissions under this Dedication.
 
   10.2 In particular, You need not give attribution, reproduce any notice, state
        that the Work was modified, make source available, license anything under
@@ -916,12 +926,12 @@ PREAMBLE (informative; not part of the operative terms)
            SPDX-License-Identifier: ACD-1.4
            (LicenseRef-ACD-1.4 while not on the SPDX License List)
 
-  16.2 Where a work to which a Dedicator has applied this Dedication is
+  16.2 Where material to which a Dedicator has applied this Dedication is
        accompanied by the identifier "ACD-1.4", by an "SPDX-License-Identifier:
        ACD-1.4" or "LicenseRef-ACD-1.4" tag, or by a reference to this
        Dedication by name and version, that is sufficient notice of this
        Dedication, and its terms apply in full whether or not a copy of this
-       text accompanies the work. A notice a Dedicator places applies this
+       text accompanies that material. A notice a Dedicator places applies this
        Dedication to the material it identifies, whether by its words, by its
        place in a comment within a file, by a file name that refers to other
        material, or by markers that delimit part of a file, or, where it
