@@ -402,3 +402,46 @@ def draft_has_changes(draft_text: str) -> bool:
     pre = draft_text.split(RULE, 1)[0]
     chg = pre.split("Changes in this draft", 1)[-1].split("Still open", 1)[0]
     return bool(re.search(r"\n    \* (?!ACD-\d+\.\d+: )", chg))
+
+
+def stale_draft_quotes(root: Path) -> list[tuple[str, str, str]]:
+    """Check 470 の問いの引用の枝 (ADVISORY) の本体: 法律家と実務家への問い・作業中の版の逐条リファレンス・§19 (一意に定める記録) が
+    引く草案の文の断片 (5 語以上) のうち、いまの草案に逐語で無く、どれかの ACD の本文と 5 語の連なりを 4 割以上共有するもの
+    (= ACD の文の引用で、外の法源や発言の引用ではない)。段落のその引用の前後が旧版・試作の前・発言者と日付を名乗れば除く。
+    表の行は 1 行ずつを段落として読む。返り値: [(ファイル名, 段落の頭 60 字, 断片)] —— list_open_items が段落の頭 (§19 の行の
+    "- §x.y") から帯の人を決める (2026-11-20 に Check 470 から移した)。"""
+    lic = root / "LICENSES"
+
+    def n(s):
+        return re.sub(r"\s+", " ", s).lower().strip(" .,;:")
+
+    def g(s):
+        w = re.findall(r"[a-z0-9']+", s.lower())
+        return {" ".join(w[i:i + 5]) for i in range(len(w) - 4)}
+    drs = sorted(lic.glob("ACD-1.[1-9]-DRAFT.txt"), key=lambda p: "HAS BEEN FROZEN" in p.read_text(encoding="utf-8").split("\n", 1)[0])
+    d = n(drs[0].read_text(encoding="utf-8").split(RULE, 1)[-1]) if drs else ""
+    G = g(" ".join(n(p.read_text(encoding="utf-8")) for p in sorted(lic.glob("ACD-1.*.txt"))))
+    cref = [p.name for p in sorted(lic.glob("ACD-1.[1-9]-CLAUSE-REFERENCE-DRAFT.md"))
+            if not (lic / p.name.replace("-CLAUSE-REFERENCE-DRAFT.md", ".txt")).exists()]
+    uniq = [p.name for p in sorted(lic.glob("ACD-1.[1-9]-UNIQUE-READING.md"))
+            if not (lic / p.name.replace("-UNIQUE-READING.md", ".txt")).exists()]
+    out = []
+    for f in ["QUESTIONS-FOR-COUNSEL.md", "QUESTIONS-FOR-PRACTITIONERS.md"] + cref + uniq:
+        qt = (lic / f).read_text(encoding="utf-8") if (lic / f).exists() else ""
+        paras = [x for b in re.split(r"\n\s*\n", qt) for x in (b.split("\n") if b.lstrip().startswith(("|", "- §")) else [b])]
+        for para in paras:
+            fl = " ".join(para.split())
+            # §19 の行で、試作が本文に入った行 (「試作 Tnn で入った」) の「別の読み」の欄は、試作の前の文を引くのが本旨なので除く
+            #   (2026-11-20: 行を 1 つずつ段落として読むようにしたら、閉じた試作の行の別の読みが古い文として出た)
+            alt_end = fl.find(" | ", fl.find("別の読み")) if fl.startswith("- §") and re.search(r"試作 T\d+ で入った", fl) else -1
+            for m in re.finditer(r'\*"([^"]{12,})"\*', fl):
+                if 0 <= m.start() < alt_end:
+                    continue
+                if re.search(r"(?<![\d.§])(?:ACD-)?1\.[0-3](?![\d])|earlier version|T\d+ ?(?:の前|より前)|before T\d+|as adopted on"
+                             r"|氏 \d{4}-\d{2}", fl[:m.start()] + fl[m.end():m.end() + 40]):
+                    continue
+                for fr in re.split(r"\s*(?:…|\.\.\.)\s*", m.group(1)):
+                    nf, gs = n(fr), g(fr)
+                    if len(fr.split()) >= 5 and nf not in d and gs and len(gs & G) >= 0.4 * len(gs):
+                        out.append((f, fl[:60], fr))
+    return out
