@@ -297,6 +297,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-11-19 | 米国法典 | **観測（17 U.S.C. §203(a)・(a)(3)〜(5)・(b) と §1201(a)(1)(A)・(a)(3) の定義・Cornell LII から WebFetch の逐語の片で、バイト単位の写しではない・§203 は 125 字で切れた片）** | `2026-11-19-us-17-usc-203-1201-snapshot.txt` |
 | 2026-11-19 | 英 legislation.gov.uk（EU 指令） | **観測（DSM 指令 15 条 1 項・2 項・報道出版者の権利・WebFetch の逐語の片）** | `2026-11-19-eu-dsm-2019-790-art-15-snapshot.txt` |
 | 2026-11-19 | 英 Find Case Law | 観測（Fisher v Brooker [2008] EWCA Civ 287・著作権の無償の許諾の撤回・Find Case Law の逐語の片） | `2026-11-19-uk-fisher-v-brooker-2008-ewca-civ-287-gratuitous-licence-snapshot.txt` |
+| 2026-11-19 | e-Gov・gesetze-im-internet | 観測（著作権法 15 条・UrhG 43 条・69b 条・職務著作・e-Gov 法令 API と gesetze-im-internet の逐語の片） | `2026-11-19-jp-chosakukenho-15-urhg-43-69b-employee-works-snapshot.txt` |
 | 2026-11-19 | 英 legislation.gov.uk | 観測（Law of Property (Miscellaneous Provisions) Act 1989 1 条・捺印証書の要件・WebFetch の逐語の片） | `2026-11-19-uk-lpmpa-1989-s1-deeds-snapshot.txt` |
 | 2026-11-19 | 米 LII（17 U.S.C.） | **観測（17 U.S.C. §101 の職務著作の定義・§106 の (1)〜(3)・§201(a)(b)・WebFetch の逐語の片）** | `2026-11-19-us-17-usc-101-wmfh-106-201-snapshot.txt` |
 | 2026-11-19 | 英 legislation.gov.uk | 観測（CDPA 1988 296ZF・296ZA・296 条・技術的手段の定義と回避・WebFetch の逐語の片） | `2026-11-19-cdpa-1988-s296-s296za-s296zf-snapshot.txt` |
