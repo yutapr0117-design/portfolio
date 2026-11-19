@@ -1,0 +1,43 @@
+Source: https://www.legislation.gov.uk/ukpga/1988/48/section/296ZF
+        https://www.legislation.gov.uk/ukpga/1988/48/section/296ZA
+        https://www.legislation.gov.uk/ukpga/1988/48/section/296
+Law: Copyright, Designs and Patents Act 1988 (c. 48)
+Articles: Copyright, Designs and Patents Act 1988 section 296ZF, Copyright, Designs and Patents Act 1988 section 296ZA, Copyright, Designs and Patents Act 1988 section 296 (3 sections below; 24 lines of verbatim passages, 0 note lines)
+Retrieved: 2026-11-19 02:49 UTC by portfolio-30, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: 8216f1f25f6dea6aa744b49aa6060a772b4b65846abca347f07e5b26c3323100 (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 5.2
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+===== Copyright, Designs and Patents Act 1988 section 296ZF (Interpretation of sections 296ZA to 296ZE) (1) to (3) =====
+"In sections 296ZA to 296ZE, "technological measures" are any technology, device or component which is designed,"
+" in the normal course of its operation, to protect a copyright work other than a computer program."
+"Such measures are "effective" if the use of the work is controlled by the copyright owner through—"
+"(a)an access control or protection process such as encryption, scrambling or other transformation of the work, or"
+"(b)a copy control mechanism,"
+"which achieves the intended protection."
+"In this section, the reference to—"
+"(a)protection of a work is to the prevention or restriction of acts that are not authorised by the copyright owner"
+" of that work and are restricted by copyright; and"
+"(b)use of a work does not extend to any use of the work that is outside the scope of the acts restricted by copyright."
+
+===== Copyright, Designs and Patents Act 1988 section 296ZA (Circumvention of technological measures) (1) =====
+"(1)This section applies where—"
+"(a)effective technological measures have been applied to a copyright work other than a computer program; and"
+"(b)a person (B) does anything which circumvents those measures knowing, or with reasonable grounds to know,"
+"that he is pursuing that objective."
+
+===== Copyright, Designs and Patents Act 1988 section 296 (Circumvention of technical devices applied to computer programs) (1) and (6) =====
+"(1)This section applies where—"
+"(a)a technical device has been applied to a computer program; and"
+"(b)a person (A) knowing or having reason to believe that it will be used to make infringing copies—"
+"(i)manufactures for sale or hire, imports, distributes, sells or lets for hire, offers or exposes for sale or hire,"
+" advertises for sale or hire or has in his possession for commercial purposes any means the sole intended purpose"
+" of which is to facilitate the unauthorised removal or circumvention of the technical device; or"
+"(ii)publishes information intended to enable or assist persons to remove or circumvent the technical device."
+"(6)In this section references to a technical device in relation to a computer program are to any device"
+" intended to prevent or restrict acts that are not authorised by the copyright owner of that computer program"
+" and are restricted by copyright."
