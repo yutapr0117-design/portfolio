@@ -259,6 +259,8 @@ ACD-1.4 -- CHANGES FROM ACD-1.3 (DRAFT). Not part of the Dedication.
       fullest extent the law permits". (-1 word.)
     * Section 14.2 now opens "Subject to Section 14.1, where applicable law
       does not permit a liability to be excluded". (+2 words.)
+    * Section 16.3 now says that this Dedication may be applied "to any
+      material", where it said "to any work". (0 words.)
     * Section 15.1 now joins its two sentences, and "in respect of the Work"
       now also governs the rule that the reading granting more to You
       prevails, and says on whom the least obligation falls, "upon You"

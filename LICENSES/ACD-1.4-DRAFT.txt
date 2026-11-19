@@ -669,10 +669,10 @@ PREAMBLE (informative; not part of the operative terms)
        nothing to other terms (Section 6.2). The identifiers named above match
        without regard to case.
 
-  16.3 This Dedication may be applied by anyone, to any work in which they hold
-       or may hold rights of their own, without permission from, notice to, or
-       any relationship with the authors of this Dedication. It is not specific
-       to any project, person, organisation, jurisdiction, or field of
+  16.3 This Dedication may be applied by anyone, to any material in which they
+       hold or may hold rights of their own, without permission from, notice to,
+       or any relationship with the authors of this Dedication. It is not
+       specific to any project, person, organisation, jurisdiction, or field of
        endeavour.
 
   16.4 The text of this Dedication may be copied and distributed verbatim by
