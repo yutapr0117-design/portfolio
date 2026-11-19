@@ -61,6 +61,8 @@ THIRD（`ACD-1.4-THIRD-CLARITY-TRIAL.md`）にあった第 19 節を 2026-11-18 
 
 **追記（2026-11-19・portfolio-2f の数え直しを受けて）**: 行の無かった 16 小項（§1.1・§1.2・§1.5・§1.8〜§1.10・§2.1・§2.4〜§2.7・§3.2・§3.3・§4.1・§4.3・§4.4）を足した。立つ別の読みは §2.5 第 2 文の 1 つで、試作の種 T106 にした。2f の外からの当てで §1.9 の告知の句の掛かり先がもう 1 つ立ち、T107 にした（1c が一意とした §1.9 の行とは別の読み）。30 の外からの当てで、§2.4 と §6.5 の食い違い（§6 は独立の足場か宣言か）が立ち、T108 にした。30 の別の読みのうち 1c の行と違うもの 5 つを (b) の行で足した。
 
+- §2.6 第 1 文（3 巡目・portfolio-2f・帯の外から・型: 役が入れ替わる） | 別の読み: *"the person making it becomes a Dedicator as to that Contribution"* の *the person making it* が、提出の手を動かした人（雇用の中で書いて出した従業者）だけを指し、権利を持つ雇用者（米国の職務著作では §201(b) で著作者）は Dedicator にならない —— 従業者は §1.4 の限度で何も持たないので、その貢献は誰の献呈の下にも入らないまま Work に含まれる | 一意（本文の語の側）・法の側（代理の成否） | 根拠: §1.9 *"A submission is intentional if it is made by or on behalf of the person for that purpose"* —— Contribution を「提出する人」は代理で提出する本人を含み、§2.6 の *the person making it* はその人を受ける。§2.7 *"This Dedication reaches only rights the Dedicator holds"* と §1.4 が、権利を持つ者だけを Dedicator とする。従業者の提出が雇用者の代理に当たるかは代理と雇用の法の問い（`review-readings-2.md` §1.270・17 U.S.C. §201(b)）
+
 ### 19.2 §5〜§7（portfolio-30・main の 1.4 草案・T95 の後）
 
 - §5.1 第 1 文 | 別の読み: *"in respect of any use of the Work"* の *use* を狭い意味（使用だけで、複製・頒布・改変を含まない）に読み、約束が複製や頒布の権利の主張に及ばない | 一意 | 根拠: *use* は定義されていないが、§15.1 が *"the reading that grants more to You prevails"* と受け手に多く与える読みを選ばせ、同じ文の *"any Covered Right"* が複製・頒布の権利を含む。
