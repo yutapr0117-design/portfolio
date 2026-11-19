@@ -93,8 +93,13 @@ def unapplied() -> list[tuple[str, str]]:
     out = []
     for p in sorted((L / "rounds").glob("*-snapshot.txt")):
         a = re.search(r"^Applied to: .*?Sections? ([\d., ]+)$", p.read_text(encoding="utf-8")[:2000], re.M)
+        # 当てる条の取り下げ (2026-11-20): 写しの本文とヘッダは直さない (Check 473d・rounds/README) ので、ヘッダの宣言が広すぎたと
+        #   後から分かった条は、mirror doc の「**当てる条の取り下げ**: §x.y, …（理由）」の行で外す。黙って外さず、理由を残させる
+        mir = ROOT / "docs" / "files" / "LICENSES" / "rounds" / f"{p.name}.md"
+        rm = re.search(r"^\*\*当てる条の取り下げ\*\*[:：](.*)$", mir.read_text(encoding="utf-8"), re.M) if mir.exists() else None
+        withdrawn = set(re.findall(r"§(\d+\.\d+)", rm.group(1))) if rm else set()
         for c in sorted(set(re.findall(r"\d+\.\d+", a.group(1))) if a else (), key=ckey):
-            if c not in cited.get(p.name, set()):
+            if c not in cited.get(p.name, set()) and c not in withdrawn:
                 out.append((p.name, c))
     return out
 
