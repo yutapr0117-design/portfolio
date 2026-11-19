@@ -1,4 +1,4 @@
-"""checks_license_provenance.py — 来歴の開示の Check 群 (473 / 473b / 473c)
+"""checks_license_provenance.py — 来歴の開示の Check 群 (473 / 473b / 473c / 473d)
 
 2026-11-08 に checks_license_submission.py から切り出した。Check の監査で 473 / 473b を強めた結果、
 元の file が 914 行になり Check 52 の advisory 900 を超えた。来歴の開示 (誰が起草し、誰が方向を
@@ -20,6 +20,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (3) **段落粒度で見る** —— file 粒度の集合演算は、**訂正済みの写しと未訂正の写しを
        同じ file に持つ**場合を必ず取り逃がす（`submission.md` が実例で、#187 はこれで
        「一覧は 3 項目」と誤って完全性を主張した）。(BLOCKING)
+  473d. **法令の写し (add_law_snapshot.py) の本文が、ヘッダの Body-SHA256 と一致すること** (BLOCKING): rounds/ は
+       本文を直さない場所で、写しの sha256 をヘッダに書いて置く (2026-11-20〜・5 人の分担で法令の一次資料を読む)。
+       本文を後から直すと、§18 の行が引いた逐語がいつの文かを確かめられなくなる。直すなら新しい日付の写しを置く。
 """
 import re
 
@@ -203,6 +206,28 @@ def run(ctx):
          "3 面に書かなければ、規則と現物が食い違ったまま公開される**"
          " (`against.md` #219・オーナー指摘 2026-09-23)。**逆に、例外を書いて stub が 1 件も"
          "無ければ死んだ規則である**"),
+        blocking=True,
+    )
+
+    # ── 473d: 法令の写しの本文が、ヘッダの Body-SHA256 と一致すること (2026-11-20) ──────────────
+    import hashlib
+    _law473d, _bad473d = 0, []
+    for _p473d in sorted((ROOT / "LICENSES" / "rounds").glob("*-snapshot.txt")):
+        _t473d = _p473d.read_text(encoding="utf-8")
+        _h473d = re.search(r"^Body-SHA256: ([0-9a-f]{64})", _t473d, re.M)
+        if not _h473d:
+            continue  # add_law_snapshot.py の前に手で置いた写し (ヘッダに hash が無い) は母数の外
+        _law473d += 1
+        _body473d = _t473d.split("----- begin fetched passages -----\n", 1)
+        if len(_body473d) != 2:
+            _bad473d.append(f"{_p473d.name}: 本文の区切り「----- begin fetched passages -----」が無い")
+        elif hashlib.sha256(_body473d[1].encode("utf-8")).hexdigest() != _h473d.group(1):
+            _bad473d.append(f"{_p473d.name}: 本文の sha256 がヘッダの Body-SHA256 と違う (本文が置いた後に変わった)")
+    check(
+        not _bad473d,
+        f"Check 473d: 法令の写し {_law473d} 本の本文が、ヘッダの Body-SHA256 と一致",
+        (f"Check 473d: {_bad473d}。rounds/ の写しは本文を直さない (rounds/README.md)。§18 の行が引いた逐語がいつの文かを"
+         "確かめられなくなるので、直すなら取り直して新しい日付の写しを add_law_snapshot.py で置く"),
         blocking=True,
     )
 
