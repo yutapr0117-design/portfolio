@@ -133,10 +133,14 @@ A published dedication is neither, so a gratuitous promise in it is enforced the
 where the recipient gives something in return, or through the estoppel above.
 On whether a gratuitous licence can be irrevocable at all, Mummery LJ in the Court of Appeal in *Fisher v
 Brooker* (2008) said of a copyright licence that *"It may be for a consideration or gratuitous, exclusive or non-exclusive,
-revocable or irrevocable"* (paragraph 34(2); whether the third judge joined that passage we have not
-checked). Against that, David Richards J, who partly dissented on a different point (acquiescence and
+revocable or irrevocable"* (paragraph 34(2); Sir Paul Kennedy agreed with Mummery LJ *"for the reasons he has given"*, paragraph
+141). Against that, David Richards J, who partly dissented on a different point (acquiescence and
 laches), said of a licence presumed from conduct that *"Such a presumed licence is prima facie revocable on reasonable notice."*
 (paragraph 120; `rounds/2026-11-19-uk-fisher-v-brooker-2008-ewca-civ-287-gratuitous-licence-snapshot.txt`).
+He added that *"The licence is revocable unless the defendant has acted to his detriment such that revocation
+would be unconscionable."* (paragraph 136; `rounds/2026-11-19-uk-fisher-v-brooker-2008-paras-136-141-snapshot.txt`):
+on that view what stops revocation of an implied gratuitous licence is reliance to the licensee's detriment, which is
+what §2.5 invites, and a recipient who has not relied would have no footing in §2.5 against revocation.
 The Dedication is an express licence that calls itself irrevocable, not a presumed one, and the appeal to the
 House of Lords ([2009] UKHL 41) we have not obtained. Does an English court treat an express gratuitous licence
 to the public as irrevocable on its words, or as revocable on notice like the presumed licence?
