@@ -910,3 +910,19 @@ census の unquoted-decider（候補の外の会話の、ドシエが 1 文も�
 **この節が establish しないこと。** §4.1 の licence が米国の §1201(a)(3)(B) の *with the authority of the copyright owner* を B に与えると裁判所が読むか。EU で許された行為を妨げる手段が保護されないという読みが判例で採られているか。
 
 **反映**: 1c・50（T124 の行の根拠に「範囲の句は米国に向けた設計、EU では 6 条 3 項が決める」を足す・`ACD-1.4-UNIQUE-READING.md` §19.2）、THIRD §18 の §5.2 の行（写しの名を結んだ）。
+
+## 1.270 職務著作を §2.6・§1.9・§2.2 に当てた —— 米国では雇用者が著作者なので、貢献を献呈の下に入れるのは「誰の提出か」、終了権は職務著作に無い（2026-11-20）
+
+オーナーの提案（2026-11-19・関連法令を 5 人で分担して読む）の portfolio-2f の受け持ち（米国）。17 U.S.C. §101 の職務著作の定義・§106・§201(a)(b) を取った（`rounds/` の `us-17-usc-101-wmfh-106-201` の写し・WebFetch の逐語の片）。30 の 3 巡目の型 (3)「役が入れ替わる」を、提出する人と権利を持つ人が別になる場面に当てた。
+
+| 法源 | 当てた条 | 結果 |
+| :-- | :-- | :-- |
+| §101 *"a work prepared by an employee within the scope of his or her employment"*・§201(b) *"the employer or other person for whom the work was prepared is considered the author … and … owns all of the rights comprised in the copyright"* | §2.6 第 1 文 *"the person making it becomes a Dedicator as to that Contribution"*、§1.9、§1.4、§2.7 | **読みは本文の語で一意、残りは法の側。** 従業者が雇用の中で書いて出した貢献の権利は雇用者に在り、従業者は §1.4 の限度で何の Dedicator にもならない。献呈が及ぶのは、§1.9 *"made by or on behalf of the person"* の下で雇用者が提出した者と読める場合 —— 提出の手を動かした人ではなく本人を受ける語は本文に在る。従業者の提出が雇用者を拘束するか（代理の成否）は法の側で、THIRD §18 の §2.6 の行へ |
+| §203(a) *"any work other than a work made for hire"*（2026-11-19 の写し） | §2.2・§4.1 | **有利（記録）。** 雇用者が職務著作の Work を献呈したとき、§203 の終了権はそもそも無い。`jurisdictions.md` の §203 の表（§4 に届く）は、著作者が自然人の場合の記述 |
+| §101 の定義 (2) の *"if the parties expressly agree in a written instrument signed by them"* | §2.6 第 4 文 *"This Dedication requires no separate instrument"* | **当たらない。** 委託の著作物を職務著作にする書面は当事者の間の権利の帰属の問いで、ACD の下に貢献を入れる行為の方式ではない |
+
+**逆側。** (1) 雇用者が貢献を知らない場合（従業者が勝手に出した）、§1.9 の *on behalf of* は立たず、貢献は誰の献呈の下にも無いまま Work に入る —— §2.6 の識別の約束は Dedicator（企画の側）が、Contribution でない素材を *"includes … or causes it to be included"* したときにだけ掛かり、Dedicator は外れたことを知らないと識別できない。§13 は権原を保証しない。(2) 米国の外では、雇用の中の著作物の帰属は国ごとに違い（日本の著作権法 15 条の職務著作、ドイツ UrhG 43 条は著作者を従業者に残す）、この節はそれらを取っていない。
+
+**この節が establish しないこと。** 従業者の提出が雇用者の代理に当たると裁判所が読むか。
+
+**反映**: `ACD-1.4-UNIQUE-READING.md` §19.1 の末尾の §2.6 第 1 文の行（3 巡目）、THIRD §18 の §2.6 第 1 文と §2.2 第 1 文の行（写しを結んだ）。30・1c へ: 日本の職務著作（15 条）とドイツ（43 条）を、30 の日本の分担と 9b の取得で。
