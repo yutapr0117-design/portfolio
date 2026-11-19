@@ -251,10 +251,11 @@ press, and if so, is a covenant by the Dedicator not to cause an affiliate to as
 
 ## 3. Are the moral-rights covenants enforceable where waiver is not? (§12.1 to §12.5)
 
-**The clauses.** §12.1 waives Moral Rights to the extent the law permits. §12.2 replaces the waiver,
-where moral rights are inalienable, with a covenant not to exercise them against You; the 1.4 draft adds, in a
-sentence of its own, the Dedicator's consent to the acts the rights would otherwise forbid ((e) below). §12.3 limits
-the covenant to the Work. §12.4 binds successors and *"any person entitled to exercise or enforce
+**The clauses.** §12.1 waives Moral Rights to the extent the law permits. In ACD-1.3 §12.2 replaces the
+waiver, where moral rights are inalienable, with a covenant not to exercise them against You. The 1.4 draft
+adds, in a sentence of its own, the Dedicator's consent to the acts the rights would otherwise forbid ((e)
+below), and since trial T101 gives the covenant and the consent *"for every jurisdiction, whether or not
+Section 12.1 has effect there"*, with no trigger. §12.3 limits the covenant to the Work. §12.4 binds successors and *"any person entitled to exercise or enforce
 Moral Rights in the Work after the Dedicator's death"*. §12.5 keeps false attribution outside the
 covenant.
 
@@ -271,13 +272,19 @@ the licence, and the part that stays with the author is the core against distort
 (b) Whether §12.4 can bind persons who,
 after the author's death, act in their own right (Japan, Articles 60 and 116). (c) Whether a court
 would treat a covenant this broad as contrary to public order even though §12.3 confines it. A second
-point under (c): §12.3 ends by saying that the covenant and the consent *"are given in respect of a work
-that the Dedicator has chosen to place in the commons for the purpose stated in Section 6"*. That clause
+point under (c): in ACD-1.3, and in the 1.4 draft before trial T103, §12.3 ended by saying that the covenant and the consent
+*"are given in respect of a work that the Dedicator has chosen to place in the commons for the purpose
+stated in Section 6"*. That clause
 was kept to support the covenant's validity; since the 1.4 draft added a consent (T67), it also reaches
 the consent. A blanket consent given in advance may be read narrowly by the purpose it states (that is our
 reading, not one we have confirmed for any jurisdiction). Does the clause confine the consent to acts that
 serve §6's purpose, being learned from, so that an ordinary modification unrelated to learning falls outside
-it? If it does, would removing the clause weaken the covenant it was meant to support?
+it? If it does, would removing the clause weaken the covenant it was meant to support? **The 1.4 draft
+narrows this part (trial T103).** §12.3 now reads *"they are given in respect of the Work, which the
+Dedicator has chosen to place in the commons for the purpose stated in Section 6"*: the purpose is set
+in a non-restrictive clause about why the Dedicator placed the Work, not about which acts the consent
+covers, so the reading that confines the consent to acts serving §6 is weaker. Whether a court in a
+jurisdiction that reads advance consents narrowly would still use the purpose that way is the open part.
 (d) Whether any jurisdiction treats Moral Rights as transferable yet requires a formality, such as
 a signed writing, for a waiver. There §12.2's covenant would not operate, since its trigger is that
 the rights are personal, inalienable, or incapable of waiver, while §12.1's waiver, given without a
