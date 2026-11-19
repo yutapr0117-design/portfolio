@@ -1,0 +1,115 @@
+Source: (1) 17 U.S.C. §§101 (definition of "transfer of copyright ownership"), 107, 201(d), 203, 204(a),
+        as published by the Legal Information Institute, https://www.law.cornell.edu/uscode/text/17/<section>
+        (2) 35 U.S.C. §§261, 271(a), as published by the Legal Information Institute,
+        https://www.law.cornell.edu/uscode/text/35/<section>
+        (3) Directive (EU) 2019/790 (DSM Directive), Articles 2, 3 and 7, English text as adopted, as
+        published at https://www.legislation.gov.uk/eudr/2019/790/article/<n>/adopted?view=plain
+        (4) Directive 96/9/EC (Database Directive), Article 9, English text as adopted, as published at
+        https://www.legislation.gov.uk/eudr/1996/9/article/9/adopted?view=plain
+Retrieved: 2026-11-19 by portfolio-2f, with the WebFetch tool, under the owner's suggestion of the same
+        day that the five sessions divide and read the primary sources of the laws the 1.4 draft relies
+        on (a list made by another AI was pasted as the starting point; it is material, not a finding).
+Form: NOT A BYTE COPY. The fetch tool converts the page to text and returns it through a model, in
+        segments of at most about 120 characters, marked "[...]" where the tool cut between them. For
+        17 U.S.C. §203 three strings were confirmed by a second fetch of the same page (asked whether each
+        exact string appears; YES for all three). For DSM Article 2(2) and Article 7(1) the definition and
+        the sentence were confirmed the same way. The other items were fetched once. The official
+        EUR-Lex pages return empty content to the tool (see 2026-11-16-eu-tdm-and-conflict-of-laws-
+        snapshot.txt), so none of the EU text below is from EUR-Lex. Re-fetch and compare before relying
+        on the exact wording, and do not assume that nothing lies between two segments.
+
+WHY THIS FILE EXISTS. The dossier relies on 17 U.S.C. §203 (termination of grants, `jurisdictions.md`
+§5a and `against.md` #152), but held the text only as quoted in its own documents. It held neither
+§203(b)(1) (what survives a termination), nor §101 and §204(a) (which grants need a signed writing), nor
+35 U.S.C. §271(a) (what infringes a patent, which bears on the word "feature" in §8.4 of the 1.4 draft).
+For the DSM Directive it held Article 4 and recital 18 only, not the definition of text and data mining
+(Article 2(2)) that the undefined words "text and data mining" in §1.7 and §1.10 of the draft meet in EU
+law, nor Article 7(1), which shows which TDM exceptions a contract cannot override.
+
+---- (1) 17 U.S.C. ----
+
+[1] §101, "transfer of copyright ownership":
+    "A “transfer of copyright ownership” is an assignment, mortgage, exclusive license, or any other conveyance,"
+    [...] "alienation, or hypothecation of a copyright or of any of the exclusive rights comprised in a copyright,"
+    [...] "whether or not it is limited in time or place of effect, but not including a nonexclusive license."
+[2] §107, first sentence and factors:
+    "Notwithstanding the provisions of sections 106 and 106A, the fair use of a copyrighted work, including such use"
+    [...] "by reproduction in copies or phonorecords or by any other means specified by that section, for purposes such as"
+    [...] "criticism, comment, news reporting, teaching (including multiple copies for classroom use), scholarship, or research,"
+    [...] "is not an infringement of copyright."
+    (1) "the purpose and character of the use, including whether such use is of a commercial nature"
+    [...] "or is for nonprofit educational purposes;"
+    (2) "the nature of the copyrighted work;"
+    (3) "the amount and substantiality of the portion used in relation to the copyrighted work as a whole;"
+    (4) "the effect of the use upon the potential market for or value of the copyrighted work."
+[3] §201(d)(1): "The ownership of a copyright may be transferred in whole or in part by any means of conveyance or by operation of law,"
+    [...] "and may be bequeathed by will or pass as personal property by the applicable laws of intestate succession."
+[4] §201(d)(2): "Any of the exclusive rights comprised in a copyright, including any subdivision of any of the rights"
+    [...] "specified by section 106, may be transferred as provided by clause (1) and owned separately."
+    "The owner of any particular exclusive right is entitled, to the extent of that right,"
+    [...] "to all of the protection and remedies accorded to the copyright owner by this title."
+[5] §203(a), opening (confirmed by a second fetch):
+    "In the case of any work other than a work made for hire, the exclusive or nonexclusive grant of a transfer"
+    [...] "or license of copyright or of any right under a copyright, executed by the author on or after January 1, 1978,"
+    [...] "otherwise than by will, is subject to termination under the following conditions:"
+[6] §203(a)(3): "Termination of the grant may be effected at any time during a period of five years beginning at the end of thirty-five"
+    [...] "years from the date of execution of the grant; or, if the grant covers the right of publication of the work,"
+    [...] "the period begins at the end of thirty-five years from the date of publication of the work under the grant"
+    [...] "or at the end of forty years from the date of execution of the grant, whichever term ends earlier."
+[7] §203(a)(4), opening: "The termination shall be effected by serving an advance notice in writing, signed by the number and proportion"
+    [...] "not less than two or more than ten years before that date."
+[8] §203(a)(5) (confirmed by a second fetch):
+    "Termination of the grant may be effected notwithstanding any agreement to the contrary, including an agreement to make"
+    [...] "a will or to make any future grant."
+[9] §203(b)(1): "A derivative work prepared under authority of the grant before its termination may continue to be utilized"
+    "under the terms of the grant after its termination, but this privilege does not extend to the preparation"
+    "after the termination of other derivative works based upon the copyrighted work covered by the terminated grant."
+    (the tool returned these three lines as consecutive segments with no cut marked between them)
+[10] §204(a): "A transfer of copyright ownership, other than by operation of law, is not valid unless an instrument of conveyance,"
+    [...] "or a note or memorandum of the transfer, is in writing and signed by the owner of the rights conveyed"
+    [...] "or such owner’s duly authorized agent."
+
+---- (2) 35 U.S.C. ----
+
+[11] §261, second paragraph:
+    "Applications for patent, patents, or any interest therein, shall be assignable in law by an instrument in writing."
+    [...] "The applicant, patentee, or his assigns or legal representatives may in like manner grant and convey an exclusive right"
+    [...] "under his application for patent, or patents, to the whole or any specified part of the United States."
+[12] §261, last paragraph:
+    "An interest that constitutes an assignment, grant or conveyance shall be void as against any subsequent purchaser"
+    [...] "or mortgagee for a valuable consideration, without notice, unless it is recorded in the Patent and Trademark Office"
+    [...] "within three months from its date or prior to the date of such subsequent purchase or mortgage."
+[13] §271(a): "Except as otherwise provided in this title, whoever without authority makes, uses, offers to sell, or sells any"
+    [...] "patented invention, within the United States or imports into the United States any patented invention"
+    [...] "during the term of the patent therefor, infringes the patent."
+
+---- (3) Directive (EU) 2019/790 ----
+
+[14] Art. 2(1), opening (definition of research organisation):
+    "‘research organisation’ means a university, including its libraries, a research institute or any other entity,"
+    [...] "the primary goal of which is to conduct scientific research or to carry out educational activities"
+    [...] "involving also the conduct of scientific research: (a) on a not-for-profit basis or by reinvesting all"
+    [...] "the profits in its scientific research;"
+[15] Art. 2(2) (confirmed by a second fetch):
+    "‘text and data mining’ means any automated analytical technique aimed at analysing text and data in digital form"
+    [...] "in order to generate information which includes but is not limited to patterns, trends and correlations;"
+[16] Art. 3(1): "Member States shall provide for an exception to the rights provided for in Article 5(a) and Article 7(1) of"
+    [...] "Directive 96/9/EC, Article 2 of Directive 2001/29/EC, and Article 15(1) of this Directive for reproductions"
+    [...] "and extractions made by research organisations and cultural heritage institutions in order to carry out, for the"
+    [...] "purposes of scientific research, text and data mining of works or other subject matter to which they have lawful"
+    [...] "access."
+[17] Art. 7(1) (whole paragraph; confirmed by a second fetch):
+    "Any contractual provision contrary to the exceptions provided for in Articles 3, 5 and 6 shall be unenforceable."
+[18] Art. 7(2): "Article 5(5) of Directive 2001/29/EC shall apply to the exceptions and limitations provided for under this Title."
+    [...] "The first, third and fifth subparagraphs of Article 6(4) of Directive 2001/29/EC shall apply to"
+    [...] "Articles 3 to 6 of this Directive."
+
+---- (4) Directive 96/9/EC ----
+
+[19] Art. 9, opening: "Member States may stipulate that lawful users of a database which is made available to the public in"
+    [...] "whatever manner may, without the authorization of its maker, extract or re-utilize a substantial part of its contents:"
+    (a) "in the case of extraction for private purposes of the contents of a non-electronic database;"
+    (b) "in the case of extraction for the purposes of illustration for teaching or scientific research,"
+    [...] "as long as the source is indicated and to the extent justified by the non-commercial purpose to be achieved;"
+    (c) "in the case of extraction and/or re-utilization for the purposes of public security"
+    [...] "or an administrative or judicial procedure."
