@@ -295,6 +295,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-11-16 | 弁護士の公開の分析（独・CC0） | **観測（Kreutzer 氏の CC0 のドイツ法上の有効性の分析・2011 年頃・放棄は無効、fallback の許諾は有効、公有の宣言は公の許諾と読み替えられるのが通説、不行使の約束は有効・PDF からこの session で取り出した・問い 1 の法源）** | `2026-11-16-kreutzer-cc0-german-law-analysis-snapshot.txt` |
 | 2026-11-18 | SPDX が保持する GPL-3.0 | **観測（GPL-3.0 の頭の 6 行・「逐語の写しは誰でも頒布できるが変更は許されない」・GitHub の API で byte のまま・commit 60fbd82 に固定・§16.4 の法源）** | `2026-11-18-gpl-3-0-header-spdx-snapshot.txt` |
 | 2026-11-19 | 米国法典 | **観測（17 U.S.C. §203(a)・(a)(3)〜(5)・(b) と §1201(a)(1)(A)・(a)(3) の定義・Cornell LII から WebFetch の逐語の片で、バイト単位の写しではない・§203 は 125 字で切れた片）** | `2026-11-19-us-17-usc-203-1201-snapshot.txt` |
+| 2026-11-19 | 米 第 4 巡回区控訴裁判所 | **観測（Jaffé v. Samsung（第 4 巡回区・2013）の主文と理由の 4 文・裁判所の PDF から 2f が展開した文）** | `2026-11-19-us-jaffe-v-samsung-4th-cir-2013-snapshot.txt` |
 | 2026-11-19 | 日 裁判所 courts.go.jp | 観測（知財高裁 令和5年10月4日 令和3年(ネ)第10061号 の判決要旨・実施許諾と不起訴の合意・courts.go.jp の PDF の逐語の片） | `2026-11-19-jp-ip-high-court-2023-10-04-r3-ne-10061-non-assert-snapshot.txt` |
 | 2026-11-19 | 独 判例 | **観測（BGH 2016-04-06 XII ZR 29/15 Rn. 19・効力維持的縮減の禁止・WebFetch の逐語の片で、バイト単位の写しではない・二次の出版元）** | `2026-11-19-bgh-xii-zr-29-15-geltungserhaltende-reduktion-snapshot.txt` |
 | 2026-11-19 | 英 Find Case Law | 観測（Noel Redding Estate v Sony [2026] EWHC 983 (Ch) が Fisher v Brooker の上告審を要約・引用した段落・Find Case Law の逐語の片） | `2026-11-19-uk-noel-redding-v-sony-2026-fisher-v-brooker-hl-snapshot.txt` |

@@ -628,7 +628,13 @@ Insolvency Code) and the cross-border balancing of *Jaffé v. Samsung*.
 **An answer would change** whether §2.9 needs more than the 1.4 draft gives it, and how the dossier
 answers #178 (`jurisdictions-sources.md` §9a (10), on Qimonda).
 In *Jaffé v. Samsung* the result took a four-day evidentiary hearing and a discretionary
-balancing (#178), so the core of the question is whether §2.9's statement that nothing in the
+balancing (#178). The opinion says so in terms: *"relying on the particular facts of this case and the
+extensive record developed during the four- day evidentiary hearing, we also conclude that the bankruptcy
+court reasonably exercised its discretion in balancing the interests of the licensees against the interests
+of the debtor"*; it held that §1506's public-policy exception does not foreclose that balancing under §1522,
+and it noted that §103 of the German Insolvency Code, unlike §365, *"does not specifically address
+intellectual property licenses"* (`rounds/2026-11-19-us-jaffe-v-samsung-4th-cir-2013-snapshot.txt`, text extracted from the court's PDF; the
+case was about patent licences under Chapter 15 and was decided before *Tempnology*). So the core of the question is whether §2.9's statement that nothing in the
 Dedication is *"suspended by, or revived by"* such a proceeding or an officer's act would be read
 the same way under another jurisdiction's insolvency law.
 
