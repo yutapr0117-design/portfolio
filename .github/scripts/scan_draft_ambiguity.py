@@ -31,6 +31,9 @@
   (o) 同じ働きの除外が片方にだけ在る所 —— 同じ節の Dedicator の約束の項どうしで、除外の句 ("other than for / under …") の集合を比べ、
       他の項が持つ除外を持たない項を出す (2026-11-19・30 の 2 巡目の型: §5.1 と §5.2(d) は §11.3 を外し §5.2(b) は外さなかった)。
       除外が無いのが正しい項 (技術的手段・§15.1 の読み) も出るので、候補として読む。
+  (q) 一般の条を特定の条だけに言い直す所 —— §2.8 は Dedication の全体で承継人を縛るのに、§5.3・§12.4 が一部の約束だけを
+      「the persons Section 2.8 names」を縛ると言い直すと、言い直しの無い約束は承継人を縛らない、の反対解釈が立つ
+      (2026-11-19・9b の 2 巡目 §1〜§4)。Dedicator の約束の条のうち、その言い直しの文に名指されないものを出す。
 
 **--law** (2026-11-16・50 の方法の (a)): 条ごとに「法に頼る句」(to the extent / applicable law / where … permits /
 in a jurisdiction / held invalid / takes effect / is not / does not …) を抜き、5 人の帯 (1c §1〜4・30 §5〜7・50 §8〜10・
@@ -265,6 +268,19 @@ def main(argv: list[str]) -> int:
             miss = [x for x in union if x not in e]
             if union and miss:
                 found["o"].append(f"{lab}: 除外 {e or '無し'} —— 同じ節の他の約束が持つのに無い除外 {miss}")
+    # (q) 承継人を縛る言い直しに名指されない約束
+    restated, prom_q = set(), []
+    for k, v in flat.items():
+        if (re.search(r"\bDedicator(?:'s)?(?: further| also| irrevocably)? (?:covenants?|will not|undertakes?|agrees? not|consents?)\b", v)
+                or re.search(r"\b(?:undertaking|covenant|promise) binds (?:that|the) Dedicator\b", v)):
+            prom_q.append(k)
+        for s in re.split(r"(?<=[.;])\s+", v):
+            if re.search(r"\bthe persons Section 2\.8 names\b", s):
+                restated |= set(re.findall(r"\d+\.\d+", s.split(" bind")[0]))
+    if restated:
+        for k in prom_q:
+            if k not in restated:
+                found["q"].append(f"§{k}: Dedicator の約束の条なのに、承継人を縛ると言い直す文（{', '.join('§' + x for x in sorted(restated))} を名指す）に無い")
     # (c) 使われない定義
     for t, k in terms.items():
         uses = [c for c, v in flat.items() if c != k and re.search(r"\b" + re.escape(t) + r"s?\b", v)]
@@ -291,7 +307,8 @@ def main(argv: list[str]) -> int:
              "l": "同じ条の中の \"X or Y\" と \"X and Y\"",
              "m": "\"may not\" —— 禁止か可能性か",
              "n": "指示の限定詞 (these / those / such) の名詞が同じ条のその前に無い",
-             "o": "同じ働きの除外が片方にだけ (同じ節の約束の項どうしの除外の食い違い)"}
+             "o": "同じ働きの除外が片方にだけ (同じ節の約束の項どうしの除外の食い違い)",
+             "q": "承継人を縛ると言い直す文 (the persons Section 2.8 names) に名指されない約束"}
     for typ, name in names.items():
         xs = found.get(typ, [])
         print(f"\n## ({typ}) {name}: {len(xs)}")
