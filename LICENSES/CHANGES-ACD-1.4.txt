@@ -51,11 +51,11 @@ ACD-1.4 -- CHANGES FROM ACD-1.3 (DRAFT). Not part of the Dedication.
       "Section 4.5 concerns the terms You may add. It does not cut". (-7
       words.)
     * Section 5.1 now gives its two covenants as two sentences, and the second
-      reaches a claim "for" a use of the Work that this Dedication permits,
-      where it reached one "arising from or relating to" such a use, and
-      excepts patent infringement, trademark rights and rights in a name, a
-      false statement or representation, and a payment You agreed to make;
-      Section 5.2(d) excepts the false statement too. (+40 words.)
+      reaches a claim "that treats as wrongful, or as without legal basis," a
+      use of the Work, where it reached one "arising from or relating to" such
+      a use, and excepts patent infringement, trademark rights and rights in a
+      name, a false statement or representation, and a payment You agreed to
+      make; Section 5.2(d) excepts the false statement too. (+40 words.)
     * Section 5.2(a) no longer covenants that the Dedicator will not apply a
       technological measure, only that it will not assert rights in respect of
       one or invoke the law of circumvention against You, as GPL-3.0 Section 3
@@ -68,11 +68,9 @@ ACD-1.4 -- CHANGES FROM ACD-1.3 (DRAFT). Not part of the Dedication.
       asserted; and the closing sentence places the Dedicator's own material
       outside Section 5 (errata E67, E68, E81). Section 6.4 now says that You
       owe nothing "under this Dedication" (errata E70). (+82 words.)
-    * Section 5.1 now reaches a claim "that treats as wrongful, or as without
-      legal basis," a use of the Work that this Dedication permits, where it
-      reached a claim "for" such a use, and Section 5.2 now says that a copy
-      of the Work, or of part of it, contained in the Dedicator's other
-      material "remains the Work, or that part of it". (+30 words.)
+    * Section 5.2 now says that a copy of the Work, or of part of it,
+      contained in the Dedicator's other material "remains the Work, or that
+      part of it". (+30 words.)
     * Section 5.3 now also names the covenant in Section 8.6 (errata E83). (+1
       word.)
     * Section 5.3 no longer lists the persons its covenants bind; it says
@@ -137,10 +135,12 @@ ACD-1.4 -- CHANGES FROM ACD-1.3 (DRAFT). Not part of the Dedication.
     * Section 11.4 now opens "This Dedication, in respect of the Work,
       reaches", speaks of "the patent claims Section 8 reaches" (as
       Section 8.6 now also does), and says that a permission the law of data
-      protection or privacy requires is not the Dedicator's to give (errata
-      E43, E44). Like Section 2.7 and Section 8.5, it no longer points to
-      Section 13.2 or states why its limit matters, and it ends with the
-      sentence that ends Section 11.3. (-33 words.)
+      protection or privacy requires is not the Dedicator's to give where the
+      Work contains "the personal data, likeness, voice, or performance of a
+      person other than the Dedicator" (errata E43, E44). Like Section 2.7 and
+      Section 8.5, it no longer points to Section 13.2 or states why its limit
+      matters, and it ends with the sentence that ends Section 11.3. (-33
+      words.)
     * Section 12.2 now reaches anyone who receives the Work from You "directly
       or indirectly", the words Sections 4.6 and 5.3 use (errata E62). (+3
       words.)
