@@ -155,14 +155,19 @@ def limiter_gaps(flat: dict[str, str]) -> list[tuple[str, str, list[str]]]:
     limiters = [k for k, v in flat.items() if re.search(r"NOT LIABLE|is not liable", v) and re.search(r"this dedication", v, re.I)]
     # 約束の主語が Dedicator の文だけ (他の条の約束を名指すだけの条 —— §4.6・§11.4 —— は約束ではない・2026-11-16 に 2 件の雑音)
     promises = [k for k, v in flat.items()
-                if re.search(r"\bDedicator(?:'s)?(?: further| also| irrevocably)? (?:covenants?|will not|undertakes?|agrees? not)\b", v)]
+                if re.search(r"\bDedicator(?:'s)?(?: further| also| irrevocably)? (?:covenants?|will not|undertakes?|agrees? not)\b", v)
+                # 名詞の「undertaking」で Dedicator を縛る条も約束 (2026-11-19・2f: §2.6 "This undertaking binds that Dedicator" を見落とした)
+                or re.search(r"\b(?:undertaking|covenant|promise) binds (?:that|the) Dedicator\b", v)]
     for lk in limiters:
         # 同じ節の他の条が置く例外も数える (T83 は §14.1 の免責の例外を §14.2 に置いた)。"Section 5, 8.6, or 12.2" も読む
         sib = " ".join(v for c, v in flat.items() if c.split(".")[0] == lk.split(".")[0])
         named = set()
         for grp in re.findall(r"(?:Section|SECTION)S? (\d+(?:\.\d+)?(?:(?:, | or | and |, or |, and )\d+(?:\.\d+)?)*)", sib):
             named |= set(re.findall(r"\d+(?:\.\d+)?", grp))
-        open_ = [pk for pk in promises if pk != lk and pk not in named and pk.split(".")[0] not in named]
+        # 約束の条の側が免責の節を名指して扱いを決めていれば、割れは閉じている (「This undertaking is subject to Section 14」など)
+        top = lk.split(".")[0]
+        open_ = [pk for pk in promises if pk != lk and pk not in named and pk.split(".")[0] not in named
+                 and not re.search(r"\bSections? " + re.escape(top) + r"(?:\.\d+)?\b", flat[pk])]
         if open_:
             m = re.search(r"arising out of this dedication[^,.]*|this dedication", flat[lk], re.I)
             out.append((lk, m.group(0)[:60], open_))
