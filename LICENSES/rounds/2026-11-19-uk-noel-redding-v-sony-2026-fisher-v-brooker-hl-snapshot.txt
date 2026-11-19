@@ -1,0 +1,34 @@
+Source: https://caselaw.nationalarchives.gov.uk/ewhc/ch/2026/983
+Law: Noel Redding Estate Ltd v Sony Music Entertainment UK Ltd [2026] EWHC 983 (Ch)
+Articles: Noel Redding Estate v Sony [2026] EWHC 983 (Ch) paragraph 566, Noel Redding Estate v Sony [2026] EWHC 983 (Ch) paragraph 579, Noel Redding Estate v Sony [2026] EWHC 983 (Ch) paragraph 580, Noel Redding Estate v Sony [2026] EWHC 983 (Ch) paragraph 581, Noel Redding Estate v Sony [2026] EWHC 983 (Ch) paragraph 582 (5 sections below; 11 lines of verbatim passages, 0 note lines)
+Retrieved: 2026-11-19 04:08 UTC by portfolio-30, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: c7ee743dc39f5bd579871ba2fb28ac0c7e1f80ed96e018e2f59629b32250f993 (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 2.2, 2.5
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+（注）この写しは Noel Redding Estate Ltd v Sony Music Entertainment UK Ltd [2026] EWHC 983 (Ch) の段落の逐語の片である。Fisher v Brooker の上告審 [2009] UKHL 41 の本文ではなく、その判決が上告審を要約・引用した文。上告審の本文は parliament.uk が 403、Find Case Law が 404 で取れなかった。道具は各段落から文を選んで返したので、段落の全文ではない。
+
+===== Noel Redding Estate v Sony [2026] EWHC 983 (Ch) paragraph 566 =====
+"it is not the law that inaction or absence of conduct, without more, can give rise to an implied licence."
+
+===== Noel Redding Estate v Sony [2026] EWHC 983 (Ch) paragraph 579 =====
+"the defendants’ implied licence to exploit the work had been revoked from the date of issue of proceedings"
+
+===== Noel Redding Estate v Sony [2026] EWHC 983 (Ch) paragraph 580 =====
+"The claimant’s appeal to the House of Lords was allowed and the second and third declarations"
+"made by the judge at first instance were restored."
+
+===== Noel Redding Estate v Sony [2026] EWHC 983 (Ch) paragraph 581 (quoting Lord Hope in Fisher v Brooker at [7] and [9]) =====
+"there is a crucial difference in principle between the exercise of an undoubted right of property"
+"and resort for its protection to discretionary remedies."
+"But it would be a very strong thing, in the absence of a proprietary estoppel, to deny him the opportunity of"
+"exercising his right of property in his own share of the copyright."
+"there were no grounds in law for setting these declarations aside."
+
+===== Noel Redding Estate v Sony [2026] EWHC 983 (Ch) paragraph 582 (quoting Lord Neuberger in Fisher v Brooker at [64]) =====
+"Although I would not suggest that it is an immutable requirement, some sort of detrimental reliance"
+"is usually an essential ingredient of laches, in my opinion."
