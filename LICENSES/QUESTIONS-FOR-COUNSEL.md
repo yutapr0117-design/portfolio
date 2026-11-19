@@ -634,7 +634,7 @@ court reasonably exercised its discretion in balancing the interests of the lice
 of the debtor"*; it held that §1506's public-policy exception does not foreclose that balancing under §1522,
 and it noted that §103 of the German Insolvency Code, unlike §365, *"does not specifically address
 intellectual property licenses"* (`rounds/2026-11-19-us-jaffe-v-samsung-4th-cir-2013-snapshot.txt`, text extracted from the court's PDF; the
-case was about patent licences under Chapter 15 and was decided before *Tempnology*). So the core of the question is whether §2.9's statement that nothing in the
+case was about patent licences under Chapter 15 and was decided before *Tempnology*). The protection §365(n) gives reaches the licence of copyright as well as of patents: 11 U.S.C. §101(35A) defines *"intellectual property"* to include *"(E) work of authorship protected under title 17"* and *"(B) invention, process, design, or plant protected under title 35"*, and not trademarks (`rounds/2026-11-19-us-11-usc-101-35a-intellectual-property-snapshot.txt`). So the core of the question is whether §2.9's statement that nothing in the
 Dedication is *"suspended by, or revived by"* such a proceeding or an officer's act would be read
 the same way under another jurisdiction's insolvency law.
 

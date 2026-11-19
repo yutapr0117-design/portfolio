@@ -1,0 +1,19 @@
+Source: https://www.law.cornell.edu/uscode/text/11/101
+Law: 11 U.S.C. (United States Code, Title 11), as published by the Legal Information Institute, Cornell Law School
+Articles: §101(35A) (1 sections below; 5 lines of verbatim passages, 1 note lines)
+Retrieved: 2026-11-19 05:02 UTC by portfolio-2f, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: f7b972774cafddd7e5e3b2f2c12794069936b9c67d4f296dd0bca7de0fe18f0b (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 2.9
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+===== 11 U.S.C. §101(35A) (Definitions — "intellectual property") =====
+(Note) A second fetch confirmed the closing words and that the texts of (B) and (E) appear, each on its own line after its letter.
+(35A) "The term “intellectual property” means—"
+(A)-(C) "(A) trade secret; (B) invention, process, design, or plant protected under title 35; (C) patent application;"
+(D)-(E) "(D) plant variety; (E) work of authorship protected under title 17; or"
+(F) "(F) mask work protected under chapter 9 of title 17;"
+closing "to the extent protected by applicable nonbankruptcy law."
