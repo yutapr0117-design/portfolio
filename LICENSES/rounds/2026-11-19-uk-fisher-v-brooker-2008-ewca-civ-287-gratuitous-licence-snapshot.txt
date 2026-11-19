@@ -1,0 +1,36 @@
+Source: https://caselaw.nationalarchives.gov.uk/ewca/civ/2008/287
+Law: Fisher v Brooker [2008] EWCA Civ 287 (Court of Appeal, Civil Division)
+Articles: Fisher v Brooker [2008] EWCA Civ 287 paragraph 34(2), Fisher v Brooker [2008] EWCA Civ 287 paragraphs 117 and 120 (2 sections below; 19 lines of verbatim passages, 2 note lines)
+Retrieved: 2026-11-19 03:17 UTC by portfolio-30, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: c7927a369eac343bf89229efec05e6584c40811774a5ea58f5bee1f674df549b (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 2.2, 2.5, 4.1
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+===== Fisher v Brooker [2008] EWCA Civ 287 paragraph 34(2) (Mummery LJ) =====
+"It is accepted by Matthew Fisher that the exploitation of the copyright in the Work in the period 1967 to 2005 did not"
+"infringe his copyright, as the defendants exploited the Work with his consent."
+"There was an implied licence."
+"He knew about the defendants' activities, but made no objection to them."
+"Copyright is not infringed if the act restricted by the copyright is done with the licence of the copyright owner:"
+"section 16 (2) of the 1988 Act reproducing similar provisions in the Copyright Act 1956, which were in force for part"
+"of the relevant period."
+"The licence may be in writing."
+"It may be oral."
+"It can be implied from conduct."
+"It may be for a consideration or gratuitous, exclusive or non-exclusive, revocable or irrevocable, of limited duration"
+"and ambit or for the full term of copyright and embrace the entirety of its statutory scope."
+（注）原文の link の markup は道具が外した。語は逐語。
+
+===== Fisher v Brooker [2008] EWCA Civ 287 paragraphs 117 and 120 (David Richards J, partly dissenting) =====
+"However, I am unable to agree with him that the appeal should in part be allowed, as regards the declaration of Mr Fisher's"
+"entitlement to a share in the copyright and to an inquiry as to damages for infringement subsequent to 31 May 2005,"
+"on the grounds of acquiescence and laches."
+"Mr Fisher is unable to establish any past infringement because, by reason of his failure to make any claim coupled"
+"with his knowledge of the exploitation of the Work by the defendants as if the copyright belonged entirely to them, he is"
+"presumed by operation of law to have granted them a gratuitous licence."
+"Such a presumed licence is prima facie revocable on reasonable notice."
+（注）合議は Mummery LJ・David Richards J・Sir Paul Kennedy。上告審 [2009] UKHL 41 の判決文は Find Case Law に無く（404）、取得していない。
