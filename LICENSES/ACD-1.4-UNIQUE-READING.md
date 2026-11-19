@@ -194,7 +194,7 @@ THIRD（`ACD-1.4-THIRD-CLARITY-TRIAL.md`）にあった第 19 節を 2026-11-18 
 - §10.3 | 別の読み: Dedicator が条件を「お願い」と名づけて、お願いの外に出す | 一意 | 根拠: §10.3 自身が *"wherever expressed and however phrased"* と名づけを無効にし、§10.1 が条件を 0 にする —— この型を閉じる見本の文。
 - §1.10 | 別の読み: 権利者でない者が「留保」と名づけた信号が Reservation になる | 一意 | 根拠: 定義が *"by which a rightsholder purports to reserve"* と主体で決め、§6.2 が信号の形を問わない。
 - §1.9・§2.6 | 別の読み: 提出者が「議論のためだけ」「Contribution でない」と名づけて外に出す | 一意（意図どおり） | 根拠: 名づけで外に出せるのは提出者自身で、§1.9 と §2.6 が意図してその選択を与える。Dedicator には外す名づけの力が無い（§2.6 は外れた素材を識別する約束を Dedicator に負わせる）。
-- §5.2(b) | 別の読み: 使用の条件を「商標の方針」と名づけて *"other than under trademark rights"* の除外に入れる | 一意 | 根拠: 除外は *under trademark rights or rights in a name* —— 義務が商標や名の権利から生じることを要し、呼び方では足りない。名の使用でない使用の条件は、名づけても (b) の本体の内。
+- §5.2(b) | 別の読み: 使用の条件を「商標の方針」と名づけて *"other than under trademark rights"* の除外に入れる | 一意 | 根拠: §5.2(b) の頭の除外の句と §11.1。除外は *under trademark rights or rights in a name* —— 義務が商標や名の権利から生じることを要し（§11.1 *"This Dedication grants no right in any trademark"* が、その権利を Dedication の外に置く）、呼び方では足りない。名の使用でない使用の条件は、名づけても (b) の本体の内。
 - §16.4 | 別の読み: 中身を変えた本文を「翻訳」と名づけて、名と識別子の制限の外に出す | 一意（効果の側） | 根拠: §16.4 は翻訳の扱いを「翻訳と名乗り、英語の本文が勝つと述べる」ことに条件づけ、§15.4 が英語の本文を正文とする —— 中身を変えた「翻訳」は正文に勝てず、受け手の Work の権利（§16.6）にも響かない。逆側: 名を借りた偽の翻訳が出回る害は残るが、それは名の制限ではなく §11.3（虚偽の表示）の領分。
 
 - §5.2 冒頭（scan の候補 (f)・*will*） | 別の読み: *"the Dedicator will not, in respect of the Work:"* の *will* が予測（しないだろう）と読まれ、約束にならない | 一意 | 根拠: §5.2 の冒頭 *"The Dedicator further covenants that"* が *will not* を約束の中身として受ける。
