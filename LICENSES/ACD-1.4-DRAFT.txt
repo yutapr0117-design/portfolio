@@ -277,8 +277,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 4.5 now says that it "does not permit a person to impose what
       Section 5 forbids on material as to which that person is a
       Dedicator". (+23 words.)
-    * Section 10.1 now imposes nothing upon You "as a person exercising
-      permissions under this Dedication". (+8 words.)
+    * Section 10.1 now imposes nothing upon You in respect of the Work,
+      "other than in Your capacity as a Dedicator". (+8 words.)
     * Section 16.2 now speaks of "material to which a Dedicator has applied
       this Dedication", where it said "a work". (-1 word.)
     * Section 15.1 now joins its two sentences, and "in respect of the Work"
@@ -755,8 +755,8 @@ PREAMBLE (informative; not part of the operative terms)
 10. ABSENCE OF CONDITIONS
 
   10.1 This Dedication imposes no condition, obligation, restriction, or
-       requirement upon You in respect of the Work as a person exercising
-       permissions under this Dedication.
+       requirement upon You in respect of the Work, other than in Your capacity
+       as a Dedicator.
 
   10.2 In particular, You need not give attribution, reproduce any notice, state
        that the Work was modified, make source available, license anything under

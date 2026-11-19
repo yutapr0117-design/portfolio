@@ -340,8 +340,8 @@ MUTATIONS_ARCHIVE7 = [
     {
     "name": "Check 468r: §10.1 に「いまの状態」の語を足す (currently) —— 後で偽になる文を作用の条に書く T54 の型 (2026-11-12)",
     "file": CURRENT_DRAFT,
-    "find": "       requirement upon You in respect of the Work as a person exercising",
-    "replace": "       requirement upon You in respect of the Work as currently a person exercising",
+    "find": "       requirement upon You in respect of the Work, other than in Your capacity",
+    "replace": "       requirement upon You in respect of the Work as currently drafted, other than in Your capacity",
     "check": CHECK,
 },
     {
