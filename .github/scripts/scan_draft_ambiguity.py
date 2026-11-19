@@ -34,6 +34,9 @@
   (q) 一般の条を特定の条だけに言い直す所 —— §2.8 は Dedication の全体で承継人を縛るのに、§5.3・§12.4 が一部の約束だけを
       「the persons Section 2.8 names」を縛ると言い直すと、言い直しの無い約束は承継人を縛らない、の反対解釈が立つ
       (2026-11-19・9b の 2 巡目 §1〜§4)。Dedicator の約束の条のうち、その言い直しの文に名指されないものを出す。
+  (r) 否定の条件が "X or Y" に掛かる所 —— "Where … does not permit the exclusion or limitation …" は「どちらも許さない場合」と
+      「片方を許さない場合」に割れ、条件の真偽が場面で変わる (2026-11-20・1c の 4 巡目・T126 の §14.2)。条件の句 (Where / If /
+      Unless / To the extent / So far as) の中に否定と or / nor が在るものを出す。"whether or not" は数えない。
 
 **--law** (2026-11-16・50 の方法の (a)): 条ごとに「法に頼る句」(to the extent / applicable law / where … permits /
 in a jurisdiction / held invalid / takes effect / is not / does not …) を抜き、5 人の帯 (1c §1〜4・30 §5〜7・50 §8〜10・
@@ -287,6 +290,12 @@ def main(argv: list[str]) -> int:
         for k in prom_q:
             if k not in restated:
                 found["q"].append(f"§{k}: Dedicator の約束の条なのに、承継人を縛ると言い直す文（{', '.join('§' + x for x in sorted(restated))} を名指す）に無い")
+    # (r) 否定の条件が or の並びに掛かる
+    for k, v in flat.items():
+        for m in re.finditer(r"(?:^|[.;:]\s+|,\s+|\(\w\)\s+)((?:[Ww]here|[Ii]f|[Uu]nless|[Tt]o the extent(?: that)?|[Ss]o far as)\b[^,.;]{0,160}?)(?=,|\.|;)", v):
+            c = m.group(1)
+            if re.search(r"\b(?:not|no|neither|never|without)\b", c) and re.search(r"\b(?:or|nor)\b", c):
+                found["r"].append(f"§{k}: 「{c[:120]}」 —— 否定が or の並びの両方に掛かるか片方か")
     # (c) 使われない定義
     for t, k in terms.items():
         uses = [c for c, v in flat.items() if c != k and re.search(r"\b" + re.escape(t) + r"s?\b", v)]
@@ -314,7 +323,8 @@ def main(argv: list[str]) -> int:
              "m": "\"may not\" —— 禁止か可能性か",
              "n": "指示の限定詞 (these / those / such) の名詞が同じ条のその前に無い",
              "o": "同じ働きの除外が片方にだけ (同じ節の約束の項どうしの除外の食い違い)",
-             "q": "承継人を縛ると言い直す文 (the persons Section 2.8 names) に名指されない約束"}
+             "q": "承継人を縛ると言い直す文 (the persons Section 2.8 names) に名指されない約束",
+             "r": "否定の条件が \"X or Y\" に掛かる (両方か片方か)"}
     for typ, name in names.items():
         xs = found.get(typ, [])
         print(f"\n## ({typ}) {name}: {len(xs)}")
