@@ -25,6 +25,9 @@
       読まれる余地が出る (2026-11-18・T98 の §5.2 の "terms or measures" と "those terms and measures")。
   (m) "may not" —— 禁止 (許されない) か、可能性 (しないかもしれない) かで割れる (2026-11-18・2f の §1.266・Cowan 氏「may not は
       読み違えられやすい」)。文の中に禁止を示す語 (restricted / prohibited / no … may) が在れば読みは閉じやすいが、候補として出す。
+  (n) 指示の限定詞 (these / those / such + 名詞) の名詞が、同じ条のその前に無い所 —— 先行詞が条の外にあるか、別の語で呼ばれていて、
+      指し先が割れる (2026-11-19・1c の掃引: §16.2 の "these terms" と §8.5 の "these licences")。"those invited" のような分詞と
+      "these or any other …" は数えない。
 
 **--law** (2026-11-16・50 の方法の (a)): 条ごとに「法に頼る句」(to the extent / applicable law / where … permits /
 in a jurisdiction / held invalid / takes effect / is not / does not …) を抜き、5 人の帯 (1c §1〜4・30 §5〜7・50 §8〜10・
@@ -225,6 +228,15 @@ def main(argv: list[str]) -> int:
     for k, v in flat.items():
         for m in re.finditer(r"\bmay not\b", v):
             found["m"].append(f"§{k}: …{v[max(0, m.start() - 50):m.end() + 40]}…")
+    # (n) 指示の限定詞の名詞が同じ条のその前に無い
+    for k, v in flat.items():
+        for m in re.finditer(r"\b(these|those|such)\s+([a-z]+)", v):
+            noun = m.group(2)
+            if noun in ("as", "a", "an", "the", "that", "who", "whom", "which", "of", "to", "in", "or", "and") or noun.endswith("ed"):
+                continue
+            stem = noun[:-1] if noun.endswith("s") else noun
+            if not re.search(r"\b" + re.escape(stem) + r"s?\b", v[:m.start()].lower()):
+                found["n"].append(f"§{k}: '{m.group(0)}' —— 同じ条のその前に '{stem}' が無い: …{v[max(0, m.start() - 50):m.end() + 30]}…")
     # (c) 使われない定義
     for t, k in terms.items():
         uses = [c for c, v in flat.items() if c != k and re.search(r"\b" + re.escape(t) + r"s?\b", v)]
@@ -249,7 +261,8 @@ def main(argv: list[str]) -> int:
              "h": "小項の中の \"this Section\" —— 節か小項か", "i": "and/or", "j": "優先の連鎖 (subject to / notwithstanding …)",
              "k": "免責・制限の条が同じ文書の約束を呑むか (問い 9 (a) の型)",
              "l": "同じ条の中の \"X or Y\" と \"X and Y\"",
-             "m": "\"may not\" —— 禁止か可能性か"}
+             "m": "\"may not\" —— 禁止か可能性か",
+             "n": "指示の限定詞 (these / those / such) の名詞が同じ条のその前に無い"}
     for typ, name in names.items():
         xs = found.get(typ, [])
         print(f"\n## ({typ}) {name}: {len(xs)}")
