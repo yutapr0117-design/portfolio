@@ -114,6 +114,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `LICENSES/ACD-1.4-SECOND-CLARITY-TRIAL.md` | 986 | 900 | `advisory` | 1.4 草案の明瞭性の試作の 2 冊目（§10 から・1 冊目と同じ規則）。**2026-11-12 に §14.32（T57〜T59）を足して 800 行を越え、Check 454 の危険域に入ったので登録した**。900 に近づいたら、節の単位で 3 冊目へ分ける |
 | `LICENSES/ACD-1.4-THIRD-CLARITY-TRIAL.md` | 854 | 900 | `advisory` | 1.4 草案の明瞭性の試作の 3 冊目（§15 から・同じ規則）と、法的解釈の不確実性（§18）と一意化（§19）の各帯の記録。**2026-11-18 に §19 の各帯の行で 800 行を越え、Check 454 の危険域に入ったので登録した**。900 に近づいたら、節の単位で 4 冊目へ分ける（§18・§19 は帯ごとの記録なので、まとめて移すのが自然） |
 | `LICENSES/ACD-1.4-UNIQUE-READING.md` | 201 | 900 | `advisory` | 1.4 草案の各条の最も強い別の読み（5 人の帯の小節に足す）。**2026-11-18 に THIRD の §19 から移した**（末尾の衝突と THIRD の行数・portfolio-9b） |
+| `LICENSES/QUESTIONS-FOR-COUNSEL.md` | 810 | 900 | `advisory` | 法律家への問い（10 問）。**2026-11-20 に、法令の一次資料を 5 人で読んで各問いに「法が既に決めること」を足し、800 行を越えたので登録した（portfolio-50）**。900 に近づいたら、問いごとの法源の段（What the law already settles）を `ACD-1.0.jurisdictions*.md` へ寄せ、問いには結論と行き先だけを残す |
 | `LICENSES/ACD-1.4-ADVERSARIAL-TRIAGE.md` | 287 | 400 | `advisory` | **外部の敵対的監査（172 観点）を 1 件ずつ仕分けた表**（2026-11-01）。行数は観点の数で固定され、伸びるのは分類欄の長さだけなので早めに鳴らす |
 | `LICENSES/ACD-1.0.reviewer-positions.md` | 877 | 900 | `advisory` | 審査者が**主題**について述べたことの記録（§1.49 / §1.50 / §1.52 / §1.55 / §1.56 / §1.58〜§1.61）。**2026-09-09 に `review-precedents.md` を二分して作った** —— 境界は「1 つの提出の顛末か、複数の提出を横断する主題か」。**節番号は変えていない**ので既存参照は解決する。**分割の disposition**: 次に越えたら**条文の主題（人格権・特許・データベース権）と提出の作法（長さ・弁護士・構造）**で割る —— 前者は条文を読みに来た審査者、後者は提出の形を見に来た審査者が読む |
 | `LICENSES/ACD-1.0.jurisdictions.md` | 622 | 900 | `advisory` | 法域ごとの読み（§2 日本〜§8、§9 外から届いた法源と §9a の原典）。**2026-11-08 に法定の撤回権の条文（UrhG 42 条・CPI L121-4 / L121-7・著作権法 84 条 3 項）を足して 800 行を越え、Check 454 で登録した。** 次に分けるなら §9a（外から届いた法源の原典の記録）が独立した塊である |
@@ -665,6 +666,7 @@ LICENSES/ACD-1.4-CLARITY-TRIAL.md | 900 | advisory
 LICENSES/ACD-1.4-SECOND-CLARITY-TRIAL.md | 900 | advisory
 LICENSES/ACD-1.4-THIRD-CLARITY-TRIAL.md | 900 | advisory
 LICENSES/ACD-1.4-UNIQUE-READING.md | 900 | advisory
+LICENSES/QUESTIONS-FOR-COUNSEL.md | 900 | advisory
 LICENSES/ACD-1.4-ADVERSARIAL-TRIAGE.md | 400 | advisory
 LICENSES/ACD-1.0.reviewer-positions.md | 900 | advisory
 LICENSES/ACD-1.0.jurisdictions.md | 900 | advisory
