@@ -161,6 +161,8 @@ def length_sites(lic: Path, skip, scope: str = "outward") -> tuple[list[dict], l
         (r"GPL-3\.0[^。、]*?より ?([\d,]+) ?語長", [title - g_title], "題名からの GPL-3.0 との差 (長い側)"),
         (r"END OF TERMS\*? ?(?:の手前)?までが ?([\d,]+) ?語", [ops], "条文の語数"),
         (r"条文では ?([\d,]+) ?語長い(?!まま)", [ops - g_ops], "条文の GPL-3.0 との差"),
+        # 条文が GPL-3.0 より短くなった後の言い方 (2026-11-20・30 の (a): 題名からの差と同じ穴)
+        (r"条文では ?([\d,]+) ?語短い", [g_ops - ops], "条文の GPL-3.0 との差 (短い側)"),
         (r"同じ数え方で [\d,]+ ?語・(\+[\d,]+)", [ops - g_ops], "条文の GPL-3.0 との差"),
     ]
     # 「確定した ACD-N.M は」の行は、その版の凍結した本文で測る (2026-11-16・50 の決め: 確定の日に B3 と SUBMISSION-MATERIALS の
@@ -180,6 +182,7 @@ def length_sites(lic: Path, skip, scope: str = "outward") -> tuple[list[dict], l
             (r"GPL-3\.0[^。、]*?より ?([\d,]+) ?語長", [ft - g_title], "題名からの GPL-3.0 との差 (確定した本文・長い側)"),
             (r"END OF TERMS\*? ?(?:の手前)?までが ?([\d,]+) ?語", [fo], "条文の語数 (確定した本文)"),
             (r"条文では ?([\d,]+) ?語長い(?!まま)", [fo - g_ops], "条文の GPL-3.0 との差 (確定した本文)"),
+            (r"条文では ?([\d,]+) ?語短い", [g_ops - fo], "条文の GPL-3.0 との差 (確定した本文・短い側)"),
             (r"同じ数え方で [\d,]+ ?語・(\+[\d,]+)", [fo - g_ops], "条文の GPL-3.0 との差 (確定した本文)"),
         ]))
     for p in sorted(lic.glob("*.md")) + sorted((lic.parent / "docs/files/LICENSES").glob("*.md")):
@@ -192,9 +195,19 @@ def length_sites(lic: Path, skip, scope: str = "outward") -> tuple[list[dict], l
                 a = line.index(label)
                 cut = re.search(r"\*\*20\d\d-\d\d-\d\d|（20\d\d-\d\d-\d\d", line[a:])
                 b = a + cut.start() if cut else len(line)
+                spans = []
                 for rx, vals, what in rxs:
                     for m in re.compile(rx).finditer(line, a, b):
                         add(p, ln, line, m, vals, what)
+                        spans.append((m.start(), m.end()))
+                # 名乗りの後の「N 語長 / 短」(GPL-3.0 との差) が、どの言い方にも読まれずに残ると、その数は黙って照らされなくなる
+                #   (2026-11-20・30 の (b): 「-2 語短く」の行が照らされず、場所の数は 59 のまま 460 (x) が緑だった)。差を述べる
+                #   語数の 1 つずつが、どれかの言い方の一致の中に在ることを見る。「（T72 の後）」と時点を名乗る数は当時の記録
+                for d in re.finditer(r"[^\s、。（）|]*?-?[\d,]+ ?語(?:長|短)(?!いまま)", line[a:b]):
+                    s0 = a + d.start()
+                    if not any(x <= s0 + len(d.group(0)) - 1 and s0 < y for x, y in spans) \
+                            and not re.search(r"（T\d+ の(?:後|前)[^）]*）", line[a + d.end():a + d.end() + 20]):
+                        errs.append(f"{p.name}:{ln} の「{label}」の後の差「{d.group(0)}」が、どの言い方にも読まれない（数が照らされない）")
                 for m in re.finditer(r"条文では ?([\d,]+) ?語長いまま", line):
                     add(p, ln, line, m, [lops - g_ops], "条文の GPL-3.0 との差 (長いまま)")
                 break
