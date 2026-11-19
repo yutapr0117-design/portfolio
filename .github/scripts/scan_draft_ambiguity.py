@@ -253,7 +253,8 @@ def main(argv: list[str]) -> int:
     def _excl_o(u):
         out = []
         for m in re.finditer(r"\bother than ((?:for|under) .+?)(?:\.\s|;|, (?:impose|assert)\b|$)", u):
-            for part in re.split(r",\s*(?:or\s+)?(?=(?:for|under)\b)", m.group(1)):
+            # 並びはカンマか、括弧の後の "or" で区切る (T112 の §5.2(b) "(Section 11.1) or for a payment …" はカンマが無い)
+            for part in re.split(r"(?:,\s*(?:or\s+)?|(?<=\))\s+or\s+)(?=(?:for|under)\b)", m.group(1)):
                 r = re.search(r"\(Sections? ([\d.]+)\)", part)
                 out.append("§" + r.group(1) if r else " ".join(part.split()[:4]))
         return out
