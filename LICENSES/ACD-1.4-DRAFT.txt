@@ -88,21 +88,13 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       one or invoke the law of circumvention against You, as GPL-3.0 Section 3
       does; a rate limit on the Dedicator's own server, a paid download, or a
       store's protection now falls outside it (errata E82). (-2 words.)
-    * Section 5.2 now names an acceptable-use policy in paragraph (b), and
-      Section 5.2(d) now also covenants not to authorise or assist anyone else
+    * Section 5.2 now names an acceptable-use policy in paragraph (b);
+      paragraph (d) now also covenants not to authorise or assist anyone else
       to assert the Dedicator's rights of privacy, publicity, or personality,
-      with its exception for a false statement or representation placed so
-      that it qualifies the right asserted and not the use. Section 5.2 now
-      ends by placing outside Section 5 the Dedicator's rights in material
-      other than the Work that it "makes or makes available", such as its
-      model, and the terms or measures it applies to that material or to the
-      use of a service through which it runs the Work for others without
-      providing a copy, though a term of such a service that reaches the Work
-      however obtained stays inside (errata E67, E68); Section 6.4 now says
-      that You owe nothing "under this Dedication" (errata E70). Section 5.2
-      now names the Dedicator and the Work in that closing sentence, and
-      paragraph (b) says "this Dedication imposes none", in each place where
-      it said "it" (errata E81). (+82 words.)
+      with its exception for a false statement placed before the right
+      asserted; and the closing sentence places the Dedicator's own material
+      outside Section 5 (errata E67, E68, E81). Section 6.4 now says that You
+      owe nothing "under this Dedication" (errata E70). (+82 words.)
     * Section 5.1 now reaches a claim "that treats as wrongful, or as without
       legal basis," a use of the Work that this Dedication permits, where it
       reached a claim "for" such a use, and Section 5.2 now says that a copy
@@ -135,19 +127,12 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       Computational Use of the Work, the words Section 8.4 uses, where it said
       "derived from", and no longer points to Section 9, which speaks of parts
       of the Work and not of models or outputs (errata E47). (-2 words.)
-    * Sections 8.1 and 8.4 now license the acts themselves, named in the same
-      words and ending "otherwise practise or transfer", and Section 8.1
-      reaches "the Work or anything derived from it", where it said "any
-      derivative of the Work" (errata E40, E41, E64). Section 8.4 (errata E66)
-      now leaves a feature added to the Work by whatever means to Section 8.1
-      alone, reaches a claim only where the feature that infringes it results
-      from the content of the Work, where it excluded any claim that a model
-      made without the Work could also infringe, and says that no threshold of
-      quantity is imposed, and states its grant without the reasons it gave
-      for it: the sentence on why the grant is necessary (errata E78), which
-      errata E56 had corrected, the unresolved state of the law, why the
-      proviso in Section 8.1 is absent, and why no threshold is imposed. (-103
-      words.)
+    * Sections 8.1 and 8.4 now license the acts themselves, ending "otherwise
+      practise or transfer", and Section 8.1 reaches "the Work or anything
+      derived from it" (errata E40, E41, E64). Section 8.4 now leaves a
+      feature added to the Work to Section 8.1, reaches a claim only where the
+      infringing feature results from the content of the Work, and no longer
+      states its reasons (errata E56, E66, E78). (-103 words.)
     * Section 8.3 now says once that Sections 8.1 and 8.4 reach a patent claim
       only as to the acts they describe, where it spoke of any patent right of
       the Dedicator in respect of the Work, and no longer gives a reason
@@ -159,16 +144,12 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       these licences under it without breaching an obligation to, or paying,
       another person (errata E39, E60). It no longer points to Section 13.2.
       (+36 words.)
-    * Section 8.6's covenant not to assert the patent claims that Sections 8.1
-      and 8.4 reach now is given for every jurisdiction, instead of only where
-      a licence "is held ineffective", and reaches "any act that those
-      Sections describe", where it reached any use of the Work or of anything
-      resulting from Computational Use of it (errata E42, E45). It now stands
-      on the same footing as "the covenants in Section 5", where it said "the
-      covenant", no longer explains the three footings, which the Preamble
-      states, and ends "depends on that question or on how it is answered",
-      the words Sections 4.4 and 12.2 use (errata E54, E71), and no longer
-      says that it operates "alongside them". (-69 words.)
+    * Section 8.6's covenant not to assert the claims Sections 8.1 and 8.4
+      reach is now given for every jurisdiction and reaches "any act that
+      those Sections describe" (errata E42, E45). It stands on the same
+      footing as "the covenants in Section 5", no longer explains the three
+      footings, and ends as Section 4.4 and Section 12.2 end (errata E54,
+      E71). (-69 words.)
     * Section 1.7, Section 6.4, and Section 8.4 now name "other data"
       resulting from processing after "model, parameter set, weight,
       embedding, output". (+6 words.)
@@ -186,14 +167,12 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       reduces a permission granted by Sections 3 to 10" (errata E52). (0
       words.)
     * Section 11.4 now opens "This Dedication, in respect of the Work,
-      reaches", speaks of "the patent claims Section 8 reaches" where it said
-      "described" (as Section 8.6 now also does), and says that the permission
-      the law of data protection or privacy requires is not the Dedicator's to
-      give where the Work contains "the personal data, likeness, voice, or
-      performance of a person other than the Dedicator" (errata E43, E44). Like
-      Section 2.7 and Section 8.5, it no longer points to Section 13.2, and it
-      no longer states why its limit matters but ends with the sentence that
-      ends Section 11.3. (-33 words.)
+      reaches", speaks of "the patent claims Section 8 reaches" (as
+      Section 8.6 now also does), and says that a permission the law of data
+      protection or privacy requires is not the Dedicator's to give (errata
+      E43, E44). Like Section 2.7 and Section 8.5, it no longer points to
+      Section 13.2 or states why its limit matters, and it ends with the
+      sentence that ends Section 11.3. (-33 words.)
     * Section 12.2 now reaches anyone who receives the Work from You "directly
       or indirectly", the words Sections 4.6 and 5.3 use (errata E62). (+3
       words.)
@@ -311,19 +290,13 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       terms". (+104 words.)
     * Section 16.3 now reaches any work in which the person applying this
       Dedication holds "or may hold" rights "of their own". (+6 words.)
-    * Section 16.4 now restricts any name that contains "Autonomous Commons
-      Dedication" and any identifier that contains "ACD-" followed by a digit,
-      both "regardless of case", where it restricted the name and identifiers
-      of the form "ACD-N" or "ACD-N.N"; the Steward may use them for a
-      modified text only as a new version, under a number and identifier not
-      borne by an earlier text it or a former Steward published, drafts
-      identified as such aside (errata E76, E77). It now says that both
-      provisos, not only the one for translations, are conditions upon
-      distributing the text and not upon any use of the Work (Section 10.5),
-      and it states the Steward's exception and its limit as two sentences
-      ("That exception reaches only a new version"). It now applies itself to
-      a new version distributed under that exception as it applies to this
-      text (errata E80). (+58 words.)
+    * Section 16.4 now restricts any name containing "Autonomous Commons
+      Dedication" and any identifier containing "ACD-" followed by a digit,
+      "regardless of case", and lets the Steward use them for a modified text
+      only as a new version (errata E76, E77). It says that its provisos are
+      conditions upon distributing the text and not upon any use of the Work
+      (Section 10.5), and applies itself to a new version distributed under
+      that exception (errata E80). (+58 words.)
     * Section 16.5 now names, after an assignment, "the person or entity to
       whom that role was last assigned". (+4 words.)
     * Section 16.6 now says that Sections 16.4 and 16.5 bind "no one in respect
