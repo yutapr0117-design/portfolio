@@ -1,0 +1,19 @@
+Source: https://www.ca4.uscourts.gov/Opinions/Published/121802.P.pdf
+Law: Jaffé v. Samsung Electronics Co., No. 12-1802 (4th Cir. 2013), published opinion, United States Court of Appeals for the Fourth Circuit
+Articles: Opinion of the court (1 sections below; 5 lines of verbatim passages, 1 note lines)
+Retrieved: 2026-11-19 04:56 UTC by portfolio-2f, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: 8fdaed2672c6814f31e88ae2579a4ef908a8666bb1e06996433c9da3b7a30cb2 (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 2.9, 8.1
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+===== Jaffé v. Samsung Electronics Co., No. 12-1802 (4th Cir. Dec. 3, 2013) (Opinion of the court, Niemeyer J.) =====
+(Note) Text extracted by portfolio-2f from the court's published PDF (ca4.uscourts.gov/Opinions/Published/121802.P.pdf) by decompressing its content streams locally (zlib) and reading the text operators; the WebFetch tool could not read the compressed PDF. Whitespace is normalised; characters are as encoded in the PDF. This is closer to the source than a model-relayed quote, but it is not a byte copy of the PDF.
+caption "Argued: September 17, 2013 Decided: December 3, 2013 Before NIEMEYER, WYNN, and FLOYD, Circuit Judges. Affirmed by published opinion . Judge Niemeyer wrote the opinion, in which Judge Floyd joined. Judge Wynn wrote a separate opinion concurring in Parts I, II, and III and the judgment."
+holding "relying on the particular facts of this case and the extensive record developed during the four- day evidentiary hearing, we also conclude that the bankruptcy court reasonably exercised its discretion in balancing the interests of the licensees against the interests of the debtor and finding that application of § 365(n) was necessary to ensure the licensees under Qimonda’s U.S. patents were sufficiently protected. Accordingly, we affirm."
+InsO-103 "Section 103 of the German Insolvency Code, much like § 365 of the U.S. Bankruptcy Code, permits an insolvency administrator to decide whether to continue to perform the debtor’s executory contracts. But, unlike § 365, which includes the § 365(n) exception, § 103 does not specifically address intellectual property licenses."
+1506 "we do not share Jaffé’s view that § 1506’s public policy exception forecloses use of a balancing analysis under § 1522."
+conclusion "At bottom, we affirm the decision of the bankruptcy court, finding reasonable its exercise of discretion in conducting the balancing analysis under § 1522(a) and concluding that attaching the protection of § 365(n) was necessary when granting Jaffé the power to administer Qimonda’s U.S. patents."
