@@ -1,0 +1,70 @@
+Source: OSI license-review public archive, 2017-July.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-19)
+Messages: 1 of 7 in "Hooyami License Version 1.0 for Approval" (2017-07-27)
+Senders: Carlo Piana
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From osi-review at piana.eu  Thu Jul 27 13:45:40 2017
+From: osi-review at piana.eu (Carlo Piana)
+Date: Thu, 27 Jul 2017 15:45:40 +0200
+Subject: [License-review] Hooyami License Version 1.0 for Approval
+In-Reply-To: <CAApoVgaZ-gdwbT8XNv3w6TtWPtzZgL97W3i0G49D+V09YZ2Xqg@mail.gmail.com>
+References: <CAApoVgaZ-gdwbT8XNv3w6TtWPtzZgL97W3i0G49D+V09YZ2Xqg@mail.gmail.com>
+Message-ID: <2f9f5515-3dd5-ef52-1d28-a1a7d24afaef@piana.eu>
+
+Hi,
+
+I don't mean to be rude, but the rationale for this license seems quite
+far fetched. Have you consulted an open source legal professional,
+before submitting, or are yourself one? Your statement that, using
+similar (hundreds of them) licenses, people are not able to do what open
+source is supposed to do is puzzling at best, but it is entirely
+possible that I have misunderstood you.
+
+I also note that you have inserted an explicit patent license with
+capitalized terms like "Contributor" or "You", but those terms are not
+defined elsewhere. It looks like it has been cut and pasted from another
+license (Apache).
+
+I don't see this license being obviously contrary to the OSD, but at a
+cursory reading it fails some minimal quality acceptance criteria.
+Moreover, it presents no non-proliferation rationale. 
+
+As such, my humble opinion is that for the time being it shall be
+disapproved.
+
+With best regards,
+
+Carlo Piana
+
+
+
+On 27/07/2017 12:14, nicklaus yap wrote:
+> Hello. My name is nicklaus yap ken yik. The reason I am sending this
+> message is to get my license approve under open source. Any feedback
+> on improvement of this license is also appreciated. 
+>
+> Hooyami License Version 1.0 is the same as other open source license
+> which give people the right to use, copy, share, distribute, modify
+> their source code and binary form. The only thing this license address
+> is to make it clear about relicensing the source code and binary form
+> compare to other open source license. Many other open source license
+> do not state clearly about this which let people to abuse it by
+> copying the source code and binary form and putting it in other open
+> source project and changing the license when there are not the
+> original contributor or author. The effect is most open source project
+> cannot use that source code and binary form for their own purpose
+> which is the main reason of open source. 
+>
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170727/1d05b091/attachment.html>

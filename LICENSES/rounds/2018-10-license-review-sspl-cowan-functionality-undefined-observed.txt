@@ -1,0 +1,49 @@
+Source: OSI license-review public archive, 2018-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-19)
+Messages: 1 of 84 in "Approval: Server Side Public License, Version 1 (SSPL v1)" (2018-10-16)
+Senders: John Cowan
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From cowan at ccil.org  Thu Oct 18 22:47:40 2018
+From: cowan at ccil.org (John Cowan)
+Date: Thu, 18 Oct 2018 18:47:40 -0400
+Subject: [License-review] Approval: Server Side Public License,
+ Version 1 (SSPL v1)
+In-Reply-To: <CAK2MWOs4u40UuO7prDp4JKsb5_VPSBQhk5ennonMVWjmCgY13g@mail.gmail.com>
+References: <CAJ6sj3fnPf4ovFyWF7R_i_6tVLuC=J9BBfE4WqnuoB_-jjhzCg@mail.gmail.com>
+ <756a21fc-3236-42af-9811-823fd6928e55@berkus.org>
+ <2ce49f5a-c92c-4ff3-a03c-279d89d8bbd5@piana.eu>
+ <3644358.bNqAIZVokL@ducky>
+ <CAFQvZEPwdLMsMv1_h5e69TesiaDZYLeO7r6aw+uxdr0aB38XTw@mail.gmail.com>
+ <2D52F7EE739F8542A700CAB96276B5198A47F47A@FMSMSX108.amr.corp.intel.com>
+ <CAK2MWOs4u40UuO7prDp4JKsb5_VPSBQhk5ennonMVWjmCgY13g@mail.gmail.com>
+Message-ID: <CAD2gp_TVKFnsSYOJiHc=pVkjXXqh3NQL9fnkfO8zXakDUOibtQ@mail.gmail.com>
+
+On Thu, Oct 18, 2018 at 6:38 PM Bruce Perens <bruce at perens.com> wrote:
+
+> I think we will need a read from OSI's lawyer on the issue of copyright
+> misuse, unless the current draft is withdrawn for revision quite soon.
+> Wondering why this wasn't a consideration for whoever wrote the license, I
+> haven't heard any identification of that person yet, nor that they are
+> participating in this discussion. That's why I pointedly poked Simon on
+> whether he was representing MongoDB, as I haven't heard from anyone who is.
+>
+
+While we are at it, the use of "functionality" is extremely problematic.
+Since it is not a defined term, it must be read in its ordinary sense in
+connection with computers, namely the usual sense (not the technical sense)
+of "function".  A license that purports to control how you "make the
+functionality of the program" available to third parties would seem to try
+to prohibit you from providing *any* software with the same functionality
+as MongoDB.  That is massively wrong.
+
+--
+John Cowan          http://vrici.lojban.org/~cowan        cowan at ccil.org
+Cash registers don't really add and subtract;
+        they only grind their gears.
+But then they don't really grind their gears, either;
+        they only obey the laws of physics.  --Unknown
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20181018/ba04c624/attachment-0001.html>

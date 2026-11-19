@@ -1,0 +1,340 @@
+Source: OSI license-review public archive, 2025-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-19)
+Messages: 1 of 10 in "Request for approval of new "MGB 1.0" license" (2025-09-19)
+Senders: McCoy Smith
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From mccoy at lexpan.law  Mon Sep 22 17:22:36 2025
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Mon, 22 Sep 2025 10:22:36 -0700
+Subject: [License-review] Request for approval of new "MGB 1.0" license
+In-Reply-To: <91c6f3e8-b584-a9cb-82e7-b85c64782142@chesteklegal.com>
+References: 
+ <DM6PR04MB65586E11DA343C3C53CC9519CE11A@DM6PR04MB6558.namprd04.prod.outlook.com>
+ <91c6f3e8-b584-a9cb-82e7-b85c64782142@chesteklegal.com>
+Message-ID: <c5f5c391-6eea-4190-87cf-9d5549c50ab1@lexpan.law>
+
+I did my own markup in ODT, and I tried to show where the moved 
+definitions differ from those in Apache 2.0 (as well as where Apache 2.0 
+definitions have been removed from this license). See attached. This may 
+or may not be easier for people to see the differences between the two 
+licenses than what Pam sent.
+
+
+A few observations:
+There are still some basic drafting issues with the submitted version: 
+missing close quotes, missing close parentheses, missing apostrophe, 
+inconsistent use of terminology (Definition of "Source Form" and "Object 
+Form" is different than in Apache, but body of license uses the 
+formulation of Apache: "Source form" and "Object form."). Another issue 
+is the defined term "Model Materials" is used but the text of the 
+license only calls out "Models." These are fairly minor but some cleanup 
+would need to be done on this license to fix these various issues).
+
+
+I have a slightly different take on some of the questions that Pam 
+raised below.
+
+
+Patent grant (Sec 2B). The grant itself is internally inconsistent and 
+even if those inconsistencies are reconciled I really have a hard time 
+understanding the rationale for why anyone would want to use a license 
+with the type of patent grant that this license attempts to articulate. 
+As Pam notes, "Work" and "Contributor Version" are not articulated as 
+meaningfully different (and "Contributor Version" is not a term used in 
+Apache 2.0, although other licenses use that term but without the 
+separate defined term "Work"). GIven that these two terms are used 
+together in the disclaimer of combinations grant there needs to be 
+articulation of what this disclaimer means as right now it doesn't make 
+any sense nor can (I believe) anyone figure out what combinations are 
+being disclaimed from the patent grant.
+
+Also, the patent grant does initially purport to cover Derivative Works 
+("to make, have made, use, offer to sell, sell, import, and otherwise 
+transfer the Work *and Derivative Works*") but this grant to Derivative 
+Works is then taken away by the disclaimer of "*your* or any other party 
+s (sic) Derivative Works." As currently written, the only patent grant 
+is from the original author to their original version of the Work. This 
+seems to significantly disadvantage the original author as they would be 
+granting a license to their work but not receiving one in return from 
+subsequent contributors. This seems ill advised and I don't see why any 
+original work author would select this license for use because of that.
+
+Finally, this license removes the perpetual nature of the patent license 
+from Apache 2.0 but there's no explanation as to why (perhaps it is 
+based on the patent grant surviving for the life of the licensed patents 
+but I don't see a need to strike out perpetual in that case given that 
+once any particular patent expires no license is needed.
+
+
+On the non-patent rights grant, as it is now intended to cover things 
+other than copyright, it probably shouldn't use only the verbs that come 
+from 17 USC (US copyright law), as it could otherwise be construed as 
+just a copyright license.
+
+
+I share Pam's concerns about the additional attribution requirement, and 
+will add that it purports to impose this obligation even when there is 
+no use of copyrighted material ("any portion of the Work included with 
+or integrated into Your Derivative Work"). Apache 2.0 already includes a 
+source code attribution requirement in 4.3 as well as an attribution 
+requirement via a Notice file for source and non-source versions; this 
+additional notice requirement adds yet another notice compliance burden 
+that doesn't seem to add anything beyond what Apache already does (FWIW 
+I find Apache 2.0's burdensome too and think it would be better to just 
+modify 4.3 to include both source and object code and remove the Notice 
+file requirement altogether).
+
+
+I also echo Pam's comments on the HIPAA clause. This seems like just 
+another "you have to comply with the law" clause which are generally 
+unnecessary and are falling away (thankfully) from newer better licenses 
+(I think I was the first one to ever deprecate a license due to this 
+issue: Intel withdraws open source license, receives applause - 
+Linux.com 
+<https://www.linux.com/news/intel-withdraws-open-source-license-receives-applause/>) 
+Although the clause also purports to include a disclaimer of warranties 
+under HIPAA, the broad disclaimer in Apache 2.0 (which this license 
+reproduces) should already cover that.
+
+
+In summary, there's a lot of cleanup that this license needs, as well as 
+some structural changes that probably would need to be made in order to 
+make it coherent enough to approve.
+
+
+
+On 9/19/2025 5:41 PM, Pamela Chestek wrote:
+>
+> I believe this license is still problematic for several reasons.
+>
+>
+> _Section 2(B), patent grant_ (why is B uppercase here, but lowercase 
+> in Section 3?)
+>
+>> For clarity, no patent license is granted by a Contributor for 
+>> infringements caused by:
+>>
+>> (i) your or any other party's Derivative Works, ...
+> This language withholds the patent license the moment a change is made 
+> to the software, whether it has anything to do with the patented 
+> function or not. In other words, no one who makes any change 
+> downstream has a patent license. This is unacceptable for an open 
+> source license.
+>
+>
+>> (ii) the combination of the Work with anything other than the 
+>> Contributor Version. 
+> I can't parse this language, because I don't think you mean "Work" as 
+> it is defined in the license. As you've defined it, the "Contributor 
+> Version" /is/ the "Work," so how can there be a combination of these 
+> two things? I assume what you're trying to get at is the concept of 
+> combining your Contributor Version with some other software, but I 
+> don't think that's what it says. However, my understanding of what 
+> you're trying to say is problematic too, because, like above, you are 
+> withholding the patent license even though the combination may not 
+> create a new infringement. New infringement is the only kind of patent 
+> claims that can be excluded in an open source license.
+>
+>
+> _Section 3(d), new attribution requirement_
+>
+>
+> The newly added 3(d) is problematic. First, it's unclear. The 
+> requirement is to "conspicuously mark[] any portion of the Work ..." 
+> Mark it where? In the source code? In the marketing materials? In the 
+> documentation? It is also atypical, in that it appears to require a 
+> user to add new information that is not already contained in the 
+> software. Your license (and the Apache license) state that copyright 
+> notices have to be retained, so why isn't it sufficient for you to 
+> include the copyright notice you desire, which then others cannot 
+> remove? Why are you putting an affirmative burden on a user to figure 
+> it out? What problem are you trying to solve with this?
+>
+>
+> _Section 4, Personal Information_
+>
+>
+> It's questionably written and I believe unnecessary. It has the 
+> wording of a limit on the license grant, "The Work may include data, 
+> graphs, and Models, and if so, You may use and modify such data, 
+> graphs, and Models, /provided that/ ..." "Provided that" is typically 
+> interpreted as a condition on the previous permission. However, what 
+> follows isn't a condition, just a statement of fact, "You may have 
+> obligations to comply with laws concerning privacy or protected health 
+> information ...." But are you trying to condition the license grant on 
+> compliance with the privacy laws? If you are, that would be a 
+> violation of OSD6.
+>
+>
+> The section is also problematic because it cites US law. Open source 
+> licenses are ideally for an international audience. The waiver of 
+> warranty is redundant to Section 8. I would weigh whether it really is 
+> necessary to tell people what they should already know, which is that 
+> they have to abide by the law, and consider taking the entire 
+> paragraph out.
+>
+> Pam
+>
+>
+> Pamela S. Chestek
+>
+> Chestek Legal
+> 4641 Post St.
+> Unit 4316
+> El Dorado Hills, CA 95762
+> +1 919-800-8033
+> pamela at chesteklegal
+> www.chesteklegal.com
+>
+>
+> On 9/19/2025 9:03 AM, Barksdale, Marvin via License-review wrote:
+>> I Marvin Barksdale JD, the license steward and license submitter, 
+>> attests that this new “MGB 1.0” license complies with the Open Source 
+>> Definition, including:
+>> OSD 3 – The license must allow modifications and derived works and 
+>> must allow them to be distributed under the same terms as the license 
+>> of the original software.
+>> OSD 5 – The license must not discriminate against any person or group 
+>> of persons.
+>> OSD 6 – The license must not restrict anyone from making use of the 
+>> program in a specific field of endeavor.
+>> and OSD 9 – The license must not place restrictions on other software 
+>> that is distributed along with the licensed software. For example, 
+>> the license must not insist that all other programs distributed on 
+>> the same medium must be open source software.
+>> License Rationale
+>> The MGB Open Source License 1.0 (“MGB 1.0”) is a permissive open 
+>> source license that was created to catalyze open source distribution 
+>> and open science among the health care innovator and research 
+>> development community, particularly those employed at Academic 
+>> Medical Centers (AMCs) receiving federal grant funding, such as Mass 
+>> General Brigham Incorporated (MGB).  AMCs are collectively organized 
+>> hospitals and laboratories that are integrated with a medical school, 
+>> featuring a federally regulated mission to provide patient care, 
+>> train healthcare professionals, and conduct innovative research.  In 
+>> recent years these complex organizations have evolved to perform 
+>> several ancillary commercial functions including IP co-development, 
+>> administration, and out-licensing, all of which aimed to support 
+>> their central mission of the advancement of medicine.  Aligned with 
+>> this central mission is the proliferation of open science activity at 
+>> AMCs, in that many of their researchers and developers have shifted 
+>> to open collaborative approaches where research data, methodologies, 
+>> source code and findings are shared at no cost to spur innovation. 
+>> But, despite the alignment with system goals, AMCs have been slow to 
+>> adopt open source best practices.    At Mass General Brigham, for 
+>> example, despite receiving over $77M in NIH funding over the past 10 
+>> years to support 200+ software research projects in yielding fruitful 
+>> open source communities and innovations, instead there is a large 
+>> silo of health care researchers, clinicians, and developers who 
+>> operate in the grey areas of open source, NIH, Open Access Journal, 
+>> and MGB compliance.
+>> The goal of MGB 1.0 is to provide developers who are building 
+>> innovative technology within highly regulated health care 
+>> environments with a permissive open source license that incorporates 
+>> the best practices of digital health licensing, enabling compliant 
+>> open source collaboration both across and external to AMCs.
+>> Beyond addressing the open data, open source, and open access 
+>> approaches of digital health researchers and software developers, MGB 
+>> 1.0 also looks to support the rise of open AI model development that 
+>> often utilizes sensitive health data for training purposes. Thus, 
+>> although MGB 1.0 uses a similar licensing approach as Apache 2.0, it 
+>> expands its applicability to AI models and other shared works and 
+>> derivatives spanning “model architecture, code, data descriptions, 
+>> data, and the model weights.” This expanded scope is important 
+>> because there are few open source licenses in current use that are 
+>> suitable for releasing AI models and their related artifacts.
+>> Through internal cross-functional approval MGB 1.0 is now the default 
+>> open source license for emerging MGB research and innovations 
+>> involving open science, and for over 500 active GitHub repositories 
+>> authored and / or controlled by MGB clinicians, researchers, labs, 
+>> and developers. The MGB Open Science Program Office manages the MGB 
+>> IP Policy pertaining to open source licensing and drives compliance 
+>> through the promotion of open science best practices.
+>> Legal Analysis
+>> Although MGB 1.0 uses a pro-commercialization, pro-modification, 
+>> highly compatible licensing scheme similar to Apache 2.0, it is 
+>> critically different in three ways: clarified patent terms, coverage 
+>> of AI artifacts, and clarified interaction with data regulation. 
+>> Licensors of open source software have long struggled with the 
+>> ambiguities of the patent license grant in Apache 2.0. In this 
+>> license each Contributor grants a no-charge patent license to the 
+>> Work, applying to “patent claims that are necessarily infringed by 
+>> their Contribution(s) or by the combination of their Contribution to 
+>> the Work.”  As evidenced by the AFL, and later, the GNU v3 licenses, 
+>> all approved by OSI, there has been a shift in OSI license patent 
+>> grants to language that “applies only to specific set of patent 
+>> claims…that are embodied in the in the Original Work as furnished by 
+>> the Licensor. [They are] not license[s] to the Licensor’s entire 
+>> patent portfolio.“ [Lawrence Rosen “Open Source Licensing – Software 
+>> Freedom and Intellectual Property Law” p 189].
+>> As Apache 2.0’s patent grant features a broad patent grant 
+>> application extending to those claims infringed by the combination of 
+>> the original Work and a Contribution,  MGB 1.0 builds on Rosen’s 
+>> focused approach: “claims embodied by the original work,” to 
+>> explicitly apply to patent claims claiming inventions embodied in 
+>> contribution. The license also leverages clarifying patent language 
+>> from Section 2.3 of the Mozilla Public License version 2.0 also 
+>> approved by OSI.
+>> MGB 1.0 was co drafted by myself, Marvin Barksdale JD, Preston Regehr 
+>> Esq. of Tech Law Ventures PLLC, and Heather Meeker Esq. of Tech Law 
+>> Partners LLP before being reviewed and approved for system use by 
+>> Mass General Brigham’s Office of General Counsel’s IP Group.
+>> Summary
+>> MGB 1.0 provides express licensing provisions that are best practice 
+>> in digital health, while explicitly preserving opportunities for 
+>> commercial activity by licensors who are patent portfolio holders and 
+>> innovators. To these ends, MGB 1.0 utilizes a clearer approach than 
+>> the MIT, BSD and Apache 2.0 licenses. Furthermore, MGB 1.0, 
+>> explicitly contemplates the inclusion of AI model artifacts in the 
+>> licensed work. Beyond the clarified patent grant, MGB 1.0 also adds 
+>> HIPAA acknowledgement language that will provide AMC’s and other open 
+>> source innovators sharing models trained on health data comfort that 
+>> they can release materials under this license and still comply with 
+>> law in a heavily regulated field. MGB 1.0 provides developers who are 
+>> building innovative software within highly regulated health care 
+>> environments with a permissive open source license that incorporates 
+>> the best practices of digital health licensing, catalyzing compliant 
+>> open source collaboration.
+>>
+>>
+>>
+>> The information in this e-mail is intended only for the person to 
+>> whom it is addressed.  If you believe this e-mail was sent to you in 
+>> error and the e-mail contains patient information, please contact the 
+>> Mass General Brigham Compliance HelpLine at 
+>> https://www.massgeneralbrigham.org/complianceline .
+>>
+>>
+>> Please note that this e-mail is not secure (encrypted).  If you do 
+>> not wish to continue communication over unencrypted e-mail, please 
+>> notify the sender of this message immediately.  Continuing to send or 
+>> respond to e-mail after receiving this message means you understand 
+>> and accept this risk and wish to continue to communicate over 
+>> unencrypted e-mail.
+>>
+>>
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>>
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20250922/d40da643/attachment-0001.htm>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: MGB Open Source License 1.0 compare Apace 2.0.odt
+Type: application/vnd.oasis.opendocument.text
+Size: 60179 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20250922/d40da643/attachment-0001.odt>
