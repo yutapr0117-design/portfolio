@@ -936,4 +936,15 @@ T127 の確かめ（2f・30）: 2f —— *material* は §1.3 と同じ語、*r
 
 30 が §5〜§7 を頭から終わりまで読んだ（T131 と T132〜T134 の後の main）。参照（§2.4・§2.5・§2.7・§2.8・§8・§8.6・§10.1・§11.1・§11.3・§11.4・§15.1）はどれも今の条を指す（道具で照合した）。CHANGES の箇条の引用は、どれも 1.3 か今の草案のどちらかに在る（同じ道具）。試作を重ねた文: §5.2 の末段の *those terms* は手段（*measures*）を含まず、T98 と T124 の線（素材に掛けた手段は §5 の外）と合う。§6.3 の *is able* は T125 で替えなかったまま（他人の留保を撤回する文で働きが違う・§15.41）、§6.4 は T131 の後で §2.8・§5.3・§5.2 の授権と同じ句を持つ。**記録しておくこと（本文の欠陥ではない）**: CHANGES の §5.1 の箇条は 2 つ続き、1 つ目は *"reaches a claim "for" a use"* と途中の形を「now」で述べ、2 つ目がそれを置き換える —— 1.3 と今の草案のどちらにも無い形を、変更の記録として順に並べている。凍結で付録に写すとき、1 つ目だけを読む審査者は今の文と食い違うと読む余地がある（1c へ）。
 
+### 15.50 段 7 の最終の通読 —— 9b の帯（§14〜§16）を 1c が先に読んだ（立つもの 0・9b の確かめ待ち・2026-11-20）
+
+9b の帯の通読が返らないので、確定の判断を止めないよう 1c が先に読んだ。9b が自分の帯として確かめて同意すれば、段 7 の最終の通読は 5 帯とも閉じる。
+
+- §14.1・§14.2: T102（*IN EACH CASE WHERE APPLICABLE LAW DOES NOT PERMIT IT TO BE EXCLUDED*）と T126（*Subject to Section 14.1, where applicable law does not permit a liability to be excluded*）の後も文は崩れず、2 つの条の優先は *Subject to Section 14.1* の語に在る。
+- §15.1〜§15.6: §15.2 の T129（*is to be treated as severed*）は第 1 文の *is to be reformed* と同じ形。§15.3〜§15.6 は変化なし・崩れなし。
+- §16.1: 通知の見本の *no conditions are imposed in respect of it* は T120（§10.1 の役の限定）の後も通知の要約で、通知の当たる物と範囲は §16.2 と §10.1 が決める（§19 の 30 の行で一意）。
+- §16.2・§16.3: T119・T127 の後の *material* が §1.3 の Work の定義と揃う。
+- §16.4: *Both provisos* は翻訳の但し書き（*if it is identified as a translation and states that the English text prevails*）と再符号化の但し書き（*provided the words are unchanged and the form is identified as a re-encoding*）の 2 つで一意。*Section 16.4 applies to a new version distributed under that exception as it applies to this text* も崩れなし。
+- 参照（§6.2・§10.5・§11・§15.4・§16.5）はどれも今の条を指す。CHANGES の §14〜§16 の箇条は 50 の差分の当て（述べられない変更 0）で照らし済み。
+
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。
