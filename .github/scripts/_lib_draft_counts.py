@@ -38,6 +38,9 @@ def bullet_components(hdr: str, prev: dict, cur: dict, changed: set, prev_body: 
             continue
         dec = int(md.group(1) + md.group(2)) if md.group(1) else 0
         named = re.sub(r"the words? (?:that )?Sections? (?:\d+\.\d+|[^,.()])*? uses?\b", "", b)
+        # 「Sections 5.1 to 5.3」は端の 2 つだけでなく間の条も名指す (2026-11-19・冒頭の一覧を詰めると範囲の形が増える)
+        named = re.sub(r"\b(\d+)\.(\d+) (?:to|through)(?: Sections?)? \1\.(\d+)\b",
+                       lambda m: ", ".join(f"{m.group(1)}.{i}" for i in range(int(m.group(2)), int(m.group(3)) + 1)), named)
         s = {k for k in re.findall(r"\b(\d+\.\d+)\b", named) if k in changed} or {"<条の外>"}
         new = [dec, set(s), 1]
         for c in [c for c in comps if c[1] & s]:
