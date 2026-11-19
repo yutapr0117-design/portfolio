@@ -150,6 +150,18 @@ def this_section_hits(flat: dict[str, str]) -> list[tuple[str, str]]:
     return out
 
 
+def negated_condition_hits(flat: dict[str, str]) -> list[tuple[str, str]]:
+    """(r) 条件の句 (Where / If / Unless / To the extent / So far as) の中に否定と or / nor が在るもの。Check 468ab が 0 を保つ
+    (T126 で §14.2 を 0 にした・2026-11-20)。"whether or not" は条件の句に数えない。"""
+    out = []
+    for k, v in flat.items():
+        for m in re.finditer(r"(?:^|[.;:]\s+|,\s+|\(\w\)\s+)((?:[Ww]here|[Ii]f|[Uu]nless|[Tt]o the extent(?: that)?|[Ss]o far as)\b[^,.;]{0,160}?)(?=,|\.|;)", v):
+            c = m.group(1)
+            if re.search(r"\b(?:not|no|neither|never|without)\b", c) and re.search(r"\b(?:or|nor)\b", c):
+                out.append((k, c))
+    return out
+
+
 def limiter_gaps(flat: dict[str, str]) -> list[tuple[str, str, list[str]]]:
     """(k) 責任を外す条が、同じ節のどの条も例外として名指していない Dedicator の約束の条 (問い 9 (a) の型)。
     Check 468ab が 0 を保つ (T83・T88 で 0 にした)。"""
@@ -290,12 +302,9 @@ def main(argv: list[str]) -> int:
         for k in prom_q:
             if k not in restated:
                 found["q"].append(f"§{k}: Dedicator の約束の条なのに、承継人を縛ると言い直す文（{', '.join('§' + x for x in sorted(restated))} を名指す）に無い")
-    # (r) 否定の条件が or の並びに掛かる
-    for k, v in flat.items():
-        for m in re.finditer(r"(?:^|[.;:]\s+|,\s+|\(\w\)\s+)((?:[Ww]here|[Ii]f|[Uu]nless|[Tt]o the extent(?: that)?|[Ss]o far as)\b[^,.;]{0,160}?)(?=,|\.|;)", v):
-            c = m.group(1)
-            if re.search(r"\b(?:not|no|neither|never|without)\b", c) and re.search(r"\b(?:or|nor)\b", c):
-                found["r"].append(f"§{k}: 「{c[:120]}」 —— 否定が or の並びの両方に掛かるか片方か")
+    # (r) 否定の条件が or の並びに掛かる (Check 468ab が 0 を保つ)
+    for k, c in negated_condition_hits(flat):
+        found["r"].append(f"§{k}: 「{c[:120]}」 —— 否定が or の並びの両方に掛かるか片方か")
     # (c) 使われない定義
     for t, k in terms.items():
         uses = [c for c, v in flat.items() if c != k and re.search(r"\b" + re.escape(t) + r"s?\b", v)]

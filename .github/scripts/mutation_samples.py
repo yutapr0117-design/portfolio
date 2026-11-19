@@ -494,6 +494,14 @@ _MUTATIONS_TAIL.append({
     "replace": "\n  Changes since the version posted on 2026-11-18:\n    * none\n\n  Changes in this draft, relative to ACD-1.3:",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 468ab: 草案の §14.2 の条件を「does not permit a liability to be excluded or limited」にする (T126 の前と同じ割れ) —— "
+            "否定が or の並びに掛かり、除外は許さないが制限は許す場面が文から外れる型 (2026-11-20・1c の 4 巡目)",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-DRAFT.txt",
+    "find": "to be excluded, that liability is limited",
+    "replace": "to be excluded or limited, that liability is limited",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
