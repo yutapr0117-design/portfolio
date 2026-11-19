@@ -186,7 +186,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §10.1（受け手の役・T120） | 末に *"other than in Your capacity as a Dedicator"* を足す | 一意化（UNIQUE-READING §19.5・3 巡目「役が入れ替わる」・portfolio-9b）: Contribution を出した者は受け手（§1.6 の You）でもあり、§2.6 で Dedicator にもなる。§10.1 の「You に Work について何も課さない」と §15.1 が、受け手でもある Dedicator を §2.6・§5・§8.6・§12.2 の約束から外す、と読めた。最初の形 *"as a person exercising permissions under this Dedication"*（9b の案）は、許しを要しない使い方だけをする受け手（私的に読むだけ・権利の立たない部分だけを使う）を §10.1 の外に置く読みを新しく作ったので（portfolio-30 の 1 巡）、狭める向きを逆にし、受け手の役は全部残して Dedicator の役だけを外した。T121（§4.5 の *material as to which that person is a Dedicator*）と同じ線。§1.6 に役の文を足す案（+28）は約束の列を持ち、列のずれ（T88・T111）を繰り返すので採らない。**逆側**: 外向きの「受け手には何も課さない」の文は役を言わない | 8 | 反映済 |
 | §4.5（Dedicator が自分の寄与を縛り直す・T121） | 末に *"Section 4.5 does not permit a person to impose what Section 5 forbids on material as to which that person is a Dedicator."* を足す | 一意化（UNIQUE-READING §19.3・3 巡目「役が入れ替わる」・portfolio-50）: §2.6 で自分の寄与の Dedicator になった者が、Work を含む自分の製品を EULA で出すとき、You としては §4.5 の *"under any terms You choose"* で許され、Dedicator としては §5.2(b) と末段（T98）で自分の寄与の写しを縛れず、本文はどちらが優先するかを述べなかった。Dedicator が commons を縛り直せないという T91・T98 の趣旨の側に定めた。50 の案の *the material for which it is a Dedicator* は *it* が割れるので、§2.6 の *as to* の言い方にして人を名指した。**逆側**: 寄与した企業の負担を本文が明示するので、寄与の意欲（B2）に向かい風。製品の他の部分の条件は §5.2 末段のとおり §5 の外に残る | 23 | 反映済 |
 | §12.5（放棄も偽の帰属に及ばない・T122） | *"Neither the covenant nor the consent in Section 12.2 extends … survives both"* を *"Neither the waiver in Section 12.1 nor the covenant and the consent in Section 12.2 extend … survives all three"* へ | 一意化（UNIQUE-READING §19.4・3 巡目・portfolio-1c）: T101 で §12.1 と §12.2 が全法域で並んだ後、§12.5 の除外は §12.2 にだけ掛かり、§11.3 の *"outside what this Dedication reaches"* と食い違った —— §11.3 は偽の帰属を Dedication 全体（§12.1 を含む）の外に置くのに、§12.5 の反対解釈は §12.1 の放棄をその権利にも及ぼす。逐条リファレンスはこの非対称を「放棄と保持の両方を取っている」という反論への答えとして意図したと記録していたが、出所をたどると errata E53 → `against.md` #118 → Chestek 氏の *"you can't have it both ways"* で、その発言は公有の献呈と許諾を両方置くことについてのもので、人格権の話ではなかった（portfolio-50 の調べ）。法域の上で (A) と (B) が違うのは英国 CDPA 84 条型（87 条 2 項で放棄できる偽の帰属の権利）だけで、使用は何も狭まらない（portfolio-30 の読み・法律家の確認なし）。**逆側**: 「放棄しつつ保持する」と読む審査者が残る —— 保持するのは使用でなく「Dedicator が作った」という嘘に向く権利 1 つで、§11.3 と同じ線だと逐条で先に答える | 7 | 反映済 |
-| §11.3（付いていた表示を残すこと・T123） | 第 2 文の後に *"Retaining a notice that accompanied the Work is not such a representation."* を足す | 一意化（THIRD §15.39・portfolio-30 の T122 への 1 巡）: §10.2 は受け手に改変の表示を求めないので、受け手が Work を改変し、付いていた Dedicator の名の表示を残したまま頒布すると、CDPA 84 条 1 項の *attribution*（*"a statement (express or implied) as to who is the author"*）の黙示の言明として §11.3 に当たると読まれうる。T122 の後は §12.1 の放棄も §12.2 の約束と同意もその行為に及ばないので、§10.2 の自由に従った受け手が偽の帰属の主張を受ける余地が本文の語から生まれた。嘘を積極に言う行為（改変版を Dedicator の作と新たに名乗る、推奨や後援を偽る）は §11.3 の内に残し、付いていた表示を残すだけの行為を外した。**逆側**: 表示を残して改変版を Dedicator の作と誤解させる場面は §11.3 の外になり、放棄・約束・同意の内に入る —— Dedicator は一般法（詐称通用など）でしか向かえない。§10.2 がもともとその自由を与えているので本文の線と揃う | 12 | 反映済 |
+| §11.3（付いていた表示を残すこと・T123） | 第 2 文の後に *"Retaining a notice that accompanied or was contained in the Work is not such a representation."* を足す | 一意化（THIRD §15.39・portfolio-30 の T122 への 1 巡）: §10.2 は受け手に改変の表示を求めないので、受け手が Work を改変し、付いていた Dedicator の名の表示を残したまま頒布すると、CDPA 84 条 1 項の *attribution*（*"a statement (express or implied) as to who is the author"*）の黙示の言明として §11.3 に当たると読まれうる。T122 の後は §12.1 の放棄も §12.2 の約束と同意もその行為に及ばないので、§10.2 の自由に従った受け手が偽の帰属の主張を受ける余地が本文の語から生まれた。嘘を積極に言う行為（改変版を Dedicator の作と新たに名乗る、推奨や後援を偽る）は §11.3 の内に残し、付いていた表示を残すだけの行為を外した。2 巡目（30）: *accompanied* は Work と並んで在る表示を指し、ファイルの中の作者のヘッダーや奥付を外すと読まれうる（§16.2 自身が *accompanied by* と *within a file* を書き分ける）ので *or was contained in* を足した。**逆側**: 表示を残して改変版を Dedicator の作と誤解させる場面は §11.3 の外になり、放棄・約束・同意の内に入る —— Dedicator は一般法（詐称通用など）でしか向かえない。§10.2 がもともとその自由を与えているので本文の線と揃う | 16 | 反映済 |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
@@ -242,19 +242,19 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
-1.3 の 5,443 語から 1.4 草案は +334 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
+1.3 の 5,443 語から 1.4 草案は +338 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
 
 | 束 | 増減 | 何のための語か |
 | :-- | --: | :-- |
 | 適用と通知（§1.9・§2.3・§2.6・§16.1〜§16.3）| +161 | タグや識別子だけの適用、通知が名指す素材、優先、大小の区別、寄与の宛先。採用者がファイル単位・パッケージ単位で使うときに、意図しない素材を撤回不能に出さないための語 |
 | 不行使と付随の約束（§5）| +219 | 商標と虚偽の表示、合意した支払い、特許の除外、Dedicator 自身のモデルとサービス。データだけを出す組織や、重みと API を両方出す組織が採用できるための語 |
 | 名前の保護（§16.4〜§16.6）| +64 | 1 つの名前と識別子が 1 つの本文を指し、Steward が出した新しい版を誰でもその名の下で配れるための語 |
-| その他の明瞭化 | +177 | 定義、承継（§2.8 の *to that extent*・T59、§5.3 の列挙を §2.8 へ寄せた T74）、免責の除外（§14.1・T82）と約束の違反（§14.2・T83）、撤回不能（§2.2 の後付けの制限・T65）、§4、§9 などの語の付き先 |
+| その他の明瞭化 | +181 | 定義、承継（§2.8 の *to that extent*・T59、§5.3 の列挙を §2.8 へ寄せた T74）、免責の除外（§14.1・T82）と約束の違反（§14.2・T83）、撤回不能（§2.2 の後付けの制限・T65）、§4、§9 などの語の付き先 |
 | 人格権（§12）| +25 | 人格権を放棄できない法域での同意（T67・§2.4 の独立の列挙を含む）。約束が契約として効かない場面でも、行為がそもそも侵害にならないための語 |
 | 特許（§6.1・§8）| −37 | 行為を目的語にし、*reach* を 1 回で定め、三つの足場の説明と §8.6 の *alongside them*（T56）を外した |
 | 理由・説明の文を外したもの | −275 | §2.8・§11.4・§12.4・§8.4（T54）の理由の文と、§2.7・§8.5 の案内（Chestek 氏 *"I question whether they belong in the agreement at all."*・#295）|
 
-**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +380）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 881 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
+**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +380）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 885 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
 
 ## 外部資料・OSAID 1.0・opensource.org のページを当てた記録（2026-10-28）は別の file へ移した
 
@@ -433,7 +433,7 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 > §2 (scope and effect, 11) and §1 (definitions, 8); seven name the preamble or several clauses at
 > once. Further changes came from our own sweeps of the
 > later drafts and are listed, with their reasons, in each version's change list. The text is
-> longer: 5,777 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
+> longer: 5,781 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
 
 **⚠ 逆側**: 短い経路の語数が約 170 語増える（`REVIEWERS.md` の短い経路の表と Check 472m の値を同じ日に直す）。*"The direction is unchanged"* は、1.0 から変わらなかったものを 3 つだけ挙げる文で、ほかに変わらなかったものが無いとは言っていない。逆に、変わったものを errata の件数で数えるので、errata に載らない 1.4 生まれの変更（T34〜T52 の多く）は *"Further changes"* の 1 文にまとまる。数を当日に数え直すのは、草案が確定まで動くからである（2026-11-11 の時点でも 1.4 の閉鎖は 39 件で、まだ動きうる。**同日の訂正**: 最初の下書きは 1.3 で 5・1.4 で 38 と書いた。状態の列の版の語の最初の一致を数えていて、閉鎖の印でない語を拾っていた。portfolio-00 が印の正規表現で 4 と 39 を出し、同じ数え方で確かめた）。
 
