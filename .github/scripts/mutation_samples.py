@@ -510,6 +510,14 @@ _MUTATIONS_TAIL.append({
     "replace": "to be excluded or limited, that liability is limited",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 473d: 17 U.S.C. §1201 の写しの逐語の片の shall を may に変える —— 置いた後に本文を直すと、§18 の行が引いた逐語が "
+            "いつの文かを確かめられなくなる (2026-11-20)",
+    "file": ROOT / "LICENSES" / "rounds" / "2026-11-19-us-17-usc-203-1201-snapshot.txt",
+    "find": "No person shall circumvent a technological measure",
+    "replace": "No person may circumvent a technological measure",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
