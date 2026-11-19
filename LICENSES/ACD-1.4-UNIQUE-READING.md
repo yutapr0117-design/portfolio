@@ -98,7 +98,7 @@ THIRD（`ACD-1.4-THIRD-CLARITY-TRIAL.md`）にあった第 19 節を 2026-11-18 
 - §10.4 | 別の読み: *"No permission granted by this Dedication terminates under it, for any reason"* の *"it"* が *"permission"* を指す | 一意 | 根拠: 第 2 文が *"This Dedication … contains no termination provision"* と同じ主語で受ける
 - §10.5 | 別の読み: *"Nothing in Section 16 is a condition upon Your use of the Work"* が、§16.4 の改変した本文の頒布の制限まで（本文を Work と一緒に配るとき）外す | 一意 | 根拠: 第 1 文 *"Section 16 concerns the text of this Dedication as a document, and not the Work"* が対象を分け、§16.4 は本文の頒布を縛る文で Work の使用の条件ではない（§16.6）
 
-**§19.3 の結果**: 18 行（§8〜§10 の小項 15 のすべてに少なくとも 1 行）のうち、立つ別の読みは 3 つ —— §8.3 第 2 文（T99 で入った・句は主語の直後に置いて 3 つの動詞すべてに掛けた）、§8.4 の列挙の後の修飾（T96 で入った）、§10.2 の *these*（試作の種・2026-11-19 の 2 巡目）。開いている試作は 1。一意 15、法の側 0。
+**§19.3 の結果**: 18 行（§8〜§10 の小項 15 のすべてに少なくとも 1 行）のうち、立つ別の読みは 3 つ —— §8.3 第 2 文（T99 で入った・句は主語の直後に置いて 3 つの動詞すべてに掛けた）、§8.4 の列挙の後の修飾（T96 で入った）、§10.2 の *these*（T105 で入った・2026-11-19 の 2 巡目）。開いている試作は 0。一意 15、法の側 0。
 
 ### 19.4 §11〜§13（portfolio-2f・main の 1.4 草案）
 
