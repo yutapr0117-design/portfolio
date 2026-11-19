@@ -1,0 +1,24 @@
+Source: https://www.legislation.gov.uk/ukpga/1988/48/section/16
+        https://www.legislation.gov.uk/ukpga/1988/48/section/92
+Law: Copyright, Designs and Patents Act 1988 (c. 48)
+Articles: Copyright, Designs and Patents Act 1988 section 16, Copyright, Designs and Patents Act 1988 section 92 (2 sections below; 7 lines of verbatim passages, 1 note lines)
+Retrieved: 2026-11-19 07:37 UTC by portfolio-30, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: f667a3a168c1440ce2780e91b798ce807327a91d545ddc5394bed5fb279e67e2 (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 2.3, 4.1
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+===== Copyright, Designs and Patents Act 1988 section 16 (The acts restricted by copyright in a work) (1) lead-in and (2) =====
+"(1)The owner of the copyright in a work has, in accordance with the following provisions of this Chapter,"
+"the exclusive right to do the following acts in the United Kingdom—"
+"(2)Copyright in a work is infringed by a person who without the licence of the copyright owner does, or"
+"authorises another to do, any of the acts restricted by the copyright."
+（注）1 項の (a)〜(e) と結びの語は写していない。
+
+===== Copyright, Designs and Patents Act 1988 section 92 (Exclusive licences) (1) =====
+"(1)In this Part an “exclusive licence” means a licence in writing signed by or on behalf of the copyright owner"
+"authorising the licensee to the exclusion of all other persons, including the person granting the licence,"
+"to exercise a right which would otherwise be exercisable exclusively by the copyright owner."
