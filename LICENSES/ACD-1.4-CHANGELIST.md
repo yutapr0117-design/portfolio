@@ -197,7 +197,7 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 | §6.4 第 1 文（請求が生じないの言い切り・T131） | 頭に *"To the fullest extent the law permits,"* を足す（*No* → *no*） | 法の側から語に戻す（portfolio-1c・portfolio-30 が 2 巡目の自分の一意の行を覆した）: *"No enforceable claim arises against You … under any Covered Right of the Dedicator"* は *arises* で法の効果を言い切り、§3 も §4 も §5 も効かない場面（§15.23 の知らない受け手で契約が成立しない法域）では Covered Right の下の請求を法が生じさせうるので、文は偽になりえた —— T81・T85 と同じ型。§2.8・§5.3・§12.4・T125 と同じ句で条件づけた。E4（1.1 で *is encumbered* → *No enforceable claim arises*）の語は残した。約束の形に替える案（§5.1 と重なる・§8.4 の理由が §6.4 を引く前提を動かす）は採らない（30）。**逆側**: 句は文の後半 *and You owe nothing under this Dedication* にも掛かるが、文書が課さないことは法に関わらず真なので狭まらない（30）。法が請求を生じさせる場面では文が何も言わなくなる —— §5.1 の約束と §2.5 が受ける | 7 | 反映済 |
 | §4.4 第 1 文（語の揃え・T132） | T128 の *"it is granted whether or not Section 3 takes effect"* を *"… whether or not Section 3 is effective"* へ | 一意化（最終の通読・portfolio-1c）: T128 で第 1 文に *takes effect* を入れた後、すぐ次の文は *"whether Section 3 is effective"* と同じ問いを別の語で言い、同じ働きの語が 1 つの条で揃っていなかった（型 (2)）。次の文の語に揃えた。**逆側**: §12.2 は *has effect*、§8.6 は *is effective* —— 条ごとの揃いで、§4.4 と §8.6 が同じ語になる | 0 | 反映済 |
 | §2.6（文を分ける・T133） | *"…, and imposes nothing upon You, and Section 6.5 states why it matters."* を *"…, and imposes nothing upon You. Section 6.5 states why it matters."* へ | 明瞭化（最終の通読・portfolio-1c）: T116 で *is subject to Section 14* を入れた後、1 文に *and* が 2 度続き、最後の *it* の先行詞が遠くなった。文を分けた。**逆側**: 分けた後の *it* は前の文の主語 *This undertaking*（の識別）を受ける —— 同じ読み | −1 | 反映済 |
-| §10.4 第 2 文（理由の句を本当の理由に・T134） | T114 の *"because it asks nothing of You in respect of the Work"* を *"because it attaches no condition to any permission (Section 10.1)"* へ | 一意化（最終の通読・portfolio-50 の帯 §8〜§10）: 主語が Dedication 全体の「You に何も求めない」は、T120 で §10.1 が *other than in Your capacity as a Dedicator* を足し、寄与者が Dedicator の役で負う約束（§2.6 の識別・§5）を残した後、§10.1 と食い違った。終了規定が無い本当の理由は「許しに条件が無い」ことで、Dedicator の役の約束は許しの条件ではないので、真のまま言える。**逆側**: T114 で §11.1 と同じ語に揃えた形が崩れる —— §11.1 の同じ語は主語が §16 で、揃える必要がもともと無かった（50）| −1 | 反映済 |
+| §10.4 第 2 文（理由の句を本当の理由に・T134） | T114 の *"because it asks nothing of You in respect of the Work"* を *"because it attaches no condition to any permission in respect of the Work (Section 10.1)"* へ | 一意化（最終の通読・portfolio-50 の帯 §8〜§10）: 主語が Dedication 全体の「You に何も求めない」は、T120 で §10.1 が *other than in Your capacity as a Dedicator* を足し、寄与者が Dedicator の役で負う約束（§2.6 の識別・§5）を残した後、§10.1 と食い違った。終了規定が無い本当の理由は「許しに条件が無い」ことで、Dedicator の役の約束は許しの条件ではないので、真のまま言える。1 巡目（30）: *in respect of the Work* が挿入句として *contains* にだけ掛かり、理由の節に届かないと読むと、§16.4 の文書の頒布の許しには条件（2 つの但し書き）が在るので理由が偽になる → 理由の節にも *in respect of the Work* を置いた（+5・30 のもう 1 つの案）。30 の推した 0 語の形（範囲の句を文の頭へ出す）は、句が大文字始まりになり、CHANGES の §16.6 の箇条が「§10.1・§10.4・§11.4 が使う限定」と引く語の照合（468q）とずれ、文の形も §10.1・§11.4 から離れるので採らなかった。**逆側**: 1 文に *in respect of the Work* が 2 度出る。T114 で §11.1 と同じ語に揃えた形が崩れる —— §11.1 の同じ語は主語が §16 で、揃える必要がもともと無かった（50）| 4 | 反映済 |
 
 ## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
@@ -253,19 +253,19 @@ ACD-1.3 は 2026-10-25 に確定・凍結し、このリポジトリに適用し
 
 ## 語数の内訳（1.3 → 1.4・2026-11-08 の表から集計）
 
-1.3 の 5,443 語から 1.4 草案は +433 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
+1.3 の 5,443 語から 1.4 草案は +438 語である。冒頭の表の「費用」を、何のための語かで束ねると次のとおり（表が変わったら数え直す。語数の合計は Check 468s が表と草案の申告で照合している）。
 
 | 束 | 増減 | 何のための語か |
 | :-- | --: | :-- |
 | 適用と通知（§1.9・§2.3・§2.6・§16.1〜§16.3）| +160 | タグや識別子だけの適用、通知が名指す素材、優先、大小の区別、寄与の宛先。採用者がファイル単位・パッケージ単位で使うときに、意図しない素材を撤回不能に出さないための語 |
 | 不行使と付随の約束（§5）| +296 | 商標と虚偽の表示、合意した支払い、特許の除外、Dedicator 自身のモデルとサービス。データだけを出す組織や、重みと API を両方出す組織が採用できるための語 |
 | 名前の保護（§16.4〜§16.6）| +64 | 1 つの名前と識別子が 1 つの本文を指し、Steward が出した新しい版を誰でもその名の下で配れるための語 |
-| その他の明瞭化 | +195 | 定義、承継（§2.8 の *to that extent*・T59、§5.3 の列挙を §2.8 へ寄せた T74）、免責の除外（§14.1・T82）と約束の違反（§14.2・T83）、撤回不能（§2.2 の後付けの制限・T65）、§4、§9 などの語の付き先 |
+| その他の明瞭化 | +200 | 定義、承継（§2.8 の *to that extent*・T59、§5.3 の列挙を §2.8 へ寄せた T74）、免責の除外（§14.1・T82）と約束の違反（§14.2・T83）、撤回不能（§2.2 の後付けの制限・T65）、§4、§9 などの語の付き先 |
 | 人格権（§12）| +30 | 人格権を放棄できない法域での同意（T67・§2.4 の独立の列挙を含む）。約束が契約として効かない場面でも、行為がそもそも侵害にならないための語 |
 | 特許（§6.1・§8）| −37 | 行為を目的語にし、*reach* を 1 回で定め、三つの足場の説明と §8.6 の *alongside them*（T56）を外した |
 | 理由・説明の文を外したもの | −275 | §2.8・§11.4・§12.4・§8.4（T54）の理由の文と、§2.7・§8.5 の案内（Chestek 氏 *"I question whether they belong in the agreement at all."*・#295）|
 
-**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +456）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 980 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
+**読み方**: 増えた語の大半（適用と通知、不行使と付随の約束の 2 束で +456）は、採用者が実際に使う場面で起きる誤適用と障害を閉じる文で、説明の文は −240 減らした。長さの批判（B3）への答えは「語は増えたが、増えたのは条件ではなく、受領者と採用者を守る範囲の語である」となる。**逆側**: 本文は 1.0 の 4,896 語から見ると 985 語長い。Chestek 氏が長さを理由に読まなかった 2 例（3,888 語と約 4,500 語）より長いことは変わらない（`ACD-OSI-BOTTLENECKS.md` B3）。
 
 ## 外部資料・OSAID 1.0・opensource.org のページを当てた記録（2026-10-28）は別の file へ移した
 
@@ -444,7 +444,7 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 > §2 (scope and effect, 11) and §1 (definitions, 8); seven name the preamble or several clauses at
 > once. Further changes came from our own sweeps of the
 > later drafts and are listed, with their reasons, in each version's change list. The text is
-> longer: 5,876 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
+> longer: 5,881 words from the title to *END OF TERMS* against 1.0's 4,896, in 80 clauses against 82.
 
 **⚠ 逆側**: 短い経路の語数が約 170 語増える（`REVIEWERS.md` の短い経路の表と Check 472m の値を同じ日に直す）。*"The direction is unchanged"* は、1.0 から変わらなかったものを 3 つだけ挙げる文で、ほかに変わらなかったものが無いとは言っていない。逆に、変わったものを errata の件数で数えるので、errata に載らない 1.4 生まれの変更（T34〜T52 の多く）は *"Further changes"* の 1 文にまとまる。数を当日に数え直すのは、草案が確定まで動くからである（2026-11-11 の時点でも 1.4 の閉鎖は 39 件で、まだ動きうる。**同日の訂正**: 最初の下書きは 1.3 で 5・1.4 で 38 と書いた。状態の列の版の語の最初の一致を数えていて、閉鎖の印でない語を拾っていた。portfolio-00 が印の正規表現で 4 と 39 を出し、同じ数え方で確かめた）。
 
