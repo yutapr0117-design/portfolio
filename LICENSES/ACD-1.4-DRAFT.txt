@@ -365,14 +365,14 @@ PREAMBLE (informative; not part of the operative terms)
        give one; the disclaimer of reliance is given in every case
        (Section 2.7).
 
-  6.4  No enforceable claim arises against You, under this Dedication or under
-       any Covered Right of the Dedicator, in respect of a model, parameter
-       set, weight, embedding, output, or other data, in each case resulting
-       from Computational Use of the Work, and You owe nothing under this
-       Dedication in respect of any of them. Whether a right subsists in any
-       such thing is not decided here and does not need to be. Nothing in this
-       Dedication requires You to license, disclose, or attribute any such
-       thing.
+  6.4  To the fullest extent the law permits, no enforceable claim arises
+       against You, under this Dedication or under any Covered Right of the
+       Dedicator, in respect of a model, parameter set, weight, embedding,
+       output, or other data, in each case resulting from Computational Use of
+       the Work, and You owe nothing under this Dedication in respect of any of
+       them. Whether a right subsists in any such thing is not decided here and
+       does not need to be. Nothing in this Dedication requires You to
+       license, disclose, or attribute any such thing.
 
   6.5  Section 6 operates on its own footing (Section 2.4) and also states
        expressly what Sections 3 to 5 and 8 would in any event permit. It is
