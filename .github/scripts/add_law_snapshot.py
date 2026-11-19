@@ -11,6 +11,8 @@ rounds/README の在庫表の 1 行・runbook §9 の数を毎回手で揃えて
 
 **本文ファイルの形**: 条ごとに `===== <法令の名> <条> (<見出し>) =====` の行で区切り、続く行に逐語の片を「」か "…" で置く。
 道具は区切りの数を数え、`--articles` に挙げた条と区切りの見出しを照らす (挙げたのに無い条・無いのに在る条を出して止まる)。
+注記の行 (道具が言い換えで返した部分を書き残す行など) は、行頭を `（注）` か `(Note)` で始める。逐語の片の数に入れず、ヘッダに
+「逐語の片 N 行・注記 M 行」と分けて書く (2026-11-20・30: 特許法 94 条 1 項の後半の言い換えの注記が逐語と同じに数えられた)。
 
 **書くもの**: `LICENSES/rounds/<YYYY-MM-DD>-<slug>-snapshot.txt` (既に在れば止まる)・mirror doc・rounds/README の在庫表の 1 行。
 最後に git add して `sync_stated_counts.py --apply` を回す。--dry-run は何も書かない。
@@ -66,7 +68,12 @@ def main(argv: list[str]) -> int:
     if missing or extra:
         print(f"STOP: --articles と本文の区切りが合わない —— 挙げたのに区切りが無い: {missing} / 区切りが在るのに挙げていない: {extra}")
         return 1
-    empty = [h for h, part in zip(heads, DIV.split(body)[2::2]) if not re.search(r"「|\"|“", part)]
+    NOTE = re.compile(r"^\s*(?:（注）|\(Note\))")
+    parts = DIV.split(body)[2::2]
+    verb_lines = sum(1 for part in parts for ln in part.split("\n") if re.search(r"「|\"|“", ln) and not NOTE.match(ln))
+    note_lines = sum(1 for part in parts for ln in part.split("\n") if NOTE.match(ln))
+    empty = [h for h, part in zip(heads, parts)
+             if not any(re.search(r"「|\"|“", ln) and not NOTE.match(ln) for ln in part.split("\n"))]
     if empty:
         print(f"STOP: 逐語の片 (「」か \"…\") が無い区切り: {empty} —— 道具が要約した条は置かず、外したと Form に書く")
         return 1
@@ -90,7 +97,7 @@ def main(argv: list[str]) -> int:
     urls = "\n".join(("Source: " if i == 0 else "        ") + u for i, u in enumerate(o.url))
     text = (f"{urls}\n"
             f"Law: {o.law}\n"
-            f"Articles: {', '.join(o.articles)} ({len(heads)} sections below)\n"
+            f"Articles: {', '.join(o.articles)} ({len(heads)} sections below; {verb_lines} lines of verbatim passages, {note_lines} note lines)\n"
             f"Retrieved: {now.strftime('%Y-%m-%d %H:%M')} UTC by {o.by}, with the WebFetch tool, one page at a time.\n"
             "Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim\n"
             "        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.\n"
@@ -119,7 +126,7 @@ def main(argv: list[str]) -> int:
     rows = list(re.finditer(r"^\| (\d{4}-\d{2}(?:-\d{2})?)[^|]*\|.*$", rt, re.M))
     before = [r for r in rows if r.group(1) <= today]
     at = (max(before, key=lambda r: r.group(1)) if before else rows[-1]).end()
-    print(f"{rel}: {len(heads)} 条・{lines} 行・本文の sha256 {digest[:16]}…・当てる条 {clauses}")
+    print(f"{rel}: {len(heads)} 条・逐語の片 {verb_lines} 行・注記 {note_lines} 行・{lines} 行・本文の sha256 {digest[:16]}…・当てる条 {clauses}")
     print(f"README の表: {row[:100]}… を {rt[:at].count(chr(10)) + 1} 行目の後へ")
     if o.dry_run:
         print("dry-run: 何も書かない")
