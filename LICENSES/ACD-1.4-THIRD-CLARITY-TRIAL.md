@@ -895,6 +895,10 @@ T120 と T121 は同じ型（1 人が受け手と Dedicator の両方の役を�
 
 型「定義語と一般語の混用」を全条に当てた（1c）。小文字の *work* は 9 か所、*reservation* は 1 か所。立ったのは §16.3 *"to any work in which they hold or may hold rights of their own"* の 1 つで、T119（§16.2）と同じく、データベース権だけが立つデータが *work* の外と読まれうる → *"to any material in which …"*。ほかは一意: §1.2（人格権の定義の一般語・§12.1 の *in the Work* が範囲を限る）、§1.9 *work of authorship*、§1.10 *the use of a work*（他人の作品も含む留保の定義）と *a reservation of the kind*（定義の中）、§4.2 *derivative and collective works*、§6.5 *a work meant to be learned from*、§11.3 *associated with a work*（どの作品についての偽の表示も、が意図で §5.1 の除外と合う）、§12.3 *no other work*。
 
+**1 巡目（50）**: 反例なし。(a) 同じ句の *in which they hold or may hold rights of their own* が限る（§2.7 と同じ線）。(b) §1.3 の Work は当てた後の定義語、§16.3 の *material* は当てる前の一般語で、定義語を使わないことで区別がむしろ語で保たれる —— T127 の前は小文字の *work* と定義語 *Work* が大小文字だけで割れていた。
+
+**7 巡目（*or* の包含と排他・1c）**: *either* / *whether … or* の 18 か所を当て、排他の読みの立つものは無かった。§8.6 *whether either licence is effective* は 2 つの許諾それぞれについて判定を求めない、と読め、§16.2 の *or, where it identifies none* は通知の対象の別の選択肢を足す語で、前の列の *or* と働きが違う。
+
 **反例の担当へ（30・50・9b）**: (a) *material* が、Dedicator が権利を持たない素材にも当てられると読ませないか —— 同じ文の *in which they hold or may hold rights of their own* が限る、(b) §16.3 と §1.3（1.0 では §1.2・*"the material to which the Dedicator has applied this Dedication"*）が同じ語になり、当てる前の素材と当てた後の Work の区別が保たれるか。
 
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。
