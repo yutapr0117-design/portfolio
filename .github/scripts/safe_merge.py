@@ -192,11 +192,14 @@ def reland(pr: str, info: dict) -> int:
                 run(["git", "cherry-pick", "--skip"], cwd=wt)
                 continue
             run(["git", "-c", "core.editor=true", "cherry-pick", "--continue"], cwd=wt)
-        sync = run([sys.executable, ".github/scripts/sync_stated_counts.py", "--apply"], cwd=wt, check=False)
-        if "書き換えた" in sync.stdout:
-            run(["git", "add", "-u"], cwd=wt)
-            run(["git", "commit", "-q", "-m", "chore: 載せ直しの後に、実測から導ける数を sync_stated_counts.py --apply で書き直す"],
-                cwd=wt)
+        run([sys.executable, ".github/scripts/sync_stated_counts.py", "--apply"], cwd=wt, check=False)
+        # 予算表の行数も最後に揃える (2026-11-19 #3683: 衝突の無い載せ直しでは上のループの sync_size_table が走らず、PR と main の両方が
+        #   UNIQUE-READING に行を足すと Check 424 の表の行数だけがずれて STOP した)。どちらの sync が書き換えたかは diff で見る
+        run([sys.executable, ".github/scripts/sync_size_table.py"], cwd=wt, check=False)
+        run(["git", "add", "-u"], cwd=wt)
+        if run(["git", "diff", "--cached", "--quiet"], cwd=wt, check=False).returncode != 0:
+            run(["git", "commit", "-q", "-m", "chore: 載せ直しの後に、実測から導ける数と予算表の行数を sync_stated_counts.py --apply と "
+                 "sync_size_table.py で書き直す"], cwd=wt)
         c = run([sys.executable, ".github/scripts/check_repository_consistency.py"], cwd=wt, check=False)
         errors = [ln[:200] for ln in c.stdout.splitlines() if ln.startswith("ERROR:")]
         if errors:
