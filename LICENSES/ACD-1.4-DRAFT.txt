@@ -281,6 +281,8 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       "other than in Your capacity as a Dedicator". (+8 words.)
     * Section 16.2 now speaks of "material to which a Dedicator has applied
       this Dedication", where it said "a work". (-1 word.)
+    * Section 11.3 now says that "Retaining a notice that accompanied the
+      Work is not such a representation". (+12 words.)
     * Section 12.5 now names the waiver in Section 12.1 as well as the
       covenant and the consent in Section 12.2. (+7 words.)
     * Section 15.1 now joins its two sentences, and "in respect of the Work"
@@ -312,7 +314,7 @@ ACD-1.4 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5765 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5777 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -799,8 +801,9 @@ PREAMBLE (informative; not part of the operative terms)
   11.3 This Dedication does not make a false statement true. Representing that
        the Dedicator authored, endorsed, approved, sponsored, or is associated
        with a work, when that is not the case, is outside what this Dedication
-       reaches. Section 11.3 states a limit of the Dedication's reach; it is not
-       a condition upon You, and Section 10.1 is unaffected by it.
+       reaches. Retaining a notice that accompanied the Work is not such a
+       representation. Section 11.3 states a limit of the Dedication's reach; it
+       is not a condition upon You, and Section 10.1 is unaffected by it.
 
   11.4 This Dedication, in respect of the Work, reaches Covered Rights, the
        patent claims Section 8 reaches, and Moral Rights to the extent stated in
