@@ -1,0 +1,73 @@
+Source: provisions on the reach of a patent, its transfer and licences, and the treaty rules on moral rights and on
+        the law of the country of protection, each fetched with the WebFetch tool on 2026-11-20 (JST) by portfolio-50,
+        one page at a time:
+        - 35 U.S.C. 271 and 261, Legal Information Institute, https://www.law.cornell.edu/uscode/text/35/271 and /261
+        - Patentgesetz §§ 11 and 15, https://www.gesetze-im-internet.de/patg/__11.html and /__15.html
+        - Berne Convention, Articles 5(2) and 6bis(1), WIPO Lex, https://www.wipo.int/wipolex/en/text/283698
+        - TRIPS Agreement, Articles 28 and 30, WTO, https://www.wto.org/english/docs_e/legal_e/27-trips_04c_e.htm
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes of at most 125 characters
+        each; consecutive quotes below were returned as consecutive segments. Re-fetch and compare before relying on
+        the exact wording.
+
+WHY THIS FILE EXISTS. The owner asked on 2026-11-20 that the five sessions divide and read the primary texts of the
+laws the 1.4 draft relies on. portfolio-50's share is the patent provisions not yet in rounds/ (the acts a patent
+reaches in Japan, Germany, the UK and France are in 2026-11-16-patent-acts-jp-de-uk-fr-snapshot.txt) and the
+treaty provisions. They bear on Section 8 (patent licences), Section 2.8 (transferees), Section 12 (moral rights)
+and Section 15.3 (no governing law).
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+===== 35 U.S.C. 271(a), (b), (c), as reported =====
+1. "Except as otherwise provided in this title, whoever without authority makes, uses, offers to sell, or sells any patented"
+2. "invention, within the United States or imports into the United States any patented invention"
+3. "during the term of the patent therefor, infringes the patent."
+4. "Whoever actively induces infringement of a patent shall be liable as an infringer."
+5. "Whoever offers to sell or sells within the United States or imports into the United States a component of a patented machine"
+6. ", manufacture, combination or composition, or a material or apparatus for use in practicing a patented process,"
+7. " constituting a material part of the invention, knowing the same to be especially made"
+8. " or especially adapted for use in an infringement of such patent,"
+9. " and not a staple article or commodity of commerce suitable for substantial noninfringing use,"
+10. " shall be liable as a contributory infringer."
+
+===== 35 U.S.C. 261, second and fourth paragraphs, as reported =====
+11. "Applications for patent, patents, or any interest therein, shall be assignable in law by an instrument in writing."
+12. "The applicant, patentee, or his assigns or legal representatives may in like manner grant and convey an exclusive right"
+13. "under his application for patent, or patents, to the whole or any specified part of the United States."
+14. "An interest that constitutes an assignment, grant or conveyance shall be void as against any subsequent purchaser"
+15. "or mortgagee for a valuable consideration, without notice, unless it is recorded in the Patent and Trademark Office"
+16. "within three months from its date or prior to the date of such subsequent purchase or mortgage."
+
+===== § 11 PatG, opening words and Nr. 1 and 2, as reported =====
+17. "Die Wirkung des Patents erstreckt sich nicht auf"
+18. "Handlungen, die im privaten Bereich zu nichtgewerblichen Zwecken vorgenommen werden;"
+19. "Handlungen zu Versuchszwecken, die sich auf den Gegenstand der patentierten Erfindung beziehen;"
+
+===== § 15 PatG, Abs. 1 Satz 1, Abs. 2 Satz 1, Abs. 3, as reported =====
+20. "Das Recht auf das Patent, der Anspruch auf Erteilung des Patents und das Recht aus dem Patent gehen auf die Erben über."
+21. "Die Rechte nach Absatz 1 können ganz oder teilweise Gegenstand von ausschließlichen oder nicht ausschließlichen Lizenzen"
+22. "für den Geltungsbereich dieses Gesetzes oder einen Teil desselben sein."
+23. "Ein Rechtsübergang oder die Erteilung einer Lizenz berührt nicht Lizenzen, die Dritten vorher erteilt worden sind."
+
+===== Berne Convention, Article 5(2) and Article 6bis(1), as reported =====
+24. "The enjoyment and the exercise of these rights shall not be subject to any formality;"
+25. "such enjoyment and such exercise shall be independent of the existence of protection"
+26. "in the country of origin of the work."
+27. "Consequently, apart from the provisions of this Convention, the extent of protection,"
+28. "as well as the means of redress afforded to the author to protect his rights,"
+29. "shall be governed exclusively by the laws of the country where protection is claimed."
+30. "Independently of the author's economic rights, and even after the transfer of the said rights,"
+31. "the author shall have the right to claim authorship of the work and to object to any distortion,"
+32. "mutilation or other modification of, or other derogatory action in relation to, the said work,"
+33. "which would be prejudicial to his honor or reputation."
+
+===== TRIPS Agreement, Article 28 and Article 30, as reported (footnote markers omitted by the tool) =====
+34. "where the subject matter of a patent is a product, to prevent third parties not having the owner's consent"
+35. "from the acts of: making, using, offering for sale, selling, or importing for these purposes that product;"
+36. "where the subject matter of a patent is a process, to prevent third parties not having the owner's consent"
+37. "from the act of using the process, and from the acts of: using, offering for sale, selling, or importing"
+38. "for these purposes at least the product obtained directly by that process."
+39. "Patent owners shall also have the right to assign, or transfer by succession, the patent"
+40. "and to conclude licensing contracts."
+41. "Members may provide limited exceptions to the exclusive rights conferred by a patent, provided that such exceptions"
+42. "do not unreasonably conflict with a normal exploitation of the patent and do not unreasonably prejudice the"
+43. "legitimate interests of the patent owner, taking account of the legitimate interests of third parties."
