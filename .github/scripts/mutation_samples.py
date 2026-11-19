@@ -317,113 +317,14 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 453: ドシエの .md (ACD-1.0.comparison.md) を、いまの sha256 のまま FREEZE-DATA に足す —— 旧版は ACD-<版>.<英字> の形を"
-            "全部通し、正しい手順で直せない file を増やせた (2026-11-12・監査 #182。その file が後で変わると旧版も sha の不一致で赤くなる)",
-    "file": ROOT / "LICENSES" / "FROZEN.md",
-    "find": "b90a388803a628bf382455ac6350adf8d9e58fe7f381ae10155bd42c0b129e25  LICENSES/ACD-1.3.machine.json\n",
-    "replace": "b90a388803a628bf382455ac6350adf8d9e58fe7f381ae10155bd42c0b129e25  LICENSES/ACD-1.3.machine.json\n581b22e37add8a3c7138bca22c534f38e1bb218aa4c4a322df09fb3d3c295e5d  LICENSES/ACD-1.0.comparison.md\n",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 450: 規範層の「権威テキスト」の「テ」を Cyrillic Supplement の字 (U+0501) へ —— 旧版は 1 スクリプト 1 ブロックで、"
-            "主ブロックの外の字 (U+0501 / U+FE8D / U+FFA1) は日本語の語の中でも通った (2026-11-12・監査 #198)",
-    "file": ROOT / "docs" / "architecture" / "repository-maintainability-map.md",
-    "find": "\u6a29\u5a01\u30c6\u30ad\u30b9\u30c8",
-    "replace": "\u6a29\u5a01\u0501\u30ad\u30b9\u30c8",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 468b: §4.6 の書き出し \"Section 4.5 does not cut\" を言い換える —— 冒頭の変更一覧はその句を引いたまま残り、"
-            "旧版は一覧の言い換えが古くなっても黙っていた (2026-11-12・portfolio-aa の提案)",
-    "file": CURRENT_DRAFT,
-    "find": "  4.6  Section 4.5 does not cut Your recipients off from this Dedication: a",
-    "replace": "  4.6  Section 4.5 does not sever Your recipients from this Dedication: a",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 468g: §10.2 の \"You need not give attribution\" を \"You will not give attribution\" にする —— You を主語にした will は"
-            "義務に読まれうるが、旧版の型 (shall / must / You agree …) には無かった (2026-11-12・語数は同じ)",
-    "file": CURRENT_DRAFT,
-    "find": "  10.2 In particular, You need not give attribution, reproduce any notice,",
-    "replace": "  10.2 In particular, You will not give attribution, reproduce any notice,",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 471 (d): CHANGELIST の SELF-AUDIT の節の参照を存在しない §3zz にする —— 旧版は節番号の末尾の英字を 1 文字まで"
-            "しか読まず、§3zz を参照として拾わずに黙って通した (2026-11-12・SELF-AUDIT が 3a〜3z を使い切った)",
-    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
-    "find": "errata ではなく `ACD-1.1-SELF-AUDIT.md` §3z に記録した | −2",
-    "replace": "errata ではなく `ACD-1.1-SELF-AUDIT.md` §3zz に記録した | −2",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 105: map から Check 7 の行を消す (7b / 7c の枝番の行は残る) —— 旧版は枝番を整数に丸めて集合を作り、7 の行が"
-            "消えても集合が変わらず緑だった (2026-11-12・監査 #12)",
-    "file": ROOT / "docs" / "architecture" / "check-repository-consistency-map.md",
-    "find": "| 7 | index.html の CSP メタが inline suppressor スクリプトより前にある | BLOCKING |\n",
-    "replace": "",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 105: Check 99 の check 呼び出しを消して見出しのコメントだけの区間にする —— 旧版は `# ── N.` の見出しがあれば"
-            "実装と数え、Check 99 が何も検査しなくなっても 45 / 70 / 105 は 499 のまま緑だった (2026-11-12・監査 #13)",
-    "file": ROOT / ".github" / "scripts" / "checks_docs_mirror.py",
-    "find": "    check(\n        _inventory99.exists() and _template99.exists(),\n        \"Check 99: docs/files/README.md (inventory) と _template.md (5-軸 template) が両方存在\",\n        f\"Check 99: missing — README.md={_inventory99.exists()}, _template.md={_template99.exists()}\",\n    )\n",
-    "replace": "    pass\n",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 468z: 記述子の下書きの §8.6 の行の逐語を T22 より前の語 (described in Sections 8.1 and 8.4) へ戻す —— 旧版は § の"
-            "番号しか見ず、古い語が凍結の日に機械可読層へ入るのを通した (2026-11-12・portfolio-aa の依頼)",
-    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
-    "find": "§8.6 が約束するのは *\"the patent claims that Sections 8.1 and 8.4 reach",
-    "replace": "§8.6 が約束するのは *\"the patent claims described in Sections 8.1 and 8.4 reach",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 22: Session Record #34 の見出しを #33 に打ち直す —— 旧版は <= で比べ、#33 が 2 つ・#34 が無いまま昇順として"
-            "通った (2026-11-12・監査 #188)",
-    "file": ROOT / "AI2AI.md",
-    "find": "## [HANDOFF] Session Record #34",
-    "replace": "## [HANDOFF] Session Record #33",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 468a: FAQ が「1.4 草案」として引く逐語を草案に無い語へ変える (agreed to make → agreed to remit) —— 旧版は errata の"
-            "「N.M draft」しか見ず、ドシエの他の面の注記が後の試作で古くなっても黙っていた (2026-11-12・portfolio-00 の提案)",
-    "file": ROOT / "LICENSES" / "ACD-1.0.faq.md",
-    "find": "*\"a payment You agreed to make\"*",
-    "replace": "*\"a payment You agreed to remit\"*",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 468n (箇条ごと): 草案冒頭の §4.2 と §4.3 の語数の申告を +6 / +12 にずらす —— 合計は変わらないので、旧版 (合計の 1 本の"
-            "等式だけを見る 468n) は箇条間の取り違えを見逃していた (2026-11-15・§1.2 と §4.2 の入れ替えで緑を実測)",
-    "file": CURRENT_DRAFT,
-    "find": "engineering among the acts the licence includes. (+5 words.)\n    * Section 4.3 now names the size and revenue of the user, "
-            "the scale of use,\n      and the number of users served among the things the licence is not\n      conditioned on. (+13 words.)",
-    "replace": "engineering among the acts the licence includes. (+6 words.)\n    * Section 4.3 now names the size and revenue of the user, "
-               "the scale of use,\n      and the number of users served among the things the licence is not\n      conditioned on. (+12 words.)",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 460 (x): B3 の見出しが述べる「いまの草案の題名からの語数」の先頭に 1 を足す —— 草案の長さを述べる外向きの行は、"
-            "SUBMISSION-MATERIALS が「Check 468 が照合する」と書いていたのに誰も見ていなかった (2026-11-15)。anchor に数を含めないのは、"
-            "草案を動かすたびに anchor が外れないため",
-    "file": ROOT / "LICENSES" / "ACD-OSI-BOTTLENECKS.md",
-    "find": f"（**{CURRENT_DRAFT_VER} 草案は題名から ",
-    "replace": f"（**{CURRENT_DRAFT_VER} 草案は題名から 1",
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": "Check 498 (h): READ-THREADS.txt から読了の行を 1 つ消す —— AS-OF の 3 つの数は和が合ったまま残り、旧版 (同じ文の中の"
@@ -471,6 +372,14 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-DRAFT.txt",
     "find": "Section 2.5, 5, 8.6, or",
     "replace": "Section 5, 8.6, or",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 468ac: §19 の §1.4 第 1 文の行の分類の欄を太字にする —— ROW19 に合わず台帳が数えなくなる形 (2026-11-19・50 が "
+            "「**試作 T112 で入った**」で開いている試作 3 が 0 に見えたのを見つけた型)",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-UNIQUE-READING.md",
+    "find": "- §1.4 第 1 文 | 別の読み: *\"holds or may hold … in it\"* の *it* が Dedication を指す | 一意 |",
+    "replace": "- §1.4 第 1 文 | 別の読み: *\"holds or may hold … in it\"* の *it* が Dedication を指す | **一意** |",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({

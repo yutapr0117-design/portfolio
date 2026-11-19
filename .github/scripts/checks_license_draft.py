@@ -78,6 +78,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        instead of など) と、"ACD-N.N" のような識別子の型の例は除く。 (BLOCKING)
        **468ab は、読みが割れる 2 つの型を 0 に保つ** —— 小項の中の "this Section"（節か小項か）と、責任を外す条が
        例外にしていない Dedicator の約束（問い 9 (a)）。T84〜T88 と T83・T88 で 0 にした（2026-11-16・オーナーの依頼）。 (BLOCKING)
+       **468ac は、§19（一意に定める記録・ACD-1.N-UNIQUE-READING.md）の "- §" の行がすべて形に合い、分類ごとの根拠を持つことを見る** ——
+       形に合わない行（分類の太字・見出しの括弧）は台帳が数えず、開いている試作が 0 に見えて合格の線が偽に満たされた（2026-11-19・50）。
+       一意は辿れる根拠、試作は T 番号、法の側は行き先（問い N・§18・jurisdictions）を持つ。数え方は measure_legal_uncertainty.section19()。 (BLOCKING)
 """
 import json
 import re
@@ -276,6 +279,20 @@ def run(ctx):
             (f"Check 468ab: 読みが割れる型が戻った —— 小項の中の \"this Section\": {[_k for _k, _c in _h468ab]} / "
              f"免責の条が例外にしていない Dedicator の約束: {[(_lk, _o) for _lk, _p, _o in _k468ab]}。"
              "\"this Section\" は \"Section N.M\" と名指し、免責の例外の列に約束の条を足せ (scan_draft_ambiguity.py で確かめる)"),
+            blocking=True,
+        )
+
+        # ── 468ac: §19 の行がすべて形に合い、分類ごとの根拠を持つ (2026-11-19・50 の指摘「無いと黙る」) ──
+        #   section19() は ROW19 に合う行だけを数えるので、形の崩れた行は開いている試作でも数えられない。直すべき行を 0 に保つ
+        #   (開いている試作は作業中の状態なので止めない —— 合格の線は台帳が言う)
+        import measure_legal_uncertainty as _mlu468ac
+        _c468ac, _bad468ac = _mlu468ac.section19()
+        check(
+            _c468ac["行"] > 0 and not _bad468ac,
+            f"Check 468ac: §19 の行 {_c468ac['行']} がすべて形に合い、一意は根拠・試作は T 番号・法の側は行き先を持つ",
+            (f"Check 468ac: §19 に直すべき行がある（{len(_bad468ac)}）: {_bad468ac[:4]}。行の形「- §x.y | 別の読み: … | 一意 / 試作 Tnn / 法の側 | "
+             "根拠: …」に揃えよ（分類の太字・見出しの括弧は外す）。形の崩れた行は台帳が数えず、合格の線を偽に満たす"
+             if _c468ac["行"] else "Check 468ac: §19 の行が 1 つも読めない（UNIQUE-READING の改名・節の見出しの変更なら section19() を直す）"),
             blocking=True,
         )
 
