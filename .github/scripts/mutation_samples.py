@@ -518,6 +518,14 @@ _MUTATIONS_TAIL.append({
     "replace": "No person may circumvent a technological measure",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 468ad: §19.5 の §14.2 の否定の掛かり先の行を「試作 T999 で入った」にする —— CHANGELIST に名の無い試作を台帳が"
+            "「本文に入った」と言う形 (2026-11-20)",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-UNIQUE-READING.md",
+    "find": "| 試作 T126 で入った | 根拠: T126（PR 3742）で",
+    "replace": "| 試作 T999 で入った | 根拠: T999（PR 3742）で",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
