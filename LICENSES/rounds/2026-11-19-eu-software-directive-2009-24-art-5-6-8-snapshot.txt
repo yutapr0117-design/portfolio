@@ -1,0 +1,35 @@
+Source: https://www.legislation.gov.uk/eudr/2009/24/article/5
+Law: Directive 2009/24/EC (Software Directive), UK-retained revised text as published at legislation.gov.uk
+Articles: Article 5, Article 6, Article 8 (3 sections below; 19 lines of verbatim passages, 1 note lines)
+Retrieved: 2026-11-19 03:56 UTC by portfolio-2f, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: 040b8af4b9f4a5cf44a9b4ca2a573a98a3376fdad16fb77d565b36984a99db33 (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 4.2, 5.2
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+===== Directive 2009/24/EC Article 5 (Exceptions to the restricted acts) =====
+(Note) The page is legislation.gov.uk's article page, which shows the "Latest available (Revised)" UK-retained text by default; the EU text as adopted was not compared.
+5(1) "In the absence of specific contractual provisions, the acts referred to in points (a) and (b) of Article 4(1)"
+     [...] "shall not require authorisation by the rightholder where they are necessary for the use of the computer program"
+     [...] "by the lawful acquirer in accordance with its intended purpose, including for error correction."
+5(2) "The making of a back-up copy by a person having a right to use the computer program may not be prevented"
+     [...] "by contract in so far as it is necessary for that use."
+5(3) "The person having a right to use a copy of a computer program shall be entitled, without the authorisation"
+     [...] "of the rightholder, to observe, study or test the functioning of the program in order to determine the ideas"
+     [...] "and principles which underlie any element of the program if he does so while performing any of the acts"
+     [...] "of loading, displaying, running, transmitting or storing the program which he is entitled to do."
+===== Directive 2009/24/EC Article 6 (Decompilation) =====
+6(1) "The authorisation of the rightholder shall not be required where reproduction of the code and translation of its form"
+     [...] "are indispensable to obtain the information necessary to achieve the interoperability"
+     [...] "of an independently created computer program with other programs, provided that the following conditions are met:"
+6(2)(c) "(c)to be used for the development, production or marketing of a computer program substantially similar in its"
+     [...] "expression, or for any other act which infringes copyright."
+===== Directive 2009/24/EC Article 8 (Continued application of other legal provisions) =====
+8(1) "The provisions of this Directive shall be without prejudice to any other legal provisions such as those concerning"
+     [...] "patent rights, trade-marks, unfair competition, trade secrets, protection of semi-conductor products"
+     [...] "or the law of contract."
+8(2) "Any contractual provisions contrary to Article 6 or to the exceptions provided for in Article 5(2) and (3)"
+     [...] "shall be null and void."
