@@ -909,4 +909,10 @@ T127 の確かめ（2f・30）: 2f —— *material* は §1.3 と同じ語、*r
 
 9 巡目（文の主語・受け身の文で行為者は誰か）: 受け身の文（§2.2 *is made irrevocably*・§3.2 *are made*・§4.3 *is granted*・§6.1 *is expressly permitted*・§6.2 *is to be read*・§12.6 *is held invalid*・§16.4 *may not be distributed … except by the Steward*）を当てた。§6.1 の *by any person or automated system* は *Computational Use* に掛かる（2 巡目の一意の読み）、§16.4 は頒布する者を縛る（§19.5 の一意の行）、ほかは行為者が文脈（Dedicator・法廷）で一つに決まり、立つものは無い。
 
+### 15.46 T128・T129 —— 法の側から語に戻す 1 本目（+6 語・2026-11-20・【反例待ち】）
+
+50 が草案全体を「法の効果の言い切り」の動詞（*takes effect* / *operates* / *binds* / *is severed* / *continues in full force* / *arises*）で走査し、T81・T85・T110 と同じ型の候補を 4 つ挙げた。採ったのは 2 つ: T128 §4.4 *"it is granted whether or not Section 3 takes effect"*（+1・§8.6・§12.2 の *is given* と揃う）、T129 §15.2 *"it is to be treated as severed …, and the remainder as continuing in full force everywhere"*（+5・第 1 文の *is to be reformed* と揃う）。採らなかった 2 つ: §2.3 *takes effect without any act of acceptance* は §15.23 で「変えない」と決めた（語を絞っても知らない受け手の地位は変わらず、B10 と入口の文を弱める）—— それを覆す新しい材料が無い。§1.4 *operates severally as to each* は Dedicator ごとに独立という構造の言明（§2.4 と同じ働き）で、UNIQUE-READING の根拠と mutation の anchor に引かれている。
+
+**反例の担当へ（30・50・9b）**: (a) T128 の *is granted* が、§4.4 第 1 文 *"is granted independently of Section 3"* と同じ語を 2 度使い、2 つ目が「改めて付与する」と読まれないか、(b) T129 の *is to be treated as* が、法廷でなく読み手（You）に向けた指示と読まれ、法廷が可分を認めない場合に何も言わない文になるか —— それで良い（法の側に残す）、と読む。
+
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。

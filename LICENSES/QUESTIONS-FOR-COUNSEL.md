@@ -35,8 +35,8 @@ steward read ACD-1.0 in full before posting it. Neither has been reviewed by a l
 **The clauses.** §3.1 surrenders all Covered Rights and places the Work in the public domain
 *"in each jurisdiction that gives effect to such an act"*; §3.3 waives where surrender is not
 possible. §4.1 licenses the same rights *"for any purpose whatsoever"*, and §4.4 says the licence
-*"is granted independently of Section 3, and not as a fallback for it: it takes effect whether
-or not Section 3 does."*
+*"is granted independently of Section 3, and not as a fallback for it: it is granted whether
+or not Section 3 takes effect."*
 
 **Meant to do.** Give the recipient a footing that does not depend on whether the surrender works
 in a given jurisdiction, without making the licence conditional on the surrender failing — CC0's

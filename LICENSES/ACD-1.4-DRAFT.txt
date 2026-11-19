@@ -250,9 +250,9 @@ PREAMBLE (informative; not part of the operative terms)
        of users served, or on any restriction as to persons, groups,
        technologies, endeavours, or jurisdictions.
 
-  4.4  The licence in Section 4.1 is granted independently of Section 3, and
-       not as a fallback for it: it takes effect whether or not Section 3
-       does. You are not required to determine whether Section 3 is effective
+  4.4  The licence in Section 4.1 is granted independently of Section 3, and not
+       as a fallback for it: it is granted whether or not Section 3 takes
+       effect. You are not required to determine whether Section 3 is effective
        in any jurisdiction, and no permission granted here depends on that
        question or on how it is answered.
 
@@ -619,8 +619,9 @@ PREAMBLE (informative; not part of the operative terms)
   15.2 If a provision of this Dedication is held invalid or unenforceable in a
        jurisdiction, it is to be reformed to the minimum extent necessary to
        make it valid and enforceable there while preserving its purpose. If it
-       cannot be reformed, it is severed as to that jurisdiction only, and the
-       remainder continues in full force everywhere.
+       cannot be reformed, it is to be treated as severed as to that
+       jurisdiction only, and the remainder as continuing in full force
+       everywhere.
 
   15.3 This Dedication specifies no governing law and no forum.
 
