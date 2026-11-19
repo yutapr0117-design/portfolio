@@ -295,6 +295,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-11-16 | 弁護士の公開の分析（独・CC0） | **観測（Kreutzer 氏の CC0 のドイツ法上の有効性の分析・2011 年頃・放棄は無効、fallback の許諾は有効、公有の宣言は公の許諾と読み替えられるのが通説、不行使の約束は有効・PDF からこの session で取り出した・問い 1 の法源）** | `2026-11-16-kreutzer-cc0-german-law-analysis-snapshot.txt` |
 | 2026-11-18 | SPDX が保持する GPL-3.0 | **観測（GPL-3.0 の頭の 6 行・「逐語の写しは誰でも頒布できるが変更は許されない」・GitHub の API で byte のまま・commit 60fbd82 に固定・§16.4 の法源）** | `2026-11-18-gpl-3-0-header-spdx-snapshot.txt` |
 | 2026-11-19 | 米国法典 | **観測（17 U.S.C. §203(a)・(a)(3)〜(5)・(b) と §1201(a)(1)(A)・(a)(3) の定義・Cornell LII から WebFetch の逐語の片で、バイト単位の写しではない・§203 は 125 字で切れた片）** | `2026-11-19-us-17-usc-203-1201-snapshot.txt` |
+| 2026-11-19 | 韓国法 | **観測（韓国著作権法 128 条・死後の人格的利益の保護を請求できる遺族と遺言執行者・WebFetch の逐語の片で、バイト単位の写しではない・公式でない英訳）** | `2026-11-19-kr-copyright-act-128-moral-interests-after-death-snapshot.txt` |
 | 2026-11-19 | 韓国法・中国法 | **観測（韓国著作権法 14 条・中国著作権法 10 条（2020）の人格権・WebFetch の逐語の片で、バイト単位の写しではない・どちらも公式でない英訳）** | `2026-11-19-kr-copyright-act-14-cn-copyright-law-10-moral-rights-snapshot.txt` |
 | 2026-11-19 | 米 LII（11 U.S.C.） | **観測（11 U.S.C. §101(35A)・倒産法の「知的財産」の定義・WebFetch の逐語の片）** | `2026-11-19-us-11-usc-101-35a-intellectual-property-snapshot.txt` |
 | 2026-11-19 | 米 第 4 巡回区控訴裁判所 | **観測（Jaffé v. Samsung（第 4 巡回区・2013）の主文と理由の 4 文・裁判所の PDF から 2f が展開した文）** | `2026-11-19-us-jaffe-v-samsung-4th-cir-2013-snapshot.txt` |
