@@ -306,6 +306,13 @@ Japan, kept each text in `rounds/`, and wrote under each question in
 [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) what the law already settles and what it
 leaves open. Where a reading turned on our own words, the draft was changed instead. This narrows the
 questions a lawyer would be asked. It is not legal review, and it does not answer #1 or #2.
+For every clause of the 1.4 draft we also wrote down at least the strongest other reading its words
+allow (a modifier after a list, a pronoun without an antecedent, an exception present in one covenant
+and missing from its twin, a sentence that asserts a legal effect rather than what the document does).
+Readings that stood were closed in the text; readings that did not stand are recorded with the clause
+that closes them; the few that only the law can settle went to the questions for counsel
+([`ACD-1.4-UNIQUE-READING.md`](ACD-1.4-UNIQUE-READING.md)). We do not claim to have found every
+reading: a second pass found new ones. That a reading does not stand is our judgment, not a lawyer's.
 
 ## What to open first
 
