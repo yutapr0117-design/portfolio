@@ -251,6 +251,11 @@ def section19() -> tuple[Counter, list[str]]:
         allc = sorted(set(re.findall(r"^  (\d+\.\d+) ", dbody, re.M)), key=lambda x: tuple(map(int, x.split("."))))
         MISSING19[:] = [x for x in allc if x not in seen]
         c["条"] = len(allc)
+    # 行の形に合わない "- §" の行は黙って落とさず直すべき行に出す (2026-11-19・50: 分類の欄の太字 "**試作 T112 で入った**"、
+    #   "別の読み（…）:"・"根拠（…）:" の行 6 つが数えられず、開いている試作 3 が 0 に見えて合格の線が偽に満たされていた)
+    for line in re.findall(r"^- §.*$", body19, re.M):
+        if not ROW19.match(line):
+            bad.append(f"{line[2:line.find(' |') if ' |' in line else 40][:40]}: 行の形に合わない（「- §x.y | 別の読み: … | 一意 / 試作 Tnn / 法の側 | 根拠: …」—— 分類の太字・見出しの括弧は外す）。数えていないので、合格の線を偽に満たしうる")
     for m in ROW19.finditer(body19):
         kind, rest, why = m.group(3), m.group(4), m.group(5)
         c["行"] += 1
@@ -325,7 +330,9 @@ def main(argv: list[str]) -> int:
         print(f"#   ・ {x}")
     c19, bad19 = section19()
     print(f"# §19（本文の語の割れ）: {c19['行']} 行 —— 一意 {c19['一意']} / 試作 {c19['試作']}（本文に入ったか退けた {c19['試作で閉じた']}・"
-          f"開いている {c19['試作で開いている']}）/ 法の側 {c19['法の側']}。合格の線: 開いている試作 0、一意の行の根拠がすべて辿れる")
+          f"開いている {c19['試作で開いている']}）/ 法の側 {c19['法の側']}。合格の線: 開いている試作 0、一意の行の根拠がすべて辿れる、"
+          f"行の形に合わない行 0 —— いま{'満たす' if not c19['試作で開いている'] and not bad19 else '満たさない'}"
+          f"（開いている試作 {c19['試作で開いている']}・直すべき行 {len(bad19)}）")
     for x in bad19:
         print(f"#   ⚠ {x}")
     print(f"# §19 に行の無い条: {len(MISSING19)} / {c19['条']}（全条を見たと言うには 0）: " + ", ".join("§" + x for x in MISSING19))
