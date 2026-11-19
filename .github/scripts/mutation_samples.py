@@ -26,7 +26,7 @@ if sys.version_info < (3, 10):
     print("ERROR: mutation_samples.py requires Python 3.10+ (got %d.%d)" % sys.version_info[:2])
     sys.exit(1)
 
-from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID, APPLIED_DATE, SUBMISSION_TARGET, FROZEN_PREVIOUS  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_CHANGES, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID, APPLIED_DATE, SUBMISSION_TARGET, FROZEN_PREVIOUS  # noqa: F401 (entry 内で参照)
 from mutation_samples_archive import MUTATIONS_ARCHIVE
 from mutation_samples_archive7 import MUTATIONS_ARCHIVE7
 from mutation_samples_archive6 import MUTATIONS_ARCHIVE6
@@ -409,7 +409,7 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 468 (468i 逆向き): 草案冒頭の箇条が 1.2 で閉じた E24 も名乗る —— 旧版は「閉じた errata が箇条に載るか」しか見ず、"
             "箇条が別の版で閉じた番号や存在しない番号を名乗っても通った (2026-11-15)",
-    "file": CURRENT_DRAFT,
+    "file": CURRENT_CHANGES,
     "find": "(errata E55)",
     "replace": "(errata E55, E24)",
     "check": CHECK,
@@ -489,7 +489,7 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 502: 草案の冒頭に投稿した版の記録の節を足し、状態の箇条「It has not been posted to any list.」を残す —— "
             "投稿の日に片方だけを直すと、草案が自分の状態について嘘をつく (2026-11-16・1c の依頼)",
-    "file": CURRENT_DRAFT,
+    "file": CURRENT_CHANGES,
     "find": "\n  Changes in this draft, relative to ACD-1.3:",
     "replace": "\n  Changes since the version posted on 2026-11-18:\n    * none\n\n  Changes in this draft, relative to ACD-1.3:",
     "check": CHECK,

@@ -3,7 +3,7 @@
 rotate_mutation_samples.py が受け皿の余裕を実測して選び、埋まったら次を起こす。
 **新しい mutation は mutation_samples.py の tail へ足すこと** (ここは退避先)。
 """
-from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER, FROZEN_PREVIOUS, APPLIED_ID, APPLIED_DATE, SUBMISSION_TARGET, NEXT_CHECK  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_CHANGES, CURRENT_DRAFT_VER, PREVIOUS_VER, FROZEN_PREVIOUS, APPLIED_ID, APPLIED_DATE, SUBMISSION_TARGET, NEXT_CHECK  # noqa: F401 (entry 内で参照)
 
 MUTATIONS_ARCHIVE7 = [
     {
@@ -442,7 +442,7 @@ MUTATIONS_ARCHIVE7 = [
     {
     "name": "Check 468n (箇条ごと): 草案冒頭の §4.2 と §4.3 の語数の申告を +6 / +12 にずらす —— 合計は変わらないので、旧版 (合計の 1 本の"
             "等式だけを見る 468n) は箇条間の取り違えを見逃していた (2026-11-15・§1.2 と §4.2 の入れ替えで緑を実測)",
-    "file": CURRENT_DRAFT,
+    "file": CURRENT_CHANGES,
     "find": "engineering among the acts the licence includes. (+5 words.)\n    * Section 4.3 now names the size and revenue of the user, "
             "the scale of use,\n      and the number of users served among the things the licence is not\n      conditioned on. (+13 words.)",
     "replace": "engineering among the acts the licence includes. (+6 words.)\n    * Section 4.3 now names the size and revenue of the user, "

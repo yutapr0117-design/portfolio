@@ -3,7 +3,7 @@
 rotate_mutation_samples.py が受け皿の余裕を実測して選び、埋まったら次を起こす。
 **新しい mutation は mutation_samples.py の tail へ足すこと** (ここは退避先)。
 """
-from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID, APPLIED_DATE, SUBMISSION_TARGET, FROZEN_PREVIOUS  # noqa: F401 (entry 内で参照・rotate が entry を移しても名前が解決するよう全部を import する)
+from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_CHANGES, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID, APPLIED_DATE, SUBMISSION_TARGET, FROZEN_PREVIOUS  # noqa: F401 (entry 内で参照・rotate が entry を移しても名前が解決するよう全部を import する)
 
 MUTATIONS_ARCHIVE4 = [
     {
@@ -540,7 +540,7 @@ MUTATIONS_ARCHIVE4 = [
     {
     "name": "Check 468n: 草案冒頭の変更一覧の 1 箇条の語数申告をずらす —— 申告の合計が「申告語数 − 前の凍結版の語数」と"
             "合わなくなる。一覧は差分のすべてだと宣言しており、468 は合計語数しか見ていなかった (portfolio-25 の自己記述レンズ)",
-    "file": CURRENT_DRAFT,
+    "file": CURRENT_CHANGES,
     "find": f"  Changes in this draft, relative to ACD-{PREVIOUS_VER}:\n\n",
     "replace": f"  Changes in this draft, relative to ACD-{PREVIOUS_VER}:\n\n    * Section 1.1 now says nothing new. (+1 word.)\n",
     "check": CHECK,
@@ -914,7 +914,7 @@ MUTATIONS_ARCHIVE4 = [
 },
     {
     "name": 'Check 468q: 草案冒頭の §16.6 の箇条が 10.1 / 10.4 / 11.4 の句として引く句を "no one in respect of the Work" へ戻す —— 3 条が使うのは限定句だけで、#2238 前の箇条はこの誤った帰属を述べていた',
-    "file": CURRENT_DRAFT,
+    "file": CURRENT_CHANGES,
     "find": f"  Changes in this draft, relative to ACD-{PREVIOUS_VER}:\n\n",
     "replace": f"  Changes in this draft, relative to ACD-{PREVIOUS_VER}:\n\n"
                '    * Section 16.6 now has the limit "no one in respect of the Work"\n'

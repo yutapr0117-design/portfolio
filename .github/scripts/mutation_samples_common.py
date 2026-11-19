@@ -25,6 +25,8 @@ def _current_draft():
 CURRENT_DRAFT = _current_draft()
 _m = re.match(r"ACD-(\d+)\.(\d+)-DRAFT\.txt$", CURRENT_DRAFT.name)
 CURRENT_DRAFT_VER = f"{_m.group(1)}.{_m.group(2)}" if _m else "0.0"
+# 草案の冒頭の変更一覧は 2026-11-20 に草案の外へ出した (CHANGES-ACD-N.M.txt・案 A)。一覧の文を find にする mutation はここを向く
+CURRENT_CHANGES = CURRENT_DRAFT.with_name("CHANGES-" + CURRENT_DRAFT.name.replace("-DRAFT.txt", ".txt"))
 PREVIOUS_VER = f"{_m.group(1)}.{int(_m.group(2)) - 1}" if _m and int(_m.group(2)) > 0 else "0.0"
 FROZEN_PREVIOUS = ROOT / "LICENSES" / f"ACD-{PREVIOUS_VER}.txt"
 
