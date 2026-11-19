@@ -880,4 +880,10 @@ T120 と T121 は同じ型（1 人が受け手と Dedicator の両方の役を�
 
 **1 巡目（50・2f）**: 反例なし。(a) §3 が効く法域では授権は対象を持たず空になるだけ（§4.4 の独立の足場と同じ形）。(b) 配布者との契約で DRM を外さない義務を負っても授権は立ち、違反は Dedicator と配布者の間に残る —— *the law* に契約法を含める読みは、§2.8・§12.4 の同じ句が効力の限度を言う文として読まれていることと §15.1 で閉じる（2f・一意）。(c) *is able* が自然に外していた「Dedicator が権利を持たない部分」は、§1.4（Dedicator は持つ権利の限度で Dedicator）と §2.7 が閉じる（2f・50）。登録した問い: (a) *the law permits* が、法が授権を要しない場面（§3 が効き Work が保護の外の法域）で文を空にするか —— 空でも害が無い、と読む、(b) Dedicator が配布者との契約で DRM を外さない義務を負うとき、*the law permits* の下でも授権は立ち、契約の違反は Dedicator と配布者の間に残る —— それで良いか。
 
+### 15.42 T126 —— §14.2 の否定の範囲（−2 語・2026-11-20・【反例待ち】）
+
+4 巡目の型「否定の範囲（no / not / nothing が並びのどこまでに掛かるか）」を全条に当てた（1c）。立ったのは §14.2 第 1 文の 1 つ: *"does not permit the exclusion or limitation of a liability"* の *not* が並びの両方に掛かると「除外も制限も許さない場合」だけになり、後半の「法の許す限り制限する」が空になる。*"does not permit a liability to be excluded"* にした。ほかの否定（§2.3 *need not* の列、§6.4 *No … under A or under B*、§8.2 *no condition* / *not terminable*、§8.5 *neither … nor*、§11.4、§12.3 *extend to no other work*）は、並びの全部に掛かる読みしか立たない。
+
+**反例の担当へ（30・50・9b）**: (a) 制限も許さない法域で、新しい文が「その責任は法の許す限り（＝ 0）制限される」と読まれ、§14 の残り（*"the remainder of Section 14 continues to apply"*）と合うか、(b) *a liability* の不定冠詞が §14.1 の 4 つの範疇（*WILFUL MISCONDUCT* など）だけに限られる読みを作らないか。
+
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。

@@ -601,8 +601,8 @@ PREAMBLE (informative; not part of the operative terms)
        ARISING OUT OF THIS DEDICATION OR THE USE OF THE WORK, EVEN IF ADVISED OF
        THE POSSIBILITY OF SUCH LOSS OR DAMAGE.
 
-  14.2 Where applicable law does not permit the exclusion or limitation of a
-       liability, that liability is limited to the greatest extent that law
+  14.2 Where applicable law does not permit a liability to be excluded, that
+       liability is limited to the greatest extent that law
        permits, and the remainder of Section 14 continues to apply. Section 14
        does not limit the Dedicator's liability for asserting a claim, or
        exercising a right, in breach of a covenant in Section 2.5, 5, 8.6, or
