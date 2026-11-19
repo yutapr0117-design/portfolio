@@ -498,7 +498,7 @@ PREAMBLE (informative; not part of the operative terms)
   10.4 No permission granted by this Dedication terminates under it, for any
        reason. This Dedication, in respect of the Work, contains no termination
        provision and no revival provision, because it attaches no condition to
-       any permission in respect of the Work (Section 10.1).
+       any permission in respect of the Work.
 
   10.5 Section 16 concerns the text of this Dedication as a document, and not
        the Work. Nothing in Section 16 is a condition upon Your use of the
