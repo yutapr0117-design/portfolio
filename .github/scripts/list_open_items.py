@@ -185,6 +185,14 @@ def legal_uncertainty_items() -> list[tuple[str, str, str, str]]:
     for s, c in mlc.unapplied():
         out.append((f"§{c}", "法令の写しを取ったが、その条の読みに当てていない", s[:60],
                     f"{band.get(int(c.split('.')[0]), '?')} (§18 の行か jurisdictions の段か §19 の行に写しの名を書いて読む)"))
+    # §19 の行・問い・逐条リファレンスが、試作で変わる前の草案の文を引いたまま (Check 470 の ADVISORY と同じ数え方・2026-11-20)
+    from _lib_draft_counts import stale_draft_quotes
+    for f, head, fr in stale_draft_quotes(ROOT):
+        h = re.match(r"- §(\d+)\.", head)
+        who = next((w for a, b, w in mlu.BAND if a <= int(h.group(1)) <= b), "?") if h else "50"
+        lab = re.match(r"- (§[\d.]+(?:\([a-z]\))?)", head)
+        out.append((lab.group(1) if lab else f[:30], "いまの草案に無い文を引いている（試作の前の文）", fr[:90],
+                    f"{who} (いまの文に揃えるか、引用の前で「Tnn の前の文」と名乗る)"))
     snaps = mlc.snapshots()
     for s, cs in snaps.items():
         if not cs and mlc.LAW_HOST.search((L / "rounds" / s).read_text(encoding="utf-8")[:1500]):

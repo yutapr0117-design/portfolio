@@ -176,41 +176,9 @@ def run(ctx):
         #   変わると、問いが古い文を「1.4 草案は」として引いたままになる (T80・T92・T93 の後に 5 件・9b の測定)。470 は 1.0 の
         #   地図で合えば通すので鳴らない。引用の断片 (5 語以上) が草案に逐語で無く、どれかの ACD の本文と 5 語の連なりを 4 割以上
         #   共有する (= ACD の文の引用で、外の法源や発言の引用ではない) ものを数える。段落のその引用より前が旧版を名乗れば除く
-        def _n470b(_s):
-            return re.sub(r"\s+", " ", _s).lower().strip(" .,;:")
-
-        def _g470b(_s):
-            _w = re.findall(r"[a-z0-9']+", _s.lower())
-            return {" ".join(_w[_i:_i + 5]) for _i in range(len(_w) - 4)}
-        _dr470b = sorted((ROOT / "LICENSES").glob("ACD-1.[1-9]-DRAFT.txt"),
-                         key=lambda _p: "HAS BEEN FROZEN" in _p.read_text(encoding="utf-8").split("\n", 1)[0])
-        _d470b = _n470b(_dr470b[0].read_text(encoding="utf-8").split("-" * 80, 1)[-1]) if _dr470b else ""
-        _G470b = _g470b(" ".join(_n470b(_p.read_text(encoding="utf-8")) for _p in sorted((ROOT / "LICENSES").glob("ACD-1.*.txt"))))
-        _stale470b = []
-        # 作業中の版の逐条リファレンスも同じ形で照らす (2026-11-18・50 の提案: 試作のたびに手で回して古い逐語を 6 つ見つけた)
-        _cref470b = [_p.name for _p in sorted((ROOT / "LICENSES").glob("ACD-1.[1-9]-CLAUSE-REFERENCE-DRAFT.md"))
-                     if not (ROOT / "LICENSES" / _p.name.replace("-CLAUSE-REFERENCE-DRAFT.md", ".txt")).exists()]
-        # 作業中の版の「一意に定める」記録も (2026-11-19): 試作で草案の文が変わると、§19 の行が古い文を「別の読み」として引いたままになる
-        _uniq470b = [
-            _p.name for _p in sorted((ROOT / "LICENSES").glob("ACD-1.[1-9]-UNIQUE-READING.md"))
-            if not (ROOT / "LICENSES" / _p.name.replace("-UNIQUE-READING.md", ".txt")).exists()]
-        for _qf470b in ["QUESTIONS-FOR-COUNSEL.md", "QUESTIONS-FOR-PRACTITIONERS.md"] + _cref470b + _uniq470b:
-            _qt470b = (ROOT / "LICENSES" / _qf470b).read_text(encoding="utf-8") if (ROOT / "LICENSES" / _qf470b).exists() else ""
-            # 表の行は 1 行ずつを段落として読む (表全体を 1 段落にすると、別の行の版の名乗りが他の行の引用まで除いた)
-            _paras470b = [_x for _b in re.split(r"\n\s*\n", _qt470b)
-                          for _x in (_b.split("\n") if _b.lstrip().startswith("|") else [_b])]
-            for _p470b in _paras470b:
-                _fl470b = " ".join(_p470b.split())
-                for _m470b in re.finditer(r'\*"([^"]{12,})"\*', _fl470b):
-                    # 旧版の名乗り・試作の前の文 (「T85 の前」「as adopted on」)・発言者と日付の付いた引用 (審査者の文) は除く
-                    if re.search(r"(?<![\d.§])(?:ACD-)?1\.[0-3](?![\d])|earlier version|T\d+ ?(?:の前|より前)|before T\d+|as adopted on"
-                                 r"|氏 \d{4}-\d{2}", _fl470b[:_m470b.start()] + _fl470b[_m470b.end():_m470b.end() + 40]):
-                        continue
-                    for _fr470b in re.split(r"\s*(?:…|\.\.\.)\s*", _m470b.group(1)):
-                        _nf470b, _gs470b = _n470b(_fr470b), _g470b(_fr470b)
-                        if len(_fr470b.split()) >= 5 and _nf470b not in _d470b and _gs470b \
-                                and len(_gs470b & _G470b) >= 0.4 * len(_gs470b):
-                            _stale470b.append(f"{_qf470b}: \"{_fr470b[:70]}\"")
+        # 本体は _lib_draft_counts.stale_draft_quotes (2026-11-20: list_open_items が帯の人へ出すために同じ数え方を使う)
+        from _lib_draft_counts import stale_draft_quotes
+        _stale470b = [f"{_f}: \"{_fr[:70]}\"" for _f, _head, _fr in stale_draft_quotes(ROOT)]
         check(
             not _stale470b,
             "Check 470 (問いの引用・ADVISORY): 法律家と実務家への問い・逐条リファレンス・一意に定める記録が引く草案の文は、いまの草案に逐語で在る",
