@@ -162,6 +162,16 @@ def legal_uncertainty_items() -> list[tuple[str, str, str, str]]:
             out.append((f"§{m.group(1)}", "§19 試作で開いている", m.group(2)[:100], "1c (試作)・30 (反例)"))
     for x in mlu.section19()[1]:
         out.append((x.split(":")[0], "§19 形が足りない", x.split(": ", 1)[-1], "その帯の人"))
+    # §18 に残る「未取得」の法源と、どの条にも当たっていない法令の写し (2026-11-20・法令の一次資料を 5 人で読む分担)
+    import measure_law_coverage as mlc
+    band = {k: w for a, b, w in mlu.BAND for k in range(a, b + 1)}
+    for c, line in mlc.s18_rows():
+        for u in re.findall(r"[^（(、。；|]{0,40}未取得", line):
+            out.append((f"§{c}", "§18 法源が未取得", u.strip(" ・（(")[:100], f"{band.get(int(c.split('.')[0]), '?')} (取得は add_law_snapshot.py)"))
+    snaps = mlc.snapshots()
+    for s, cs in snaps.items():
+        if not cs and mlc.LAW_HOST.search((L / "rounds" / s).read_text(encoding="utf-8")[:1500]):
+            out.append((s[:40], "法令の写しが条に当たっていない", "§18 の行か jurisdictions の段に写しの名を書く", "置いた人"))
     return out
 
 
