@@ -125,7 +125,12 @@ saying that the doctrine operates as a shield and not as a sword)"* (*Harvey v D
 case on a guarantee; `rounds/2026-11-17-harvey-v-dunbar-2017-ewca-civ-60-promissory-estoppel-snapshot.txt`).
 §2.5 needs only the shield: a recipient sued by a Dedicator who says the Dedication is revocable answers
 with the estoppel. Whether an English court applies it to a promise made to the public, and on what
-reliance, is the open part there.
+reliance, is the open part there. Nor can the Dedication bind as a deed in England and Wales: the Law of
+Property (Miscellaneous Provisions) Act 1989, section 1(2), requires that an instrument *"makes it clear on
+its face that it is intended to be a deed"* and *"is validly executed as a deed"*, which for an individual
+means a signature attested by a witness and delivery (`rounds/2026-11-19-uk-lpmpa-1989-s1-deeds-snapshot.txt`).
+A published dedication is neither, so a gratuitous promise in it is enforced there, if at all, as a contract
+where the recipient gives something in return, or through the estoppel above.
 (j) A transfer after the Dedication. Under 17 U.S.C. section 205(e), a nonexclusive licence prevails over a
 conflicting transfer of copyright ownership only if it is evidenced by a written instrument signed by
 the owner of the rights licensed or the owner's agent, and was taken before the transfer was executed,
