@@ -1,0 +1,64 @@
+Source: Copyright, Designs and Patents Act 1988 (c. 48), legislation.gov.uk, https://www.legislation.gov.uk/ukpga/1988/48/
+        section/9, /78, /79, /81, /84 and /94 (latest available revised version as shown by the site).
+Retrieved: 2026-11-19/20 by portfolio-30, with the WebFetch tool, one page at a time, under the owner's request to
+        read the statutes the 1.4 draft relies on (5 people sharing the work; 30 = Japan and the UK).
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model, in verbatim quotes of at most 125 characters
+        each; amendment markers were omitted by the tool. Re-fetch and compare before relying on the exact wording.
+        Section 9(3) and section 94 were quoted in the dossier before (jurisdictions.md section 7); they are re-fetched
+        here with the rest of Chapter IV that bears on Section 12 of the draft.
+
+WHY THIS FILE EXISTS. Section 12 of the 1.4 draft waives moral rights to the extent the law permits (12.1) and covenants
+and consents for every jurisdiction (12.2); Section 11.3 leaves false attribution outside the Dedication; trial T122 asks
+whether the waiver in 12.1 should reach the right against false attribution. These sections say which UK moral rights
+apply to computer programs and computer-generated works, and how they are asserted.
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+===== section 9(1) and (3) =====
+1. "In this Part "author", in relation to a work, means the person who creates it."
+2. "In the case of a literary, dramatic, musical or artistic work which is computer-generated,"
+3. "the author shall be taken to be the person by whom the arrangements necessary for the creation of the work are undertaken."
+
+===== section 78(1) and (2) (requirement that right be asserted) =====
+4. "(1)A person does not infringe the right conferred by section 77 (right to be identified as author or director)"
+5. "by doing any of the acts mentioned in that section unless the right has been asserted"
+6. "in accordance with the following provisions so as to bind him in relation to that act."
+7. "(2)The right may be asserted generally, or in relation to any specified act or description of acts—"
+8. "(a)on an assignment of copyright in the work, by including in the instrument effecting the assignment"
+9. "a statement that the author or director asserts in relation to that work his right to be identified, or"
+10. "(b)by instrument in writing signed by the author or director."
+
+===== section 79(1) and (2) (exceptions to right to be identified) =====
+11. "The right conferred by section 77 (right to be identified as author or director) is subject to the following exceptions."
+12. "The right does not apply in relation to the following descriptions of work—"
+13. "(a) a computer program;"
+14. "(b) the design of a typeface;"
+15. "(c) any computer-generated work."
+
+===== section 81(1) and (2) (exceptions to right to object to derogatory treatment) =====
+16. "The right conferred by section 80 (right to object to derogatory treatment of work) is subject to the following exceptions."
+17. "The right does not apply to a computer program or to any computer-generated work."
+
+===== section 84(1), (2), (3), (5) and (6) (false attribution of work) =====
+18. "(1)A person has the right in the circumstances mentioned in this section—"
+19. "(a)not to have a literary, dramatic, musical or artistic work falsely attributed to him as author, and"
+20. "(b)not to have a film falsely attributed to him as director;"
+21. "and in this section an "attribution", in relation to such a work, means a statement (express or implied)"
+22. "as to who is the author or director."
+23. "(2)The right is infringed by a person who—"
+24. "(a)issues to the public copies of a work of any of those descriptions in or on which there is a false attribution, or"
+25. "(b)exhibits in public an artistic work, or a copy of an artistic work, in or on which there is a false attribution."
+26. "(3)The right is also infringed by a person who—"
+27. "(a)in the case of a literary, dramatic or musical work, performs the work in public or communicates it to the public"
+28. "as being the work of a person, or"
+29. "(b)in the case of a film, shows it in public or communicates it to the public as being directed by a person,"
+30. "knowing or having reason to believe that the attribution is false."
+31. "(5)The right is also infringed by a person who in the course of a business—"
+32. "(a)possesses or deals with a copy of a work of any of the descriptions mentioned in subsection (1)"
+33. "in or on which there is a false attribution, or"
+34. "(b)in the case of an artistic work, possesses or deals with the work itself when there is a false attribution in or on it,"
+35. "knowing or having reason to believe that there is such an attribution and that it is false."
+(Subsection (6), on altered artistic works dealt with as unaltered, was also fetched and is not relevant here.)
+
+===== section 94 (moral rights not assignable) =====
+36. "The rights conferred by Chapter IV (moral rights) are not assignable."
