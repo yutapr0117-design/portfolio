@@ -80,8 +80,8 @@ narrow band where those assumptions fail together.
 
 **If you only mention ACD, say so.** In your own work, the identifier (`ACD-1.4`), an SPDX tag, or
 the name with its version can be read as a notice that applies the text to the material it
-accompanies (§16.2 of the 1.4 draft). A README that names ACD only to compare it with other licences should name it without
-a version, or say in the same sentence that the work is not under it. §16.2 speaks of a notice that
+accompanies (Section 16 of the 1.4 draft, on notices). A README that names ACD only to compare it with other licences should name it without
+a version, or say in the same sentence that the work is not under it. Section 16 speaks of a notice that
 a Dedicator places, so an article or a comparison table about other people's work does not apply
 ACD to that work; that is our reading, and no lawyer has checked it.
 
