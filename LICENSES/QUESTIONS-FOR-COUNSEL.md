@@ -479,6 +479,16 @@ ordinary rule this way: *"Only the licensor can enforce the contract (unless the
 beneficiary, in which case the third party can enforce it only insofar as that party's interest is
 impacted)."* If that rule applies, a recipient could hold the Dedicator to §5 only as to the recipient's own
 use, which is all §5.3 asks for; whether it applies to a promise that is not part of a contract is the question.
+For the patent covenant there may be a shorter route. In the 2023 IP High Court case under question 2, the
+court looked for, and did not find, a term that the licensor's right against the licensee's buyers was
+barred: *「一審原告が機械を製造し、これを第三者に販売した場合に、一審原告に付与した独占的通常実施権に起因して、」*
+*「その第三者に対する一審被告による本件特許権の行使が妨げられる旨の定めは何ら存せず」*
+(`rounds/2026-11-19-jp-ip-high-court-2023-10-04-full-text-third-party-term-snapshot.txt`; the judgment does
+not mention civil code article 537). In ACD a buyer is not a third party to §8.6: the covenant runs to *You*,
+and §1.6 makes You anyone who exercises a permission granted here, so a buyer who uses or sells the product is
+itself a promisee. That is our reading; the court decided a case with no such term. If it holds, the
+beneficiary route of article 537 is not needed for §8.6, and the question narrows to recipients who exercise
+no permission at all.
 
 The fifth question is about the second limb of §5.2(a). The Dedicator covenants not to *"invoke
 against You any law concerning the circumvention of such measures"*, where the measures are those
