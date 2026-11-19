@@ -257,6 +257,8 @@ ACD-1.4 -- CHANGES FROM ACD-1.3 (DRAFT). Not part of the Dedication.
       and waives the power to forbid it. (+78 words.)
     * Section 5.2's authorisation of circumvention now applies "To the
       fullest extent the law permits". (-1 word.)
+    * Section 14.2 now applies "Where applicable law does not permit a
+      liability to be excluded". (-2 words.)
     * Section 15.1 now joins its two sentences, and "in respect of the Work"
       now also governs the rule that the reading granting more to You
       prevails, and says on whom the least obligation falls, "upon You"
@@ -286,4 +288,4 @@ ACD-1.4 -- CHANGES FROM ACD-1.3 (DRAFT). Not part of the Dedication.
       of the Work", where it said they bind no recipient of the Work, with the
       limit "in respect of the Work" that Sections 10.1, 10.4, and 11.4 use
       (errata E48). (+2 words.)
-    * ACD-1.3: 5443 words, 80 clauses. This draft: 5858 words, 80 clauses.
+    * ACD-1.3: 5443 words, 80 clauses. This draft: 5856 words, 80 clauses.
