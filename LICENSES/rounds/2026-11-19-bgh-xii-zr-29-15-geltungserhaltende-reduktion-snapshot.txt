@@ -1,0 +1,15 @@
+Source: https://gesetze.co/urteile/XII_ZR_29-15
+Law: Bundesgerichtshof, Urteil vom 6. April 2016, XII ZR 29/15 (as published by gesetze.co — a secondary publisher; the official collection is bundesgerichtshof.de)
+Articles: XII ZR 29/15 (1 sections below; 1 lines of verbatim passages, 1 note lines)
+Retrieved: 2026-11-19 04:28 UTC by portfolio-9b, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: a096a6feb3b3d8a3e6654161e605dfd8a2fd68d182c8c615dec9794e75bd14ad (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 14.2, 15.2
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+===== BGH XII ZR 29/15 (Urteil vom 6. April 2016, 12. Zivilsenat — Rn. 19) =====
+(Rn. 19) "Eine geltungserhaltende Reduktion des Aufrechnungsverbots auf ein inhaltlich noch zulässiges Maß kommt nicht in Betracht"
+（注）The page names the court as "BGH 12. Zivilsenat, Urteil vom 6. April 2016 · XII ZR 29/15". The clause at issue was an AGB set-off ban; the sentence is the court's general refusal to cut an invalid AGB clause back to its permissible content.
