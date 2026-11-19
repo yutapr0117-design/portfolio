@@ -164,6 +164,8 @@ THIRD（`ACD-1.4-THIRD-CLARITY-TRIAL.md`）にあった第 19 節を 2026-11-18 
 
 - §12.6 後半（法の効果の言い切り・portfolio-2f・2026-11-20） | 別の読み: T130 の前の後半 "the invalidity affects no other Section" は、§12.2 の無効が他の条に及ばないことを法の効果として断定し、法廷が約束の無効を他の条にも及ぼす法域ではその文だけが偽になる —— T129 が §15.2 で同じ効果を「扱う」形に直した後は、同じ働きの 2 文の様式が食い違う（2f の T128・T129 の反例 (c)） | 試作 T130 で入った | 根拠: T130 で後半を "and the invalidity is to be treated as affecting no other Section"（+5 語）にし、§15.2 の "the remainder as continuing in full force everywhere" と同じ形にそろえた。後半を落とす案は、§12.2 第 3 文（§12.1 が効かなくても §12.2 は残る）との対の片方だけを消すので採らなかった。"no other Section" の Section は同じ文の "Section 12.2" と同じく小節にも使う語で、§12.1・§12.3〜§12.5 を含む
 
+- §12.6 後半・§12.3〜§12.5（従属の条・portfolio-30 の逆側・2f が書いた・2026-11-20） | 別の読み: T130 の "the invalidity is to be treated as affecting no other Section" と言いながら、§12.3・§12.4 と §12.5 の §12.2 の側は "The covenant and the consent in Section 12.2" を主語・目的語に持つので、§12.2 がある法域で無効になると中身が空になる —— 「他の条に影響しない」と食い違う | 一意 | 根拠: §12.6 後半が扱うのは条の効力（無効が他の条を無効にしないこと）で、他の条の文言はその法域でも有効なまま残る。従属の条は §12.2 の約束と同意を対象に取る文なので、対象が無ければ当てるものが無いだけで、無効になるのではない（文言の存続と中身の空は別）。§12.6 前半の "Section 15.2 applies" が先に §12.2 を §15.2 の "reformed to the minimum extent necessary" で残す道をとるので、従属の条が空になるのは改めて残せない場合に限る。§12.5 の §12.1 の側（放棄の除外）は §12.2 と独立に働き続ける
+
 ### 19.5 §14〜§16（portfolio-9b・main の 1.4 草案）
 
 入力: `scan_draft_ambiguity.py --split` の 9b の帯（10 件）と、§14 の 2 つの条を並べて読んだ結果。§15.1（受け手に多く与える読みが勝つ）は受け手に与えるものについての割れを閉じるが、Dedicator の責任の範囲や文書の規律（§16）の割れは閉じない —— この帯の割れの多くはそちら側にある。
