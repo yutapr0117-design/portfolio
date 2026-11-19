@@ -136,6 +136,12 @@ def run(ctx):
                 # 1.0 の地図と、名乗った版の地図のどれかで帰属が合えば良しとする (置き換えると、1.0 の番号で引きながら後の版も
                 #   名乗る register の行を誤検出した)。どの地図でも合わないときだけ RED
                 _maps470 = [_clause470] + [_vers470[_v] for _v in sorted(_named470) if _v != "1.0"]
+                # ACD-1.N- の作業文書は、そのファイル名の版の地図でも帰属を受ける (2026-11-20・2f の案: 1.4 草案の §1.4 を正しく引いた
+                #   UNIQUE-READING の行が、1.0 の地図だけで照らされて「§1.3 の語」と出ていた)。ただし母数 (どの引用を照らすか) は
+                #   今までどおり 1.0 と名乗った版の地図で決める —— 作業文書は自分の節にも § を振る (§14.22) ので、草案にだけ在る
+                #   引用まで照らすと、節の番号を条の番号と取り違えて誤検出する (2026-11-18 に地図を置き換えて 19 件が出た)
+                _fv470 = re.match(r"ACD-(1\.[1-9])-", _f470.name)
+                _accept470 = _maps470 + ([_vers470[_fv470.group(1)]] if _fv470 and _fv470.group(1) in _vers470 else [])
                 def _cov_of470(_m):
                     _c = set()
                     for _r470 in _refs470:
@@ -149,8 +155,8 @@ def run(ctx):
                         if len(_quote470.split()) < 5 or not re.search(r"[A-Za-z]{3}", _quote470):
                             continue
                         _nq470 = re.sub(r"[.,;:]+$", "", _norm470(_quote470)).strip()
-                        _owns470 = [({_k for _k, _v in _m.items() if _nq470 in _v}, _cov_of470(_m)) for _m in _maps470]
-                        _own470 = next((_o for _o, _c in _owns470 if _o), set())
+                        _owns470 = [({_k for _k, _v in _m.items() if _nq470 in _v}, _cov_of470(_m)) for _m in _accept470]
+                        _own470 = next((_o for _o, _c in _owns470[:len(_maps470)] if _o), set())
                         if not _own470:
                             continue  # \u30e9\u30a4\u30bb\u30f3\u30b9\u672c\u6587\u3067\u306a\u3044\u3082\u306e\u306f\u6bcd\u6570\u5916
                         _pop470 += 1

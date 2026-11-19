@@ -494,6 +494,14 @@ _MUTATIONS_TAIL.append({
     "replace": "\n  Changes since the version posted on 2026-11-18:\n    * none\n\n  Changes in this draft, relative to ACD-1.3:",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 470: UNIQUE-READING の §11.4 の行の「1.4 草案の §1.4（1.0 の §1.3）の」から条の番号を外す —— 作業文書にファイル名の版の"
+            "地図を当てた後も、条を名指さない帰属は RED (2026-11-20・2f の案の対照)",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-UNIQUE-READING.md",
+    "find": "根拠: 1.4 草案の §1.4（1.0 の §1.3）の \"this Dedication operates severally as to each\"",
+    "replace": "根拠: 1.4 草案の \"this Dedication operates severally as to each\"",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
