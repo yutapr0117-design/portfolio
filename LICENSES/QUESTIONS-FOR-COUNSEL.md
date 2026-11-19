@@ -147,7 +147,13 @@ In the United Kingdom, CDPA section 90(4) makes a copyright owner's licence bind
 title *"except a purchaser in good faith for valuable consideration and without notice (actual or
 constructive) of the licence"* (`rounds/2026-11-16-cdpa-1988-s87-s90-legislation-gov-uk-snapshot.txt`).
 A Dedication published with the Work makes notice likely, but a purchaser who never saw it is the case
-§2.8's *"to the fullest extent the law permits"* leaves to the law.
+§2.8's *"to the fullest extent the law permits"* leaves to the law. For patents in Germany the statute
+answers outright: PatG section 15(3), *"Ein Rechtsübergang oder die Erteilung einer Lizenz berührt nicht
+Lizenzen, die Dritten vorher erteilt worden sind."* (a transfer or a licence does not affect licences
+granted to third parties before it; `rounds/2026-11-20-patent-usc-patg-berne-trips-snapshot.txt`), so §8's licences bind a later owner of
+the patent there. In the United States, 35 U.S.C. section 261 voids an unrecorded *"assignment, grant or
+conveyance"* against a later purchaser without notice; whether a non-exclusive licence given to the
+public is such an interest we have not read a case on.
 
 A further question concerns the recipient who never saw the Dedication. In the 1.4 draft, §2.3 says
 *"To hold a permission granted here, You need not know of this Dedication"*, which matters because §10.2
@@ -236,6 +242,10 @@ the Work or anything derived from it"*, in §8.1 and in §8.4, so the acts that 
 Kingdom patent law name are in the words. *"offer"* replaces *"offer to sell"* because those laws also
 count an offer to use a patented method; it is wider than the *"offer to sell"* of 35 U.S.C. §271(a) and
 of Apache-2.0 §3. *"otherwise practise"* stays for any act a law names that the list still misses.
+For a process patent, TRIPS Article 28.1(b) extends the owner's right to *"the product obtained directly
+by that process"* (`rounds/2026-11-20-patent-usc-patg-berne-trips-snapshot.txt`); §8.4's list of acts reaches a model or output that
+results from Computational Use, so a model that is the direct product of a patented training method is
+within the words.
 (h) The 1.4 draft adds to §8.4 *"Section 8.1 alone governs a feature added to the Work, by whatever
 means."* Does it hold the line between a feature added to the Work and a feature of a model or
 output, including where the Work is itself a model?
@@ -261,7 +271,11 @@ covenant.
 
 **Meant to do.** Remove the integrity right as an obstacle to modifying the Work, in the form that
 Japanese practice already uses (a covenant not to exercise rights that Article 59 of the Copyright
-Act makes inalienable), without reaching other works.
+Act makes inalienable), without reaching other works. The treaty floor is narrower than §12: Berne
+Article 6bis(1) gives the right *"to claim authorship of the work and to object to any distortion,"*
+*"mutilation or other modification of, or other derogatory action in relation to, the said work,"* only
+where it *"would be prejudicial to his honor or reputation"* (`rounds/2026-11-20-patent-usc-patg-berne-trips-snapshot.txt`); several
+national laws reach further, which is why §12 does not rest on the treaty's limit.
 
 **Why we doubt it.** (a) Whether a covenant given to the public at large, rather than to a known
 counterparty, is enforceable in Japan, Germany or France. For Germany, Till Kreutzer wrote of CC0 that
@@ -525,7 +539,10 @@ infringement side. On the contract side, if the Dedication is a contract at all,
 points to the law of the country *"where the party required to effect the characteristic performance of
 the contract has his habitual residence"*; for a grant, that is the Dedicator
 (`rounds/2026-11-16-eu-tdm-and-conflict-of-laws-snapshot.txt`). Whether it is a contract is not settled by
-these texts.
+these texts. Outside the European Union the same rule for protection comes from the Berne Convention,
+Article 5(2): *"the extent of protection, as well as the means of redress afforded to the author to
+protect his rights, shall be governed exclusively by the laws of the country where protection is
+claimed."* (`rounds/2026-11-20-patent-usc-patg-berne-trips-snapshot.txt`).
 
 **The 1.4 draft answers the first part (trial T92).** #23 read the second sentence as a declaration
 about conflict of laws that a forum need not follow, and the law above shows it did no work on the
