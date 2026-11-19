@@ -182,6 +182,9 @@ def legal_uncertainty_items() -> list[tuple[str, str, str, str]]:
             closed = re.search(r"取得経路|403|404", after)
             out.append((f"§{c}", "§18 法源の取得経路が閉じている（待ち）" if closed else "§18 法源が未取得", u.strip(" ・（(")[:100],
                         f"{band.get(int(c.split('.')[0]), '?')} (取得は add_law_snapshot.py)"))
+    for s, c in mlc.unapplied():
+        out.append((f"§{c}", "法令の写しを取ったが、その条の読みに当てていない", s[:60],
+                    f"{band.get(int(c.split('.')[0]), '?')} (§18 の行か jurisdictions の段か §19 の行に写しの名を書いて読む)"))
     snaps = mlc.snapshots()
     for s, cs in snaps.items():
         if not cs and mlc.LAW_HOST.search((L / "rounds" / s).read_text(encoding="utf-8")[:1500]):
