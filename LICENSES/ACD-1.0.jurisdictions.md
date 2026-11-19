@@ -569,6 +569,11 @@ Material"* と述べているのは、この状況に対してである** ——
 (3) **T122 の向きへの当たり方**: 英国のソフトウェアでは、人格権のうち実際に残るのは 84 条だけで、それは §11.3（偽の表示は Dedication の外）が守ろうとする利益と同じ —— (A)（§12.1 の放棄が 84 条にも及ぶ）なら、ソフトウェアについて英国で残る唯一の人格権を放棄させることになり、(B)（84 条は残す）なら §11.3 と揃う。加えて、87 条 2 項は放棄に署名ある書面を求めるので、署名の無い ACD の §12.1 は英国では放棄として働かず（87 条 4 項の契約・禁反言の道は残る・上の段）、(A) が実際に英国で手放させる力も弱い。
 (4) **9 条 3 項**: コンピュータ生成物の著作者は *"the person by whom the arrangements necessary for the creation of the work are undertaken"*（§7a の段と同じ）—— コンピュータ生成物には 79 条・81 条の例外があるので、機械生成物（§1.8・§9）について英国で人格権が問題になる場面は、84 条の偽の帰属に限られる。
 **確立していないこと**: 1.4 草案の §12 は「Moral Rights」を §1.2 で広く定めるので、英国のどの権利に当たるかは本文の語ではなく法が決める（上の読みは法の側の結論で、裁判所の確認は無い）。データや文書など、プログラムでない Work には 77 条・80 条が当たり、そこでは §12 の問いはそのまま残る。
+
+**§7（データベース権）と §6（TDM）—— 英国のデータベース権は 1997 年の規則に在り、§7.2 と同じ線を法が引く（2026-11-20 追記・portfolio-30・オーナーの依頼で法令を分担して読んだ分・条文は `rounds/2026-11-19-uk-database-regulations-1997-cdpa-29a-snapshot.txt`・我々の読み）**:
+(1) **置き場所**: 英国の独自データベース権は CDPA ではなく Copyright and Rights in Databases Regulations 1997 に在る —— 13 条 1 項 *"A property right ("database right") subsists, in accordance with this Part, in a database if there has been a substantial"* *"investment in obtaining, verifying or presenting the contents of the database."*、2 項は著作物であるか否かを問わない。オーナーが貼った外の AI のまとめは「CDPA がデータベース権を定める」と書いていたが、条文はこの規則（照合は 50 が 1 か所に記録する）。
+(2) **§7.2 と規則の線が揃う（狭まる向き）**: 16 条 1 項は *"extracts or re-utilises all or a substantial part of the contents"* を侵害とし、2 項は *"the repeated and systematic extraction or re-utilisation of insubstantial"* *"parts of the contents of a database may amount to the extraction or re-utilisation of a substantial part of those contents."* —— §7.2 の *"the whole or any substantial part … repeatedly and systematically"* は、侵害となりうる行為をちょうど覆う。19 条 1 項は適法な利用者が実質的でない部分を *"for any purpose"* 抽出・再利用できるとし、2 項はそれを妨げる契約の条項を無効にする —— EU の DB 指令 8 条・15 条（`rounds/2026-11-16-eu-database-directive-snapshot.txt`）と同じ形。
+(3) **§6 と CDPA 29A 条**: 29A 条 1 項の TDM の例外は *"for the sole purpose of research for a non-commercial purpose"* に限られ、*"(b) the copy is accompanied by a sufficient acknowledgement"* を求める（§7c の段と同じ）。5 項は、例外が許す複製を妨げる契約の条項を *"unenforceable"* とする。ACD の §6.1 は目的を問わず条件も付けずに計算の利用を許すので、英国の例外より広く、例外に頼る必要が無い。
 ## 8. その他の法域
 
 個別に扱っていない法域については、**§1 の構造がそのまま答え**になる。§15.4 が「無効な条項は
