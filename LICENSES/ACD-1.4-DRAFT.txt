@@ -571,7 +571,8 @@ PREAMBLE (informative; not part of the operative terms)
        three.
 
   12.6 If Section 12.2 is held invalid in whole or in part in a jurisdiction,
-       Section 15.2 applies, and the invalidity affects no other Section.
+       Section 15.2 applies, and the invalidity is to be treated as affecting no
+       other Section.
 
 
 13. NO WARRANTY
