@@ -1,0 +1,30 @@
+Source: https://www.law.cornell.edu/uscode/text/17/1202
+Law: 17 U.S.C. (United States Code, Title 17), as published by the Legal Information Institute, Cornell Law School
+Articles: §1202, §1203 (2 sections below; 16 lines of verbatim passages, 0 note lines)
+Retrieved: 2026-11-19 02:30 UTC by portfolio-2f, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: 27791e2d497e9146f7b6328123eabc4c3eb376b970371edf78967b04f7c614ee (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 5.2, 10.2
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+===== 17 U.S.C. §1202 (Integrity of copyright management information) =====
+(b) "No person shall, without the authority of the copyright owner or the law—"
+(b)(1) "intentionally remove or alter any copyright management information,"
+(b)(2) "distribute or import for distribution copyright management information knowing that the copyright management information"
+       [...] "has been removed or altered without authority of the copyright owner or the law, or"
+(b)(3) "distribute, import for distribution, or publicly perform works, copies of works, or phonorecords, knowing that"
+       [...] "copyright management information has been removed or altered without authority of the copyright owner or the law,"
+(b) closing words: "knowing, or, with respect to civil remedies under section 1203, having reasonable grounds to know, that it will"
+       [...] "induce, enable, facilitate, or conceal an infringement of any right under this title."
+(c) "As used in this section, the term "copyright management information" means any of the following information"
+       [...] "conveyed in connection with copies or phonorecords of a work or performances or displays of a work,"
+(c)(2) "The name of, and other identifying information about, the author of a work."
+(c)(3) "The name of, and other identifying information about, the copyright owner of the work,"
+       [...] "including the information set forth in a notice of copyright."
+(c)(6) "Terms and conditions for use of the work."
+===== 17 U.S.C. §1203 (Civil remedies) =====
+(a) "Any person injured by a violation of section 1201 or 1202 may bring a civil action"
+       [...] "in an appropriate United States district court for such violation."

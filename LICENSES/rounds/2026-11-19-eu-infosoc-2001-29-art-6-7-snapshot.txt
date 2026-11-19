@@ -1,0 +1,32 @@
+Source: https://www.legislation.gov.uk/eudr/2001/29/article/6
+Law: Directive 2001/29/EC (InfoSoc Directive), UK-retained revised text as published at legislation.gov.uk
+Articles: Article 6, Article 7 (2 sections below; 16 lines of verbatim passages, 2 note lines)
+Retrieved: 2026-11-19 02:30 UTC by portfolio-2f, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: cedf9bc6a5da61fb172a219e98fdbc8cec54fa2ed8c097d98861f53db9bab7b8 (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 5.2, 10.2
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+===== Directive 2001/29/EC Article 6 (Obligations as to technological measures) =====
+(Note) The page is legislation.gov.uk's "Latest available (Revised)" UK-retained text; the EU text as adopted was not readable by the tool from that site (article pages blank, PDF compressed). Three strings below were confirmed by a second fetch.
+6(1) "Member States shall provide adequate legal protection against the circumvention of any effective technological measures,"
+       [...] "which the person concerned carries out in the knowledge, or with reasonable grounds to know,"
+       [...] "that he or she is pursuing that objective."
+6(3) "For the purposes of this Directive, the expression ‘technological measures’ means any technology, device or component"
+       [...] "that, in the normal course of its operation, is designed to prevent or restrict acts,"
+       [...] "in respect of works or other subject-matter, which are not authorised by the rightholder of any copyright"
+       [...] "or any right related to copyright as provided for by law or the sui generis right"
+       [...] "provided for in Chapter III of Directive 96/9/EC."
+===== Directive 2001/29/EC Article 7 (Obligations concerning rights-management information) =====
+7(1) "Member States shall provide for adequate legal protection against any person knowingly performing without authority"
+       [...] "any of the following acts:"
+7(1)(a) "the removal or alteration of any electronic rights-management information;"
+7(2) "For the purposes of this Directive, the expression ‘rights-management information’ means any information"
+       [...] "provided by rightholders which identifies the work or other subject-matter referred to in this Directive or covered"
+       [...] "by the sui generis right provided for in Chapter III of Directive 96/9/EC, the author or any other rightholder,"
+       [...] "or information about the terms and conditions of use of the work or other subject-matter, and any numbers"
+       [...] "or codes that represent such information."
+(Note) A fetch of the compressed PDF answered from the model's memory and gave 7(1)(a) as "removing or altering any electronic rights-management information without authority;"; the article page has "the removal or alteration of any electronic rights-management information;". The memory text was discarded.

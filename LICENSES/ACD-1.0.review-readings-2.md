@@ -891,3 +891,22 @@ census の unquoted-decider（候補の外の会話の、ドシエが 1 文も�
 **この節が establish しないこと。** ACD の §4 の licence が §203 の *"executed by the author"* に当たるか。学習済みのモデルが §203(b)(1) の派生物に当たるか。
 
 **反映**: 50・1c（§8.4 の feature —— §1.267 の種に §271(a) の根を足す・UNIQUE-READING §19.3）、30（`jurisdictions.md` の §203 の表の §4 の行に §203(b)(1) の残るもの、§204(a) の書面の要件が掛からないこと）。
+
+## 1.269 回避と管理情報の法の授権の置き場所 —— 米国は回避の定義（17 U.S.C. §1201(a)(3)(A)）に、EU は技術的手段の定義（指令 2001/29/EC 6 条 3 項）に置く。T124 の範囲の句が下流の頒布者の手段を外しても、EU では手段の地位を 6 条 3 項が決める（2026-11-19）
+
+オーナーの提案（2026-11-19・関連法令の一次資料を 5 人で分担して読む）の portfolio-2f の受け持ち（米国と EU）。T124（§5.2(a) に回避の授権と力の放棄を足す試作・§19.2 の行）の法源として、17 U.S.C. §1202・§1203 と指令 2001/29/EC 6 条・7 条を取った（`rounds/2026-11-19-us-17-usc-1202-1203-snapshot.txt`・`rounds/2026-11-19-eu-infosoc-2001-29-art-6-7-snapshot.txt`。EU の文は legislation.gov.uk の英国保持版で、EU の採択時の文は道具が読めなかった。6 条の 3 つの文字列は 2 度目の取得で確かめた）。§1201 は portfolio-9b の写し（`rounds/2026-11-19-us-17-usc-203-1201-snapshot.txt`）。
+
+| 法源 | 授権がどこに在るか | T124 と 1.4 草案への当て |
+| :-- | :-- | :-- |
+| 17 U.S.C. §1201(a)(3)(A) *"without the authority of the copyright owner"*、(a)(3)(B) *"with the authority of the copyright owner"* | **回避の定義**と、手段が「実効的に管理する」ことの定義の両方 | 受け手 B が §4.1 の licence（*"for any purpose whatsoever"*）の下で Work に掛けた手段は、(a)(3)(B) の *with the authority of the copyright owner* を満たしうるので保護される手段になりうる。そのうえで C の回避が「権限なし」かは Dedicator の授権で決まる —— **米国では T124 の範囲の句（50 の案: Dedicator が掛けた手段か、Dedicator のために掛けられた手段）が B の手段の扱いを実際に決める** |
+| 指令 2001/29/EC 6 条 3 項 *"designed to prevent or restrict acts, in respect of works or other subject-matter, which are not authorised by the rightholder"* | **手段の定義** | §4.1 は Covered Rights の全ての行為を誰にでも許すので、Work の写しに掛けた手段が妨げる行為は、Dedicator の権利については *not authorised* ではない —— その手段は、Dedicator の権利について 6 条 3 項の *technological measures* に当たらないと読める。**EU では T124 の範囲の句が B の手段を外しても、B の手段の保護は 6 条 3 項の定義の側で決まり、T124 はそれを変えない**。逆に読み (i)（§3 が効かない場合に第三者の前で回避が権限なしのまま）は、EU では §4.1 だけで既に狭い |
+| 17 U.S.C. §1202(b) *"without the authority of the copyright owner or the law"*・末尾 *"knowing … that it will induce, enable, facilitate, or conceal an infringement"*、指令 7 条 1 項 *"knowingly performing without authority"* | 管理情報の除去・改変の禁止 | `jurisdictions-sources.md` (5) の読み（§10.2 *"You need not give attribution, reproduce any notice"* が授権を与える）と整合。加えて §1202(b) は侵害を招く・隠すことの知を要し、§4.1 が全ての利用を許すので隠す侵害が無い。**新しい割れは無い**。作者の名を偽る改変は §11.3（偽の言明）の側 |
+| 17 U.S.C. §1203(a) *"Any person injured by a violation of section 1201 or 1202 may bring a civil action"* | 原告の範囲 | §19.2 の T124 の行が引く *any person injured* の出典（行の出典の欠けを埋めた） |
+
+**読み。** 授権の置き場所が米国と EU で違う。米国では「誰の手段か」と「回避が授権されたか」を T124 の語が決め、EU では §4.1 の許しが手段の定義の側に効く。T124 の範囲の句の効き目は、米国に向けた設計として説明できる。
+
+**逆側。** (1) B が Work の上に自分の権利（自分の改変の著作権、データベース権）を持つとき、その権利についての行為は B が許していないので、EU でも B の手段はその範囲で 6 条 3 項の手段に当たる。(2) 6 条 3 項の読み（許された行為を妨げる手段はその権利について手段でない）は我々の文言の読みで、EU 司法裁判所の判断（技術的手段の比例性を論じた判決）を取っていない。(3) 写しは英国保持版で、EU の採択時の文と一致するとは確かめていない。
+
+**この節が establish しないこと。** §4.1 の licence が米国の §1201(a)(3)(B) の *with the authority of the copyright owner* を B に与えると裁判所が読むか。EU で許された行為を妨げる手段が保護されないという読みが判例で採られているか。
+
+**反映**: 1c・50（T124 の行の根拠に「範囲の句は米国に向けた設計、EU では 6 条 3 項が決める」を足す・`ACD-1.4-UNIQUE-READING.md` §19.2）、THIRD §18 の §5.2 の行（写しの名を結んだ）。
