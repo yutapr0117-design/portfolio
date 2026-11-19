@@ -796,16 +796,16 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 
 **反例の結果（30・50）**: 5 本とも反例なし。(a) *under* は権利の根拠を要するので、Work の使用そのものの条件を「商標に基づく」と装っても除外に入らない（50）。(b) カンマを外しても *submits* との間に *in either case* が挟まり、*for inclusion in the Work* の前のカンマが残るので、宛先に戻る読みは立たない（30・50）。(c) §6.5 第 2 文の *It* は *Section 6* でも「§6 が述べること」でも効果は同じ（50）。(d) T106 は 30 の読む意図（2 つの理由に限る）を語で固める。T108 は §6 を宣言から独立の足場へ変えるので、REVIEWERS・逐条リファレンスの §6.5 の行と、against / objection-map で「§6 は宣言的」と答えた所の追いかけが要る（50 が受け持つ）。登録した問い: (a) T104 の *under* が「商標の権利から生じる義務」だけを外し、商標法の届かない名指しまで縛る契約の義務は (b) の内に残る、と読めるか、(b) T107 でカンマを外すと *to the public or to those invited to contribute* が *submits* の宛先に読まれる余地が戻らないか（T35 が閉じた読み）、(c) T108 の後の §6.5 第 2 文 *"It is stated expressly because …"* の *It* の先行詞、(d) T106 の後、錯誤など 2 つの理由以外の無効の主張は約束の外で、§2.2 と §15.2 が受ける、という 30 の読みが保たれるか。
 
-### 15.35 T109・T110 —— 一意化の束 4（+7 語・2026-11-19〜20・【T110 の 2 巡目待ち】）
+### 15.35 T109・T110 —— 一意化の束 4（+4 語・2026-11-19〜20）
 
 | 試作 | 条 | Before → After | 別の読み（UNIQUE-READING の行）|
 | :-- | :-- | :-- | :-- |
 | T109 | §16.2 | *"sufficient notice of these terms, and the terms apply in full"* → *"sufficient notice of this Dedication, and its terms apply in full"*（0）| tag が §1.9 の *a notice of this Dedication* に当たらない（§19.5・1c の指示語の掃引・9b）|
-| T110 | §2.2 第 1 文・第 2 文 | *"This Dedication is irrevocable. The Dedicator may not withdraw it, and may not impose"* → *"This Dedication is made irrevocably. Nothing in this Dedication permits the Dedicator to withdraw it, and the Dedicator may not impose"*（+7・1 巡の後に形を変えた）| 限定の無い *may not* が法の与える撤回まで封じ、T106 の §2.5 と射程が食い違う（§19.1・2f）|
+| T110 | §2.2 第 1 文・第 2 文 | *"This Dedication is irrevocable. The Dedicator may not withdraw it, and may not impose"* → *"This Dedication is made irrevocably. Nothing in this Dedication permits the Dedicator to withdraw it or to impose"*（+7・1 巡の後に形を変えた）| 限定の無い *may not* が法の与える撤回まで封じ、T106 の §2.5 と射程が食い違う（§19.1・2f）|
 
 指示語の掃引（these / those / such の 20 件）の残り: §8.5 の *these licences* は Sections 8.1 to 8.4 のうち licence が §8.1・§8.4 だけなので一意（50 の帯）、§11.4 の *those laws* は前の文が残りを閉じるので一意（2f の帯）。9b の scan_draft_ambiguity (n) が同じ型を機械で出す。
 
-**1 巡目の結果**: 2f・9b —— 反例なし。50 —— T110 に 2 つ: (a) 第 1 文 *is irrevocable* が法の効果の言い切りのまま（REVIEWERS などが単独で引く文）→ *"This Dedication is made irrevocably."*、(b) 文頭の *Under this Dedication,* が *may not impose* にも掛かり外の手段を許すと読ませる → *"Nothing in this Dedication permits the Dedicator to withdraw it, and the Dedicator may not impose …"*。T109 は 3 人とも反例なし。**2 巡目の問い**: (d) *irrevocably* が「撤回できない」の強さを落とすと審査者に読まれないか（§10.4 と第 2 文が担う、と読む）、(e) *Nothing in this Dedication permits … to withdraw it* の *it* の先行詞。
+**1 巡目の結果**: 2f・9b —— 反例なし。50 —— T110 に 2 つ: (a) 第 1 文 *is irrevocable* が法の効果の言い切りのまま（REVIEWERS などが単独で引く文）→ *"This Dedication is made irrevocably."*、(b) 文頭の *Under this Dedication,* が *may not impose* にも掛かり外の手段を許すと読ませる → *"Nothing in this Dedication permits the Dedicator to withdraw it or to impose …"*。T109 は 3 人とも反例なし。**2 巡目の結果**: 30 —— (d) *is made irrevocably* は行為の言明で、慣用の目印 *irrevocably* は残る、(e) *it* は *this Dedication* だけ。残りとして後半の *may not impose* が「力の否定」と「禁止」で割れる（Cowan 氏の型）→ *or to impose*。50 —— §5.2(b) にだけ商標と支払いの除外が入ると §2.2 の限定の無い禁止と食い違う → 同じ直しで閉じる。登録した 2 巡目の問い: (d) *irrevocably* が「撤回できない」の強さを落とすと審査者に読まれないか（§10.4 と第 2 文が担う、と読む）、(e) *Nothing in this Dedication permits … to withdraw it* の *it* の先行詞。
 
 登録した 1 巡目の問い: (a) T110 の *Under this Dedication* が第 2 文の *may not impose any further term* にも掛かり、Dedicator が Dedication の外で（契約で）条件を課すことを許すと読まれないか —— §5.2(b) が別に禁じる、と読む、(b) T110 の後、第 1 文 *irrevocable* が限定の無いまま法についての言明と読まれ、E86 の型で偽になるか、(c) T109 の *its terms* の *its* の先行詞。
 
