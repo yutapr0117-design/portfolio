@@ -844,11 +844,11 @@ Perens 氏の文は 1999〜2024 年にわたり、ドシエの中で最も多く
 | 試作 | 条 | Before → After | 別の読み |
 | :-- | :-- | :-- | :-- |
 | T119 | §16.2 | *"Where a work to which …"* → *"Where material to which …"*、*"accompanies the work"* → *"accompanies that material"*（−1）| 小文字の *a work* が著作物と読め、データベース権だけのデータは通知の外（9b）|
-| T120 | §10.1 | 末に *"as a person exercising permissions under this Dedication"*（+8）| 受け手でもある Dedicator が §10.1 と §15.1 で約束を免れる（9b）|
+| T120 | §10.1 | 末に *"other than in Your capacity as a Dedicator"*（+8・1 巡の後に形を変えた）| 受け手でもある Dedicator が §10.1 と §15.1 で約束を免れる（9b）|
 | T121 | §4.5 | 末に *"Section 4.5 does not permit a person to impose what Section 5 forbids on material as to which that person is a Dedicator."*（+23）| 寄与者が You として自分の寄与の写しを EULA で縛り直す（50）|
 
-T120 と T121 は同じ型（1 人が受け手と Dedicator の両方の役を持つ）の 2 つの面である。T120 は「受け手として何も課されない」が Dedicator の約束を消さないことを、T121 は「受け手として何でも課せる」が Dedicator の約束を越えないことを、それぞれ語で定める。
+T120 と T121 は同じ型（1 人が受け手と Dedicator の両方の役を持つ）の 2 つの面である。T120 は「受け手として何も課されない」が Dedicator の約束を消さないことを（Dedicator の役だけを §10.1 から外して）、T121 は「受け手として何でも課せる」が Dedicator の約束を越えないことを、それぞれ語で定める。
 
-**反例の担当へ（30・50・2f）**: (a) T120 の後の §10.1 と §10.2〜§10.5 の *upon You* の文が同じ役の言明として揃うか（9b の問い）、(b) §16.4 の *"conditions upon distributing the text, not upon any use of the Work (Section 10.5)"* と役の限定が噛み合うか（9b）、(c) T121 の *material as to which that person is a Dedicator* が、§2.6 で寄与の Dedicator になった者の寄与だけを指し、製品の他の部分に及ばないか、(d) T121 が §4.6 第 2 文（*"Terms You add govern what You give"*）と食い違わないか。
+**1 巡目の結果**: 50 —— 3 本とも反例なし。30 —— T119・T121 は反例なし。T120 に 1 つ: *as a person exercising permissions* は、許しを要しない使い方だけをする受け手を §10.1 の外に置く → 狭める向きを逆にし *other than in Your capacity as a Dedicator* にした（受け手の役は全部 §10.1 の内）。登録した問い: (a) T120 の後の §10.1 と §10.2〜§10.5 の *upon You* の文が同じ役の言明として揃うか（9b の問い）、(b) §16.4 の *"conditions upon distributing the text, not upon any use of the Work (Section 10.5)"* と役の限定が噛み合うか（9b）、(c) T121 の *material as to which that person is a Dedicator* が、§2.6 で寄与の Dedicator になった者の寄与だけを指し、製品の他の部分に及ばないか、(d) T121 が §4.6 第 2 文（*"Terms You add govern what You give"*）と食い違わないか。
 
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。
