@@ -1,0 +1,30 @@
+Source: https://laws.e-gov.go.jp/api/1/articles;lawId=345AC0000000048;article=15
+        https://www.gesetze-im-internet.de/urhg/__43.html
+        https://www.gesetze-im-internet.de/urhg/__69b.html
+Law: 著作権法（昭和四十五年法律第四十八号）・Urheberrechtsgesetz
+Articles: 著作権法 第十五条, § 43 UrhG, § 69b UrhG (3 sections below; 11 lines of verbatim passages, 0 note lines)
+Retrieved: 2026-11-19 03:23 UTC by portfolio-30, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: 2731c1d1e3ed8350157ece3b534fda3d10defb9d4d862d65a3c6ffe26f355ed8 (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 1.4, 1.9, 2.6
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+===== 著作権法 第十五条（職務上作成する著作物の著作者）第一項・第二項 =====
+「法人その他使用者（以下この条において「法人等」という。）の発意に基づきその法人等の業務に従事する者が職務上作成する著作物（プログラムの著作物を除く。）で、その法人等が自己の著作の名義の下に公表するものの著作者は、」
+「その作成の時における契約、勤務規則その他に別段の定めがない限り、その法人等とする。」
+「法人等の発意に基づきその法人等の業務に従事する者が職務上作成するプログラムの著作物の著作者は、その作成の時における契約、勤務規則その他に別段の定めがない限り、その法人等とする。」
+
+===== § 43 UrhG (Urheber in Arbeits- oder Dienstverhältnissen) =====
+"Die Vorschriften dieses Unterabschnitts sind auch anzuwenden, wenn der Urheber das Werk in Erfüllung"
+"seiner Verpflichtungen aus einem Arbeits- oder Dienstverhältnis geschaffen hat, soweit sich aus dem Inhalt oder dem Wesen"
+"des Arbeits- oder Dienstverhältnisses nichts anderes ergibt."
+
+===== § 69b UrhG (Urheber in Arbeits- und Dienstverhältnissen) (1) and (2) =====
+"(1) Wird ein Computerprogramm von einem Arbeitnehmer in Wahrnehmung seiner Aufgaben"
+" oder nach den Anweisungen seines"
+" Arbeitgebers geschaffen, so ist ausschließlich der Arbeitgeber zur Ausübung aller vermögensrechtlichen Befugnisse an"
+" dem Computerprogramm berechtigt, sofern nichts anderes vereinbart ist."
+"(2) Absatz 1 ist auf Dienstverhältnisse entsprechend anzuwenden."
