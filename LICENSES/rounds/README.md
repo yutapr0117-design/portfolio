@@ -295,6 +295,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-11-16 | 弁護士の公開の分析（独・CC0） | **観測（Kreutzer 氏の CC0 のドイツ法上の有効性の分析・2011 年頃・放棄は無効、fallback の許諾は有効、公有の宣言は公の許諾と読み替えられるのが通説、不行使の約束は有効・PDF からこの session で取り出した・問い 1 の法源）** | `2026-11-16-kreutzer-cc0-german-law-analysis-snapshot.txt` |
 | 2026-11-18 | SPDX が保持する GPL-3.0 | **観測（GPL-3.0 の頭の 6 行・「逐語の写しは誰でも頒布できるが変更は許されない」・GitHub の API で byte のまま・commit 60fbd82 に固定・§16.4 の法源）** | `2026-11-18-gpl-3-0-header-spdx-snapshot.txt` |
 | 2026-11-19 | 米国法典 | **観測（17 U.S.C. §203(a)・(a)(3)〜(5)・(b) と §1201(a)(1)(A)・(a)(3) の定義・Cornell LII から WebFetch の逐語の片で、バイト単位の写しではない・§203 は 125 字で切れた片）** | `2026-11-19-us-17-usc-203-1201-snapshot.txt` |
+| 2026-11-19 | 英 legislation.gov.uk | 観測（Law of Property (Miscellaneous Provisions) Act 1989 1 条・捺印証書の要件・WebFetch の逐語の片） | `2026-11-19-uk-lpmpa-1989-s1-deeds-snapshot.txt` |
 | 2026-11-19 | 英 legislation.gov.uk | 観測（CDPA 1988 296ZF・296ZA・296 条・技術的手段の定義と回避・WebFetch の逐語の片） | `2026-11-19-cdpa-1988-s296-s296za-s296zf-snapshot.txt` |
 | 2026-11-19 | 英 legislation.gov.uk（EU 指令の英国保持版） | **観測（指令 2001/29/EC 6 条 1 項・3 項、7 条 1 項 (a)・2 項・英国の保持版・WebFetch の逐語の片）** | `2026-11-19-eu-infosoc-2001-29-art-6-7-snapshot.txt` |
 | 2026-11-19 | 米 LII（17 U.S.C.） | **観測（17 U.S.C. §1202(b)(c)・§1203(a)・著作権管理情報と民事の救済・WebFetch の逐語の片）** | `2026-11-19-us-17-usc-1202-1203-snapshot.txt` |
