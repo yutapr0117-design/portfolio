@@ -28,7 +28,7 @@ L = ROOT / "LICENSES"
 SNAP = re.compile(r"(\d{4}-\d{2}-\d{2}-[a-z0-9-]+-snapshot\.txt)")
 # 法令・判例の出所 (OSI の頁や FAQ の写しは法源でないので、当たっていない写しの数に入れない)
 LAW_HOST = re.compile(r"https?://[^/\s]*(?:gesetze-im-internet|legislation\.gov\.uk|e-gov\.go\.jp|legifrance|law\.cornell|uscode\.house|"
-                      r"govinfo|eur-lex|wipo\.int|caselaw\.|courtlistener|lexaris|gesetze\.co/urteile|laws-lois\.justice)")
+                      r"govinfo|eur-lex|wipo\.int|caselaw\.|courtlistener|lexaris|gesetze\.co/urteile|laws-lois\.justice|copyright\.or\.kr|chinadaily\.com\.cn/npc)")
 
 
 def ckey(c: str) -> tuple:

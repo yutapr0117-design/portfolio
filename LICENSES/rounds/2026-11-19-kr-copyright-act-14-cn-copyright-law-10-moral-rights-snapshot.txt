@@ -1,0 +1,32 @@
+Source: https://www.copyright.or.kr/eng/laws-and-treaties/copyright-law/chapter02/section03.do
+        https://subsites.chinadaily.com.cn/npc/2020-11/11/c_674691_2.htm
+Law: Copyright Act of the Republic of Korea (English translation by the Korea Copyright Commission, copyright.or.kr — not an official text); Copyright Law of the People's Republic of China, as amended 2020 (English translation published by the NPC via China Daily, 'Translation for Reference Only')
+Articles: Article 14, Article 10 (2 sections below; 14 lines of verbatim passages, 2 note lines)
+Retrieved: 2026-11-19 05:46 UTC by portfolio-9b, with the WebFetch tool, one page at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: 4a9d644bef7473fb0217b91581410a57fd8977cffa13e105399056600fb24e6a (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.4 draft Sections 12.1, 12.2, 12.4
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+===== Copyright Act of the Republic of Korea Article 14 (Inalienability of Author's Moral Right) =====
+(1) "(1) Author’s moral rights shall belong exclusively to the author."
+(2) "(2) Even after the death of the author, no person who use his/her work shall commit an act"
+    "which would be prejudicial to author’s moral rights if he/she were alive:"
+    "Provided, That if such act is deemed to have not defamed the honor of the author"
+    "in the light of the nature and extent of the act, and in view of the prevailing social norms, the same shall not apply."
+（注）The page (Korea Copyright Commission's English translation) shows no consolidated version date for Article 14.
+
+===== Copyright Law of the People's Republic of China (2020) Article 10 (moral rights; licensing and transfer of items (5) to (17)) =====
+(1) "the right of publication, that is, the right to decide whether to make a work available to the public;"
+(2) "the right of authorship, that is, the right to claim authorship"
+    "to have the author's name mentioned in connection with the work;"
+(3) "the right of alteration, that is, the right to alter or authorize others to alter one's work;"
+(4) "the right of integrity, that is, the right to protect one's work against distortion and mutilation;"
+(licensing) "Copyright owners may authorize others to exercise the rights provided in Subparagraphs (5) to (17)"
+    "and receive remuneration in accordance with the agreements or the relevant provisions of this Law."
+(transfer) "Copyright owners may transfer, wholly or in part, the rights provided in Subparagraphs (5) to (17)"
+    "of the first paragraph of this Article and receive remuneration in accordance with the agreements or the relevant provisions of this Law."
+（注）The NPC page labels the text "Translation for Reference Only". Items (1) to (4) are not among the rights the last two paragraphs allow to be licensed or transferred.
