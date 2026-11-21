@@ -948,4 +948,10 @@ T127 の確かめ（2f・30）: 2f —— *material* は §1.3 と同じ語、*r
 
 **記録しておくこと（本文の欠陥ではない・30 の §5.1 と同じ型）**: CHANGES の §14〜§16 の箇条には、後の箇条が置き換えた途中の形を「now」で述べるものが 3 つ並ぶ —— (1) §14.1 の箇条 *"excepts any liability … that applicable law does not permit to be excluded"*（T102 の箇条が *"IN EACH CASE WHERE …"* に置き換えた）、(2) §14.2 の箇条 *"in breach of a covenant in Section 5, 8.6, or 12.2"*（§2.5 の箇条が 2.5 を足した）、(3) §16.3 の箇条 *"now reaches any work in which …"*（T127 の箇条が *material* に置き換えた）。§16.2 は *"material to which a Dedicator has applied this Dedication"* を 2 つの箇条（E69 の箇条と T119 の箇条）が述べる。凍結で付録に写すとき、前の箇条だけを読む審査者は今の文と食い違うと読む余地がある（1c へ・30 の §5.1 の件と一緒に扱う）。
 
+### 15.52 段 7 の OSD の当て直し（立つもの 0・2026-11-20・portfolio-30・下書きは 1c）
+
+11-06 の OSD の突き合わせ（bb・T35 の頃の本文・`ACD-1.4-CHANGELIST.md` の確定前検証の前倒しの表）の後に変わった条に、OSD 1〜10 を 1 条ずつ当てた。1c が 10 条の読みを下書きし（T111 §5.3・T112 / T118 §5.1・§5.2(b) の支払いの除外・T120 §10.1・T121 §4.5 末文・T124 §5.2 の回避の授権・T127 §16.3）、30 が本文に当て直し、下書きに無い変更（§2.6 の既定の献呈、§5.2 末段の素材の文、T123 §11.3、T122 §12.5、T131 §6.4、§14.2）も当てた。
+**OSD 1**: 支払いの除外（*"for providing a copy or for a service that is not permission to use the Work"*）は Dedicator が自分の写しやサービスに代金を取ることを許すだけで、許しそのものへの課金は除外の外 —— 使用料にならない。**OSD 3・9**: §4.5 末文（*"does not permit a person to impose what Section 5 forbids on material as to which that person is a Dedicator"*）は Dedicator の役（§10.1 *"other than in Your capacity as a Dedicator"*）についての文で、受け手が派生物を出す条件でも、同じ頒布物の他のソフトウェアへの制限でもない。§5.2 末段は Dedicator（licensor）を縛る文で、OSD は licensor 自身の制約を問わない。**OSD 5・6**: §2.6 の既定の献呈と T120 は、人や分野でなく役の区別（提出者は §1.9 の名づけで外れる）。**OSD 7**: §5.3 と §4.6 で、下流の受け手が追加の合意なしに頼れる範囲は広がった側。**OSD 10**: T124 は Dedicator が写しに掛けた手段についての授権で、技術を指定しない。OSD 2・4・8 に触れる変更は無い（T127 は当てる対象を広げる側）。
+**逆側**: §4.5 末文を「受け手に条件を足すことの制限」と読む審査者は残りうる —— 答えは、対象が許しの条件でなく Dedicator としての約束（§5）で、提出の既定（§2.6）は提出者が名づけで外せること。OSD への当たりは我々の読みで、OSI の審査が同じ読みをする保証は無い。
+
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。
