@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.objection-map.md
 audience: OSI license-review / license-discuss participants, licence reviewers, auditors
-last-updated: 2026-11-07
+last-updated: 2026-11-23
 canonical-ref: LICENSES/ACD-1.0.review-precedents.md (the original text and our reading of each objection) / LICENSES/ACD-1.0.against.md (the adverse record) / LICENSES/REVIEWERS.md (the entry page)
 ---
 
@@ -35,7 +35,7 @@ of the dossier, in Japanese unless it says otherwise.
 | *"The license reads like it was drafted by AI tools. This alone should be grounds to stop reading the license, but for the sake of the argument let's continue."* | Lukas Atkinson, `license-review` 2025-12-30, on the BarrerSoftware License | **Lands on how ACD is first read.** He kept reading and gave other reasons (not reusable, unclear structure); the Board member who answered gave OSD 6 alone. ACD discloses its drafting and is not tied to any company or product | #292 |
 | *"a flood of thought exercise licenses"* | Carlo Piana, `license-review` 2025-08-18 | **One adopter.** He says use is not a requirement but must be weighed before review starts | #294 / §1.140 |
 | *"the addition of aspirational language in legal text"* | Carlo Piana, `license-review` 2026-01-16 | **Reasons inside clauses.** The preamble is labelled non-operative. §8.2 to §8.4 state reasons in operative text | #295 / §1.140 |
-| *"**It is excessively wordy** and proscriptive… no one other than you will ever use this license"* | Pamela Chestek, same list 2026-06-23 | **Length and adoption.** The short route through this directory helps with the first. **One adopter does not move** | #6 / §1.60 |
+| *"**It is excessively wordy** and proscriptive… no one other than you will ever use this license"* | Pamela Chestek, same list 2026-06-23 | **Length and adoption.** The short route through this directory helps with the first. **One adopter does not move**. The sentences of the text we would submit are longer than those of the text we posted (mean 28.9 words against 26.0, 14.7% over 45 words against 10.3%; measured 2026-11-23) | #6 / #329 / §1.60 |
 | *"**Which is it, a dedication to the public domain or a license? You can't have it both ways.**"* | Pamela Chestek, same list 2025-10-16 | **The §3 + §4 + §4.4 structure itself.** §11.3 anticipates it, but the answer takes four clauses. The substance of her criticism is reserving rights one by one, so the comparison is with what approved licences place in the same position: BSD-3-Clause's third clause is a condition and Apache-2.0 §6 a limit of reach (§1.7) An article on OSI's site named these two parts in 2017: *"disclaim ownership for the jurisdictions where that is possible, and then grant a copyright license that has the same practical effect"*. It is one author's article, not a decision | #110 / #118 / §1.61 / §1.7 |
 | **Moral-rights clause called "mission creep"** | Pamela Chestek, same list 2026-06-23 | **§12**, the clause §1.59 counts as a gap in the incumbents | #6 / §1.59 / §1.60 |
 | *"**these are not licensable**, so anything the license says one way or the other, nothing changes"* (moral rights) | Carlo Piana, `license-review` 2023-11 | **Lands on the §12.1 waiver.** The §12.2 covenant not to exercise does not fall to the same objection | #104 |
@@ -132,4 +132,4 @@ out because we cannot have it, not because leaving it out is better** (register 
    date, OSI has not used the number of projects adopting a license as a factor"* (Jam rationale, 2021-09-12).
 3. **It is not exhaustive.** The windows we read are listed in `PEER-REVIEW-WATCH.md` §3.9.
 4. **Nothing updates this page automatically.** An entry added to `ACD-1.0.against.md` does not reach
-   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #328 (2026-11-16).
+   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #329 (2026-11-23).
