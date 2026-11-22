@@ -1,0 +1,60 @@
+Source: OSI license-review public archive, 2008-May.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 12 in "Request For Approval: Iggy Wanna Licence" (2008-05-26)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From bruce at perens.com  Mon May 26 08:09:50 2008
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 26 May 2008 01:09:50 -0700
+Subject: Request For Approval:  Iggy Wanna Licence
+In-Reply-To: <483A6484.8030607@opensourcelaw.biz>
+References: <483A31F6.7090300@opensourcelaw.biz> <483A3766.2040000@perens.com> <483A3E73.8050804@perens.com> <483A6484.8030607@opensourcelaw.biz>
+Message-ID: <483A704E.9050207@perens.com>
+
+Brendan,
+
+I apologize for failing to take your submission seriously.
+
+Brendan Scott wrote:
+> In respect of your argument about browsers accessing a web server.  OKL does not believe that those browsers would be caught by the licence terms because the clause applies to "accompanying software" in the context of a redistribution.
+"Accompanying" could apply to any browser distributed on the same medium 
+as the server. It seems you are getting very close to saying what OSD #9 
+prohibits, that all of the files on the medium must be Open Source.
+
+You don't ever define "accompany" or introduce the concept of a 
+"distribution medium", so "accompany" could apply to a download site or 
+the entire internet.
+> it is not clear why a violation of OSD#6 (No Discrimination Against Fields of Endeavor) would follow.
+>   
+Making use of the program to provide services to proprietary software is 
+a field of endeavor. Note that the phrase "making use" is very important 
+in OSD #6, and that "use" is a separate right from the creation of 
+derivative works, which you could legitimately restrict.
+> You have commented on the rights of use under copyright law.  OKL does not intend that the licence be tied to the copyright law of a specific jurisdiction (eg US).
+Use and the creation of derivative works are defined to be two separate 
+rights in the copyright law of many jurisdictions, not just the U.S.
+
+Regarding the Sleepycat license, "the DB software" mentioned in the 
+license is a library from which works are derived. The word "use" is 
+unfortunate in that context. I would hope that the OSI would ask for 
+better language if faced with that license today. Certainly they would 
+not accept a license specific to a product or company, as the Sleepycat 
+license is, any longer.
+
+Your transformation from "use" into _indirect_ use sufficiently 
+separates your license from the Sleepycat one that approval of the 
+Sleepycat license should not be viewed as precedent.
+
+You allude to the GPL possibly restricting use. You should note GPL2 
+section 0, second paragraph. First it states that use is outside of the 
+scope of the license (and thus not restricted), and then it says that 
+the act of running the program is unrestricted. Torvalds wanted to 
+clarify this and added a note of his own. However, Torvalds' note 
+doesn't add any permissions that don't already exist. Unfortunately, any 
+time he touches this issue he only makes it more confusing.
+
+    Thanks
+
+    Bruce

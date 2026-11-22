@@ -1,0 +1,35 @@
+Source: OSI license-review public archive, 2008-May.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 12 in "Request For Approval: Iggy Wanna Licence" (2008-05-26)
+Senders: Russ Nelson
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Tue May 27 01:55:31 2008
+From: nelson at crynwr.com (Russ Nelson)
+Date: Mon, 26 May 2008 21:55:31 -0400
+Subject: Request For Approval:  Iggy Wanna Licence
+In-Reply-To: <483A704E.9050207@perens.com>
+References: <483A31F6.7090300@opensourcelaw.biz>
+	<483A3766.2040000@perens.com>
+	<483A3E73.8050804@perens.com>
+	<483A6484.8030607@opensourcelaw.biz>
+	<483A704E.9050207@perens.com>
+Message-ID: <18491.27155.773528.655128@desk.crynwr.com>
+
+Bruce Perens writes:
+ > ... approval of the $FOOBAR license should not be viewed as precedent.
+
+Precedent is a bad word to use.  It applies to a system of courts
+where one may appeal to a higher court to overturn a decision.  If
+we've approved a license with a dubious feature, and you think that
+you can use that approval to slide that dubious feature into another
+license, then your approval request will be dismissed WITH PREJUDICE.
+
+Translation: if we've made a mistake, don't expect us to repeat it.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | Software that needs
+Crynwr sells support for free software  | PGPok | documentation is software
+521 Pleasant Valley Rd. | +1 315-323-1241       | that needs repair.
+Potsdam, NY 13676-3213  |     Sheepdog          | 

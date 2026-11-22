@@ -95,6 +95,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2005-09 | `license-discuss` | **観測（"License Proliferation" から 5 通・OSD に適合するものを全部か良いものだけか、理事が述べた 3 つの基準の使い方）** | `2005-09-license-discuss-license-proliferation-observed.txt` |
 | 2012-06 | `license-discuss` | **観測（OSI のライセンスのページの見せ方の提案から 4 通・承認しない方針は正式に定められていないという理事の理解と、それと並ぶ理解）** | `2012-06-license-discuss-licensing-pages-proposal-observed.txt` |
 | 2015-09〜11 | `license-review` | **観測（OSET Public License の審査から 6 通・審査の 4 つの問い、提出者の名の外し、承認）** | `2015-09-to-11-license-review-oset-public-license-observed.txt` |
+| 2015-09 | `license-review` | **観測（TOPPERS の審査から 1 通・Fontana 氏 2015-09-14・理事会の議論: 公式の日本語版があれば英語版だけは承認しない）** | `2015-09-license-review-toppers-fontana-official-japanese-counterpart-observed.txt` |
 | 2015-09 | `license-discuss` | **観測（Rosen 氏の 1 通・オープンソースのライセンスは裸の約束ではない、対価はあふれている）** | `2015-09-license-discuss-violations-rosen-consideration-abounds-observed.txt` |
 | 2015-09 | `license-review` | **観測（Berkus 氏の 1 通・既にそうなら条は要らず、そうでないなら条は悪い）** | `2015-09-license-review-oset-ns-berkus-not-needed-observed.txt` |
 | 2015-09 | `license-review` | **観測（Fontana 氏の 1 通・OSD に合っても OSI が承認するとは考えられないライセンスがある）** | `2015-09-license-review-oset-ns-fontana-inconceivable-observed.txt` |
@@ -115,6 +116,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2019-12 | `license-review` | **観測（Piana 氏の 1 通・訳の不具合で同名の別のライセンスが生まれる）** | `2019-12-license-review-mulan-psl-piana-translation-glitch-observed.txt` |
 | 2020-01 | `license-review` | **観測（Smith 氏の 1 通・bare license で party の語を使う危うさ）** | `2020-01-license-review-mulan-psl-smith-party-bare-license-observed.txt` |
 | 2008-03・2012-04 | `license-discuss`・`license-review` | **観測（公有化の 2 スレッドから 7 通・公有のソフトウェアは open source か、FAQ の公有化と CC0 の答えの受け取られ方）** | `2008-03-and-2012-04-license-lists-public-domain-faq-observed.txt` |
+| 2008-03 | `license-review` | **観測（EUPL の審査から 1 通・Perens 氏 2008-03-17・準拠法は却下の理由にならない）** | `2008-03-license-review-eupl-perens-choice-of-law-not-grounds-observed.txt` |
 | 2008-03 | `license-review` | **観測（EUPL の審査から 1 通・Perens 氏 2008-03-16・準拠法を定めないことを求める案）** | `2008-03-license-review-eupl-perens-no-choice-of-law-observed.txt` |
 | 2015-10 | `license-discuss` | **観測（"Short permissive no attribution required open source license" から 4 通・公有化の献呈と帰属を求めない fallback の提案、「十分すぎるほど在る」）** | `2015-10-license-discuss-short-permissive-no-attribution-observed.txt` |
 | 2015-10 | `license-review` | **観測（"License Committee Report" から 1 通・Fontana 氏 2015-10-13・出所の記録）** | `2015-10-license-review-committee-report-fontana-provenance-observed.txt` |
@@ -205,6 +207,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2007-08 | `license-discuss` | **観測（"Groklaw's OSI item" から 2 通・OSI は認証を取り消したことがない、提出者の素性で差別も優遇もしない）** | `2007-08-license-discuss-groklaw-certification-not-pulled-observed.txt` |
 | 2007-08 | `license-discuss` | **観測（Engelfriet 氏の 1 通・大陸法に bare license の概念は要らない）** | `2007-08-license-discuss-copyleft-blow-engelfriet-civil-law-observed.txt` |
 | 2008-05・2009-02 | `license-review` | **観測（EUPL の承認の求めから 2 通・言語の版の食い違いは受領者に有利に決めるべきだという提案と、それは要件にならなかったこと）** | `2008-05-to-2009-02-license-review-eupl-ties-in-favor-of-licensee-observed.txt` |
+| 2008-05 | `license-review` | **観測（Iggy Wanna Licence の審査から 1 通・Perens 氏 2008-05-26・製品に特定のライセンスはもう受け入れない）** | `2008-05-license-review-iggy-perens-not-specific-to-product-observed.txt` |
+| 2008-05 | `license-review` | **観測（Iggy Wanna Licence の審査から 1 通・Nelson 氏 2008-05-26・前例は悪い語）** | `2008-05-license-review-iggy-nelson-precedent-is-a-bad-word-observed.txt` |
 | 2008-05 | `license-review` | **観測（Perens 氏の 1 通・大きな問題で通らないと分かれば小さな問題は誰も見ない）** | `2008-05-license-review-iwl-perens-bigger-issues-observed.txt` |
 | 2008-05 | `license-review` | **観測（Nelson 氏の 1 通・既存のライセンスから始めて適合を求めるのは良くない）** | `2008-05-license-review-iwl-nelson-existing-license-observed.txt` |
 | 2008-05 | `license-review` | **観測（Nelson 氏の 1 通・承認は一語も変えない本文に対するもの、型板にすべき）** | `2008-05-license-review-iwl-nelson-not-one-word-observed.txt` |
@@ -249,6 +253,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2014-09 | `license-review` | **観測（"Sublicensing" から 4 通・再許諾で約束は落ちる、FOSS は直接の許諾、再許諾を許す理由を示せ）** | `2014-09-license-review-sublicensing-privity-observed.txt` |
 | 2013-08 | `license-discuss` | **観測（"License incompatibility" から 2 通・法律上の語を定義するのはライセンスの役目ではない、新しいライセンスは最後の手段）** | `2013-08-license-discuss-incompatibility-statutory-terms-last-resort-observed.txt` |
 | 2013-09 | `license-review` | **観測（Fontana 氏の 1 通・表記だけの改訂でも改訂版は承認済みと呼べない）** | `2013-09-license-review-miros-fontana-editorial-not-approved-observed.txt` |
+| 2013-09 | `license-discuss` | **観測（BeanBooks の議論から 1 通・Chestek 氏 2013-09-20・商標の明文は良い慣行）** | `2013-09-license-discuss-beanbooks-chestek-trademark-good-practice-observed.txt` |
 | 2013-09 | `license-review` | **観測（Villa 氏の 1 通・おおむね正しい、BSD・MIT の既定の本文は例外）** | `2013-09-license-review-miros-villa-roughly-right-observed.txt` |
 | 2013-08 | `license-discuss` | **観測（Rosen 氏の 1 通・OWFa の後継者を縛る約束、倒産法 365(n)、迂回しない約束）** | `2013-08-license-discuss-owfa-successors-bankruptcy-observed.txt` |
 | 2016-06 | `license-review` | **観測（Moritz30 の提出から 6 通・読めなければ適合しないと推定する、法律家への相談を要件にしない、長い語は効くために要る）** | `2016-06-license-review-moritz30-unclear-means-nonconformant-observed.txt` |

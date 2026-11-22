@@ -1,0 +1,52 @@
+Source: OSI license-review public archive, 2015-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 10 in "For Legacy Approval: TOPPERS License" (2015-09-02)
+Senders: Richard Fontana
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From fontana at opensource.org  Mon Sep 14 15:53:02 2015
+From: fontana at opensource.org (Richard Fontana)
+Date: Mon, 14 Sep 2015 11:53:02 -0400
+Subject: [License-review] For Legacy Approval: TOPPERS License
+In-Reply-To: <20150907034816.GA8130@sharpeleven.org>
+References: <55B44921.4000506@ertl.jp> <55C03D8E.5090804@ertl.jp>
+ <55C0EF17.8090806@postgresql.org> <55C14A5C.20301@ertl.jp>
+ <55D55E79.9010508@ertl.jp> <20150820133546.GA11567@sharpeleven.org>
+ <55D5F24B.1000904@ertl.jp> <20150903015448.GA3418@sharpeleven.org>
+ <55ECE912.1000300@ertl.jp> <20150907034816.GA8130@sharpeleven.org>
+Message-ID: <20150914155302.GB4564@sharpeleven.org>
+
+The OSI Board discussed the submission of the TOPPERS license for
+legacy approval.
+
+In the license-review discussion it was not fully clear (and is not
+fully clear from examination of the TOPPERS project website[1])
+whether the operative license for the project thus far has been the
+English-language license submitted for legacy approval (though
+twice-amended in the course of license-review discussion), or a
+Japanese-language original of which the submitted English-language
+text is an official (from the project's perspective) translation, or
+perhaps both.
+
+We ask the license submitter to clarify whether there is a
+Japanese-language license that governs (exclusively or otherwise) the
+TOPPERS project. If so, we ask the license submitter to seek approval
+for that license as an 'International License' in accordance with the
+proposed procedure outlined by Mike Milinkovich on license-discuss
+back in June:
+https://lists.opensource.org/pipermail/license-discuss/2015-June/001857.html
+
+One concern here is that we wouldn't want to approve an English
+language version of a license (even if 'official') if there is also an
+official non-English counterpart license that has not specifically
+undergone OSI review, because of the potential for confusion and the
+possibility of substantive deviation from the Japanese-language
+license text. It is conceivable that examination of the
+non-English-language license would result in a conclusion that it is
+not OSD-conformant even if there was also a conclusion that the
+submitted English-language license is OSD-conformant.
+
+Richard
+
+[1]https://www.toppers.jp/en/project.html
