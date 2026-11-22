@@ -1,0 +1,36 @@
+Source: OSI license-review public archive, 2008-March.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 46 in "Request for approval: EUPL (European Union Public Licence)" (2008-03-14)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From bruce at perens.com  Mon Mar 17 18:13:27 2008
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 17 Mar 2008 11:13:27 -0700
+Subject: Request for approval: EUPL (European Union Public Licence)
+In-Reply-To: <428DC95699269E4691DCA0C6F3C51FF604A7EC0C@GBMK-EXCH3.eu.uis.unisys.com>
+References: <47DBEEC3.6010500@gatech.edu> <18395.63680.500387.310326@desk.crynwr.com> <47DBFDB1.70701@gatech.edu> <18396.24772.362081.746577@desk.crynwr.com> <47DC7435.8020202@gatech.edu> <18396.43006.656002.563055@desk.crynwr.com> <47DD7929.5090408@gatech.edu> <47DD89A6.1010703@perens.com> <20080317033331.GC9990@mercury.ccil.org> <47DDFFA6.9070801@perens.com> <20080317055828.GD9990@mercury.ccil.org> <47DE19A2.6040307@perens.com> <428DC95699269E4691DCA0C6F3C51FF604A7EA6F@GBMK-EXCH3.eu.uis.unisys.com> <47DE9F4D.1040605@perens.com> <428DC95699269E4691DCA0C6F3C51FF604A7EC0C@GBMK-EXCH3.eu.uis.unisys.com>
+Message-ID: <47DEB4C7.1010404@perens.com>
+
+Patrice,
+
+I am not representing OSI, just myself. I recommend that your 
+organization should withdraw its current request, pursue some 
+modification of this license with IDABC, and resubmit it when that is done.
+
+1. Obviously the license update language in #13. I am concened that 
+updates not only refrain from removing rights, but also from adding 
+/additional requirements./ There should be clear language to that effect.
+
+2. I think that removing the words "and address" from #11 is advisable, 
+since the law doesn't necessarily require an address. This would not 
+change the intended effect of the statement and would remove ambiguity.
+
+3. Since OSI has approved licenses with choice of law, I can't say it's 
+reason for rejection of the license, but I still want to register my own 
+objection.
+
+    Thanks
+
+    Bruce

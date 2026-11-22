@@ -1,0 +1,80 @@
+Source: OSI license-discuss public archive, 2013-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 10 in "System 76's BeanBooks Public License v1.0" (2013-09-17)
+Senders: Pamela Chestek
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Fri Sep 20 14:19:20 2013
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Fri, 20 Sep 2013 10:19:20 -0400
+Subject: [License-discuss] System 76's BeanBooks Public License v1.0
+In-Reply-To: <alpine.LRH.2.00.1309181305460.30080@oxygen.rahul.net>
+References: <CAG58yKsBEcgZ+-aLgCG0b35wkVyxMvf_D1v_Zv17RKLr2t8jUg@mail.gmail.com>
+	<87d2ox97gb.fsf@birch.sfconservancy.org>
+	<CAFPTOkWpOLtGm6Q0DrOwNBMvcQO-=-Cv0KknPeqoBsMTQkcnwg@mail.gmail.com>
+	<20130918044653.GB999@mercury.ccil.org>
+	<alpine.LRH.2.00.1309181305460.30080@oxygen.rahul.net>
+Message-ID: <523C5968.4020406@chesteklegal.com>
+
+On 9/18/2013 4:08 PM, Ken Arromdee wrote:
+> On Wed, 18 Sep 2013, John Cowan wrote:
+>>> Sec. 4.3 strikes me as actually conceptually somewhat interesting,
+>>> inasmuch as many commercial lawyers have argued that this type of
+>>> clause is often implicit in software that contains a protect trademark
+>>> embedded in the software and not removed by a downstream licensee.
+>> In this case, however, Section 4.2 prevents you from removing the
+>> protected trademark.  Taking the two clauses together, you are 
+>> effectively
+>> prevented from making commercial use of the software without paying for
+>> the trademark license, which obviously contravenes clauses 6 and 7 of
+>> the OSD.  So this license is on its face not Open Source.
+>
+> It says:
+>>         4.3 - Commercial distribution of the Software requires a
+>>         trademark license agreement and you may be required to
+>>         pay. Using the Software within a corporation or entity is not
+>>         considered commercial distribution. This license does not grant
+>>         You rights to use any party's name, logo, or trademarks, except
+>>         solely as necessary to comply with Section 4.2.
+>
+> Wouldn't the "except solely as necessary to comply with section 4.2" 
+> clause
+> make it okay?  Section 4.2 prevents you from removing the protected
+> trademark, and section 4.3 allows you to use the trademark under those
+> circumstances.
+
+I believe the restriction in 4.3 violates the OSD, specifically OSD 5 or 
+6 (but you all have much more experience with how each of these are 
+interpreted, so perhaps you will disagree).
+
+4.2 applies to the use of the trademarks in the software only, but 4.3 
+tries to restrict use of the trademarks more broadly in a commercial 
+context. As an example, trademark law allows the resale of genuine 
+product without any kind of license. So in the open source context, I 
+should be able to take unaltered software and state on my website and in 
+advertising materials that I am distributing the genuine software. It 
+appears to me that this provision tries to prohibit this lawful use by 
+contractually requiring a license for it. So it treats a commercial 
+enterprise differently from a non-commercial enterprise (whatever that 
+distinction is because I'm not sure); if I am non-commercial I can 
+advertise that I distribute the software but if I am commercial I can't 
+without paying for a trademark license.
+
+In my opinion, if there is no statement in a license about trademarks 
+then the assumption should be there is no trademark license. Some 
+licenses, like the Apache license, say the same thing expressly, to 
+avoid any question (I think a good practice). What happens then in both 
+these cases is that use of the trademark by anyone is a matter of 
+whether it is a lawful use or not. But this license goes further than 
+that by arguably prohibiting lawful uses too.
+
+Pam
+
+Pamela S. Chestek, Esq.
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
