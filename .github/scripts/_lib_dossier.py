@@ -217,7 +217,7 @@ def count_sites(licenses_dir: Path) -> list[dict]:
 _REVIEWER_AUDIENCE = re.compile(r"participants|licen[cs]e reviewers", re.I)
 
 
-def reviewer_map_misses(licenses_dir: Path) -> tuple[int, list[str]]:
+def reviewer_map_misses(licenses_dir: Path, include_wip: bool = False) -> tuple[int, list[str]]:
     """audience が審査者 (`… participants` / `licence reviewers`) の LICENSES/*.md が、REVIEWERS.md に名前を持つこと。
 
     名前を持たない文書は、frontmatter の `reachable-via: <file>` で、REVIEWERS.md に名前を持ち本文がこの文書を名指す
@@ -231,7 +231,7 @@ def reviewer_map_misses(licenses_dir: Path) -> tuple[int, list[str]]:
     # 作業中の草案の版の文書 (ACD-<草案の版>-…) はまだ提出していないので対象外 (確定の日に新しい CHANGELIST が
     #   1 つ前の audience を写して RED になった・2026-11-15 の試走)
     drafts = [p for p in licenses_dir.glob("ACD-*-DRAFT.txt") if "HAS BEEN FROZEN" not in p.read_text(encoding="utf-8").split("\n", 1)[0]]
-    wip = f"ACD-{drafts[0].name.split('-')[1]}-" if len(drafts) == 1 else None
+    wip = f"ACD-{drafts[0].name.split('-')[1]}-" if len(drafts) == 1 and not include_wip else None
     for p in sorted(licenses_dir.glob("*.md")):
         if p.name in ("REVIEWERS.md", "README.md") or (wip and p.name.startswith(wip)):
             continue

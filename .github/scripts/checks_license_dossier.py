@@ -269,6 +269,16 @@ def run(ctx):
     check(not _bad459c, f"Check 459c: 審査者向けの文書 {_n459c} 件がすべて REVIEWERS.md から辿れる",
           f"Check 459c: {_bad459c}。**審査者は英語の入口から読む**ので、そこから辿れない英語の文書は審査者には無いのと同じ",
           blocking=True)
+    # 459c の前倒し (ADVISORY・2026-11-23・fc): 作業中の版の文書は 459c の対象外なので、確定の日に初めて RED になる
+    #   (2026-11-22 に本体から分けた ACD-1.4-CHANGELIST-REVIEWS.md が reachable-via を持たず、確定の予行でだけ止まった)。
+    #   確定の道具が作る次版の CHANGELIST も audience を写すので、確定の直後はこの ADVISORY が鳴るのが正しい (入口に足す合図)
+    _drafts459c = [p for p in (ROOT / "LICENSES").glob("ACD-*-DRAFT.txt")
+                   if "HAS BEEN FROZEN" not in p.read_text(encoding="utf-8").split("\n", 1)[0]]
+    if len(_drafts459c) == 1:
+        _wip459c = f"ACD-{_drafts459c[0].name.split('-')[1]}-"
+        _bad459cw = [b for b in _rmm459c(ROOT / "LICENSES", include_wip=True)[1] if f": {_wip459c}" in b]
+        check(not _bad459cw, f"Check 459c (作業中の版): {_wip459c}* の審査者向けの文書は確定の後も REVIEWERS.md から辿れる",
+              f"Check 459c (作業中の版): {_bad459cw}。確定の日に 459c が RED になる", blocking=False)
 
     # ── 461b. LICENSES/*.md の last-updated が極端に古くないこと (ADVISORY) ──
     # **初版は BLOCKING で「git の最終更新日以上」を要求し、CI で落ちた。** 設計が誤って
