@@ -252,6 +252,48 @@ def length_sites(lic: Path, skip, scope: str = "outward") -> tuple[list[dict], l
                           r"against (\d+)", line)
             if m:
                 add(cl, ln, line, m, [title, w10[0], clauses, w10[1]], "英文の語数と条数")
+        # 確定の判断の材料 (1 枚・2026-11-20・50 の依頼): 本文の語数・前文からの語数・変わった条の数を、上と同じ数え方で揃える。
+        #   本文 = 第 1 条から END OF TERMS の手前 (ops と同じ)、前文から = PREAMBLE の行から END OF TERMS の手前、変わった条 =
+        #   前版と草案で文の違う N.M (空白を潰して比べる)
+        pv = re.search(r"ACD-(\d+\.\d+): \d+ words", src_t) if scope == "all" else None
+        pvp = lic / f"ACD-{pv.group(1)}.txt" if pv else None
+        if pvp and pvp.exists():
+            pbody = pvp.read_text(encoding="utf-8").split(RULE, 1)[-1]
+
+            def _seg(b, start_rx):
+                e, s = b.find("END OF TERMS"), re.search(start_rx, b, re.M)
+                return len(b[s.start():e].split()) if s and e > 0 else -1
+            p_ops, p_pre, d_pre = _seg(pbody, r"^1\.\s"), _seg(pbody, r"^PREAMBLE"), _seg(body, r"^PREAMBLE")
+
+            def _cl(b):
+                out, cur = {}, None
+                for l in b.splitlines():
+                    mm = re.match(r"^  (\d+\.\d+) ", l)
+                    if mm:
+                        cur = mm.group(1); out[cur] = []
+                    elif re.match(r"^\d+\. ", l) or "END OF TERMS" in l:
+                        cur = None
+                    if cur:
+                        out[cur].append(l)
+                return {k: " ".join(" ".join(v).split()) for k, v in out.items()}
+            pc, dc = _cl(pbody), _cl(body)
+            changed = sum(1 for k in set(pc) | set(dc) if pc.get(k) != dc.get(k))
+            lines = ctext.splitlines()
+            a0 = next((i for i, l in enumerate(lines) if l.startswith("### 確定の判断の材料")), None)
+            if a0 is not None:
+                for ln in range(a0 + 1, len(lines)):
+                    line = lines[ln]
+                    if line.startswith("### ") or line.startswith("## "):
+                        break
+                    for rx, vals, what in (
+                            (r"の ([\d,]+) 語 → [\d.]+ の ([\d,]+) 語（([+−-]\d+)）", [p_ops, ops, ops - p_ops], "確定の判断の材料: 本文の語数"),
+                            (r"END OF TERMS\*? まで ([\d,]+) → ([\d,]+)（([+−-]\d+)）", [p_pre, d_pre, d_pre - p_pre], "確定の判断の材料: 前文からの語数"),
+                            (r"変わった (\d+)/(\d+) 条", [changed, len(set(pc) | set(dc))], "確定の判断の材料: 変わった条の数"),
+                            (r"\d+\.\d+ からの (\d+) 条の変化", [changed], "確定の判断の材料: 変わった条の数"),
+                            (r"長さは \d+\.\d+ から ([+−-]\d+) 語", [d_pre - p_pre], "確定の判断の材料: 前文からの差"),
+                            (r"B3 は上の ([+−-]\d+)", [d_pre - p_pre], "確定の判断の材料: 前文からの差")):
+                        for m in re.finditer(rx, line):
+                            add(cl, ln + 1, line, m, vals, what)
     return sites, errs
 
 
