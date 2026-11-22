@@ -926,3 +926,15 @@ census の unquoted-decider（候補の外の会話の、ドシエが 1 文も�
 **この節が establish しないこと。** 従業者の提出が雇用者の代理に当たると裁判所が読むか。
 
 **反映**: `ACD-1.4-UNIQUE-READING.md` §19.1 の末尾の §2.6 第 1 文の行（3 巡目）、THIRD §18 の §2.6 第 1 文と §2.2 第 1 文の行（写しを結んだ）。30・1c へ: 日本の職務著作（15 条）とドイツ（43 条）を、30 の日本の分担と 9b の取得で。
+
+## 1.271 PSF-2.0 の提出は 72 日、`license-review` で返事を受けていない —— 採用の実績を背にした提出の待ちの観測（2026-11-22）
+
+`license-review` の 2026 年 11 月の写し（11-21 23:37 UTC に写しへ置かれた・portfolio-50 の日次の取得の記録は同じ時刻に「11 月は 404」と書いていて食い違う —— 50 へ知らせた）に 1 通: Max Mehl 氏 2026-11-20 *"There has not been any feedback on the license submission of PSF-2.0 so far, see the post below. Is there anything the community can do to facilitate the process?"*（`rounds/2026-11-license-review-psf-submission-no-feedback-ping-observed.txt`）。提出は 2026-09-09（`rounds/2026-09-09-license-review-psf-submission-observed.txt`・`AS-OF.md` の "What a submission to `license-review` looks like when the submitter can rely on adoption" の行）で、09-28 に同じ人が *"with no replies so far"* と書き（`rounds/2026-09-28-license-review-python-licenses-followup-observed.txt`）、11-20 までの 72 日、提出のスレッドに返事は無い（9 月〜11 月の写しの件名で数えた）。
+
+**読み。** 承認済みの Python-2.0.1 の構成部分で、3 つのプロジェクトの採用を挙げた提出でも、`license-review` は 2 か月半返事をしないことがある。ACD の提出の計画が「出せば審査が始まる」と前提しているなら、その前提は観測と合わない —— 待ちの長さは、本文の出来と独立に起こりうる。
+
+**逆側。** (1) 沈黙は却下でも反対でもない —— PSF-2.0 は争点の少ない、既に承認された構成の一部で、審査者が「論じることが無い」と読んでいる可能性もある（その場合の沈黙は ACD のような新しい型には当たらない）。(2) 2026 年の審査者の人数と、同じ時期の他の提出への返事の速さは数えていない。(3) 返事の無さの理由を述べた通は、写しに無い。
+
+**この節が establish しないこと。** ACD を出したときの待ちの長さ。PSF-2.0 が無視されているのか、順番を待っているのか。
+
+**反映**: 入口 —— 50（OSI-EVENTS の 11-21 の行と REVIEWERS の Status の「`license-review` の 11 月は 404」を、この 1 通に合わせて直す）、30（`OSI-APPROVAL-PLAN.md` の提出の段の待ちの前提に、この観測を逆側として）。

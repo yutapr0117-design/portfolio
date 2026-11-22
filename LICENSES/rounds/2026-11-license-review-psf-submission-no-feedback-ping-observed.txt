@@ -1,0 +1,88 @@
+Source: OSI license-review public archive, 2026-November.txt
+Retrieved: 2026-11-22 (local copy of the public archive; read 2026-11-22)
+Messages: 1 of 1 in "Submission: PSF-2.0" (2026-11-20)
+Senders: Max Mehl
+Position: Not addressed to us. Observed. The message is kept whole, including the passages it quotes inline.
+
+----- begin verbatim -----
+From Max.Mehl at deutschebahn.com  Fri Nov 20 20:59:07 2026
+From: Max.Mehl at deutschebahn.com (Max Mehl)
+Date: Fri, 20 Nov 2026 20:59:07 +0000
+Subject: [License-review] Submission: PSF-2.0
+In-Reply-To: 
+ <AS8PR06MB7527A96AA2C9791A6CA4CC9EFBB02@AS8PR06MB7527.eurprd06.prod.outlook.com>
+References: 
+ <AS8PR06MB7527A96AA2C9791A6CA4CC9EFBB02@AS8PR06MB7527.eurprd06.prod.outlook.com>
+Message-ID: 
+ <DUZPR06MB872136AD69C4A65B0D8E523BFB782@DUZPR06MB8721.eurprd06.prod.outlook.com>
+
+Dear all,
+
+There has not been any feedback on the license submission of PSF-2.0 so far, see the post below.
+
+ Is there anything the community can do to facilitate the process?
+
+Thanks, and best,
+Max
+
+--
+Max Mehl
+Open Source / Supply Chain
+Chief Technology & Enterprise Architecture Office
+DB Systel GmbH / Deutsche Bahn
+
+Schedule a meeting: meet.mehl.mx<https://meet.mehl.mx/>
+
+________________________________
+From: License-review <license-review-bounces at lists.opensource.org> on behalf of Max Mehl <Max.Mehl at deutschebahn.com>
+Date: Wednesday, 9. September 2026 at 12:43
+To: license-review at lists.opensource.org <license-review at lists.opensource.org>
+Subject: [License-review] Submission: PSF-2.0
+
+Dear all,
+
+After OSI has approved Python-2.0.1 and one of its components (CNRI-Python-GPL-Compatible), I would like to use the opportunity to ask the team and board to review and approve the "Python Software Foundation License 2.0" (SPDX: PSF-2.0). The license text, copied from https://docs.python.org/3/license.html and matching SPDX’ version, is attached.
+
+This also follows McCoy’s statement that such reviews are only executed upon explicit submission, see https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-August/006218.html
+
+PSF-2.0 is the license of the PSF, and part of the combined license of CPython releases (Python-2.0 and Python-2.0.1). But it’s also used verbatim and derived standalone by various projects, mostly in the Python ecosystem. Because of this, I consider it helpful to approve the license separately. Examples:
+
+  *
+https://github.com/jython/jython
+  *
+https://github.com/marcelotduarte/cx_Freeze
+  *
+https://github.com/chianjin/PDFeXpress
+
+Given that Python-2.0 and Python-2.0.1 both comply with the OSD, I’d consider it clear that PSF-2.0 can also be safely considered an Open Source license.
+
+The license steward is Python Software Foundation. As with my earlier submission, I refer to a discussion with Deb Nicholson in March 2026 in which she made transparent that PSF currently lacks the resources to go through this process and would be happy if I would do this.
+
+I hope to have provided all required information and hope for a swift and positive review and approval. Thanks!
+
+Best,
+Max
+
+--
+Max Mehl
+Open Source / Supply Chain
+Chief Technology & Enterprise Architecture Office
+DB Systel GmbH / Deutsche Bahn
+
+Schedule a meeting: cal.com/mxmehl<https://cal.com/mxmehl>
+
+
+________________________________
+
+Pflichtangaben anzeigen<https://www.deutschebahn.com/pflichtangaben/20260909>
+
+Nähere Informationen zur Datenverarbeitung im DB-Konzern finden Sie hier: https://www.deutschebahn.com/de/konzern/datenschutz
+
+________________________________
+
+Pflichtangaben anzeigen<https://www.deutschebahn.com/pflichtangaben/20261101>
+
+Nähere Informationen zur Datenverarbeitung im DB-Konzern finden Sie hier: https://www.deutschebahn.com/de/konzern/datenschutz
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20261120/d8921e34/attachment.htm>
