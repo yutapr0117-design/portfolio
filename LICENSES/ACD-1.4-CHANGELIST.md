@@ -2,7 +2,7 @@
 file: LICENSES/ACD-1.4-CHANGELIST.md
 audience: OSI license-discuss / license-review participants, licence reviewers, a future drafter
 last-updated: 2026-11-12
-canonical-ref: LICENSES/ACD-1.4.txt (草案) / LICENSES/ACD-1.3.txt (直前の確定テキスト・凍結・このリポジトリに適用中) / LICENSES/ACD-1.3-CHANGELIST.md (1.2 → 1.3 の記録) / LICENSES/ACD-1.0.errata.md
+canonical-ref: LICENSES/ACD-1.4.txt (確定テキスト・凍結・2026-11-23 からこのリポジトリに適用) / LICENSES/ACD-1.3.txt (直前の確定テキスト・凍結・2026-11-23 まで適用) / LICENSES/ACD-1.3-CHANGELIST.md (1.2 → 1.3 の記録) / LICENSES/ACD-1.0.errata.md
 ---
 
 # ACD-1.4 で変えるもの
@@ -426,6 +426,14 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 ## Change impact
 
 - 変更の一覧 `CHANGES-ACD-1.4.txt`（2026-11-20 までは `ACD-1.4-DRAFT.txt` の冒頭）とこの表は、同じ commit で揃える。**両者を本文の差分と照合しているのは Check 468n（冒頭の一覧が変わった条をすべて名指し、語数の申告の合計が差に一致する）と Check 468s（この表の語数列の合計が同じ差に一致する）である**（2026-11-03 訂正: 旧文は 468f / 468i を挙げていたが、468f は冒頭の箇条書きの形式を、468i は閉じた errata が冒頭に載っているかを見る Check で、この表とは照合しない）。
+
+## 確定（2026-11-23）
+
+**1.4 は 2026-11-23 に確定・凍結し、このリポジトリに適用した**（上の「確定の判断の材料」の 5 人の判断・2026-11-22・5/5）。段 7 の 6 観点 —— 相互参照・1.3 との差分の完全性・起草の最終の通読（5 帯）・OSD の当て直し（§15.52・§15.53）・errata の状態・機械可読性 —— はどれも凍結を止める欠陥 0 で返った。共通の条件だった確定の予行の一覧の外の RED（459c・468ad）は、確定の前に機械層が閉じた。**この確定が含まないもの**: 法律家の目（B1・1.4 にも無い）、`license-discuss` に置いた 30 日（ゲート 6b・オーナーの投稿を待つ）、実在の採用者（B2）。
+
+**記述子は形を変えた**（`schemaVersion` 2）: 凍結した file が承認の日に偽にならないよう、`osiApproved` / `spdxListed` を `statusAtFixing`（確定の日の外の事実）の下へ移し、`legalReview: false` を足した。**⚠ 逆側**: 古い key を直に読む機械は 1.4 の記述子から値を得られない。現在の状態は `aio-manifest.json` と `FROZEN.md` が持つ。
+
+**確定版の冒頭は、1.3 と同じく適用状態を述べない。** 次版の作業場は `ACD-1.5-DRAFT.txt`。`ACD-1.4-DRAFT.txt` は凍結済みの 1.3 が名指す file 名なので、案内として残した。1.5 で何を一意化するかは、確定の後に 5 人で決める（上の「確定の後の一意化」）。
 
 ## 付録: 確定時点の草案ヘッダ（逐語）
 
