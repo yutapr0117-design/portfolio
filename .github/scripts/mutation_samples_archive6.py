@@ -137,7 +137,8 @@ MUTATIONS_ARCHIVE6 = [
     {
     "name": "Check 496: CHANGELIST の表の見出しから「件数」の列を外す —— 行は 4 セルのままなので、GFM は 4 列目を描かずに捨てる (2026-11-08 まで実際にこの状態だった)",
     # 表は 1.4 の記録に在る。確定の道具が作る次版の CHANGELIST は空で始まるので、草案の版で引くと確定の日に Check 362 が RED になる (2026-11-08 の予行)
-    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
+    # 2026-11-20 にこの表の節を CHANGELIST の分冊 (…-CHANGELIST-REVIEWS.md) へ移した (本体のバイト数の上限・Check 495a)
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST-REVIEWS.md",
     "find": "| レンズ | やったこと | 結果 | 件数 |",
     "replace": "| レンズ | やったこと | 結果 |",
 },
