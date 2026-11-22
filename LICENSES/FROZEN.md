@@ -63,6 +63,9 @@ c2d47b80981536d56b8d6debe51520068804d235549999e24a85bb7b6e0d1e37  LICENSES/ACD-1
 30c90b0633f8cb7accab2a16e614a4ae014dafcfffa8bda40ddd0ba7f12e517f  LICENSES/ACD-1.2.machine.json
 3b72d36b4962467365ff8742abe09d66eb577c7f7ae8617ea0c5adb02c8dfcfd  LICENSES/ACD-1.3.txt
 b90a388803a628bf382455ac6350adf8d9e58fe7f381ae10155bd42c0b129e25  LICENSES/ACD-1.3.machine.json
+6792e804486e59082b84fce663d2bc24c22d72720c6d1bab8af43a90c9e3b615  LICENSES/ACD-1.4.txt
+2ba4fa9d99ae0d02f8d87b28e9a3c08de1d2e5af6efc708694ef29c4d3083216  LICENSES/ACD-1.4.machine.json
+413aeb08c8f4be6fa55975b80ce889bc81b3ca469b448491f6525b3b481d66b1  LICENSES/ACD-1.4.spdx.xml
 ```
 
 **1.1 は 2026-09-17 に確定して追加した。行は足したのであって置き換えていない** ——
@@ -98,7 +101,7 @@ b90a388803a628bf382455ac6350adf8d9e58fe7f381ae10155bd42c0b129e25  LICENSES/ACD-1
 - `docs/architecture/acd-license-rationale.md` の**記録の追記**（起草判断の記録であって
   提出物ではない）。ただし条文の内容を書き換える提案は行わない
 - 申請の進行に関する事実の追記（このファイルへ）
-- **次版の草案（いまは `LICENSES/ACD-1.4-DRAFT.txt`）を改善すること**（オーナー 2026-09-10「現行は保持、次版を作って
+- **次版の草案（いまは `LICENSES/ACD-1.5-DRAFT.txt`）を改善すること**（オーナー 2026-09-10「現行は保持、次版を作って
   改善し続けるのは問題ない」）。凍結は pin した版の byte についての約束であって、次版の作業を止めるものではない
   ——**ここに書いていなかったので、cold-start の読み手が次版の作業まで禁じられていると読みえた**（2026-09-27 追記）
 

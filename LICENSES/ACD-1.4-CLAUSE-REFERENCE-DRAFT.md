@@ -2,7 +2,7 @@
 file: LICENSES/ACD-1.4-CLAUSE-REFERENCE-DRAFT.md
 audience: ai, human (提出者), 監査人, 採用検討者, 第三者全般
 last-updated: 2026-11-12
-canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (この文書が説明する草案・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (1.0 の逐条・凍結版の説明として残す) / LICENSES/ACD-1.4-CHANGELIST.md (1.3 からの各変更の理由) / LICENSES/ACD-1.0.errata.md (1.0 の欠陥と、どの版で閉じたか)
+canonical-ref: LICENSES/ACD-1.4.txt (この文書が説明する草案・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (1.0 の逐条・凍結版の説明として残す) / LICENSES/ACD-1.4-CHANGELIST.md (1.3 からの各変更の理由) / LICENSES/ACD-1.0.errata.md (1.0 の欠陥と、どの版で閉じたか)
 ---
 
 # ACD-1.4 草案 — 逐条リファレンス（全 16 節 80 条・下書き）

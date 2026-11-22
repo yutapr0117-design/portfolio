@@ -2,7 +2,7 @@
 file: LICENSES/ACD-1.4-UNIQUE-READING.md
 audience: 次のセッションの実装者（一次読者）/ 監査人 / 法律家
 last-updated: 2026-11-18
-canonical-ref: LICENSES/ACD-1.4-DRAFT.txt / .github/scripts/measure_legal_uncertainty.py（section19 が行を数える）/ LICENSES/ACD-1.4-THIRD-CLARITY-TRIAL.md（§18 の法の側）
+canonical-ref: LICENSES/ACD-1.4.txt / .github/scripts/measure_legal_uncertainty.py（section19 が行を数える）/ LICENSES/ACD-1.4-THIRD-CLARITY-TRIAL.md（§18 の法の側）
 ---
 
 # 1.4 草案の法的解釈を一意に定める —— 各条の「最も強い別の読み」
