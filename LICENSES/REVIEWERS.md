@@ -188,7 +188,7 @@ analysis below, which is written against 1.0.** Measured, not assumed:
 
 ## Status
 
-**Posted to `license-discuss` and received. No responses in the archive when last read, 2026-11-21 23:36 UTC.** (The October archives of both lists were unchanged; the November archive of `license-discuss` held one message, on another subject, and that of `license-review` returned 404 — see `OSI-EVENTS-2026-10.md`.) That list is for general
+**Posted to `license-discuss` and received. No responses in the archive when last read, 2026-11-21 23:36 UTC.** (The October archives of both lists were unchanged; the November archives of `license-discuss` and `license-review` each held one message, on other subjects (the second a reminder about the PSF-2.0 submission of 2026-09-09) — see `OSI-EVENTS-2026-10.md`.) That list is for general
 discussion — it is **not** the approval venue. Nothing has been submitted to `license-review`,
 and nothing has been submitted to SPDX. SPDX asks for substantial real-world use, this work has
 one adopter, and we are not submitting something that does not meet the stated bar.
