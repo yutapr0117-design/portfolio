@@ -187,6 +187,10 @@ Ian Lance Taylor 氏 2003-07-16（`license-discuss`）*"If you can't use an exis
 
 不利な側: Russ Nelson 氏 2009-03-14 の WTFPL への理由（全文と ACD の答えは `board-decisions.md` §8.1）。有利な側: Karl Fogel 氏 2011-12-15（`license-review`・MPL 2.0）*"Agree with Bruce that the clause that opens the door to license proliferation is not in itself grounds for rejection."*（同じ通で *"We should of course still do everything we can to stop proliferation!"* と添える）。**逆側**: Fogel 氏の文は MPL 2.0 の版の更新の条についてで、新しいライセンスそのものの増殖を許す文ではない。
 
+### 2026-11-23 —— 「より良い否認は、新しいライセンスの価値の代わりにならない」（2014・`review-readings-6.md` §1.459・portfolio-d7）
+
+不利な側: Carlo Piana 氏 2014-03-12（`license-review`・Public Software License・`rounds/2014-03-license-review-psl-piana-disclaimer-not-a-proxy-observed.txt`）*"I don't see "better liability disclaimer" a good proxy to assess the worthiness of a new license in terms of non-proliferation."*、同じ会話で Richard Fontana 氏 *"I know of no specific reason (other than desire for elegance) why one could not simply supplement the form disclaimers with additional ones."* ACD が既存との差を述べるときに §13 の否認や §14 の責任の制限を挙げても、増殖に見合う価値の証拠にはならない。**逆側**: ACD の gap の 3 本（G1 §8.4・G2 §7・G3 §6.2）は否認に依っていないので、この文が崩す主張は今のドシエには無い。重さが足されるのは、差の説明に否認を混ぜたときだけである。
+
 ### 2026-09-20 追記 —— gap の 1 本目に、**決着した裁判例が付いた**
 
 **§6 が扱う問いは仮想ではない。** ハンブルク上級地方裁判所 第 5 民事部は 2025-12-10 に
