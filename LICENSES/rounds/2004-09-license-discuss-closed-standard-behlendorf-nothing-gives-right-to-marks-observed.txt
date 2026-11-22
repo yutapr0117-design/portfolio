@@ -1,0 +1,50 @@
+Source: OSI license-discuss public archive, 2004-September.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 5 in "Exact license to solve the Open Source/Closed Standard problem?" (2004-09-28)
+Senders: Brian Behlendorf
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From brian at collab.net  Tue Sep 28 21:04:27 2004
+From: brian at collab.net (Brian Behlendorf)
+Date: Tue, 28 Sep 2004 14:04:27 -0700 (PDT)
+Subject: Exact license to solve the Open Source/Closed Standard problem?
+In-Reply-To: <Pine.LNX.4.58.0409280932410.19435@calcutta.flora.ca>
+References: <Pine.LNX.4.58.0409280932410.19435@calcutta.flora.ca>
+Message-ID: <20040928135855.Y17669@fez.hyperreal.org>
+
+On Tue, 28 Sep 2004, Russell McOrmond wrote:
+>  I was told the Apache license offered this (and much more, especially
+> the required open licensing of patents).  It is, however, not very clear
+> in the license:
+>
+> http://www.opensource.org/licenses/apache2.0.php
+>    6. Trademarks.
+>
+>    This License does not grant permission to use the trade names,
+>    trademarks, service marks, or product names of the Licensor, except as
+>    required for reasonable and customary use in describing the origin of
+>    the Work and reproducing the content of the NOTICE file.
+>
+>  It may be implied that you can't use the trademark in a derivative, but
+> it isn't spelled out in a way that the average developer/company/etc would
+> understand that.
+
+In the 1.0 license, it was phrased as "you must not use our marks".  In an 
+attempt to bring us closer to being compatible with the GPL and LGPL, we 
+changed this in 1.1 to "nothing gives you the right to use".  Thus it was 
+changed from an "additional restriction" as defined by the GPL (and thus 
+incompatible) to a more passive informational notification.  There was 
+much gnashing of teeth about this (and disappointment that the FSF is 
+still calling us incompatible for other reasons) but that should give you 
+the context.  So far, we have not noticed a change in behavior of 
+licensees due to the change of license - that is, no greater incidence of 
+abuse of our trademarks, which was our primary concern.
+
+I think the average developer, lawyer, or company executive understands 
+that when you tell them "nothing in this license gives you the right to 
+use our marks", they should seek some other device or justification for 
+using them, or avoid using them.  Coming up with a new name is, 
+fortunately, a very easy thing to do.
+
+ 	Brian
