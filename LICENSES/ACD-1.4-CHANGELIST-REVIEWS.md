@@ -3,7 +3,7 @@ file: LICENSES/ACD-1.4-CHANGELIST-REVIEWS.md
 audience: OSI license-discuss / license-review participants, licence reviewers, a future drafter
 last-updated: 2026-11-23
 reachable-via: ACD-1.4-CHANGELIST.md
-canonical-ref: LICENSES/ACD-1.4-CHANGELIST.md (変更の記録の本体) / LICENSES/ACD-1.4-DRAFT.txt (草案)
+canonical-ref: LICENSES/ACD-1.4-CHANGELIST.md (変更の記録の本体) / LICENSES/ACD-1.4.txt (草案)
 ---
 
 # ACD-1.4 の変更の記録 —— 外部レビューと確定前検証の前倒しを当てた結果（分冊）

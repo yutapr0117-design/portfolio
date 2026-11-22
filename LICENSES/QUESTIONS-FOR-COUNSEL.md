@@ -2,7 +2,7 @@
 file: LICENSES/QUESTIONS-FOR-COUNSEL.md
 audience: a lawyer asked to read ACD, or reading it on license-review / license-discuss; the steward, when asking one
 last-updated: 2026-11-15
-canonical-ref: LICENSES/ACD-1.3.txt (the latest fixed text, applied to this repository) / LICENSES/ACD-1.4-DRAFT.txt (the successor draft) / LICENSES/ACD-1.0.jurisdictions.md (where we think each question sits, by jurisdiction) / LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (B1)
+canonical-ref: LICENSES/ACD-1.4.txt (the latest fixed text, applied to this repository) / LICENSES/ACD-1.5-DRAFT.txt (the successor draft) / LICENSES/ACD-1.0.jurisdictions.md (where we think each question sits, by jurisdiction) / LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (B1)
 ---
 
 # Questions for counsel
@@ -18,9 +18,7 @@ the clause, what it is meant to do, our own reading, and why we doubt that readi
 Open Source Definition conformance, which is OSI's question rather than a lawyer's. It is not a
 summary of the dossier. Any one question can be answered without reading the others.
 
-**Which text.** Clause numbers are those of **ACD-1.3** (`ACD-1.3.txt`, fixed on 2026-10-25,
-80 clauses), which is the version this repository applies. ACD-1.2 and the successor draft
-ACD-1.4 use the same numbers; the draft differs only by the changes its header lists. **ACD-1.0, the version posted to license-discuss, numbers some clauses
+**Which text.** Clause numbers are those of **ACD-1.4** (`ACD-1.4.txt`, fixed on 2026-11-23, 80 clauses), which is the version this repository applies. ACD-1.2 and ACD-1.3 use the same numbers. **ACD-1.0, the version posted to license-discuss, numbers some clauses
 differently** (the definitions were reordered and Section 15 shifted); the mapping is in
 `ACD-1.2-CHANGELIST.md`.
 
@@ -53,10 +51,10 @@ executed by the author and so, on our reading of 17 U.S.C. §203, terminable aft
 but whether copyright can be abandoned at all is unsettled (`jurisdictions.md` §5a). (c) In
 Germany, where copyright cannot be transferred or waived, §3 may do nothing and everything rests
 on §4 and §5. (d) Covered Rights include rights the Dedicator *"may come to hold … now or in
-future"* (§1.5), and in the 1.4 draft Moral Rights include rights conferred by law *"now or in
+future"* (§1.5), and in ACD-1.4 Moral Rights include rights conferred by law *"now or in
 future"* (§1.2, errata E50). Whether a surrender, waiver or licence of a right not yet held takes
 effect when the right arises, or needs a further act then, is a question of each forum's law
-that the text cannot answer for itself. (e) In the 1.4 draft a one-line tag can apply the
+that the text cannot answer for itself. (e) In ACD-1.4 a one-line tag can apply the
 Dedication (§16.1, §16.2). Whether so short a mark shows the intention an abandonment needs is
 open; if it does not, §3 may fail there while §4 stands, which is what §4.4 is for. (f) OSI's FAQ
 says *"we don't know how or whether the author would be protected from liability for software
@@ -64,7 +62,7 @@ released into the public domain"*. The concern is old: Lawrence Rosen, answering
 public-domain dedications in 2003, wrote *"please consider using a regular open source license that
 contains a disclaimer of warranty. The Public Domain Dedication does not deal with such issues
 because it is not a license."* (`rounds/2003-03-license-discuss-public-domain-on-the-list-observed.txt`).
-Where §3 is effective nothing is left to license, so what do §13 and §14 rest on there? (g) §10.2 lets a copy travel with no notice, and in the 1.4 draft §2.3 says
+Where §3 is effective nothing is left to license, so what do §13 and §14 rest on there? (g) §10.2 lets a copy travel with no notice, and in ACD-1.4 §2.3 says
 You need not know of the Dedication. Where a licence is read as a contract, can a person who has
 never seen the text hold it, or does such a person rest on §3 and §5 alone and, for patents, on §8.6
 alone? (h) Some statutes let an author take a grant back whatever the grant says, which (b) asks
@@ -159,7 +157,7 @@ or in good faith before the transfer was recorded and without notice of it (text
 the Legal Information Institute; we have not read a case that applies it to a public licence). Nobody
 signs the Dedication for each recipient, and §2.8 says that it binds any person to whom a Covered Right
 is transferred *"to the fullest extent the law permits"*. Its second sentence said, without that limit,
-that a transferee takes subject to it; since 2026-11-12 the 1.4 draft says *"A transferee takes subject
+that a transferee takes subject to it; since 2026-11-12 ACD-1.4 says *"A transferee takes subject
 to it to that extent, Section 6 included."*, so that the text claims no more than the statute may allow
 (`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.32, T59; errata E79). In the United States, does a recipient's
 licence under §4 prevail over a later assignee of the copyright, and does it matter whether §3 has
@@ -181,7 +179,7 @@ the patent there. In the United States, 35 U.S.C. section 261 voids an unrecorde
 conveyance"* against a later purchaser without notice; whether a non-exclusive licence given to the
 public is such an interest we have not read a case on.
 
-A further question concerns the recipient who never saw the Dedication. In the 1.4 draft, §2.3 says
+A further question concerns the recipient who never saw the Dedication. In ACD-1.4, §2.3 says
 *"To hold a permission granted here, You need not know of this Dedication"*, which matters because §10.2
 lets a copy travel with no notice. Where §4 is read as a contract, German civil code section 151 dispenses
 only with declaring acceptance to the offeror (*"ohne dass die Annahme dem Antragenden gegenüber erklärt zu
@@ -215,14 +213,14 @@ in future"* infringed by making, using, selling or importing the Work or a deriv
 infringement is caused by subject matter contained in the Work as made available"*. §8.4 licenses
 claims (in ACD-1.3) infringed by Computational Use or by making or using *"any model, parameter set, weight,
 embedding, or output resulting from that use"*, limited to claims *"whose infringement depends upon
-the use of the Work"* — *"a question of causation and not of quantity"*. The 1.4 draft replaces
+the use of the Work"* — *"a question of causation and not of quantity"*. ACD-1.4 replaces
 that limit (2026-11-04): a claim is reached only where *"the feature that infringes it results, in
 whole or in part, from the content of the Work"*, and *"a feature that the Work teaches or embodies is
 taken so to result"*. §8.2 makes both unconditional and non-terminable; §8.6 adds a covenant not to assert. In ACD-1.3 the covenant
-arises where a licence is held ineffective; the 1.4 draft gives it for every jurisdiction without
+arises where a licence is held ineffective; ACD-1.4 gives it for every jurisdiction without
 waiting for a licence to be held ineffective (2026-11-01; since T86 it says *"it is given for every
 jurisdiction"*, not that it operates there), because a covenant that arises only on a holding does not
-exist when the claim that produces the holding is first asserted. The 1.4 draft also ties the covenant's
+exist when the claim that produces the holding is first asserted. ACD-1.4 also ties the covenant's
 reach to "any act that those Sections describe"; ACD-1.3 says "any use of the Work or of anything
 resulting from Computational Use of it", and in a patent covenant "use" may name only one of the
 acts (making, selling, importing) that §8.1 and §8.4 license (errata E45).
@@ -234,7 +232,7 @@ reach trained models and outputs, which no approved licence names (`gap-census.m
 limit is definite enough to apply.
 
 **Why we doubt it.** (a) "Controlled" is undefined in ACD-1.3; GPL-3.0 and MPL-2.0 define their
-equivalents. The 1.4 draft now defines it in §8.5 (a claim the Dedicator can license, at the time
+equivalents. ACD-1.4 now defines it in §8.5 (a claim the Dedicator can license, at the time
 in question, without breaching an obligation to or paying another person; errata E39) — whether
 that definition is the right one is part of the question.
 (b) A causal limit with no threshold may be read as too indefinite to operate, or as reaching any
@@ -252,17 +250,17 @@ whether a covenant given alongside the licence (the 1.4 form) is treated differe
 arises only on a holding (the 1.3 form). (e) Whether "use" in a covenant not to assert patent claims is read as
 the statutory act of using only, which is the reading the 1.4 change assumes and guards against.
 
-(f) In the 1.4 draft §8.4 says the proviso on subject matter contained in the Work is deliberately
+(f) In ACD-1.4 §8.4 says the proviso on subject matter contained in the Work is deliberately
 absent, then limits the grant to a feature resulting from the content of the Work. We read §8.1 as
 testing what the Work contains and §8.4 as testing where a feature of a model or output came from.
 A reader may instead see one limit taken away and the same limit put back.
 
 (g) In ACD-1.3 the acts sit in a relative clause that selects the claims, so the licence reads as a
-licence under the claim. The 1.4 draft of 2026-11-07 made the acts the object: *"licence to make,
+licence under the claim. ACD-1.4 of 2026-11-07 made the acts the object: *"licence to make,
 have made, use, offer to sell, sell, import, and otherwise practise or transfer the Work or anything
 derived from it"*, and §8.4 followed it. Did that list leave out an act a national law names, such
 as export and lending (Japan, Patent Act Art. 2(3)) or possession (Germany, PatG §9)? We had added
-*"otherwise practise"* so that it should not, and we have not tested the phrase. **The 1.4 draft answers this part (trial T94).** The list now reads *"make,
+*"otherwise practise"* so that it should not, and we have not tested the phrase. **ACD-1.4 answers this part (trial T94).** The list now reads *"make,
 have made, use, offer, sell, lend, lease, import, export, keep, possess, and otherwise practise or transfer
 the Work or anything derived from it"*, in §8.1 and in §8.4, so the acts that Japanese, German and United
 Kingdom patent law name are in the words. *"offer"* replaces *"offer to sell"* because those laws also
@@ -272,7 +270,7 @@ For a process patent, TRIPS Article 28.1(b) extends the owner's right to *"the p
 by that process"* (`rounds/2026-11-20-patent-usc-patg-berne-trips-snapshot.txt`); §8.4's list of acts reaches a model or output that
 results from Computational Use, so a model that is the direct product of a patented training method is
 within the words.
-(h) The 1.4 draft adds to §8.4 *"Section 8.1 alone governs a feature added to the Work, by whatever
+(h) ACD-1.4 adds to §8.4 *"Section 8.1 alone governs a feature added to the Work, by whatever
 means."* Does it hold the line between a feature added to the Work and a feature of a model or
 output, including where the Work is itself a model?
 (i) §8.1 reaches claims *"owned or controlled by the Dedicator"*, and §8.5 defines *controlled* as the
@@ -298,7 +296,7 @@ it in Japan (civil code article 537, the beneficiary's declaration) is the fourt
 ## 3. Are the moral-rights covenants enforceable where waiver is not? (§12.1 to §12.5)
 
 **The clauses.** §12.1 waives Moral Rights to the extent the law permits. In ACD-1.3 §12.2 replaces the
-waiver, where moral rights are inalienable, with a covenant not to exercise them against You. The 1.4 draft
+waiver, where moral rights are inalienable, with a covenant not to exercise them against You. ACD-1.4
 adds, in a sentence of its own, the Dedicator's consent to the acts the rights would otherwise forbid ((e)
 below), and since trial T101 gives the covenant and the consent *"for every jurisdiction, whether or not
 Section 12.1 has effect there"*, with no trigger. §12.3 limits the covenant to the Work. §12.4 binds successors and *"any person entitled to exercise or enforce
@@ -322,14 +320,14 @@ the licence, and the part that stays with the author is the core against distort
 (b) Whether §12.4 can bind persons who,
 after the author's death, act in their own right (Japan, Articles 60 and 116). (c) Whether a court
 would treat a covenant this broad as contrary to public order even though §12.3 confines it. A second
-point under (c): in ACD-1.3, and in the 1.4 draft before trial T103, §12.3 ended by saying that the covenant and the consent
+point under (c): in ACD-1.3, and in ACD-1.4 before trial T103, §12.3 ended by saying that the covenant and the consent
 *"are given in respect of a work that the Dedicator has chosen to place in the commons for the purpose
 stated in Section 6"*. That clause
-was kept to support the covenant's validity; since the 1.4 draft added a consent (T67), it also reaches
+was kept to support the covenant's validity; since ACD-1.4 added a consent (T67), it also reaches
 the consent. A blanket consent given in advance may be read narrowly by the purpose it states (that is our
 reading, not one we have confirmed for any jurisdiction). Does the clause confine the consent to acts that
 serve §6's purpose, being learned from, so that an ordinary modification unrelated to learning falls outside
-it? If it does, would removing the clause weaken the covenant it was meant to support? **The 1.4 draft
+it? If it does, would removing the clause weaken the covenant it was meant to support? **ACD-1.4
 narrows this part (trial T103).** §12.3 now reads *"they are given in respect of the Work, which the
 Dedicator has chosen to place in the commons for the purpose stated in Section 6"*: the purpose is set
 in a non-restrictive clause about why the Dedicator placed the Work, not about which acts the consent
@@ -341,7 +339,7 @@ the rights are personal, inalienable, or incapable of waiver, while §12.1's wai
 signature, may fail for want of form. The United States (17 U.S.C. §106A(e)(1)) and the United
 Kingdom (CDPA s.94) make the rights non-transferable, so §12.2 applies there; we know of no
 jurisdiction in the gap, which is why the text was not changed (2026-11-01).
-The 1.4 draft (trial T101, 2026-11-19) now gives §12.2's covenant and consent *"for every
+ACD-1.4 (trial T101, 2026-11-19) now gives §12.2's covenant and consent *"for every
 jurisdiction, whether or not Section 12.1 has effect there"*, so the gap no longer arises in the
 draft; the question stands for 1.0 to 1.3.
 (e) **Consent as well as a covenant.** Where moral rights cannot be waived, does a blanket advance
@@ -358,7 +356,7 @@ right, consent reaches what a covenant may not: persons who are not party to the
 protection after death (Japan, Article 60). If it is wrong, or if courts refuse a consent given in
 advance to unspecified acts (and Article 113(11), on acts prejudicial to honour or reputation, is
 not a right that consent obviously reaches), does adding consent words do harm, for instance by
-inviting the reading that the covenant alone was not meant to suffice? The 1.4 draft adds such a consent
+inviting the reading that the covenant alone was not meant to suffice? ACD-1.4 adds such a consent
 (`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.1, T67); the reading above is ours, not a list participant's.
 
 **An answer would change** §12.2 and §12.4, the clauses on which the dossier most wants correction
@@ -399,7 +397,7 @@ whether adopters should be told to keep a signed statement from contributors.
 
 **The clause.** In ACD-1.3 §5.1 covenants not to assert *"any claim or cause of action, whether now
 known or unknown, arising from or relating to a use of the Work that this Dedication permits"*.
-The 1.4 draft reads *"any claim or cause of action, whether now known or unknown, that treats as
+ACD-1.4 reads *"any claim or cause of action, whether now known or unknown, that treats as
 wrongful, or as without legal basis, a use of the Work that this Dedication permits or purports to
 permit, other than for patent infringement (Section 8), under trademark rights or rights in a name
 (Section 11.1), for a false statement or representation (Section 11.3), or for a payment You agreed
@@ -408,7 +406,7 @@ only one of those exceptions, the one for a false statement or representation (S
 grants no trademark right; §11.3 places misrepresentation of authorship or endorsement outside the
 Dedication's reach; §11.4 states that the §5 covenants are not limited by its own sentence on reach.
 
-**Our reading.** Until 2026-11-16 the 1.4 draft said *"for a use"*, and trial T90 put this reading into
+**Our reading.** Until 2026-11-16 ACD-1.4 said *"for a use"*, and trial T90 put this reading into
 the words. The covenant keeps the claims that attack the use itself: those that treat it as wrongful,
 such as unfair competition, and those that treat it as without legal basis, such as unjust enrichment
 (German civil code section 812, Japan's civil code article 703). It leaves out a claim that only
@@ -420,13 +418,13 @@ that sale a Computational Use and so a use of the Work.
 misrepresentation §11.3 excludes (`ACD-1.3-CHANGELIST.md`). That reading does not hold on the
 words: §5.2(d) uses the same *"use of the Work that this Dedication permits"* for rights §11.4 does
 not grant, and a fork that keeps the name and logo need not represent anything. A Dedicator with a
-mark could then be said to have licensed it without control, so the 1.4 draft says it in words.
+mark could then be said to have licensed it without control, so ACD-1.4 says it in words.
 The words now draw the line we describe; how a court reads *"treats as wrongful, or as without legal
 basis"*, which no approved licence uses, we have not tested. The exception does not name data
 protection, because §5.2(d) was written to stop a Dedicator's own personal rights from defeating a
 permitted use (errata E31).
 
-The 1.4 draft also excepts a payment You agreed to make (2026-11-07; since trial T118, a payment *"for
+ACD-1.4 also excepts a payment You agreed to make (2026-11-07; since trial T118, a payment *"for
 providing a copy or for a service that is not permission to use the Work"*, and §5.2(b) carries the same
 exception, so that calling a permission a service does not bring a fee for it inside the exception) and
 patent
@@ -442,7 +440,7 @@ write it, in part, so nothing false is represented; on the other the altered who
 Dedicator wrote. We did not widen §11.3 to name an altered work presented as unaltered, because that
 would turn §10.2 into a condition in practice (`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.18, T41). Which
 reading a court would take, and whether an author's claim for this survives in a jurisdiction where
-§12.2 applies (§12.5 keeps false attribution outside the covenant), we cannot say. **The 1.4 draft
+§12.2 applies (§12.5 keeps false attribution outside the covenant), we cannot say. **ACD-1.4
 answers the first part (trial T123).** §11.3 now adds *"Retaining a notice that accompanied or was
 contained in the Work is not such a representation."*, so leaving the original authorship line in an
 altered file is not within §11.3, and since trial T122 §12.5 keeps only §11.3 conduct outside the waiver,
@@ -450,16 +448,16 @@ the covenant and the consent. A new statement that the altered file is the unalt
 retaining and stays within §11.3. Whether a court applying a statute such as the United Kingdom's CDPA
 section 84 reads retention the same way is the open part.
 
-A third question sits at the end of §5.2. The 1.4 draft says *"Section 5 does not reach the Dedicator's
+A third question sits at the end of §5.2. ACD-1.4 says *"Section 5 does not reach the Dedicator's
 rights in material, other than the Work, that the Dedicator itself makes or makes available, or the
 terms or measures the Dedicator applies to that material"*. Suppose a Dedicator ships the Work only inside its own
 installer, under a click-through and a licence key that forbid extracting the bundled components. We
 read the copy inside the installer as still the Work (§2.1: *"every separable part of it"*), so the terms
 stay inside §5.2(b), and the key stays inside §5.2(a) as far as asserting rights in respect of it goes
-(since T64 the 1.4 draft no longer forbids applying a measure, only asserting rights in respect of one
+(since T64 ACD-1.4 no longer forbids applying a measure, only asserting rights in respect of one
 or invoking the law of circumvention against You). If a court treated the installer as one
 piece of "other material", the exclusion would reach terms that in fact restrict the Work
-(`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.26). **The 1.4 draft closes this part (trial T91).** §5.2 now ends
+(`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.26). **ACD-1.4 closes this part (trial T91).** §5.2 now ends
 *"A copy of the Work, or of part of it, contained in that material remains the Work, or that part of
 it."*, so the installer's terms cannot
 reach the bundled copy through the exclusion. The cost is that a Dedicator who ships the Work inside
@@ -467,7 +465,7 @@ its own product must keep the product's terms off that copy.
 
 The fourth question is who may rely on these covenants. §5.3 says they *"may be relied upon by You
 and by anyone who receives the Work from You, directly or indirectly, as an intended beneficiary, to the
-extent a jurisdiction gives effect to such reliance"*, and the 1.4 draft extends that sentence to the
+extent a jurisdiction gives effect to such reliance"*, and ACD-1.4 extends that sentence to the
 patent covenant of §8.6 (T66). Approved licences use third-party-beneficiary language the other way
 round, to let someone enforce the licence against the licensee (CAL-1.0, NOSA 1.3), and a reviewer has
 asked whether *"there can be oblivious third party beneficiaries (under contract law!)"* (Lawrence Rosen,
@@ -494,7 +492,7 @@ The fifth question is about the second limb of §5.2(a). The Dedicator covenants
 against You any law concerning the circumvention of such measures"*, where the measures are those
 that restrict access to or use of the Work. The limb was written against DRM, that is, against the
 anti-circumvention rules of copyright law (17 U.S.C. §1201, Article 6 of Directive 2001/29/EC and
-their national forms). Since T64 the 1.4 draft lets the Dedicator apply a measure, such as a
+their national forms). Since T64 ACD-1.4 lets the Dedicator apply a measure, such as a
 proof-of-work challenge, a rate limit or an authentication step on its own download server. Does
 *"any law concerning the circumvention"* also make the Dedicator give up computer-misuse law (the
 Computer Fraud and Abuse Act, Japan's Act on the Prohibition of Unauthorized Computer Access) against
@@ -521,13 +519,13 @@ that §5.1 still bars the claim, or only one the text says it permits? We read �
 reading that gives *"the widest permission and the least obligation upon You"*, as choosing the first,
 so that the covenant stands on its own footing, as §2.4 says. If a court takes the second, §5.1
 falls with §4 in exactly the place it is meant to hold (`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.27, from
-portfolio-30). **The 1.4 draft answers it (trial T93):** §5.1 and §5.2(d) now say *"a use of the Work
+portfolio-30). **ACD-1.4 answers it (trial T93):** §5.1 and §5.2(d) now say *"a use of the Work
 that this Dedication permits or purports to permit"*, so the covenant holds where §4 does not take
 effect.
 
 **An answer would change** whether §5.1's *"treats as wrongful, or as without legal basis"* is the right wording,
 and whether data protection needs its own exception. An answer to the second question would change whether §11.3 needs the altered-work case in words.
-The third is settled in the 1.4 draft by T91. The sixth is settled in the 1.4 draft by T93. An answer to the fourth would change whether §5.3 should keep the words *intended beneficiary*, and whether T66 should have extended them to §8.6. An answer to the fifth would change whether the second limb of §5.2(a) needs a carve-out for computer-misuse law.
+The third is settled in ACD-1.4 by T91. The sixth is settled in ACD-1.4 by T93. An answer to the fourth would change whether §5.3 should keep the words *intended beneficiary*, and whether T66 should have extended them to §8.6. An answer to the fifth would change whether the second limb of §5.2(a) needs a carve-out for computer-misuse law.
 
 ## 6. Do the text-and-data-mining declarations do anything? (§6.2, §6.3)
 
@@ -543,7 +541,7 @@ purpose of the exception, are questions on which a German appellate court has ru
 about the same exception (HansOLG 5 U 104/24; `jurisdictions-sources.md` §9a(9)) — we have read the
 court's own announcement, not the judgment.
 
-The 1.4 draft adds a rule on the Dedicator's own notices (§16.2, 2026-11-10): *"a notice that is
+ACD-1.4 adds a rule on the Dedicator's own notices (§16.2, 2026-11-10): *"a notice that is
 only a Reservation assigns nothing to other terms (Section 6.2)"*. It is meant to stop an opt-out
 notice the Dedicator places from taking that material out of the Work. If a court treats such a
 notice as the Dedicator's statutory reservation all the same, §16.2 and the statute point different
@@ -606,7 +604,7 @@ Article 5(2): *"the extent of protection, as well as the means of redress afford
 protect his rights, shall be governed exclusively by the laws of the country where protection is
 claimed."* (`rounds/2026-11-20-patent-usc-patg-berne-trips-snapshot.txt`).
 
-**The 1.4 draft answers the first part (trial T92).** #23 read the second sentence as a declaration
+**ACD-1.4 answers the first part (trial T92).** #23 read the second sentence as a declaration
 about conflict of laws that a forum need not follow, and the law above shows it did no work on the
 infringement side, so the draft removed it. One consequence follows: that sentence was the only words
 that could be read as an implied choice of each place of use, so without it, on the contract side,
@@ -614,7 +612,7 @@ Rome I Article 4(2) points to the Dedicator's habitual residence. Is that a cost
 abroad, or does it make the contract side easier to predict?
 
 **An answer would change** whether the dossier should tell adopters that the contract side may follow
-the Dedicator's law. Whether §15.3 keeps its second sentence is settled in the 1.4 draft by T92.
+the Dedicator's law. Whether §15.3 keeps its second sentence is settled in ACD-1.4 by T92.
 
 ## 8. Does the Dedication survive the Dedicator's insolvency? (§2.9)
 
@@ -622,7 +620,7 @@ the Dedicator's law. Whether §15.3 keeps its second sentence is settled in the 
 insolvency proceeding, and an insolvency officer is a transferee bound under §2.8. What the officer
 is bound to differs by version: in ACD-1.3, §2.8 binds Sections 3, 4, 6 and 8, so the covenants in
 §5 reach transferees only through §5.3's narrower list, and §7.2 and §2.5 are left out (errata E46,
-E49). The 1.4 draft binds the whole Dedication as it concerns the Work and states that §5.3 and
+E49). ACD-1.4 binds the whole Dedication as it concerns the Work and states that §5.3 and
 §12.4 do not narrow §2.8 (2026-11-02).
 
 **Why we doubt it.** Whether a trustee can reject the licence as an executory contract is for the
@@ -645,7 +643,7 @@ are "any contract", which narrows the second question below to jurisdictions oth
 States. What remains open is the law of those jurisdictions (Germany is being read under §103 of the
 Insolvency Code) and the cross-border balancing of *Jaffé v. Samsung*.
 
-**An answer would change** whether §2.9 needs more than the 1.4 draft gives it, and how the dossier
+**An answer would change** whether §2.9 needs more than ACD-1.4 gives it, and how the dossier
 answers #178 (`jurisdictions-sources.md` §9a (10), on Qimonda).
 In *Jaffé v. Samsung* the result took a four-day evidentiary hearing and a discretionary
 balancing (#178). The opinion says so in terms: *"relying on the particular facts of this case and the
@@ -667,7 +665,7 @@ equivalent law in any foreign jurisdiction, this promise will be treated as if i
 §365(n)-type protection where a licence would not, would a sentence of that kind in §2.9 help? And
 would it harm, by appearing to decide a legal classification that the text otherwise leaves to the
 law (the same objection that led us to remove sentences asserting legal results, errata E23 and
-E79)? The 1.4 draft does not add such a sentence, for that second reason
+E79)? ACD-1.4 does not add such a sentence, for that second reason
 (`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.2).
 For patents in the United States the gap narrows: the Federal Circuit held that *"a non-exclusive
 patent license is equivalent to a covenant not to sue"* (*TransCore v. Electronic Transaction
@@ -710,7 +708,7 @@ precedent, but Apache-2.0 gives no covenant for it to reach, and it excepts what
 requires, naming *"deliberate and grossly negligent acts"*. We found this by setting §14.1 beside
 the covenants, which share no term with it (`ACD-1.4-CHANGELIST.md`, the pre-finalisation checks).
 
-**The 1.4 draft answers this part (trials T83 and T88).** §14.2 now ends *"Section 14 does not limit the
+**ACD-1.4 answers this part (trials T83 and T88).** §14.2 now ends *"Section 14 does not limit the
 Dedicator's liability for asserting a claim, or exercising a right, in breach of a covenant in Section 2.5,
 5, 8.6, or 12.2"*. A recipient put to the cost of a suit the Dedicator promised not to bring keeps the
 claim for it. A breach that consists only of imposing terms (§5.2(b)) is outside that sentence until the
@@ -755,10 +753,10 @@ the cases that set the test (to whom the writing is addressed, how clearly it sh
 Article 549 also makes a gift take effect when the other party accepts, so a grant to the public may not
 be a gift at all, and then article 550 does not arise. On either reading, article 550 would not undo
 what a recipient already holds; neither reading is settled. Is that reading right, and could revocation reach the patent licence
-of §8? The 1.4 draft (T85) now says that the licences are not terminable *"under this Dedication"* on
+of §8? ACD-1.4 (T85) now says that the licences are not terminable *"under this Dedication"* on
 any ground, so the text no longer speaks for what the law may allow.
 
-The 1.4 draft (trials T82 and T102) now opens §14.1 with *"EXCEPT FOR ANY LIABILITY FOR WILFUL MISCONDUCT,
+ACD-1.4 (trials T82 and T102) now opens §14.1 with *"EXCEPT FOR ANY LIABILITY FOR WILFUL MISCONDUCT,
 GROSS NEGLIGENCE, DEATH, OR PERSONAL INJURY, IN EACH CASE WHERE APPLICABLE LAW DOES NOT PERMIT IT TO BE
 EXCLUDED, WHICH NOTHING IN SECTION 14 LIMITS,"*, following EUPL-1.2 §8. Our reading is that this keeps the exclusion standing in Germany
 if the Dedication is standard terms, because the excepted categories match those that German civil code
@@ -792,7 +790,7 @@ Article 8(3), or must §14.1 except gross negligence without the condition, as E
 
 **An answer would change** the wording of the T82 exception, if it fails the German transparency requirement,
 the United Kingdom's reasonableness test, or Article 8(3) of Japan's Consumer Contract Act. Whether §14 should say that it does not limit the covenants
-is settled in the 1.4 draft by T83. An answer to (b) would change whether §14.1 needs its own subject.
+is settled in ACD-1.4 by T83. An answer to (b) would change whether §14.1 needs its own subject.
 
 
 ## 10. Does the name or the short identifier collide with a mark in use? (§16.4, B6)

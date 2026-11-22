@@ -2,7 +2,7 @@
 file: LICENSES/ACD-1.4-CLARITY-TRIAL.md
 audience: ai, human (新卒), 監査人, 第三者全般
 last-updated: 2026-11-04
-canonical-ref: LICENSES/ACD-1.4-DRAFT.txt / LICENSES/ACD-OSI-BOTTLENECKS.md / LICENSES/ACD-1.4-CHANGELIST.md
+canonical-ref: LICENSES/ACD-1.4.txt / LICENSES/ACD-OSI-BOTTLENECKS.md / LICENSES/ACD-1.4-CHANGELIST.md
 ---
 
 # LICENSES/ACD-1.4-CLARITY-TRIAL.md

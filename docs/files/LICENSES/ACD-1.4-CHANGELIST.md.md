@@ -2,7 +2,7 @@
 file: LICENSES/ACD-1.4-CHANGELIST.md
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人, 後任 AI
 last-updated: 2026-11-03
-canonical-ref: LICENSES/ACD-1.4-DRAFT.txt / LICENSES/ACD-1.0.errata.md
+canonical-ref: LICENSES/ACD-1.4.txt / LICENSES/ACD-1.0.errata.md
 ---
 
 # LICENSES/ACD-1.4-CHANGELIST.md

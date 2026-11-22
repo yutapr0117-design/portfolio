@@ -2,7 +2,7 @@
 file: LICENSES/CHANGES-ACD-1.4.txt
 audience: ai, human (新卒), 監査人, 第三者全般
 last-updated: 2026-11-20
-canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (草案の本文と状態) / LICENSES/ACD-1.4-CHANGELIST.md (各変更の理由・日本語)
+canonical-ref: LICENSES/ACD-1.5-DRAFT.txt (草案の本文と状態) / LICENSES/ACD-1.4-CHANGELIST.md (各変更の理由・日本語)
 ---
 
 # LICENSES/CHANGES-ACD-1.4.txt
