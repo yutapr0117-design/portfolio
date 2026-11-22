@@ -123,7 +123,7 @@ canonical-ref: LICENSES/ACD-1.0.review-responses-clauses.md (第 1 層・条項�
 >
 > Whether a court gives effect to any of this I cannot say. Severability means
 > that if it is struck the rest survives (Section 15.4 in 1.0; Section 15.2 in
-> ACD-1.2 and later, including ACD-1.3, which this repository applies).
+> ACD-1.2 and later, including ACD-1.4, which this repository applies).
 >
 > **What I had wrong, since you can see it in the history anyway.** The answer
 > given here until 2026-09-19 said that applying contra proferentem "would

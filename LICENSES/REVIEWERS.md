@@ -2,7 +2,7 @@
 file: LICENSES/REVIEWERS.md
 audience: OSI license-discuss / license-review participants, licence reviewers, anyone arriving from the mailing list
 last-updated: 2026-11-15
-canonical-ref: LICENSES/ACD-1.0.txt (the text posted) / LICENSES/ACD-1.3.txt (the frozen successor this repository applies since 2026-10-25) / LICENSES/FROZEN.md (freeze + venue, single source) / LICENSES/rounds/2026-08-26-license-discuss-sent.txt (what was actually sent) / LICENSES/ACD-1.0.submission.md (the packet prepared for license-review)
+canonical-ref: LICENSES/ACD-1.0.txt (the text posted) / LICENSES/ACD-1.4.txt (the frozen successor this repository applies since 2026-11-23) / LICENSES/FROZEN.md (freeze + venue, single source) / LICENSES/rounds/2026-08-26-license-discuss-sent.txt (what was actually sent) / LICENSES/ACD-1.0.submission.md (the packet prepared for license-review)
 ---
 
 # Reviewing ACD — start here
@@ -155,17 +155,18 @@ rules stayed; the reasons moved here. The full records are in the change list, i
 
 ## Which text you are looking at
 
-**There are four frozen texts, and they are frozen for different reasons.** *(2026-10-29: this table said "two" and named 1.0 as the applied licence after 1.2 and 1.3 had been frozen; corrected.)*
+**There are five frozen texts, and they are frozen for different reasons.** *(2026-10-29: this table said "two" and named 1.0 as the applied licence after 1.2 and 1.3 had been frozen; corrected.)*
 
 | | |
 | :-- | :-- |
 | [`ACD-1.0.txt`](ACD-1.0.txt) | **The text posted to `license-discuss` on 2026-08-26.** Frozen since 2026-08-24 so that the text under discussion does not move. This repository applied it until 2026-10-25. |
 | [`ACD-1.1.txt`](ACD-1.1.txt) | **The successor, frozen 2026-09-17.** When it was frozen it closed nineteen of the twenty-one defects then recorded in [`ACD-1.0.errata.md`](ACD-1.0.errata.md); the list has kept growing since, and each entry says which version addresses it. It has **not** been submitted to `license-review` and is **not** applied to this repository. |
 | [`ACD-1.2.txt`](ACD-1.2.txt) | **The second successor, frozen 2026-10-17.** Its own header says what it is. It has **not** been submitted to `license-review` and is **not** applied to this repository. |
-| [`ACD-1.3.txt`](ACD-1.3.txt) | **ACD-1.3, the third successor, frozen 2026-10-25, and the licence this repository applies from that date** (the root `LICENSE` says so). It has **not** been submitted to `license-review`. |
+| [`ACD-1.3.txt`](ACD-1.3.txt) | **ACD-1.3, the third successor, frozen 2026-10-25.** This repository applied it from that date until 2026-11-23. It has **not** been submitted to `license-review`. |
+| [`ACD-1.4.txt`](ACD-1.4.txt) | **ACD-1.4, the fourth successor, frozen 2026-11-23, and the licence this repository applies from that date** (the root `LICENSE` says so). It has **not** been submitted to `license-review`; as of 2026-11-23 it had not been posted to any list (postings are recorded in [`FROZEN.md`](FROZEN.md)). What changed from 1.3, clause by clause, is in [`CHANGES-ACD-1.4.txt`](CHANGES-ACD-1.4.txt). |
 
 **Work on the next version happens in [`ACD-1.5-DRAFT.txt`](ACD-1.5-DRAFT.txt)**, so no
-frozen text moves while it is being discussed. All four are pinned by SHA-256 in
+frozen text moves while it is being discussed. All five are pinned by SHA-256 in
 [`FROZEN.md`](FROZEN.md) and checked in CI; the command to verify that is below.
 
 **Clause numbers do not transfer cleanly between 1.0 and its successors, and this matters when you read the
@@ -225,7 +226,7 @@ The text is **frozen** while this is open. `LICENSES/FROZEN.md` exists to say so
 **Check 453 in CI pins the SHA-256 of twelve files** — the three submitted ones
 (`ACD-1.0.txt`, `ACD-1.0.spdx.xml`, `ACD-1.0.machine.json`) and two for each of the
 **frozen successors** (`ACD-1.1.txt`, `ACD-1.1.machine.json`, `ACD-1.2.txt`, `ACD-1.2.machine.json`, `ACD-1.3.txt`, `ACD-1.3.machine.json`), none of them
-submitted for approval (ACD-1.3 is the one this repository applies) — so that an accidental edit fails the build rather than
+submitted for approval (ACD-1.4 is the one this repository applies) — so that an accidental edit fails the build rather than
 silently changing the text you are reading. If you find a defect in the text, it will be **reported, not quietly
 patched** — changing the wording underneath a live discussion would make your review of it
 meaningless.
