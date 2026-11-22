@@ -958,4 +958,25 @@ T127 の確かめ（2f・30）: 2f —— *material* は §1.3 と同じ語、*r
 
 §15.52（30）が OSD 1〜10 を本文に当てた。2f は同じ時間に、入口の側の表 —— `SUBMISSION-MATERIALS.md` §1c の OSD の表 —— を、11-11 の当て直しの後に入った試作（T53〜T134）と突き合わせていた（30 の依頼で §15.53 に載せ直した）。**表が引く草案の語**: OSD 1〜10 の行の草案の引用 20 か所はどれも今の草案に在る（道具で照合・外れた 3 か所は審査者の発言の引用）。**当たる試作**（UNIQUE-READING の「試作 Tnn で入った」の行から、OSD 6〜10 の行が根拠にする条へ道具で写した）: OSD 6 に 13、7 に 5、8 に 0、9 に 10、10 に 7 —— どれも行の「満たす」の文を動かさない（T124・T131 は許しの側で分野も技術も名指さない、T105・T109 は OSD 7 を強める側、T121 は受け手が同時に Dedicator である素材にだけ §5 を及ぼす）。**直したもの（表の記述の古さ・本文の欠陥ではない）**: OSD 10 の行が §5.2(b) の除外を T112（写しの対価）だけと書いていたのを T118（サービスの対価）まで、OSD 9 の行に T121 の §4.5 の末文と、それが他のソフトウェアに当たらない理由を足した。
 
+### 15.54 1.5 の候補 —— 一意化の束が文を長くした（草案は変えない・2026-11-23・portfolio-5e）
+
+**測定**（`measure_clause_clarity.py --fetch`・2026-11-23・比較群は SPDX の本文・方法は道具の docstring）:
+
+| 本文 | 文 | 平均 | 最長 | 45 語超 |
+| :-- | --: | --: | --: | --: |
+| ACD-1.0 | 175 | 26.0 | 81 | 10.3%（18 文）|
+| ACD-1.3 | 185 | 27.5 | 81 | 11.9%（22 文）|
+| **ACD-1.4 草案** | 191 | **28.9** | **93** | **14.7%（28 文）** |
+| Apache-2.0 / MPL-2.0 / EPL-2.0 / OSL-3.0 / CDDL-1.0 | | 31.3 / 24.7 / 34.2 / 24.4 / 25.4 | 110 / 108 / 183 / 76 / 151 | 22.0 / 13.5 / 21.0 / 13.4 / 10.2% |
+
+**読み**: 1.0 では 45 語超の割合が比較群で最小だった（`ACD-OSI-BOTTLENECKS.md` の基準の段 2 が引く値）。1.4 草案では平均も 45 語超も 6 本中 4 番目で、比較群の中ほどに移った。増えた長文には、一意化の試作が既存の文の中へ限定の句を差し込んだものが多い（§5.1 第 2 文・§5.2 の回避の授権・§5.2 末段・§2.6）。**逆側**: 中ほどは「悪い側」ではなく、Apache-2.0 と EPL-2.0 は 1.4 草案より長い。文長は明晰さの代理指標で、*"Poor drafting"*（`board-decisions.md` §4a）を直接は測らない。
+
+**1.5 の候補（確定の後に 5 人で決める・CHANGELIST の「確定の後の一意化」の行）**:
+
+- **S1 §5.1 第 2 文（91 語・大文字でない文の最長）**: *"… a use of the Work that this Dedication permits or purports to permit, other than for patent infringement (Section 8), under …"* → *"… permits or purports to permit. That covenant does not reach a claim for patent infringement (Section 8), under …"*（+5 語・42 語と 54 語の 2 文）。除外の 4 つの並び（*for* / *under* / *for* / *for*）は変えない。**逆側**: *That covenant* の先行詞は直前の文の約束だが、第 1 文（Covered Right を主張しない約束）にも除外が掛かると読む余地が新しく生じうる —— 1 文のままなら除外が第 2 文の内側に在ることは構文で決まる。`_lib_draft_markers.py` の §5.1 の目印（*"other than for patent infringement"*）が外れるので、機械層の同時の直しが要る。
+- **S2 §5.2 の回避の授権（77 語）**: *"…, and waives any power under a law concerning such circumvention to forbid that circumvention."* → *". To the same extent, the Dedicator waives any power …"*（+5 語）。冒頭の *"To the fullest extent the law permits"* が放棄にも掛かることを *To the same extent* で保つ。分けても前半は 59 語で、45 語超は減らない。
+- **S3 §5.2 末段（68 語）**: サービスの文を先に出し（*"Section 5 does not reach the terms or measures the Dedicator applies to the use of a service … without providing a copy of the Work. Nor does it reach the Dedicator's rights in material …, even where using that material is a Computational Use of the Work."*・+10 語）、*even where* が素材だけに掛かることを構文で示す。**順序が要点**: 逆の順にすると、次の文の *"Section 5 reaches those terms"* の *those terms* の最も近い先行詞がサービスの条件に移り、写しを含む素材の条件という今の読みが崩れる。
+
+**3 つを当てた値**（同じ道具・2026-11-23）: 194 文・平均 28.6・最長 93・45 語超 13.9%（27 文）・+20 語。**効果は小さい** —— 分けても片方が 45 語を超えて残る。1.0 の水準へ戻すには、§8.1 / §8.4 の行為の列、§1.2・§1.5・§1.7・§1.10 の定義、§4.2・§4.3 のような**列挙の文**に手を入れる必要があり、それは語を足さずには分けられない（B3 と引き換え）。**1.5 の書き方の案**: 一意化で限定を足すときは、既存の文へ句を差し込む前に、文を足して前の文を名指す形を検討する（§12.3 の *"The covenant and the consent in Section 12.2"* の型）—— 1.4 で文が延びた主因を、次の版の書き方で抑える。
+
 **法的解釈を一意に定める節（各条の「最も強い別の読み」・小節 19.1〜19.5）は `ACD-1.4-UNIQUE-READING.md` へ移した**（2026-11-18・本文は無改変。5 人が同じ file の末尾に足して衝突が続き、THIRD が 845 行で上限 1,000 に近づいたため・portfolio-9b）。
