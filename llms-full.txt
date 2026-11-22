@@ -88,8 +88,8 @@ stays published and frozen.)
 - **Not registered, not approved.** ACD-1.4 is **not on the SPDX License List** and is **not
   OSI-approved**. A tool that needs a conforming SPDX expression should use
   `LicenseRef-ACD-1.4`, as ACD-1.4 §16.1 itself says. The machine-readable descriptor
-  (LICENSES/ACD-1.4.machine.json) states the same thing as fields: `spdxListed: false`,
-  `osiApproved: false`.
+  (LICENSES/ACD-1.4.machine.json) records the same thing, as of the day the text was fixed, in
+  its `statusAtFixing` fields: `osiApproved: false`, `spdxListed: false`, `legalReview: false`.
 
 Rationale, the gap analysis against existing licences, and the Open Source Definition
 conformance table are recorded in docs/architecture/acd-license-rationale.md.
