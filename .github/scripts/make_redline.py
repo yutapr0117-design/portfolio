@@ -23,6 +23,11 @@ license-discuss へ出す。差を手で作ると、条の対応を取り違え 
     python3 .github/scripts/make_redline.py --changed-only --context 8 LICENSES/ACD-1.0.txt LICENSES/ACD-1.4-DRAFT.txt
         # 変わった語の前後 8 語だけを残し、間を "..." にする (list に貼れる長さへ・2026-11-15。全文の redline は 1.0→1.4 で
         #   5,702 語あり、本体とほぼ同じ長さだった)
+    python3 .github/scripts/make_redline.py --coverage LICENSES/ACD-1.3.txt LICENSES/ACD-1.4-DRAFT.txt
+        # 段 7 の「差分の完全性」(2026-11-20・50 の依頼 (3)): 条ごとの語の差の塊 (hunk) それぞれについて、変更の一覧
+        #   (CHANGES-ACD-N.M.txt か草案の冒頭の一覧) のどの箇条の引用が、その塊の新しい語 (無ければ消えた語) を覆うかを出す。
+        #   覆う箇条は、その条を名指し (Section N.M・前文は Preamble)、引用 ("…") の中にその塊の語の連なりを持つもの。
+        #   どの箇条にも覆われない塊は「述べられない変更」の候補 (読む人が決める・語の差は効果の差ではない)
 """
 from __future__ import annotations
 
@@ -113,7 +118,61 @@ def label(key: str) -> str:
     return {"preamble": "Preamble"}.get(key, f"Heading of Section {key[5:]}" if key.startswith("head ") else f"Section {key}")
 
 
+def _words(s: str) -> list[str]:
+    return [w for w in re.findall(r"[a-z0-9']+", s.lower())]
+
+
+def coverage(A: dict[str, str], B: dict[str, str], bullets: list[str]) -> list[tuple[str, str, str, str]]:
+    """条ごとの差の塊それぞれに、覆う箇条を当てる。返り値: [(条, 塊の短い表示, 当たり方, 箇条の頭)]。当たり方は quote (その条を名指す
+    箇条の引用が塊の語の 3 語の連なりを持つ) / named (条を名指す箇条は在るが、引用は塊を覆わない —— 言い換えで述べた変更) / none
+    (どの箇条もその条を名指さない —— 述べられない変更)。"""
+    named = []
+    for b in bullets:
+        keys = set(re.findall(r"Sections? (\d+\.\d+)", b)) | ({"preamble"} if re.search(r"\bPreamble\b", b) else set())
+        keys |= {f"head {n}" for n in re.findall(r"[Hh]eading of Section (\d+)\b", b)}  # 節の見出し ("The heading of Section 11 …")
+        for rng in re.finditer(r"Sections (\d+)\.(\d+) to (\d+)\.(\d+)", b):
+            if rng.group(1) == rng.group(3):
+                keys |= {f"{rng.group(1)}.{i}" for i in range(int(rng.group(2)), int(rng.group(4)) + 1)}
+        quotes = " | ".join(" ".join(_words(q)) for q in re.findall(r'"([^"]+)"', b))
+        named.append((keys, quotes, b))
+    out = []
+    for key in B:
+        if key not in A or A[key] == B[key]:
+            continue
+        aw, bw = A[key].split(), B[key].split()
+        for op, i1, i2, j1, j2 in difflib.SequenceMatcher(a=aw, b=bw, autojunk=False).get_opcodes():
+            if op == "equal":
+                continue
+            pw = _words(" ".join(bw[j1:j2])) or _words(" ".join(aw[i1:i2]))
+            # 塊の語の 3 語の連なり (3 語に満たなければ塊の全部) のどれかが、その条を名指す箇条の引用の中に在れば「引用で覆う」
+            grams = {" ".join(pw[i:i + 3]) for i in range(max(1, len(pw) - 2))} if pw else set()
+            hit = next((b for keys, q, b in named if key in keys and any(g and g in q for g in grams)), "")
+            level = "quote" if hit else ("named" if any(key in keys for keys, _q, _b in named) else "none")
+            if not hit and level == "named":
+                hit = next(b for keys, _q, b in named if key in keys)
+            show = (f"[-{' '.join(aw[i1:i2])[:40]}-]" if i2 > i1 else "") + (f"{{+{' '.join(bw[j1:j2])[:40]}+}}" if j2 > j1 else "")
+            out.append((key, show, level, hit[:70]))
+    return out
+
+
 def main(argv: list[str]) -> int:
+    if "--coverage" in argv:
+        args = [a for a in argv if not a.startswith("--")]
+        pa, pb = Path(args[0]), Path(args[1])
+        ta, tb = pa.read_text(encoding="utf-8"), pb.read_text(encoding="utf-8")
+        ch = pb.with_name("CHANGES-" + pb.name.replace("-DRAFT.txt", ".txt"))
+        src = ch.read_text(encoding="utf-8") if ch.exists() else tb.split(RULE, 1)[0]
+        lst = src.split("Changes in this draft", 1)[-1]
+        bullets = [" ".join(x.split()) for x in re.split(r"\n    \* ", lst)[1:]]
+        rows = coverage(parts(ta), parts(tb), bullets)
+        n = {lv: sum(1 for r in rows if r[2] == lv) for lv in ("quote", "named", "none")}
+        print(f"Coverage: {len(rows)} hunks in changed parts of {pb.name} against {pa.name}: {n['quote']} covered by a quote in a "
+              f"bullet that names the clause, {n['named']} in a clause a bullet names but not by its quotes (described in other "
+              f"words), {n['none']} in a clause no bullet names.")
+        for key, show, lv, hit in rows:
+            if lv != "quote" or "--all" in argv:
+                print(f"  [{lv}] {label(key)}: {show}  <-  {hit or '-'}")
+        return 1 if n["none"] else 0
     changed_only = "--changed-only" in argv
     context = int(argv[argv.index("--context") + 1]) if "--context" in argv else None
     args = [a for a in argv if not a.startswith("--") and not (context is not None and a == str(context))]
