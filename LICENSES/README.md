@@ -69,6 +69,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | **旧い草案の file 名（案内のみ・本文ではない）** | [`ACD-1.3-DRAFT.txt`](ACD-1.3-DRAFT.txt) —— 凍結済みの 1.2 が名指すので残した |
 | **次版の草案（作業場）** | [`ACD-1.4-DRAFT.txt`](ACD-1.4-DRAFT.txt) |
 | **次版に反映するものの集約点（1.4）** | [`ACD-1.4-CHANGELIST.md`](ACD-1.4-CHANGELIST.md) |
+| 1.4 の変更の記録の分冊（外部レビューと確定前検証の前倒し） | [`ACD-1.4-CHANGELIST-REVIEWS.md`](ACD-1.4-CHANGELIST-REVIEWS.md) |
 | **93 か月の掘削と仮説の検定** | [`ACD-1.0.dig-2026-09.md`](ACD-1.0.dig-2026-09.md) |
 | **3 つの gap を承認済み 141 本の全数に当てた表（逆側つき）** | [`ACD-1.0.gap-census.md`](ACD-1.0.gap-census.md) |
 | **gap の主張を既存ライセンスの本文に当てた測定（§1.96 / §1.97 / §1.104）** | [`ACD-1.0.gap-measurements.md`](ACD-1.0.gap-measurements.md) |
