@@ -305,7 +305,10 @@ def run(ctx):
 
         # ── 468ad: §19 が「試作 Tnn で入った」と言う T が CHANGELIST に名指されている (2026-11-20) ──
         _u468ad = sorted((ROOT / "LICENSES").glob("ACD-1.*-UNIQUE-READING.md"))[-1:]
-        _cl468ad = _dr468.with_name(_dr468.name.replace("-DRAFT.txt", "-CHANGELIST.md"))
+        # §19 の記録と同じ版の CHANGELIST を読む (2026-11-20 の確定の予行: 確定の後は §19 が確定した 1.4 の記録のまま、作業中の草案は
+        #   1.5 になり、空の 1.5 の CHANGELIST と照らして T96〜T134 の 34 件を「名の無い T」と出した)
+        _cl468ad = (_u468ad[0].with_name(_u468ad[0].name.replace("-UNIQUE-READING.md", "-CHANGELIST.md")) if _u468ad
+                    else _dr468.with_name(_dr468.name.replace("-DRAFT.txt", "-CHANGELIST.md")))
         _in468ad = {_m.group(1) for _f in _u468ad for _l in _f.read_text(encoding="utf-8").splitlines() if _l.startswith("- §")
                     for _m in re.finditer(r"試作 (T\d+) で入った", _l)}
         _named468ad = set(re.findall(r"\b(T\d+)\b", _cl468ad.read_text(encoding="utf-8"))) if _cl468ad.exists() else set()
