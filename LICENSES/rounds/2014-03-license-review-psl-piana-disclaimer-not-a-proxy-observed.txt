@@ -1,0 +1,55 @@
+Source: OSI license-review public archive, 2014-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 8 in "For Approval: Public Software License" (2014-03-09)
+Senders: Carlo Piana
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From osi-review at piana.eu  Wed Mar 12 15:27:40 2014
+From: osi-review at piana.eu (Carlo Piana)
+Date: Wed, 12 Mar 2014 16:27:40 +0100
+Subject: [License-review] For Approval: Public Software License
+In-Reply-To: <531DFC77.1010804@postgresql.org>
+References: <a7e20f3b83d93c13a4e2248442a179d9@SDF.ORG>
+	<531DFC77.1010804@postgresql.org>
+Message-ID: <53207CEC.2080409@piana.eu>
+
+On 10/03/2014 18:55, Josh Berkus wrote:
+> On 03/09/2014 04:03 AM, Nikolaos-Modestos Kougioulis wrote:
+>> 1) The Cryptix General License is the most similar OSI-approved license.
+>> To my concern, that permissive, free software licence, does not make a
+>> clear definition of Limitation of Liability. The Public Software License
+>> is based on the Cryptix General License, with a clear disambiguation
+>> between the Disclaimer of Warranty and the Limitation of Liability.
+>> Moreover, at the end of the Public Software License, the agreement
+>> between the licensor and the end software user is stated clearly, aiming
+>> to emphasize the responsibilities of the user regarding the terms of the
+>> License.
+> Actually, what it looks very similar to is the PostgreSQL[1] license
+> (and, by that token, the MIT license[2]).
+>
+> Given that we already have the extremely popular MIT and BSD[3] licenses
+> which offer the kind of very permissive licensing you desire, can you
+> explain in detailed technical language why you feel that the limitations
+> of liability in those licenses is distinct from your proposal?  At a
+> layman's reading, your license is identical to those.
+>
+> [1]http://opensource.org/licenses/PostgreSQL
+> [2]http://opensource.org/licenses/MIT
+> [3]http://opensource.org/licenses/BSD-2-Clause
+>
+> --Josh Berkus
+
+Speaking from a jurisdiction that has a weird attitude towards liability
+disclaimer, may I add that unlike many other copyright-related aspects,
+the liability disclaimer is by definition jurisdiction-dependent, and
+therefore an imperfect tool that cannot be fine tuned for any given
+situation without such effort being largely useless in many other
+jurisdictions.
+
+I don't see "better liability disclaimer" a good proxy to assess the
+worthiness of a new license in terms of non-proliferation.
+
+Best
+
+Carlo

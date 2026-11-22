@@ -1,0 +1,56 @@
+Source: OSI license-discuss public archive, 2004-November.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 43 in "For Approval: German Free Software License" (2004-11-23)
+Senders: Russell Nelson
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Fri Nov 26 17:54:00 2004
+From: nelson at crynwr.com (Russell Nelson)
+Date: Fri, 26 Nov 2004 12:54:00 -0500
+Subject: AW: For Approval: German Free Software License
+In-Reply-To: <84D511A814FAF742BF6927D883CF67C177C090@mpg-hap-info.mpipriv-hh.mpg.de>
+References: <84D511A814FAF742BF6927D883CF67C177C090@mpg-hap-info.mpipriv-hh.mpg.de>
+Message-ID: <16807.28088.897199.700353@desk.crynwr.com>
+
+Axel Metzger writes:
+ > I understand your point. But it seems to me like a new requirement
+ > not yet stated in the OS-definition.
+
+No, it's #7, Distribution of License.  That right applies to future
+users of software as well as current.  You are requiring users to
+switch to a different license of your choice.
+
+ > Please note that the German State of Nordrhein-Westfalen represents
+ > more than 50 (!) universities that will use the license afterwards. The
+ > Max-Planck-Society has about 90 big research institutes. They already
+ > published the GFSL. That means that they cannot just like this change
+ > the rules of the license without having any problem. I know that these
+ > facts do not create as such a feeling of trust.
+
+The OSD doesn't make any provision for trust.  You either comply with
+the definition or you don't.  Several people have told you that the
+license doesn't comply.
+
+Note that there are other problems with the license.  For one, Section
+9(1) is also a problem.  It should put the onus on you to get the text
+of the license correct by saying "... Should, however, differences
+arise, then if one language license says that you are free to do
+something, but the other says that you are not, then you are free to
+do it."  That will reassure monolingual users of the software.
+
+For another, Section 1(2) uses bad English: the passive voice.  You
+should say "You are" instead of "It is".
+
+For yet another, in the definition of "Entitled Person", does German
+Law really restrict use of a program?  Or does it restrict copying?
+Also, "exclusive right to use for the Program" is not good English,
+and as such forms an ambiguity.  You really should have a native
+English speaking lawyer review this license.
+
+
+-- 
+--My blog is at angry-economist.russnelson.com  | Violence never solves
+Crynwr sells support for free software  | PGPok | problems, it just changes
+521 Pleasant Valley Rd. | +1 315-323-1241 cell  | them into more subtle
+Potsdam, NY 13676-3213  | +1 212-202-2318 VOIP  | problems.

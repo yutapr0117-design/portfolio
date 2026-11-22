@@ -1,0 +1,46 @@
+Source: OSI license-discuss public archive, 2001-January.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 70 in "IPL as a burden" (2001-01-15)
+Senders: Lawrence E. Rosen
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Tue Jan 23 20:33:29 2001
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Tue, 23 Jan 2001 12:33:29 -0800
+Subject: IPL as a burden
+In-Reply-To: <20010123113544.A23188@ix.netcom.com>
+Message-ID: <NEBBKPHBALKOGJFBOLJNMEBIDDAA.lrosen@rosenlaw.com>
+
+OSI Certified Open Source Software is software that is distributed under an
+approved open source license.  So software that is "public domain" (to use
+your term) is not certifiable.  This is not intended as a value judgment,
+merely as a description of what our certification mark is used for.  /Larry
+Rosen
+
+> -----Original Message-----
+> From: kmself at ix.netcom.com [mailto:kmself at ix.netcom.com]
+> Sent: Tuesday, January 23, 2001 11:36 AM
+> To: license-discuss at opensource.org
+> Subject: Re: IPL as a burden
+>
+>
+> on Tue, Jan 23, 2001 at 11:15:52AM -0800, Lawrence E. Rosen
+> (lrosen at rosenlaw.com) wrote:
+> > > OSI Certified Open Source applies to _licenses_, not _software_.
+> >
+> > Actually, no, the certification mark is applied to *software* that is
+> > distributed under approved *licenses*.  Certification marks cannot be
+> > applied to licenses, because licenses aren't "goods" distributed in
+> > commerce.
+>
+> OK.  Clarifying question:  the certified entity is the license and its
+> terms.  So distribution under a doctrine of "public domain"
+> (abandonment, etc.), leaves you without a basis for affixing this lable,
+> no?  And, yes, I realize that PD is used here advisably.
+>
+> --
+> Karsten M. Self <kmself at ix.netcom.com>    http://kmself.home.netcom.com/
+>  What part of "Gestalt" don't you understand?       There is no K5 cabal
+>   http://gestalt-system.sourceforge.net/         http://www.kuro5hin.org
+>
