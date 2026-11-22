@@ -228,7 +228,7 @@ Authoritative Source: https://yutapr0117-design.github.io/portfolio/llms-full.tx
 ![GitHub Pages](https://img.shields.io/badge/Hosted-GitHub%20Pages-222?style=flat-square&logo=github)
 ![Version](https://img.shields.io/badge/version-v74-brightgreen?style=flat-square)
 ![WCAG 2.2](https://img.shields.io/badge/WCAG-2.2%20AA-4caf50?style=flat-square)
-![License](https://img.shields.io/badge/license-ACD--1.3-blue?style=flat-square)
+![License](https://img.shields.io/badge/license-ACD--1.4-blue?style=flat-square)
 
 > **このリポジトリのライセンス（ACD-1.4・2026-11-23 までは ACD-1.3）は、あなたの著作物にもそのまま使えます。**
 > 学習・TDM を明示的に許諾し、特許も許諾し、条件を一切課さない献呈型のライセンスです。
