@@ -54,9 +54,12 @@ APPLY_FILES = (".well-known/agent-skills/index.json", ".well-known/aio-manifest.
 def bump_applied(text: str, old: str, new: str, old_date: str, date: str) -> str:
     """適用する版を上げる。版を述べる行の適用の日付も一緒に直す (版だけ置換すると公開面が偽の日付を述べる)。"""
     lines = []
+    # shields のバッジは版の "-" を "--" と escape する (README の `license-ACD--1.3-blue`)。置換から漏れると確定後も
+    #   バッジだけが前の版を述べる (2026-11-23・6d が確定の予行で見つけた)
+    old_badge, new_badge = old.replace("-", "--"), new.replace("-", "--")
     for line in text.split("\n"):
-        if old in line or f"Dedication {old[4:]}" in line:
-            line = line.replace(old, new).replace(f"Dedication {old[4:]}", f"Dedication {new[4:]}")
+        if old in line or f"Dedication {old[4:]}" in line or old_badge in line:
+            line = line.replace(old_badge, new_badge).replace(old, new).replace(f"Dedication {old[4:]}", f"Dedication {new[4:]}")
             line = re.sub(r"\(ACD-\d+\.\d+ until \d{4}-\d{2}-\d{2}\)", f"({old} until {date})", line)
             line = re.sub(r"\d{4}-\d{2}-\d{2} までは ACD-\d+\.\d+", f"{date} までは {old}", line)
             line = line.replace(f"since {old_date}", f"since {date}").replace(f"{old_date} から", f"{date} から")
@@ -64,6 +67,29 @@ def bump_applied(text: str, old: str, new: str, old_date: str, date: str) -> str
     out = "\n".join(lines)
     # sitemap の lastmod は版を述べる <loc> の次の行にある。
     return re.sub(rf"({re.escape(new)}\.[a-z.]+</loc>\n\s*<lastmod>){re.escape(old_date)}", rf"\g<1>{date}", out)
+
+
+def move_workplace(line: str, v: str, nxt: str, date: str) -> str:
+    """「いまの作業場」の行を次版の草案へ向ける。日付つきの追記・訂正の中の名前は書き換えず、その後に追記を足す。
+
+    2026-11-23 (cd が確定の予行で見つけた): 旧版は行の中の `ACD-{v}-DRAFT.txt` をすべて置換し、「**2026-10-29 追記**: 1.3 も
+    確定したので、いまの作業場は `ACD-1.4-DRAFT.txt`」の歴史を「… `ACD-1.5-DRAFT.txt`」へ書き換えていた (その日には 1.5 は
+    無かった)。468k は行の最後の名前しか見ないので緑のままだった。規則は 468k の docstring と `ACD-1.1-CHANGELIST.md` §0.13
+    (歴史の文は書き換えず、日付つきの追記で最後に現在の名前を置く)。日付つきの印の無い行 (表の行・案内の行) は置換する。
+    """
+    name, new_name = f"ACD-{v}-DRAFT.txt", f"ACD-{nxt}-DRAFT.txt"
+    at = line.rfind(name)
+    if at < 0 or not re.search(r"\d{4}-\d{2}-\d{2}[^|]{0,12}?(追記|訂正)", line[:at]):
+        return line.replace(name, new_name)
+    end = at + len(name)
+    stops = [i for i in (line.find("。", end), line.find("）", end)) if i >= 0]
+    cut = min(stops) if stops else len(line)
+    # 太字の中に挿すときは印を太字にしない (入れ子の ** は描画で閉じ位置がずれる・READY-TO-SUBMIT の「出す版は …」の行)
+    mark = f"{date} 追記" if line.count("**", 0, at) % 2 else f"**{date} 追記**"
+    note = f"{mark}: {v} も {date} に確定したので、いまの作業場は `{new_name}`"
+    if cut < len(line) and line[cut] == "。":
+        return line[:cut + 1] + note + "。" + line[cut + 1:]
+    return line[:cut] + "。" + note + line[cut:]
 
 
 def record_history(text: str, old: str, date: str) -> str:
@@ -325,7 +351,7 @@ def finish(v: str, prev: str, nxt: str, date: str, clauses: int) -> None:
     found = next((line for line in report.splitlines() if line.startswith("ERROR: Check 468:")), "")
     for path, n in re.findall(r"'([^':]+):(\d+) → ACD-[\d.]+-DRAFT\.txt'", found):
         lines = (ROOT / path).read_text(encoding="utf-8").split("\n")
-        lines[int(n) - 1] = lines[int(n) - 1].replace(f"ACD-{v}-DRAFT.txt", f"ACD-{nxt}-DRAFT.txt")
+        lines[int(n) - 1] = move_workplace(lines[int(n) - 1], v, nxt, date)
         (ROOT / path).write_text("\n".join(lines), encoding="utf-8")
     block = re.search(r"468t: [^\[]*\[([^\]]*)\]", found)
     for path in re.findall(r"'([^':]+) → ", block.group(1)) if block else []:
