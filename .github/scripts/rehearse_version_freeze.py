@@ -58,6 +58,22 @@ def rehearse(tree: Path) -> list[str]:
     for name in ("LICENSE", "llms-full.txt"):
         if not re.search(rf"this\s+repository\s+applied\s+{re.escape(applied)}\b", (tree / name).read_text(encoding="utf-8")):
             return [f"{name} の適用の履歴が前の版 {applied} を述べていない"]
+    # 日付つきの追記・訂正の中の歴史を書き換えていないか (2026-11-23・cd が見つけた: 道具が「**2026-10-29 追記**: … いまの作業場は
+    #   `ACD-1.4-DRAFT.txt`」を 1.5 へ置換していた)。次版の草案は確定の日に生まれるので、それより前の日付の印に続く同じ行の中で
+    #   次版の草案を名指すのは書き換えられた歴史である。468k は行の最後の名前しか見ないので、consistency では見えない
+    today = datetime.date.today().isoformat()
+    nxt_draft = f"ACD-{major}.{int(minor) + 1}-DRAFT.txt"
+    rewritten = []
+    for path in git("diff", "--name-only", "HEAD", cwd=tree).split():
+        if not path.endswith(".md") or not (tree / path).exists():
+            continue
+        for n, line in enumerate((tree / path).read_text(encoding="utf-8").split("\n"), 1):
+            for hit in re.finditer(re.escape(nxt_draft), line):
+                marks = re.findall(r"(\d{4}-\d{2}-\d{2})[^|]{0,12}?(?:追記|訂正)", line[:hit.start()])
+                if marks and marks[-1] < today:
+                    rewritten.append(f"{path}:{n} ({marks[-1]})")
+    if rewritten:
+        return [f"確定の道具が日付つきの追記の中の作業場の名前を {nxt_draft} へ書き換えた: {rewritten[:5]}"]
     git("add", "--", *git("ls-files", "--others", "--exclude-standard", cwd=tree).split(), cwd=tree)
     check = subprocess.run([sys.executable, ".github/scripts/check_repository_consistency.py"], cwd=tree, text=True, capture_output=True)
     out = check.stdout + check.stderr
