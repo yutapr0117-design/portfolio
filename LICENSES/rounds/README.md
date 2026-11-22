@@ -287,6 +287,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2014-04〜2015-02 | `license-review` | **観測（UPL の審査から引いた 23 通・3/3 部）** | `2014-04-to-2015-02-license-review-upl-cited-observed-3of3.txt` |
 | 2015-02-04 | OSI 理事会 | **観測（UPL を承認した議決・議事録の抜き出し）** | `2015-02-04-osi-board-minutes-upl-approval-observed.txt` |
 | 2026-11-16 | FSF・Debian | **観測（FSF の license-list の CC0・Unlicense・公有の項と、Debian Wiki の DFSGLicenses の公有の段・WebFetch の逐語の片で、バイト単位の写しではない）** | `2026-11-16-fsf-license-list-and-debian-dfsg-public-domain-snapshot.txt` |
+| 2026-11 | `license-review` | **観測（Mehl 氏の 1 通・PSF-2.0 の提出に 72 日返事が無いことの催促）** | `2026-11-license-review-psf-submission-no-feedback-ping-observed.txt` |
 | 2026-11-16 | 米国最高裁・米国法典 | **観測（Mission Product Holdings v. Tempnology（2019）の 4 文と 11 U.S.C. §365(n)(1) の冒頭の句・WebFetch の逐語の片で、バイト単位の写しではない・問い 8 の米国の法源）** | `2026-11-16-us-bankruptcy-tempnology-and-365n-snapshot.txt` |
 | 2026-11-16 | EU 指令 | **観測（製造物責任指令 2024/2853 の第 2 条 2 項・前文 14・第 15 条と、デジタルコンテンツ指令 2019/770 の第 3 条 1 項・5 項 (f)・自由でオープンなソフトウェアの除外・WebFetch の逐語の片で、EUR-Lex の文ではない）** | `2026-11-16-eu-product-liability-and-digital-content-foss-snapshot.txt` |
 | 2026-11-16 | UCC・VARA・EU 商標規則 | **観測（UCC §2-316・§2-312(2)、17 U.S.C. §106A(a)・(e)(1)、EU 商標規則 2017/1001 第 14 条 1 項 (c)・2 項・WebFetch の逐語の片で、バイト単位の写しではない・THIRD §18.4 の法源）** | `2026-11-16-us-ucc-vara-and-eu-trademark-snapshot.txt` |
