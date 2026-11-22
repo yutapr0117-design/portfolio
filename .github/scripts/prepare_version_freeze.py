@@ -645,6 +645,13 @@ def main() -> int:
         f"草案 `ACD-{nxt}-DRAFT.txt` は、下の表の変更と版番号・識別子を除いて {v} の本文である。\n\n"
         "## 表（変更が入ったらここへ足す）\n\n| 対象 | 何を変えるか | なぜ | 費用（語） | 状態 |\n| :-- | :-- | :-- | :-- | :-- |\n\n"
         "## errata 由来（`ACD-1.0.errata.md` が一次記録）\n\n## Constraints\n\n## Change impact\n", encoding="utf-8")
+    # 次版の CHANGELIST は audience が審査者なので、入口 (REVIEWERS.md) の CHANGELIST の行に並べる。無いと Check 459c の
+    #   作業中の版の ADVISORY が確定の直後に鳴る (2026-11-23・6d が 1.4 の確定 #3864 で手で足した)
+    rv = L / "REVIEWERS.md"
+    link = f"[`ACD-{v}-CHANGELIST.md`](ACD-{v}-CHANGELIST.md)"
+    if rv.exists() and f"ACD-{nxt}-CHANGELIST.md" not in rv.read_text(encoding="utf-8"):
+        rv.write_text(rv.read_text(encoding="utf-8").replace(f"{link} |", f"{link} / [`ACD-{nxt}-CHANGELIST.md`](ACD-{nxt}-CHANGELIST.md) |", 1),
+                      encoding="utf-8")
     (L / f"ACD-{v}.machine.json").write_text(descriptor(v, prev, body, args.date), encoding="utf-8")
 
     old = re.search(r"^SPDX-License-Identifier: (ACD-\d+\.\d+)$", (ROOT / "LICENSE").read_text(encoding="utf-8"), re.M).group(1)
