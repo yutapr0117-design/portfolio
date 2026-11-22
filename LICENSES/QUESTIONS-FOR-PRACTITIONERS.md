@@ -2,7 +2,7 @@
 file: LICENSES/QUESTIONS-FOR-PRACTITIONERS.md
 audience: a person who builds machine-learning systems, asked to read ACD's machine-learning clauses; the steward, when asking one
 last-updated: 2026-11-15
-canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (the successor draft) / LICENSES/ACD-1.3.txt (the latest fixed text) / LICENSES/QUESTIONS-FOR-COUNSEL.md (the same page for a lawyer)
+canonical-ref: LICENSES/ACD-1.5-DRAFT.txt (the successor draft) / LICENSES/ACD-1.3.txt (the latest fixed text) / LICENSES/QUESTIONS-FOR-COUNSEL.md (the same page for a lawyer)
 ---
 
 # Questions for machine-learning practitioners

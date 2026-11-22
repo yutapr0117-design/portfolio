@@ -2,7 +2,7 @@
 file: LICENSES/ACD-1.4-RESEARCH-RECORDS.md
 audience: 次のセッションの実装者（一次読者）/ 監査人
 last-updated: 2026-11-12
-canonical-ref: LICENSES/ACD-1.4-CHANGELIST.md (1.4 の変更の記録・この file の節はもとはそこに在った) / LICENSES/ACD-1.4-DRAFT.txt (当てた対象)
+canonical-ref: LICENSES/ACD-1.4-CHANGELIST.md (1.4 の変更の記録・この file の節はもとはそこに在った) / LICENSES/ACD-1.4.txt (当てた対象)
 ---
 
 # ACD-1.4 の作業で外部資料を当てた記録（2026-10-28）

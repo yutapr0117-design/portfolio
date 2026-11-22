@@ -1,0 +1,8 @@
+ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
+
+  The reasons for each change are in LICENSES/ACD-1.5-CHANGELIST.md (in
+  Japanese).
+
+  Changes in this draft, relative to ACD-1.4:
+
+    * ACD-1.4: 5879 words, 80 clauses. This draft: 5879 words, 80 clauses.

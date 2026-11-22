@@ -9,8 +9,8 @@ canonical-ref: LICENSES/ACD-1.0.txt (the text posted) / LICENSES/ACD-1.3.txt (th
 
 ## The short path, and what it costs you
 
-**You are a volunteer. Nothing here is required reading.** Measured 2026-11-19, the analysis in
-this directory — everything except `rounds/` — is **576,077 words**, **118 times the licence**, and
+**You are a volunteer. Nothing here is required reading.** Measured 2026-11-23, the analysis in
+this directory — everything except `rounds/` — is **594,967 words**, **122 times the licence**, and
 more than that in fact, because Japanese is not space-delimited. `rounds/` holds the primary
 sources verbatim so that every quotation can be checked against what was actually sent; **nobody
 is asked to read it.** The whole of it exists so that a claim we make can be checked, **not so
@@ -164,7 +164,7 @@ rules stayed; the reasons moved here. The full records are in the change list, i
 | [`ACD-1.2.txt`](ACD-1.2.txt) | **The second successor, frozen 2026-10-17.** Its own header says what it is. It has **not** been submitted to `license-review` and is **not** applied to this repository. |
 | [`ACD-1.3.txt`](ACD-1.3.txt) | **ACD-1.3, the third successor, frozen 2026-10-25, and the licence this repository applies from that date** (the root `LICENSE` says so). It has **not** been submitted to `license-review`. |
 
-**Work on the next version happens in [`ACD-1.4-DRAFT.txt`](ACD-1.4-DRAFT.txt)**, so no
+**Work on the next version happens in [`ACD-1.5-DRAFT.txt`](ACD-1.5-DRAFT.txt)**, so no
 frozen text moves while it is being discussed. All four are pinned by SHA-256 in
 [`FROZEN.md`](FROZEN.md) and checked in CI; the command to verify that is below.
 
@@ -200,7 +200,7 @@ confirmation, 2026-09-09). The owner sent ACD-1.1 to `license-discuss` on 2026-0
 message was rejected by moderation** (`ACD-1.0.against.md` #215), so the list has not received
 that text. **The version to be submitted will itself go to `license-discuss` first, for at least
 30 days, before anything goes to `license-review`**, as Pamela Chestek advised another submitter
-in January 2026. Work on the next version happens in `ACD-1.4-DRAFT.txt`, so no frozen text moves.
+in January 2026. Work on the next version happens in `ACD-1.5-DRAFT.txt`, so no frozen text moves.
 Freezing a text is a promise about its bytes, not a statement about which version a project uses.
 
 **AI drafting and the lists.** On 2026-09-09 the OSI Moderators posted to both lists that they
@@ -222,7 +222,7 @@ are in `rounds/`; the analysis is `against.md` #119 and `ACD-OSI-BOTTLENECKS.md`
 reducing the disclosure in response.**
 
 The text is **frozen** while this is open. `LICENSES/FROZEN.md` exists to say so, and
-**Check 453 in CI pins the SHA-256 of nine files** — the three submitted ones
+**Check 453 in CI pins the SHA-256 of twelve files** — the three submitted ones
 (`ACD-1.0.txt`, `ACD-1.0.spdx.xml`, `ACD-1.0.machine.json`) and two for each of the
 **frozen successors** (`ACD-1.1.txt`, `ACD-1.1.machine.json`, `ACD-1.2.txt`, `ACD-1.2.machine.json`, `ACD-1.3.txt`, `ACD-1.3.machine.json`), none of them
 submitted for approval (ACD-1.3 is the one this repository applies) — so that an accidental edit fails the build rather than
@@ -399,14 +399,14 @@ grep -cE "<[^>]+>|\[year\]|\[name\]|YYYY" LICENSES/ACD-1.0.txt
 # Section count                                                       → expect 16
 grep -cE "^[0-9]+\. [A-Z]" LICENSES/ACD-1.0.txt
 
-# Verify that the text you are reading is the text that is pinned      → 9× OK
+# Verify that the text you are reading is the text that is pinned      → 12× OK
 grep -E "^[0-9a-f]{64}  " LICENSES/FROZEN.md | shasum -a 256 -c
 ```
 
 The last one is the important one. `LICENSES/FROZEN.md` records the digests in the same format
 `shasum` emits, so the check is a single pipe with no trust in anything this repository says
 about itself: if the licence text had been altered since the discussion began, that line would
-print `FAILED` instead of `OK`. It currently prints `OK` for all nine files (re-run 2026-11-02, together with the three counts above: 0, 1 and 16).
+print `FAILED` instead of `OK`. It currently prints `OK` for all twelve files (re-run 2026-11-23, together with the three counts above: 0, 1 and 16).
 
 **The strongest claim can be checked too, and this one needs a network** and Python 3.10 or later:
 

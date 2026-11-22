@@ -2,7 +2,7 @@
 file: LICENSES/ACD-1.4-CLARITY-TRIAL.md
 audience: 次のセッションの実装者（一次読者）/ 監査人
 last-updated: 2026-11-06
-canonical-ref: LICENSES/ACD-1.4-DRAFT.txt (試作の対象・この file は草案を上書きしない) / LICENSES/ACD-OSI-BOTTLENECKS.md (B3 / B13) / LICENSES/ACD-1.4-CHANGELIST.md (採用した変更の記録先)
+canonical-ref: LICENSES/ACD-1.4.txt (試作の対象・この file は草案を上書きしない) / LICENSES/ACD-OSI-BOTTLENECKS.md (B3 / B13) / LICENSES/ACD-1.4-CHANGELIST.md (採用した変更の記録先)
 ---
 
 # ACD-1.4 草案の明瞭性の試作 —— 法的効果を保ったまま、言い直しの族と読みの分岐を減らせるか
