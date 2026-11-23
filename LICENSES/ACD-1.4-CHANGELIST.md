@@ -783,3 +783,53 @@ ACD-1.4 -- CHANGES FROM ACD-1.3 (DRAFT). Not part of the Dedication.
       in their descriptors, and it must be closed again for each new
       version because each version carries its own descriptor).
 ```
+
+## 条項の対応表（1.0 → 1.4）—— 提出対象を 1.4 へ切り替える日に使う（2026-11-23・portfolio-d7）
+
+**`ACD-1.2-CHANGELIST.md` の「条項の対応表（1.0 → 1.2）」は 1.0→1.4 の付け替えにそのまま使えない。** そこで「無し」とある 1.0 の §15.2 と §15.3 は、1.4 では §15.5 と §15.6 に在る。この表は 1.0 と 1.4 の凍結した本文から導いた: §1 は定義語（`"X" means`）で、それ以外は各 1.0 の条の本文に最も近い 1.4 の条を `difflib.SequenceMatcher` の比で選んだ（空白を正規化）。比は字句の近さで、意味が同じことの証明ではない。
+
+### §1（定義）—— 番号は保存されていない（1.2 と同じ）
+
+| 1.0 | 定義語 | 1.4 |
+| :-- | :-- | :-- |
+| §1.1 | Dedication | §1.1 |
+| §1.2 | **Work** | **§1.3** |
+| §1.3 | **Dedicator** | **§1.4** |
+| §1.4 | **You** | **§1.6** |
+| §1.5 | Covered Rights | §1.5 |
+| §1.6 | **Moral Rights** | **§1.2** |
+| §1.7〜§1.10 | Computational Use / Machine-Generated Material / Contribution / Reservation | 同じ番号 |
+
+### §15・§16
+
+| 1.0 | 内容 | 1.4 | 比 | 1.2 の表との違い |
+| :-- | :-- | :-- | :-- | :-- |
+| §15.1 | 構成規則 | §15.1 | 0.40 | 同じ（本文は変わった） |
+| §15.2 | 単数複数 | **§15.5** | 0.95 | **1.2 の表は「無し」**。1.4 は *"person" includes an entity* を足した |
+| §15.3 | contra proferentem の排除（起草者不利・許諾を狭く読む規則の両方） | **§15.6** | **1.00** | **1.2 の表は「無し」**。字句同一 |
+| §15.4 | 可分性 | §15.2 | 0.94 | 同じ |
+| §15.5 | 不作為・沈黙は放棄でない | §2.2 の末文 | — | 同じ（*"Silence, delay, or non-enforcement by the Dedicator does not revive, reserve, or narrow anything this Dedication gives away."*） |
+| §15.6 | 代理・組合関係の不成立 | 無し | — | 同じ |
+| §15.7 | 準拠法・法廷地を定めない | §15.3 | 0.50 | 同じ番号の写像。**1.4 は 1 文目だけで、「各法域の法の下で働くことを意図する」の文は無い** |
+| §15.8 | 英語が正文 | §15.4 | 1.00 | 同じ |
+| §16.1〜§16.3 | 通知・識別子・誰でも適用できること | 同じ番号 | 0.41〜0.75 | 同じ |
+| §16.4 | 本文の頒布・名前と識別子 | §16.4 | 0.28 | 同じ番号。1.4 は翻訳の但し書き・Steward の例外・再符号化を中に持つ |
+| §16.5 | 翻訳の但し書き | §16.4 の中 | — | 同じ。**1.4 の §16.5 は Steward の定義** |
+| §16.6 | §16.4・§16.5 は文書としての本文を扱う | §16.6 | 0.96 | 同じ |
+
+### ⚠ 同じ番号で本文が大きく変わった条（同じ番号の比 < 0.3）—— 番号はそのまま、逐語の引用と「何を言う条か」の説明は当て直す
+
+| 条 | 同じ番号の比 | 1.0 → 1.4 |
+| :-- | :-- | :-- |
+| §2.2 | 0.29 | 主題は同じ（取消不能）。1.4 は末文に 1.0 §15.5 の沈黙の文を吸収 |
+| §2.6 | 0.25 | 主題は同じ（Contribution） |
+| §2.8 | 0.21 | 1.0 は *"Sections 3, 4, 6, and 8 bind …"*、1.4 は *"This Dedication, in respect of the Work, binds …"*（拘束する範囲が広がった） |
+| §2.9 | 0.26 | 1.0 は「適用で履行済み・継続義務なし」＋倒産、1.4 は倒産の文だけ（*"Nothing in this Dedication is, under its terms, conditioned on, suspended by, or revived by an insolvency …"*） |
+| §5.3 | 0.15 | 1.0 は §5.1・§5.2 の約束、1.4 は §2.5・§5.1・§5.2・§8.6 の約束が §2.8 の者を拘束 |
+| §6.4 | 0.01 | 主題は同じ（モデル・出力）。1.0 の *"is encumbered"* は 1.4 で *"no enforceable claim arises against You … and You owe nothing"* |
+| §8.4 | 0.17 | 主題は同じ（出力への特許の許諾）。目的語が行為へ（*"to put the Work to Computational Use and to make, have made, use …"*） |
+| §8.6 | 0.07 | **1.0 は「許諾が無効とされた法域では」の代わりの不主張、1.4 は条件の無い不主張**（*"The Dedicator further covenants not to assert …"*） |
+| §12.2 | 0.08 | **1.0 は「人格権が放棄不能な法域では §12.1 に代えて」の不行使、1.4 は法域を問わない不行使と同意**（*"given for every jurisdiction, whether or not Section 12.1 has effect there"*） |
+| §14.2 | 0.11 | 主題は同じ（排除できない責任の制限）。1.4 は *"Subject to Section 14.1"* を足した |
+
+§8.6 と §12.2 は、「代わりの約束」の説明（*instead*・「その法域だけ」）が 1.4 では偽になる型で、番号を付け替えずに文だけが古くなる（d7 の分担では comparison の §12.5 の節と review-responses-meta の *"Section 12.2 supplies the covenant instead."* がそうだった）。
