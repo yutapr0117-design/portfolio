@@ -17,6 +17,7 @@ merge された main は赤になりうる。同じ日に実際に起きた: rou
     python3 .github/scripts/safe_merge.py 3060            # 確かめて merge する
     python3 .github/scripts/safe_merge.py 3060 --dry-run  # 確かめるだけ
     python3 .github/scripts/safe_merge.py 3060 --reland   # 衝突したら、数の行だけなら新しい branch へ載せ直して新しい PR を出す
+    python3 .github/scripts/safe_merge.py 3060 --allow-revert  # main の最近の commit を巻き戻す PR を、意図した revert として通す
 
 **--reland (2026-11-15・50 の依頼)**: 同じ日に 5 本が「main 側も動かした数の行」(rounds/README の在庫・長さの行・AS-OF の
 件数) だけで衝突し、そのたびに手で載せ直した。--reland は、いまの main から `<branch>-reland` を作って PR の commit を
@@ -235,6 +236,59 @@ def reland(pr: str, info: dict) -> int:
             run(["git", "branch", "-D", new], check=False)
 
 
+def _diff_lines(rng: list[str], files: list[str] | None = None) -> dict[str, tuple[set[str], set[str]]]:
+    """git diff の範囲を file ごとの (足した行, 消した行) に。短い行 (10 字未満・括弧だけ等) は重なりの数に入れない。"""
+    out: dict[str, tuple[set[str], set[str]]] = {}
+    cur = None
+    for ln in run(["git", "-c", "core.quotepath=off", "diff", "--no-color", "-U0", *rng, "--", *(files or [])]).stdout.splitlines():
+        if ln.startswith("+++ "):
+            cur = ln[6:] if ln.startswith("+++ b/") else None
+            if cur:
+                out.setdefault(cur, (set(), set()))
+        elif cur and ln[:1] in "+-" and not ln.startswith(("+++", "---")) and len(ln[1:].strip()) >= 10:
+            out[cur][0 if ln[0] == "+" else 1].add(ln[1:].strip())
+    return out
+
+
+def revert_check(head: str, base: str, days: int = 4) -> list[str]:
+    """PR が main の最近の commit を巻き戻していないか (2026-11-23・6d の依頼・fc)。
+
+    d7 の #3905 (9171a4b2) は、古い file の写しを commit して、同じ日に main へ入った #3902 / #3903 ほか 5 本の行を消し、古い形を
+    戻した。consistency は「古いが整合した状態」なので緑のまま通り、safe_merge も気づかなかった。PR の commit の親には消された
+    行が在ったので、merge-base より後の commit だけを見ても捕まらない。そこで、PR の diff (merge-base..head) が消す行と、main の
+    最近 days 日の commit (PR 自身の commit を件名で除く) が足した行を file ごとに比べ、ある commit の足した行 (3 行以上) の
+    半分以上を消し (PR が別の場所へ足し直した行は移したので除く)、かつその commit が消した行 (3 行以上) の半分以上を足し戻して
+    いる (古い形の復元) なら、その commit を巻き戻していると読む。
+    返り値は見つけた巻き戻しの文の list (空なら無い)。意図した revert は main() の --allow-revert で通す。
+    """
+    mb = run(["git", "merge-base", base, head]).stdout.strip()
+    pr_diff = _diff_lines([mb, head])
+    if not pr_diff:
+        return []
+    own = {s for s in run(["git", "log", "--format=%s", f"{mb}..{head}"]).stdout.splitlines()}
+    # 移した行 (同じ PR が別の file か同じ file の別の場所に足し直した行) は消したと数えない —— 在庫表の分冊・確定の付録への写し
+    moved = set().union(*(a for a, _r in pr_diff.values()))
+    since = f"{days} days ago"
+    found = []
+    for c in run(["git", "log", "--format=%H%x09%ct%x09%s", f"--since={since}", base, "--", *pr_diff]).stdout.splitlines():
+        sha, _ct, subj = c.split("\t", 2)
+        if subj in own:
+            continue
+        # 「消して、しかも古い行を戻す」だけを数える (2026-11-23 に main の 150 commit で測った): 「24 時間以内の commit の行を消す」も
+        #   条件にすると、同じ日の書き直し (試作の節番号の付け直し・T の追い書き) で 13 件当たった。この形では今日の #3905 の 1 件だけ
+        for f, (ca, cr) in _diff_lines([f"{sha}^", sha], list(pr_diff)).items():
+            if f not in pr_diff or len(ca) < 3:
+                continue
+            pa, pr_rm = pr_diff[f]
+            lost = (ca & pr_rm) - moved
+            gone = len(lost) / len(ca)
+            restored = len(cr) >= 3 and len(cr & pa) / len(cr) >= 0.5
+            if gone >= 0.5 and restored:
+                found.append(f"{sha[:8]} ({subj[:50]}) の {f}: 足した {len(ca)} 行のうち {len(lost)} 行を消し、"
+                             f"消した {len(cr)} 行のうち {len(cr & pa)} 行を戻す")
+    return found
+
+
 def main(argv: list[str]) -> int:
     args = [a for a in argv if not a.startswith("--")]
     if len(args) != 1 or not args[0].isdigit() or "-h" in argv or "--help" in argv:
@@ -298,6 +352,12 @@ def main(argv: list[str]) -> int:
         print(f"main が確かめている間に動いた ({attempt} 回目)。重ね直す")
     else:
         print("STOP: main が 3 回続けて動いた。少し待ってから回す")
+        return 1
+    reverted = revert_check(head, base)
+    if reverted and "--allow-revert" not in argv:
+        print(f"STOP: #{pr} は main の最近の commit を巻き戻している (古い file の写しを commit した形・2026-11-23 の #3905):\n  "
+              + "\n  ".join(reverted[:6]) + "\n意図した revert なら --allow-revert を付けて回す。そうでなければ、その file を "
+              "いまの main から取り直して自分の変更だけを当て直す")
         return 1
     if dry:
         print("dry-run: merge はしない")
