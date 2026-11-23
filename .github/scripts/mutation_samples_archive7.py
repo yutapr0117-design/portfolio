@@ -15,13 +15,13 @@ MUTATIONS_ARCHIVE7 = [
     {
     "name": "Check 444: TechArticle の encoding の llms-full.txt の MediaObject から license を外す —— 444b は @graph の直下しか歩かず、_CW444 が挙げる MediaObject は入れ子にしか無いので対象が 0 件だった",
     "file": ROOT / "index.html",
-    "find": "\"name\": \"Authoritative AI full context — Yuta Yokoi (横井雄太) canonical ground truth\",\n                              \"license\": \"https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.3.txt\"\n",
+    "find": "\"name\": \"Authoritative AI full context — Yuta Yokoi (横井雄太) canonical ground truth\",\n                              \"license\": \"https://yutapr0117-design.github.io/portfolio/LICENSES/" + APPLIED_ID + ".txt\"\n",
     "replace": "\"name\": \"Authoritative AI full context — Yuta Yokoi (横井雄太) canonical ground truth\"\n",
 },
     {
     "name": "Check 444: Person.subjectOf の docs/evidence の DigitalDocument から license を外す —— DigitalDocument は _CW444 に無く、入れ子でもあったので見ていなかった",
     "file": ROOT / "index.html",
-    "find": "\"url\": \"https://yutapr0117-design.github.io/portfolio/docs/evidence/ai-pioneer-identity-review.md\",\n                              \"license\": \"https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.3.txt\",\n",
+    "find": "\"url\": \"https://yutapr0117-design.github.io/portfolio/docs/evidence/ai-pioneer-identity-review.md\",\n                              \"license\": \"https://yutapr0117-design.github.io/portfolio/LICENSES/" + APPLIED_ID + ".txt\",\n",
     "replace": "\"url\": \"https://yutapr0117-design.github.io/portfolio/docs/evidence/ai-pioneer-identity-review.md\",\n",
 },
     {
@@ -49,12 +49,6 @@ MUTATIONS_ARCHIVE7 = [
     "replace": "h('a', { href: profile.github, target: '_blank', rel: 'noopener' /* noreferrer */ }",
 },
     {
-    "name": "Check 468x: 主表の §5.2(d) の行から「後の行で再改」の印を外す —— 草案の文が後で変わったのに、主表の After がいまの草案に在るか・後の記録が在るかを照合していなかった",
-    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
-    "find": "（**後の行で再改**: 「§5.2(d)（語順・T39）」の行で除外を (d) の冒頭へ移した）",
-    "replace": "",
-},
-    {
     "name": "Check 70: runbook §9 の Check 総数の行の「最大番号」だけを別の数にする —— 行の最初の **N** しか読まず、同じ行が比べている性質を 2 度目に述べる数には読む者が無かった",
     "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
     "find": "（最大番号 ",
@@ -74,13 +68,13 @@ MUTATIONS_ARCHIVE7 = [
 },
     {
     "name": "Check 498: 「1.0 から何が変わったか」の下書きの版ごとの閉鎖数の 1.3 を 5 にする —— 使い捨ての計数で版の語の最初の一致を数え、閉鎖の印 (19 / 13 / 4) と違う数を書いた",
-    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
+    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
     "find": "(19, 13 and 4)",
     "replace": "(19, 13 and 5)",
 },
     {
     "name": "Check 498: 「1.0 から何が変わったか」の下書きの §2 の件数を 12 にする —— 節ごとの件数は errata の表の 2 列目から導けるのに、照合していなかった",
-    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
+    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
     "find": "§2 (scope and effect, 11)",
     "replace": "§2 (scope and effect, 12)",
 },
@@ -179,18 +173,6 @@ MUTATIONS_ARCHIVE7 = [
     "file": ROOT / ".gitignore",
     "find": "\nnode_modules/\n",
     "replace": "\nnode_modules/\n!node_modules/\n",
-},
-    {
-    "name": "Check 468y: 逐条の §16.1 の行から試作の節 (§14.25・変えない) への言及を消す —— 試作の結論が逐条の行から辿れるかを手で揃えていた",
-    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CLAUSE-REFERENCE-DRAFT.md",
-    "find": "運ばない語として読んだうえで変えないとした（試作 §14.25",
-    "replace": "運ばない語として読んだうえで変えないとした（試作 §14.2x",
-},
-    {
-    "name": "Check 468z: 記述子の下書きの outOfScope[1] の note を草案に無い Section 11.9 にする —— 凍結した記述子は 451f が照合するが、確定の日までの下書きの表は照合の外だった",
-    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
-    "find": "No permission is granted under these rights (Section 11.4).",
-    "replace": "No permission is granted under these rights (Section 11.9).",
 },
     {
     "name": "Check 248: utf-8 の宣言の後に、属性が前に在る 2 つ目の宣言 <meta data-x=\"1\" charset=\"shift_jis\"> を足す —— <meta charset の直後しか読まず、最初の 1 つで満たされていた",
@@ -394,7 +376,7 @@ MUTATIONS_ARCHIVE7 = [
     {
     "name": "Check 471 (d): CHANGELIST の SELF-AUDIT の節の参照を存在しない §3zz にする —— 旧版は節番号の末尾の英字を 1 文字まで"
             "しか読まず、§3zz を参照として拾わずに黙って通した (2026-11-12・SELF-AUDIT が 3a〜3z を使い切った)",
-    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
+    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
     "find": "errata ではなく `ACD-1.1-SELF-AUDIT.md` §3z に記録した | −2",
     "replace": "errata ではなく `ACD-1.1-SELF-AUDIT.md` §3zz に記録した | −2",
     "check": CHECK,
@@ -416,14 +398,6 @@ MUTATIONS_ARCHIVE7 = [
     "check": CHECK,
 },
     {
-    "name": "Check 468z: 記述子の下書きの §8.6 の行の逐語を T22 より前の語 (described in Sections 8.1 and 8.4) へ戻す —— 旧版は § の"
-            "番号しか見ず、古い語が凍結の日に機械可読層へ入るのを通した (2026-11-12・portfolio-aa の依頼)",
-    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
-    "find": "§8.6 が約束するのは *\"the patent claims that Sections 8.1 and 8.4 reach",
-    "replace": "§8.6 が約束するのは *\"the patent claims described in Sections 8.1 and 8.4 reach",
-    "check": CHECK,
-},
-    {
     "name": "Check 22: Session Record #34 の見出しを #33 に打ち直す —— 旧版は <= で比べ、#33 が 2 つ・#34 が無いまま昇順として"
             "通った (2026-11-12・監査 #188)",
     "file": ROOT / "AI2AI.md",
@@ -440,22 +414,12 @@ MUTATIONS_ARCHIVE7 = [
     "check": CHECK,
 },
     {
-    "name": "Check 468n (箇条ごと): 草案冒頭の §4.2 と §4.3 の語数の申告を +6 / +12 にずらす —— 合計は変わらないので、旧版 (合計の 1 本の"
-            "等式だけを見る 468n) は箇条間の取り違えを見逃していた (2026-11-15・§1.2 と §4.2 の入れ替えで緑を実測)",
-    "file": CURRENT_CHANGES,
-    "find": "engineering among the acts the licence includes. (+5 words.)\n    * Section 4.3 now names the size and revenue of the user, "
-            "the scale of use,\n      and the number of users served among the things the licence is not\n      conditioned on. (+13 words.)",
-    "replace": "engineering among the acts the licence includes. (+6 words.)\n    * Section 4.3 now names the size and revenue of the user, "
-               "the scale of use,\n      and the number of users served among the things the licence is not\n      conditioned on. (+12 words.)",
-    "check": CHECK,
-},
-    {
     "name": "Check 460 (x): B3 の見出しが述べる「いまの草案の題名からの語数」の先頭に 1 を足す —— 草案の長さを述べる外向きの行は、"
             "SUBMISSION-MATERIALS が「Check 468 が照合する」と書いていたのに誰も見ていなかった (2026-11-15)。anchor に数を含めないのは、"
             "草案を動かすたびに anchor が外れないため",
     "file": ROOT / "LICENSES" / "ACD-OSI-BOTTLENECKS.md",
-    "find": f"（**{CURRENT_DRAFT_VER} 草案は題名から ",
-    "replace": f"（**{CURRENT_DRAFT_VER} 草案は題名から 1",
+    "find": f"（**確定した ACD-{PREVIOUS_VER} は題名から ",
+    "replace": f"（**確定した ACD-{PREVIOUS_VER} は題名から 1",
     "check": CHECK,
 },
 ]

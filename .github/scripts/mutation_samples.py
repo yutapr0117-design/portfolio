@@ -377,17 +377,9 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 468ac: §19 の §1.4 第 1 文の行の分類の欄を太字にする —— ROW19 に合わず台帳が数えなくなる形 (2026-11-19・50 が "
             "「**試作 T112 で入った**」で開いている試作 3 が 0 に見えたのを見つけた型)",
-    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-UNIQUE-READING.md",
+    "file": ROOT / "LICENSES" / "ACD-1.4-UNIQUE-READING.md",
     "find": "- §1.4 第 1 文 | 別の読み: *\"holds or may hold … in it\"* の *it* が Dedication を指す | 一意 |",
     "replace": "- §1.4 第 1 文 | 別の読み: *\"holds or may hold … in it\"* の *it* が Dedication を指す | **一意** |",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 498 (k): CHANGELIST の「語数の内訳」の束の表で「その他の明瞭化」の行の数の前に 1 を足す —— 束の表は 468s の範囲外で、"
-            "表の合計が草案の差と合わなくても通っていた (2026-11-15・50 が「増えた語の大半」の 263 ≠ 148 + 118 に気付いた)",
-    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
-    "find": "| その他の明瞭化 | +",
-    "replace": "| その他の明瞭化 | +1",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
@@ -404,14 +396,6 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md",
     "find": "（#322・**[EXTERNAL]**）",
     "replace": "（#322・**[CLOSED]**）",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
-    "name": "Check 468 (468i 逆向き): 草案冒頭の箇条が 1.2 で閉じた E24 も名乗る —— 旧版は「閉じた errata が箇条に載るか」しか見ず、"
-            "箇条が別の版で閉じた番号や存在しない番号を名乗っても通った (2026-11-15)",
-    "file": CURRENT_CHANGES,
-    "find": "(errata E55)",
-    "replace": "(errata E55, E24)",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
@@ -487,17 +471,9 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
-    "name": "Check 502: 草案の冒頭に投稿した版の記録の節を足し、状態の箇条「It has not been posted to any list.」を残す —— "
-            "投稿の日に片方だけを直すと、草案が自分の状態について嘘をつく (2026-11-16・1c の依頼)",
-    "file": CURRENT_CHANGES,
-    "find": "\n  Changes in this draft, relative to ACD-1.3:",
-    "replace": "\n  Changes since the version posted on 2026-11-18:\n    * none\n\n  Changes in this draft, relative to ACD-1.3:",
-    "check": CHECK,
-})
-_MUTATIONS_TAIL.append({
     "name": "Check 470: UNIQUE-READING の §11.4 の行の「1.4 草案の §1.4（1.0 の §1.3）の」から条の番号を外す —— 作業文書にファイル名の版の"
             "地図を当てた後も、条を名指さない帰属は RED (2026-11-20・2f の案の対照)",
-    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-UNIQUE-READING.md",
+    "file": ROOT / "LICENSES" / "ACD-1.4-UNIQUE-READING.md",
     "find": "根拠: 1.4 草案の §1.4（1.0 の §1.3）の \"this Dedication operates severally as to each\"",
     "replace": "根拠: 1.4 草案の \"this Dedication operates severally as to each\"",
     "check": CHECK,
@@ -521,7 +497,7 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 468ad: §19.5 の §14.2 の否定の掛かり先の行を「試作 T999 で入った」にする —— CHANGELIST に名の無い試作を台帳が"
             "「本文に入った」と言う形 (2026-11-20)",
-    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-UNIQUE-READING.md",
+    "file": ROOT / "LICENSES" / "ACD-1.4-UNIQUE-READING.md",
     "find": "| 試作 T126 で入った | 根拠: T126（PR 3742）で",
     "replace": "| 試作 T999 で入った | 根拠: T999（PR 3742）で",
     "check": CHECK,
@@ -530,10 +506,17 @@ _MUTATIONS_TAIL.append({
     "name": "Check 467d: LICENSES/README.md の「次版に反映するものの集約点」の行を同じ表の中で 2 行に重ねる —— 重なった行は数を揃える"
             "道具にも Check にも別の場所と数えられる (2026-11-20・50: SUBMISSION-MATERIALS の「| 長さ |」が T77 から 2 行だった)",
     "file": ROOT / "LICENSES" / "README.md",
-    "find": "| **次版に反映するものの集約点（1.4）** | [`ACD-1.4-CHANGELIST.md`](ACD-1.4-CHANGELIST.md) |\n",
-    "replace": "| **次版に反映するものの集約点（1.4）** | [`ACD-1.4-CHANGELIST.md`](ACD-1.4-CHANGELIST.md) |\n"
-               "| **次版に反映するものの集約点（1.4）** | [`ACD-1.4-CHANGELIST.md`](ACD-1.4-CHANGELIST.md) |\n",
+    "find": f"| **次版に反映するものの集約点（{CURRENT_DRAFT_VER}）** | [`ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md`](ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md) |\n",
+    "replace": f"| **次版に反映するものの集約点（{CURRENT_DRAFT_VER}）** | [`ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md`](ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md) |\n"
+               f"| **次版に反映するものの集約点（{CURRENT_DRAFT_VER}）** | [`ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md`](ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md) |\n",
     "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 502: 作業中の草案の冒頭から状態の箇条「It has not been posted to any list.」を消す —— 投稿の状態を何も述べない草案 "
+            "(2026-11-23: 1.4 の確定で、CHANGES-ACD-1.4.txt を打っていた旧 entry が的を外したので、版に依らない CURRENT_DRAFT へ移した)",
+    "file": CURRENT_DRAFT,
+    "find": "    * It has not been posted to any list.\n",
+    "replace": "",
 })
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
