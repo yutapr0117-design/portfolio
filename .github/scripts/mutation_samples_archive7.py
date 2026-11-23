@@ -418,4 +418,52 @@ MUTATIONS_ARCHIVE7 = [
     "replace": f"（**確定した ACD-{PREVIOUS_VER} は題名から 1",
     "check": CHECK,
 },
+    {
+    "name": "Check 498 (h): READ-THREADS.txt から読了の行を 1 つ消す —— AS-OF の 3 つの数は和が合ったまま残り、旧版 (同じ文の中の"
+            "算術だけ) は読了の一覧と AS-OF の食い違いを見なかった (2026-11-15・2f が気付き 50 が提案)",
+    "file": ROOT / "LICENSES" / "READ-THREADS.txt",
+    "find": "1999-04-24\tAPSL 1.1 certification...\n",
+    "replace": "",
+    "check": CHECK,
+},
+    {
+    "name": "Check 498 (h): 2010 年以後に始まった会話の行を READ-THREADS.txt (2009 年まで) にも置く —— 読了の集合も件数も変わらない"
+            "ので、年の照合が無ければ通り、record_read の重複の照合 (書く file の中だけ) もすり抜ける (2026-11-16・年で 2 つに分けたとき)",
+    "file": ROOT / "LICENSES" / "READ-THREADS.txt",
+    "find": "2009-12-08\tOKL4 license\n",
+    "replace": "2009-12-08\tOKL4 license\n2010-01-19\tmove licenses to voluntarily retired list?\n",
+    "check": CHECK,
+},
+    {
+    "name": "Check 498 (h): 2010 年以後に始まった候補の会話の行を THREAD-CANDIDATES.txt (2009 年まで) にも置く —— 候補の集合も件数も"
+            "変わらないので、年の照合が無ければ通る (2026-11-16・候補の一覧も年で分けたとき・50 の勧め)",
+    "file": ROOT / "LICENSES" / "THREAD-CANDIDATES.txt",
+    "find": "2009-12-08\tOKL4 license\n",
+    "replace": "2009-12-08\tOKL4 license\n2010-01-19\tmove licenses to voluntarily retired list?\n",
+    "check": CHECK,
+},
+    {
+    "name": "Check 468d: 草案の §6 の \"makes no Reservation\" を \"makes a Reservation\" へ —— gap を担う条の中身が消える。468d に"
+            "登録の mutation が 1 つも無かった (2026-11-16・目印を _lib_draft_markers へ移したときに気付いた)",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-DRAFT.txt",
+    "find": "makes no Reservation",
+    "replace": "makes a Reservation",
+    "check": CHECK,
+},
+    {
+    "name": "Check 468ab: 草案の §8.4 の \"Section 8.4 reaches a claim only\" を \"This Section reaches a claim only\" へ戻す —— 小項の中の "
+            "\"this Section\" は §8 か §8.4 かで割れる (T84〜T88 で 5 → 0 にした型・2026-11-16)",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-DRAFT.txt",
+    "find": "Section 8.4 reaches a claim only",
+    "replace": "This Section reaches a claim only",
+    "check": CHECK,
+},
+    {
+    "name": "Check 468ab: 草案の §14.2 の例外の列から 2.5 を外す —— §2.5 の約束 (撤回を主張しない) の違反まで §14.1 が免責する形に"
+            "戻る (T88 で閉じた問い 9 (a) の型・2026-11-16)",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-DRAFT.txt",
+    "find": "Section 2.5, 5, 8.6, or",
+    "replace": "Section 5, 8.6, or",
+    "check": CHECK,
+},
 ]
