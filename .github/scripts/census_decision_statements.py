@@ -55,12 +55,15 @@ import sys
 CACHE = pathlib.Path(os.environ.get("DOSSIER_ARCHIVE_CACHE", "archive-cache"))
 REPO = pathlib.Path(__file__).resolve().parents[2]
 SPLIT = re.compile(r"^From \S+ at \S+  \w{3} \w{3} [ \d]\d \d\d:\d\d:\d\d \d{4}\s*$", re.M)
-DECIDERS = re.compile("|".join(re.escape(x) for x in [
+# 名前は語の境で照らす (2026-11-23・d7 の報告・fc): 部分一致だったので "Randal" (Allison Randal 氏) が Randall Burns 氏
+#   (randall_burns at yahoo.com・2002 の RPL) を、"Rosen" が Jon Rosenberg 氏・Dave Rosenberg 氏を、"Villa" が Villan 氏を決める側に
+#   数えていた (全 508 か月で 3 人・計 31 通)。"Mallet" は Steve Mallett 氏 (理事) の綴りの誤りで、部分一致で当たっていた
+DECIDERS = re.compile(r"\b(?:" + "|".join(re.escape(x) for x in [
     "Tiemann", "Danese Cooper", "Coar", "Radcliffe", "Rishab", "Souza", "Nelson", "Nwakanma",
     "Alolita", "Tracy Hinds", "Maracke", "Piana", "Aniszczyk", "Choudhury", "Carrez", "Majerus",
     "Prabhakar", "Blondelle", "Berkus", "Greant", "Gune", "Garbee", "Suehle", "Michlmayr",
     "Oliver", "Asay", "Weerawarana", "Deb Bryant", "Colannino", "Maffulli", "Freund", "Raymond",
-    "DiBona", "Mathur", "Chestek", "Fogel", "Mallet", "Chris Lamb", "Nicholson", "Phipps",
+    "DiBona", "Mathur", "Chestek", "Fogel", "Mallett", "Chris Lamb", "Nicholson", "Phipps",
     "Hashman", "Liambotis", "Josh Simmons", "Vignoli", "Zacchiroli", "Villa", "Rosen", "Perens",
     "Fontana", "McCoy", "Behlendorf", "Vidal", "Kuhn", "Wheeler", "Dolan", "Sado", "Randal",
     "Milinkovich", "Langel",
@@ -68,7 +71,7 @@ DECIDERS = re.compile("|".join(re.escape(x) for x in [
     #   Patrick Masson 氏 (General Manager & Director)、VM (Vicky) Brasseur 氏 (理事)。足すと候補が 4 本増え、「未読 0」は
     #   漏れのぶん狭い範囲の 0 だった
     "Jagielski", "Masson", "Brasseur",
-]))
+]) + r")\b")
 # 決める側の宛名 (2026-11-23・d7 の実測): DECIDERS は表示名を大小文字を区別して照らすので、表示名が小文字・アドレスだけ・
 #   MIME 符号化の通 (全 508 か月で約 224 通: "bruce at perens.com (bruce at perens.com)" 121・"(Josh berkus)" 72・
 #   "lrosen at rosenlaw.com" 9・"carlo at piana.eu (Carlo)" 9 ほか) が落ち、候補と unquoted-decider の外にいた。名前を re.I に
