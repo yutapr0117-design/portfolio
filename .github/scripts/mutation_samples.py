@@ -525,6 +525,13 @@ _MUTATIONS_TAIL.append({
     "find": "\n| 2002〜2005 | ",
     "replace": "\n| 2022〜2025 | ",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 498 (h2): 候補の一覧の census の定義の指紋を別の値にする —— 決める側の照合を変えて一覧を作り直さないと、"
+            "gate_6c と (h) が古い定義の一覧で「未読 0」を返す (2026-11-23・照合の漏れで候補が 19 本増えた)",
+    "file": ROOT / "LICENSES" / "THREAD-CANDIDATES.txt",
+    "find": "# census-definition: ",
+    "replace": "# census-definition: 0",
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

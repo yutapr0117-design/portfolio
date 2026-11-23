@@ -1,5 +1,6 @@
 # Candidate conversations of the census, begun in 2010 or later (split from THREAD-CANDIDATES.txt on 2026-11-16).
 # Format and history: see the header of THREAD-CANDIDATES.txt. census_decision_statements.py --pin writes the row to the file of its start year.
+# census-definition: 73314ff1880b2f1a (census_decision_statements.py の候補の定義。変えたら --pin で回し直す)
 2010-01-19	move licenses to voluntarily retired list?
 2010-01-19	updating the GPL's status in http://www.opensource.org/licenses/category ?
 2010-02-25	Licensing question
@@ -15,6 +16,7 @@
 2010-10-06	For Approval: The netX Public Lisense (in plain text)
 2010-10-24	Legacy Approval - CodeIgniter License Agreement
 2010-11-22	MPL 2 section 11
+2010-11-25	Do Whatever You Want To With It Public License Approval
 2010-12-01	Defenestrating the GPL
 2010-12-01	License Committee Report for November 2010
 2010-12-01	OT Discussions
@@ -193,6 +195,7 @@
 2016-06-01	New settings for license-review
 2016-06-05	ZENTAO PUBLIC LICENSE For Approval
 2016-06-06	License submission for approval for Moritz30-Projects Open Source License Version 1
+2016-06-06	Please remove @medicalmurray from this list
 2016-06-16	Approval request for ZENTAO PUBLIC LICENSE
 2016-08-05	licenses for hosted services
 2016-08-22	The License Talking-About List
