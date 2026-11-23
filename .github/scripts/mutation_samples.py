@@ -518,6 +518,13 @@ _MUTATIONS_TAIL.append({
     "find": "    * It has not been posted to any list.\n",
     "replace": "",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 465: 1999〜2012 年の分冊の行の日付を 2022 年にする —— 帯の外の行は、日付で分冊を選ぶ読者にも差し込む道具にも "
+            "見つからない (2026-11-23・在庫表を年の帯ごとの分冊へ移した)",
+    "file": ROOT / "LICENSES" / "rounds" / "INVENTORY-1999-2012.md",
+    "find": "\n| 2002〜2005 | ",
+    "replace": "\n| 2022〜2025 | ",
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

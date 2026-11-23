@@ -4,13 +4,13 @@
 **なぜ在るか (2026-11-15・2f の依頼)**: 2f は受領文を 1 日に 15 回ほど手で置き、2 回ずれた。件名の折り返し
 (`Subject: … reinvention\\n dilemma`) で照合が外れ、Date の先頭の空白 (" 2 Sep") でも外れた。一式は 5 段で、どれも
 機械にできる: (1) 通の切り出しとヘッダ、(2) 行数の止め (1,000 行で止め・800 行で警告)、(3) docs/files の mirror の雛形、
-(4) rounds/README の在庫表へ日付の位置で 1 行差し込む、(5) runbook §9 の数 (sync_stated_counts.py が実測から書き直す)。
+(4) rounds/ の在庫表 (年の帯ごとの分冊 INVENTORY-*.md) へ日付の位置で 1 行差し込む、(5) runbook §9 の数 (sync_stated_counts.py が実測から書き直す)。
 
 **切り出し**: pipermail の月の写しを `From <addr>  <曜日> <月> …` の区切りで通に分け、件名は折り返しをつないでから
 `[License-discuss]` / `Re:` を外して照らす。Date は空白を 1 つにつぶしてから部分一致で照らす。通の本文は 1 byte も
 変えずにそのまま書く (`----- begin verbatim -----` より下は無改変・rounds/README の規約)。
 
-**書くもの**: `LICENSES/rounds/<YYYY-MM>-<list>-<slug>-observed.txt` (既に在れば止まる)、mirror doc、README の表の 1 行。
+**書くもの**: `LICENSES/rounds/<YYYY-MM>-<list>-<slug>-observed.txt` (既に在れば止まる)、mirror doc、在庫表 (分冊) の 1 行。
 最後に git add して `sync_stated_counts.py --apply` を回す (runbook §9 の追跡ファイルの数)。--dry-run は何も書かない。
 
 使い方:
@@ -179,20 +179,18 @@ def main(argv: list[str]) -> int:
            "`----- begin verbatim -----` より下は無改変である。\n\n## Constraints\n\n無改変保存の場所なので本文を直さない"
            "（`rounds/README.md`）。\n\n## Change impact\n\nこのファイルの通を引く節を直すときは、引用が本文に在るかを確かめる。\n\n"
            "## Audience-specific notes\n\n- **監査人**: 引用は元のアーカイブの月に当てて確かめられる。\n")
-    readme = ROUNDS / "README.md"
-    rt = readme.read_text(encoding="utf-8")
+    # 在庫表は年の帯ごとの分冊 (2026-11-23・README が 800 行を越えた)。差し込みの規則は _lib_rounds_inventory が 1 つだけ持つ
+    from _lib_rounds_inventory import insert_row
     row = f"| {mm} | `{o.list}` | {o.row} | `{out.name}` |"
-    rows = list(re.finditer(r"^\| (\d{4}-\d{2})[^|]*\|.*$", rt, re.M))
-    before = [r for r in rows if r.group(1) <= mm]
-    at = (max(before, key=lambda r: r.group(1)) if before else rows[-1]).end()
+    inv, at_line = insert_row(ROUNDS, mm, row, date_re=r"\d{4}-\d{2}", write=False)
     print(f"{rel}: {len(picked)} 通 / 件名に一致 {len(thread)} 通・{lines} 行・差出人 {', '.join(senders)}")
-    print(f"README の表: {row[:100]}… を {rt[:at].count(chr(10)) + 1} 行目の後へ")
+    print(f"在庫表 ({inv.name}): {row[:100]}… を {at_line} 行目の後へ")
     if o.dry_run:
         print("dry-run: 何も書かない")
         return 0
     out.write_text(text, encoding="utf-8", errors="surrogateescape")
     mirror.write_text(doc, encoding="utf-8")
-    readme.write_text(rt[:at] + "\n" + row + rt[at:], encoding="utf-8")
+    insert_row(ROUNDS, mm, row, date_re=r"\d{4}-\d{2}")
     subprocess.run(["git", "add", str(out), str(mirror)], cwd=ROOT, check=True)
     subprocess.run([sys.executable, str(ROOT / ".github/scripts/sync_stated_counts.py"), "--apply"], cwd=ROOT)
     print("書いた。引く節に §・逐語を書き、verify を回す")
