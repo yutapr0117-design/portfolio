@@ -13,11 +13,9 @@ ACD-1.5 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
 
     * It has had no legal review, like 1.0, 1.1, 1.2, 1.3 and 1.4.
     * It has not been posted to any list.
-    * It is at present identical to ACD-1.4 apart from the version number and
-      the identifiers that name it. An empty list in
-      LICENSES/CHANGES-ACD-1.5.txt means nothing has been changed yet -- not
-      that the record is missing; a list with entries in it is the whole of
-      the difference.
+    * Apart from the changes listed in LICENSES/CHANGES-ACD-1.5.txt, and the
+      version number and the identifiers that name it, the operative text is
+      ACD-1.4's. A list with entries in it is the whole of the difference.
     * Clause numbers follow ACD-1.4, not ACD-1.0. Citations to an earlier
       version must keep using that version's text.
     * Changes are recorded in LICENSES/ACD-1.5-CHANGELIST.md.
@@ -525,12 +523,11 @@ PREAMBLE (informative; not part of the operative terms)
 
   11.4 This Dedication, in respect of the Work, reaches Covered Rights, the
        patent claims Section 8 reaches, and Moral Rights to the extent stated in
-       Section 12. It reaches nothing else, save that the covenants in Section 5
-       are promises about the Dedicator's own conduct and are not limited by
-       this sentence. It grants no permission under the law of data protection,
-       under a right of privacy, publicity, or personality, or under any right
-       held by a person other than the Dedicator. Where the Work contains the
-       personal data, likeness, voice, or performance of a person other than the
+       Section 12. It gives nothing by implication beyond what its words give.
+       It grants no permission under the law of data protection, under a right
+       of privacy, publicity, or personality, or under any right held by a
+       person other than the Dedicator. Where the Work contains the personal
+       data, likeness, voice, or performance of a person other than the
        Dedicator, any permission those laws require is not the Dedicator's to
        give and this Dedication does not purport to give it. Section 11.4 states
        a limit of the Dedication's reach; it is not a condition upon You, and

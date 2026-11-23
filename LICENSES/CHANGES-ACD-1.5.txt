@@ -5,4 +5,8 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
 
   Changes in this draft, relative to ACD-1.4:
 
-    * ACD-1.4: 5879 words, 80 clauses. This draft: 5879 words, 80 clauses.
+    * Section 11.4 no longer states that the Dedication reaches only what its
+      first sentence lists, with an exception for the covenants in Section
+      5; it now says "It gives nothing by implication beyond what its words
+      give" (ACD-1.1-SELF-AUDIT.md, section 3zd). (-15 words.)
+    * ACD-1.4: 5879 words, 80 clauses. This draft: 5864 words, 80 clauses.

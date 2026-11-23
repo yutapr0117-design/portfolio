@@ -26,12 +26,23 @@ ACD-1.4 は 2026-11-23 に確定・凍結した。草案 `ACD-1.5-DRAFT.txt` は
 
 | 対象 | 何を変えるか | なぜ | 費用（語） | 状態 |
 | :-- | :-- | :-- | :-- | :-- |
+| §11.4 第 2 文（T135） | *"It reaches nothing else, save that the covenants in Section 5 are promises about the Dedicator's own conduct and are not limited by this sentence."* を *"It gives nothing by implication beyond what its words give."* へ | 規則 1: `ACD-1.1-SELF-AUDIT.md` §3zd（1.4 の T124 の授権と放棄が但し書きの外）。網羅の言い切りが同じ型を 3 度生んだ（E44・§2.5・T124）ので、言い切りを黙示の排除に置き換え、型をまとめて消す。黙示の許諾と黙示の約束の排除は残す（cd の反例: 1.4 でその働きを持つのはこの 1 文だけ）。試作と 3 巡の反例は `ACD-1.5-CLARITY-TRIAL.md` §1 | −15（45 語超の文の数は変わらない） | 草案へ入れた（2026-11-23） |
+
+## errata 由来（`ACD-1.0.errata.md` が一次記録）
+
+## 語数の内訳（1.4 → 1.5 草案・表から集計）
+
+1.4 の 5,879 語から 1.5 草案は −15 語である（黙示の排除の 1 束で −15）。
+
+1.0 の 4,896 語から見ると 968 語長い。`measure_clause_clarity.py` の 45 語超の文は 1.4 と同じ 28 文（191 文中 14.7%）で、平均は 28.9 → 28.8 語（2026-11-23）。表が変わったら数え直す（語数の合計は Check 468s が表と草案の申告で、この節の数は Check 498 (k) が実測で照合する）。
+
+| 束 | 増減 | 何のための語か |
+| :-- | --: | :-- |
+| 黙示の排除（§11.4・T135）| −15 | 網羅の言い切りと但し書きを外し、黙示の許諾と黙示の約束の排除だけを残す。後から入る変更が「及ぶ先の列から漏れる」型の欠陥を作れなくするための語の削減 |
 
 ## 記述子の候補（1.5 の確定の日に `ACD-1.5.machine.json` へ入れるかを決める）
 
 - `permissions.circumventionOfDedicatorMeasures`: `true`・§5.2・`note`: *"Only measures applied by or on behalf of the Dedicator to a copy of the Work, where the circumvention is effected in a use this Dedication permits or purports to permit; to the fullest extent the law permits."*。T124（1.4）が §5.2 に足した回避の授権は課すものでなく与えるもので、§6.5 の線（自動の仕組みが判定できない許しは許しでない）では `permissions` に置く読みが立つ。1.4 の記述子は持たない（確定を遅らせないため 1.4 では足さなかった・fc と 5e・2026-11-23）。**逆側**: 回避の法の授権は裁判所が読む事実で、機械が行動を変える値ではない。足すなら Check 451a の `clause` の照合に §5.2 が増える
-
-## errata 由来（`ACD-1.0.errata.md` が一次記録）
 
 ## Constraints
 
