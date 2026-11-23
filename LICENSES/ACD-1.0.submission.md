@@ -149,7 +149,7 @@ clauses behind it, criterion by criterion, are in §B.0 section 3, and
 
 ---
 
-### B.0 Facts for the owner's message (**1,634 words**, measured 2026-11-23 from the line after this heading to §B.1; **material, not a message to send**)
+### B.0 Facts for the owner's message (**1,705 words**, measured 2026-11-23 from the line after this heading to §B.1; **material, not a message to send**)
 
 > **This is not a message.** It is a list of facts and sources, drafted by an AI, for the owner to draw on when he writes his own message to `license-review` in his own words (B14, gate 0 of `REVISION-PROTOCOL.md`). It has no greeting, no first-person sentences and no signature, on purpose. Decision 3b of the five (2026-11-23, 5/0/0) replaced the letter that stood here; that letter, drafted for ACD-1.0, is kept as a record in the history of this file at commit `87c52107474d` and is not to be sent.
 
@@ -222,6 +222,7 @@ Also useful to state: the difference from the text posted to `license-discuss` �
 - ACD-1.0 was posted on 2026-08-26, and a narrower question on 2026-09-06; as of the last check (`REVIEWERS.md`, Status) neither had a reply in the public archive. A short request to discuss ACD-1.1, sent on 2026-09-17, was rejected in moderation (`LICENSES/FROZEN.md`, POSTING-NOTE; `ACD-1.0.against.md` #215), and at least three of the project's posts in all were rejected. **No version after 1.0 has reached the list.**
 - Note for the writer, not a statement to send: do not present the silence as agreement (`ACD-1.0.against.md` #109).
 - The changes from 1.0 to 1.4 are mostly defects found in the project's own review, some found by reviewers outside the list, and one a question put to the list and not answered: re-count by origin from `ACD-1.0.errata.md` on the day.
+- ACD-1.4 is the text submitted and does not change while it is under review: it is pinned by SHA-256, and a defect found in it is recorded (`ACD-1.0.errata.md`, `ACD-1.1-SELF-AUDIT.md`) rather than repaired in place. The list's practice is that a text under review is not edited; a change is made by withdrawing and resubmitting, after the comments have been collected (the chair, Pamela Chestek, on `license-review` 2026-03-15, the AI-MIT thread).
 - Where the case against approval is collected, adverse items first: `LICENSES/REVIEWERS.md`.
 
 ---
