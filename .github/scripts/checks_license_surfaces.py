@@ -623,6 +623,15 @@ def run(ctx):
             blocking=True,
         )
 
+    # 453c — FROZEN.md の投稿の記録 (POSTED-VERSION marker) が、凍結した版を名指し、届いた日と公開アーカイブの URL の月が合うこと
+    #   (2026-11-23・6d の指摘・fc)。凍結済みの版を出す日の段 6b は `submission_gate.py` が marker から 30 日を数えるので、
+    #   marker の形の誤りは提出の日まで見えない。書いた日に止める。本体は submission_gate.posted_problems
+    from submission_gate import posted_problems as _pp453c
+    _fz453c = ROOT / "LICENSES" / "FROZEN.md"
+    _bad453c = _pp453c(_fz453c.read_text(encoding="utf-8")) if _fz453c.exists() else []
+    check(not _bad453c, "Check 453c: FROZEN.md の投稿の記録 (POSTED-VERSION) の形が正しい (無ければ照らすものは無い)",
+          f"Check 453c: {_bad453c}。段 6b の 30 日は submission_gate.py がこの記録から数える", blocking=True)
+
     # ── 490. 確定した本文が、確定の作業で壊れていないこと (BLOCKING) ──────────────────
     # 版の確定は、草案の冒頭を差し替えて本文を別の file へ移す手作業である。Check 468 は草案しか見ず、
     # Check 453 は pin した byte しか見ないので、この手作業の誤りはどの層にも見えなかった。2026-11-06 に

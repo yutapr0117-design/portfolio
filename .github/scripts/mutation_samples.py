@@ -553,6 +553,14 @@ _MUTATIONS_TAIL.append({
     "find": "*\"Nothing in this Dedication, as to those acts, reserves, preserves, or leaves unaffected any patent claim they reach.\"*（*as to those acts* は T99 で入った）",
     "replace": "*\"Nothing in this Dedication reserves, preserves, or leaves unaffected any patent claim they reach.\"*",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 453c: FROZEN.md に、届いた日 (12 月) と公開アーカイブの URL の月 (11 月) が合わない投稿の記録を足す —— 凍結済みの版を"
+            "出す日の段 6b は submission_gate.py がこの記録から 30 日を数えるので、形の誤りが提出の日まで見えない (2026-11-23)",
+    "file": ROOT / "LICENSES" / "FROZEN.md",
+    "find": "<!-- VENUE-DATA: license-discuss -->",
+    "replace": "<!-- VENUE-DATA: license-discuss -->\n<!-- POSTED-VERSION: ACD-1.4 2026-12-01 "
+               "https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2026-November/000001.html -->",
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
