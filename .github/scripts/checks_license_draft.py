@@ -772,13 +772,15 @@ def run(ctx):
         #   aa の問い (2026-11-11): 凍結版の記述子の note は 451f が照合するが、確定の日まで記述子は CHANGELIST の表の中の下書きで
         #   照合の外だった。条の番号は試作で動くので、下書きの番号が草案に無くなったら確定の日を待たずに RED にする
         _cltxt468z = _dr468.with_name(_dr468.name.replace("-DRAFT.txt", "-CHANGELIST.md"))
-        _ms468z = re.search(r"^### " + re.escape(_v468y) + r" の記述子の下書き.*?(?=^#{1,3} |\Z)",
+        # 1.5 からは「## 記述子の候補」の節に箇条で書く (2026-11-23・確定の道具の雛形)。旧い「### N.M の記述子の下書き」の表も読む。
+        #   節の名が変わっただけで 468z は OK 行に「—」を出して黙っていた (1.5 の候補 §5.2 を照らしていなかった)
+        _ms468z = re.search(r"^(?:### " + re.escape(_v468y) + r" の記述子の下書き|## 記述子の候補).*?(?=^#{1,3} |\Z)",
                             _cltxt468z.read_text(encoding="utf-8") if _cltxt468z.exists() else "", re.S | re.M)
         _n468z, _u468z = None, set()   # 下書きの節が無い版では OK 行に「—」と出す (黙って 0 と書かない)
         if _ms468z:
             _secs468z = {_n.split(".", 1)[0] for _n in _cl468}
             _miss468z, _n468z = [], 0
-            for _l in (_x for _x in _ms468z.group(0).split("\n") if _x.startswith("|")):
+            for _l in (_x for _x in _ms468z.group(0).split("\n") if _x.startswith(("|", "- "))):
                 _cs = [_c for _m in re.finditer(r"\b[Ss]ections?\s+(\d+(?:\.\d+)?(?:(?:,\s*|\s+and\s+|\s+or\s+|\s+to\s+)"
                                                   r"\d+(?:\.\d+)?)*)", _l) for _c in re.findall(r"\d+(?:\.\d+)?", _m.group(1))]
                 _cs += re.findall(r"§(\d+\.\d+)", _l)
@@ -789,7 +791,7 @@ def run(ctx):
                         _miss468z.append(_c)
             # 表の逐語 (*"…"*) も草案に在る (11-12・aa: T22 より前の語が残っていた)。記述子自身の文 (note / $comment) と旧い文は除く
             _d468z = " ".join(_t468.split())
-            for _mq in re.finditer(r'\*"(.+?)"\*', "\n".join(_x for _x in _ms468z.group(0).split("\n") if _x.startswith("|"))):
+            for _mq in re.finditer(r'\*"(.+?)"\*', "\n".join(_x for _x in _ms468z.group(0).split("\n") if _x.startswith(("|", "- ")))):
                 _q = " ".join(_mq.group(1).replace('\\"', '"').split()).strip(" .,;:")
                 if not re.search(r"note|\$comment|より前の|旧|訂正前", _mq.string[max(0, _mq.start() - 40):_mq.start()]) and not all(
                         _p.strip(" .,;:") in _d468z for _p in re.split(r"…|\.\.\.", _q) if len(_p.strip()) > 3):
