@@ -179,7 +179,7 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 > a term.
 >
 > **5. No discrimination against persons or groups.** "You" is defined in
-> Section 1.4 as any person or entity exercising permissions; no class is
+> Section 1.6 as any person or entity exercising permissions; no class is
 > excluded anywhere in the text, and Section 4.3 says in terms that the licence
 > is not conditioned on the identity, character or purpose of the user or on any
 > restriction as to persons or groups.

@@ -146,7 +146,7 @@ OSI のリストは法的な場だが、AI 学習に対する価値判断は 202
 > jurisdiction changes and 1.0 needs a successor, someone has to write it. I
 > cannot promise to be there. What I can say is that nothing about 1.0 stops
 > anyone else from writing that successor, because Section 16.3 lets anyone apply
-> this text to anything and Section 16.5 permits translation without permission.
+> this text to anything and Section 16.4 permits translation without permission.
 
 **⚠ 2026-09-13 に第 1 の柱を書き直した。** 直前まで *"Section 16.4 makes the text of ACD-1.0 immutable: it may be copied and distributed verbatim only, and any change is a different version under a different identifier"* と書いていたが、**§16.4 は 2 点ともそう述べていない** ——第 3 文が*"A modified text may be distributed under a different name"* と**改変を明示的に許し**、識別子は **`ACD-1.0` しか名指ししていない**（後継識別子に届かないことは **E14** として**2026-09-10 に自分で記録済み**だった）。**欠陥を集めた file に書いておきながら、その欠陥に依拠する主張のほうを直していなかった**（`against.md` #138）。**主張自体は生き残る** ——Q12 の論点は「利用者が保守活動に依存しない」ことで、それを支えるのは §10.4 と凍結 pin であり、E14 はどちらにも触れない。**生き残らなかったのは言い方のほうである。**
 
@@ -239,8 +239,9 @@ OSI のリストは法的な場だが、AI 学習に対する価値判断は 202
 >   licence is in the same position.
 > - Section 5 sits underneath both as a covenant not to assert, enforceable on
 >   ordinary principles even where a grant is attacked.
-> - Section 12.1 (waiver of moral rights) will not operate there either, and
->   Section 12.2 supplies the covenant instead.
+> - Section 12.1 (waiver of moral rights) will not operate there either. Section
+>   12.2's covenant not to exercise those rights, and its consent, are given for
+>   every jurisdiction whether or not Section 12.1 has effect, so they stand there.
 >
 > The user's position in Germany is therefore materially the same as under a
 > permissive licence, which is the point of the layering. This is also the answer
@@ -285,7 +286,7 @@ OSI のリストは法的な場だが、AI 学習に対する価値判断は 202
 
 > **English:**
 >
-> Not me. Section 10.4 leaves nothing I could enforce, Section 15.5 stops
+> Not me. Section 10.4 leaves nothing I could enforce, Section 2.2 stops
 > non-enforcement from being read as reserving anything, and Sections 2.8 and
 > 12.4 aim the same restrictions at my successors, who are the people most likely
 > to want the rights back.

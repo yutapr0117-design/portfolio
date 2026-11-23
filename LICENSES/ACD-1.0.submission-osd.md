@@ -1,12 +1,14 @@
 ---
 file: LICENSES/ACD-1.0.submission-osd.md
 audience: OSI license-review participants / licence reviewers / 監査人 / 次のセッションの実装者
-last-updated: 2026-11-15
+last-updated: 2026-11-23
 reachable-via: ACD-1.0.submission-reference.md
 canonical-ref: LICENSES/ACD-1.0.submission-reference.md (切り出し元・§1〜§2 / §4〜§5) / LICENSES/ACD-1.0.submission.md (送る文面は §B.0。**これを貼らない**)
 ---
 
 # ACD-1.0 — 提出参考資料のうち OSD の節（§3 / §3b / §3c / §3d・**貼らない**）
+
+**2026-11-23（5 人の合議・議題 3）: 提出対象を ACD-1.4 へ切り替えた。** 条の中身を現在形で述べる行（OSD 5・OSD 7 の項、表の §5.2・§12.2・§16.4、§3d の Work の定義）は ACD-1.4 の語と番号で書き直し、1.0 の番号が違う所は括弧で添えた。1.0 について書いた日付つきの訂正と記録は書き換えていない。1.4 で変わった条への OSD 1〜10 の当て直しは `ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.52（立つもの 0）。
 
 **`ACD-1.0.submission-reference.md` から 2026-09-25 に切り出した**（899 行で advisory 900 の 1 行手前に達したため・
 予算表が事前に宣言していた分割計画どおり）。**節番号は動かしていない。** 切り出し元には各節の案内見出しを残してあるので、
@@ -53,8 +55,8 @@ criteria the committee asks submitters to speak to directly:
   10.5 and 16.6 state this expressly. *(Corrected 2026-11-01: this said "10.5 and 16.5"; in
   ACD-1.0 §16.5 is the translation rule and §16.6 is the clause that says §16.4 and §16.5 are not
   terms of the Work. In 1.1 and later the same clause is §16.6 as well.)*
-- **OSD 5 (No discrimination against persons or groups).** §4.3 of ACD-1.0 states the licence is not
-  conditioned (ACD-1.0 wording) "on the identity, character, or purpose of the user, or on any restriction as to
+- **OSD 5 (No discrimination against persons or groups).** §4.3 states the licence is not
+  conditioned "on the identity, character, size, revenue, or purpose of the user, on the scale of use or the number of users served, or on any restriction as to
   persons, groups, technologies, endeavours, or jurisdictions." §2.3 adds that the grant takes
   effect without any act of acceptance, so there is no gate at which a person could be excluded.
 - **OSD 6 (No discrimination against fields of endeavour).** The same sentence of §4.3 excludes
@@ -90,7 +92,7 @@ that the two are read together rather than one being discovered after the other.
 | **OSD 4** Integrity of the author's source code | §16.4 forbids distributing **the licence text** in modified form under the name or identifier. A reviewer skimming may read that as a restriction on the Work | It is not: §10.1 is limited to conditions "in respect of the Work," and §16.4 governs the licence text only. The provision is the same name-integrity term GPL and Apache-2.0 carry for their own texts. The looseness is in the notice wording, recorded as errata E3 |
 | **OSD 5** Persons or groups | §11.3 places one thing outside the Dedication's reach — a false representation that the Dedicator authored, endorsed or is associated with a work | §11.3 says in terms that it "states a limit of the Dedication's reach; it is not a condition upon You, and Section 10.1 is unaffected by it." A false representation stays false whatever the Dedicator permits, and the limit falls on everyone alike, so it discriminates against no one. (Until 2026-11-16 this line said that misrepresentation was never the Dedicator's to permit. That is wrong for a false claim of authorship: in the United Kingdom the right not to have a work falsely attributed belongs to the person named (CDPA s.84) and is not infringed by an act that person has consented to (s.87(1)); trial T77, proposed the same day, drops the same reason from the 1.4 draft's §11.3.) **A wider reading of OSD 5 is live on the list**: on 2026-09-16 McCoy Smith argued that a termination trigger firing only on claims "against the Licensor" "puts Licensors & Licensees in different positions vis a vis patent assertions, and therefore arguably violates OSD 5". **This instrument has no trigger to point in either direction** — §10.4 states that no permission "terminates for any reason" and that it "contains no termination provision and no revival provision", and §8.2 makes the patent licence non-terminable. **The wider reading is not established** (its author wrote "arguably" and the steward contested it), and we record our own exposure to it at `against.md` #179 |
 | **OSD 6** Fields of endeavour | §6 names machine learning and TDM specifically. Naming a field at all can look like singling it out | The naming is entirely permissive: §6 grants and disclaims reservation. §4.3 excludes conditioning on field of use. A grant aimed at a field is not a restriction on it |
-| **OSD 7** Distribution of licence | **The sharpest one.** §10.2 says You need not "reproduce any notice ... retain this file, or inform anyone of anything," and §4.5 adds that nothing requires Your terms to reproduce this text. A downstream recipient may therefore never see that the Work is under ACD-1.0 | The criterion is about rights applying without an additional licence, not about notice. §1.4 defines You as **any** person exercising permissions, §4.1 grants to You directly, and §2.3 makes the grant effective "without any act of acceptance." Every recipient holds the grant from the Dedicator, not through a chain. **Precedent is squarely on point:** MIT-0 and 0BSD are approved and likewise require no notice retention. The practical gap — a recipient who does not know what they hold — is real and is recorded as adverse fact #20 rather than argued away |
+| **OSD 7** Distribution of licence | **The sharpest one.** §10.2 says You need not "reproduce any notice ... retain this file, or inform anyone of anything," and §4.5 adds that nothing requires Your terms to reproduce this text. A downstream recipient may therefore never see that the Work is under ACD | The criterion is about rights applying without an additional licence, not about notice. §1.6 (§1.4 in 1.0) defines You as **any** person exercising permissions, §4.1 grants to You directly, and §2.3 makes the grant effective "without any act of acceptance." Every recipient holds the grant from the Dedicator, not through a chain. **Precedent is squarely on point:** MIT-0 and 0BSD are approved and likewise require no notice retention. The practical gap — a recipient who does not know what they hold — is real and is recorded as adverse fact #20 rather than argued away |
 | **OSD 8** Not specific to a product | §16.3's wording is broader than needed (errata E2) | §16.3 states the instrument "is not specific to any project, person, organisation, jurisdiction, or field of endeavour," and the structural evidence is in §4b: no project name, no URL, no placeholder in the clauses (the one blank is in §16.1's notice template, filled in the adopter's own notice), no edit to the licence text required to adopt |
 | **OSD 9** Must not restrict other software | §5.2(b) is a wide covenant about collateral obligations, and §4.5 speaks to what You may add | Both point away from restricting other software: §5.2 binds the **Dedicator**, and §4.5 expressly permits Your other terms to be "incompatible with these." Nothing conditions the licensing of anything distributed alongside the Work |
 
@@ -133,10 +135,10 @@ its narrow sense, so we have now applied the wide one as well.
 
 | Asymmetric provision | What it does one way | Under the wide reading |
 | :-- | :-- | :-- |
-| **§5.2** | The Dedicator covenants not to apply or invoke technological measures or laws against You, not to impose collateral conditions, and not to argue for a narrow construction | **The asymmetry runs against the grantor and in favour of every recipient equally.** No recipient is placed in a different position from any other, and the party disadvantaged is the one making the grant |
+| **§5.2** | The Dedicator covenants not to assert rights in technological measures or invoke anti-circumvention law against You (and authorises circumvention in a use the Dedication permits), not to impose collateral obligations, not to argue for a narrow construction, and not to assert its own rights of privacy, publicity or personality against a permitted use | **The asymmetry runs against the grantor and in favour of every recipient equally.** No recipient is placed in a different position from any other, and the party disadvantaged is the one making the grant |
 | **§11.3** | Places a false representation of the Dedicator's authorship, endorsement or association outside the Dedication's reach | **Applies identically to every recipient.** It is a limit of reach, not a condition (§10.1 is unaffected); the Dedication does not make a false statement true |
-| **§12.2** | The Dedicator covenants not to exercise Moral Rights against You or against anyone who receives the Work from You | **Runs one way only, in the recipient's favour, and reaches downstream recipients as well.** Nobody is worse off than anybody else |
-| **§16.4** | A modified licence text may not be distributed under the name "Autonomous Commons Dedication" or under the identifier "ACD-1.0". **ACD-1.0 makes no exception for any party** | **Applies identically to every distributor of the text, the steward included.** The role-based difference this row once conceded is in the **successor**, not in 1.0: ACD-1.1, ACD-1.2 and ACD-1.3 (frozen; 1.3 is applied here since 2026-10-25) and the 1.4 draft add *"except by the Steward"* to close errata E14 — see below |
+| **§12.2** | The Dedicator covenants not to exercise, or authorise or assist anyone to exercise, Moral Rights in the Work against You or anyone who receives the Work from You, and consents to acts that would otherwise infringe them, in every jurisdiction | **Runs one way only, in the recipient's favour, and reaches downstream recipients as well.** Nobody is worse off than anybody else |
+| **§16.4** | A modified licence text may not be distributed under any name containing "Autonomous Commons Dedication" or any identifier containing "ACD-" followed by a digit, except by the Steward, whose exception reaches only a new version under a number that no earlier text has borne | **The one role-based difference, and it concerns the licence text as a document, not the Work** (§10.5, §16.6). The Steward may issue new versions, in the shape of GPL-3.0 §14; no one may make an existing identifier denote a different text, and no distributor of the Work is touched. ACD-1.0 had no Steward exception; it entered in 1.1 to close errata E14 (see below) |
 
 **On §16.4**, three things are true at once. It concerns **the licence text as a document, not
 the Work**: §10.5 and §16.6 say so in terms, so it places no person in a different position with
@@ -205,10 +207,10 @@ own definition — *"a written work, a musical work, a fine art work, an archite
 photographic work, **an audiovisual work**, a graphic work, and a model work"* — and concludes
 that *"open culture licenses are outside the purview of the Open Source Initiative."*
 
-**The overlap, stated before it is found.** ACD-1.0 §1.2: *"'Work' means the material to which the
-Dedicator has applied this Dedication, in whole or in part, in any medium and in any form,
+**The overlap, stated before it is found.** ACD-1.4 §1.3 (§1.2 in 1.0): *"'Work' means the material to which the
+Dedicator has applied this Dedication, in any medium and in any form,
 including source code, object code, documentation, data, metadata, **audiovisual material**, and
-any collection or compilation of these."* One of the words the 2023 rationale names appears in our
+any collection or compilation of these."* (1.0 also had *"in whole or in part"*, removed in 1.4 to close errata E61.) One of the words the 2023 rationale names appears in our
 definition.
 
 **Where the committee itself drew the line.** Pamela Chestek, chairing the License Committee, on
@@ -220,14 +222,14 @@ Josh Berkus, 1 March 2023: *"OSI has not previously approved content licenses ..
 organizational policy change and therefore not a routine license approval."*
 
 **Why we say this falls on the near side of that line, and what is our reading rather than theirs.**
-The Mulan definition contains no software at all; §1.2 begins with source code and object code, the
+The Mulan definition contains no software at all; §1.3 begins with source code and object code, the
 preamble's first sentence is *"Software and the works that surround it"*, and the work the
 instrument is applied to is a software repository. Chestek's carve-out — a licence that crosses
 over into data *when tied to software* — describes that shape. **But that is our reading of her
-sentence, not a ruling, and the risk is not structural: it is that §1.2, read on its own, is hard
+sentence, not a ruling, and the risk is not structural: it is that §1.3, read on its own, is hard
 to distinguish from the definition that was declined.**
 
-**Why we have not narrowed §1.2, stated as a cost rather than a defence.** The gap this instrument
+**Why we have not narrowed §1.3, stated as a cost rather than a defence.** The gap this instrument
 claims is about material that is trained on and produced by machines: datasets, model weights and
 outputs are exactly the non-code assets in that enumeration. Removing *"audiovisual material"* to
 look more software-specific would make the licence read better to a reviewer and cover less of what
@@ -239,9 +241,9 @@ section prevents that conclusion.
 **The Committee has stated a test (added 2026-11-07).** Its rationale for CERN-OHL in 2021 reads:
 *"Although software is not the primary use case for the license, and the licenses include some unusual
 terminology that make the licenses more difficult to interpret, they are written such that they can be
-used for software, so they are appropriate for the OSI's review."* §1.2 opens with source code and object
+used for software, so they are appropriate for the OSI's review."* §1.3 opens with source code and object
 code, and this text is applied to a software repository, so ACD meets that test on its face. The Mulan
-definition had no software in it, so the two records do not conflict. Three limits: §1.2 is wider than
+definition had no software in it, so the two records do not conflict. Three limits: §1.3 is wider than
 CERN's *"designs that includes both hardware and software"*, the statement predates the 2023 refusal, and
 being appropriate for review is not approval.
 
