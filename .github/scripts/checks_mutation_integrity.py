@@ -251,7 +251,7 @@ def run(ctx):
         _ver362 = _dr362[0].name.split("-")[1] if len(_dr362) == 1 else None
         _hard362 = []
         if _ver362:
-            _rx362 = re.compile(r'^\s*"file":.*ACD-' + re.escape(_ver362) + r'-(?:DRAFT\.txt|CHANGELIST\.md|CLAUSE-REFERENCE-DRAFT\.md)', re.M)
+            _rx362 = re.compile(r'^\s*"file":.*ACD-' + re.escape(_ver362) + r'(?:-(?:DRAFT\.txt|CHANGELIST\.md|CLAUSE-REFERENCE-DRAFT\.md)|\.clause-reference\.md)', re.M)
             for _src362 in sorted((ROOT / ".github" / "scripts").glob("mutation_samples*.py")):
                 _hard362 += [f"{_src362.name}:{_src362.read_text(encoding='utf-8')[:_m.start()].count(chr(10)) + 1}"
                              for _m in _rx362.finditer(_src362.read_text(encoding="utf-8"))]
