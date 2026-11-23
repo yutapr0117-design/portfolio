@@ -165,9 +165,16 @@ rules stayed; the reasons moved here. The full records are in the change list, i
 | [`ACD-1.3.txt`](ACD-1.3.txt) | **ACD-1.3, the third successor, frozen 2026-10-25.** This repository applied it from that date until 2026-11-23. It has **not** been submitted to `license-review`. |
 | [`ACD-1.4.txt`](ACD-1.4.txt) | **ACD-1.4, the fourth successor, frozen 2026-11-23, and the licence this repository applies from that date** (the root `LICENSE` says so). It is the version this dossier prepares for submission (the submission target since 2026-11-23); it has **not** been submitted to `license-review`, and as of 2026-11-23 it had not been posted to any list (postings are recorded in [`FROZEN.md`](FROZEN.md)). What changed from 1.3, clause by clause, is in [`CHANGES-ACD-1.4.txt`](CHANGES-ACD-1.4.txt). |
 
-**Work on the next version happens in [`ACD-1.5-DRAFT.txt`](ACD-1.5-DRAFT.txt)**, so no
-frozen text moves while it is being discussed. All five are pinned by SHA-256 in
+**No frozen text moves.** A defect found in a frozen text is recorded (in the errata, or in the self-audit when a
+successor introduced it) and repaired only in a later version. All five are pinned by SHA-256 in
 [`FROZEN.md`](FROZEN.md) and checked in CI; the command to verify that is below.
+
+**Why each version changed, in English.** 1.0 → 1.1: the header of [`ACD-1.1.txt`](ACD-1.1.txt) and the entries of
+[`ACD-1.0.errata.md`](ACD-1.0.errata.md) it closed (each entry names the version that addresses it); the reasoning
+beyond that is only in Japanese (`ACD-1.1-CHANGELIST.md`, `ACD-1.1-SELF-AUDIT.md`). 1.1 → 1.2, 1.2 → 1.3 and 1.3 → 1.4:
+the English change list each draft carried, kept word for word in the appendix of `ACD-1.2-CHANGELIST.md`,
+`ACD-1.3-CHANGELIST.md` and `ACD-1.4-CHANGELIST.md` (the section headed "付録: 確定時点の草案ヘッダ（逐語）"), and for 1.4
+also [`CHANGES-ACD-1.4.txt`](CHANGES-ACD-1.4.txt). Every word changed from 1.0: [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt).
 
 **Clause numbers do not transfer cleanly between 1.0 and its successors, and this matters when you read the
 analysis below, which is written against 1.0.** Measured, not assumed:
@@ -201,7 +208,7 @@ confirmation, 2026-09-09). The owner sent ACD-1.1 to `license-discuss` on 2026-0
 message was rejected by moderation** (`ACD-1.0.against.md` #215), so the list has not received
 that text. **The version to be submitted will itself go to `license-discuss` first, for at least
 30 days, before anything goes to `license-review`**, as Pamela Chestek advised another submitter
-in January 2026. Work on the next version happens in `ACD-1.5-DRAFT.txt`, so no frozen text moves.
+in January 2026. No frozen text moves while this is open.
 Freezing a text is a promise about its bytes, not a statement about which version a project uses.
 
 **AI drafting and the lists.** On 2026-09-09 the OSI Moderators posted to both lists that they
