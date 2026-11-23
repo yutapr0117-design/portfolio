@@ -76,7 +76,7 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 
 **採らない理由**: 分けると *those terms* の先行詞からサービスの条件が落ち、Dedicator が API の利用規約などで、受け手が素材の中に持つ Work の写しの扱いを縛る場面が §5 の外に出る読みが立つ。直す語（*those terms* → *"the terms that the two preceding sentences describe"*）を足すと +16 語で、45 語超の文を 1 つ減らすための費用として重い。**逆側**: サービスは写しを渡さずに Work を動かすものなので、サービスの条件が「その写し」を縛る場面は狭い、と読む余地もある —— だがその読みに頼るなら、分ける前の文のほうが確かである。**方針が働いた例**: cd が足した「限定句と名指しの語を表で示す」条件が、語を足さない分割に見えた変更の狭まりを捕まえた。
 
-## 5. T138 —— §5.2(b) に、偽りの言明をしない義務だけを除外として足す（+14 語・2026-11-23・errata E87・起草 5e・**反例待ち**）
+## 5. T138 —— §5.2(b) に、偽りの言明をしない義務だけを除外として足す（+14 語・2026-11-23・errata E87・起草 5e・**採らない**）
 
 **種**: errata E87。§5.1・§5.2(b)・§5.2(d) の除外の列を並べた（SELF-AUDIT §3zd の一般形「後から入った変更が別の条の列を古くする」の当て直し）。
 
@@ -96,4 +96,20 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 
 **逆側**: (i) 契約上の義務は、偽りの表示の法だけでは得られない救済（契約違反の損害）を Dedicator に足す。(ii) §5.2(b) は、利用規約が裏口から条件を足すのを止める唯一の条で、除外を足すたびに狭まる。(iii) (b) の頭に既に *"other than under trademark rights … or for a payment …"* が在り、同じ項に *other than* が 2 度出る（頭は約束からの除外、末尾は義務からの除外）。(iv) 同じことを法が既に禁じているので、契約で重ねる必要は無い、と読む審査者もいる（Fogel 氏 2014-06-30 *"I worry about building trademark-law-type provisions into licenses that are really about copyright"*・`review-readings-6.md` §1.459）。(v) 変えない場合の費用は、採用者が標準の利用規約を写して知らずに約束を破ること —— 本文でなく採用者向けの案内（ADOPTING.md）で知らせる道もある。
 
-**採否**: 反例待ち（portfolio-cd）。
+**反例（portfolio-cd・2026-11-23）**: (A) **法か契約か** —— §5.1 の除外は、Dedicator が「法が既に与える請求」（詐称・不正競争・虚偽の推奨）を主張できる、という除外で、§11.3 も「Dedication はそこに及ばない」と言うだけで法の側を残す。§5.2(b) は「Dedication が課さない義務を契約・利用規約で新しく課さない」約束で、守っているのは新しい義務の経路を作らないこと。この線で読めば 2 つの条は同じ向きで一貫している。T138 は契約の経路を開け、しかも開ける先は「偽りの言明または表示」という輪郭のあいまいな範囲で、何が表示に当たるかを Dedicator が書く利用規約の側が決めることになる —— §10.1 の「受け手に何も課さない」に、契約で課せる義務の型が 1 つ増える。(B) 推奨を装わない条項の多くは名か商標を使うので、(b) の頭の除外（*"under trademark rights or rights in a name"*）が既に覆う。T138 が効くのは名を使わない偽りの表示だけで、その場合も §5.1 と §11.3 により法の請求は残る —— 利用規約の 1 行が約束違反になっても、Dedicator が失うのは契約上の二重の救済だけ。(C) E87 の番号は書けるが、(A) のとおり欠陥とは言い切れず、+14 語は閉じた欠陥でなく開けた経路に払う語になる。
+
+**採否**: **採らない**（2026-11-23・5e と cd）。E87 は「検証して直さないと決めた」（E6 と同じ扱い）とし、採用者には `ADOPTING.md` で「利用規約に推奨を装わない条項を入れるなら名か商標に結びつけること。名を使わない偽りの表示には、契約でなく法で対する（§5.1・§11.3）」と知らせる（cd）。**逆側**: 「直さない」が E6 に続いて 2 件目になる。標準の利用規約をそのまま使う採用者は、ADOPTING を読まない限り違反に気づかず、§5.3 の受益者の主張の種になりうる。
+
+## 6. 前文（326 語）を本文から外す案 —— 試作に起こさず退ける（2026-11-23・5e）
+
+**種**: Pamela Chestek 氏 2020-12-26（`license-review`・OIN License）*"I've marked up the license to omit non-operative language below. If the words aren't meant to have any effect, they shouldn't be there. The only thing that can happen is that the words will be used in ways that create unintended consequences, so it's best just not to have them at all."*（採掘は portfolio-d7・`review-readings-6.md` §1.461）。ACD の前文は自分を *"informative; not part of the operative terms"* と言う 326 語で、外せば題名からの語数は 5,864 から約 5,538 へ下がる（B3）。
+
+**退ける理由 —— 同じスレッドの審査者が、主張の文を前文へ移せと勧めていた**（どれもアーカイブの写し `license-review` 2020-12 で原文に当てた）:
+
+- Roland Turner 氏 2020-12-27（同じ OIN のスレッド）: *"The usual way to handle this in the construction of legal instruments is to shift statements of principle into a preamble, either a section specifically headed Preamble (e.g. Gnu licenses) or more traditionally a section starting with the word "whereas" which contains a series of statements of belief (recitals). Either is fine"*、*"Without this relationship, a court is going to have real trouble discerning the intentions of the parties."*
+- Russ Nelson 氏 2020-12-27（同じ OIN のスレッド）: *"If it's not a restriction, it does not belong in the license. It might go into a preamble, but it should be phrased in the form of encouragement, not agreement."*
+- Chestek 氏が外せと言ったのは、OIN の本文で *"The context of this license includes"* の段落が *includes* によって作用の範囲に入りうる位置にあり、隣の段落が非作用と定義されていた —— 作用か否かが読み手に決められない語である（同じ通の続き *"You have created a document that is unclear"*）。ACD の前文は見出しで作用の条から分けられ、最後の文 *"This preamble is not, and nothing in it qualifies them."* と §1.1 の *"comprising Sections 1 to 16"* が、作用しないことを本文の側からも決める（UNIQUE-READING の §1.1 の行）。
+
+**読み**: 前文は Turner 氏が勧めた形（GPL の *Preamble* の型）に在り、Chestek 氏の文が向いた形（作用の段落に混ざった非作用の語）には無い。外すと、なぜ 3 つの足場を並べるかの説明が本文から消える（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.25 は、§8.6 の説明を外した T20 の後、その説明を前文が持つとして前文第 3 段落を残した）。**逆側**: (i) 前文の第 1 段落は、承認済みのライセンスと献呈の現状についての経験の言明（*"Permissive licences are silent on whether a work may be used to train a model"*・*"dedications to the public domain either withhold patent rights expressly or say nothing about them at all"*）を持ち、審査者が出典を問いうる —— 前文に置いても、本文に経験の主張を持つ費用は残る（T79 が §6.5 で出典の無い経験の言明を分析の言明へ替えたのと同じ型）。(ii) Nelson 氏の *"phrased in the form of encouragement, not agreement"* に照らすと、前文の *"It gives away, once and without conditions, every right it reaches"* は約束の形に近い。どちらも試作の種として残す（第 1 段落の経験の言明に出典を付けるか、分析の言明に替えるか）。
+
+**この節の位置**: 方針の規則 1 の例外（読みを変えずに語を減らす）に形の上では当たるが、上の審査者の文が「外さない」側の根拠になるので、試作に起こさない。前文の語を減らす候補は、逆側 (i) の第 1 段落の言明に限って当て直す。
