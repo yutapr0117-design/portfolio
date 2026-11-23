@@ -561,6 +561,13 @@ _MUTATIONS_TAIL.append({
     "replace": "<!-- VENUE-DATA: license-discuss -->\n<!-- POSTED-VERSION: ACD-1.4 2026-12-01 "
                "https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2026-November/000001.html -->",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 468z: 次版の CHANGELIST の「## 記述子の候補」の箇条が引く条を、草案に無い §5.9 にする —— 節の名が「### N.M の記述子の"
+            "下書き」から変わり、468z は OK 行に「—」を出して候補を照らしていなかった (2026-11-23)",
+    "file": ROOT / "LICENSES" / "ACD-1.5-CHANGELIST.md",
+    "find": "`true`・§5.2・`note`",
+    "replace": "`true`・§5.9・`note`",
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
