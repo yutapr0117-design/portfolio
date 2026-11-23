@@ -1,0 +1,77 @@
+Source: OSI license-discuss public archive, 2024-January.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 10 in "Request for Comment: Software and Development License, version 3.0" (2024-01-28)
+Senders: McCoy Smith
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From mccoy at lexpan.law  Mon Jan 29 19:39:25 2024
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Mon, 29 Jan 2024 11:39:25 -0800
+Subject: [License-discuss] Request for Comment: Software and Development
+ License, version 3.0
+In-Reply-To: <ca8a53f5-4487-49fc-b0fd-abb767072e0e@berkus.org>
+References: <3614E31F-608E-48EE-85F0-832D03DA7E0B@getmailspring.com>
+ <ca8a53f5-4487-49fc-b0fd-abb767072e0e@berkus.org>
+Message-ID: <233a01da52ea$de50c0b0$9af24210$@lexpan.law>
+
+> -----Original Message-----
+
+> From: License-discuss <license-discuss-bounces at lists.opensource.org> On
+
+> Behalf Of Josh Berkus
+
+> Sent: Monday, January 29, 2024 11:13 AM
+
+> To: license-discuss at lists.opensource.org; Alec Bloss
+<abloss at libranext.com>
+
+> Subject: Re: [License-discuss] Request for Comment: Software and
+
+> Development License, version 3.0
+
+> 
+
+> 
+
+> More comments:
+
+> 
+
+> 1. There's no patent grant in this license.
+
+ 
+
+B.3. is a patent grant.
+
+> 
+
+> 6. It seems weird to call the first release of a new license "3.0".
+
+ 
+
+Agree with that. Its seems to be an effort to (possibly) indicate that this
+is an "improved" version over (non-existing?) predecessor versions.
+
+ 
+
+This one has various basic drafting problems, for example the conditions of
+the license grant are strangely articulated (there's a condition on the
+copyright grant, a separate condition on all the grants, and no equivalent
+condition to the one on the copyright grant to the patent grant). I don't
+see any indication (which is a requirement of submission
+<https://opensource.org/licenses/review-process/> ) that this was reviewed
+by a lawyer, and it's not really clear to me that the other requirements for
+submission of a new license were met either. I think a lot of the drafting
+issues here could be addressed by having some sort of legal review on this
+license (and I don't think submitting it to the list in the hope that the
+lawyers on the list will do the legal review ought to count).
+
+ 
+
+So I'd suggest further discussion of this license be deferred until the
+initial requirements of the approval process be met.
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20240129/920206b6/attachment.html>

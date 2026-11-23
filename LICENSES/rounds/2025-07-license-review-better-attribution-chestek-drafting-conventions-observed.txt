@@ -1,0 +1,138 @@
+Source: OSI license-review public archive, 2025-July.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 5 in "The Better Attribution License." (2025-06-30)
+Senders: Pamela Chestek
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Sun Jul 20 00:13:42 2025
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sat, 19 Jul 2025 17:13:42 -0700
+Subject: [License-review] The Better Attribution License.
+In-Reply-To: <029f07d4-5bc1-450d-b39a-12edd1b66382@opensource.org>
+References: <bdf83bd7c190bb7ed1430dfd89b4ec75@vivaldi.net>
+ <b5796f1b-bfbb-4427-bbf8-8b6de3dd78c6@opensource.org>
+ <029f07d4-5bc1-450d-b39a-12edd1b66382@opensource.org>
+Message-ID: <8f5abdef-197a-9c15-8c8d-3d470743bde7@chesteklegal.com>
+
+Putting the substance aside, this license is problematic from a contract 
+drafting perspective. It uses words in ways that are ambiguous, which 
+means they can cause interpretive problems in the future. Legal writing 
+can be as formulaic as software coding is -- there are interpretive 
+rules for contracts that are designed to help everyone reach the same 
+conclusion on what it means, so when you don't follow the rules it 
+leaves room for interpretive disagreements.
+
+For example, the definitions use the phrase "refers to." That's 
+open-ended language, meaning that, for example, "Standard Version," 
+could refer to what follows in the definition but it doesn't eliminate 
+the possibility that the term could "refer to" something else too. The 
+standard language construction of a definition is to use the word 
+"means," "Standard Version means ..." - that is closed-ended language 
+that doesn't allow for the possibility that Standard Version can mean 
+something in addition to how it's defined. And why is it "Standard 
+Version," singular, but "Modified Versions," plural?
+
+"Undue hassle, as mentioned in this license ..." It should be "Undue 
+hassle, as /used /in this license ..." You're not just "mentioning" it, 
+your intention is that the phrase has a very specific, defined meaning 
+that you are providing.
+
+And while on "undue hassle," the audience would be much better served by 
+simply saying how the source code has to be provided, an objective 
+standard, rather than the subjective standard of "acts which may prevent 
+users from requesting" code. A subjective standard allows for the 
+possibility that the degree of difficulty might be be measured by 
+someone's personal sensibilities, even if irrational, e.g., "I don't use 
+email, therefore it is an undue hassle for me to ask for the code via 
+email." You may think that of /course/ it's a rational or ordinary 
+person standard, but I promise you that if this license was ever 
+litigated, whether it was an ordinary person standard or the actual 
+user's sensibilities would be be a point of contention, to the tune of 
+mid-five figures of dollars. You can never write a contract that doesn't 
+require some interpretation, but where you can use objective, measurable 
+standards, like here, the better off everyone is because it prevents 
+disputes.
+
+Under III.1. you refer to "source form" but use "source code" elsewhere. 
+There is a principle in contract interpretation that when you use 
+different words it's because you meant it to have different meanings. So 
+if you mean source code here, then you should use "source code," not 
+"source form." If you mean that "source form" is something different 
+from "source code," then you need to clarify that. Find-and-replace is 
+the contract drafter's friend, to make sure that the same term is used 
+consistently throughout.
+
+The structure of the rights grants is:
+
+III.1. Copyright grant of some scope
+
+III.2. Copyright grant of some scope
+
+III.3. Copyright grant of some scope
+
+III.4. Copyright grant of some scope
+
+III.5. Can add your own attribution
+
+III.6. Patent grant of some scope
+
+III.7 Copyright grant of some scope that has some optional variables 
+(also refers to 6a, which should be 7a)
+
+III.8 No advertisement clause
+
+III.9 No warranties and limitation of liability
+
+You should be able to spot the problem - there are five different 
+sections that carve up rights under copyright law. Some of them use 
+terms of art and some do not. How is "giving away" under III.1. 
+different from "distributing" under III.3 or "redistributing" under 
+III.4.? Some of the grants are for "Standard Version" and some for 
+"Software," which are overlapping categories. The copyright grants 
+aren't even grouped together. This all makes it exceedingly difficult to 
+understand this license and, when you have so many different overlapping 
+scopes, there is bound to be a loophole somewhere. If you need to have 
+all these separate grants, then they should to be written in parallel 
+structure so the reader can easily see how they fit together.
+
+I haven't read this license thoroughly, this is just what I picked up on 
+a quick read, so I'm not suggesting that there aren't other 
+inconsistencies elsewhere. But on a rewrite you should consider these 
+structural drafting problems.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PLEASE NOTE OUR NEW MAILING ADDRESS
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal
+www.chesteklegal.com
+
+
+On 7/10/2025 11:24 AM, Josh Berkus wrote:
+> On 6/30/25 17:33, Josh Berkus wrote:
+>> Lucy Randall,
+>>
+>> We are approaching 2 months from the submission of this license, our 
+>> usual interval for examination.  You've received some critical 
+>> feedback from our volunteer attorneys.  Do you plan to revise the 
+>> license submission, or keep it as it is?
+>>
+>
+> For the record, the submitter plans to submit a revised text.
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20250719/de15922d/attachment.htm>

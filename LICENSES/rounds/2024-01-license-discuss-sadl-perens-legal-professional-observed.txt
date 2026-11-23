@@ -1,0 +1,301 @@
+Source: OSI license-discuss public archive, 2024-January.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 10 in "Request for Comment: Software and Development License, version 3.0" (2024-01-28)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From bruce at perens.com  Mon Jan 29 20:52:44 2024
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 29 Jan 2024 12:52:44 -0800
+Subject: [License-discuss] Request for Comment: Software and Development
+ License, version 3.0
+In-Reply-To: <3614E31F-608E-48EE-85F0-832D03DA7E0B@getmailspring.com>
+References: <3614E31F-608E-48EE-85F0-832D03DA7E0B@getmailspring.com>
+Message-ID: <CAK2MWOsEekVP+R4XJQ2NUOw5LdpuG4YRpP1Eb-kCshUxtjFfLA@mail.gmail.com>
+
+Hi Alec,
+
+You don't mention if you are a lawyer, or if you have used one.
+
+It is kindest to the developers to give them a license that is the product
+of a legal professional, because of the greater probability that it will
+perform as expected when a judge interprets it, rather than letting the
+developer down by surprising them with how it _doesn't_ do that. We have
+real experience, for example Larry Wall's first Artistic license was
+interpreted as a dedication to the public domain by a judge. That said,
+I've seen lawyers who were fully licensed, but IMO poorly trained or simply
+without aptitude, make terrible mistakes. Having a *good *one is better
+than just having one.
+
+Is the benefit of your license greater to developers than the cost? The
+cost is the potential combinatorial problem of combining this license with
+others in the OSI collection of around 100 (I haven't counted lately), *and
+*the cost of understanding yet another license. For this reason I would
+generally ask people not to contribute a new one unless it's really
+revolutionary.
+
+Software and Development License version 3.0 (SADLv3)
+>
+
+As mentioned by others, you aren't licensing development.
+
+> !!! THIS IS A DRAFT. DO NOT USE THIS LICENSE UNTIL A FINAL VERSION IS
+> APPROVED AND RELEASED !!!
+>
+
+Good caution.
+
+
+> Copyright (C) <Year>, <Copyright holder name(s)>
+> All rights reserved.
+>
+
+Although "All Rights Reserved" was necessary once, all rights are now
+reserved automatically the moment pen is set to paper, without a need to
+say anything. In the US this was effective March 1, 1989, as part of the
+Berne Convention Implementation Act. The 210 or so signatories each
+ratified this aspect of the Bern Convention on Copyright at various times,
+but it is done.
+
+The Software and Development License was created to fill what
+> was perceived as a void in open-source licenses. The GPL licenses, while
+> great, can and have caused unnecessary incompatibilities with other open-
+> source licenses. On the other end, the BSD licenses, while widely
+> compatible, are very permissive and do not have some of the protections
+> provided in other licenses. The SADL aims to be widely compatible while
+> still maintaining some protections.
+>
+
+Good sentiment, but perhaps a bit too much optimism here if you think your
+version *isn't *going to cause incompatibilities too, just different ones.
+
+
+> Works covered by this license are referred to as the "Work". The binary
+> (machine-readable format) and source (human-readable format) forms are
+> covered under this license.
+>
+
+This is unnecessarily restrictive. Better language would be "All forms of
+the work are restricted by these terms, including binary (machine-readable)
+and source code (human-readable)  forms. This is a bit of a contrived
+example, but perhaps there could be an auditory rendition of the source
+code.
+
+Documentation and other types of files such
+> as images can be licensed under these terms and are considered part of
+> the Work in those cases.
+>
+
+You are self-contradictory here, as your previous sentence can be read
+as *excluding
+*images and documentation.
+
+For the purposes of this license, source files for interpreted languages
+> (such as BASH, Python, Perl, etc.) are considered both binary and source
+> formats, since a source file constitutes both a machine-readable and
+> human-readable format in the case of interpreted languages.
+>
+
+Well, binary forms seem to be important here, and in the subsequent
+language, but this is again unnecessarily restrictive because it doesn't
+take into account future development. Suppose, for example, that your code
+is used to train a neural network, and within the network it does not exist
+in any recognizable binary or source-code form, but the network is still
+capable of spitting out portions of it on request?
+
+### B. Conditional grant of permissions
+>
+> 1. Redistribution, use, and modification of the Work is permitted when the
+> conditions listed in this license are met.
+>
+> 2. If any of the conditions of this license are not met, all permissions
+> granted in this license are automatically terminated until all conditions
+> of this license are met in full. When compliance is fully restored,
+> then all permissions are automatically restored.
+>
+
+You are leaving open the question here of whether violations during a
+period of infringement can be enforced once the infringement is cured. I
+doubt this is what you want for the developer's sake, if any of them
+actually try to enforce their license in a court. The only purpose of the
+license is to be parsed by a judge in enforcement. Of course if you don't
+want that to ever happen, you can use a dedication to the public domain.
+Thus, we should carefully craft our licenses to be executed as we wish by a
+judge.
+
+
+> 3. The copyright holder(s) grant a non-exclusive,
+> royalty-free patent license for the covered Work, if any part
+> of the work is covered by a patent.
+>
+
+Qualcom operated - probably still does - a subsidiary exclusively for the
+purpose of circumventing this sort of provision. It licenses copyrighted
+works and doesn't own any of their patents. Good licenses thus have
+additional language about ownership and control of patents.
+
+4. The Work is provided by the copyright holder(s) and contributor(s)
+> without any warranty, either express or implied.
+>
+
+This term may cause severance of the license without additional language to
+the effect of "to the extend allowable by law". And this brings up that you
+don't mention severance, and what the effect of it should be.
+
+
+> ### C. Retention of copyright notices, conditions, and disclaimers
+>
+> 1. Redistributions of source code must retain the copyright notice,
+> a list of all conditions in this license, and all disclaimers present
+> in this license.
+>
+
+A list of all conditions and disclaimers in the license is not the license
+text. "This license text" would be a better choice.
+
+
+> 1. Distributors of modified binaries must also make the modified source
+> code used to produce them available.
+>
+
+This brings up the RHEL circumvention. RHEL requires of its customers that
+they refrain from redistributing the source code for some changes that they
+receive, or they will be banned from being customers any longer. This
+circumvention is presently applied to 1/3 of all paid-for Linux systems, by
+IBM. This is Billions of dollars. It's a big enough deal that new licenses
+should consider, and explicitly prohibit, such circumventions. The Neo4J
+case decided unfavorably about the GPL terms (a requirement for no added
+language) being effective, and this will go to appeal. You should be
+acquainted with case law like this when you design a license, or use a
+professional who is.
+
+2. If user(s) have interactive access to a modified binary via a computer
+> network, the source code used to produce those binaries must be made
+> available to the user(s), either for free (no-cost) on a network server,
+> or a reasonable fee may be charged for the conveyance of a copy on physical
+> media.
+>
+
+This is an attempt to apply a public performance right to software as the
+AGPL tries. Copyright law so far only defines public performance for a very
+limited set of performances, and not for software, so none of the licenses
+actually attempt to restrict a possible public-performance right directly,
+and instead have roundabout ways to do it. I think what you are looking for
+is something like "If any representation of the work is performed, run, or
+executed for a person, that person shall be granted a copy of the source
+code upon request", but a lawyer might do better than me with that bit.
+
+The physical medium and fee is obsolete and used as an excuse to not put
+stuff online, for which no fee should be necessary.
+
+3. If a combined work is distributed as permitted in Section F, Clause 2,
+> and the license governing the other work(s) combined with the Work
+> requires disclosure or availability of the source code as a condition of
+> distribution, then that requirement shall also apply to the Work.
+>
+
+Under the terms of the other license? If that's what you mean, say so.
+
+
+> 1. The copyright holder(s) may, at their discretion, permit the use
+>
+
+Use is a specific right in copyright. Don't use it this way :-) What you
+are trying to say is that the copyright holder may permit the licensee to
+apply a later version of the license to this work, only if the copyright
+holder explicitly grants that permission as part of their copyright
+statement.
+
+
+> 2. Permission is granted to distribute the Work when combined via linking
+> with other works, provided that the other work's license permits
+> modification
+> and redistribution of source and binary forms.
+>
+
+And what if I combine the work through RPC? Exact same effect without
+technically linking. This sort of term is unnecessarily restrictive of the
+technology used to combine two works, and thus self-defeating. If you
+really want the effect, it has to be something about combination of the
+work in execution, and I'd want to sit down with a lawyer for a few days to
+formulate that and keep it within the OSD.
+
+3. Permission is granted to use the work as a data input or data source for
+> machine learning, commonly referred to as "AI", "Artificial Intelligence",
+> "LLM"/"Large Language Model", and/or other algorithmic methodologies that
+> utilize significant amounts of data from multiple sources and a set of
+> user-specified instructions and/or constraints to provide (presumably)
+> intelligent
+> and tailored output, provided that the output of such reproduces the
+> copyright
+> notice and this list of conditions.
+>
+
+Well, sort of clever but it doesn't actually say that the copyright notice
+and conditions shall actually *apply* to the resulting output.
+
+Because the output of the Work during normal use and execution is not
+> considered
+> to be a part of the Work, this license does not restrict the use of the
+> output
+> obtained from the Work.
+>
+
+This language doesn't really seem sufficient to achieve the desired effect.
+For example, there is the condition that similar terms in various FSF
+licenses attempt to restrict, in which the program is commanded to output
+its own source code.
+
+
+>
+> ### F. Restrictions, requirements, and additional grant of permissions
+>
+> 1. When the Work is distributed to other user(s), whether directly or
+> indirectly,
+> the user(s) automatically receive a license from the copyright holder(s)
+> and
+> contributor(s). Termination of an individual or entity's license under
+> Section B,
+> Clause 2 does not affect any other user(s) license to use the Work, even
+> if the
+> user(s) received the Work from the entity or individual(s) that have had
+> their
+> license terminated.
+>
+> 2. Copyright holder(s) and distributors may not impose additional
+> terms or requirements that restrict or remove any permissions or
+> conditions of this
+> license. Should additional terms or requirements be imposed, they may be
+> disregarded
+> as null and void.
+>
+
+I remain convinced that people got the phrase "null and void" from the
+language on cereal box coupons, this being the legal language they were
+most likely to read while young. My comments above about extra terms apply
+here. Since this is fundamental to the Neo4J case, this is a place where a
+professional who is following relevant cases should determine the language.
+
+
+> However, the full terms and conditions of this license remain
+> in effect.
+>
+> 3. Additional permissions may be granted by the copyright holder(s). These
+> additional
+> permissions are exceptions to one or more conditions of this license.
+>
+
+So, I've pointed out the issues to make a point about the concerns that
+face license drafters who want to do the best job for the developers who
+will use the license. However, I don't really see any merit in continuing
+with this license text, it doesn't make a positive contribution to the
+community that is as great as the cost of having yet another license, at
+the moment, and it's difficult to see how it could be modified to make one.
+
+    Thanks
+
+    Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20240129/f430fa26/attachment-0001.html>
