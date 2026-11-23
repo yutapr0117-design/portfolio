@@ -108,13 +108,14 @@ Proposed Tags:                  None
 softening: no lawyer drafted or reviewed it (#1), and the only project using it is the
 submitter's own (#4).
 
-### A.1 Affirmative statement of OSD compliance
+### A.1 Affirmation of OSD compliance — the owner's to make
 
 OSI's process requires the submitter to "affirmatively state that the license complies with the
-Open Source Definition". **Stated plainly: I affirm that ACD-1.4 complies with the Open Source
-Definition.** The criterion-by-criterion analysis is in §3, and **§3b sets out, for each of the ten
-criteria, where a reviewer could still argue the opposite** — the affirmation is not offered in
-place of that, and nothing in §3b is withdrawn by making it.
+Open Source Definition", naming OSD 3, 5, 6 and 9 in particular. **The affirmation is the owner's
+to make, in his own words** (decision 3b of the five, extended to this section on 2026-11-23); the
+clauses behind it, criterion by criterion, are in §B.0 section 3, and
+[`ACD-1.0.submission-osd.md`](ACD-1.0.submission-osd.md) sets out, for each of the ten criteria,
+**where a reviewer could still argue the opposite** — the affirmation is not offered in place of that.
 
 
 ---
