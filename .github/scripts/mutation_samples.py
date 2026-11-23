@@ -564,7 +564,7 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 468z: 次版の CHANGELIST の「## 記述子の候補」の箇条が引く条を、草案に無い §5.9 にする —— 節の名が「### N.M の記述子の"
             "下書き」から変わり、468z は OK 行に「—」を出して候補を照らしていなかった (2026-11-23)",
-    "file": ROOT / "LICENSES" / "ACD-1.5-CHANGELIST.md",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
     "find": "`true`・§5.2・`note`",
     "replace": "`true`・§5.9・`note`",
 })
