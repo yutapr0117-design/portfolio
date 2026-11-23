@@ -33,6 +33,11 @@
 使い方:
     python3 .github/scripts/measure_clause_clarity.py                # 手元のキャッシュで測る
     python3 .github/scripts/measure_clause_clarity.py --fetch        # 比較対象を SPDX から取得
+    python3 .github/scripts/measure_clause_clarity.py --diff         # 作業中の草案と直前の確定版の差だけ (外部 fetch なし)
+
+**--diff (2026-11-23・5e の依頼)**: 次版の方針「各変更は語数と 45 語超の割合の差を申告する」(1.5 の (B)) のために、
+作業中の草案と直前の確定版の本文 (条項部分) を同じ定義で測り、語数・文数・45 語超の割合の差と、45 語超の文のうち
+片側にだけ在るもの (新しく長くなった文・長くなくなった文) を出す。ACD 同士だけなので外部 fetch は要らない。
 環境変数 `CLARITY_CACHE`（既定 /tmp/lic）に比較対象の本文を置く。
 """
 import argparse
@@ -102,11 +107,44 @@ def fetch_peers():
         print("fetched", lid, file=sys.stderr)
 
 
+def diff(here):
+    """作業中の草案と直前の確定版の差 (--diff)。返り値は表示した行の数 (テスト用)。"""
+    _v = _current_draft_version()
+    major, minor = _v.split(".")
+    prev = f"{major}.{int(minor) - 1}"
+    texts = {}
+    for name, path in ((f"ACD-{prev}", f"LICENSES/ACD-{prev}.txt"), (f"ACD-{_v} draft", f"LICENSES/ACD-{_v}-DRAFT.txt")):
+        with open(os.path.join(here, path), encoding="utf-8") as fh:
+            texts[name] = body(fh.read())
+    (a_name, a), (b_name, b) = texts.items()
+    ra, rb = row(a_name, a), row(b_name, b)
+    wa, wb = len(a.split()), len(b.split())
+    print("words = 条項部分 (1. DEFINITIONS 〜 END OF TERMS) の語数。草案冒頭の申告 (題名から) とは範囲が違う")
+    print(f"{'':16}{'words':>7}{'sents':>7}{'mean':>7}{'45+%':>7}{'sub2%':>7}")
+    for r, w in ((ra, wa), (rb, wb)):
+        print(f"{r[0]:16}{w:>7}{r[1]:>7}{r[2]:>7}{r[5]:>7}{r[7]:>7}")
+    print(f"{'diff':16}{wb - wa:>+7}{rb[1] - ra[1]:>+7}{round(rb[2] - ra[2], 1):>+7}{round(rb[5] - ra[5], 1):>+7}{round(rb[7] - ra[7], 1):>+7}")
+    long_a = {s for s in sentences(a) if len(s.split()) > 45}
+    long_b = {s for s in sentences(b) if len(s.split()) > 45}
+    shown = 3
+    for label, only in (("45 語超になった文 (草案にだけ在る)", long_b - long_a), ("45 語超でなくなった文 (確定版にだけ在る)", long_a - long_b)):
+        print(f"\n{label}: {len(only)}")
+        for s in sorted(only, key=lambda x: -len(x.split())):
+            print(f"  [{len(s.split())}] {' '.join(s.split()[:14])} …")
+            shown += 1
+    return shown
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--fetch", action="store_true",
                     help="比較対象の本文を SPDX から取得してキャッシュする")
+    ap.add_argument("--diff", action="store_true",
+                    help="作業中の草案と直前の確定版の差だけを出す (外部 fetch なし)")
     args = ap.parse_args()
+    if args.diff:
+        diff(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+        return
     if args.fetch:
         fetch_peers()
     here = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
