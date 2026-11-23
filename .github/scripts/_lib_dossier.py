@@ -437,3 +437,39 @@ def submission_target_version(licenses_dir: Path) -> str:
     sm = licenses_dir / "ACD-1.0.submission.md"
     m = re.search(r"<!--\s*SUBMISSION-TARGET:\s*ACD-(\d+\.\d+)\s*-->", sm.read_text(encoding="utf-8")) if sm.exists() else None
     return m.group(1) if m else "1.0"
+
+
+# ── register の英語の索引の "Other side:" の欄 (Check 503・2026-11-23 の議題 7・5/0/0) ─────────────
+_OTHER_BANNED = re.compile(r"^(?:none|n/?a|—|-|tbd|see (?:the )?japanese.*)$", re.I)
+
+
+def register_other_side_misses(licenses_dir: Path) -> tuple[list[str], list[str]]:
+    """日本語の行が **逆側** を持つ B について、英語の索引の行が "Other side: …" の句を持つこと。返り値: (対象の B, 誤りの文)。
+
+    条件 (5 人の合議で決めた): 句は 5 語以上で、決まり文句 (none・n/a・—・TBD・see Japanese) でない / 対象の句どうしが同じ文でない /
+    日本語の行の逆側の段に固有名 (英字の大文字で始まる語) か年 (YYYY) があれば、そのどれか 1 つが英語の句にも在る。句の向き
+    (その行の結論と反対の側) は中身の規則で、機械は判定しない。英語の行は日本語の行の要約で、日本語の行に逆側を足しても
+    英語の行は片側のまま黙ってずれた (B1・cd の報告)。語の印 (against・however …) で照らす形は 15 本中 8 本が誤検出だった。
+    """
+    t = (licenses_dir / "ACD-OSI-BOTTLENECKS.md").read_text(encoding="utf-8")
+    en = {m.group(1): m.group(0) for m in re.finditer(r"^\| (B\d+) \|.*$", t, re.M)}
+    ja = {m.group(1): m.group(0) for m in re.finditer(r"^\| \*\*(B\d+)\*\* \|.*$", t, re.M)}
+    targets = sorted((b for b, row in ja.items() if "逆側" in row), key=lambda b: int(b[1:]))
+    bad, seen = [], {}
+    for b in targets:
+        m = re.search(r"Other side:\s*([^|]*)", en.get(b, ""))
+        phrase = " ".join(m.group(1).split()).strip(" .") if m else ""
+        if not m:
+            bad.append(f"{b}: 英語の行に \"Other side:\" の句が無い")
+            continue
+        if len(phrase.split()) < 5 or _OTHER_BANNED.match(phrase):
+            bad.append(f"{b}: \"Other side:\" の句が 5 語未満か決まり文句 ({phrase[:40]!r})")
+            continue
+        if phrase in seen:
+            bad.append(f"{b}: \"Other side:\" の句が {seen[phrase]} と同じ文")
+        seen[phrase] = b
+        side = ja[b][ja[b].index("逆側"):]
+        anchors = set(re.findall(r"\b[A-Z][A-Za-z]{2,}\b|\b(?:19|20)\d\d\b", side)) - {"ACD", "OSI", "OSD", "The", "This", "Section"}
+        if anchors and not any(re.search(r"\b" + re.escape(a) + r"\b", phrase) for a in anchors):
+            bad.append(f"{b}: \"Other side:\" の句が、日本語の逆側の固有名か年 ({sorted(anchors)[:4]}) のどれも持たない")
+    return targets, bad

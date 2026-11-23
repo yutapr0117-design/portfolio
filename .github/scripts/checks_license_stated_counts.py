@@ -41,6 +41,10 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        "* It has not been posted to any list." と "Changes since the version posted on <日付>" が同時に在れば RED。投稿の後の
        箇条 "It was posted to license-discuss on <日付>" と節の日付が違えば RED、一方だけが在っても RED (草案が自分の状態に
        ついて嘘をつく形・安全網の規律 (1))。
+  503. **register の英語の索引の行が、日本語の行の逆側を "Other side: …" の句で持つこと** (BLOCKING・2026-11-23・議題 7・5/0/0):
+       日本語の行が **逆側** を持つ B では、英語の行に 5 語以上の "Other side:" の句が在り、決まり文句でなく、他の B の句と
+       同じ文でなく、日本語の逆側の固有名か年のどれか 1 つを持つ。英語の行は日本語の行の要約で、日本語の行に逆側を足しても
+       片側のまま黙ってずれた (B1)。本体は `_lib_dossier.register_other_side_misses`。対象の数は OK 行に出す (規律 (6))。
 """
 import datetime
 import re
@@ -416,3 +420,11 @@ def run(ctx):
           f"Check 502: 草案が自分の投稿の状態について食い違う: {_bad502}。投稿の日は節と状態の箇条を同じ commit で直す (1c の合意)",
           blocking=True)
 
+    # ── 503. register の英語の索引の行が、日本語の行の逆側を "Other side: …" の句で持つこと (BLOCKING) ─────────
+    #   2026-11-23 の議題 7 (5/0/0・cd の報告・6d の転送)。条件は 5 人の合議 (句は 5 語以上・決まり文句でない・同じ文でない・
+    #   日本語の逆側の固有名か年が英語の句にも在る)。句の向きは中身の規則で cd が守る
+    from _lib_dossier import register_other_side_misses
+    _tg503, _bad503 = register_other_side_misses(L)
+    check(not _bad503, f"Check 503: register の英語の索引の行が、日本語の行の逆側を \"Other side:\" の句で持つ (対象 {len(_tg503)} 本: {', '.join(_tg503)})",
+          f"Check 503: {_bad503}。英語の行は審査者が読む要約なので、日本語の行に逆側を足したら英語の行にも同じ側を 1 句で置く",
+          blocking=True)
