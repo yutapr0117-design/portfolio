@@ -202,7 +202,7 @@ def run(ctx):
 
 
 # 470b の対象: 審査者・法律家に出す、本文を「いまの文」として引く文書 (errata・against・試作の冊は途中の草案を歴史として引くので外す)
-_OUTWARD470B = ("ACD-1.0.submission*.md", "REVIEWERS.md", "ACD-1.*-CLAUSE-REFERENCE-DRAFT.md", "ACD-1.0.faq*.md",
+_OUTWARD470B = ("ACD-1.0.submission*.md", "REVIEWERS.md", "ACD-1.*-CLAUSE-REFERENCE-DRAFT.md", "ACD-1.*.clause-reference.md", "ACD-1.0.faq*.md",
                 "ACD-1.0.review-responses*.md", "ACD-1.0.objection-map.md", "SUBMISSION-MATERIALS.md", "READY-TO-SUBMIT.md",
                 "QUESTIONS-FOR-COUNSEL.md")
 

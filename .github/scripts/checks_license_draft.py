@@ -735,7 +735,9 @@ def run(ctx):
         _trs468y = sorted((ROOT / "LICENSES").glob(f"ACD-{_v468y}-*CLARITY-TRIAL.md"))
         _tr468y = _trs468y[0] if _trs468y else ROOT / "LICENSES" / f"ACD-{_v468y}-CLARITY-TRIAL.md"
         # 逐条の下書きは作業中の版のものが無ければ、直前の版のもの (次版の逐条は確定まで書き直さない・1.4 の逐条が 1.5 の条を述べる)
-        _crs468y = sorted((ROOT / "LICENSES").glob("ACD-1.*-CLAUSE-REFERENCE-DRAFT.md"), key=lambda _p: int(_p.name.split("-")[1].split(".")[1]))
+        # 逐条は確定の後に ACD-N.M.clause-reference.md へ改名しうる (2026-11-23 の合議の小議題)。新旧どちらの名も読む
+        _crs468y = sorted([*(ROOT / "LICENSES").glob("ACD-1.*-CLAUSE-REFERENCE-DRAFT.md"), *(ROOT / "LICENSES").glob("ACD-1.*.clause-reference.md")],
+                          key=lambda _p: int(re.match(r"ACD-1\.(\d+)", _p.name).group(1)))
         _cr468y = ROOT / "LICENSES" / f"ACD-{_v468y}-CLAUSE-REFERENCE-DRAFT.md"
         if not _cr468y.exists() and _crs468y:
             _cr468y = _crs468y[-1]
