@@ -18,6 +18,42 @@ canonical-ref: LICENSES/READ-THREADS.txt (読んだ件名の一覧・census の�
 **新しく読んだら**: この一覧の先頭に 1 件を足し、`AS-OF.md` のセルの「直近の 1 件」と件数を入れ替える。
 件名は同じ commit で `READ-THREADS.txt` にも足す（census が「読んだ」と数えるのはそちらだけ）。
 
+## 2026-11-23 の読了（新しいものが上）
+
+- 2026-11-23 に census の決める側の照合を直した —— 表示名が小文字・アドレスだけ・MIME 符号化の決める側の通（全 508 か月で約 224 通・Perens 氏 122・Berkus 氏 72・Rosen 氏・Piana 氏ほか）が照合から落ちていた（d7 の実測）。アドレスでも照らし MIME の表示名を解くと候補が 19 本増え、うち 2 本は読了の記録に在り、17 本は読んでいない。**11-16 の「0 本」は、この漏れのぶん狭い範囲の 0 だった**（11-16 の Jagielski 氏らの追加と同じ型）。一覧の見出しに census の定義の指紋を書き、定義を変えて一覧を作り直さない形を Check 498 (h2) が止める。11-16 の直近の 1 件: 2026-11-16 に "Subscription/Service Fees - OSD Intent"（`license-discuss` 2001-03・41 通・決める側の通と Taylor 氏の通を全文で読んだ・census の外）を `review-readings-6.md` §1.457 へ（OSD に実行の明文を求める・Taylor 氏、理事の「使用を縛る手段は無い」の引用）
+
+- 2026-11-23 に "tomsrtbt license, take 4"（`license-discuss` 2001-04・census の決める側の照合を直して候補に入った 17 本の 1 つ・決める側の通を全文で読んだ）を `review-readings-6.md` §1.464 の範囲で読んだ
+
+- 2026-11-23 に "Corel: No "internal" exemption in GPL"（`license-discuss` 1999-09・census の決める側の照合を直して候補に入った 17 本の 1 つ・決める側の通を全文で読んだ）を `review-readings-6.md` §1.464 の範囲で読んだ
+
+- 2026-11-23 に "How about license-review@opensource.org?"（`license-discuss` 1999-09・census の決める側の照合を直して候補に入った 17 本の 1 つ・決める側の通を全文で読んだ）を `review-readings-6.md` §1.464 の範囲で読んだ
+
+- 2026-11-23 に "agreement to comply"（`license-discuss` 1999-09・census の決める側の照合を直して候補に入った 17 本の 1 つ・決める側の通を全文で読んだ）を `review-readings-6.md` §1.464 の範囲で読んだ
+
+- 2026-11-23 に "Simple Public License, second draft"（`license-discuss` 1999-09・census の決める側の照合を直して候補に入った 17 本の 1 つ・決める側の通を全文で読んだ）を `review-readings-6.md` §1.464 の範囲で読んだ
+
+- 2026-11-23 に "support requirement"（`license-discuss` 1999-08・census の決める側の照合を直して候補に入った 17 本の 1 つ・決める側の通を全文で読んだ）を `review-readings-6.md` §1.464 の範囲で読んだ
+
+- 2026-11-23 に "Is this license open source?"（`license-discuss` 1999-08・census の決める側の照合を直して候補に入った 17 本の 1 つ・決める側の通を全文で読んだ）を `review-readings-6.md` §1.464 の範囲で読んだ
+
+- 2026-11-23 に "Put it in laymen's terms"（`license-discuss` 1999-07・census の決める側の照合を直して候補に入った 17 本の 1 つ・決める側の通を全文で読んだ）を `review-readings-6.md` §1.464 の範囲で読んだ
+
+- 2026-11-23 に "Zeratec Public License"（`license-discuss` 1999-07・census の決める側の照合を直して候補に入った 17 本の 1 つ・決める側の通を全文で読んだ）を `review-readings-6.md` §1.464 の範囲で読んだ
+
+- 2026-11-23 に "New Licensing Model?"（`license-discuss` 1999-07・census の決める側の照合を直して候補に入った 17 本の 1 つ・決める側の通を全文で読んだ）を `review-readings-6.md` §1.464 の範囲で読んだ
+
+- 2026-11-23 に "License certification request"（`license-discuss` 1999-07・census の決める側の照合を直して候補に入った 17 本の 1 つ・決める側の通を全文で読んだ）を `review-readings-6.md` §1.464 の範囲で読んだ
+
+- 2026-11-23 に "GPL for Ftwalk"（`license-discuss` 1999-06・census の決める側の照合を直して候補に入った 17 本の 1 つ・決める側の通を全文で読んだ）を `review-readings-6.md` §1.464 の範囲で読んだ
+
+- 2026-11-23 に "code and design"（`license-discuss` 1999-05・census の決める側の照合を直して候補に入った 17 本の 1 つ・決める側の通を全文で読んだ）を `review-readings-6.md` §1.464 の範囲で読んだ
+
+- 2026-11-23 に "GNU GPL and Open Source Definition"（`license-discuss` 1999-04・census の決める側の照合を直して候補に入った 17 本の 1 つ・決める側の通を全文で読んだ）を `review-readings-6.md` §1.464 の範囲で読んだ
+
+- 2026-11-23 に "Please remove @medicalmurray from this list"（`license-review` 2016-06・census の決める側の照合を直して候補に入った 17 本の 1 つ・決める側の通を全文で読んだ）を `review-readings-6.md` §1.464 の範囲で読んだ
+
+- 2026-11-23 に "Do Whatever You Want To With It Public License Approval"（`license-review` 2010-11・census の決める側の照合を直して候補に入った 17 本の 1 つ・決める側の通を全文で読んだ）を `review-readings-6.md` §1.464 の範囲で読んだ
+
 ## 2026-11-16 の読了（新しいものが上）
 
 - 2026-11-16 に "Extending copyleft and out-of-the-box compliance"（通読・Ingo 氏の候補の外）。ACD に当たる新しい論点は無かった（節は立てない）

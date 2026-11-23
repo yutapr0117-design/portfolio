@@ -417,42 +417,127 @@ def run(ctx):
         "fail-soft な既定値へ degrade させ、専任 Check に診断させよ",
     )
 
-    # ── 413. runbook §9 の追跡ファイルの行が絶対値を持たず、式が実測で成り立つこと (BLOCKING・2026-11-23 に作り直した) ──
-    # 旧版 (2026-08-10〜11-22) は行の絶対値を実測と ±5 で比べる ADVISORY と、内訳の足し算 (413b)・Check 108 の引用の数
-    #   (413c) の BLOCKING だった。絶対値を行から外したので、413b / 413c の面は「式と引用の形を保つ」へ移した。経緯は map の 413 の行
+    # ── 413. runbook §9 の tracked-file baseline 鮮度 (ADVISORY) ───────────────────
+    # `docs/architecture/total-check-runbook.md` §9 は CLAUDE.md が「数値の真値」と宣言する面で、
+    # §7 の数値が drift したときも §9 を正とする、と canon に書かれている。だが §9 の実測値には
+    # 機械強制が無いものがあり、runbook 自身が「verify 緑のまま drift しうる volatile baseline
+    # (実際 243→567 まで長期 drift していた)」と認めている。実際 2026-08-10 の再測定で
+    # 追跡ファイル総数 490→502 / 非 docs/files source 244→250 の drift を検出した。
+    # **真値を名乗る doc が黙って古くなる**のが最も害が大きい (読み手は再測定せず信じる) ため、
+    # 乖離を ADVISORY で可視化する。BLOCKING にしないのは、この値は file を 1 つ足すたびに動く
+    # 正当な volatile 値であり、全 PR に runbook 更新を強制すると churn になるから (Check 60 と
+    # 同じ「advisory 早期警告 + 別レイヤーの hard gate」二層設計の advisory 側)。
+    # 許容は **絶対 5 件**。当初 ±3% にしたが、それでは今回検出した 12 件の drift (490→502) を
+    # 見逃す設定であり、**動機となった drift を捕捉できない Check は無意味** (自作 gate の
+    # 非 vacuity を実測して発見)。5 件なら 1 セッション内の数件追加は黙認しつつ、放置された
+    # 乖離は必ず警告になる。
     import subprocess as _sp413
     _runbook413 = ROOT / "docs" / "architecture" / "total-check-runbook.md"
     if _runbook413.exists():
         _rb413 = _runbook413.read_text(encoding="utf-8")
-        # 2026-11-23 に作り直した (6d と cd の観察・fc): 行は絶対値を持っていたので、5 人が並行して file を足すと merge の
-        #   たびに数がずれ、PR どうしが衝突して workflow が起動しなかった (#3864 → #3875 ほか)。行は数を持たず、権威の
-        #   コマンドと式 (総数 = 2 × source + 2) を述べる。413 は (1) 行に太字の絶対値が戻らないこと、(2) 行が式と Check 108 の
-        #   引用の形を保つこと (旧 413b / 413c の面)、(3) 実測で式が成り立つことを BLOCKING で見て、実測の値を OK 行に出す
-        _row413 = next((ln for ln in _rb413.splitlines() if ln.startswith("| 追跡ファイル総数 |")), "")
-        _bad413 = []
-        if not _row413:
-            _bad413.append("runbook §9 に「| 追跡ファイル総数 |」の行が無い")
-        _nums413 = re.findall(r"\*\*(\d{3,})\*\*", _row413)
-        if _nums413:
-            _bad413.append(f"行が太字の絶対値 {_nums413[:4]} を持つ (数は Check 413 の OK 行が出す。行に戻すと並行の衝突源が戻る)")
-        if _row413 and "総数 = 2 × source + 2" not in _row413:
-            _bad413.append("行が式「総数 = 2 × source + 2」を述べていない (旧 413b の面: 内訳の算術)")
-        if _row413 and "`all N tracked files have a 1-to-1 docs/files mirror`" not in _row413:
-            _bad413.append("行が Check 108 の OK メッセージを「all N tracked files …」の形で引いていない (旧 413c の面: 引用の中の数)")
+        _m_total413 = re.search(r"\|\s*追跡ファイル総数\s*\|\s*\*\*(\d+)\*\*", _rb413)
+        _m_src413 = re.search(r"source file が \*\*(\d+)\*\*", _rb413)
         try:
-            _files413 = sorted({ln for ln in _sp413.run(["git", "ls-files", "-z"], cwd=str(ROOT), capture_output=True,
-                                                         text=True, check=True).stdout.split("\0") if ln})
-        except Exception:  # noqa: BLE001 — git 不在環境では実測を飛ばす (行の形の照合は続ける)
+            _files413 = [ln for ln in _sp413.run(
+                ["git", "ls-files", "-z"], cwd=str(ROOT), capture_output=True, text=True, check=True
+            ).stdout.split("\0") if ln]
+        except Exception:  # noqa: BLE001 — git 不在環境では検証をスキップ (ADVISORY ゆえ fail-soft)
             _files413 = []
-        _tot413 = len(_files413)
-        _src413 = sum(1 for f in _files413 if not f.startswith("docs/files/"))
-        if _files413 and _tot413 != 2 * _src413 + 2:
-            _bad413.append(f"実測で式が成り立たない: 総数 {_tot413} ≠ 2 × source {_src413} + 2 (mirror の欠けか余り・Check 108 も見る)")
-        check(not _bad413,
-              (f"Check 413: runbook §9 の追跡ファイルの行は数を持たず式を述べ、実測で式が成り立つ "
-               f"(総数 {_tot413} = 2 × source {_src413} + 2)" if _files413 else
-               "Check 413: runbook §9 の追跡ファイルの行は数を持たず式を述べる (git が無いので実測は飛ばした)"),
-              f"Check 413: {_bad413}", blocking=True)
+        if _files413 and _m_total413 and _m_src413:
+            _actual_total413 = len(_files413)
+            _actual_src413 = len([f for f in _files413 if not f.startswith("docs/files/")])
+            _rec_total413 = int(_m_total413.group(1))
+            _rec_src413 = int(_m_src413.group(1))
+            _drift413 = []
+            for _label413, _rec413, _act413 in (
+                ("追跡ファイル総数", _rec_total413, _actual_total413),
+                ("非 docs/files source", _rec_src413, _actual_src413),
+            ):
+                if abs(_act413 - _rec413) > 5:
+                    _drift413.append(f"{_label413}: 記載 {_rec413} vs 実測 {_act413}")
+            # OK 行にも記載・実測・差を出す (2026-11-11・portfolio-00 の報告): 実測だけを出して「整合」と書いたので、
+            #   許容 (±5) の中の差 (記載 1586 / 実測 1588) が CI の緑の下で見えなかった
+            check(
+                not _drift413,
+                f"Check 413 (ADVISORY): runbook §9 の tracked-file baseline が許容 ±5 の中 "
+                f"(総数 記載 {_rec_total413} / 実測 {_actual_total413} / 差 {_actual_total413 - _rec_total413:+d}・"
+                f"非 docs/files source 記載 {_rec_src413} / 実測 {_actual_src413} / 差 {_actual_src413 - _rec_src413:+d})",
+                f"Check 413 (ADVISORY): runbook §9 の baseline が実測から乖離 — {' / '.join(_drift413)}。"
+                "§9 は CLAUDE.md が「数値の真値」と宣言する面であり、古い値は読み手を誤らせる。"
+                "再測定して §9 を同期せよ (権威 = `git ls-files | wc -l`)",
+                blocking=False,
+            )
+        else:
+            check(True, "Check 413 (ADVISORY): tracked-file baseline の検証をスキップ (git 不在または §9 の記載形式変更)",
+                  "", blocking=False)
+
+        # 413b — §9 の内訳が**それ自身の足し算**として整合していること (BLOCKING)。
+        # 413 は 6 個ある数値のうち 2 個 (総数・source) しか git と突き合わせないため、行が
+        # **内部で矛盾していても緑**になる。実際 2026-08-22 時点で本行は「総数 530 / source 264 /
+        # mirror 250 / = 490」と **3 通りの総数を同時に主張**していた (264+250+2 は 516 で、
+        # 490 でも 530 でもない)。真値を名乗る面が自分自身と食い違っているのは、古いより悪い
+        # (読み手はどれを信じればよいか判断できない)。
+        # これは絶対値に依存しない**純粋な算術不変条件**なので、volatile な baseline であっても
+        # BLOCKING にできる — file を足せば全部の数が一緒に動くだけで、和の性質は常に成り立つ。
+        # 逆に「1 つだけ更新して他を忘れる」という現実の drift 経路をちょうど捕まえる。
+        # (Check 60 と同じ「ADVISORY 早期警告 + BLOCKING hard gate」二層設計の hard gate 側。)
+        # 413c — 同じ行が**引用する Check 108 の OK メッセージ**の数も、source と同じ量である
+        # こと (BLOCKING)。413b は行の中の 4 つの数 (総数 / source / mirror / 行末の合計) しか
+        # 見ておらず、**5 つ目の数を誰も見ていなかった**。実測 (2026-09-28): 4 つを同期した直後の
+        # 行が `all 284 tracked files have a 1-to-1 docs/files mirror` を引用しており、実際の
+        # Check 108 の出力は `all 636 ...` = **2.2 倍のズレ**だった。Check 108 の bijection 数は
+        # 定義上「docs/files 配下でない source の数」そのものなので、これは絶対値に依存しない
+        # **純粋な内部整合**で、volatile な baseline でも BLOCKING にできる (413b と同じ理由)。
+        # **一般形: ある行を守る Check を足すとき、守る数の集合は「気付いた数」ではなく
+        # 「その行が主張する数の全部」で取る。** 引用の中の数は、引用であるがゆえに
+        # 「他所の出力だから正しいはず」と読まれ、いちばん検算されない。
+        _m_c108q413 = re.search(r"all (\d+) tracked files have a 1-to-1 docs/files mirror", _rb413)
+        if _m_src413 and _m_c108q413:
+            _q413 = int(_m_c108q413.group(1))
+            _s413 = int(_m_src413.group(1))
+            check(
+                _q413 == _s413,
+                f"Check 413c: runbook §9 が引用する Check 108 の件数が同じ行の source と一致 ({_q413}・runbook の中の整合。"
+                "実測との差は 413 が見る)",
+                f"Check 413c: runbook §9 が引用する Check 108 の OK メッセージが {_q413} 件と述べているが、"
+                f"同じ行の「非 docs/files source」は {_s413} 件 — Check 108 の bijection 数は定義上"
+                "「docs/files 配下でない source の数」そのものなので、この 2 つは必ず一致する。"
+                "**引用の中の数は「他所の出力だから正しいはず」と読まれ、いちばん検算されない** "
+                "(実測 2026-09-28: 4 つの数を同期した直後の行が 284 と 636 を同時に主張していた)。"
+                "同一 commit で揃えよ",
+                blocking=True,
+            )
+        else:
+            check(False, "",
+                  "Check 413c: runbook §9 の Check 108 引用を parse できない — "
+                  "`all N tracked files have a 1-to-1 docs/files mirror` の記載形式を保つこと "
+                  "(形式を変えるならこの Check の正規表現も同一 commit で更新せよ)",
+                  blocking=True)
+
+        _m_mirror413 = re.search(r"mirror が \*\*(\d+)\*\*", _rb413)
+        _m_sum413 = re.search(r"_template\.md` の \*\*(\d+)\*\* = \*\*(\d+)\*\*", _rb413)
+        if _m_total413 and _m_src413 and _m_mirror413 and _m_sum413:
+            _t413 = int(_m_total413.group(1))
+            _parts413 = (int(_m_src413.group(1)), int(_m_mirror413.group(1)), int(_m_sum413.group(1)))
+            _stated413 = int(_m_sum413.group(2))
+            check(
+                sum(_parts413) == _t413 == _stated413,
+                f"Check 413b: runbook §9 の内訳が算術的に整合 "
+                f"({' + '.join(str(_p) for _p in _parts413)} = {_t413})",
+                f"Check 413b: runbook §9 の内訳が自分自身と矛盾している — "
+                f"内訳 {' + '.join(str(_p) for _p in _parts413)} = {sum(_parts413)} / "
+                f"行頭の総数 = {_t413} / 行末が主張する合計 = {_stated413}。"
+                "§9 は CLAUDE.md が「数値の真値」と宣言する面であり、"
+                "**複数の総数を同時に主張する行は古い値より有害** (読み手がどれを信じるか決められない)。"
+                "1 つの数値を更新したら同じ行の残りも同一 commit で揃えよ",
+                blocking=True,
+            )
+        else:
+            check(False, "",
+                  "Check 413b: runbook §9 の内訳を parse できない — "
+                  "「source file が **N**」「mirror が **N**」「`_template.md` の **N** = **N**」の"
+                  "記載形式を保つこと (形式を変えるならこの Check の正規表現も同一 commit で更新せよ)",
+                  blocking=True)
     else:
         # 対象が無いのに黙って skip しない (2026-11-02): 改名・移動を正しく済ませると他の Check は全部緑のまま、
         # ここだけが OK も ERROR も出さずに消える (460 / 469 で踏んだ形)。

@@ -1,0 +1,137 @@
+Source: OSI license-review public archive, 2012-January.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 25 in "OSI, legal conditions outside the "four corners" of the license, and PD/CC 0 [was Re: Can OSI specify that public domain is open source?]" (2012-01-02)
+Senders: Rick Moen
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From rick at linuxmafia.com  Mon Jan  2 23:06:34 2012
+From: rick at linuxmafia.com (Rick Moen)
+Date: Mon, 2 Jan 2012 15:06:34 -0800
+Subject: [License-review] OSI,
+ legal conditions outside the "four corners" of the license,
+ and PD/CC 0 [was Re: Can OSI specify that public domain is open source?]
+In-Reply-To: <CAFPTOkWtgFFC=XjFquDdChuWY5RWc1Q4QnZh=zaf2uW15dP=Xw@mail.gmail.com>
+References: <CAFPTOkWtgFFC=XjFquDdChuWY5RWc1Q4QnZh=zaf2uW15dP=Xw@mail.gmail.com>
+Message-ID: <20120102230634.GE22539@linuxmafia.com>
+
+Quoting Luis Villa (luis at tieguy.org):
+
+[my example of the former RSA patent's effect of preventing mod_ssl 
+from being open source despite its BSD terms:]
+
+> I don't think that's a sustainable position for OSI to base its
+> analysis on.
+
+Your objection would be quite relevant if I had alleged that OSI should
+base its licence analysis on external considerations that prevent a
+particular piece of software from being open source despite its
+licensing, but I simply said no such thing.
+
+I merely gave it as an example of a piece of software being proprietary
+despite licensing, and as a response to Chad Perrin's claim that a
+crypto software package should not be considered proprietary merely
+because some countries prohibit (strong) crypto as a bad 'precedent',
+pointing out to Chad that that 'precedent' already has a long history.
+
+Really, I doubt I was actually that unclear.  In fact, I am having a
+difficult time seeing that I was unclear at all.
+
+
+> [Happy new year! Bringing this up again in part because Red Hat
+> recently, and in my opinion correctly, reevaluated their position on
+> public domain in Fedora:
+> http://lists.fedoraproject.org/pipermail/announce/2011-December/003025.html]
+
+Sorry, but what's the relevance?
+
+Red Hat, Inc. are in the business of, among other things, deciding what
+packages meet their licensing criteria for Fedora based on all of the 
+surrounding facts, examining what known evidence might impair or prevent
+the intended PD declaration from having the desired legal effect in at
+least the most important legal jurisdictions.  OSI, by contrast, have
+neither the staffing nor the mandate to examine all of the relevant
+legal circumstances for particular software packages, nor actually
+anything about particular software packages.
+
+Nobody with half a brain has ever denied that any software is public
+domain that is either (1) truly public domain ab initio or by expiration
+of copyright runtime or (2) has had its copyright ownership title
+disavowed with conclusive and irreversible legal effect, at least in 
+jurisdictions deemed of interest.  The problem has always been
+determining when legal criteria for case #2 have been met.
+Additionally, a PD declaration is _not a licence_.  It is someone's
+assertion that either copyright title doesn't exist at all, or that
+he/she desires that his/her rights become permanently unenforceable.
+
+
+> The tl;dr position of those opposing PD was basically to ignore the
+> actual text of the PD statements and instead look to things outside
+> the "four corners" of the license; notably that (1) PD doesn't work in
+> all jurisdictions and/or (2) many things that are labeled PD are not
+> actually PD.
+
+I'm sorry, but there is always a relevant legal context to any purported
+legal instrument, and it would be height of folly to decide to ignore
+that context and focus solely on the licence -- or, in this case,
+non-licence -- text.
+
+The surrounding legal context makes PD declarations legally problematic
+to the point of being non-deterministic in ways that actual licences are 
+not.  E.g., it is not at all clear that an owner can effectively
+disclaim rights for (binding) his/her heirs, creditors, successors, and
+assigns.  It _is_ clear that there are very important jurisdictions
+where such intended jurisdictions simply fail to have the desired
+effect.  (Writing off the UK as unimportant seems, oh, I don't know,
+perhaps a bit rash, no matter what happened my home town of Hong Kong.)
+
+
+
+> Any non-trivial software has patent issues these days,
+> but OSI can't be in the business of saying "well, this particular
+> piece of software has patent issues, so it is not open source." 
+
+Mu.  OSI does not certify software.  Nobody upthread claimed that it
+does.
+
+> OSI can only reasonably say "this particular license, taken at face
+> value, gives the permissions necessary for the license to qualify as
+> an open source license."
+
+Unfortunately, there are some severe problems for PD declarations that
+simply don't exist for licences.  _And_ PD declarations aren't licences,
+anyway.  (CC0 is a special case because it includes a licence; see
+below.)
+
+
+> I think the objections to stating public domain disclaimers are open
+> source licenses fall into the same category. Yes, there are issues
+> with public domain in some jurisdictions....
+
+For values of 'issues' equating to 'has zero of the intended effect'.
+
+> FSF took this route by endorsing CC0....
+
+I'm sorry, but haven't we already gone over this a few times?  CC0 is
+_not_ a simple PD declaration, but rather a PD declaration with a safety
+fallback to a simple permissive licence for jurisdictions and
+circumstances in which for whatever reason the PD declaration clause
+doesn't work.  (There are good reasons why that fallback needs to be
+there.)
+
+Thus, it is an open cource licence because of the second half.  (It is
+also a _licence_ because of the second half.)
+
+
+
+> [Mind you, this is all modulo the caveat that I believe that OSI
+> should only approve licenses with patent grants. But since that isn't
+> currently a criteria for OSI, I think CC0 clearly qualifies.]
+
+So, is Creative Commons proposing CC0 for approval as an OSD-compliant
+licence?  I would certainly favour its approval, because it is (1) a
+licence that (2) is OSD-compliant and lacks fatal problems.  But I have
+not seen Creative Commons submit it.
+
+Are you also suggesting that some other PD declarations be OSI approved?
+If so, which are they, and are their authors submitting them?

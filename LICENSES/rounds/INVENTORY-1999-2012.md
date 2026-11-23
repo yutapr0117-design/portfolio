@@ -13,6 +13,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約と、分冊の一�
 |---|---|---|---|
 | 2002〜2005 | `license-discuss` | **観測（著作権を伴わない特許の許諾と、標準の特許方針・3 通）** | `2002-to-2005-license-discuss-standalone-patent-licences-observed.txt` |
 | 2012-02 | `license-review` | **観測（CC0 の審査から、特許について述べた 7 通）** | `2012-02-license-review-cc0-submission-patent-statements-observed.txt` |
+| 2012-02 | `license-review` | **観測（CC0 の取り下げの会話から 1 通・Tzeng 氏 2012-02-27・別の献呈と予備の許諾は増殖）** | `2012-02-license-review-cc0-withdrawal-tzeng-new-pd-dedication-proliferation-observed.txt` |
 | 2008-07〜09 | `license-review` / `license-discuss` | **観測（MirOS Licence の審査と、承認を勧めた 2008-09 の委員会報告・8 通）** | `2008-07-to-09-license-review-miros-licence-approval-observed.txt` |
 | 2005-09 | `license-discuss` | **観測（2005 年 9 月の委員会報告・改訂版・理事会の対応と返信。3 つの基準をめぐる 9 通）** | `2005-09-license-discuss-committee-report-three-criteria-observed.txt` |
 | 2009-01 / 2012-02 | `license-review` | **観測（CC0 の審査の手続きの枝と TGPPL の枝から 4 通）** | `2009-to-2012-license-review-cc0-process-and-tgppl-branches-observed.txt` |
@@ -46,6 +47,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約と、分冊の一�
 | 2008-03 | `license-review` | **観測（EUPL の審査から 1 通・Perens 氏 2008-03-16・準拠法を定めないことを求める案）** | `2008-03-license-review-eupl-perens-no-choice-of-law-observed.txt` |
 | 2006-03 | `license-discuss` | **観測（"Looking for license stewards" から 1 通・連絡の取れない steward の承認済みライセンス 12 本）** | `2006-03-license-discuss-looking-for-license-stewards-observed.txt` |
 | 2012-01 | `license-review` | **観測（"[PROPOSAL] Invite Creative Commons to submit CC0 Dedication." から 5 通・CC0 を招く前の、放棄と許諾を 1 つに持つ文書を審査できるかの議論）** | `2012-01-license-review-invite-cc0-observed.txt` |
+| 2012-01 | `license-review` | **観測（"four corners" の会話から 1 通・Moen 氏 2012-01-02・CC0 は予備の許諾のおかげでライセンス）** | `2012-01-license-review-four-corners-moen-cc0-fallback-observed.txt` |
 | 2012-02 | `license-review` | **観測（"OSI recognition for Creative Commons Zero License?" から 7 通・CC が出す前に利用者が承認を求めた、既存の許容型で足りるか、誰が出すべきか）** | `2012-02-license-review-osi-recognition-cc0-observed.txt` |
 | 2005-04 | `license-discuss` | **観測（"Official License Anti-Proliferation policy?" から 4 通・OSI の 2005-04-08 の声明の写しと、3 つの新しい基準の当てはめ方の説明）** | `2005-04-license-discuss-proliferation-statement-observed.txt` |
 | 2002-10 | `license-discuss` | **観測（"click-wrap is legally supportable?" から 3 通・同意を求めないライセンスの条項は争われうるか）** | `2002-10-license-discuss-click-wrap-observed.txt` |

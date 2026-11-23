@@ -84,6 +84,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約と、分冊の一�
 | 2013-08 | `license-discuss` | **観測（Rosen 氏の 1 通・OWFa の後継者を縛る約束、倒産法 365(n)、迂回しない約束）** | `2013-08-license-discuss-owfa-successors-bankruptcy-observed.txt` |
 | 2016-06 | `license-review` | **観測（Moritz30 の提出から 6 通・読めなければ適合しないと推定する、法律家への相談を要件にしない、長い語は効くために要る）** | `2016-06-license-review-moritz30-unclear-means-nonconformant-observed.txt` |
 | 2016-12 | `license-discuss` | **観測（React の別ファイルの特許許諾と、CC0 に添える特許の文言・4 通）** | `2016-12-license-discuss-react-patents-and-cc0-patent-language-observed.txt` |
+| 2016-12 | `license-discuss` | **観測（React のライセンスの会話から 1 通・Mitchell 氏 2016-12-02・すべての知的財産を名指すライセンスは無い）** | `2016-12-license-discuss-react-mitchell-all-ip-by-name-observed.txt` |
 | 2018-11 | `license-discuss` | **観測（OSD は特許にも及ぶという言明と、特許を含む定義の案・3 通）** | `2018-11-license-discuss-osd-and-patents-observed.txt` |
 | 2017-01〜04 | `license-discuss` | **観測（人気の一覧の作り方の提案と返信・3 通）** | `2017-01-to-04-license-discuss-systematic-approach-popular-licenses-observed.txt` |
 | 2016-08〜2017-03 | `license-discuss` | **観測（ARL OSL の議論から引いた 21 通・1/2 部）** | `2016-08-to-2017-03-license-discuss-arl-osl-cited-observed-1of2.txt` |
@@ -112,6 +113,8 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約と、分冊の一�
 | 2018-06 | `license-review` | **観測（NOSA 2.0 の会話から 2 通・作品全体に許諾する、プログラムの一部は機械の仕事、許諾は 1 つに統合された文書で）** | `2018-06-license-review-nosa-whole-work-machine-portions-observed.txt` |
 | 2014-05-04 | `license-discuss`（観測）| **Karl Fogel 氏の 1 通 → 観測保存** | *"would certify PD *when accompanied by* a particular patent non-assertion text"*。§3 と §8.6 の組み合わせに近い形への発言で、ドシエに記録が無かった |
 | 2017-10-26 | `license-discuss`（観測）| **Christopher Sean Morrison 氏の 1 通 → 観測保存** | *"something close to public domain yet still addressing indemnification and contributor patent grants"*。受益者が少ないという反論（#284）に当たる需要の記述で、採用の実績ではない |
+| 2017-10 | `license-review` | **観測（License Zero Reciprocal の審査から 1 通・Berkus 氏 2017-10-24・確かな利用者の無いライセンスは承認したくない）** | `2017-10-license-review-lzrpl-berkus-no-confirmed-users-observed.txt` |
+| 2017-10 | `license-review` | **観測（"resolving ambiguities in OSD" から 1 通・Berkus 氏 2017-10-24・承認の基準 4 つ）** | `2017-10-license-review-ambiguities-berkus-four-criteria-observed.txt` |
 | 2017-10 | `license-review` | **観測（Phipps 氏の 1 通・OSI・FSF・Debian の全部に承認されるかは良い事前点検）** | `2017-10-license-review-l0r-phipps-preflight-observed.txt` |
 | 2017-10 | `license-review` | **観測（Perens 氏の 1 通・使うだけの人には法的な負担を限りなく 0 に）** | `2017-10-license-review-l0r-perens-no-legal-load-observed.txt` |
 | 2014-05 | `license-discuss`（観測）| **Can OSI take stance that U.S. public domain is open sour → 観測保存（1of2 部）** | **当時の OSI 会長 Simon Phipps 氏が「CC0 は OSI が否決したのではなく取り下げられた」と明言**し、Fontana 氏が「CC0 は明らかに小文字の open source」、Cowan 氏が「明示的特許許諾が無いライセンスを open source でないとは誰も言えない」と述べている。**§3 の枠と特許 gap の重みの両方に当たる。** |

@@ -1,0 +1,40 @@
+Source: OSI license-review public archive, 2017-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 14 in "resolving ambiguities in OSD [was Re: For Approval: License Zero Reciprocal Public License]" (2017-10-24)
+Senders: Josh berkus
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From josh at postgresql.org  Wed Oct 25 00:49:55 2017
+From: josh at postgresql.org (Josh berkus)
+Date: Tue, 24 Oct 2017 17:49:55 -0700
+Subject: [License-review] resolving ambiguities in OSD [was Re: For
+ Approval: License Zero Reciprocal Public License]
+In-Reply-To: <20171025003636.GC9148@dev.kemitchell.com>
+References: <CAFjZtRdBsgYOYk7Vss=c3FTbOcoJQQs_dx5h2=WGO6X4cpWUgA@mail.gmail.com>
+ <CAK2MWOsvcEOV4O5URChq_L_iAwFf6b24qB7u=G94OToY7Mz5iQ@mail.gmail.com>
+ <20171025003636.GC9148@dev.kemitchell.com>
+Message-ID: <296fde9f-4cc8-6229-6e08-6d972ee7d695@postgresql.org>
+
+On 10/24/2017 05:36 PM, Kyle Mitchell wrote:
+>> It's not actually unwritten. You can find volumes about it on this list.
+>> Just not codified.
+> For what it's worth, as someone undergoing this process in
+> the first person for the first time, I can't overstate how
+> helpful it is to have static webpages setting out the
+> Definition, the annotations, and the review process.
+
+For that matter, as a member of this committee, if there are criteria
+other than the below for evaluating licenses, I would like to know about
+them:
+
+1. Is legally valid/rigorous
+
+2. Complies with OSD
+
+3. Is significantly different from existing licenses
+
+4. Has a substantiated use case
+
+Those are all of the criteria that I'm aware of.  So if there are others
+I should be examining, please let me know.
