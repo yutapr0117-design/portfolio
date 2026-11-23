@@ -57,14 +57,10 @@ MUTATIONS_ARCHIVE7 = [
     {
     "name": "Check 468x: 主表が「足す」と述べた語句 (or for a payment You agreed to make) を草案から消す —— After は「へ」の引用しか読まず、「*\"…\"* を足す」の引用は照合していなかった",
     "file": CURRENT_DRAFT,
-    "find": "(Section 11.3), or for a payment You agreed",
-    "replace": "(Section 11.3), or for anything You agreed",
-},
-    {
-    "name": "Check 468x: 主表が §1.3 から「外す」と述べた語句 (in whole or in part) を §1.3 に戻す —— 「外す」の引用は照合しておらず、外したはずの語が条に残っても通った",
-    "file": CURRENT_DRAFT,
-    "find": "\"Work\" means the material to which",
-    "replace": "\"Work\" means the material, in whole or in part, to which",
+    # 2026-11-23: 1.4 の確定の後、主表は 1.5 のもの (T135 の 1 行・「へ」の形) になり、この語句を述べる行が無くなって 468x が
+    #   鳴らなくなっていた (find は草案に残るので 362 は黙る・named_check_fired で MISSED を実測)。1.5 の主表の After を打つ
+    "find": "It gives nothing by implication beyond what its words give.",
+    "replace": "It grants nothing by implication beyond what its words give.",
 },
     {
     "name": "Check 498: 「1.0 から何が変わったか」の下書きの版ごとの閉鎖数の 1.3 を 5 にする —— 使い捨ての計数で版の語の最初の一致を数え、閉鎖の印 (19 / 13 / 4) と違う数を書いた",

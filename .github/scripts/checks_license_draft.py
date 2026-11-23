@@ -803,7 +803,9 @@ def run(ctx):
                                 [_nm468x(_q) for _e, _q in _sp if re.match(r"\s*を", _w[_e:])],
                                 [_q for _e, _q in _sp if re.match(r"\s*へ|\s*を(?:[^。|]{0,12})?足", _w[_e:])],
                                 [_q for _e, _q in _sp if re.match(r"\s*を(?:[^。|]{0,12})?(?:外|削|消|落と)", _w[_e:])]))
-        _flat468x = " ".join(_t468.split())
+        # 本文 (区切り線の後) だけで照らす (2026-11-23・fc): _t468 は冒頭の変更の一覧 (CHANGES-ACD-N.M.txt) も含み、一覧は After を
+        #   逐語で引くので、本文から After が消えても一覧の引用で「在る」になり、468x は鳴らなかった (1.5 の T135 の mutation で実測)
+        _flat468x = " ".join(_t468.split(_sep468, 1)[-1].split())
         _n468x, _miss468x = 0, []
         for _k, (_key, _row, _bef, _aft, _rem) in enumerate(_parsed468x):
             _later = " ".join(" ".join(_p[2]) for _p in _parsed468x[_k + 1:])
