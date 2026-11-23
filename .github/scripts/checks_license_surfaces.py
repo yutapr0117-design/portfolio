@@ -632,6 +632,33 @@ def run(ctx):
     check(not _bad453c, "Check 453c: FROZEN.md の投稿の記録 (POSTED-VERSION) の形が正しい (無ければ照らすものは無い)",
           f"Check 453c: {_bad453c}。段 6b の 30 日は submission_gate.py がこの記録から数える", blocking=True)
 
+    # 453d — 入口 (REVIEWERS.md) の「Check 453 pins the SHA-256 of <N> files」の数と、その段落が列挙する file が、FREEZE-DATA と
+    #   一致すること (2026-11-23・cd が見つけ 6d が依頼・fc)。確定の道具は数の語だけを置換するので、1.4 の確定で「twelve」になったのに
+    #   列挙は 9 file のままだった (#3950 で手当て)。数・列挙・FREEZE-DATA の三者を照らす
+    from checks_license_self_reporting import _NUM_WORDS as _nw453d
+    _fz453d = (ROOT / "LICENSES" / "FROZEN.md")
+    _rv453d = (ROOT / "LICENSES" / "REVIEWERS.md")
+    if _fz453d.exists() and _rv453d.exists():
+        _pins453d = {_m.rsplit("/", 1)[-1] for _m in re.findall(r"(?m)^[0-9a-f]{64}  (\S+)", _fz453d.read_text(encoding="utf-8"))}
+        _rvt453d = _rv453d.read_text(encoding="utf-8")
+        _m453d = re.search(r"pins the SHA-256 of\*?\*? ?(?:\*\*)?([a-z-]+|\d+) files(.*?)(?:none of them|so that an accidental)", _rvt453d, re.S)
+        _bad453d = []
+        if not _m453d:
+            _bad453d.append("REVIEWERS.md に「pins the SHA-256 of <N> files」と列挙の段落が見つからない")
+        else:
+            _n453d = int(_m453d.group(1)) if _m453d.group(1).isdigit() else _nw453d.get(_m453d.group(1))
+            _listed453d = set(re.findall(r"`(ACD-[\w.]+)`", _m453d.group(2)))
+            if _n453d != len(_pins453d):
+                _bad453d.append(f"数 {_m453d.group(1)} / FREEZE-DATA {len(_pins453d)} 件")
+            # 列挙が在れば列挙 = FREEZE-DATA を照らす。列挙が無く FREEZE-DATA を指す形 (6d が Status を 600 語に収めるために
+            #   縮めた) なら数だけを照らす。どちらも無ければ何を数えたかが読めないので RED (無いと黙らない)
+            if _listed453d and _listed453d != _pins453d:
+                _bad453d.append(f"列挙に無い {sorted(_pins453d - _listed453d)} / FREEZE-DATA に無い {sorted(_listed453d - _pins453d)}")
+            elif not _listed453d and "FREEZE-DATA" not in _m453d.group(2):
+                _bad453d.append("段落が file を列挙せず、FREEZE-DATA も指していない (数の出どころが読めない)")
+        check(not _bad453d, f"Check 453d: 入口が述べる pin の数と列挙が FREEZE-DATA の {len(_pins453d)} 件と一致",
+              f"Check 453d: {_bad453d}。確定の道具は数の語だけを置換するので、確定の日に列挙へ新しい版の file を足す", blocking=True)
+
     # ── 490. 確定した本文が、確定の作業で壊れていないこと (BLOCKING) ──────────────────
     # 版の確定は、草案の冒頭を差し替えて本文を別の file へ移す手作業である。Check 468 は草案しか見ず、
     # Check 453 は pin した byte しか見ないので、この手作業の誤りはどの層にも見えなかった。2026-11-06 に

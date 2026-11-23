@@ -574,6 +574,13 @@ _MUTATIONS_TAIL.append({
     "find": " lines, 5,879 words, SHA-256 `",
     "replace": " lines, 5,878 words, SHA-256 `",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 453d: 入口の凍結の段の「pins the SHA-256 of <N> files」の数の語を 1 つずらす —— 確定の道具は数の語だけを置換し、"
+            "1.4 の確定で列挙と食い違った (2026-11-23)。数の語の後に \"files\" が続く形に anchor し、数そのものには anchor しない",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "pins the SHA-256 of ",
+    "replace": "pins the SHA-256 of one ",
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
