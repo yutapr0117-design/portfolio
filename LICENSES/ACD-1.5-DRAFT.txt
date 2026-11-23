@@ -28,8 +28,8 @@ ACD-1.5 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
   (the machine-readable descriptor; closed for 1.1, 1.2, 1.3 and 1.4 in their
   descriptors, and it must be closed again for each new version because each
   version carries its own descriptor), and E87 (Section 5.2(b) has no
-  exception for an obligation not to make a false statement; a candidate
-  change is under review).
+  exception for an obligation not to make a false statement -- examined
+  and deliberately left as it is).
 
 --------------------------------------------------------------------------------
 
