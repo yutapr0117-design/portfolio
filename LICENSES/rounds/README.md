@@ -67,6 +67,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 |---|---|---|---|
 | 2002〜2005 | `license-discuss` | **観測（著作権を伴わない特許の許諾と、標準の特許方針・3 通）** | `2002-to-2005-license-discuss-standalone-patent-licences-observed.txt` |
 | 2012-02 | `license-review` | **観測（CC0 の審査から、特許について述べた 7 通）** | `2012-02-license-review-cc0-submission-patent-statements-observed.txt` |
+| 2012-02 | `license-review` | **観測（CC0 の取り下げの会話から 1 通・Tzeng 氏 2012-02-27・別の献呈と予備の許諾は増殖）** | `2012-02-license-review-cc0-withdrawal-tzeng-new-pd-dedication-proliferation-observed.txt` |
 | 2013-10〜12 | `license-review` | **観測（Tidepool Open Access to Health Data Software License の審査から 13 通・2 部の 1）** | `2013-10-to-12-license-review-tidepool-health-data-observed-1of2.txt` |
 | 2013-11 | `license-discuss` | **観測（Rosen 氏の 1 通・OSL と AFL は版を重ねて承認された）** | `2013-11-license-discuss-osl-afl-rosen-iterations-observed.txt` |
 | 2014-03 | `license-review` | **観測（Public Software License の審査から 1 通・Piana 氏 2014-03-12・より良い否認は価値の代わりにならない）** | `2014-03-license-review-psl-piana-disclaimer-not-a-proxy-observed.txt` |
@@ -124,6 +125,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2015-10 | `license-discuss` | **観測（Moen 氏の 1 通・献呈が効かない所で働く許諾が CC0 を隙の無いものにし、その代わりに長くした）** | `2015-10-license-discuss-bsd3-moen-cc0-airtight-observed.txt` |
 | 2006-03 | `license-discuss` | **観測（"Looking for license stewards" から 1 通・連絡の取れない steward の承認済みライセンス 12 本）** | `2006-03-license-discuss-looking-for-license-stewards-observed.txt` |
 | 2012-01 | `license-review` | **観測（"[PROPOSAL] Invite Creative Commons to submit CC0 Dedication." から 5 通・CC0 を招く前の、放棄と許諾を 1 つに持つ文書を審査できるかの議論）** | `2012-01-license-review-invite-cc0-observed.txt` |
+| 2012-01 | `license-review` | **観測（"four corners" の会話から 1 通・Moen 氏 2012-01-02・CC0 は予備の許諾のおかげでライセンス）** | `2012-01-license-review-four-corners-moen-cc0-fallback-observed.txt` |
 | 2012-02 | `license-review` | **観測（"OSI recognition for Creative Commons Zero License?" から 7 通・CC が出す前に利用者が承認を求めた、既存の許容型で足りるか、誰が出すべきか）** | `2012-02-license-review-osi-recognition-cc0-observed.txt` |
 | 2013-07〜08 | `license-discuss` | **観測（"Open source license chooser choosealicense.com launched." から 5 通・選択サイトを案内するか、偏り、「無名には理由がある」、増殖の何が悪いか）** | `2013-07-and-08-license-discuss-choosealicense-observed.txt` |
 | 2013-03 | `license-review` | **観測（"CeCILL license V2.1 for Approval" の 2013 年の会話から 2 通・1 年止まった提出の再開と、委員長の謝罪）** | `2013-03-license-review-cecill-2-1-restart-observed.txt` |
@@ -288,6 +290,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2002-11 | `license-discuss` | **観測（"time frame between request for approval …" から 1 通・Rosen 氏 2002-11-20）** | `2002-11-license-discuss-time-frame-rosen-buzz-observed.txt` |
 | 2002-11 | `license-discuss` | **観測（"time frame between request for approval …" から 1 通・Rosen 氏 2002-11-21）** | `2002-11-license-discuss-time-frame-rosen-no-legal-blessing-observed.txt` |
 | 2016-12 | `license-discuss` | **観測（React の別ファイルの特許許諾と、CC0 に添える特許の文言・4 通）** | `2016-12-license-discuss-react-patents-and-cc0-patent-language-observed.txt` |
+| 2016-12 | `license-discuss` | **観測（React のライセンスの会話から 1 通・Mitchell 氏 2016-12-02・すべての知的財産を名指すライセンスは無い）** | `2016-12-license-discuss-react-mitchell-all-ip-by-name-observed.txt` |
 | 2025-05〜12 | `license-review` | **観測（ModelGo の再提出の審査から、出力・AI の語彙・権利の列挙・3 通）** | `2025-05-to-12-license-review-modelgo-outputs-and-vocabulary-observed.txt` |
 | 2025-05 | `license-review` | **観測（Tiwaz License の審査から 1 通・Piana 氏 2025-05-28・自分で使わない新しいライセンスは知的な演習）** | `2025-05-license-review-tiwaz-piana-intellectual-exercise-observed.txt` |
 | 2023-11〜2024-01 | `license-review` | **観測（Blue Oak の審査から承認の告知まで・6 通）** | `2023-11-to-2024-01-license-review-blue-oak-approval-observed.txt` |
@@ -737,6 +740,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2025-09-11 | `license-review`（観測）| **委員会の Tiwaz への保留（Berkus 氏の報告）→ 観測保存** | *"voted to \*defer\* any recommendation"* と、解く条件 *"one or more projects begin using this license or express an interest in doing so"* が在る。B2 に効く決定で、窓の外にあって 14 か月未収録だった（`board-decisions.md` §2c / `against.md` #285）|
 | 2025-09 | `license-review` | **観測（Smith 氏の 1 通・語の使い方の不一致）** | `2025-09-license-review-mgb-smith-inconsistent-terminology-observed.txt` |
 | 2025-10 | `license-review` | **観測（Orivex への Piana 氏の所見 1 通・licensor と貢献者の扱いの差は OSD 5 に触れうる、改変物を頒布する語）** | `2025-10-license-review-orivex-licensor-contributor-observed.txt` |
+| 2025-10 | `license-discuss` | **観測（PUWL の議論から 1 通・Chestek 氏 2025-10-16・ChatGPT の文の目的は何か）** | `2025-10-license-discuss-puwl-chestek-chatgpt-statement-observed.txt` |
 | 2025-10 | `license-discuss` | **観測（PUWL の草案から 4 通・人格権は放棄＋不行使の約束＋虚偽の著者表示の除外＋可分、特許の許諾は CC0 との違い）** | `2025-10-license-discuss-puwl-moral-rights-observed.txt` |
 | 2024-12-23 | `license-review`（観測）| **OSC License の提出の 1 通 → 観測保存** | *"there are currently no projects using the license. However, it is planned that the license will be used in mid/late January."* 計画段階の利用で承認された例である（`board-decisions.md` §2c）|
 | 2026-06-19 | `license-review`（観測）| **Carlo Piana 氏の Linkumori への 1 通 → 観測保存** | *"not having an active project with an urgency to adopt a license or to have it approved, I would suggest deferring license review"*。個人の自著の利用が足りるとは限らないことの逆側である（`board-decisions.md` §2c）|

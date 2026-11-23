@@ -1,0 +1,112 @@
+Source: OSI license-discuss public archive, 2025-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 28 in "[DISCUSS] PUWL v1.0 – P-EADCA Universal Waiver License" (2025-10-01)
+Senders: Pamela Chestek
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Thu Oct 16 21:59:24 2025
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Thu, 16 Oct 2025 14:59:24 -0700
+Subject: [License-discuss] =?utf-8?q?=5BDISCUSS=5D_PUWL_v1=2E0_?=
+ =?utf-8?q?=E2=80=93_P-EADCA_Universal_Waiver_License?=
+In-Reply-To: 
+ <CAFna2KHeEYr2ib5BpqkH37U6TLjJrrHMaSbxugdhAHi0m6Lf7Q@mail.gmail.com>
+References: 
+ <CAFna2KEL-OyuMehxvXz5qdcT1i_UE78tMJSd3OUPYV2hvTFzMQ@mail.gmail.com>
+ <BY5PR02MB70909FFC022C2C4FCAEAAA39E1E6A@BY5PR02MB7090.namprd02.prod.outlook.com>
+ <CAFna2KFTN4vnkPZ-xzS-Sui8k6kH+dmrxENXud1gxteGT7QXNA@mail.gmail.com>
+ <202510030302.55554.johnny@solbu.net>
+ <CAFna2KF547K+ZD7JFBRweiY_4Gfjv6pL5DN7AZyjAOkZPw0Vvw@mail.gmail.com>
+ <2c6dfbaa-271f-8f47-3373-2afaff5b999f@chesteklegal.com>
+ <78ca3250-df2b-47d5-972c-49f26d79da5f@david-woolley.me.uk>
+ <CAFna2KHeEYr2ib5BpqkH37U6TLjJrrHMaSbxugdhAHi0m6Lf7Q@mail.gmail.com>
+Message-ID: <986b7379-d2be-db5c-0479-84b84248753e@chesteklegal.com>
+
+Which is it, a dedication to the public domain or a license? You can't 
+have it both ways. A dedication to the public domain is a full release 
+of any and all rights, but a license is a way to exercise some control. 
+You say that you want to have a dedication to the public, with various 
+fallback positions if the law doesn't allow it, but then you are 
+nevertheless trying to retain some rights:
+
+> This waiver and license does not grant any right to falsely claim 
+> authorship of any original material in this work.
+...
+> Nothing in this license shall be construed as permitting any unlawful 
+> use of this work,
+> or as shielding anyone from criminal liability for such use.
+>
+> Any permission granted by this license terminates automatically
+> for any party that initiates or threatens patent litigation
+> alleging that the original material in this work, or its permitted
+> use, copy, modification, or distribution infringes any patent.
+> This termination does not affect the rights of other recipients of 
+> this work.
+>
+> Use at your own risk. The author has no liability for any consequence 
+> of using,
+> misusing, or modifying this work, to the fullest extent permitted by 
+> applicable law.
+
+
+These provisions are retention of rights, contrary to the statement that 
+the author is releasing all rights whatsoever in the work. (Note also 
+the use of the word "license" in a number of places in the text.) You 
+can only enforce them if you are maintaining ownership of some rights in 
+the work, which is contrary to the intention stated in the first 
+sentence "The author of all original material in this work irrevocably 
+releases it for unrestricted worldwide use by anyone, for any purpose." 
+Which am I supposed to believe, that you have given a full, unrestricted 
+release, or only a release provided that the user doesn't falsely claim 
+ownership, doesn't use the software unlawfully, doesn't initiate a 
+patent suit, and doesn't try to hold you liable? The document is 
+internally contradictory.
+
+What's the purpose of the ChatGPT statement?
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+On 10/8/2025 5:53 PM, Balázs Hámorszky wrote:
+> I've done some updates and added a patent part.
+>
+> https://github.com/balihb/PUWL/blob/main/LICENSE.v2draft02
+>
+> On Tue, Oct 7, 2025 at 4:06 PM David Woolley <forums at david-woolley.me.uk> wrote:
+>> On 06/10/2025 19:45, Pamela Chestek wrote:
+>>> Are there jurisdictions that do not allow you to waive attribution?
+>>>
+>>> I would also like to see an explanation of how all the other licenses
+>>> that attempt to achieve this fail, and how this license has remedied
+>>> their flaws.
+>> As I understand it, what the moral rights rule does is to make any
+>> contract not to assert moral rights void, in that respect.  You can
+>> still choose to not assert them at a particular time,  but the recipient
+>> has no come back, if you subsequently do assert them.
+>>
+>> Regarding another comment, I would say that would mean a promise not to
+>> assert them is not enforceable.
+>>
+>> IANAL.
+>>
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Official statements by the Open Source Initiative will be sent from an opensource.org email address.
+>>
+>> License-discuss mailing list
+>> License-discuss at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Official statements by the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org

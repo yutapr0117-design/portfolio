@@ -1,0 +1,158 @@
+Source: OSI license-discuss public archive, 2016-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 42 in "Views on React licensing?" (2016-12-01)
+Senders: Kyle Mitchell
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From kyle at kemitchell.com  Fri Dec  2 08:08:19 2016
+From: kyle at kemitchell.com (Kyle Mitchell)
+Date: Fri, 2 Dec 2016 00:08:19 -0800
+Subject: [License-discuss] Views on React licensing?
+In-Reply-To: <20161202042602.urhdrc2fqrobqzdn@antelope>
+References: <20161202042602.urhdrc2fqrobqzdn@antelope>
+Message-ID: <20161202080819.GA16713@dev.kemitchell.com>
+
+Hear my two cents clink in the pan!
+
+On 2016-12-01 23:12, Richard Fontana wrote:
+>
+>The 'Additional Grant' has attracted a fair amount of criticism (as
+>did an earlier version which apparently resulted in some revisions by
+>Facebook).
+
+I've published a manually optimized "diff" of the original and revised 
+PATENTS texts here:
+
+https://writing.kemitchell.com/2015/09/25/React-Patent-Redline.html
+
+I'd hoped to refer to this less.
+
+>What do members of the license-discuss community think about the
+>licensing of React?
+
+The well-tended garden of standardized licenses has borne strange fruit.  
+Rather than express meaning and intent in the terms of licenses---and 
+face a pitchfork-wielding mob of anti-proliferationists---the choice of 
+licenses from the curated crop of blessed forms has been made to take on 
+all manner of extra weight.  More than it can bear.
+
+I have no inside information on Facebook or how React came to public 
+light under the terms offered now or before.  But I can name a couple 
+tendencies that I suspect shape corporate releases of the kind:
+
+1.  Company counsel, especially the folks minding the patents, aren't 
+    comfortable with the "academic" licenses.  Understandably so.  They 
+    predate Patent Consciousness in the community.  And it's a might 
+    inconsistent to turn from sweating every detail of a settlement or 
+    pooling arrangement to settling for an "implied license" under 
+    untested terms.
+
+2.  From the engineering point of view---relevant also to poaching 
+    engineers from others---"enterprisey" license forms like Apache and 
+    Eclipse on exude a much harsher vibe than MIT- and BSD-style forms.  
+    Crass and cliquish though it may be, the Cool Kids are licensing the 
+    Cool Stuff under MIT or BSD, if not Unlicense, WTFPL, or Death to 
+    Lawyers.  There is, as yet, no hip, pithy license that contends with 
+    all the major strains of the intellectual property virus by name.  
+    Writing one ain't easy.
+
+>I see a few issues here:
+>
+>- does the breadth of the React patent termination criteria raise
+>  OSD-conformance issues or otherwise indicate that React should not
+>  be considered open source?
+
+I rank the OSD, under OSI's watch, among the most glorious monuments of 
+my profession's service to open source.   But I have to point out that 
+what folks consider "open source" and OSI's application of the OSD are 
+no longer one and the same.  The divergence isn't total, but the 
+identity is no longer reliable.
+
+The OSD attempts to embody an ethic of nondiscrimination---against 
+"persons or groups", against "fields of endeavor".   But any good lawyer 
+knows the difference between expressing intent explicitly and working it 
+into a structure, in silence.  OSI can try to flesh out a rule for how 
+much discrimination "open source" abides in practice, but that dictum 
+would not predetermine perception in the wider coding or commercial 
+communities.
+
+SQLite is available under a public domain dedication.  For a fee, the 
+company home of the maintainer will cut an explicit license.  I can't 
+speak to the motivations for these practices, or to the intentionality 
+of choices made en route.
+
+The net effect is discriminatory.  Persons and groups involved in fields 
+of endeavor necessitating rigorous and efficient rights clearance with 
+adequate assurances of lawsuit-free operation need the paid licenses.  
+The judgment-proof needn't give a damn.  Neither the public domain 
+dedication nor the form paid license discriminate against 
+judgment-worthy enterprises.  That's just the effect in practice.  The 
+same, reliable principle undergirds many a GPL or AGPL dual-licensed 
+offering.
+
+For companies presently or potentially entangled in patent spitting 
+matches with Facebook, Inc., BSD terms alone, pleasing though they may 
+be in the "hackers'" site, don't pass review board muster.  Conversely, 
+for the start-up aiming to be Zuckerberg acqui-swallowed over a weekend, 
+React's a feather in cap.
+
+None of this is to disparage what Facebook have done and made available.  
+React could have wallowed on corporate SCM, ne'er to see the light of 
+day.  They'd've still applied for the patents, which would've sat 
+around, ready to torpedo corporate users of whatever other library 
+carried the cachet cargo for functional reactive-ish programming in 
+front-end JavaScript.  The public got better than that.  It took people 
+to get that done within Facebook.  They've done a hell of a lot right 
+since release, too.
+
+>- is it good practice, and does it affect the open source status of
+>  software, to supplement OSI-approved licenses with separate patent
+>  license grants or nonasserts? (This has been done by some other
+>  companies without significant controversy.)
+
+No, it is not good practice.
+
+At least under American law, all the facts, terms, and circumstances go 
+into one big pot when it falls on a court to decide a dispute.  Most 
+critically, does the explicit patent license of PATENTS curtail any 
+license otherwise implied from BSD terms standing alone?  Better to have 
+used an existing license with rigorous patent terms, and worked to 
+establish it as "cool", or to write a new but self-contained license.  
+There is clear need for terms that meets Facebook's requirements.
+
+As it stands, PATENTS-LICENSE pollution threatens the key value 
+proposition of standardization and anti-proliferation.  React PATENTS 
+means, not for the first time, but for a very meaningful library of 
+broad applicability, that BSD-3-Clause LICENSE doesn't necessarily mean 
+the same thing wherever you find it.  Again, "facts and circumstances" 
+ever muddy the waters, but React goes into its bottle unfiltered from 
+the start.
+
+>- if the React patent license should be seen as not legitimate from an
+>  OSI/OSD perspective, what about the substantial number of
+>  past-approved (if now mostly obsolete) licenses that incorporated
+>  patent license grants with comparably broad termination criteria?
+
+It will seem very lawyerly of me to ask what "legitimacy" means here.  
+Perhaps also seditious, though I hope it's clear I mean well.
+
+As for the "prior art", obsolescence bodes well for anti-proliferation.  
+Especially if other corporate releases on genericized React PATENTS 
+terms are not soon to follow.
+
+>- should Facebook be encouraged to seek OSI approval for the React
+>  license including the patent license grant?
+
+React needn't seek OSI's blessing.  It has reached The Promised Land of 
+use and contribution, and quick, without its grace.
+
+Insofar as OSI approval begs SPDX approval, seeking OSI approval for 
+PATENTS on top of BSD-2-Clause is trouble.  Is anyone else using 
+PATENTS, adapted for a different corporate licensee?  Wouldn't 
+standardization encourage as much?
+
+That is crossing the SPDX-OSI streams a bit.  I'm now a repeat offender.
+
+-- 
+Kyle Mitchell, attorney // Oakland // (510) 712 - 0933

@@ -570,6 +570,7 @@ LICENSES/ACD-1.4-UNIQUE-READING.md | 130000 | 200000
 LICENSES/AS-OF.md | 130000 | 200000
 LICENSES/OSI-EVENTS-2026-10.md | 130000 | 200000
 LICENSES/SUBMISSION-MATERIALS.md | 120000 | 160000
+LICENSES/ACD-1.0.review-readings-6.md | 130000 | 200000
 docs/architecture/check-repository-consistency-map.md | 380000 | 500000
 docs/session-records/CLAUDE-handoff-archive.md | 450000 | 500000
 docs/session-records/runbook-check-history.md | 240000 | 300000
