@@ -61,9 +61,11 @@ answer none of them:
 2. **Patents.** Public-domain-style instruments have withheld patent rights. That is the
    very clause on which CC0 did not complete OSI review, and the committee's concern at
    the time was that approving it would weaken, not strengthen, the position of users of
-   software so released. ACD-1.0 Section 8 grants an express patent licence, states that
-   it is subject to no condition and not terminable (8.2), rejects any reading that would
-   reserve patent rights (8.3), and **grants a further licence, in its own right, over
+   software so released. ACD-1.4 Section 8 grants an express patent licence, states that
+   it is subject to no condition and not terminable under the Dedication (8.2), says that
+   nothing in the Dedication reserves a patent claim as to the acts the licences describe
+   (8.3; ACD-1.0's 8.3 instead rejected any reading that would reserve patent rights), and
+   **grants a further licence, in its own right, over
    Computational Use and over any model, parameter set, weight, embedding or output
    resulting from it (8.4)**. Section 8.4 is deliberately a grant and not a clarification:
    whether a trained model is "the Work" or a derivative of it is unresolved, and a
@@ -179,7 +181,7 @@ against us more sharply than the argument does.
 |---|---|
 | "program" | **0** |
 | "executable" | **0** |
-| "software" | **2**, both in the explanatory preamble and in §8.3's reasoning; **none in an operative grant or condition** |
+| "software" | **2**, both in the explanatory preamble; **none in the operative terms** (ACD-1.0 also used it once in §8.3's reasoning, which ACD-1.4 removed — trial T71, errata E85) |
 | "source code" / "object code" | 1 each, inside §1.3's list (§1.2 in 1.0) of what a Work may be, alongside documentation, data, metadata and audiovisual material |
 
 **Read against ACD-1.0, this is a liability.** If the criterion is that OSI reviews software
