@@ -1,0 +1,45 @@
+Source: OSI license-review public archive, 2017-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 113 in "For Approval: License Zero Reciprocal Public License" (2017-10-02)
+Senders: Josh berkus
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From josh at postgresql.org  Tue Oct 24 22:15:47 2017
+From: josh at postgresql.org (Josh berkus)
+Date: Tue, 24 Oct 2017 15:15:47 -0700
+Subject: [License-review] For Approval: License Zero Reciprocal Public
+ License
+In-Reply-To: <20171024213936.GJ16922@dev.kemitchell.com>
+References: <20171020032109.GB26076@dev.kemitchell.com>
+ <2709ff94-43e9-ec32-1eb0-d73e181dcdd4@postgresql.org>
+ <20171020193353.GG26076@dev.kemitchell.com>
+ <de4a2abc-03b0-ae96-0bdb-a9d395116a03@postgresql.org>
+ <20171020194845.GA30388@dev.kemitchell.com>
+ <7afe8523-45df-5df6-03df-84fda178f403@postgresql.org>
+ <20171023225521.GR9694@dev.kemitchell.com>
+ <5a6590b3-d57c-6867-34e8-68ac77f8d2fd@postgresql.org>
+ <20171024001533.GA16922@dev.kemitchell.com>
+ <da445571-cdfe-4e50-7b85-96348b2ad480@postgresql.org>
+ <20171024213936.GJ16922@dev.kemitchell.com>
+Message-ID: <9e13d729-ec92-06ca-94b4-656e6d8a4779@postgresql.org>
+
+Kyle,
+
+> Thanks again for great questions, Josh.  Really, really
+> appreciate the time you've put in.
+
+It's why I'm here -- I try to inject a developer perspective into
+discussions about licensing.
+
+The funny thing is, I personally won't use your license (or the AGPL
+either).  We could discuss why off this thread.  But just because I
+don't like them doesn't make them invalid licenses.
+
+So, one more question on that thread: can you explain what the first
+project you have in mind for this license is?  I ask that for two
+reasons, (1) it enables us to better picture how the license would be
+used, and (2) this committee doesn't want to approve a license with no
+confirmed users.
+
+--Josh Berkus

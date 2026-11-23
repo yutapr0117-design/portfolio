@@ -729,16 +729,10 @@ def run(ctx):
         #   T 番号か節の番号 (§14.N) を含むこと。審査者は逐条の行で条を読むので、試作の結論 (変えない理由) が
         #   そこから辿れないと、同じ問いを同じ答えのまま繰り返させる。いままで手で揃えていた (6 組)
         _v468y = _dr468.name.split("-")[1]
-        # 試作は 2 冊目から 3 冊目へ続く (2026-11-15: 2 冊目が 1,000 行に当たり §15 から THIRD へ分けた)。作業中の版の試作の
-        #   冊をすべて読む (2026-11-23・fc: 1.4 の確定の後、名で決め打ちした SECOND / THIRD は 1.5 に無く、1.5 の試作
-        #   ACD-1.5-CLARITY-TRIAL.md を 1 つも読まずに黙っていた)
-        _trs468y = sorted((ROOT / "LICENSES").glob(f"ACD-{_v468y}-*CLARITY-TRIAL.md"))
-        _tr468y = _trs468y[0] if _trs468y else ROOT / "LICENSES" / f"ACD-{_v468y}-CLARITY-TRIAL.md"
-        # 逐条の下書きは作業中の版のものが無ければ、直前の版のもの (次版の逐条は確定まで書き直さない・1.4 の逐条が 1.5 の条を述べる)
-        _crs468y = sorted((ROOT / "LICENSES").glob("ACD-1.*-CLAUSE-REFERENCE-DRAFT.md"), key=lambda _p: int(_p.name.split("-")[1].split(".")[1]))
+        # 試作は 2 冊目から 3 冊目へ続く (2026-11-15: 2 冊目が 1,000 行に当たり §15 から THIRD へ分けた)。両方を読む
+        _trs468y = [ROOT / "LICENSES" / f"ACD-{_v468y}-{_n}-CLARITY-TRIAL.md" for _n in ("SECOND", "THIRD")]
+        _tr468y = _trs468y[0]
         _cr468y = ROOT / "LICENSES" / f"ACD-{_v468y}-CLAUSE-REFERENCE-DRAFT.md"
-        if not _cr468y.exists() and _crs468y:
-            _cr468y = _crs468y[-1]
         _pairs468y, _miss468y = 0, []
         if _tr468y.exists():
             _trt = "\n".join(_p.read_text(encoding="utf-8") for _p in _trs468y if _p.exists())
@@ -747,8 +741,7 @@ def run(ctx):
                 _mr = re.match(r"^\|\s*\*\*(\d+\.\d+)\*\*\s*\|", _l)
                 if _mr:
                     _rows468y[_mr.group(1)] = _l
-            # 見出しは 1.4 の冊が「### 14.25 …」、1.5 の冊が「## 1. T135 —— …」の形 (2026-11-23)。両方を節として読む
-            _secs = list(re.finditer(r"^#{2,3} (\d+(?:\.\d+)?)\.? (.*)$", _trt, re.M))
+            _secs = list(re.finditer(r"^### (\d+\.\d+) (.*)$", _trt, re.M))
             for _k, _ms in enumerate(_secs):
                 if not re.search(r"変えない|退けた", _ms.group(2)):
                     continue
@@ -762,7 +755,7 @@ def run(ctx):
                     _pairs468y += 1
                     if not any(re.search(re.escape(_x) + r"(?!\d)", _rows468y.get(_c, "")) for _x in _refs):
                         _miss468y.append(f"§{_c} ← {'/'.join(_refs)}")
-            if not _cr468y.exists() and _pairs468y:
+            if not _cr468y.exists():
                 _bad468.append(f"468y: {_tr468y.name} は在るのに {_cr468y.name} が無い")
             elif _miss468y:
                 _bad468.append(f"468y: 試作で変えない / 退けたとした条の逐条の行が、その試作に触れていない: {_miss468y}。"

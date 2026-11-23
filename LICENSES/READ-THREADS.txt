@@ -28,25 +28,39 @@
 1999-04-19	APSL 1.1 available for comment.
 1999-04-24	APSL 1.1 certification...
 1999-04-27	SGI OpenVault
+1999-04-28	GNU GPL and Open Source Definition
+1999-04-30	Please help me out
 1999-05-03	Archive?
+1999-05-03	code and design
 1999-05-11	A new open source license
 1999-05-12	XXX PUBLIC LICENSE
 1999-05-19	making money off your GPL-ed code
 1999-05-27	GPL kernel clients
+1999-06-16	GPL for Ftwalk
+1999-07-06	License certification request
+1999-07-06	New Licensing Model?
 1999-07-12	IBM Public License
+1999-07-13	Zeratec Public License
 1999-07-29	keeping patentable algorithm free
+1999-07-31	Put it in laymen's terms
+1999-08-01	Is this license open source?
 1999-08-10	RFC soon on essay "Does Free Software Production in a Bazaar obey the Law of Diminishing R
 1999-08-10	RFC soon on essay "Does Free Software Production in a Bazaar obey the Law of Diminishing Returns?"
 1999-08-11	Essay RFC delayed.
 1999-08-16	RFC soon on essay "Does Free Software Production in a Bazaarobey the Law of Diminishing Re
 1999-08-16	RFC soon on essay "Does Free Software Production in a Bazaarobey the Law of Diminishing Returns?"
 1999-08-30	Oversimplifications in HtN
+1999-08-30	support requirement
 1999-09-01	The Essay is Done.
 1999-09-01	Simple Public License, draft
 1999-09-03	advertising clauses
+1999-09-03	Simple Public License, second draft
 1999-09-09	ATT SOURCE CODE AGREEMENT Version 1.2C
+1999-09-10	agreement to comply
 1999-09-19	Who gets stuck with advocacy?
 1999-09-19	Oversimplifications in HtN -- Philosophy and biology
+1999-09-20	How about license-review@opensource.org?
+1999-09-21	Corel: No "internal" exemption in GPL
 1999-09-23	license-review mailing list
 1999-10-10	Question about GNU/Linux & the advertising clause of BSD
 1999-10-11	GNU License for Hardware
@@ -119,6 +133,7 @@
 2001-03-27	Subscription/Service Fees - OSD Intent
 2001-04-04	APSL 1.2
 2001-04-12	Certification Mark: OSI Certified
+2001-04-22	tomsrtbt license, take 4
 2001-06-10	so waht? Re: WG: MSFT and GNU questions
 2001-06-17	SUN Binary Code License
 2001-06-21	Copyright & License Questions

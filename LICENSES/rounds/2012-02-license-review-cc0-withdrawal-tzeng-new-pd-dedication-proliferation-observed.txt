@@ -1,0 +1,61 @@
+Source: OSI license-review public archive, 2012-February.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 44 in "CC withdrawl of CC0 from OSI process" (2012-02-24)
+Senders: Tzeng, Nigel H.
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From Nigel.Tzeng at jhuapl.edu  Mon Feb 27 14:21:32 2012
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Mon, 27 Feb 2012 09:21:32 -0500
+Subject: [License-review] CC withdrawl of CC0 from OSI process
+In-Reply-To: <1330176585.30990.140661041173581@webmail.messagingengine.com>
+Message-ID: <CB70F62C.145E2%Nigel.Tzeng@jhuapl.edu>
+
+What on earth makes you think that the lack of OSI backing will reduce the
+uptake of CC0 if CC and the FSF already back it?  Especially since it was
+withdrawn rather than rejected.
+
+If I have data I'm releasing under CC0 I'm going to release any related
+processing code for that data I want to PD under CC0.  This makes CC0 more
+useful than other public domain data dedications (like PDDL) since there's
+only one license for the whole kit.  If they can address some of the other
+data concerns that drove OSM adoption of ODC and address software we would
+have the same option for CC-BY and CC-BY-SA.  A single copyright license
+you can apply for data, documentation and code.
+
+Second, your suggestion that the OSI back a completely different PD
+dedication with license fallback means adding to the license proliferation
+problem.  I'd argue against it unless you can get CC and the FSF to adopt
+it as well since CC0 exists and is being used in practice.
+
+>From my perspective I see a bunch of NIH and narrow mindedness as to what
+constitutes open source.
+
+On 2/25/12 8:29 AM, "Clark C. Evans" <cce at clarkevans.com> wrote:
+
+>On Sat, Feb 25, 2012, at 02:01 AM, John Cowan wrote:
+>> Bruce Perens scripsit:
+>> 
+>> > If you feel strongly, please do the work.
+>> 
+>> I would, and gladly.  But it wouldn't be CC0.  People are *already*
+>> publishing software under CC0, and now they can't even say it's
+>> Open Source.  That *sucks*.
+>
+>I think there are a half-dozen approaches to copyright dedication,
+>and great many software developers use "unlicense" over CC0 instead
+>since it's more in the *spirit* of BSD: short and to the point.  It
+>would be very nice to have one that is prepared by legal professionals.
+>I think if both the OSI and the FSF backed a single dedication /w
+>fallback license, you'd see people use it.
+>
+>Best,
+>
+>Clark
+>
+>
+>_______________________________________________
+>License-review mailing list
+>License-review at opensource.org
+>http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review

@@ -226,6 +226,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約と、分冊の一�
 | 2025-09-11 | `license-review`（観測）| **委員会の Tiwaz への保留（Berkus 氏の報告）→ 観測保存** | *"voted to \*defer\* any recommendation"* と、解く条件 *"one or more projects begin using this license or express an interest in doing so"* が在る。B2 に効く決定で、窓の外にあって 14 か月未収録だった（`board-decisions.md` §2c / `against.md` #285）|
 | 2025-09 | `license-review` | **観測（Smith 氏の 1 通・語の使い方の不一致）** | `2025-09-license-review-mgb-smith-inconsistent-terminology-observed.txt` |
 | 2025-10 | `license-review` | **観測（Orivex への Piana 氏の所見 1 通・licensor と貢献者の扱いの差は OSD 5 に触れうる、改変物を頒布する語）** | `2025-10-license-review-orivex-licensor-contributor-observed.txt` |
+| 2025-10 | `license-discuss` | **観測（PUWL の議論から 1 通・Chestek 氏 2025-10-16・ChatGPT の文の目的は何か）** | `2025-10-license-discuss-puwl-chestek-chatgpt-statement-observed.txt` |
 | 2025-10 | `license-discuss` | **観測（PUWL の草案から 4 通・人格権は放棄＋不行使の約束＋虚偽の著者表示の除外＋可分、特許の許諾は CC0 との違い）** | `2025-10-license-discuss-puwl-moral-rights-observed.txt` |
 | 2024-12-23 | `license-review`（観測）| **OSC License の提出の 1 通 → 観測保存** | *"there are currently no projects using the license. However, it is planned that the license will be used in mid/late January."* 計画段階の利用で承認された例である（`board-decisions.md` §2c）|
 | 2026-06-19 | `license-review`（観測）| **Carlo Piana 氏の Linkumori への 1 通 → 観測保存** | *"not having an active project with an urgency to adopt a license or to have it approved, I would suggest deferring license review"*。個人の自著の利用が足りるとは限らないことの逆側である（`board-decisions.md` §2c）|
