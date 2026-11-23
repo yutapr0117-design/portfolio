@@ -315,12 +315,34 @@ def run(ctx):
                                 ("1.0 の語数", sn(old_k.group(1)), w_10), ("1.0 からの差", int(old_k.group(2)), w_k - w_10)):
             if got != want:
                 bad.append(f"(k) ACD-{ver_k}-CHANGELIST.md の語数の内訳: {what} {got} / 表と実測から {want}")
+    # (l) redline を数えたと述べる文 ("Counted on `REDLINE-…`: of ACD-x.y's N clauses, A changed …, B is new … and C are unchanged;
+    #   D clauses of 1.0 no longer stand") の数が、その redline の条ごとの見出しから数えた値と一致すること (2026-11-23・cd の依頼)。
+    #   redline は凍結どうしの出力だが、make_redline を直して作り直すと数が動く (#3952 で一度作り直した)。against #331 がこの形
+    from checks_license_self_reporting import _NUM_WORDS as _nw_l
+    _num_l = lambda s: int(s.replace(",", "")) if s.replace(",", "").isdigit() else _nw_l.get(s.lower())
+    for _f_l in sorted(L.glob("*.md")):
+        for _m_l in re.finditer(r"Counted on `(REDLINE-[\w.-]+\.txt)`: of ACD-[\d.]+'s (\w+) clauses, (\w+) changed from [\d.]+, (\w+) (?:is|are) new"
+                                 r"[^;]*? and (\w+) (?:is|are) unchanged; (\w+) clauses? of [\d.]+ no longer stand", text(_f_l)):
+            _rl = L / _m_l.group(1)
+            if not _rl.exists():
+                bad.append(f"(l) {_f_l.name}: {_m_l.group(1)} が無い")
+                continue
+            _rt = text(_rl)
+            _ch = len(re.findall(r"^Section \d+\.\d+(?: \[[^\]]*\])?: changed$", _rt, re.M))
+            _un = len(re.findall(r"^Section \d+\.\d+(?: \[[^\]]*\])?: unchanged$", _rt, re.M))
+            _nw = len(re.findall(r"^Section \d+\.\d+(?: \[[^\]]*\])?: not in ACD-", _rt, re.M))
+            _rm = len(re.findall(r"^Section \d+\.\d+ of ACD-[\d.]+: not in ACD-", _rt, re.M))
+            _said = tuple(_num_l(_m_l.group(_g)) for _g in (2, 3, 4, 5, 6))
+            if _said != (_ch + _un + _nw, _ch, _nw, _un, _rm):
+                bad.append(f"(l) {_f_l.name}: {_m_l.group(1)} を数えた文 (条 / 変わった / 新設 / 変わらない / 前の版にだけ) {_said} / "
+                           f"redline の見出し {(_ch + _un + _nw, _ch, _nw, _un, _rm)}")
+
     check(not soft_j, "Check 498 (ADVISORY): 「1.0 から何が変わったか」の下書きの語数と条の数が草案と一致",
           f"Check 498 (ADVISORY): {soft_j}。下書きの語数は切り替えの日に prepare_version_freeze.py --report の値へ直す", blocking=False)
 
     check(
         not bad,
-        "Check 498: 自己申告の文の 2 つ目の数と繰り返しが実測と一致 (errata / comparison / faq mirror / §4c / register / 逐条 / 分冊 / 未読スレッドの和と一覧 / 答えていない問いの件数 / 1.0 からの変化の数 / 語数の内訳)",
+        "Check 498: 自己申告の文の 2 つ目の数と繰り返しが実測と一致 (errata / comparison / faq mirror / §4c / register / 逐条 / 分冊 / 未読スレッドの和と一覧 / 答えていない問いの件数 / 1.0 からの変化の数 / 語数の内訳 / redline を数えた文)",
         (f"Check 498: 自己申告の文の 2 つ目の数が実測と合わない: {bad}。1 つ目の数 (Check 460) だけを直すと、"
          "同じ文の 2 つ目と隣の繰り返しが偽のまま残る"),
         blocking=True,
