@@ -94,6 +94,9 @@ def own(msg: str) -> str:
 
 
 def main(argv: list[str]) -> int:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _lib_git_guard import require_unambiguous_origin
+    require_unambiguous_origin()  # origin/main が古い作業 branch に解決されないこと (2026-11-23)
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     for a in ("list", "slug", "position", "what", "why", "row"):
         ap.add_argument(f"--{a}", required=True)

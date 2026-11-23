@@ -44,6 +44,9 @@ def norm(s: str) -> str:
 
 
 def main(argv: list[str]) -> int:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _lib_git_guard import require_unambiguous_origin
+    require_unambiguous_origin()  # origin/main が古い作業 branch に解決されないこと (2026-11-23)
     ap = argparse.ArgumentParser()
     ap.add_argument("--slug", required=True)
     ap.add_argument("--law", required=True, help="法令の名 (公式の名と番号)")

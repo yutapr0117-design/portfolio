@@ -588,6 +588,9 @@ def gate_6c() -> list[str]:
 
 
 def main() -> int:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _lib_git_guard import require_unambiguous_origin
+    require_unambiguous_origin()  # origin/main が古い作業 branch に解決されないこと (2026-11-23)
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", help="確定の日 (YYYY-MM-DD)")
     ap.add_argument("--not-for-submission", action="store_true",

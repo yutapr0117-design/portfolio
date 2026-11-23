@@ -33,6 +33,9 @@ L = ROOT / "LICENSES"
 
 
 def main(argv: list[str]) -> int:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _lib_git_guard import require_unambiguous_origin
+    require_unambiguous_origin()  # origin/main が古い作業 branch に解決されないこと (2026-11-23)
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--entry", required=True, help="直近の 1 件の本文 (「YYYY-MM-DD に 」の後ろ)。単一引用符で渡す (` を含むため)")
     ap.add_argument("--start", help="会話の始まりの日付 (census の start・READ-THREADS の行の日付)")

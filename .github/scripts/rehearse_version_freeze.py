@@ -98,6 +98,9 @@ def rehearse(tree: Path) -> list[str]:
 
 
 def main() -> int:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _lib_git_guard import require_unambiguous_origin
+    require_unambiguous_origin()  # origin/main が古い作業 branch に解決されないこと (2026-11-23)
     with tempfile.TemporaryDirectory() as parent:
         tree = Path(parent) / "rehearsal"
         git("worktree", "add", "--detach", "--quiet", str(tree), "HEAD")

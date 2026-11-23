@@ -290,6 +290,9 @@ def revert_check(head: str, base: str, days: int = 4) -> list[str]:
 
 
 def main(argv: list[str]) -> int:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _lib_git_guard import require_unambiguous_origin
+    require_unambiguous_origin()  # origin/main が古い作業 branch に解決されないこと (2026-11-23)
     args = [a for a in argv if not a.startswith("--")]
     if len(args) != 1 or not args[0].isdigit() or "-h" in argv or "--help" in argv:
         print(__doc__)
