@@ -534,6 +534,32 @@ OpenMDW-1.1 の審査で、著作権侵害の主張を終了の引き金にす�
 ここにあるのは、**いま審査の場で主張されている原理**と、**その原理に対して本文のどの条項が
 働くか**の対応づけだけである。
 
+
+**Q. §11.4 の第 2 文（1.4 の *"It reaches nothing else"*、1.5 草案の *"It gives nothing by implication beyond what its words give"*）は何のために在るのか。付与していないものを付与しないと言う必要は無いのでは。**
+
+問いの元は Pamela Chestek 氏 2022-07-04（`license-review`・Open Logistics License の審査）—— 黙示の許諾を外す文について *"What is this sentence designed to do?"*、*"It's not necessary to say that there is no grant of what is not granted."*（portfolio-d7 の採掘・5e が回した）。
+
+> **English (ACD-1.4 and the 1.5 draft):**
+>
+> It is there for the patent licence. Section 8.4 deliberately reaches only claims whose
+> infringement depends upon the use of the Work, and Section 15.1 tells a reader to prefer the
+> reading that grants more. Without a sentence that closes implication, a recipient could argue
+> that the copyright licence in Section 4 carries an implied licence under the Dedicator's other
+> patents, past the limit Section 8.4 draws. In ACD-1.4 this is the only sentence that does that:
+> no other sentence in the text excludes a licence by implication (Section 2.5's estoppel binds the
+> Dedicator and grants nothing). Approved licences use the same kind
+> of sentence: MPL-2.0 Section 2.3, "No additional rights or licenses will be implied from the
+> distribution or licensing of Covered Software under this License", and EPL-2.0 Section 5,
+> "whether expressly, by implication, estoppel or otherwise".
+>
+> Against that: in ACD-1.4 the sentence says more than it needs to. "It reaches nothing else" is
+> true of grants but not of everything the text does, and we have recorded that as a defect
+> (self-audit section 3zd, low severity). The 1.5 draft replaces it with the narrower sentence
+> quoted above, which closes implication and claims nothing about reach. Neither sentence can
+> exclude an implied licence or exhaustion that a law gives regardless of the text.
+
+**逆側**: Chestek 氏の問いは別のライセンスの、許諾の条が既に範囲を定めている文についてのもので、ACD の §15.1（広い読みが勝つ）のような解釈の規則と並んだ場面ではない。ACD がこの文を要するのは §15.1 を持つからで、§15.1 を持たないライセンスに同じ理由は立たない —— 問いは「§15.1 が無ければ要らない文ではないか」へ移りうる。
+
 ### §12 MORAL RIGHTS
 
 **Q. 日本法では人格権は放棄できない。§12.1 は空文ではないか。**
