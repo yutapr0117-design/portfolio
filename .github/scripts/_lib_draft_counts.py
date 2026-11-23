@@ -77,7 +77,7 @@ def bullet_components(hdr: str, prev: dict, cur: dict, changed: set, prev_body: 
 
 
 def changelist_table_total(path: Path):
-    """468s: CHANGELIST の主表 (「## 表」〜「## errata 由来」) の「費用（語）」列 (右から 2 列目) の合計。
+    """468s: CHANGELIST の主表 (「## 表」の節の最初の「| 対象 |」の表) の「費用（語）」列 (右から 2 列目) の合計。
 
     返り値: (行の数, 合計, 読めない行の頭) か、区間が無ければ None。読めないセルは 0 扱いにしない。
     """
@@ -85,7 +85,19 @@ def changelist_table_total(path: Path):
     i, j = text.find("\n## 表"), text.find("\n## errata 由来")
     if i < 0 or j < i:
         return None
-    rows = [ln for ln in text[i:j].split("\n") if ln.startswith("|") and not ln.startswith(("| 対象", "| :--"))]
+    # 主表は「## 表」の節の最初の「| 対象 |」の表だけ (2026-11-23・5e の依頼): 区間の表をすべて読んでいたので、1.5 の CHANGELIST に
+    #   記述子の候補の表を置くと「語数を読めない行」で RED になり、箇条書きに直して避けていた。節の後に別の表を置けるように、
+    #   見出しの行から最初の表の終わり (| で始まらない行) までを読む
+    lines = text[i:j].split("\n")
+    h = next((k for k, ln in enumerate(lines) if ln.startswith("| 対象")), None)
+    if h is None:
+        return 0, 0, []
+    table = []
+    for ln in lines[h:]:
+        if not ln.startswith("|"):
+            break
+        table.append(ln)
+    rows = [ln for ln in table if not ln.startswith(("| 対象", "| :--", "|---"))]
     total, unread = 0, []
     for ln in rows:
         cells = [c.strip() for c in re.split(r"(?<!\\)\|", ln.strip().strip("|"))]
