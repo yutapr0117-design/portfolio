@@ -1,0 +1,229 @@
+Source: OSI license-review public archive, 2020-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 43 in "Approval: OIN License (Open Innovation License)" (2020-12-25)
+Senders: Pamela Chestek
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Sun Dec 27 04:35:25 2020
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sat, 26 Dec 2020 23:35:25 -0500
+Subject: [License-review] Approval: OIN License (Open Innovation License)
+In-Reply-To: <CAHgftsJ5x1AYYVVADTHaueaHwN4-2WHoQeYLLkb3EFkwhcRe2g@mail.gmail.com>
+References: <CAHgftsJ5x1AYYVVADTHaueaHwN4-2WHoQeYLLkb3EFkwhcRe2g@mail.gmail.com>
+Message-ID: <fad72009-0096-5232-3605-33db3dbb923a@chesteklegal.com>
+
+I've marked up the license to omit non-operative language below. If the 
+words aren't meant to have any effect, they shouldn't be there. The only 
+thing that can happen is that the words will be used in ways that create 
+unintended consequences, so it's best just not to have them at all.
+
+For example, your license states "or even used for commercial purposes 
+/within the context of this license/." I assume you believe you have 
+defined the "context" as the paragraph that starts "The context of this 
+license." However, that paragraph says the context "/includes/" keeping 
+the original license text, etc., not that the context is limited to only 
+the elements in that paragraph. The word "includes" must mean that the 
+"context" is more than what is described in just that paragraph. A court 
+might think that it also include the next paragraph, with "agrees to at 
+goodwill, build or release technology for the betterment of humanity not 
+meant with the intention to harm a human being ..." At best, someone 
+interpreting the license has mixed information - what is the rest of the 
+context if it isn't what the next paragraph talks about, but the next 
+paragraph is also defined as non-operative. You have created a document 
+that is unclear, which may result in it being construed in a way you 
+didn't intend. If you don't want the "Anybody ... human mind" paragraph 
+to be legally operative, it should be removed. If it is legally 
+operative, then it violates OSD6.
+
+The clause "or even used for commercial purposes within the context of 
+this license" is unnecessary. The terms copied, modified, redistributed, 
+and published are not non-commercial by definition or nature, so the 
+attempted clarification only creates confusion. It would be like saying 
+"add to the stew onions, carrots and potatoes, or even fresh ones." 
+There would be no reason to think you couldn't use fresh ones, so it 
+just creates ambiguity by throwing freshness in as a concept.
+
+What is a "permissive notice" that isn't the license text itself?
+
+You have three copyright notices, one that is "// Insert information of 
+license holder," one for Stark Drones Corporation, and one for Andrew 
+Magdy Kamal. What the license says "the copyright notice above version 
+and year is meant to be modified," which one are you talking about? I 
+can assume you meant the one that is "// Insert information of license 
+holder," but what are the other two supposed to mean? Are those the 
+copyright notices of the license itself? If so, that is very unclear and 
+anyone looking at the license file would think Stark Drones Corporation 
+and Andrew Magdy Kamal are authors of the code, not the license itself. 
+If you want to put a copyright notice on the license, you need to make 
+that much clearer. You could perhaps put it at the end, something like 
+"Copyright for the license text is ...."
+
+Now suppose there is a license where someone has added their own name as 
+instructed. So now the license reads:
+
+"Copyright ? 2020 Copyright Owner
+
+Version 1, 10th November 2020
+
+Copyright ? 2020 Stark Drones Corporation
+Copyright ? 2020 Andrew Magdy Kamal"
+
+But you have an explanatory paragraph, that must remain intact, that has 
+a whole description about some string that is "// Insert information of 
+license holder" that is no longer in the license text. A reader will be 
+mystified by that paragraph because it's not talking about anything they 
+are seeing.
+
+I have pointed out flaws but you should not it as a suggestion that you 
+can revise the license and it will be approved. My point was to 
+demonstrate that it is quite difficult to write even a simple license. I 
+see no benefit to this license even if you adopted all my suggestions; 
+there are many well-accepted, commonly used permissive licenses and I 
+don't see this one as ever reaching a point where it is an improvement 
+on them.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com
+(919) 800-8033
+
+On 12/25/2020 7:50 PM, Andrew Nassief wrote:
+> Hi, I would like to submit my license for approval. The LICENSE.md 
+> file can be seen on GitHub 
+> <https://github.com/StarkDrones/OIN/blob/main/LICENSE.md> with its 
+> available markdown. For sake of simplicity, here is the raw text of 
+> the license:
+>
+>
+>     *Released under the Open Innovation License*
+>
+> Copyright ? // Insert information of license holder
+>
+> /Version 1, 10th November 2020/
+>
+> /Copyright ? 2020 Stark Drones Corporation/
+> /Copyright ? 2020 Andrew Magdy Kamal/
+>
+> This project is licensed under the /Open Innovation License/. This 
+> means any code, file, diagrams, data format, or other innovation 
+> containing this license within it can be copied, modified, 
+> redistributed, *or* published, or even used for commercial purposes 
+> within the context of this license.
+>
+>
+>           Any code, file, diagrams, data format, or other innovation
+>           containing this license is understood to be fully "AS IS",
+>           no claims are made in regards to safety, security, warranty,
+>           usability, or other form of merchantability and
+>           market-readiness. In no events are copyright holders,
+>           authors, or publishers are to be held liable for any claims,
+>           damage or results from usage of what have been licensed
+>           under this license.
+>
+> The context of this license includes: Keeping this original license 
+> text verbatim and permissive notice, as well as the copyright notice 
+> included in any redistribution of said project. Project is defined as 
+> what is using this license. For purposes of context, the copyright 
+> notice above version and year is meant to be modified for whomsoever 
+> publishes or releases "any code, file, diagrams, data format, or other 
+> innovation", so that they can include their information. After 
+> modifying, the comment saying "// Insert information of license 
+> holder" which starts with // can be removed. This current paragraph 
+> however, will remain in-tact.
+>
+> Anybody who releases software under the "Open Innovation License" 
+> agrees to at goodwill, build or release technology for the betterment 
+> of humanity not meant with the intention to harm a human being. They 
+> agree to a prima facie moral duty through consequential deontology to 
+> understand that technology should be within the concept of moral good 
+> or outcomes that are morally right and/or ethical. They agree at 
+> goodwill to promote the advancement of humanity and civilization as a 
+> whole. They agree to a sense of adventurement, edification, and the 
+> expansion of the human mind.
+>
+> Said agreement which is within the last paragraph prior to this 
+> sentence is meant to be taken as a general consensus, but not legally 
+> enforceable. Again for context, the last paragraph which starts with 
+> "Anybody" and ends with "human mind" minus quotations, is outside of 
+> the boundaries of being legally enforceable and within the duties of 
+> oneselve's actions. The rest of the license which includes the 
+> copyright notice and its context is within a legally enforceable 
+> context. For secondary context, the rest of the license refers to 
+> anything outside of that said paragraph.
+>
+> ____
+>
+> /Rationale:/
+>
+> I wanted to release this license for a variety of different reasons. 
+> Infact, I made many posts in regards to why this license is unique and 
+> valuable, and found many developers willing to adapt this license 
+> through small innovation challenges. The license was made on the basis 
+> of promoting a mission statement on ethical technology within the 
+> license as well as not being specific to only software i.e. files, 
+> diagrams, data format or any other innovation.
+>
+> We also wanted to make sure that the license is adaptable. Many open 
+> source licenses require you to put tons of header files for 
+> compliance. We wanted to make a license that just requires you to 
+> contain the license file in your directory. While many other open 
+> source licenses also do that or follow in similar footsteps, we 
+> weren't able to find one that met all these unique qualities.
+>
+> Currently, a big inspiration for this license was the idea of 
+> promoting free and open software as well as a mission statement on 
+> ethical technologies. We found that many of the big tech companies 
+> that are hailed as heroes of open source or doing open source 
+> initiatives, built technologies that are harmful to human activity. A 
+> technically non-legally enforceable mission statement within an 
+> enforceable open source license was the way to go. We also made sure 
+> to go out of our way to promote the ideals of open source and free and 
+> redistributive software.
+>
+> /Distinguish:/
+>
+> I looked at a variety of different open source licenses. The standard 
+> being MIT, then BSD+Patent, ZLib, CDDL, CPAL, CPL, CAL, BSL, and the 
+> AFL license. I feel like MIT, ZLIB, and the Boost licenses focus on 
+> redistribution and code. Those are the standards. The open patent 
+> licenses and other licenses focus on derived original work. However, 
+> none of them tried going to the same extent I wanted in terms of being 
+> specific in regards to data formats or general consensus and mission. 
+> I believe this is an important thing to take into account.
+>
+> /Legal review:/
+>
+> Currently I have submitted this to SPDX as well for review through 
+> their GitHub/Website. However, the review time to get approval and 
+> receive SPDX identifiers can be many months. I submitted in November 
+> and decided to submit to OSI while I wait. As for reviewing the 
+> context of language myself and actual legal review, I have thought out 
+> reviews through my own legal council and self judgement as a 
+> researcher familiar with these types of languages.
+>
+> /Proliferation category:/
+>
+> I don't necessarily need to be in a Proliferation category as of now, 
+> as many of the licenses on your site are not in a category. However, I 
+> would eventually want to get into the /Licenses that are popular and 
+> widely used or with strong communities /category./
+> /
+>
+> //
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20201226/5f70c358/attachment.html>

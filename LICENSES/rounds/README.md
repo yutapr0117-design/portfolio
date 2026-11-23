@@ -250,6 +250,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-01〜02 | `license-review` | **観測（Project Tick の提出から 2 通・提出した文は変えられない、`license-discuss` で固めてから出す、否決の勧告と既存のライセンスか法律家か）** | `2026-01-to-04-license-review-project-tick-discuss-first-observed.txt` |
 | 2019-08 | `license-review` | **観測（CAL の審査で Berkus 氏が条ごとに付けた所見の 1 通・迂回を禁じる法には政府の行為の例外が要るか）** | `2019-08-license-review-cal-anti-circumvention-exemption-observed.txt` |
 | 2019-05 | `license-discuss` | **観測（"Government licenses" から 4 通・著作権の無い部分には既存のライセンスが及ばないだけで足りる、パブリックドメインを契約で縛るのは奇妙）** | `2019-05-license-discuss-government-works-uncopyrightable-parts-observed.txt` |
+| 2019-05 | `license-review` | **観測（LBNL BSD の旧来の承認から 1 通・Fontana 氏 2019-05-17・起草の基準は今のほうが高い）** | `2019-05-license-review-lbnl-fontana-higher-drafting-standards-observed.txt` |
 | 2014-09 | `license-review` | **観測（"Sublicensing" から 4 通・再許諾で約束は落ちる、FOSS は直接の許諾、再許諾を許す理由を示せ）** | `2014-09-license-review-sublicensing-privity-observed.txt` |
 | 2013-08 | `license-discuss` | **観測（"License incompatibility" から 2 通・法律上の語を定義するのはライセンスの役目ではない、新しいライセンスは最後の手段）** | `2013-08-license-discuss-incompatibility-statutory-terms-last-resort-observed.txt` |
 | 2013-09 | `license-review` | **観測（Fontana 氏の 1 通・表記だけの改訂でも改訂版は承認済みと呼べない）** | `2013-09-license-review-miros-fontana-editorial-not-approved-observed.txt` |
@@ -273,6 +274,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2010-11 | `license-review` | **観測（Villa 氏の 1 通・OSI と同時に FSF にも一覧への掲載を求めている）** | `2010-11-license-review-mpl2-s11-villa-fsf-too-observed.txt` |
 | 2010-11 | `license-review` | **観測（Perens 氏の 1 通・追加の許可は本文の外で、ライセンスは不変に）** | `2010-11-license-review-mpl2-s11-perens-invariant-observed.txt` |
 | 2021-04 | `license-discuss` | **観測（0BSD の作者が名前の付け方の戦略を述べた 1 通）** | `2021-04-license-discuss-0bsd-naming-strategy-observed.txt` |
+| 2021-06 | `license-review` | **観測（3D Slicer の審査から 1 通・Rosen 氏 2021-06-09・約束するのは licensor だけ）** | `2021-06-license-review-3d-slicer-rosen-only-licensor-promises-observed.txt` |
+| 2021-06 | `license-review` | **観測（3D Slicer の審査から 1 通・Chestek 氏 2021-06-09・その句は許諾の条件か）** | `2021-06-license-review-3d-slicer-chestek-condition-question-observed.txt` |
 | 2012〜2020 | `license-review` | **観測（特許を扱う新しい permissive の必要性と、増殖の分類の現状・4 通）** | `2012-to-2020-license-review-need-and-proliferation-categories-cited-observed.txt` |
 | 2002-11〜12 | `license-discuss` | **観測（寄与者の特許の許諾が派生物まで届くか・3 通）** | `2002-11-to-12-license-discuss-mpl-patent-grants-on-derivatives-observed.txt` |
 | 2003-01 | `license-discuss` | **観測（"\"Derivative Work\" for Software Defined" から 1 通・Rosen 氏 2003-01-14）** | `2003-01-license-discuss-derivative-work-rosen-interpretive-observed.txt` |
@@ -399,6 +402,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2013-04〜06 | `license-review` | **観測（法律家を要件にするかの議論・13 通・2 分割の 2/2 部）** | `2013-license-review-drafting-quality-cited-observed-2of2.txt` |
 | 2022-07 | Fedora legal list / LWN / BleepingComputer / Fedora のデータ | **観測（CC0 をコードから外した判断と、いまのデータ）** | 最初の 1 通は取得できず、LWN と BleepingComputer の引用で置いた。`2022-07-fedora-legal-cc0-classification-observed.txt` |
 | 2022-12 | `license-discuss` | **観測（Perens 氏の 1 通・より良いライセンスを作るのは弁護士資格を持つ人の仕事）** | `2022-12-license-discuss-retro-disapprove-perens-bar-observed.txt` |
+| 2022-12 | `license-review` | **観測（Open Logistics License の審査から 1 通・Chestek 氏 2022-12-12・準拠法は個人の licensor を守りうる）** | `2022-12-license-review-oll-chestek-choice-of-law-empowers-individual-observed.txt` |
 | 2022-12 | `license-discuss` | **観測（Smith 氏の 1 通・起草の拙さとあいまいさは OSD の外の承認の要素）** | `2022-12-license-discuss-retro-disapprove-smith-drafting-observed.txt` |
 | 2012-01〜04 | `license-review` | **観測（CC0 の審査から引いた 27 通・2 分割の 1/2 部）** | ドシエが引いた通だけを束ねた。スレッド全体ではない。`2012-01-to-04-license-review-cc0-cited-observed-1of2.txt` |
 | 2012-01〜04 | `license-review` | **観測（CC0 の審査から引いた 27 通・2 分割の 2/2 部）** | 同じ束の 2/2 部。`2012-01-to-04-license-review-cc0-cited-observed-2of2.txt` |
@@ -569,6 +573,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（14/15 部）** | **同じ束の 14/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2022-04 | `license-review`（観測）| **Open Logistics License の承認審査 106 通（v1.1〜v1.3・2023-03 承認） → 観測保存（15/15 部）** | **同じ束の 15/15 部。** 本文は無改変で、15 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2020-12 | `license-review`（観測）| **ViraTrace Public Source License と GDPR × ライセンス条項 35 通 → 観測保存（1/6 部）** | **データ保護法とライセンスの境界について、Chief Privacy Officer の明確な一文** —— Turner 氏 *"data protection law ... is about ... organisations **in control of personal data** ... **software licensors are not part of the picture**"*。**§1.5 が Covered Rights にデータ保護を含めず §11.4 が "It reaches nothing else" と述べることの外からの裏づけ**（#256）。**McCoy Smith 氏の *"Freedom Zero ... inherently, part of the OSD"* も在る**（#248 / #251 の line） |
+| 2020-12 | `license-review` | **観測（OIN License の審査から 1 通・Chestek 氏 2020-12-26・効果の無い語は置くな）** | `2020-12-license-review-oin-chestek-non-operative-words-observed.txt` |
 | 2020-12 | `license-review` | **観測（Brasseur 氏の 1 通・SPDX は既存の団体との混同を避けて識別子を変えた）** | `2020-12-license-review-oin-brasseur-spdx-identifier-observed.txt` |
 | 2020-12 | `license-review` | **観測（Berkus 氏の 1 通・承認の投票の前に、既存の団体と重なる略称の変更を求める）** | `2020-12-license-review-oin-berkus-acronym-observed.txt` |
 | 2020-12 | `license-review` | **観測（Phipps 氏の 1 通・OSI に承認されることがなぜ大事なのか簡潔に説明してほしい）** | `2020-12-license-review-viratrace-phipps-why-approval-observed.txt` |

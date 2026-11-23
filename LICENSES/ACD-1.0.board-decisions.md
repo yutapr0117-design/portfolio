@@ -651,6 +651,7 @@ Fontana 氏は *"there doesn't seem to be any proliferation concern with FPL. I 
 **逆側。** (1) FPL は ISC から 1 条件を除いた短い本文で、ACD は新しい長い本文である。(2) 同じ報告は SimPL について *"I am not sure the present-day OSI would be as happy to approve it"* と述べている。
 (3) 2015 年に採らなかった使用の要素は、2025 年に留め置きの形で入った（§2・§2c）。(4) 重複の答えは 2015 年の FPL には使えたが、0BSD が在る今の ACD に使えるのは特許の 1 点である。
 (5) Berkus 氏が同じ 1 通で挙げた懸念は §16.2 に当たる（#287）。
+(6) **前例は委員会を縛らない。** 委員長の Russ Nelson 氏は 2008-05-26 に *"Precedent is a bad word to use."* … *"Translation: if we've made a mistake, don't expect us to repeat it."* と書いた（`rounds/2008-05-license-review-iggy-nelson-precedent-is-a-bad-word-observed.txt`・`review-readings-6.md` §1.460）。0BSD をこの節のように ACD の先例として読む形に当たる。McCoy Smith 氏は 2020-03-26 に *"Is it fair to deny approval of a license when there is precedent in an already-approved license for the same feature or concept in a newly-submitted license?"* を未決の問いとして挙げた（OSSNL の審査）。**同じ重さの逆側**: Nelson 氏の文の条件は *"if we've made a mistake"* で、委員会が誤りと見なした承認に掛かる。0BSD は委員長が *"clearly OSD-conformant"* と報告し、外部の法律家の助言を取ったうえで 8 対 0 で承認され、その後に MIT-0 も承認された。誤りと見なされていない承認には直接は当たらない。前例を引くときは「同じ型が承認された」ではなく「理事会が同じ論点（条件の無い許諾・notice の不要）を考えたうえで承認した」の形で書く（2026-11-23・portfolio-d7・6d の統合の指摘による）。
 
 ### 8.7 我々の 3 大ボトルネックは、2005 年に「3 つの追加テスト」として提案されたものである
 

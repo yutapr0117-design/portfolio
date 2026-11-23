@@ -1,0 +1,53 @@
+Source: OSI license-review public archive, 2021-June.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 32 in "request for review of the 3D Slicer License" (2021-05-31)
+Senders: Lawrence Rosen
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From lrosen at rosenlaw.com  Wed Jun  9 23:34:55 2021
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Wed, 9 Jun 2021 16:34:55 -0700
+Subject: [License-review] [License-discuss] request for review of the 3D
+ Slicer License
+In-Reply-To: <048e01d75d84$85b225b0$91167110$@rosenlaw.com>
+References: <CADkb7uMjyLEXj-WWBm_7k000+Noy-vwOOVexQfrSL7DOvEOsUQ@mail.gmail.com>
+ <CAMkzgA7jCvGCLkfeES1qpYrhqSCk0aRfED=0aHNQ_he0p7h8RQ@mail.gmail.com>
+ <Pine.BSM.4.64L.2105302124490.15572@herc.mirbsd.org>
+ <8a4fbbee-e900-ad67-de21-5263bebe7047@berkus.org>
+ <cf6d53e3-bc54-4765-895b-766455048b04@chesteklegal.com>
+ <067d01d75c8e$04594670$0d0bd350$@rosenlaw.com>
+ <CAA4ffp8v+EAqegcg6njCz=DfYHGqn=Nvh6svE8ND0Fo2ZKmHYg@mail.gmail.com>
+ <07bd01d75ca7$c80d07f0$582717d0$@rosenlaw.com>
+ <7531f7b2-3776-f628-9196-d0962f41cbdf@chesteklegal.com>
+ <090b01d75ccb$31f4eb10$95dec130$@rosenlaw.com>
+ <17d7ec69-f1d3-46d1-aa8d-f60b520fb024@chesteklegal.com>
+ <01b701d75d45$d0f78d10$72e6a730$@rosenlaw.com>
+ <661be5e7-99e7-3c66-81e6-faf69ad5c268@opensource.org>
+ <03e701d75d70$8f768af0$ae63a0d0$@rosenlaw.com>
+ <57f4e90a-9d9b-8d6d-0e1a-595360ddb1ff@opensource.org>
+ <048e01d75d84$85b225b0$91167110$@rosenlaw.com>
+Message-ID: <04d701d75d88$0ffe52e0$2ffaf8a0$@rosenlaw.com>
+
+This is a follow-up to the discussion about the difference between the SD Slicer license and the AFL/OSL. Since we?re hopefully still talking about legal issues, Pam?s statement below is simply wrong:
+
+ 
+
+The two clauses are similar in that neither states whether the requirement is a condition of the license or what the consequences are when there is a use of the software for an unlawful purpose. 
+
+SD Slicer: "You further agree to use, reproduce, make derivative works of, display and distribute the Software in compliance with all applicable governmental laws, regulations and orders, including without limitation those relating to export and import control."
+AFL/OSL: "You may use the Original Work in all ways not otherwise restricted or conditioned by this License or by law, and Licensor promises not to interfere with or be responsible for such uses by You."
+
+ 
+
+The clauses are NOT similar! The first forms a bilateral contract with a reciprocal condition (?you further agree??), the other is part of a unilateral contract (?the Licensor promises?.?) In my license, intentionally, only the licensor makes promises! Among the licensor promises in my license is that restricted or illegal uses are not the responsibility of the licensor, and this provision is expressly NOT a license condition to which the licensee agrees. In the AFL/OSL, It is the licensee?s own responsibility to obey the law, at its own risk.
+
+ 
+
+/Larry
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20210609/50ac6f64/attachment.html>

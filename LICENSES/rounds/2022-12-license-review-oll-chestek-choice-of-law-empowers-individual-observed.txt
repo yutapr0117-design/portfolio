@@ -1,0 +1,73 @@
+Source: OSI license-review public archive, 2022-December.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 56 in "For Approval: Open Logistics License v1.2" (2022-12-05)
+Senders: Pamela Chestek
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Tue Dec 13 02:30:49 2022
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 12 Dec 2022 18:30:49 -0800
+Subject: [License-review] For Approval: Open Logistics License v1.2
+In-Reply-To: <Pine.BSM.4.64L.2212120239400.8085@herc.mirbsd.org>
+References: <FRYP281MB02375174B98116BB61BA509D9B189@FRYP281MB0237.DEUP281.PROD.OUTLOOK.COM>
+ <229030915.3479309.1670269555012.JavaMail.zimbra@piana.eu>
+ <801dd2fc-ed2e-f513-4f56-54cced9eb8b5@chesteklegal.com>
+ <Pine.BSM.4.64L.2212120239400.8085@herc.mirbsd.org>
+Message-ID: <10a39b69-f9a3-fd5c-8aa5-6e31794c77b7@chesteklegal.com>
+
+
+On 12/11/2022 6:46 PM, Thorsten Glaser wrote:
+> Pamela Chestek dixit:
+>
+>> On 12/5/2022 2:45 PM, Carlo Piana wrote:
+>>> The choice to include a choice-of-law provision is really a no-go for me
+> [?]
+>> Someone recently persuaded me that a choice of law provision is beneficial to
+>> the extent it provides certainty. Without it, you have no idea what law might
+>> apply and therefore no way to evaluate the risk.
+> This is something that will appeal to companies. However, in
+> general business with end users, consumer protection normally
+> says that the law to be used is that of the end user, if it?s
+> not B2B anyway. Isn?t this kinda the same with the licences?
+That's not true in the US. As a general rule we don't distinguish 
+consumer contracts from business-to-business contracts except in special 
+cases, e.g., lending, insurance, product warranty. Particularly when it 
+comes to contracts associated with internet transactions (terms of use, 
+for example) we treat end users really awfully with very little 
+protection. The choice of law provisions in those are enforceable. But 
+then it's not really that big a deal for most purposes.
+> Whom does OSI wish to protect more, considering both sides may
+> be either private individuals or big companies? (no weighing
+> from my side, just providing food for thought).
+I don't see a choice of law provision as biased in favor of either 
+individuals or big companies. It's just takes one variable out of the 
+very complicated equation. How would the existence of the provision (not 
+the country chosen, but the mechanism itself) favor either type of 
+licensor? Couldn't it empower the small individual by allowing them to 
+make a choice in their own favor? Without it, doesn't the private 
+individual licensor end up not knowing under what country's laws they 
+might be sued?
+>
+> And isn?t the Berne Convention already making the country of
+> the *recipient* of the licence the binding one anyway? AIUI,
+> it states that a work from country A does receive the same
+> protections in country B as a native B?s work enjoys. So, for
+> licences (as opposed to business contracts), this probably is
+> already specified?
+
+The US would apply the law of the place where the infringement occurred. 
+That could be where the recipient of the license is, but not 
+necessarily. And on occasion, where the infringement occurred outside 
+the US, a US court may decide the infringement cause of action applying 
+the foreign country's laws.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com
+(919) 800-8033
+www.chesteklegal.com
