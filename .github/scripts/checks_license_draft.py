@@ -452,7 +452,7 @@ def run(ctx):
         #   check module の mirror にも広げる (mirror は「この file は何か」を答える面で、古い版を指すと
         #   読み手を凍結済みの草案 pointer へ送る)。
         _pat468k = re.compile(
-            r"(?:いまの作業場は|次版の草案（いまは|いまは|next version happens in \[?)\s*\[?`(?:LICENSES/)?(ACD-[\d.]+-DRAFT\.txt)`")
+            r"(?:いまの作業場は|次版の草案（いまは|いまは|next version (?:happens|is drafted) in \[?)\s*\[?`(?:LICENSES/)?(ACD-[\d.]+-DRAFT\.txt)`")
         # **2026-11-01 拡張 2 (portfolio-bb の発見)**: 表の形 —— 第 1 セル (ラベル) に「作業場」、
         #   次のセルに草案名 —— を拾っていなかった。faq.md の C 表の「| 次版の草案（作業場） |
         #   `LICENSES/ACD-1.3-DRAFT.txt`」が 1.3 確定から 7 日間古いままで、本 face の docstring が
