@@ -331,3 +331,22 @@ census の `DECIDERS` は差出人の表示名を大文字小文字を区別し�
 **この節が establish しないこと。** fc の修正は名前の照合を大小文字の区別のまま残し、アドレス 12 個を足した（短い姓の誤検出を避けるため）。12 個の外のアドレスで書いた決める側の通がまだ在るかは確かめていない。portfolio-d7 が手元で大小文字を区別せずに照らした値（候補 848）とは 1 本違う。fc の一覧で unquoted-decider は 1195 → 1236 通（+41）で、d7 が手元の照合で読んだ 43 通との 2 通の差は照らしていない。
 
 **反映**: B1（Perens 氏 1999-04-30・Rosen 氏 2001-04-22 の「法律家に相談せよ」を、§1.462 の Smith 氏 2024・Piana 氏 2024 と委員長 Chestek 氏 2024-12-18 の「要求はしない、勧めるだけ」と同じ段に・cd へ）/ B3（Perens 氏 1999-09-10 の「自己矛盾は全体の執行力を疑わせる」を `against.md` #114 の補強として・cd へ）/ 入口（Berkus 氏 2017 の基準 4 "Has a substantiated use case" を受ける肯定の行を "The case" の表に・cd へ・6d 了承）/ 1c（Perens 氏 1999 の「許可の文は能動態で」を 1.5 の点検の表の候補に・5e へ。**5e の読み（2026-11-23）**: 1.4 の許可の文の受動態 16 文のうち許す者が書かれていないのは §6.1 だけで、THIRD §15.45 の 9 巡目が既に当て、行為者は文脈で一つに決まる。能動にする案は読みの分岐を閉じず語も減らさないので 1.5 の方針の規則 1 では入らない —— 点検の観点の表に「当てた・立たない」として載せる）。本文は変えない。
+
+## 1.465 ACD の条の主題の語（計算利用・モデルの出力・データベース権・人格権・偽りの帰属・データ保護）で全期間を当て直した 42 通 —— 「GDPR は単独の法であってライセンスの条項ではない」（Perens 氏 2019）は ACD-1.4 の §11.4 の形に当たる（2026-11-23）
+
+§1.464 までの採掘は census の候補・決める側の未引用の通・献呈の語の通を対象にした。portfolio-d7 は、差出人を問わず、ドシエ（`LICENSES/` の文書と `rounds/` のすべて）と 8 語連鎖が 1 つも重ならない 60 語以上の通のうち、ACD-1.4 の条の主題の語（computational use・TDM・machine learning・model output・sui generis・database right・moral rights・false attribution・publicity・personality right・data protection・GDPR）に 2 回以上当たる通を全 508 か月から数えた。**42 通しか無かった** —— ドシエはこれらの主題の通をほとんど引き終えている。42 通のうち決める側の 6 通と、ACD の論点に近い決める側でない 3 通（Duan 氏 2 通・Langley 氏 1 通）の計 9 通を全文で読んだ。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"GDPR is stand-alone law, not an Open Source license provision. I do not in general object to user protections like GDPR existing *as law,* just as I do not object to any number of laws that I *would *object to if they were instead made terms of an Open Source license."* | Bruce Perens 氏 2019-07-05（CAL の会話・データの持ち運びを条件にすることへの返信） | **有利な面（ACD-1.4 の §11.4）。** データ保護は法が定め、ライセンスの条項にしない、という OSD の起草者の線。ACD-1.4 の §11.4 は、データ保護法・プライバシー・パブリシティの下での許可を与えないことを「届く範囲の限界であって条件ではない」と書き、受け手に義務を課さない —— この線の内側に在る。**逆側**: 同じ会話で Luis Villa 氏は、GDPR を支える多くの人がデータの扱いの制約を自由を増すものと見ている、と書いた。ACD はその立場を条項にしないので、データの扱いの保護を求める読み手には何も与えない |
+| *"I think Thorsten's objection is based on France's moral rights. Perhaps we could suggest that the Unlicense contain a statement saying "In France, the concept of moral rights prohibits me from giving up my copyright in this work. Therefore, in France, this license gives you co-ownership of the copyright.""* | Russell Nelson 氏 2020-05-13（Unlicense の旧来の承認の会話） | **両面（B8・ACD-1.4 の §12）。** 人格権がパブリックドメインへの献呈の障害になることを、かつての委員長が承認の場で問題として受け取った。ACD は §12 で人格権の放棄・不行使の約束・同意を条で扱う —— この問いに条で答える側に在る。**逆側**: Nelson 氏の案（共有の著作権を与える）は法の上で確かめられた手段ではなく、承認の基準として採られてもいない。§12 が各国でどう働くかは `QUESTIONS-FOR-COUNSEL.md` の問いのまま |
+| *"I am not saying it fails the OSD. I am just saying that, as an "Open" model license, 1.1 looks more aggressive than MIT. As a developer, I would avoid models under it."* | Moming Duan 氏 2026-08-31（ModelGo の起草者・OpenMDW 1.1 の審査・著作権の請求でライセンスが終わる条への意見） | **有利な面（ACD-1.4 の §10.4）。** 承認の審査中の AI のライセンスに、著作権の請求で許諾が終わる条が「MIT より攻撃的」と言われた。ACD-1.4 の §10.4 はどの許諾もどんな理由でも終了させない。**逆側**: 決める側の文ではなく、別の AI ライセンスの起草者の意見である |
+| *"Japanese copyright law allows the use of unlicensed copyrighted material for AI training, and it is written most clearly in the world."* | Shuji Sado 氏 2023-11-01（AI 業界が Open Source の定義を認めた例として・松尾研の Weblab-10B が「Open Source」の語の誤用を認めた件） | **両面（ACD-1.4 の §6）。** 日本では著作権法が学習のための利用を許す。ACD の §6 の計算利用の明示の許可は、日本では法が既に許すことを重ねて述べ、法がそう定めない国で効く。起草者が日本にいることと §6 の要否の関係を、審査者が問いうる。**逆側（有利）**: 同じ通は、AI の開発者も「Open Source」の定義に従うようになった例として OSI の定義の重みを述べている |
+
+**読み。** ACD の条の主題で全期間を当て直すと、ドシエが引いていない通は 42 通しか残っていなかった。読んだ通は、ACD-1.4 の §11.4（データ保護を条件にしない）と §10.4（終了しない）の形を支える側と、§12（人格権）・§6（日本での学習の許し）に問いを向ける側に分かれた。
+
+**逆側。** 有利に読める 2 つ（Perens 氏 2019・Duan 氏 2026）は、前者は個人の意見、後者は決める側でない。
+
+**この節が establish しないこと。** 主題の語に 1 回だけ当たる通（2 回の閾値の下）に ACD に当たる文が無いこと。42 通のうち読まなかった 33 通（多くは 1999〜2010 年の Verdy 氏の通）に新しい論点が無いこと。
+
+**反映**: B8（Nelson 氏 2020 の「人格権は献呈の障害」を §12 の説明の有利な側に、Nelson 氏の案が法の手段として確かめられていないことを同じ段に・cd へ）/ 入口（§11.4 の説明に Perens 氏 2019 の「データ保護は法、ライセンスの条項ではない」を足せるか・cd へ）/ 1c（Sado 氏 2023 の「日本の著作権法は学習を明確に許す」—— §6 が日本で重ねて述べることの逆側を、1.5 の逐条の §6 の行に・5e へ）。本文は変えない。
