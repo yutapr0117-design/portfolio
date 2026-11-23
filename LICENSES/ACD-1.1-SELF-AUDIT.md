@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.1-SELF-AUDIT.md
 audience: a future drafter (the current draft is 1.4), OSI license-review participants, licence reviewers
-last-updated: 2026-11-15
+last-updated: 2026-11-23
 canonical-ref: LICENSES/ACD-1.5-DRAFT.txt (the current draft; ACD-1.2.txt frozen 2026-10-17, ACD-1.3.txt frozen 2026-10-25 and applied to this repository) / LICENSES/ACD-1.1.txt (frozen 2026-09-17) / LICENSES/ACD-1.4-CHANGELIST.md (all other changes for the current draft; ACD-1.1〜1.3-CHANGELIST.md are the closed records for those versions) / LICENSES/ACD-1.0.errata.md (defects in 1.0)
 ---
 
@@ -874,3 +874,17 @@ T48（2026-11-09）は、*"Paragraphs (a) and (b) do not reach a service through
 **閉じ方**: 1.4 草案の T89 —— *"Nothing in this Dedication is, under its terms, conditioned on, suspended by, or revived by …"*（+3 語）。文書の中の仕組みが無いことを述べる文になり、法律が管財人に与える否認は外に出た。InsO 103 条（双務契約の履行選択）は、受け手が何も負わない ACD には当たりにくい（同じ写し）。
 
 **一般形**: E30 で結果の言い切りを外した後に、同じ根（文書の外の法が決めることを文書が言い切る）が別の語で戻っていた。T81（§10.4）・T85（§8.2）・T89（§2.9）は 1.4 で同じ型の 3 か所を *"under it" / "under this Dedication" / "under its terms"* で閉じた。**この記録が establish しないこと**: 否認が実際に、既に写しを持つ受け手の許しに及ぶか（問い 8）。
+
+## 3zd. 1.4 が持ち込んだ欠陥 —— T124 が §5.2 に足した授権と放棄は約束ではなく、§11.4 の但し書きの外に在る（2026-11-23）
+
+**なに**: §11.4 第 2 文は *"It reaches nothing else, save that the covenants in Section 5 are promises about the Dedicator's own conduct and are not limited by this sentence."* と述べ、§5 のうち**約束**だけを「それ以外に及ばない」の外に置く。1.4 の T124（2026-11-20・THIRD §15.40）は §5.2 に *"the Dedicator authorises the circumvention of any technological measure … and waives any power under a law concerning such circumvention to forbid that circumvention"* を足した。これは約束ではなく授権と放棄で、その対象（17 U.S.C. §1201 の回避の禁止、指令 2001/29/EC 6 条の法的保護）が §1.5 の Covered Rights（*"any right of similar effect"*）に入るかは本文から決まらない。入らないなら、§11.4 第 2 文は書かれたとおりには偽になり（errata E44 と同じ型 —— 及びを述べる文が、文書が実際に及ぶものより狭い）、狭く読めば授権と放棄を切る。T124 の文は 1.0〜1.3 に無いので、errata ではなくここに記録する。
+
+**重さ**: Low。§11.1 第 2 文 *"Nothing in Section 11 reduces what any other Section of this Dedication gives"* が、§11.4 で §5.2 の授権と放棄を減らす読みを閉じ、§15.1 も受け手に多く与える読みを採らせる。受け手が得るものは変わらない。欠陥は、及びの限界を知るために読み手が見る文（§11.4）が、その限界を正しく述べていないことである（E44 と同じ）。
+
+**見つけ方**: E44 は §10.1 の限定（*in respect of the Work*）を及びを述べる文すべてに当てて見つかった。同じ文を、E44 を閉じた後（11-01）に入った試作（T53〜T134）に当て直した —— **及びの文を閉じた後に、及ぶ先を増やす変更が入っていた**。T124 の 2 巡（THIRD §15.40・§15.41）は §5.2(a)・§6.3・§4.5 との関係を当てたが、§11.4 には当てていなかった。
+
+**同じ型の 3 件目**: 2f の最終の通読（2026-11-20・`ACD-1.4-UNIQUE-READING.md` の「§11.4 第 2 文の除外」の行）は、§2.5 の約束が但し書きの外にあって *"It reaches nothing else"* に狭められる読みを見て、§11.1 第 2 文で閉じて「一意」とした。E44（§16 の文書としての制限）・§2.5・T124 と、網羅を言い切るこの 1 文が同じ型を 3 度生んでいる。
+
+**閉じ方（1.5 の候補・`ACD-1.5-CLARITY-TRIAL.md` §1 の T135）**: 3 案を並べて測った。(a) 但し書きを *"save that Section 5 is not limited by this sentence."* にする（−11 語・split() で数えた）—— T124 を閉じるが網羅の言い切りは残る。(b) 第 2 文を丸ごと外す（−25 語）—— **退けた**: 1.4 の本文で黙示の許諾を外しているのはこの 1 文だけで（*implied* / *estoppel* の類いは §13 の *IMPLIED* と §2.5 の *estopped* のほかに無い・portfolio-cd の grep を 5e が確かめた）、外すと §4 の *use* の許諾から §8.4 の限定の外の特許へ黙示の許諾の議論に足場を与え、B7 の釣り合いを黙って動かす。**(c)** 第 2 文を *"It grants nothing by implication beyond what its words give."* に置き換える（−15 語・案は portfolio-cd）—— 網羅を言い切る文が無くなるので 3 件の型はまとめて消え、黙示の許諾の排除は残る。本命は (c)。**逆側**: (c) は第 1 文を「及ぶものの例示」に読ませうる、*estoppel* による許諾の排除を明示しない、法が強行的に与える黙示の許諾や消尽は外せない（どの案でも同じ）—— 逆側の全部は試作の節に在る。 1.4 の記述子（`ACD-1.4.machine.json`）は T124 の授権を `permissions` にも `covenants` にも持たない。1.5 の記述子の候補として `ACD-1.5-CHANGELIST.md` の「記述子の候補」に書いた（fc と 5e）。
+
+**一般形**: 及びや例外を列で述べる文（§2.4 の *grant, permission, consent, and covenant*、§5.3 の約束の列、§11.4 の但し書き、§14.2 の約束の列）は、後から入った変更が列の語に当たらない種類の行為（授権・放棄）を足すと、黙って古くなる。同じ目で 3 つの列を当てた: §2.4 は *waiver* を列に持たないが、T124 の放棄と §3.3 の放棄は *"Sections 3, 4, 5, and 6"* の中に在り、§12.1 の放棄だけが外に在る —— §12.1 を他の条の効力に条件づける文は無く、§12.2 は自分で *"whether or not Section 12.1 has effect"* と独立を述べるので、立たない。§5.3 の約束の列は T124 を持たないが、授権は相手を You に限らない（回避が許された使用の中で行われれば足りる）ので、受け手が頼るための第三者受益の文を要しない。§14.2 の列は約束の違反の責任を述べる文で、授権と放棄は違反しうる行為ではない。**この記録が establish しないこと**: 回避を禁じる力が Covered Right に当たるか（法域ごとの問い・`QUESTIONS-FOR-COUNSEL.md` の問い 5 の回避の授権の段（§5.2 の T124 を既に引いている）に、Covered Rights に当たるかの面を足す候補）。
