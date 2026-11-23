@@ -134,8 +134,11 @@ def run(ctx):
     if not reps:
         bad.append("(f) clause-reference.md: 「N 条すべてを収録」「抽出した N 条」が読めない")
     for a, b in reps:
-        if int(a or b) != cls:
-            bad.append(f"(f) clause-reference.md の繰り返し: 申告 {a or b} 条 / 本文の条 {cls}")
+        # (f) は 1.0 の逐条 (ACD-1.0.clause-reference.md) が述べる 1.0 の条の数なので、提出対象ではなく 1.0 の本文と比べる
+        #   (2026-11-23: (d) を提出対象へ向けたとき同じ cls を使い、切り替えた木で 1.0 の「82 条」を 1.4 の 80 と比べて RED にした)
+        cls10 = len(re.findall(r"^  \d+\.\d+\s", text(L / "ACD-1.0.txt"), re.M))
+        if int(a or b) != cls10:
+            bad.append(f"(f) clause-reference.md の繰り返し: 申告 {a or b} 条 / 1.0 の本文の条 {cls10}")
 
     # (g) submission.md: 460 (a) は glob で 4 file を数えるのに、文は "three files" と書き 2 つの分冊しか名指さなかった
     sb = text(L / "ACD-1.0.submission.md")
