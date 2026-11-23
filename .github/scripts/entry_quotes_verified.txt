@@ -11,11 +11,10 @@ own: why another public-domain-equivalent?
 own: three things no approved licence does together
 own: In one screen
 own: The same gap, in detail
-06070aa8779b3022
 0c20acd80b821447
 0d956e2cb64db2f9
 0fab69c8b986707c
-106f6dbc185926ab
+119fec607d0ec43c
 13dc2f5c52a4365c
 15e3787d3b972d79
 188803e8da77c78a
@@ -25,7 +24,6 @@ own: The same gap, in detail
 285be55452eb8c7e
 28cde6973a44a632
 2e13ad133125fc22
-2e275edf6d2c4c38
 303d43a5b432491e
 3250c2ba6c0171a2
 333dbb4f094b5972
@@ -55,13 +53,10 @@ own: The same gap, in detail
 6070057edd699722
 60ce7c94181d0932
 6113a9354328d8a7
-61ea2658b4538376
 623697fe9902fb09
 62e1e90be63ebbf7
-64ccb688980b2b97
 671ef9774d1f83c9
 6726d4288467b01c
-710f3b26730de5d0
 75c030f5b932cd99
 76152704995dcaea
 7a3a2a6130ca94ec
@@ -93,6 +88,7 @@ d4fbf9485d9f8737
 da9f433eb108d0fb
 daff1b5e01298f61
 db2c89c33507a9f1
+dd74bd74788fde6c
 e4ab38e92f5a55b7
 e4abf0cdb0e4fb31
 e62be6e220aa6281
