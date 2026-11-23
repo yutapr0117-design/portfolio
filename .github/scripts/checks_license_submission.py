@@ -306,8 +306,15 @@ def run(ctx):
                         continue
                     _tx472 = _p472.read_text(encoding="utf-8")
                     _cited = set(re.findall(r"§\s?(\d{1,2}\.\d{1,2})(?!\d)", _tx472))
-                    _miss = sorted(_c for _c in _cited
-                                   if _c in _universe472 and _c not in _have472)
+                    # 版を明示した過去の記録は外す (2026-11-23・6d の依頼): 提出対象を 1.4 へ切り替えると、「1.0 の §15.8 が前提にする
+                    #   翻訳」のように版を名乗って 1.0 の条を引く記録まで RED になり、§ を外して逃れる (検査を黙らせる) 向きに働く。
+                    #   直前 30 字に提出対象でない版の名 (ACD-1.0・1.0 の・in 1.0・1.0's・(1.0)) が在る引用だけを外す。版の無い引用は今どおり
+                    _tv472 = _ver472.split("-", 1)[1]
+                    _miss = sorted({_m472v.group(1) for _m472v in re.finditer(r"§\s?(\d{1,2}\.\d{1,2})(?!\d)", _tx472)
+                                    if _m472v.group(1) in _universe472 and _m472v.group(1) not in _have472
+                                    and not any(_v != _tv472 for _v in re.findall(
+                                        r"(?:ACD-|\bin |\()(1\.\d)\b|\b(1\.\d)(?: ?の|'s)",
+                                        _tx472[max(0, _m472v.start() - 30):_m472v.start()]) for _v in _v if _v)})
                     # [FIX 2026-11-08] 後の版の条番号はどれも 1.0 の部分集合なので、提出対象が 1.0 の間は
                     #   上の条件が成り立たず、この Check は一度も RED になりえなかった。どの版にも無い番号
                     #   (§8.4 を §8.9 と書いた誤り) も見ていなかった (監査で実測)。条の形の番号 (1〜16 節・
