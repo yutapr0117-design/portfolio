@@ -69,6 +69,12 @@ def bump_applied(text: str, old: str, new: str, old_date: str, date: str) -> str
     return re.sub(rf"({re.escape(new)}\.[a-z.]+</loc>\n\s*<lastmod>){re.escape(old_date)}", rf"\g<1>{date}", out)
 
 
+def _and_list(names: list[str]) -> str:
+    """["ACD-1.2", "ACD-1.3", "ACD-1.4"] → "ACD-1.2, ACD-1.3 and ACD-1.4" (重複は最初の 1 つだけ残す)。"""
+    names = list(dict.fromkeys(names))
+    return names[0] if len(names) == 1 else ", ".join(names[:-1]) + " and " + names[-1]
+
+
 def move_workplace(line: str, v: str, nxt: str, date: str) -> str:
     """「いまの作業場」の行を次版の草案へ向ける。日付つきの追記・訂正の中の名前は書き換えず、その後に追記を足す。
 
@@ -345,6 +351,13 @@ def finish(v: str, prev: str, nxt: str, date: str, clauses: int) -> None:
                   r" the draft differs only by the changes its header lists\.",
                   lambda m: f"Clause numbers are those of **ACD-{v}** (`ACD-{v}.txt`, fixed on {date}, {clauses} clauses),{m.group(1)} "
                             f"{m.group(2)} and ACD-{prev} use the same numbers.", text)
+    # 確定の後の形 (2026-11-23・1.4 の確定で上の式が書いた形): 「… which is the version this repository applies. ACD-1.2 and ACD-1.3
+    #   use the same numbers.」。上の式は草案を名乗る形しか読まないので、次の確定 (1.5) で基準の版が 1.4 のまま残り、予行で
+    #   472h が一覧の外の RED になった。確定の後の形も読み、前の版を「同じ番号」の列に足す
+    text = re.sub(r"Clause numbers are those of \*\*ACD-[\d.]+\*\* \(`ACD-[\d.]+\.txt`, fixed on \d{4}-\d{2}-\d{2},\s+\d+ clauses\),"
+                  r"(\s+which is the version this repository applies\.)\s+((?:ACD-[\d.]+,? )+)and (ACD-[\d.]+) use the same numbers\.",
+                  lambda m: f"Clause numbers are those of **ACD-{v}** (`ACD-{v}.txt`, fixed on {date}, {clauses} clauses),{m.group(1)} "
+                            + _and_list(re.findall(r"ACD-[\d.]+", m.group(2)) + [m.group(3), f"ACD-{prev}"]) + " use the same numbers.", text)
     counsel.write_text(text.replace(f"the {v} draft", f"ACD-{v}").replace(f"The {v} draft", f"ACD-{v}"), encoding="utf-8")
     # 「いまの作業場」の行は Check 468k / 468t が場所を名指す。同じ規則を 2 か所に書かない。
     report = subprocess.run([sys.executable, ".github/scripts/check_repository_consistency.py"], cwd=ROOT, text=True, capture_output=True).stdout
@@ -652,7 +665,15 @@ def main() -> int:
         f"LICENSES/ACD-{v}.txt (直前の確定テキスト)\n---\n\n# ACD-{nxt} で変えるもの\n\nACD-{v} は {args.date} に確定・凍結した。"
         f"草案 `ACD-{nxt}-DRAFT.txt` は、下の表の変更と版番号・識別子を除いて {v} の本文である。\n\n"
         "## 表（変更が入ったらここへ足す）\n\n| 対象 | 何を変えるか | なぜ | 費用（語） | 状態 |\n| :-- | :-- | :-- | :-- | :-- |\n\n"
-        "## errata 由来（`ACD-1.0.errata.md` が一次記録）\n\n## Constraints\n\n## Change impact\n", encoding="utf-8")
+        "## errata 由来（`ACD-1.0.errata.md` が一次記録）\n\n"
+        # 語数の内訳と記述子の候補の節を最初から置く (2026-11-23・5e の依頼): 1.5 で 5e が表の節の中に記述子の候補の表を置いて
+        #   468s に、同じ行に 2 つの数を書いて 460 (x) に当たった。置き場所と書き方を雛形が先に示す
+        f"## 語数の内訳（{v} → {nxt} 草案・表から集計）\n\n"
+        f"<!-- 最初の変更を入れたら、ここに 3 つを書く (Check 498 (k) が実測で照らす): 「{v} の <語数> 語から {nxt} 草案は <±差> 語"
+        "である（<束名>の <K> 束で <±差>）。」、別の行に「1.0 の <語数> 語から見ると <差> 語長い。」、束の表 "
+        "| 束 | 増減 | 何のための語か |。主表 (## 表) の外に置く表はここより下に置く (468s は ## 表 の最初の表だけを読む) -->\n\n"
+        f"## 記述子の候補（{nxt} の確定の日に `ACD-{nxt}.machine.json` へ入れるかを決める）\n\n"
+        "## Constraints\n\n## Change impact\n", encoding="utf-8")
     # 次版の CHANGELIST は audience が審査者なので、入口 (REVIEWERS.md) の CHANGELIST の行に並べる。無いと Check 459c の
     #   作業中の版の ADVISORY が確定の直後に鳴る (2026-11-23・6d が 1.4 の確定 #3864 で手で足した)
     rv = L / "REVIEWERS.md"
