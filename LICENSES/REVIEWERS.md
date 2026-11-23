@@ -20,7 +20,7 @@ that it must be**. *(Re-measure: `git ls-files -z LICENSES ':!LICENSES/rounds' |
 
 | | words | why |
 | :-- | --: | :-- |
-| [`ACD-1.0.txt`](ACD-1.0.txt) | **4,896** | the licence as posted to `license-discuss` on 2026-08-26, which the commands on this page check. Nothing outside it fixes it. The version this repository applies, and the one that would be submitted, is [`ACD-1.4.txt`](ACD-1.4.txt) (5,879 words); [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt) shows every word that changed, clause by clause |
+| [`ACD-1.0.txt`](ACD-1.0.txt) | **4,896** | the licence as posted to `license-discuss` on 2026-08-26: the base of the redline, and what the commands below check. Nothing outside it fixes it. The version applied here, and to be submitted, is [`ACD-1.4.txt`](ACD-1.4.txt) (5,879 words); [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt) shows every changed word |
 | the two facts **#1 and #4** in [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~220 | **no lawyer has read this text**, and **the only project using it is the author's**. These are the strongest points against it. Neither is one of the eight published criteria, and the Licensing Committee's chair has called legal review *"not a blocker"*, but a reviewer may weigh both |
 | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **5,340** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
 
