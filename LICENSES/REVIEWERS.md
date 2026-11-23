@@ -439,7 +439,7 @@ them and would have sent a reviewer away from material they can read.
 | File | Language | What is in it |
 |---|---|---|
 | [`ACD-1.0.comparison.md`](ACD-1.0.comparison.md) | **English** | Why the nearest licences do not fit, by family (Unlicense, 0BSD/MIT-0, Apache-2.0, MPL — all OSI-approved — and CC0, which is not) |
-| [`ACD-1.0.clause-reference.md`](ACD-1.0.clause-reference.md) | Japanese | All 82 clauses, one line each, with what each is for |
+| [`ACD-1.0.clause-reference.md`](ACD-1.0.clause-reference.md) | Japanese | All 82 clauses of 1.0, one line each, with what each is for. Written against 1.0: for ACD-1.4, read [`CHANGES-ACD-1.4.txt`](CHANGES-ACD-1.4.txt) (English, what changed from 1.3, clause by clause) and "The new language, next to the nearest approved text" above |
 | [`ACD-1.0.jurisdictions.md`](ACD-1.0.jurisdictions.md) | Japanese | Where the questions differ by jurisdiction (JP, DE, FR, US, EU, UK). **Questions, not conclusions** — no legal opinion is offered |
 | [`ACD-1.0.faq.md`](ACD-1.0.faq.md) | Mixed; each answer has an English block | Practical questions from the adopter's side (SPDX notation, scanners, explaining it to a legal team, academic use, consumer-law limits) |
 | [`ACD-1.0.review-responses.md`](ACD-1.0.review-responses.md) | Mixed; **every answer is given in English**, with Japanese notes on why it is phrased that way | Anticipated objections: the four weaknesses stated first, then OSD clause by clause |
