@@ -159,11 +159,11 @@ rules stayed; the reasons moved here. The full records are in the change list, i
 
 | | |
 | :-- | :-- |
-| [`ACD-1.0.txt`](ACD-1.0.txt) | **The text posted to `license-discuss` on 2026-08-26.** Frozen since 2026-08-24 so that the text under discussion does not move. This repository applied it until 2026-10-25. |
+| [`ACD-1.0.txt`](ACD-1.0.txt) | **The text posted to `license-discuss` on 2026-08-26.** Frozen since 2026-08-24 so that the text under discussion does not move. This repository applied it until 2026-10-25. Every word changed since is in [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt). |
 | [`ACD-1.1.txt`](ACD-1.1.txt) | **The successor, frozen 2026-09-17.** When it was frozen it closed nineteen of the twenty-one defects then recorded in [`ACD-1.0.errata.md`](ACD-1.0.errata.md); the list has kept growing since, and each entry says which version addresses it. It has **not** been submitted to `license-review` and is **not** applied to this repository. |
 | [`ACD-1.2.txt`](ACD-1.2.txt) | **The second successor, frozen 2026-10-17.** Its own header says what it is. It has **not** been submitted to `license-review` and is **not** applied to this repository. |
 | [`ACD-1.3.txt`](ACD-1.3.txt) | **ACD-1.3, the third successor, frozen 2026-10-25.** This repository applied it from that date until 2026-11-23. It has **not** been submitted to `license-review`. |
-| [`ACD-1.4.txt`](ACD-1.4.txt) | **ACD-1.4, the fourth successor, frozen 2026-11-23, and the licence this repository applies from that date** (the root `LICENSE` says so). It has **not** been submitted to `license-review`; as of 2026-11-23 it had not been posted to any list (postings are recorded in [`FROZEN.md`](FROZEN.md)). What changed from 1.3, clause by clause, is in [`CHANGES-ACD-1.4.txt`](CHANGES-ACD-1.4.txt). |
+| [`ACD-1.4.txt`](ACD-1.4.txt) | **ACD-1.4, the fourth successor, frozen 2026-11-23, and the licence this repository applies from that date** (the root `LICENSE` says so). It is the version this dossier prepares for submission (the submission target since 2026-11-23); it has **not** been submitted to `license-review`, and as of 2026-11-23 it had not been posted to any list (postings are recorded in [`FROZEN.md`](FROZEN.md)). What changed from 1.3, clause by clause, is in [`CHANGES-ACD-1.4.txt`](CHANGES-ACD-1.4.txt). |
 
 **Work on the next version happens in [`ACD-1.5-DRAFT.txt`](ACD-1.5-DRAFT.txt)**, so no
 frozen text moves while it is being discussed. All five are pinned by SHA-256 in
