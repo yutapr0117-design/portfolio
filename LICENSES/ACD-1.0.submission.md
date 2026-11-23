@@ -66,10 +66,10 @@ discussion is visibly accounted for rather than repeated.
 | Field | Value |
 |---|---|
 | Full name | Autonomous Commons Dedication 1.0 |
-| Short identifier | `ACD-1.0` |
+| Short identifier | `ACD-1.4` |
 | Licence steward | Yuta Yokoi (横井雄太) |
-| Canonical text | **Attached to the message as plain text.** OSI's process asks for "a copy of the license as an attachment in simple text format", and a reviewer's first response to a 2026 submission that gave only a repository link was *"we need a version that isn't subject to dynamic changes to evaluate"*. The published copy is at `https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt`, and **a reviewer can confirm the attachment is that text**: `LICENSES/FROZEN.md` pins its SHA-256 and `grep -E "^[0-9a-f]{64}  " LICENSES/FROZEN.md \| shasum -a 256 -c` checks it |
-| SPDX XML | `https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.spdx.xml` |
+| Canonical text | **Attached to the message as plain text.** OSI's process asks for "a copy of the license as an attachment in simple text format", and a reviewer's first response to a 2026 submission that gave only a repository link was *"we need a version that isn't subject to dynamic changes to evaluate"*. The published copy is at `https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.4.txt`, and **a reviewer can confirm the attachment is that text**: `LICENSES/FROZEN.md` pins its SHA-256 and `grep -E "^[0-9a-f]{64}  " LICENSES/FROZEN.md \| shasum -a 256 -c` checks it |
+| SPDX XML | `https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.4.spdx.xml` |
 | Project using it | `https://yutapr0117-design.github.io/portfolio/` (source: `https://github.com/yutapr0117-design/portfolio`) |
 | OSI-approved | Not yet (this submission) |
 | Reusable by others | Yes — Section 16.3 states it is not specific to any project, person, organisation, jurisdiction, or field |
@@ -88,13 +88,13 @@ including where the answer is the weak one:**
 
 ```
 License Name:                   Autonomous Commons Dedication
-Version:                        1.0
-Short Identifier:               ACD-1.0
+Version:                        1.4
+Short Identifier:               ACD-1.4
 Copyleft:                       No
 Legacy or New:                  New License
 Drafted By Lawyer:              No
 Approved or Used by Projects:   One — the submitter's own repository
-License URL:                    https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt
+License URL:                    https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.4.txt
 Steward:                        Yuta Yokoi (横井雄太)
 SPDX Identifier:                Not registered (LicenseRef-ACD-1.0 is the conforming form)
 ScanCode Identifier:            None
@@ -477,12 +477,12 @@ Yuta Yokoi
 Submit via https://tools.spdx.org/app/submit_new_license/ (preferred) or the
 `spdx/license-list-XML` new-license-request issue template.
 
-- **Full name:** Autonomous Commons Dedication 1.0
-- **Short identifier requested:** `ACD-1.0`
+- **Full name:** Autonomous Commons Dedication 1.4
+- **Short identifier requested:** `ACD-1.4`
 - **OSI approved:** No. Not submitted to OSI License Review either — only discussed on license-discuss
-- **Licence text URL:** https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt
-- **SPDX XML:** `LICENSES/ACD-1.0.spdx.xml` in the repository below, generated from the
-  text by `npm run spdx-xml` and kept in sync by a blocking CI check, so the submitted
+- **Licence text URL:** https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.4.txt
+- **SPDX XML:** `LICENSES/ACD-1.4.spdx.xml` in the repository below, generated from the
+  text by `npm run spdx-xml -- --version 1.4` and kept in sync by a blocking CI check, so the submitted
   markup cannot drift from the published text.
 - **Evidence of use:** https://github.com/yutapr0117-design/portfolio — the licence covers
   the whole repository (source, documentation, data, and media assets) and is declared in
@@ -514,7 +514,7 @@ Submit via https://tools.spdx.org/app/submit_new_license/ (preferred) or the
 
 1. `LICENSES/READY-TO-SUBMIT.md` exists (it is written only when the text is judged ready).
 2. The published copies resolve:
-   `curl -sI https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt`
+   `curl -sI https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.4.txt`
 3. `npm run verify` exits 0 (this proves the XML matches the text, the cross-references
    resolve, and every declaration surface agrees).
 4. Subscribe to `license-review@opensource.org` before posting; the list rejects mail from
