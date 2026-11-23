@@ -349,7 +349,9 @@ def run(ctx):
     _lic444m = re.search(r"^SPDX-License-Identifier:\s*(\S+)", (ROOT / "LICENSE").read_text(encoding="utf-8"), re.M)
     if _lic444m:
         from measure_citation_drift import FACES as _faces444m
-        _say444m = re.compile(r"(?i)\b(?:this|the) repository applies|(?:applied|applies) to this repository|適用している|適用中")
+        # "this repository has applied ACD-1.3 since …" (現在完了) も現在の主張として読む (2026-11-23・cd の報告: QUESTION-INDEX の
+        #   この形が確定と切り替えを越えて古いまま緑だった)
+        _say444m = re.compile(r"(?i)\b(?:this|the) repository (?:applies|has applied)|(?:applied|applies) to this repository|適用している|適用中")
         _id444m = re.compile(r"ACD-\d+\.\d+(?![.\w-]*\.md)|(?<![\w§.])1\.\d+(?=\s*を適用)")
         _stale444m, _free444m, _exm444m = [], [], []
         for _f444m in [ROOT / "LICENSES" / _n for _n in _faces444m if "against" not in _n and "discussion-log" not in _n]:
