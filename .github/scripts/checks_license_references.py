@@ -195,6 +195,38 @@ def run(ctx):
         blocking=True,
     )
 
+    # 472p — 添付する本文の欄 (submission.md §A の "Canonical text") の行数・語数・SHA-256 が、欄に書いた再現のコマンドを当てた
+    #   出力と一致し、出力が空でないこと (2026-11-23・議題 4・5/0/0・fc)。添付は提出対象の凍結本文の区切り線 (- × 80) より下。
+    #   d7 の注意: 題の行に当たらない sed は 0 行を出し、shasum は空の値 (e3b0c442…) を返すので、「一致」だけを見ると空の値で緑に
+    #   なる。行数と語数 (length_sites の「題名から」と同じ数え方) も照らし、空なら RED にする
+    import hashlib as _h472p
+    _sub472p = (ROOT / "LICENSES" / "ACD-1.0.submission.md").read_text(encoding="utf-8")
+    _row472p = next((_l for _l in _sub472p.splitlines() if _l.startswith("| Canonical text |")), "")
+    _tg472p = re.search(r"<!--\s*SUBMISSION-TARGET:\s*(ACD-\d+\.\d+)\s*-->", _sub472p)
+    _bad472p = []
+    _vals472p = re.search(r"\(([\d,]+) lines, ([\d,]+) words, SHA-256 `([0-9a-f]{64})`\)", _row472p)
+    _cmd472p = re.search(r"`sed '1,/\^-\\\{80\\\}\$/d' LICENSES/(ACD-\d+\.\d+)\.txt \\\| shasum -a 256`", _row472p)
+    if not (_row472p and _vals472p and _cmd472p and _tg472p):
+        _bad472p.append("Canonical text の欄に (N lines, N words, SHA-256 `…`) か再現のコマンド (sed '1,/^-\\{80\\}$/d' LICENSES/ACD-x.y.txt \\| shasum -a 256) が無い")
+    else:
+        _src472p = ROOT / "LICENSES" / f"{_cmd472p.group(1)}.txt"
+        if _cmd472p.group(1) != _tg472p.group(1):
+            _bad472p.append(f"コマンドの本文 {_cmd472p.group(1)} が提出対象 {_tg472p.group(1)} でない")
+        _txt472p = _src472p.read_text(encoding="utf-8") if _src472p.exists() else ""
+        _ls472p = _txt472p.split("\n")
+        _cut472p = next((_i for _i, _l in enumerate(_ls472p) if _l == "-" * 80), None)
+        _att472p = "\n".join(_ls472p[_cut472p + 1:]) if _cut472p is not None else ""
+        _n_lines472p, _n_words472p = _att472p.count("\n"), len(_att472p.split())
+        _sha472p = _h472p.sha256(_att472p.encode("utf-8")).hexdigest()
+        if not _n_lines472p or not _n_words472p:
+            _bad472p.append(f"再現のコマンドの出力が空 ({_src472p.name} に区切り線が無いか、その下が空)")
+        _want472p = (int(_vals472p.group(1).replace(",", "")), int(_vals472p.group(2).replace(",", "")), _vals472p.group(3))
+        if _want472p != (_n_lines472p, _n_words472p, _sha472p):
+            _bad472p.append(f"欄 {_want472p[0]} 行・{_want472p[1]} 語・{_want472p[2][:12]}… / 出力 {_n_lines472p} 行・{_n_words472p} 語・{_sha472p[:12]}…")
+    check(not _bad472p,
+          f"Check 472p: 添付の本文の欄の行数・語数・SHA-256 が、再現のコマンドの出力と一致 (空でない)",
+          f"Check 472p: {_bad472p}。添付は審査者が最初に読む本文なので、欄の値は再現のコマンドの出力そのものにする", blocking=True)
+
     # ── 494. 表の行が表の中にあること (BLOCKING) ───────────────────────────────────────────
     #   どの Check も本文の文字列を読むので、描画が崩れても緑のままだった。審査者は描画された形を読む。
     _orphans494 = []

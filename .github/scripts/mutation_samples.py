@@ -568,6 +568,12 @@ _MUTATIONS_TAIL.append({
     "find": "`true`・§5.2・`note`",
     "replace": "`true`・§5.9・`note`",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 472p: 添付の本文の欄の語数を 1 つずらす —— 欄の値が再現のコマンドの出力でなくなる (2026-11-23・議題 4)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": " lines, 5,879 words, SHA-256 `",
+    "replace": " lines, 5,878 words, SHA-256 `",
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
