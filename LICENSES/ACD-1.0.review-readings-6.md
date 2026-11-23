@@ -417,3 +417,19 @@ census の `DECIDERS` は差出人の表示名を大文字小文字を区別し�
 **この節が establish しないこと。** 3 人の文が承認の基準として採られたか。
 
 **反映**: B12（Nelson 氏 2004・Perens 氏 2008・Berkus 氏 2024 を「以降の版が無い」ことの有利な側に、against #11 の TRADE の行に「懸念を生まない」の材料として・cd へ）/ 1c（Nyst 氏 2013 を 1.5 の試作 §6 の「外さない」の支えに、ModelGo の定義を errata E88 の 2 文目の反例として・5e へ）。本文は変えない。
+
+## 1.469 「この返信は不十分で、考えられていない」（Chestek 氏 2026）—— AI の助けで起草したと開示した提出者の返信に、決める側が噛み合いを求めた記録。送る文の雛形の扱い（議題 3b）の材料（2026-11-23）
+
+議題 3b（`submission.md` §B の送る本文の雛形を 1.4 へ付け替えるか、材料の箇条へ替えるか）の材料として、AI が書いた文が list でどう扱われたかを、アーカイブの "AI-generated"・"drafted by AI"・"ChatGPT"・"Claude" の語で 2024〜2026 の両 list を当て直した。moderators の 2026-09-09 の通知、Atkinson 氏 2025-12-30、Fontana 氏・Berkus 氏 2026-03 は既にドシエに在る（`ACD-OSI-BOTTLENECKS-POSTING.md`・`against-2.md`・`review-responses-meta.md`）。在らなかったのは次の 1 通である。
+
+| 発言 | 誰が | 当たり方 |
+| :-- | :-- | :-- |
+| *"This response is inadequate and not thoughtful. While the OSI tries to be consistent with and coordinate with the SPDX project, the OSI does not have any control over the SPDX project, so it is not a solution to say that the problem can be fixed with changes to SPDX. Your revised draft then assumes that these tags have been added to SPDX, something we cannot assume in license approval. In my opinion this version of the license must be rejected for this reason. I would also suggest in the future you be more thoughtful about your responses, and make sure they actually are responsive to the points raised and are workable solutions."* | Pamela Chestek 氏 2026-03-15（AI-MIT License の審査・`rounds/2026-03-license-review-ai-mit-chestek-not-responsive-observed.txt`） | **B14 の側の材料（議題 3b）。** 提出者は最初の通で *"This license was initially drafted with AI assistance (Claude, Anthropic) at the direction of a human."* と開示していた。2026-03-13 の改訂の返信は見出しと罫線で整えた形で、Chestek 氏はそれを「不十分で考えられていない」と書き、指摘に噛み合う（responsive）答えを求めた。提出者は 2026-03-19 に取り下げた |
+
+**読み。** 審査者が求めるのは、指摘に噛み合う答えである。整った形の完成した文は、それだけでは噛み合いを示さない。オーナーが自分の言葉で書く送る文（REVISION-PROTOCOL のゲート 0）の側を支える材料である。
+
+**逆側。** Chestek 氏が「この版は却下されるべき」と書いた理由は、返信が AI で書かれたことではなく、SPDX に無いタグを前提にした中身（*"something we cannot assume in license approval"*）である。通は AI に触れていない。返信が AI で書かれたかどうかも、この通からは確かめられない。同じスレッドで Fontana 氏は *"I'm not sure the possibility that any part of this license is AI-generated matters though."* と書いた。この通は「AI が書いた文が拒まれた」の例ではなく、「噛み合わない返信が厳しく読まれた」の例である。
+
+**この節が establish しないこと。** 雛形の手紙を写した提出が審査でどう扱われたかの直接の記録（今回の語の当て方では見つからなかった）。
+
+**反映**: B14（Chestek 氏 2026 を「送る文は噛み合いで読まれる」の材料として・議題 3b の C′ の側に・6d と cd へ）。本文は変えない。
