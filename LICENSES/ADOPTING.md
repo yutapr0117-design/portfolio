@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ADOPTING.md
 audience: anyone thinking of applying ACD to their own work
-last-updated: 2026-11-15
+last-updated: 2026-11-23
 canonical-ref: LICENSE (names the version this repository applies) / LICENSES/ACD-1.0.faq.md (the adopter's questions in full) / LICENSES/ACD-1.0.comparison.md (the alternatives) / LICENSES/ACD-1.0.against.md (the adverse record)
 ---
 
@@ -29,18 +29,27 @@ choice. Section numbers below are the same in every version unless the page says
   [FAQ A32](ACD-1.0.faq.md) before you apply it.
 - **You cannot answer a patent suit by ending the suer's rights.** Retaliation clauses are absent,
   and a competitor can take the work and still sue you (`ACD-1.0.against.md` #174).
-- **If you serve copies from your own server, read §5.2(a) first.** In the versions fixed so far
-  (1.0 to 1.3), you covenant not to *apply* any technological measure that restricts access to the
-  work. Read on its words, that reaches a rate limit, a proof-of-work check or a crawler block on
-  your own download server (errata [E82](ACD-1.0.errata.md)). The 1.4 draft drops *apply*: you may
-  put such measures on your server, and promise only not to assert rights in them or use
-  anti-circumvention law against people who get round them. That is the draft, not a fixed text;
-  until a fixed version says so, the safer course is to let a host you do not operate serve the
-  copies (`ACD-1.0.against.md` #171 reads a host's own measures as outside the covenant). In
+- **If you serve copies from your own server, read §5.2 first.** In 1.0 to 1.3 you covenant not to
+  *apply* any technological measure that restricts access to the work. Read on its words, that reaches a
+  rate limit, a proof-of-work check or a crawler block on your own download server (errata
+  [E82](ACD-1.0.errata.md)). ACD-1.4, fixed on 2026-11-23, drops *apply*: you may put such measures on
+  your server and promise only not to assert rights in them or use anti-circumvention law against
+  people who get round them. It also authorises anyone to get round a measure that you apply to a copy
+  of the work, in a use the Dedication permits, and waives any power such a law gives you to forbid that
+  (§5.2, the paragraph after (d)). A measure on your server can slow people down, but as far as your own
+  rights go it cannot stop them. If you apply 1.0 to 1.3, the safer course is still to let a host you do
+  not operate serve the copies (`ACD-1.0.against.md` #171 reads a host's own measures as outside the covenant). In
   every version the covenant reaches *"any law concerning the circumvention of such measures"*;
   whether that includes the law against unauthorised access to a computer, if someone gets round
   your server's defences, is open and is one of our questions for a lawyer
   ([`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md)).
+- **If you also run the work as a service, your terms cannot restrict a copy of it that reaches your users.**
+  In ACD-1.4, §5 leaves alone your rights in other material you make, and the terms of a service through
+  which you run the work without handing out a copy. But where such material contains a copy of the work
+  or of part of it, §5 reaches your terms to the extent they restrict what may be done with that copy
+  (§5.2, final paragraph); we read a service's output as such material. Who may use the service, and a
+  payment for it, stay yours (§5.2(b)). 1.0 to 1.3 have no such carve-out: their §5.2(b) bars any
+  obligation in respect of the work imposed by terms of service, without exception for a service.
 
 ## What nobody can tell you yet
 
