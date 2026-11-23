@@ -40,6 +40,13 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        当てる形は母数 26・誤検出 0 だが**実欠陥を 1 件も捕捉しない**。「同じ文に条項参照と
        英語引用があれば当てる」形は母数 107 中 35 件が RED になり、その大半が**正当な記述**
        だった。**正当な記述を RED にする gate は、正しい書き方を避けさせる分だけ害がある。**
+       **470b (2026-11-23・6d の依頼・fc)**: 外向きの文書 (`_OUTWARD470B`) の *"…"* の片 (4 語以上・… で割る) で、どの版の本文
+       (`ACD-1.*.txt`・草案・`CHANGES-ACD-*.txt`) にも逐語で無く (句読点と大小を外しても無く)、3 語連鎖の 85% 以上が本文に在り、
+       前後 40 字に試作の番号 (T と数字) が無いものを RED にする。本文をほぼそのまま引いたのに語がずれた形 = 古い草案の文を
+       「いまの文」として引いた形である。470 は「どこかの版に在る語」しか母数に入れないので、この形は見えなかった
+       (cd が #3899 で submission-reference §4.4 と逐条 §12.5 の 2 件を手で見つけた)。T 番号を添えた引用は試作の歴史として
+       外す (逐条は「T115 の前は *"…"*」の形で途中の草案を引く)。errata・against・試作の冊は途中の草案を歴史として引くので
+       対象外。導入時の実測: 1,829 片のうち 1 件 (逐条 §8.4 の行・T99 より前の §8.3 第 2 文) で、同じ commit で直した。
 """
 
 import re
@@ -186,8 +193,49 @@ def run(ctx):
              f"{_stale470b}。草案の文に揃えるか、旧版の文なら段落のその引用より前で版を名乗れ"),
             blocking=False,
         )
+        _selfquote_470b(ROOT, check)
     else:
         # 対象が無いのに黙って skip しない (2026-11-02): 改名・移動を正しく済ませると他の Check は全部緑のまま、
         # ここだけが OK も ERROR も出さずに消える (460 / 469 で踏んだ形)。
         check(False, "Check 470: 対象ファイル",
               f"Check 470: 検査対象 {_lic470.relative_to(ROOT).as_posix()} が無い —— 改名・移動したならこの Check の参照先を直す (黙って skip しない)")
+
+
+# 470b の対象: 審査者・法律家に出す、本文を「いまの文」として引く文書 (errata・against・試作の冊は途中の草案を歴史として引くので外す)
+_OUTWARD470B = ("ACD-1.0.submission*.md", "REVIEWERS.md", "ACD-1.*-CLAUSE-REFERENCE-DRAFT.md", "ACD-1.0.faq*.md",
+                "ACD-1.0.review-responses*.md", "ACD-1.0.objection-map.md", "SUBMISSION-MATERIALS.md", "READY-TO-SUBMIT.md",
+                "QUESTIONS-FOR-COUNSEL.md")
+
+
+def _selfquote_470b(ROOT, check):
+    """470b の本体 (docstring の 470b)。返り値なし。"""
+    L = ROOT / "LICENSES"
+    norm = lambda s: re.sub(r"\s+", " ", s.replace("\u2019", "'").replace("\u2018", "'").replace("\u201c", '"').replace("\u201d", '"')).strip()
+    srcs = sorted(L.glob("ACD-1.*.txt")) + sorted(L.glob("CHANGES-ACD-*.txt"))
+    low = " ".join(norm(p.read_text(encoding="utf-8")) for p in srcs).lower()
+    words = re.findall(r"[a-z0-9']+", low)
+    flat = " ".join(words)
+    grams = {tuple(words[i:i + 3]) for i in range(len(words) - 2)}
+    files = sorted({p for g in _OUTWARD470B for p in L.glob(g)})
+    n, bad = 0, []
+    for f in files:
+        for ln_no, line in enumerate(f.read_text(encoding="utf-8").split("\n"), 1):
+            for m in re.finditer(r'\*"([^"*]{12,600})"\*', line):
+                if re.search(r"\bT\d+\b", line[max(0, m.start() - 40):m.end() + 40]):
+                    continue  # 試作の番号を添えた引用は途中の草案の歴史
+                for part in (x.strip(" ,;") for x in re.split(r"\s*(?:…|\.\.\.)\s*", norm(m.group(1)).rstrip(".,;:"))):
+                    w = re.findall(r"[a-z0-9']+", part.lower())
+                    if len(w) < 4:
+                        continue
+                    n += 1
+                    if part.lower() in low or " ".join(w) in flat:
+                        continue
+                    g = [tuple(w[i:i + 3]) for i in range(len(w) - 2)]
+                    if sum(1 for x in g if x in grams) / len(g) >= 0.85:
+                        bad.append(f"{f.name}:{ln_no} *\"{part[:90]}\"*")
+    check(bool(files) and not bad,
+          f"Check 470b: 外向きの文書 {len(files)} 冊の本文の引用 {n} 片に、本文とほぼ同じで語のずれた引用は無い",
+          (f"Check 470b: 本文とほぼ同じなのに、どの版の本文にも逐語で無い引用 {len(bad)} 件: {bad[:5]}。古い草案の文を"
+           "「いまの文」として引いている形。凍結した版の逐語に直すか、途中の草案の歴史なら試作の番号 (T\\d+) を添える"
+           if files else "Check 470b: 外向きの文書が 1 冊も見つからない (対象の glob を直す・黙って skip しない)"),
+          blocking=True)
