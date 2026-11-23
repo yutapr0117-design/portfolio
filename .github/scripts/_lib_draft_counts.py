@@ -197,6 +197,14 @@ def length_sites(lic: Path, skip, scope: str = "outward") -> tuple[list[dict], l
             (r"条文では ?([\d,]+) ?語短い", [g_ops - fo], "条文の GPL-3.0 との差 (確定した本文・短い側)"),
             (r"同じ数え方で [\d,]+ ?語・(\+[\d,]+)", [fo - g_ops], "条文の GPL-3.0 との差 (確定した本文)"),
         ]))
+        # 英語の形 (2026-11-23・cd の #3928・6d 経由の依頼): register の英語の索引の B3 は "Length: ACD-1.4 has 5,879 words,
+        #   16 sections, 80 clauses (1.0 had 4,896 words and 82 clauses)" と書く。日本語の名乗りしか読まないと、この数は
+        #   機械で照らされない「無いと黙る数」になる
+        fc_ = len(set(re.findall(r"^  (\d+\.\d+) ", fb, re.M)))
+        labels.append((f"ACD-{fv.group(1)} has ", (ft, fo), [
+            (rf"ACD-{re.escape(fv.group(1))} has ([\d,]+) words", [ft], "題名からの語数 (確定した本文・英語)"),
+            (rf"ACD-{re.escape(fv.group(1))} has [\d,]+ words, \d+ sections, (\d+) clauses", [fc_], "条の数 (確定した本文・英語)"),
+        ]))
     for p in sorted(lic.glob("*.md")) + sorted((lic.parent / "docs/files/LICENSES").glob("*.md")):
         if skip(p.name) or "CLARITY-TRIAL" in p.name:
             continue
