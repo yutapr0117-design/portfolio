@@ -24,10 +24,12 @@ ACD-1.5 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
   is in LICENSES/CHANGES-ACD-1.5.txt.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
-  well as the use of the Work -- examined and deliberately not narrowed) and
-  E10 (the machine-readable descriptor; closed for 1.1, 1.2, 1.3 and 1.4 in
-  their descriptors, and it must be closed again for each new version because
-  each version carries its own descriptor).
+  well as the use of the Work -- examined and deliberately not narrowed), E10
+  (the machine-readable descriptor; closed for 1.1, 1.2, 1.3 and 1.4 in their
+  descriptors, and it must be closed again for each new version because each
+  version carries its own descriptor), and E87 (Section 5.2(b) has no
+  exception for an obligation not to make a false statement; a candidate
+  change is under review).
 
 --------------------------------------------------------------------------------
 
