@@ -45,6 +45,37 @@ def posted_problems(frozen_text: str) -> list[str]:
     return bad
 
 
+def attachment(version: str) -> tuple[int, int, str]:
+    """添付の範囲 (凍結本文の区切り線 - × 80 より下・議題 4) の (行数, 語数, SHA-256)。区切り線が無ければ (0, 0, "")。"""
+    import hashlib
+    lines = (L / f"{version}.txt").read_text(encoding="utf-8").split("\n")
+    cut = next((i for i, ln in enumerate(lines) if ln == "-" * 80), None)
+    if cut is None:
+        return 0, 0, ""
+    att = "\n".join(lines[cut + 1:])
+    return att.count("\n"), len(att.split()), hashlib.sha256(att.encode("utf-8")).hexdigest()
+
+
+def attachment_problems(version: str) -> list[str]:
+    """提出の日に添付する本文の値を出し、submission.md §A の Canonical text の欄と照らす (2026-11-24・議題 4 の続き)。
+
+    Check 472p は欄の値と再現のコマンドの出力を CI で照らすが、欄が提出対象でない版を指したまま (印を切り替える前) でも、
+    提出の日にこの道具が出す版の値と食い違えば止まる。値は提出の文面に写せるよう標準出力にも出す。
+    """
+    n_lines, n_words, sha = attachment(version)
+    print(f"添付: {version}.txt の区切り線より下 —— {n_lines} 行・{n_words:,} 語・SHA-256 {sha}")
+    if not n_lines:
+        return [f"添付: {version}.txt に区切り線 (- × 80) が無いか、その下が空"]
+    sub = (L / "ACD-1.0.submission.md").read_text(encoding="utf-8")
+    row = next((ln for ln in sub.splitlines() if ln.startswith("| Canonical text |")), "")
+    m = re.search(r"\(([\d,]+) lines, ([\d,]+) words, SHA-256 `([0-9a-f]{64})`\)", row)
+    if not m or f"LICENSES/{version}.txt" not in row:
+        return [f"添付: submission.md の Canonical text の欄が {version}.txt と (N lines, N words, SHA-256 `…`) を述べていない"]
+    said = (int(m.group(1).replace(",", "")), int(m.group(2).replace(",", "")), m.group(3))
+    return [] if said == (n_lines, n_words, sha) else [f"添付: 欄 {said[0]} 行・{said[1]} 語・{said[2][:12]}… / {version} の実測 "
+                                                     f"{n_lines} 行・{n_words} 語・{sha[:12]}…"]
+
+
 def gate(version: str, today: datetime.date | None = None) -> list[str]:
     today = today or datetime.date.today()
     frozen = (L / "FROZEN.md").read_text(encoding="utf-8")
@@ -73,6 +104,7 @@ def gate(version: str, today: datetime.date | None = None) -> list[str]:
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     from prepare_version_freeze import gate_6c
     out += [f"段 6c: {x}" for x in gate_6c()]
+    out += attachment_problems(version)
     return out
 
 
