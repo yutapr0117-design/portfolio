@@ -4,7 +4,10 @@ Redline: ACD-1.0 -> ACD-1.4, clause by clause, in the order of ACD-1.4.
   [-words-] are in the old text only; {+words+} are in the new text only.
   Clause numbers of ACD-1.0 are matched to ACD-1.4 by the table in
   LICENSES/ACD-1.1-CHANGELIST.md section 0.5; where a number moved, the
-  old number is shown in brackets.
+  old number is shown in brackets. A clause the table leaves unmatched is
+  matched by text to the most similar unmatched clause of the same section,
+  if the similarity of their words is at least 0.5; the bracket
+  then says "matched by text" and gives the similarity.
   Word differences are not differences of legal effect.
 
 Preamble: changed
@@ -666,19 +669,14 @@ Section 15.3 [ACD-1.0 15.7]: changed
 
 Section 15.4 [ACD-1.0 15.8]: unchanged
 
-Section 15.5: not in ACD-1.0 (ACD-1.0 also has a Section 15.5, with other
-content; see below)
-    {+In this Dedication, words in the singular include the plural and words in
-    the plural include the singular; "person" includes an entity; "including"
-    and "in particular" introduce examples and do not limit what precedes them;
-    and a reference to a law includes that law as amended, replaced, or
-    re-enacted.+}
+Section 15.5 [ACD-1.0 15.2, matched by text 0.96]: changed
+    In this Dedication, words in the singular include the plural and words in
+    the plural include the singular; {+"person" includes an entity;+}
+    "including" and "in particular" introduce examples and do not limit what
+    precedes them; and a reference to a law includes that law as amended,
+    replaced, or re-enacted.
 
-Section 15.6: not in ACD-1.0 (ACD-1.0 also has a Section 15.6, with other
-content; see below)
-    {+No rule of construction that resolves ambiguity against the drafter
-    applies to this Dedication, and no rule that construes a grant narrowly
-    against the grantee applies to it.+}
+Section 15.6 [ACD-1.0 15.3, matched by text 1.00]: unchanged
 
 Section 16.1: changed
     To apply this Dedication, place a notice with the [-Work-] {+Work, in a form
@@ -753,19 +751,6 @@ Section 16.6: changed
     They are not terms of the Work, they bind no [-recipient-] {+one in
     respect+} of the Work, and Section 10.5 applies.
 
-Section 15.2 of ACD-1.0: not in ACD-1.4 (ACD-1.4 uses the number 15.2 for other
-content)
-    [-In this Dedication, words in the singular include the plural and words in
-    the plural include the singular; "including" and "in particular" introduce
-    examples and do not limit what precedes them; and a reference to a law
-    includes that law as amended, replaced, or re-enacted.-]
-
-Section 15.3 of ACD-1.0: not in ACD-1.4 (ACD-1.4 uses the number 15.3 for other
-content)
-    [-No rule of construction that resolves ambiguity against the drafter
-    applies to this Dedication, and no rule that construes a grant narrowly
-    against the grantee applies to it.-]
-
 Section 15.5 of ACD-1.0: not in ACD-1.4 (ACD-1.4 uses the number 15.5 for other
 content)
     [-No act, omission, delay, course of dealing, or silence on the part of the
@@ -791,8 +776,11 @@ content)
     English. The proviso in this Section is a condition upon distributing the
     translated text, not upon any use of the Work, and Section 10.5 applies.-]
 
-Summary: 31 unchanged, 63 changed, 3 new, 5 removed.
+Summary: 32 unchanged, 64 changed, 1 new, 3 removed.
 
   Generated with .github/scripts/make_redline.py LICENSES/ACD-1.0.txt
-  LICENSES/ACD-1.4.txt at commit 03ab4dd1 (2026-11-23). Both inputs are frozen
-  (LICENSES/FROZEN.md), so the output does not change.
+  LICENSES/ACD-1.4.txt on 2026-11-23 (regenerated after the tool learned to
+  match by text the clauses the 1.0 to 1.1 table leaves unmatched; the first
+  output, at commit 03ab4dd1, split 1.0 sections 15.2 and 15.3 into a removal
+  and an addition). Both inputs are frozen (LICENSES/FROZEN.md), so the output
+  changes only if the tool does.

@@ -14,6 +14,7 @@ license-discuss へ出す。差を手で作ると、条の対応を取り違え 
 (確定版に当て直した表・単一の出所。この道具に写さない)。1.1 以降は条番号が同じ (草案の冒頭が
 "Clause numbers follow ACD-1.3 (which follows ACD-1.1)" と述べる)。1.0 を旧にしたときは表を、
 それ以外は同じ番号を当てる。表の行が読めなければ止まる (黙って同じ番号を当てない)。
+表が結ばなかった条は、同じ節の結ばれていない条のうち語の並びが最も近いもの (比 0.5 以上) へ結ぶ (2026-11-23・`match_leftovers`)。
 
 **測っていないもの**: 法的効果。語の差は効果の差の証拠ではない。版番号と識別子の差も、そのまま差として出す。
 
@@ -85,6 +86,34 @@ def map_from_10() -> dict[str, str | None]:
         for o in old:
             m[o] = new[0] if new and len(old) == 1 else None
     return m
+
+
+TEXT_MATCH_MIN = 0.5
+
+
+def match_leftovers(A: dict[str, str], B: dict[str, str], to_new: dict[str, str | None]) -> dict[str, tuple[str, float]]:
+    """表が結ばなかった 1.0 の条を、同じ節の結ばれていない新しい条のうち語の並びが最も近いものへ結ぶ (比 TEXT_MATCH_MIN 以上)。
+
+    2026-11-23 (5e の報告・d7 の全文照合): 表は 1.0 → 1.1 の対応で、1.1 で消えて 1.2 / 1.3 で戻った条を追わない。1.0 §15.3
+    (起草者不利の解釈の排除) は 1.4 §15.6 と字句同一 (比 1.00)、1.0 §15.2 (単数と複数) は 1.4 §15.5 とほぼ同じ (0.95) なのに、
+    「新設」と「削除」に割れ、要約の new / removed が 2 件ずつ多かった。オーナーが list に出す材料なので、審査者には
+    「起草者不利の規則を消して足し直した」と読める。同じ節の中だけで結ぶのは、節をまたぐ偶然の近さを避けるため。
+    返り値: {旧の番号: (新の番号, 比)}。
+    """
+    import difflib
+    clause = re.compile(r"\d+\.\d+")
+    used = {v for v in to_new.values() if v and v in B}
+    old_left = [k for k in A if clause.fullmatch(k) and to_new.get(k) not in B]
+    new_left = [k for k in B if clause.fullmatch(k) and k not in used]
+    pairs = sorted(((difflib.SequenceMatcher(None, A[o].split(), B[n].split()).ratio(), o, n)
+                    for o in old_left for n in new_left if o.split(".")[0] == n.split(".")[0]), reverse=True)
+    out: dict[str, tuple[str, float]] = {}
+    taken: set[str] = set()
+    for r, o, n in pairs:
+        if r >= TEXT_MATCH_MIN and o not in out and n not in taken:
+            out[o] = (n, r)
+            taken.add(n)
+    return out
 
 
 def wdiff(a: str, b: str, context: int | None = None) -> str:
@@ -185,6 +214,8 @@ def main(argv: list[str]) -> int:
     A, B = parts(ta), parts(tb)
     m10 = map_from_10() if va == "1.0" and vb != "1.0" else {}
     to_new = {k: (m10.get(k, k) if re.fullmatch(r"\d+\.\d+", k) else k) for k in A}
+    by_text = match_leftovers(A, B, to_new) if m10 else {}
+    to_new.update({o: nk for o, (nk, _r) in by_text.items()})
     from_old = {v: k for k, v in to_new.items() if v}
     wa = len((ta.split(RULE, 1)[1] if RULE in ta else ta).split())
     wb = len((tb.split(RULE, 1)[1] if RULE in tb else tb).split())
@@ -195,13 +226,17 @@ def main(argv: list[str]) -> int:
     if m10:
         print(f"  Clause numbers of ACD-1.0 are matched to ACD-{vb} by the table in")
         print("  LICENSES/ACD-1.1-CHANGELIST.md section 0.5; where a number moved, the")
-        print("  old number is shown in brackets.")
+        print("  old number is shown in brackets. A clause the table leaves unmatched is")
+        print("  matched by text to the most similar unmatched clause of the same section,")
+        print(f"  if the similarity of their words is at least {TEXT_MATCH_MIN}; the bracket")
+        print("  then says \"matched by text\" and gives the similarity.")
     print("  Word differences are not differences of legal effect.")
     print()
     counts = {"unchanged": 0, "changed": 0, "new": 0, "removed": 0}  # new = 旧版に無い / removed = 新版に無い
     for key in B:
         old = from_old.get(key)
-        tag = label(key) + (f" [ACD-{va} {old}]" if old and old != key else "")
+        via = next((f", matched by text {r:.2f}" for o2, (nk, r) in by_text.items() if nk == key), "")
+        tag = label(key) + (f" [ACD-{va} {old}{via}]" if old and (old != key or via) else "")
         if old is None or old not in A:
             counts["new"] += 1
             # 番号の使い回し (2026-11-15・50 の検証): 1.0 の §15.5 / §15.6 は 1.1 で消え、1.2 / 1.3 が同じ番号に別の条を
