@@ -295,8 +295,8 @@ def run(ctx):
     sn = lambda s: int(s.replace("−", "-").replace(",", ""))
     from _lib_draft_counts import draft_has_changes
     from _lib_draft_counts import with_changes as _wc_k
-    if not sec_k and drafts_k and not draft_has_changes(_wc_k(drafts_k[0])):
-        pass  # 確定の直後 (変更 0 件) は「語数の内訳」の節がまだ無くて正しい (2026-11-15 の確定の試走)
+    if drafts_k and not draft_has_changes(_wc_k(drafts_k[0])):
+        pass  # 確定の直後 (変更 0 件) は「語数の内訳」の節が空か雛形のままで正しい (2026-11-15 の確定の試走・11-23 に雛形を置いた)
     elif not (m_k and rows_k and sum_k and old_k and (L / f"ACD-{m_k.group(1)}.txt").exists()):
         bad.append(f"(k) ACD-{ver_k}-CHANGELIST.md の「## 語数の内訳」の文 (前版の語数と差・束の表・N 束の和・1.0 との差) が読めない")
     else:
