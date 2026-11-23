@@ -21,7 +21,7 @@ merge された main は赤になりうる。同じ日に実際に起きた: rou
 **--reland (2026-11-15・50 の依頼)**: 同じ日に 5 本が「main 側も動かした数の行」(rounds/README の在庫・長さの行・AS-OF の
 件数) だけで衝突し、そのたびに手で載せ直した。--reland は、いまの main から `<branch>-reland` を作って PR の commit を
 cherry-pick し、衝突の塊を次の 2 つに限って解く: 数だけが違う塊 (main 側を採り、後で sync_stated_counts.py --apply が
-実測から書き直す) と、両側が行を足しただけの塊 (表の行・READ-THREADS の行。両方を残す)。それ以外の塊があれば何も
+実測から書き直す) と、両側が行を足しただけの塊 (表の行・READ-THREADS の行・mutation の append-log の末尾 (2026-11-23)。両方を残す)。それ以外の塊があれば何も
 しないで止まる。載せ直した形で consistency を回し、緑なら push して新しい PR を出し、元の PR を閉じる。merge はしない
 (新しい PR の CI を待ってから safe_merge.py で入れる)。push 済みの branch は rebase しない規則を守るための形である。
 """
@@ -84,6 +84,11 @@ _RECENT = re.compile(r"（直近の 1 件: (.*?)(?:）。|。）) \*\*それよ�
 MOVED_RECENT: list[str] = []  # AS-OF の行の衝突で main 側を採ったとき、PR 側の「直近の 1 件」(LOG へ移す)
 
 
+# mutation の append-log の行 (dict の entry の本文・閉じ・開き・コメント)
+_APPEND_LINE = re.compile(r'^(?:\s+(?:"|#|[A-Za-z_(\]\[f\'])|\}\)\s*$|_\w+_TAIL\.append\(\{\s*$)')
+_TAIL_OPEN = re.compile(r"^(_\w+_TAIL\.append\(\{)\s*$", re.M)
+
+
 def resolve_numbers_only(text: str) -> tuple[str | None, list[str]]:
     """衝突の塊を、数だけが違う塊 (main 側を採る) と、両側が行を足しただけの塊 (両方を残す) に限って解く。
 
@@ -103,6 +108,15 @@ def resolve_numbers_only(text: str) -> tuple[str | None, list[str]]:
         if not ours.strip() or not theirs.strip():
             return ours + theirs
         o, t = ours.splitlines(keepends=True), theirs.splitlines(keepends=True)
+        # mutation の append-log の末尾 (2026-11-23・6d の依頼・fc): 5 人が同じ末尾に `_MUTATIONS_TAIL.append({…})` を 1 つずつ
+        #   足すので、両側の entry の本文が同じ append の中で衝突する。両方を別々の append として残す (main → PR の順)。
+        #   1 つの dict に融合させると片方の key が黙って消える (Check 480 の形) ので、間で閉じて開き直す
+        if not _both and all(_APPEND_LINE.match(ln) for ln in o + t if ln.strip()):
+            tail = _TAIL_OPEN.findall(text[:m.start()])
+            if tail and not ours.rstrip().endswith("})") and not theirs.lstrip().startswith(tail[-1]):
+                return ours + "})\n" + tail[-1] + "\n" + theirs
+            if ours.rstrip().endswith("})") or theirs.lstrip().startswith(("_MUTATIONS_TAIL.append({", "_E2E_TAIL.append({")):
+                return ours + theirs
         # AS-OF の「未読スレッドの残り」の行 (2026-11-15・50 の依頼): 5 人の record_read が毎回この 1 行を書き換える。
         #   main 側を採り、PR 側の「直近の 1 件」は LOG の先頭へ移す (reland が書く)。件数は sync_stated_counts が
         #   READ-THREADS と THREAD-CANDIDATES から導き直す (498 (h) と同じ数え方)
