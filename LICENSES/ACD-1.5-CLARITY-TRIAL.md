@@ -59,3 +59,19 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 **反例の 2 巡目（portfolio-cd・2026-11-23）—— 採らない理由が 2 つ増えた**: (viii) **回復の穴は (B) だけでなく、*perpetual* を外すこと自体の費用である。** §4.1 は *"all Covered Rights"*（§1.5 *"now or in future … whether or not presently subsisting"*）を *perpetual* で許すので、権利が一度消えて回復しても（米国の 17 U.S.C. §104A の回復、EU の保護期間の調和で復活した権利、特許の期間の回復や SPC）許諾は語の上で途切れない。(B) はそこに空白の読みを生み、(A) は §3.2 と同じ語で閉じるが、1 語で済んでいたことを +35 語で作り直すだけである。(ix) **期間に結んでも、期間の無い権利が残る。** Covered Rights は *"rights against unfair extraction"* と *"any right of similar effect"* を含み、不正競争の側の権利には法定の存続期間が無く、sui generis のデータベース権は相当の投資のたびに新しい期間が始まる。だから (A) でも (B) でも、消そうとした読みの分岐（期間の定めの無い許諾として予告で解約できる）は閉じきれない。EUPL の *"for the duration of copyright"* が成り立つのは EUPL が著作権だけを許す文書だからで、Covered Rights が著作権より広い ACD には同じ語を移せない。(x) (A) の +35 語は、1.5 で T135 が得た −15 の 2 倍を戻す変更で、しかも (ix) のとおり分岐を閉じきれない。
 
 **採否**: **採らない**（2026-11-23・5e と cd）。規則 1 の欄に書いた分岐を、どの案も閉じきれないため。法律家への問いとして `QUESTIONS-FOR-COUNSEL.md` の問い 1 に (k) を足した（期間の定めの無い許諾は予告で解約できるとする法域で §4.1・§8.1 が服するか、服するなら存続期間の無い Covered Rights を含む ACD で EUPL の形が効くか）。不利な事実としては portfolio-cd が `against.md` に記録し、潰し方を「T136 は採らず、法律家への問いへ」とする。規則 1 の欄には上の「消す読みの分岐」を書く。採るなら §8.4 は *"on the terms of Section 8.1"* で同じ期間を受ける。
+
+## 4. T137 —— §5.2 末段の 68 語の文を、サービスの文を先にして分ける（+10 語・2026-11-23・THIRD §15.54 の S3・**採らない**）
+
+**方針の欄**: 規則 1 の例外（読みを変えずに文を分け、45 語超の文が減るもの）として当てた。測定（1.5 草案・`measure_clause_clarity.py`）: 191 → 192 文、45 語超 28 → 27、+10 語（34 語と 44 語の 2 文）。`--compare`: 先行詞の無い指示語 0、*Nor does it reach* の *it* は *Section 5*、外向きの依拠 1（`QUESTIONS-FOR-COUNSEL.md` の問い 5 の第 3 の問いが *"ACD-1.4 says …"* と 1.4 を引く —— 1.4 の引用としては真のまま）、468r・468d の目印は欠けない。
+
+**限定句と名指しの語の表**（portfolio-cd の条件）:
+
+| 元の文の語 | 元の掛かり先 | 分けた後の掛かり先 | 同じか |
+| :-- | :-- | :-- | :-- |
+| *other than the Work* | 素材 | 第 2 文の素材 | 同じ |
+| *that the Dedicator itself makes or makes available* | 素材 | 第 2 文の素材 | 同じ |
+| *without providing a copy of the Work* | サービス | 第 1 文のサービス | 同じ |
+| *even where using that material is a Computational Use of the Work* | 文末で全体に掛かりうるが、語は素材を名指す | 第 2 文の素材 | 同じ |
+| 次の文の **those terms**（*"Section 5 reaches those terms to the extent they restrict what may be done with that copy"*） | *"the terms or measures the Dedicator applies to that material or to the use of a service …"* —— 素材の条件とサービスの条件の両方 | 最も近い *terms* は第 2 文の素材の条件だけ | **狭まる** |
+
+**採らない理由**: 分けると *those terms* の先行詞からサービスの条件が落ち、Dedicator が API の利用規約などで、受け手が素材の中に持つ Work の写しの扱いを縛る場面が §5 の外に出る読みが立つ。直す語（*those terms* → *"the terms that the two preceding sentences describe"*）を足すと +16 語で、45 語超の文を 1 つ減らすための費用として重い。**逆側**: サービスは写しを渡さずに Work を動かすものなので、サービスの条件が「その写し」を縛る場面は狭い、と読む余地もある —— だがその読みに頼るなら、分ける前の文のほうが確かである。**方針が働いた例**: cd が足した「限定句と名指しの語を表で示す」条件が、語を足さない分割に見えた変更の狭まりを捕まえた。
