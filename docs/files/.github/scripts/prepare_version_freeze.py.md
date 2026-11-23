@@ -29,7 +29,7 @@ python3 .github/scripts/prepare_version_freeze.py --date 2026-11-13
 | :-- | :-- |
 | Check 444m | 適用していない版を「適用している」と述べる行。文を読んで直す |
 | Check 362 | 444m を直すと解ける |
-| Check 311 | 予行で未来の日付を `--date` に渡したときだけ出る（sitemap の lastmod が未来になる）。当日の日付なら出ない |
+| Check 311 | `--date` が **UTC の**今日より先のときに出る（sitemap の lastmod が CI の UTC の日付から見て未来になる）。JST の 0:00〜9:00 に JST の今日で確定すると出る（2026-11-23 の 1.4 の確定で踏んだ）。UTC の日付が追いつけば、failed job の rerun で消える。道具はこの場合に NOTE を出す |
 
 2026-11-08 の予行では、Check 496 の mutation が草案の版で CHANGELIST を引いていて、確定すると空の次版を指して 362 に加わった。表の在る 1.4 の記録へ固定して直した。週次の予行は 362 が名指す mutation も見る。
 
