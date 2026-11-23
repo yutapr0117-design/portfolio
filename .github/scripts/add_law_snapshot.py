@@ -14,7 +14,7 @@ rounds/README の在庫表の 1 行・runbook §9 の数を毎回手で揃えて
 注記の行 (道具が言い換えで返した部分を書き残す行など) は、行頭を `（注）` か `(Note)` で始める。逐語の片の数に入れず、ヘッダに
 「逐語の片 N 行・注記 M 行」と分けて書く (2026-11-20・30: 特許法 94 条 1 項の後半の言い換えの注記が逐語と同じに数えられた)。
 
-**書くもの**: `LICENSES/rounds/<YYYY-MM-DD>-<slug>-snapshot.txt` (既に在れば止まる)・mirror doc・rounds/README の在庫表の 1 行。
+**書くもの**: `LICENSES/rounds/<YYYY-MM-DD>-<slug>-snapshot.txt` (既に在れば止まる)・mirror doc・rounds/ の在庫表 (分冊) の 1 行。
 最後に git add して `sync_stated_counts.py --apply` を回す。--dry-run は何も書かない。
 
 使い方:
@@ -120,20 +120,18 @@ def main(argv: list[str]) -> int:
            "法源は ACD を扱っていない。本文を直さない（`rounds/README.md`）。\n\n## Change impact\n\nこの写しを引く節（§18 の行・jurisdictions）"
            "を直すときは、引用が本文に在るかを確かめる。版が改められたら取り直して新しい日付の写しを置く。\n\n"
            "## Audience-specific notes\n\n- **監査人**: ヘッダの URL を開き、片を原文に当てて確かめられる。\n")
-    readme = ROUNDS / "README.md"
-    rt = readme.read_text(encoding="utf-8")
+    # 在庫表は年の帯ごとの分冊 (2026-11-23)。差し込みの規則は _lib_rounds_inventory が 1 つだけ持つ
+    from _lib_rounds_inventory import insert_row
     row = f"| {today} | {o.who} | {o.row} | `{out.name}` |"
-    rows = list(re.finditer(r"^\| (\d{4}-\d{2}(?:-\d{2})?)[^|]*\|.*$", rt, re.M))
-    before = [r for r in rows if r.group(1) <= today]
-    at = (max(before, key=lambda r: r.group(1)) if before else rows[-1]).end()
+    inv, at_line = insert_row(ROUNDS, today, row, write=False)
     print(f"{rel}: {len(heads)} 条・逐語の片 {verb_lines} 行・注記 {note_lines} 行・{lines} 行・本文の sha256 {digest[:16]}…・当てる条 {clauses}")
-    print(f"README の表: {row[:100]}… を {rt[:at].count(chr(10)) + 1} 行目の後へ")
+    print(f"在庫表 ({inv.name}): {row[:100]}… を {at_line} 行目の後へ")
     if o.dry_run:
         print("dry-run: 何も書かない")
         return 0
     out.write_text(text, encoding="utf-8")
     mirror.write_text(doc, encoding="utf-8")
-    readme.write_text(rt[:at] + "\n" + row + rt[at:], encoding="utf-8")
+    insert_row(ROUNDS, today, row)
     subprocess.run(["git", "add", str(out), str(mirror)], cwd=ROOT, check=True)
     subprocess.run([sys.executable, str(ROOT / ".github/scripts/sync_stated_counts.py"), "--apply"], cwd=ROOT)
     print("書いた。§18 の行・jurisdictions の段に写しの名を書き、verify を回す")

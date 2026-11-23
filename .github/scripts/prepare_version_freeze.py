@@ -532,8 +532,8 @@ def gate_6b(today: "datetime.date | None" = None) -> list[str]:
         stub = re.search(r"(LICENSES/rounds/[\w.\-]+\.txt)", sec)
         if not stub or not (ROOT / stub.group(1)).exists():
             bad.append("拒否の stub の path が節に無いか、file が無い")
-        elif Path(stub.group(1)).name not in (L / "rounds" / "README.md").read_text(encoding="utf-8"):
-            bad.append(f"拒否の stub {Path(stub.group(1)).name} が rounds/README.md の在庫に無い")
+        elif Path(stub.group(1)).name not in __import__("_lib_rounds_inventory").all_text(L / "rounds"):
+            bad.append(f"拒否の stub {Path(stub.group(1)).name} が rounds/ の在庫表 (INVENTORY-*.md) に無い")
         dm = re.search(r"<!--\s*STAGE-6B-DECISION:\s*(\d{4}-\d{2}-\d{2})\s+(proceed|wait)\b", (L / "FROZEN.md").read_text(encoding="utf-8"))
         if not dm:
             bad.append("FROZEN.md に STAGE-6B-DECISION の marker が無い (拒否の後に進むかの決定の記録)")

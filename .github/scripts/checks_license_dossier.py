@@ -427,8 +427,10 @@ def run(ctx):
         check(False, "", "Check 465: LICENSES/rounds/README.md が無い — "
                          "REVISION-PROTOCOL.md が 3 箇所で指す先の入口が失われている", blocking=True)
     else:
+        # 在庫表は年の帯ごとの分冊 (2026-11-23・README が 800 行を越えた)。分冊は受領文ではないので数えない
+        import _lib_rounds_inventory as _inv465
         _files465 = sorted(p.name for p in _rd465.iterdir()
-                           if p.is_file() and p.name != "README.md")
+                           if p.is_file() and not _inv465.is_inventory(p.name))
         _t465 = _rm465.read_text(encoding="utf-8")
         _bad465 = []
         # 見出しの数は任意にした (2026-11-15・50 の提案): 5 人が並行して受領文を足すと、手書きの「N ファイル」が
@@ -443,9 +445,20 @@ def run(ctx):
         # 在庫表の行数 — 見出し行と区切り行を除いた `| ... |` の数
         _sec465 = _t465[_mh465.start():] if _mh465 else ""
         _sec465 = _sec465.split("\n## ")[0]
-        _rows465 = [ln for ln in _sec465.splitlines()
-                    if ln.startswith("| ") and not ln.startswith("|---")
-                    and not ln.startswith("| 日付 |")]
+        _rows465 = _inv465.rows(_sec465)
+        for _a465, _b465, _n465 in _inv465.BANDS:
+            _p465 = _rd465 / _n465
+            if not _p465.exists():
+                _bad465.append(f"在庫の分冊 {_n465} が無い")
+                continue
+            if _n465 not in _t465:
+                _bad465.append(f"README の在庫節が分冊 {_n465} を名指していない (入口から辿れない)")
+            _r465 = _inv465.rows(_p465.read_text(encoding="utf-8"))
+            # 帯の外の日付の行 (手で差し込んで別の帯へ置いた行) は、日付で引く読者に見つからない
+            _out465 = [ln[:40] for ln in _r465 if not (_a465 <= ln[2:6] <= _b465)]
+            if _out465:
+                _bad465.append(f"{_n465} に帯 ({_a465}〜{_b465}) の外の日付の行: {_out465[:3]}")
+            _rows465 += _r465
         if _mh465 and len(_rows465) != len(_files465):
             _bad465.append(f"在庫表の行数 {len(_rows465)} / 実測 file 数 {len(_files465)}")
         # 中身があるのに不在を主張していないか (#89 の literal)
