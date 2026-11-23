@@ -354,8 +354,8 @@ signature, may fail for want of form. The United States (17 U.S.C. §106A(e)(1))
 Kingdom (CDPA s.94) make the rights non-transferable, so §12.2 applies there; we know of no
 jurisdiction in the gap, which is why the text was not changed (2026-11-01).
 ACD-1.4 (trial T101, 2026-11-19) now gives §12.2's covenant and consent *"for every
-jurisdiction, whether or not Section 12.1 has effect there"*, so the gap no longer arises in the
-draft; the question stands for 1.0 to 1.3.
+jurisdiction, whether or not Section 12.1 has effect there"*, so the gap no longer arises in
+ACD-1.4; the question stands for 1.0 to 1.3.
 (e) **Consent as well as a covenant.** Where moral rights cannot be waived, does a blanket advance
 consent in the licence text to acts that would otherwise infringe them (modification, omission of
 the author's name) operate separately from a covenant not to exercise them? In Japan the integrity
