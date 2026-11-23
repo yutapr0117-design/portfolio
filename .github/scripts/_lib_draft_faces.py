@@ -70,6 +70,10 @@ def faces_468yz(ROOT: Path, dr: Path, cl: set, t468: str) -> tuple[list[str], in
     _ms468z = re.search(r"^(?:### " + re.escape(_v468y) + r" の記述子の下書き|## 記述子の候補).*?(?=^#{1,3} |\Z)",
                         _cltxt468z.read_text(encoding="utf-8") if _cltxt468z.exists() else "", re.S | re.M)
     _n468z, _u468z = None, set()   # 下書きの節が無い版では OK 行に「—」と出す (黙って 0 と書かない)
+    # 確定の道具の雛形は次版の CHANGELIST に空の「## 記述子の候補」の節を置く (2026-11-23・#3922)。箇条も表の行も無い節は
+    #   「下書きが無い」と同じに扱う (確定の予行で、空の節を「条の参照を 1 件も読めない」と RED にした・2026-11-24)
+    if _ms468z and not any(_x.startswith(("|", "- ")) for _x in _ms468z.group(0).split("\n")):
+        _ms468z = None
     if _ms468z:
         _secs468z = {_n.split(".", 1)[0] for _n in cl}
         _miss468z, _n468z = [], 0
