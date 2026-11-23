@@ -76,6 +76,39 @@ def moved(a_ver: str, b_ver: str) -> dict[str, str]:
     return kinds
 
 
+REWRITTEN = 0.5  # これ未満で OTHER_CLAUSE 以上は「同じ番号のまま大きく書き直した条」(2026-11-23・d7 の依頼)
+
+
+def rewritten(a_ver: str, b_ver: str) -> dict[str, float]:
+    """a の条のうち、b で同じ番号のまま大きく書き直された条 (語の並びの比が OTHER_CLAUSE 以上 REWRITTEN 未満) と比。
+
+    番号が合うので Check 472 系は拾わない。1.0 → 1.4 では §2.2・§2.6・§2.8・§2.9・§5.3・§8.4・§14.2 など (d7 の対応表の (3))。
+    1.4 の逐条の §12.1 の行に 1.0 の §12.2 の形 (発動条件つき) が残っていた (5e が直した)。外向きの面がこれらの条を版の名なしに
+    述べる行は、切り替えの日に 1 度、新しい版の文で読み直す。
+    """
+    a, b = clauses(a_ver), clauses(b_ver)
+    out = {}
+    for n in a:
+        if n in b:
+            r = difflib.SequenceMatcher(None, a[n], b[n]).ratio()
+            if OTHER_CLAUSE <= r < REWRITTEN:
+                out[n] = round(r, 2)
+    return out
+
+
+def rewritten_lines(a_ver: str, b_ver: str) -> tuple[dict[str, float], list[tuple[str, int, list[str], str]]]:
+    """`rewritten` の番号を、版の名 (ACD-a / a の / in a) なしに引く外向きの面の行。"""
+    kinds = rewritten(a_ver, b_ver)
+    named = re.compile(rf"(?:ACD-)?{re.escape(a_ver)}\b|{re.escape(b_ver)}\b")
+    rows = []
+    for f in FACES:
+        for i, line in enumerate((ROOT / "LICENSES" / f).read_text(encoding="utf-8").split("\n"), 1):
+            hit = {m.group(1) or m.group(2) for m in CITE.finditer(line)} & set(kinds)
+            if hit and not named.search(line):
+                rows.append((f, i, sorted(hit, key=_order), line))
+    return kinds, rows
+
+
 def cited_lines(a_ver: str, b_ver: str) -> tuple[dict[str, str], list[tuple[str, int, list[str], str]]]:
     """`moved` の番号を引く行を、外向きの面ごとに (面, 行番号, 番号, 本文) で返す。"""
     kinds = moved(a_ver, b_ver)
