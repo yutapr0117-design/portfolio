@@ -395,3 +395,25 @@ census の `DECIDERS` は差出人の表示名を大文字小文字を区別し�
 **この節が establish しないこと。** 30 通の該当段落の外の論点。Turner 氏 2020 の文脈（§16.4 に当たると読んだのは cd）を、この節は読み直していない。
 
 **反映**: 1c（§16.4 末文の 1.5 の扱いへの審査者の文 —— 支え = Piana 氏 2024・Dolan 氏 2026・Smith 氏 2020-12、形の注意 = Chestek 氏 2014。**5e の判断（2026-11-23）: 変えない** —— 末文は Piana 氏 2024 の「どちらかへ明確に」に答える形（条件の対象＝本文の頒布、対象外＝Work の利用を 1 文で分ける）と読み、1.5 の試作の §2 の点検の表に「変えない」で入れた（採掘は d7））。本文は変えない。
+
+## 1.468 「版 1 の利用者に版 2 への移行を強いる」のが問題（Nelson 氏 2004）、「or later」には公式の版を決める権威が要る（Berkus 氏 2024）—— ACD は以降の版の仕組みを持たない（B12 の有利な側）。前文は「ライセンスの一部でないと明示した序文」の形（Nyst 氏 2013）（2026-11-23）
+
+§1.464〜§1.467 の採掘で読んだ通のうち、まだ節に置いていなかった 3 つの論点をまとめる（新しい通を読み足したのではない）。
+
+**§1.466 の数の訂正（2026-11-23）**: §1.466 の「決める側の通 76 通・分析の文書と重ならない 55 通」には、census の `DECIDERS` が表示名の部分一致で決める側に数えていた Randall Burns 氏（`randall_burns at yahoo.com`・"Randal" に当たった）の 4 通が入っていた。決める側の通は 72 通、重ならない通は 51 通である。4 通は読む段で除いていたので、§1.466 の表の読みは変わらない。照合は機械層 fc が語の境で照らすように直した（PR 3937）。§1.467 で読んだ 30 通には、この誤りに当たる差出人は入っていない。
+
+| 発言 | 誰が | ACD への当たり方 |
+| :-- | :-- | :-- |
+| *"The trouble is that you require version 1 users to upgrade to version 2, whether it complies or not.  You *could* require version 1 users to upgrade to version 2 if OSI approves version 2."* | Russell Nelson 氏 2004-11-24（German Free Software License の審査） | **有利な面（B12）。** 版の移行を利用者に強いる条を問題にした。ACD-1.4 は以降の版の仕組みを持たず（`against.md` #11）、§16.4 は各名前と識別子を 1 つの固定の文に結ぶ —— 既に受け取った Work の条件が後の版で変わる道が無い |
+| *"I am concened that updates not only refrain from removing rights, but also from adding /additional requirements./ There should be clear language to that effect."* | Bruce Perens 氏 2008-03-17（EUPL の審査・`rounds/2008-03-license-review-eupl-perens-choice-of-law-not-grounds-observed.txt`） | **有利な面（B12）。** 更新が権利を減らさず要件も足さないことを明記せよ、と求めた。ACD には更新が Work に及ぶ道そのものが無いので、この求めの前提が生じない |
+| *"The provision for using "3.0 or later" of the SADL necessarily requires that their be an authority to determine what is an official version of the SADL, which will need to be part of the license."* | Josh Berkus 氏 2024-01-29（SADL への意見の求め） | **両面（B12）。** 「以降」を書くなら公式の版を決める権威を本文に置け。ACD は「以降」を書かないので、権威は Work の扱いに関わらない。ACD-1.4 の §16.5 の Steward は、本文の名と識別子の下で新しい版を出せる者を決めるだけである。**逆側**: `REVIEWERS.md` の "One steward" の行（Kuhn 氏 2018 *"OSI really does need to trust the license steward when an upgrade clause is in play"*）と同じく、Steward が 1 人であること自体は B12 の費用として残る |
+| *"If you want to guide interpretation as an "implicit public domain dedication" more than that, you can add text to clarify that you'd make it public domain if you could do it simply. But please keep the added text outside the license. (i.e in the name of the license, or readme of a project, or write an introduction clearly marked as not part of the license text.)"* | Engel Nyst 氏 2013-11-17（決める側でない参加者・"Another crayon license"） | **支え（1.5 の試作 §6・前文を外さない判断）。** 解釈を導く文は、ライセンスの一部でないと明示した序文として置け。ACD-1.4 の前文は *"This preamble is not, and nothing in it qualifies them."* で作用の条から自分を外す —— この形である。決める側の文ではないので重みは低い |
+| ModelGo 2.0（Zero を含む）の定義 *"Derivative Materials" means …* *"including any new model developed by transferring patterns of weights, parameters, activations and/or Output from the Model, such as through distillation methods or synthetic data generation techniques."* | ModelGo の提出文（`license-review` 2025-04 の再提出） | **前文の 2 文目への部分的な反例（errata E88 の 2 文目）。** 前文の *"Permissive licences are silent on whether a work may be used to train a model"* に対し、審査に出た許容型の ModelGo Zero は定義でモデルからの学習（蒸留）を名指す。**逆側**: ModelGo は承認されておらず普及していないので、前文の主題文 *"The legal tools in common use"* の限定で立つ（E88 の 1 文目と同じ読み・合議の議題 1）。OpenMDW 1.1 は *"to deal in the Model Materials without restriction"* で学習を名指さない —— 沈黙の例である |
+
+**読み。** ACD が「以降の版」の仕組みを持たないことは、`against.md` #11 では TRADE（費用として受け入れる）だったが、決める側は版の移行を強いる条と「以降」の権威を問題にしてきた —— 費用であると同時に、懸念を生まない設計でもある。
+
+**逆側。** Steward が 1 人であることの費用（B12）は消えない。Nelson 氏 2004 は「OSI が新しい版を承認するなら移行を求めてよい」とも書き、移行の仕組みそのものを否定してはいない。
+
+**この節が establish しないこと。** 3 人の文が承認の基準として採られたか。
+
+**反映**: B12（Nelson 氏 2004・Perens 氏 2008・Berkus 氏 2024 を「以降の版が無い」ことの有利な側に、against #11 の TRADE の行に「懸念を生まない」の材料として・cd へ）/ 1c（Nyst 氏 2013 を 1.5 の試作 §6 の「外さない」の支えに、ModelGo の定義を errata E88 の 2 文目の反例として・5e へ）。本文は変えない。
