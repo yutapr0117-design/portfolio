@@ -490,19 +490,19 @@ census の `DECIDERS` は差出人の表示名を大文字小文字を区別し�
 
 **反映**: against #331（差を読む経路の材料として・cd へ）/ 入口（REVIEWERS か submission の §B.0 の事実の箇条に、1.0 → 1.4 の「なぜ」を英語で読む経路 —— errata の英語の列と各版の CHANGELIST の付録の英語の一覧を指す 1 行、または短い英語の要約の要否を合議へ・cd と 6d へ）。本文は変えない。
 
-## 1.473 「AI の学習への使用で発動する条項は、OSD 10 に実質的な問いを生む」（Sado 氏 2026）—— 決める側が AI 向けの提出で OSD 10 を当てたのは、学習を引き金にした**条件**だった。ACD の §6 は学習を名指して許し、条件を置かない（2026-11-24）
+## 1.473 「AI の学習への使用で発動する条項は、OSD 10 に実質的な問いを生む」（Sado 氏 2026・決める側ではない参加者）—— AI 向けの提出に OSD 10 を当てた記録は、学習を引き金にした**条件**についての 1 通だった。ACD の §6 は学習を名指して許し、条件を置かない（2026-11-24）
 
-`ACD-1.0.submission-osd.md` の OSD 10 の行は、反論を *"§6 is written around a particular technology"* と立て、*"§6's subject matter is technological; its effect is a grant with no technological predicate"* と答えている。この答えを、決める側が AI 向けの提出に OSD 10 を当てた記録で確かめた。全 508 か月の決める側の通のうち、本人の文に "OSD 10"・"technology-neutral" と、前後 300 字に AI・machine learning・model・training・LLM・neural のどれかが在る通は 4 通。AI 向けの提出に当てたのは次の 1 通で、分析の文書には無かった（`rounds/2004-to-2026-license-lists-rule-census-cited-observed-5of6.txt` に原文だけが在る）。
+`ACD-1.0.submission-osd.md` の OSD 10 の行は、反論を *"§6 is written around a particular technology"* と立て、*"§6's subject matter is technological; its effect is a grant with no technological predicate"* と答えている。この答えを、AI 向けの提出に OSD 10 を当てた記録で確かめた。census の `DECIDERS` で数えた通のうち（その照合は Sado 氏を決める側に入れているが、Sado 氏は OSI の委員でも理事でもない —— 署名は *"Chairman, Open Source Group Japan"*、`review-readings.md` の §1 の記録も同じ。6d の指摘・2026-11-24）、本人の文に "OSD 10"・"technology-neutral" と、前後 300 字に AI・machine learning・model・training・LLM・neural のどれかが在る通は 4 通。AI 向けの提出に当てたのは次の 1 通で、分析の文書には無かった（`rounds/2004-to-2026-license-lists-rule-census-cited-observed-5of6.txt` に原文だけが在る）。
 
 | 発言 | 誰が | 当たり方 |
 | :-- | :-- | :-- |
-| *"In my view, AIAL-1.0 at least raises a substantial question under OSD #10, because its Transparency clause is triggered not only by redistribution, but also by use as input for further AI training. Its per-file and project-level attribution requirements also seem to raise questions under OSD #3 and #7. In addition, it is not clear how conditions derived from copyright can be imposed in a stable way on code for which copyright may not exist at all."* | Shuji Sado 氏 2026-03-14（`license-review`・AI-MIT / AIAL の審査） | **支え（OSD 10 の行の答え）。** OSD 10 の問いを生んだのは、AI の学習への使用を**引き金にした条件**（Transparency clause）である。ACD-1.4 の §6.1 は学習を名指して許し（*"Computational Use of the Work is expressly permitted"*）、§10.1 は条件を課さない —— 技術を名指すことと、技術を条件の引き金にすることは別で、Sado 氏が問うたのは後者である。同じ通の後半（著作権が無いかもしれない code に著作権由来の条件を安定して課せるか）は、ACD-1.4 の §9 が機械生成物に権利があると前提せず、§10.1 が条件を課さないことで、問いの前提が生じない |
+| *"In my view, AIAL-1.0 at least raises a substantial question under OSD #10, because its Transparency clause is triggered not only by redistribution, but also by use as input for further AI training. Its per-file and project-level attribution requirements also seem to raise questions under OSD #3 and #7. In addition, it is not clear how conditions derived from copyright can be imposed in a stable way on code for which copyright may not exist at all."* | Shuji Sado 氏 2026-03-14（`license-review`・AI-MIT / AIAL の審査・Open Source Group Japan の代表で、決める側ではない） | **支え（OSD 10 の行の答え・弱い）。** OSD 10 の問いを生んだのは、AI の学習への使用を**引き金にした条件**（Transparency clause）である。ACD-1.4 の §6.1 は学習を名指して許し（*"Computational Use of the Work is expressly permitted"*）、§10.1 は条件を課さない —— 技術を名指すことと、技術を条件の引き金にすることは別で、Sado 氏が問うたのは後者である。同じ通の後半（著作権が無いかもしれない code に著作権由来の条件を安定して課せるか）は、ACD-1.4 の §9 が機械生成物に権利があると前提せず、§10.1 が条件を課さないことで、問いの前提が生じない |
 
 ほかの 3 通: Berkus 氏 2023-08-17（Open Constitution License）は、本文の「technology-neutral」の節と、別の条の技術の特定が食い違うことを指摘した —— 本文の自己矛盾の指摘で、ACD-1.4 は自分を technology-neutral と述べる文を持たない。Rosen 氏 2007-01・2018-12 の 2 通は AI 向けの提出ではない。
 
-**読み。** OSD 10 の行の答え（主題は技術的だが、効果は技術を述語にしない許諾）は、決める側が AI 向けの提出に OSD 10 を当てた唯一の記録の線と一致する。
+**読み。** OSD 10 の行の答え（主題は技術的だが、効果は技術を述語にしない許諾）は、AI 向けの提出に OSD 10 を当てた唯一の記録の線と一致する。ただしその記録は決める側の文ではなく、決める側（委員・理事）が AI 向けの提出に OSD 10 を当てた記録は、この語の当て方では Berkus 氏 2023 の本文の自己矛盾の指摘だけで、ACD の答えを支えも崩しもしない —— OSD 10 の行の支えとしては弱い。
 
-**逆側。** Sado 氏は AIAL の条件について書いたのであって、許しの側が技術を名指すことを OSD 10 に照らして良いとは書いていない。OSD 10 の本文は *"No provision of the license may be predicated on any individual technology or style of interface"* で、条件に限らず「provision」と書く —— §6 が「provision」で、学習という技術を名指すと読む審査者は、条件でなくても OSD 10 を持ち出しうる（`submission-osd.md` の行が立てた反論そのもの）。1 通の個人の読みで、委員会の基準ではない。
+**逆側。** Sado 氏は AIAL の条件について書いたのであって、許しの側が技術を名指すことを OSD 10 に照らして良いとは書いていない。OSD 10 の本文は *"No provision of the license may be predicated on any individual technology or style of interface"* で、条件に限らず「provision」と書く —— §6 が「provision」で、学習という技術を名指すと読む審査者は、条件でなくても OSD 10 を持ち出しうる（`submission-osd.md` の行が立てた反論そのもの）。決める側ではない参加者の 1 通の読みで、委員会の基準ではない。
 
 **この節が establish しないこと。** 許しの側の技術の名指しが OSD 10 に当たらないこと。
 
