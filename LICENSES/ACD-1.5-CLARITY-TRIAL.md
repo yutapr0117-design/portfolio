@@ -31,6 +31,14 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 
 **反例の 3 巡目（portfolio-cd・2026-11-23）**: 止める反例なし。(1) *It* と *its words* は第 1 文の *This Dedication* を受ける。(2) 法が与える黙示の許諾（米国の legal estoppel・特許の消尽）は文で外せず、外せるのは Dedication が黙示に与えるものだけ —— 旧文の *"reaches nothing else"* と同じ射程で、§8.4 の限定（B7）を広げも狭めもしない。(3) ドイツの目的移転の原則（UrhG 31 条 5 項）は、§4.1 が *"all Covered Rights"* を明示で許すので黙示に頼る場面が残らない。(4) §11.4 末文の *"states a limit of the Dedication's reach"* は、第 3 文が限界を述べ続けるので真のまま。**逆側 (vii)**: *"gives nothing by implication beyond what its words give"* は、本文の外の Dedicator の言動（「学習に自由に使ってよい」という公の発言など）から受け手が得る禁反言の防御まで、完全合意条項（entire agreement）のように締め出すと読まれる余地がある。主語は Dedication なので、Dedication の外の言動が与えるものには及ばない、と読むのが自然で、§2.5 も本文の内から禁反言を支える —— この文は「本文が黙示に与えるもの」を限る文であって、完全合意条項ではない、と読む（法律家への問いの材料）。
 
+**4 巡目 —— 決める側の文で当て直した（portfolio-d7 の採掘・2026-11-23。引用はアーカイブの写しで原文に当てた）**:
+
+- **反例（重い）**: Pamela Chestek 氏 2022-07（委員長・`license-review`・Open Logistics License）は、OLL の *"Under no circumstances will anything in this Section 3 be construed as granting, by implication, estoppel or otherwise, a license to any patent …"* に *"What is this sentence designed to do? The grant clause defines the grant … It's not necessary to say that there is no grant of what is not granted."* と問うた。T135 の新しい文も、置き換えた旧文（1.0 から在る *"It reaches nothing else"*）も、この型（与えないものを与えないと言う文）に在る。
+- **反例（中）**: Bruce Perens 氏 2012-02（CC0 の審査）は、献呈では黙示の特許許諾（禁反言）が立ちにくい、と読んだ。§8 が届かない請求項について、BSD や MIT なら立ちうる黙示の許諾まで、ACD は文で外すと読まれうる。
+- **支え**: 承認済みのライセンスが同じ型の文を持つ —— BSD+Patent（2017 承認）*"Except as expressly stated above, no rights or licenses from any copyright holder or contributor is granted under this license, whether expressly, by implication, estoppel or otherwise."*、EPL-2.0 の同じ型の文。
+
+**読み**: Chestek 氏の問いと Perens 氏の読みは、T135 の前の文にも同じく当たる。旧文は「及ぶのは列挙したものだけ」と言い切ることで、黙示の許諾を外していたからである（cd の 3 巡目の (2): 射程は同じ）。だから T135 はこの点を悪くしていない。黙示の排除を BSD+Patent・EPL-2.0 と同じ型の 1 文に寄せ、−15 語で網羅の言い切りが生んだ型（E44・§2.5・T124）を閉じた。**逆側**: 委員長の問いに正面から答えるなら、黙示の排除の文そのものを外す道（試作 §1 の (b)）がある。だが cd の反例のとおり、1.4 でこの働きを持つのはこの 1 文だけで、外すと §8.4 の限定（B7）の外の特許へ黙示の議論の足場を与える。委員長の *"What is this sentence designed to do?"* には、「§8.4 が意図して限った特許の許諾を、黙示によって広げさせないため」と答える。この答えは入口（`REVIEWERS.md` の §8 の説明）に置く候補である（cd へ）。
+
 **採否**: **採った**（2026-11-23・(c) の *gives* の形・−15 語・草案 5,879 → 5,864 語）。`CHANGES-ACD-1.5.txt` に 1 行、`ACD-1.5-CHANGELIST.md` の表に 1 行、草案冒頭の状態の行を「1.4 と同一」から「一覧の変更を除いて 1.4 の本文」へ。規則 1 の欄には SELF-AUDIT §3zd を書く。採るなら、`CHANGES-ACD-1.5.txt` に 1 行、`ACD-1.5-CHANGELIST.md` の表に 1 行、草案冒頭の語数を `sync_stated_counts.py --apply` で直す。
 
 ## 2. 決める側の文から作った点検の観点を 1.4 の本文に当てた（2026-11-23・観点は portfolio-d7 の採掘・当ては 5e）
@@ -113,3 +121,17 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 **読み**: 前文は Turner 氏が勧めた形（GPL の *Preamble* の型）に在り、Chestek 氏の文が向いた形（作用の段落に混ざった非作用の語）には無い。外すと、なぜ 3 つの足場を並べるかの説明が本文から消える（`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.25 は、§8.6 の説明を外した T20 の後、その説明を前文が持つとして前文第 3 段落を残した）。**逆側**: (i) 前文の第 1 段落は、承認済みのライセンスと献呈の現状についての経験の言明（*"Permissive licences are silent on whether a work may be used to train a model"*・*"dedications to the public domain either withhold patent rights expressly or say nothing about them at all"*）を持ち、審査者が出典を問いうる —— 前文に置いても、本文に経験の主張を持つ費用は残る（T79 が §6.5 で出典の無い経験の言明を分析の言明へ替えたのと同じ型）。(ii) Nelson 氏の *"phrased in the form of encouragement, not agreement"* に照らすと、前文の *"It gives away, once and without conditions, every right it reaches"* は約束の形に近い。どちらも試作の種として残す（第 1 段落の経験の言明に出典を付けるか、分析の言明に替えるか）。
 
 **この節の位置**: 方針の規則 1 の例外（読みを変えずに語を減らす）に形の上では当たるが、上の審査者の文が「外さない」側の根拠になるので、試作に起こさない。前文の語を減らす候補は、逆側 (i) の第 1 段落の言明に限って当て直す。
+
+## 7. T139 —— 前文の「献呈は特許を留保するか沈黙する」を、広く使われている献呈に限る（+3 語・2026-11-23・errata E88・種は portfolio-d7・**採らない**）
+
+**種**: errata E88。前文第 1 段落の *"And dedications to the public domain either withhold patent rights expressly or say nothing about them at all, and both leave the recipient of software exposed."* は全称で、特許を扱う献呈が `license-discuss` で論じられていた —— Engel Nyst 氏 2013-08-24 *"Custom Dedication: Open Source is a modified CC0 that addresses the patent rights issue."*（アーカイブの写しで原文に当てた）、Joe Kua 氏 2014-12-04 の同じ道具についての問い（`review-readings-2.md` §1.243 が Woolley 氏の返信を読んでいる）。ACD 自身も特許を許諾する献呈である。§6 で退けた前文の逆側 (i)（第 1 段落の経験の言明）が、反例の出る形で当たった。
+
+**After**: *"And dedications to the public domain **in common use** either withhold patent rights expressly or say nothing about them at all, …"*（+3 語・題名からの数。`measure_clause_overlap.py` は作用の条だけを数えるので差 0）。段落の第 2 文 *"The legal tools in common use were drafted …"* と同じ限定にそろえる。
+
+**測定**（`--compare`）: 条 80、作用の条の語 ±0、指示語 0、外向きの依拠 0（記録 2: errata E85・E88 が 1.0〜1.4 の文を引く）。
+
+**逆側**: (i) *in common use* もまた実務についての言明で、ドシエは使用を測っていない —— 念頭に置くのは CC0（4(a) で特許を留保）と Unlicense（沈黙）。(ii) 前文は作用しない（*"nothing in it qualifies them"*）ので、直さなくても受け手の得るものは変わらない。費用は「審査者が反例を 1 つ知っていれば偽と言える文」を本文に持つこと。(iii) 前文の語を増やすのは、§6 で「前文を外す」案を退けた理由（原理の表明の置き場）とは別の向きの費用で、+3 語は B3 に逆らう。
+
+**反例（portfolio-cd・2026-11-23）**: (1) 文脈がもう限っている —— 第 1 段落の主題文は *"The legal tools in common use were drafted for a world …"* で、*"That assumption now fails in three places at once"* に続く 3 つの言明（機械生成物・許容型の沈黙・献呈の特許）は、どれもその道具についての言明と読むのが自然である。全称の読みは文を段落から切り出したときにだけ立つ。(2) 同じ型の 2 文目 —— *"Permissive licences are silent on whether a work may be used to train a model"* も切り出せば全称で、学習を名指す AI 向けのライセンスという反例がある。T139 が 3 文目だけに *in common use* を足すと、足していない 2 文目は全称だという対比の読みが生まれる（語を 1 か所だけそろえると対比が立つ型）。(3) 直すなら限定を 1 度で 3 文に掛ける形（*"In the tools in common use, that assumption now fails in three places at once"*・+5 語前後）だが、前文は作用せず、*in common use* も実務についての言明として残るので、閉じる分岐が小さい。
+
+**採否**: **採らない**（2026-11-23・5e と cd）。errata E88 に 2 文目も入れ、「文脈（第 1 段落の主題文）が限っている。切り出した読みにだけ当たる」として直さないと決めた。**逆側**: 「直さない」は E6・E87 に続き 3 件目になる。1 文だけを引く審査者には、その文は偽に見える。
