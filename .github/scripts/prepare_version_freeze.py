@@ -585,6 +585,14 @@ def main() -> int:
         return report(args.report)
     if not args.date:
         ap.error("--date か --report が要る")
+    # Check 311 は sitemap の lastmod を CI の UTC の今日と比べる。JST の 0:00〜9:00 に JST の今日で確定すると、UTC ではまだ
+    #   未来の日付になり、その間の CI は 311 で赤い (2026-11-23・1.4 の確定 #3864 で踏んだ・5e と 6d の帰属)。止めはしない
+    #   (確定の日はオーナーの日付で記録する) が、赤が来ることを先に知らせる
+    import datetime as _dt
+    utc_today = _dt.datetime.now(_dt.timezone.utc).date().isoformat()
+    if args.date > utc_today:
+        print(f"NOTE: --date {args.date} は UTC の今日 ({utc_today}) より先。Check 311 (sitemap の lastmod が未来) が UTC の日付が "
+              f"{args.date} になるまで CI で赤い (JST では 09:00)。その後に failed job を rerun すれば消える")
     if not args.not_for_submission:
         unmet = gate_6b() + gate_6c()
         if unmet:
@@ -701,7 +709,7 @@ def main() -> int:
           f"凍結した ACD-{v}.txt で測る)。{nxt} 草案の長さの行は、{nxt} 草案が変わるまで作らない。"
           f"(2) Check 444m —— 入口の FAQ・準備した答え・submission-osd・submission-reference が「適用している」と述べる版を、"
           f"ACD-{v} を適用した事実に合わせる (道具は機械の面だけを直す)。"
-          "(3) Check 362 —— 下の mutation を退役させる。(4) Check 311 は --date に未来の日を渡すと sitemap の lastmod で鳴る (確定の日の日付を渡す)。")
+          "(3) Check 362 —— 下の mutation を退役させる。(4) Check 311 は --date が UTC の今日より先だと sitemap の lastmod で鳴る (JST の 0:00〜9:00 の確定では、UTC の日付が追いつくまで赤い。その後に rerun する)。")
     orphan_mutations()
     return 0
 
