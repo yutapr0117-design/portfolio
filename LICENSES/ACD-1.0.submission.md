@@ -5,11 +5,13 @@ last-updated: 2026-11-23
 canonical-ref: LICENSES/ACD-1.0.txt (the text being submitted) / LICENSES/REVIEWERS.md (English entry point) / LICENSES/ACD-1.0.against.md (the adverse case)
 ---
 
-# ACD-1.0 — submission packets (English, ready to paste)
+# ACD — submission materials (English; facts for the owner, not text to paste)
 
-> **What this file is.** Everything a human needs in order to submit the Autonomous
-> Commons Dedication 1.0 to the SPDX License List and to OSI License Review, written in
-> the language those bodies use, so that the human-only step is *send*, not *compose*.
+> **What this file is.** The facts and fields the owner needs in order to submit the
+> Autonomous Commons Dedication — now ACD-1.4 — to OSI License Review and to the SPDX
+> License List, written in the language those bodies use. **The owner writes and sends the
+> messages in his own words** (B14, gate 0 of `REVISION-PROTOCOL.md`); since decision 3b of
+> the five (2026-11-23) this file no longer holds a message to paste.
 >
 <!-- SUBMISSION-TARGET: ACD-1.4 -->
 <!--
@@ -26,7 +28,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (the text being submitted) / LICENSES/REVIEW
   切り替え方: **ここを `ACD-1.2` に変えれば、残りは CI が指す。**
 -->
 
-> **Status of the licence itself:** see `LICENSES/ACD-1.0.txt`. The rationale, the
+> **Status of the licence itself:** the version submitted is `LICENSES/ACD-1.4.txt`; the version posted to `license-discuss` was `LICENSES/ACD-1.0.txt`. The rationale, the
 > gap analysis, the clause-level comparison with the closest OSI-approved licences, and
 > the honest weaknesses are in `docs/architecture/acd-license-rationale.md` (Japanese).
 >
@@ -117,355 +119,107 @@ place of that, and nothing in §3b is withdrawn by making it.
 
 ---
 
-## B. OSI License Review — ready-to-send message (**not yet sent**)
+## B. OSI License Review — material for the owner's message (**not yet sent**)
 
-> **This is the approval-request step, and it has not been taken.** What is currently open is a
-> thread on `license-discuss`. Send this only when the decision is to actually request approval.
->
-> **Before sending, add a paragraph about the license-discuss thread.** The usual order is
-> discuss → review, and a submission that arrives without referring to the earlier thread
-> reads as though the earlier thread never happened — which costs credibility before anyone
-> has evaluated the text. Pick three points from `LICENSES/ACD-1.0.discussion-log.md`
-> (strongest objection / what was conceded / what changed) and use the template in section 3
-> of that file. **If something raised there is still unanswered, say so** — hiding it fails
-> the moment the person who raised it is also on license-review.
+> **This is the approval-request step, and it has not been taken.** Send a message only when the
+> decision is to request approval, to `license-review@opensource.org` (subscribe first). OSI asks
+> submitters to state the rationale, to distinguish the licence from the closest approved one, to
+> address the Open Source Definition, and to say where the licence is used —
+> the facts for each are below.
 
-> **⚠ 2026-09-11 追加 —— 上の指示は「指摘が届いた」場合の形しか持っていない。** 「最も強い反論 /
-> 認めたこと / 変えたこと」を 3 点選べという指示は、**選ぶ材料があることを前提にしている**。
-> **沈黙のまま出す経路がある**（`REVISION-PROTOCOL.md` §3.6 分岐 B・オーナー 2026-09-11）。
-> **その場合にこの指示へ従おうとすると、無いものを作文する場所になる** —— 提出文のうち
-> **最も嘘が混入しやすい一段落**が、まさにここである。**そこで沈黙版を先に書いておく。**
->
-> **沈黙版（そのまま貼れる形。送る日に日付と「返信ゼロ」を測り直すこと）:**
->
-> > **On the earlier license-discuss thread.** ACD-1.0 was posted to `license-discuss` on
-> > 26 August 2026, to ask for pre-review before requesting approval. A second and narrower
-> > message followed on 6 September 2026, putting one question about the relationship between
-> > Sections 3 and 4. **Neither has drawn a reply in the public archive as of <DATE>.**
-> > I do not read that silence as agreement. Replies on that list arrive on their own
-> > schedule, and a measurable share of threads there receive none at all.
-> > **The differences between the text discussed there and the text submitted here are
-> > therefore not responses to comments on the list.** Most are defects I found in my own
-> > text; some were found by reviewers who read it outside the list; one is a question I
-> > put to the list myself, still unanswered. Each is listed, with what was changed and why,
-> > in the errata record linked below.
-> > **Defects that are still unrepaired are listed as unrepaired.**
->
-> **この段落で守ること**: **(1)** 沈黙を支持と読ませない（`against.md` #109 —— 返信ゼロは
-> 珍しくない）。**(2)** 「指摘を反映した」と書かない —— **list の議論に由来する errata は E11 の 1 件だけで、
-> しかも自分が出した未回答の問い**（`ACD-1.2-CHANGELIST.md` 冒頭・2026-09-22 時点で 30 件中 自己発見 23 / 外部レビュー 6 / list 1）。
-> **⚠ 2026-09-26 訂正: 旧文は「1.1 草案が閉じている 12 件は全件が自己発見」と書き、英文も *"They are defects I found
-> in my own text"* と断言していた** —— 外部レビュー由来の 6 件が入った後も直されておらず、**送れば偽になる文だった**。
-> **「すべて自分で見つけた」とも書けない。** 送る日に errata の由来を数え直す。**(3)** 未修理を未修理と書く。
-> **(4)** 貼れば §B.0 の語数が約 160 語増える（2026-09-26 実測 159・旧記載の「約 110」は旧文 135 語に対しても過少だった） —— **申告語数を測り直す**（確定手順の (3)）。
-> **返信が届いていたら、この沈黙版は使わず上の元の指示に従う。**
-
-Send to `license-review@opensource.org` (subscribe first). OSI asks submitters to state
-the rationale, to distinguish the licence from the closest approved one, to address the
-Open Source Definition, and to say where the licence is used.
-
----
-
-### B.0 The message as it should actually be sent (**1743 words**, measured 2026-11-07)
-
-<!-- SUPERSEDED-LETTER: ACD-1.0 -->
-> **Superseded record — not to be sent (2026-11-23, decision 3b of the five, 5/0/0).** The letter below was drafted for ACD-1.0 by an AI. The submission target is now ACD-1.4, and the owner writes the message to the list in his own words (B14, gate 0). This section is being replaced by a list of facts for him to draw on; until then the letter stays as a record of what was prepared for 1.0, and the checks that read the message to be sent (472f, 472o) skip it.
-
-> **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
-> 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
-> **したがって提出対象は 1.0 ではなく、確定した次版になる。** 本 §B.0 の header block と URL は
-> **まだ 1.0 を指している** ——**それが誤りなのではなく、次版が確定していないからである。**
-> **⚠ 2026-11-01 訂正（§B.0 本文）: OSD 9 の根拠を「§5.2(b) and §2.3」から「§4.3 and §10.1」へ直した。** 前者は OSD 10（技術中立）の根拠で、`submission-osd.md` の逐条照合は OSD 9 = §4.3・§10.1 / OSD 10 = §2.3・§5.2(b) と分けていた。§B.0 の本文だけがそれを取り違えていた。
-> **⚠ 2026-11-01 訂正（この下の手順より新しい）: 1.2 は 2026-10-17、1.3 は 2026-10-25 に確定・凍結し、1.3 をこのリポジトリに適用した。出す版は申請の日に確定する最新版（いまの作業場は `ACD-1.4-DRAFT.txt`。2026-11-23 に 1.4 も確定し、いまの作業場は `ACD-1.5-DRAFT.txt`）で、申請の日に使う手順と材料は `SUBMISSION-MATERIALS.md` §0 にある。** 以下の 5 手は 1.2 について書かれた記録で、(4) の Check 468 はいま `ACD-1.5-DRAFT.txt` を見ている。
-> **⚠ 2026-09-26 訂正: 1.1 は 2026-09-17 に確定済みで、出す版は 1.2 になった**（オーナー 2026-09-17・`REVISION-PROTOCOL.md`）。
-> 旧文は (1) を「`ACD-1.1.txt` を確定」、(4) を「468 は `ACD-1.1.txt` を見ている」と書き、(3) は「Check 444 が一致を強制する」と述べていたが、
-> **444 は本 file を読んでいなかった**（存在しない強制の主張）。以下は 1.2 について書き直した手順である。
-> **(1)** `ACD-1.2-DRAFT.txt` を `ACD-1.2.txt` として確定し（**2026-10-17 実施**。草案の file 名は案内として残し、作業場は `ACD-1.3-DRAFT.txt` へ移した）
-> `FROZEN.md` の FREEZE-DATA に行を足す（置き換えない）/ **(2)** `generate_spdx_license_xml.py` で
-> XML を生成する（**Check 445a が本文からの再生成と byte 一致を強制するので、手で書く余地は無い**）/
-> **(3)** 冒頭の `SUBMISSION-TARGET` marker を新版へ変え、**版に紐づく欄をすべて**新版へ向ける ——
-> §A の表・§A.0 header・§B.0 の件名 / 冒頭文 / header / URL・§C の Full name / 識別子 / URL / SPDX XML・§D の `curl` 行
-> （**Check 472f が 16 箇所を marker と照合するので、1 つでも残ると落ちる**）と語数申告。**そして §4c の数値を再導出する** ——
-> 条数は **82 → 確定時の 1.2 の条数**（2026-09-26 実測で草案 80）に変わり、clause pointer 数は新しい `machine.json` から数え直しになる。
-> **(4) 版に紐づく Check の対象を新版へ向ける。** **Check 460 face (n) は §4c を `ACD-1.0.txt` と
-> `ACD-1.0.machine.json` に対して照合し、Check 468 / 468d は `ACD-1.2-DRAFT.txt` を見ている**（**2026-10-17 に 468 を `ACD-1.3-DRAFT.txt` へ向け直した**）——
-> **確定の瞬間に、前者は古い版を、後者は消えた file を指す**（468 は 2026-09-26 まで草案が無いと黙って消えていたが、
-> 今は明示的に RED になる）。
-> **CI が最も止まってほしくない日に止まるので、ここは確定作業の一部として先に書いておく。**
-> **(5) 新版をこのリポジトリへ適用する。** **適用しなければ、提出する版の利用者は 0 件になる。**
-> 現在 ACD-1.0 は root `LICENSE` を含む約 10 面（`llms.txt` / `llms-full.txt` /
-> `llms_well-known.txt` / `.well-known/*` / `index.html` の JSON-LD / `robots.txt` /
-> `sitemap.xml` / README バッジ）で宣言され、**Check 444 が cross-surface 一致を強制**している。
-> **1.0 の本文は動かない** —— 凍結は**本文の byte についての約束**であって、リポジトリが
-> どの版を適用するかの約束ではない。**B2（実使用 1 件）は我々の 2 大弱点の一つであり、
-> 経路の変更でそれを 1 → 0 にしてはならない。** AIO 編集なので `aio-guardian` を通し
-> digest を再生成する（C6）。
->
-> **どれも AI が実行でき、「確定させる」判断も AI が行う**（2026-10-24 オーナー明言「OSI通過の為の何かで私の裁可が必要なものは無い」。旧文は「確定させる判断はオーナーのもの」）。**確定の条件は `OSI-APPROVAL-PLAN.md` §4 段 7 に置いた。**
-
-> **🛑 送る前に読む（2026-09-09 追加）。** OSI Moderators が同日、両リストへ
+> **🛑 送る前に読む（2026-09-09 追加・2026-11-23 に材料の形へ書き直した）。** OSI Moderators が同日、両リストへ
 > **「AI が全部または大半を書いたと疑われる投稿は拒否する」**と投稿し、両リストが
 > **「AI が自律的に参加しライセンスを起草する proof-of-concept」**に使われていると述べた
 > （逐語は `rounds/2026-09-09-license-{discuss,review}-osi-moderators-observed.txt`・
 > 分析は `ACD-1.0.against.md` #119 と `ACD-OSI-BOTTLENECKS.md` B14）。
-> **§B.0 は AI 起草の文面である。この状態で送ることは、その通知が名指しした行為に当たりうる。**
-> **次に何を・いつ送るかは AI が決めて理由とともに記録するが、送る行為と文面の語はオーナーであり、AI はそれを代行しない。**（**2026-11-01 訂正**: 旧文は「次に何を送るか、そもそも送るかはオーナーの判断」で、2026-10-24 のオーナー明言「OSI通過の為の何かで私の裁可が必要なものは無い」と食い違っていた。2026-11-01 にオーナーが「全委任してるので当然良い」とこの是正を確認した。現行の分担は `OSI-APPROVAL-PLAN.md` 冒頭と同じ）
-> **開示（§E.1）を薄めて回避してはならない。**
+> **§B.0 は AI が書いた材料である。箇条を文に組んで写して送れば、その通知が名指しした行為に当たりうる。**
+> 次に何を・いつ送るかは AI が決めて理由とともに記録するが、送る行為と文面の語はオーナーであり、AI はそれを代行しない。
+> **開示（§E.1・§B.0 の 1）を薄めて回避してはならない。**
 
-**Why this section exists.** The reference material this message points at — §1 through §5, which
-moved to `ACD-1.0.submission-reference.md` and `ACD-1.0.submission-osd.md` on 2026-09-09 — is
-**close to an order of magnitude longer than the message** (14,651 words against 1,701, measured
-2026-09-27 — the message has moved since; the authority for the message's own length is the §B.0 heading, and Check 460 (p)
-checks it against the text). The list's code of conduct asks for "concise and low-volume" and that
-was restated in the August 2026 review (`REVISION-PROTOCOL.md` §3.7). **Pasting the reference
-material would contradict the design this dossier is built on**, which is that the repository holds
-the depth so the message can be short. §1–§5 are not deleted: they are where a reviewer who asks a
-specific question is sent. **Send §B.0. Do not paste §1–§5.**
-
-> **⚠ この段落は 2026-09-27 に是正した。** 旧文は *"Everything below §B.0 — §1 through §5 — runs to
-> **7,500 words**"* と述べていたが、**§1〜§5 は 2026-09-09 に別 file へ移っており「§B.0 の下」には
-> 無く**、実測は **14,651 語**だった（`against.md` #80 が記録する 7,505 語は**切り出し前の 2026-09-09
-> 時点の値**で、歴史記述としては正しい）。**現在値を固定値で書いた説明文は、正本が動くと嘘になる。**
-
-**Length, stated rather than rounded.** 577 words when written on 2026-09-06; **660** after two
-additions the same day; **685** on 2026-09-07, when the enforcement sentence was changed to say what
-each CI check actually establishes (`against.md` #95); **768** when the OSD affirmation was made
-specific to criteria 3, 5, 6 and 9 as the review-process page requires (#97) — **that one is not
-optional**, because on 2026-09-07 a reviewer publicly declined to comment on another submission at
-all until its missing required information was supplied; **788** when the "why now" paragraph was
-corrected, because it had said no submission before 2024 concerned machine learning and the archive
-shows two in 2023 (#103); **858** on 2026-09-08, when the structure paragraph gained the thing that
-most directly answers *"why another public-domain-equivalent?"* — that §4.4 states in text the
-argument which had to be argued on this list to save the Unlicense in 2020
-(`review-precedents.md` §1.57); **971** on 2026-09-09, when a second gap was added to the same
-paragraph — moral rights, which the chairman of Open Source Group Japan argued on this list in 2024
-leaves licences that speak only of copyright unable to guarantee modification in Japan
-(`reviewer-positions.md` §1.59).; **1,048** on 2026-09-10, when the gap paragraph stopped asserting that no approved licence does these things and started **stating the measurement** —— all 149 OSI-approved texts searched, four strings at zero （**+77 語。長さは B3 の争点であり、足すたびに理由を書く**）
-
-**And 1,098 on 2026-09-11**, when the gap paragraph gained **a one-sentence form before the detail**. The reason is a precedent rather than a preference: **one of the four licences approved in those 33 months** — the OSC License, which a lawyer submitted on behalf of the city of Solingen — **stated its gap in one sentence** (*"the versatile MIT license does not contain a limitation of liability that is effective under German law"*) and reached a decision in three months (`review-corpus.md` §1.68). *(Corrected 2026-09-27: this note previously called the OSC License "the only **new** licence approved in 33 months whose submitter was an **individual**". Both halves were wrong by this dossier's own record — `review-corpus.md` §1.68 and `ACD-OSI-BOTTLENECKS.md` classify it as MIT plus one paragraph, i.e. not a new instrument, and its submitter acted for a city. The precedent for a one-sentence gap stands without either.)* **Ours named three areas before it named one.**
-
-**And 1,456 on 2026-09-25**, when a subject-matter paragraph was added. **The first draft of it ran
-223 words and was cut to 94 before it was kept.** The reason is this section's own design: the
-repository holds the depth so the message can be short, and a 223-word pre-emption written into the
-message would have worsened **the one bottleneck with two recorded instances of a reviewer not
-engaging at all** (`ACD-OSI-BOTTLENECKS.md` B3). **The full treatment went to the reference instead**
-(`ACD-1.0.submission-reference.md` §3d). **Naming an objection before the reviewer finds it is worth
-words; explaining it at length in the opening message is not.**
-
-**And 1,488 later on 2026-09-25**, when the gap paragraph gained one sentence naming
-CERN-OHL-P-2.0. A census of all 141 approved texts that day (`ACD-1.0.gap-census.md`) found that
-its patent grant over *Products* can be read to reach a trained model, so the patent limb of the
-gap holds only as "names models" (`against.md` #241). The three-together claim still stands, but a
-reviewer who knows CERN-OHL would have found the nearest counter-example before we named it.
-**+32 words**, against a first draft of 50.
-
-**And 1,519 later still on 2026-09-25**, when two comparative claims in the message were found false
-against this dossier's own records. *"Nearest approved licences"* listed CC0, which is not approved, and
-named Apache-2.0 as the nearest patent machinery, where the census found three permissive licences with an
-express patent grant (`review-responses.md` §6). *"The incumbents do not attempt"* moral rights was
-false for EUPL, which `submission-reference.md` already quoted against us. **Both had been corrected in the
-reference material and not in the message** — the surface that is read first was the one left stale. *(2026-09-27: not entirely — the Apache-2.0 half was still in the reference material's own heading and in the entry page `REVIEWERS.md`; both corrected that day.)*
-
-**And 1,568 the same day, last of the three**, when the OSD affirmation gained **OSD 1 and OSD 7**. The review-process
-page asks for 3, 5, 6 and 9, and those were there; **the archive shows 1 and 7 are the criteria a
-patent objection is actually raised under** (`review-doctrine.md` §1.112). **Naming a criterion we
-meet costs 49 words and removes a place the reviewer has to go looking.**
-
-**And 1,701 on 2026-09-27**, when the message gained **the limb of the vanity test I cannot answer**.
-Bradley Kuhn's 2022 formulation has two parts and the archive shows the list applies both
-(`review-outcomes.md` §1.116); the packet answered *"wholly unserved"* at length and said nothing
-about *"widespread need"*. **Saying nothing about the half you cannot evidence reads, to a reviewer
-who knows the test, as not knowing the test.** **+133 words**（段落そのものも 133 語 —— 最初にここへ「+94」と書いたのは見積もりで、**実測すると 1.4 倍だった**。見積もりは書いた本人に甘い）。
-
-**And 1,710 on 2026-10-17**, when the ModelGo disagreement stopped calling its author "the chair". The quotation is from 2025-12, and the Licensing Committee chair then was Josh Berkus; Pamela Chestek had been chair until 2025-03 and has been a committee member since (board minutes 2025-01-17 and 2025-04-18). **+9 words, spent on getting a title right** —— 審査者は肩書きを自分で確かめられる人々なので、ここを誤ると引用全体の信頼が落ちる（`against.md` #186 の 2026-10-17 訂正注記）。
-
-**And 1,703 on 2026-11-01**, when the OSD 9 citation was corrected from §5.2(b) and §2.3 (the grounds for OSD 10) to §4.3 and §10.1. **−7 words, spent on citing the right clause** —— OSD 9 を名指しで満たすと述べる段落で根拠の条を取り違えていた。
-
-**And 1,663 on 2026-11-06**, when the gap paragraph stopped counting §6 and §9 as differences. The 2026-11-04 re-verification (`gap-measurements.md` §1.134) had removed them from what makes this instrument distinct, and `REVIEWERS.md` and `SUBMISSION-MATERIALS.md` had followed, but this paragraph still said *"three things no approved licence does together"* and gave 149 texts where the same message gave 141 further down. It now leads with the one combination that differs in effect. **−40 words** —— 読まれる順の最初の面が最後に直った。#241 と同じ形である。
-
-**And 1,679 later the same day**, when the Unlicense paragraph stopped giving the argument alone as what answered the veto. The Committee's rationale says *"The lawyers who opined on the issue, both US and non-US, agreed"* (`against.md` #2, #270), and a reviewer who knows that record would have read the omission as selective. **+16 words**.
-
-**And 1,692 on 2026-11-07**, when the subject-matter paragraph stopped naming only the decision that went against this kind of text. The Committee's rationale on CERN-OHL (2021) states the other side of the same line. **+13 words**.
-
-**And 1,742 later the same day**, when the structure paragraph gained the OSI article of 2017 that proposes a disclaimer with a licence beside it (`board-decisions.md` §2f). **+50 words**.
-
-**And 1,743 still the same day**, when the message gained the repository's address. It named `LICENSES/REVIEWERS.md` and the adverse list, and a reader of the email had no link to either; the Pages copy of a `.md` file shows raw text, so the entry goes to GitHub, which renders the tables (5a). **+1 word**.
-
-**Why that last addition earns its words.** *"Why another public-domain-equivalent?"* is the opening
-move in this category — Rob Landley put it as fungibility (#84), David Woolley put it to the
-UPD 1.5.2 author, Carlo Piana has put it as proliferation — and until 2026-09-09 the only answer in
-the message was about the Unlicense. **The 0BSD form of the question had no answer at all**, which
-is the form Landley actually asked. It now has one, and it is sourced to this list rather than to us.
-
-**Two defects in this paragraph were found on 2026-09-09 and are recorded rather than quietly
-swapped.** A clause about #103 had been stranded in the wrong sentence by an earlier edit, and the
-summary of the 2026-09-06 additions still described *"why now"* as claiming **no ML-substantive
-submission before 2024** — **the very claim #103 corrected in the message itself.** The message was
-right and its own changelog was wrong. **An account of our corrections that is itself uncorrected is
-the same failure as a stale count**, and it is worse here, because this is the paragraph a reader
-consults to find out what we fixed.
-
-**The instrument, stated with the number.** Whitespace-separated tokens from the `**Subject:**` line
-to the sign-off, fenced metadata block included, counted by `re.findall(r'\S+', ...)`. **This was
-written down on 2026-09-09 because it had never been**: recomputing the earlier figures showed the
-method matters by tens of words depending on where the count starts and whether the fenced block is
-included. **A number without its instrument is the failure recorded at #87**, and this dossier had
-been carrying six of them.
-
-**If it grows again, the number here moves with it** — a heading that rounds its own length to a
-friendlier figure is the failure this dossier spent 2026-09-06 finding in itself.
+> **書く人への注（日本語・送る文ではない）。** (1) 沈黙を支持と読ませない（`against.md` #109）。
+> (2) 「list の指摘を反映した」と書かない —— 1.0 から 1.4 への変更の由来は送る日に errata で数え直す。
+> (3) 未修理を未修理と書く（errata の開いている行）。(4) この下の箇条は AI が書いた材料で、文面ではない。
+> 2026-11-23 までここに在った「沈黙版（そのまま貼れる形）」の段落と §B.0 の手紙は、どちらも AI が書いた
+> 送る文で、議題 3b（C′・5/0/0）で外した。commit `87c52107474d` の本 file に記録として残る。
 
 ---
 
-**Subject:** For Approval: Autonomous Commons Dedication 1.0 (ACD-1.0)
+### B.0 Facts for the owner's message (**material, not a message to send**)
 
-Dear License Review Committee,
+> **This is not a message.** It is a list of facts and sources, drafted by an AI, for the owner to draw on when he writes his own message to `license-review` in his own words (B14, gate 0 of `REVISION-PROTOCOL.md`). It has no greeting, no first-person sentences and no signature, on purpose. Decision 3b of the five (2026-11-23, 5/0/0) replaced the letter that stood here; that letter, drafted for ACD-1.0, is kept as a record in the history of this file at commit `87c52107474d` and is not to be sent.
 
-I am submitting the **Autonomous Commons Dedication 1.0 (ACD-1.0)** for approval. The text is
-attached as plain text; it is also published at
-`https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt`, and the attachment can be
-checked against it — the SHA-256 is pinned in `LICENSES/FROZEN.md` and verified by CI, so the text
-cannot drift during review.
+**1. Disclosures that belong at the top of any message**
 
-```
-License Name:                   Autonomous Commons Dedication
-Version:                        1.0
-Short Identifier:               ACD-1.0
-Copyleft:                       No
-Legacy or New:                  New License
-Drafted By Lawyer:              No
-Approved or Used by Projects:   One — my own repository (https://github.com/yutapr0117-design/portfolio)
-Steward:                        Yuta Yokoi (横井雄太), yuta.yokoi.r@gmail.com
-Submitter:                      The same person, in his own capacity
-SPDX / ScanCode Identifier:     None (LicenseRef-ACD-1.0 is the conforming form)
-Third-party Endorsement:        None (no Debian, FSF or Fedora review)
-Proposed Tags:                  None
-```
+- No lawyer has drafted or reviewed ACD-1.4, or any earlier version.
+- One project applies it: this repository (`https://github.com/yutapr0117-design/portfolio`).
+- The licence text and the material in this directory were drafted by an AI agent under the owner's standing delegation; the owner set the goal and the direction and did not write the clauses. The owner read ACD-1.0 in full before posting it on 2026-08-26; whether to say the same of ACD-1.4 is for the owner to state.
+- The other side, on the record: Richard Fontana, 2026-03-15, *"I'm not sure the possibility that any part of this license is AI-generated matters though."*; Josh Berkus, 2026-03-17, *"There is no requirement that the license be copyrightable."* The list moderators announced on 2026-09-09 that posts suspected of being written wholly or mostly by AI would be rejected (`review-responses-meta.md`).
 
-**I affirm that ACD-1.0 complies with the Open Source Definition**, and specifically that it meets
-**OSD 3** (§4.2 permits modification and derivative works; §10.1 attaches no condition to
-distributing them; and §16.3 lets anyone apply this text to a work in which they hold rights, so a
-derived work may be distributed **under these same terms**), **OSD 5 and OSD 6** (§4.3 states the licence is not conditioned on who You are
-or what You use the Work for, so no person, group or field of endeavour is excluded), and **OSD 9**
-(§4.3 and §10.1 impose no requirement on anything distributed alongside the Work). I add **OSD 1 and OSD 7**, because the archive shows those are the
-criteria under which a patent objection is actually raised: §8 grants a patent licence on the same
-terms to everyone who receives the Work, so nothing further has to be executed by a downstream
-recipient. A criterion-by-criterion analysis of all ten is in the repository, and so
-is a companion section setting out, for each, **where a reviewer could argue the opposite**.
+**2. What OSI's review-process page asks a submission to contain — one line each, with the fact for ACD-1.4**
 
-**The gap.** In one sentence: the approved licences that impose no conditions say nothing about
-patents or machine learning, and the machine-learning licences brought to this list have so far
-added conditions; ACD-1.0 is the intersection. **What differs in effect is one combination**: a
-patent licence that reaches models and outputs of computational use (§8.4), with no condition and
-no termination (§8.2, §10.1). **That is measurable, and I measured it**: of the 141 approved texts
-(SPDX List 3.29.0, deprecated identifiers excluded), the three with no condition (0BSD, MIT-0, the
-Unlicense) never use the word "patent", and all seven whose patent grant goes beyond the work have
-conditions. §6 and §9 state things rather than differ in effect: none of the 141 names machine
-learning or text and data mining, but a permissive licence allows training by allowing everything.
-The census is in the repository. **The nearest approach:** CERN-OHL-P-2.0 grants patents over work
-*"arising from the … processing of Covered Source"*, which can be read to reach a model. It does
-not name models and has conditions.
+| OSI asks for | Fact for ACD-1.4 |
+| :-- | :-- |
+| Subject line | The list uses the form *"For Approval: <licence name and version>"*; here, Autonomous Commons Dedication 1.4 (ACD-1.4) |
+| The licence text, attached as plain text | The part of `LICENSES/ACD-1.4.txt` below the line of 80 hyphens, which the file's own header names as the end of its description (*"Everything above the line below describes this file. It is not part of the Dedication (Section 1.1), and a copy may leave it out."*): 674 lines, 5,879 words, SHA-256 `ce76f3ab337c367741a6a1cea237657d371a3a193b43aa9fd2d34fdcfa8b962f`. Reproduce with `sed '1,/^-\{80\}$/d' LICENSES/ACD-1.4.txt \| shasum -a 256`. The fixed file itself is at `https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.4.txt` (fixed on 2026-11-23, SHA-256 `6792e804486e59082b84fce663d2bc24c22d72720c6d1bab8af43a90c9e3b615`, pinned in `LICENSES/FROZEN.md` and checked in CI); the attachment leaves out only its header (decision 4 of the five) |
+| License name and version | Autonomous Commons Dedication, version 1.4 |
+| Legacy or new | New |
+| An affirmation, in the submitter's own words, that the licence complies with the Open Source Definition, naming OSD 3, 5, 6 and 9 | The clauses behind it are in section 3 below; the affirmation itself is the owner's to make |
+| Any legal review, including whether a lawyer drafted it | None. No lawyer has drafted or reviewed any version |
+| Projects that use it | One — `https://github.com/yutapr0117-design/portfolio` |
+| Steward and contact | The owner (name and e-mail address as published on the repository) |
+| Review by Debian, the FSF or Fedora | None |
+| SPDX or ScanCode identifier | None; `LicenseRef-ACD-1.4` is the conforming form until it is listed. SPDX XML: `LICENSES/ACD-1.4.spdx.xml` (fixed with the text) |
+| Proposed tags | None |
+| The gap it fills (rationale) | Section 4 below |
+| The nearest approved licence, and how this differs | Section 4 below |
+| Where a reviewer can check the claims | `https://github.com/yutapr0117-design/portfolio/blob/main/LICENSES/REVIEWERS.md` |
 
-**Why now, since the objection is reasonable.** Licences for machine learning have been brought to
-this list since at least April 2023 — the Restricted Artificial Intelligence License, withdrawn four
-days after submission, and the Open Constitution License later that year — and the rate has risen
-sharply since 2025. **None has been approved.** I do not claim the timing makes this licence
-necessary. I offer it against the fair objection that if the question were real, someone would have
-raised it long ago: it has been raised, repeatedly, and has not yet been answered.
+Also useful to state: the difference from the text posted to `license-discuss` — ACD-1.0 → ACD-1.4, clause by clause, `LICENSES/REDLINE-1.0-TO-1.4.txt` (generated by `make_redline.py`; regenerate on the day of sending) — and the length: 5,879 words and 80 clauses (1.0: 4,896 words, 82 clauses); the operative terms run longer than GPL-3.0's.
 
-**And why this one is shaped differently.** The AI-era submissions so far add conditions —
-transparency duties, attribution, notice on outputs — and that is where they have run into OSD 3,
-7 and 10. ACD-1.0 goes the other way: it imposes no condition at all (§10.1), and it makes no
-representation about whether copyright subsists in machine-generated material (§9.2), so a
-recipient never has to decide that question. It is the opposite bet on the same problem.
+**3. Open Source Definition, the criteria most likely to be raised**
 
-**A disagreement I should name rather than let you find.** On the ModelGo thread Pamela Chestek, a member (and former chair) of the Licensing Committee, wrote
-that mentioning model Output at all creates *"ambiguity about the legal status of the output"* and
-is *"not worth including"* (15 December 2025). ACD-1.0 mentions it anyway, in §6.4, for the reason
-§6.5 gives: silence has proved ambiguous, and a permission an automated system cannot determine is
-no permission at all. That is a deliberate trade-off, not an oversight.
+- OSD 3: §4.2 grants adaptation, modification and derivative works expressly; §4.3 attaches no condition to them; §4.5 lets them be distributed *"under any terms You choose"*.
+- OSD 5 and 6: §4.3 says the licence is not conditioned on who the user is or on the purpose of use.
+- OSD 9: §4.3 and §10.1 impose no requirement on anything distributed with the Work.
+- OSD 1: §4.1 grants a royalty-free licence; §4.2 includes distributing, selling and sublicensing; §4.3 attaches no condition.
+- OSD 7: every recipient holds the grant from the Dedicator directly, with no further licence and no act of acceptance — §1.6 makes You any person exercising a permission, §4.1 grants to You, §2.3 needs no acceptance, and §4.6 says that terms a distributor adds do not cut recipients off. §8 grants the patent licence on the same footing.
+- All ten, each with the strongest argument the other way: `ACD-1.0.submission-osd.md`.
 
-**On the scope of the patent grant.** §8.1 reaches claims infringed by subject matter contained in
-the Work as made available by the Dedicator. That is the limitation this list has itself described
-as acceptable — Pamela Chestek's formulation in February 2025, and the phrasing Bruce Perens called
-*"the proper language"* in April 2024. I mention it because a non-lawyer's drafting is otherwise
-hard for you to check: the wording was fixed on 23 August 2026, before this project had read either
-message, and the repository's history shows that.
+**4. The gap, and how it was measured**
 
-**Subject matter, which I raise because a 2023 decision turned on it.** The Mulan Open Works
-Licenses were declined as open culture licences rather than for any Open Source Definition failure,
-and the rationale quoted their own list of covered works. ACD-1.0's §1.2 lists "audiovisual
-material" beside source and object code. I have not narrowed it, because datasets and model weights
-are the non-code material the gap is about. The Committee's 2021 rationale on CERN-OHL found licences
-whose primary use is not software *"appropriate for the OSI's review"* because *"they can be used for
-software"*; the overlap and that line are set out in the reference (§3d).
+- What differs in effect is one combination: a patent licence that reaches models and outputs of computational use (§8.4), with no condition (§10.1) and no termination (§8.2).
+- Of the 141 OSI-approved texts on SPDX List 3.29.0 (deprecated identifiers excluded), the three with no condition on the licensee — 0BSD, MIT-0, the Unlicense — never use the word *patent*, and all seven whose patent grant reaches beyond the work carry a condition (`ACD-1.0.gap-measurements.md` §1.97, §1.133).
+- §6, §7 and §9 state what a broad permission may already give; they are not grounds of uniqueness. None of the 141 names machine learning or text and data mining.
+- Nearest approach: CERN-OHL-P-2.0's patent licence (its §6.1) reaches Products, and its §1.4 defines a Product as what arises *"from the use, application or processing of Covered Source"*, which can be read to reach a model. It does not name models, and it has conditions (`ACD-OSI-BOTTLENECKS-B10.md`, `ACD-1.0.gap-measurements.md`).
+- Nearest approved licences: in effect, the Unlicense, MIT-0 and 0BSD (and CC0, which is not approved); in patent terms, UPL-1.0, BlueOak-1.0.0 and BSD-2-Clause-Patent, each differing by one kind of condition.
 
-**Nearest approved licences.** It is closest in effect to the Unlicense, MIT-0 and 0BSD (and to
-CC0, which is not approved), and in patent terms to UPL-1.0, BlueOak-1.0.0 and BSD-2-Clause-Patent,
-each of which differs from it by one kind of condition. The full comparison — **including where those are the
-better choice, which is most of the time** — is in the repository.
+**5. History on these lists**
 
-**Structure, since it matters for reviewability.** §3 surrenders the Covered Rights and §4 grants a
-licence over the same rights **independently of §3** (§4.4): §4 does not wait for §3 to fail, and a
-recipient never has to decide which operated. An article on the OSI's site proposed this shape in
-2017: disclaim ownership where that is possible and grant *"a copyright license that has the same
-practical effect"* where it is not. It is an article and not a decision, and §4 goes further: the
-licence applies in every jurisdiction. The Committee's 2020 recommendation on the Unlicense
-records that a dedication *taken alone* would not be approved; ACD-1.0 is not taken alone.
+- Licences for machine learning have been brought to the lists since at least April 2023 (the Restricted Artificial Intelligence License, withdrawn four days after submission; the Open Constitution License later that year). As of 2026-11-23 none is listed as approved; ModelGo and OpenMDW were before the Committee in 2026-09 (re-check the approved list on the day).
+- Those submissions added conditions; the Restricted Artificial Intelligence License, for example, restricts uses.
+- ACD-1.4 imposes no condition on You in respect of the Work (§10.1).
 
-**Why that matters, and why another public-domain-equivalent.** The 2020 veto against the Unlicense
-was that it was *"very much not clear"*. What answered it was the argument that, even if the
-dedication were ineffective, the enumerated permissions would still operate, and the lawyers who
-opined agreed that it would most likely be read as a licence. **That argument is not
-in the Unlicense's text — it had to be made on this list.** §4.4 states it, so no recipient and no
-court has to reach it.
+**6. Points a reviewer is likely to raise, with the record**
 
-**And a second gap, named on this list rather than by me.** In March 2024 the chairman of Open
-Source Group Japan argued here that a licence speaking only of copyright — Blue Oak was the
-example, but 0BSD and MIT-0 read the same way — is *"not open source, at least not in Japan"*,
-because the right of integrity reaches software there and can be used to stop modification. §12
-answers that with a waiver where waiver is possible and, where it is not, a covenant not to
-exercise, binding heirs. **No lawyer has checked whether it works. What I claim is only that the
-permissive incumbents do not attempt it;** EUPL, a copyleft licence, does, in the same shape as §12.
+- Output: Pamela Chestek (2025-12-15, ModelGo) wrote that mentioning model output creates *"ambiguity about the legal status of the output"* and is *"not worth including"*. ACD-1.4 keeps §6.4; §6.5 gives the reason: silence *"leaves it to be inferred whether this is permitted"*, and a permission an automated system cannot determine is no permission.
+- Patent scope: §8.1 reaches claims infringed by *"subject matter contained in the Work as made available by the Dedicator"* — the same kind of limitation the list has described as acceptable (Chestek, 2025-02; Perens, 2024-04), not the same words. The wording dates from 2026-08-23, before either message had been read (repository history).
+- Subject matter: the Mulan Open Works Licenses were declined in 2023 on their list of covered works. §1.3 of ACD-1.4 lists audiovisual material beside source and object code; the Committee's 2021 rationale on CERN-OHL found licences not primarily for software *"appropriate for the OSI's review"* because *"they can be used for software"*.
+- Structure: §3 surrenders the Covered Rights and §4 licenses the same rights independently (§4.4), so no recipient has to decide which operated. An article on OSI's site in 2017 proposed this shape; the Committee's 2020 recommendation on the Unlicense records that a dedication taken alone would not be approved.
+- Moral rights: on 2024-03-23 (`license-discuss`, "Question about Blue Oak License") the chairman of Open Source Group Japan, Shuji Sado, wrote that *"the Blue Oak license is not open source, at least not in Japan. It is possible for an author to exercise author's moral rights to stop third parties from modifying the program."* — a permissive licence that grants patents but does not address moral rights. ACD-1.4 waives moral rights where the law permits (§12.1) and, for every jurisdiction, gives a covenant not to exercise them and a consent (§12.2), binding successors and anyone entitled after the Dedicator's death (§12.4). No lawyer has checked whether this works.
+- Demand: Bradley Kuhn (2022) asked submitters to show a widespread need and that it is wholly unserved. The second limb is what the measurement above addresses; the first cannot be shown with one adopter.
 
-**Legal review: none.** No lawyer has drafted or read it. I state that plainly rather than let it
-be discovered. What can be shown without counsel is mechanical, and is checked in CI on every
-pull request and on every push to the main branch: contiguous clause numbering, resolution of every internal cross-reference, use of every
-defined term, absence of the obligation-imposing constructions I enumerate, absence of the
-project-specific elements I enumerate — names, URLs, placeholder text — and pure-ASCII text.
-**Each is a floor rather than a proof**: an enumeration catches the forms it lists.
+**7. What is checked mechanically, on every pull request**
 
-**Provenance.** I decided to have a licence of my own and said it should aim at external approval;
-I gave the goal and the top-level direction, and did not write a legal specification or supply a
-list of legal requirements. An AI agent generated the concrete legal design and the text and
-developed it further under my standing delegation. The name ACD-1.0, the generalised instrument
-and this packet took shape during that delegated work, and I came to know their concrete state
-afterwards. I read the text in full and understood it before relying on it. I am the Dedicator and
-steward and I answer for it; I did not write its clauses.
+- Contiguous clause numbering, resolution of every internal cross-reference, use of every defined term, absence of the enumerated obligation-imposing and project-specific constructions, pure-ASCII text. Each is a floor rather than a proof.
 
-**The demand, which I cannot show.** Bradley Kuhn set a two-part test on this list in 2022: a
-submitter should show that the licence serves *"a widespread need for many different FOSS
-communities"* **and** that the need is *"wholly unserved by all existing FOSS licenses"*. The
-second limb is what the gap analysis above and the census of all 141 approved texts address. **The
-first I cannot demonstrate.** One repository uses this, and adoption is not something a submitter
-should manufacture. What I can say is narrower: the instrument carries nothing specific to me, so
-anyone may apply it without editing a clause (Section 16.3), and the need I am asserting is the one
-the preamble states. **Whether that need is widespread is a question for you, not a claim I can
-evidence.**
+**8. The earlier `license-discuss` thread (re-measure on the day)**
 
-**Everything else, including the case against approving it.** The repository carries an adverse
-list — written by me, adverse items first, with the two entries that have no answer at the top —
-along with known defects in the text, the jurisdictional questions, and worked answers to the
-objections I expect. Start at https://github.com/yutapr0117-design/portfolio/blob/main/LICENSES/REVIEWERS.md. I would rather you found those there than
-had to extract them from me.
-
-Thank you for your time.
-
-Yuta Yokoi
+- ACD-1.0 was posted on 2026-08-26, and a narrower question on 2026-09-06; as of the last check (`REVIEWERS.md`, Status) neither had a reply in the public archive. A short request to discuss ACD-1.1, sent on 2026-09-17, was rejected in moderation (`LICENSES/FROZEN.md`, POSTING-NOTE; `ACD-1.0.against.md` #215), and at least three of the project's posts in all were rejected. **No version after 1.0 has reached the list.**
+- Note for the writer, not a statement to send: do not present the silence as agreement (`ACD-1.0.against.md` #109).
+- The changes from 1.0 to 1.4 are mostly defects found in the project's own review, some found by reviewers outside the list, and one a question put to the list and not answered: re-count by origin from `ACD-1.0.errata.md` on the day.
+- Where the case against approval is collected, adverse items first: `LICENSES/REVIEWERS.md`.
 
 ---
-
-<!-- /SUPERSEDED-LETTER -->
 
 ### B.1 Reference material behind the message (**not for pasting**)
 
@@ -477,41 +231,20 @@ Yuta Yokoi
 そして**同居している限り「§1〜§5 を貼るな」という警告が必要**であり、警告は分割で不要になる。
 規模もある（分割前 976 行・advisory 950）。
 
-## C. SPDX License List — ready-to-paste request
+## C. SPDX License List — the fields of the request
 
 Submit via https://tools.spdx.org/app/submit_new_license/ (preferred) or the
-`spdx/license-list-XML` new-license-request issue template.
+`spdx/license-list-XML` new-license-request issue template. The owner writes the request;
+the fields below are the facts it needs (decision 3b of the five, 2026-11-23, extended to this
+section). Evidence of use, the comparison with listed licences and the steward's position are
+in §B.0.
 
-- **Full name:** Autonomous Commons Dedication 1.4
-- **Short identifier requested:** `ACD-1.4`
-- **OSI approved:** No. Not submitted to OSI License Review either — only discussed on license-discuss
-- **Licence text URL:** https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.4.txt
-- **SPDX XML:** `LICENSES/ACD-1.4.spdx.xml` in the repository below, generated from the
-  text by `npm run spdx-xml -- --version 1.4` and kept in sync by a blocking CI check, so the submitted
-  markup cannot drift from the published text.
-- **Evidence of use:** https://github.com/yutapr0117-design/portfolio — the licence covers
-  the whole repository (source, documentation, data, and media assets) and is declared in
-  `LICENSE`, in `link rel="license"`, in the JSON-LD `license` property of every
-  CreativeWork node, in `sitemap.xml`, in `.well-known/aio-manifest.json`, and in the
-  `llms.txt` family, each of which is checked in CI.
-- **Not a duplicate:** it is not a variant of any listed licence. A clause-level comparison
-  with 0BSD (closest on "zero conditions"), with UPL-1.0, BlueOak-1.0.0 and
-  BSD-2-Clause-Patent (closest on "permissive with an express patent licence", each with one
-  kind of condition), and with CERN-OHL-P-2.0 (whose patent licence can be read to reach
-  things made from the work) is in `LICENSES/ACD-1.0.submission-reference.md` section 2.
-- **Steward commitment:** I am the steward. Once `ACD-1.0` is on the list I will not modify
-  the text that the identifier denotes. Any later improvement will be issued as a distinct
-  version (`ACD-1.1`, `ACD-2.0`) with its own identifier. Section 16.4 of the text itself
-  forbids distributing a modified text under the same name or identifier.
-  *(Note 2026-11-01: true of ACD-1.0, whose §16.4 has no steward exception. ACD-1.1 to 1.3
-  added "except by the Steward" with no limit, so for those versions this bullet's last
-  sentence would not hold of the steward; the 1.4 draft limits the exception to "a new
-  version under a version number and identifier that no earlier text has borne" (and,
-  since 2026-11-02, "other than a draft identified as such", so that a successor drafted in
-  public can be finalised under its own number). When this
-  request is rewritten for the version actually submitted, cite that sentence: the
-  commitment above is then made by the text itself and binds the steward, not only the
-  steward's promise. `ACD-1.4-CHANGELIST.md`, the §16.4 row.)*
+| Field | Value |
+| :-- | :-- |
+| Full name | Autonomous Commons Dedication 1.4 |
+| Short identifier requested | `ACD-1.4` |
+| Licence text URL | https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.4.txt |
+| SPDX XML | `LICENSES/ACD-1.4.spdx.xml`, fixed with the text on 2026-11-23 and generated from it (`npm run spdx-xml -- --version 1.4`); a blocking CI check keeps the markup byte-identical to the regenerated output |
 
 ---
 
