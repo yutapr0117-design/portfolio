@@ -1,0 +1,205 @@
+Source: OSI license-review public archive, 2019-May.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 31 in "For Legacy Approval: LBNL BSD" (2019-05-16)
+Senders: Richard Fontana
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From rfontana at redhat.com  Fri May 17 14:38:16 2019
+From: rfontana at redhat.com (Richard Fontana)
+Date: Fri, 17 May 2019 10:38:16 -0400
+Subject: [License-review] For Legacy Approval: LBNL BSD
+In-Reply-To: <CAC1cPGyi75hAUiRrzzjzJObXER=PYW+nJTem0tVa7Mdq_5oYig@mail.gmail.com>
+References: <004701d509df$6b4a5c10$41df1430$@lbl.gov>
+ <018401d50c26$9257b610$b7072230$@lbl.gov>
+ <CAK2MWOuNemh=Qzg40SEdDhjWUMXR5PQnoms18VhfC+AXdOJ8Mg@mail.gmail.com>
+ <CAD2gp_T3LzFzsd+nmdgrORkWvqnySD+P-oFtRNhAVQVkxw1hQg@mail.gmail.com>
+ <CAK2MWOtWxmwMJiC=Q7vpCz9w6nUqAm9jW=Bype1GWYBAsJgB=Q@mail.gmail.com>
+ <CAE+Udoqg25GsCFUgQdNAtmgBJVjPMrigXCUW5j8xOgX70p=vGw@mail.gmail.com>
+ <CAC1cPGyi75hAUiRrzzjzJObXER=PYW+nJTem0tVa7Mdq_5oYig@mail.gmail.com>
+Message-ID: <CAC1cPGzLAM0G-DQTij9UzYH6-igycyBNKCLuXXnSvjZN-=tXgA@mail.gmail.com>
+
+A further thought on this. Legacy approvals must meet the same
+standard (OSD conformance and guarantee of software freedom) that
+non-legacy submissions are subject to. But I believe that in the
+legacy case we should be somewhat more forgiving about what may seem
+like relatively bad, informal or amateurish drafting, unless the
+license crosses some threshold of non-clarity. That's mainly because I
+believe we have higher standards around open-ish license drafting
+quality today than we had ~15 years ago, let alone 30 years ago or
+more. Not sure if anyone agrees with that, but it may be relevant when
+thinking about that tacked-on paragraph in the LBNL license.
+
+Richard
+
+On Fri, May 17, 2019 at 10:26 AM Richard Fontana <rfontana at redhat.com> wrote:
+>
+> As I understand it, legacy approvals should not implicate the policy
+> against license proliferation at all. The legacy approval mechanism
+> seems to have been used sparingly but I think it would be a good idea
+> for OSI to take a more active role in recognizing the open source
+> status of legacy licenses that commonly appear in packages in
+> community Linux distributions, which must number in the hundreds.
+>
+> The odd last paragraph should be paused over -- the notable feature is
+> "if you choose to make your Enhancements available either publicly, or
+> directly to Lawrence Berkeley National
+> Laboratory, without imposing a separate written license agreement for
+> such Enhancements", you grant a permissive license which is somewhat
+> broader than the downstream BSD-style license. What annoys me about it
+> is, probably due to careless drafting, that it does not appear to
+> address the case of someone making apparently non-licensed
+> Enhancements available directly (non-"publicly") to some person other
+> than LBNL. It's also not clear whether the "separate written license
+> agreement" would exclude this BSD-LBNL license itself. There have been
+> a few license submissions in recent years that have tried to awkwardly
+> shoehorn a CLA into the license and this license seems to have a
+> similar character. In normal open source practice, modifications to a
+> work are assumed to be under the same license as the original, but I
+> don't know if this license is trying to assert that without some
+> abnormally clear indication that this is the case, the person who
+> makes such modifications available publicly is deemed to be granting
+> the broader, unconditional license.
+>
+> This is different from Apache License 2.0 section 5, which tries to
+> say that upstream contributions to the licensor are by default
+> licensed under the Apache License 2.0, which just codifies the
+> "inbound=outbound" understanding.
+>
+> Richard
+>
+> On Fri, May 17, 2019 at 9:48 AM Kevin P. Fleming <kevin+osi at km6g.us> wrote:
+> >
+> > The request is for "legacy" aprpoval, and if approved that will mean
+> > that usage of the license is discouraged, right?
+> >
+> > On Fri, May 17, 2019 at 6:36 AM Bruce Perens via License-review
+> > <license-review at lists.opensource.org> wrote:
+> > >
+> > > I always appreciate your comments, John, but I'd like to hear from Sebastian this time. Is this important enough to have yet another license adding to the license proliferation problem?
+> > >
+> > >     Thanks
+> > >
+> > >     Bruce
+> > >
+> > > On Thu, May 16, 2019 at 7:12 PM John Cowan <cowan at ccil.org> wrote:
+> > >>
+> > >> Well, I suppose because of the default copyleft.  If you publish a derivative work and *don't* give it a specific license, it gets the LBNL BSD by default rather than the usual default, which is no-license.
+> > >>
+> > >> On Thu, May 16, 2019 at 7:11 PM Bruce Perens via License-review <license-review at lists.opensource.org> wrote:
+> > >>>
+> > >>> Why do they still need to use this rather than the plain BSD license?
+> > >>>
+> > >>> Thanks
+> > >>>
+> > >>> Bruce
+> > >>>
+> > >>>
+> > >>> On Thu, May 16, 2019, 16:33 Sebastian Ainslie <sainslie at lbl.gov> wrote:
+> > >>>>
+> > >>>> The license:
+> > >>>>
+> > >>>> Copyright (c) XXXX, The Regents of the University of California, through
+> > >>>> Lawrence Berkeley National Laboratory (subject to receipt of any required
+> > >>>> approvals from the U.S. Dept. of Energy). All rights reserved.
+> > >>>> Redistribution and use in source and binary forms, with or without
+> > >>>> modification, are permitted provided that the following conditions are met:
+> > >>>>
+> > >>>> (1) Redistributions of source code must retain the above copyright notice,
+> > >>>> this list of conditions and the following disclaimer.
+> > >>>>
+> > >>>> (2) Redistributions in binary form must reproduce the above copyright
+> > >>>> notice, this list of conditions and the following disclaimer in the
+> > >>>> documentation and/or other materials provided with the distribution.
+> > >>>>
+> > >>>> (3) Neither the name of the University of California, Lawrence Berkeley
+> > >>>> National Laboratory, U.S. Dept. of Energy nor the names of its contributors
+> > >>>> may be used to endorse or promote products derived from this software
+> > >>>> without specific prior written permission.
+> > >>>>
+> > >>>> THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+> > >>>> AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+> > >>>> IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+> > >>>> ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+> > >>>> LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+> > >>>> CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+> > >>>> SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+> > >>>> INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+> > >>>> CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+> > >>>> ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+> > >>>> POSSIBILITY OF SUCH DAMAGE.
+> > >>>>
+> > >>>> You are under no obligation whatsoever to provide any bug fixes, patches, or
+> > >>>> upgrades to the features, functionality or performance of the source code
+> > >>>> ("Enhancements") to anyone; however, if you choose to make your Enhancements
+> > >>>> available either publicly, or directly to Lawrence Berkeley National
+> > >>>> Laboratory, without imposing a separate written license agreement for such
+> > >>>> Enhancements, then you hereby grant the following license: a non-exclusive,
+> > >>>> royalty-free perpetual license to install, use, modify, prepare derivative
+> > >>>> works, incorporate into other computer software, distribute, and sublicense
+> > >>>> such Enhancements or derivative works thereof, in binary and source code
+> > >>>> form.
+> > >>>> ---------------------------
+> > >>>> The rationale:
+> > >>>>
+> > >>>> The LBNL BSD has been in use since 2003. It has an ADDED paragraph at the
+> > >>>> end that makes it easier to accept improvements without a specific grant
+> > >>>> required.
+> > >>>> ---------------------------
+> > >>>> Early examples:
+> > >>>>
+> > >>>> https://spdx.org/licenses/BSD-3-Clause-LBNL.html
+> > >>>> https://fedoraproject.org/wiki/Licensing:LBNLBSD
+> > >>>> ---------------------------
+> > >>>> Proliferation category:
+> > >>>>
+> > >>>> Special purpose - US Federal National Lab
+> > >>>> ---------------------------
+> > >>>>
+> > >>>> Kind regards
+> > >>>>
+> > >>>> Sebastian Ainslie
+> > >>>>
+> > >>>> Principal Commercialization & Licensing Lead Intellectual Property Office
+> > >>>> Lawrence Berkeley National Laboratory
+> > >>>> www:   ipo.lbl.gov
+> > >>>> e mail:  sainslie at lbl.gov
+> > >>>>
+> > >>>>
+> > >>>>
+> > >>>>
+> > >>>>
+> > >>>>
+> > >>>>
+> > >>>>
+> > >>>>
+> > >>>>
+> > >>>>
+> > >>>> _______________________________________________
+> > >>>> License-review mailing list
+> > >>>> License-review at lists.opensource.org
+> > >>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> > >>>
+> > >>> _______________________________________________
+> > >>> License-review mailing list
+> > >>> License-review at lists.opensource.org
+> > >>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> > >>
+> > >> _______________________________________________
+> > >> License-review mailing list
+> > >> License-review at lists.opensource.org
+> > >> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> > >
+> > >
+> > >
+> > > --
+> > > Bruce Perens - Partner, OSS.Capital.
+> > > _______________________________________________
+> > > License-review mailing list
+> > > License-review at lists.opensource.org
+> > > http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> >
+> > _______________________________________________
+> > License-review mailing list
+> > License-review at lists.opensource.org
+> > http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org

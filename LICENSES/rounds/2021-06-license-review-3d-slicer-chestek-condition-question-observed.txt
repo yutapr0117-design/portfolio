@@ -1,0 +1,284 @@
+Source: OSI license-review public archive, 2021-June.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 32 in "request for review of the 3D Slicer License" (2021-05-31)
+Senders: Pamela Chestek
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Wed Jun  9 19:11:01 2021
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Wed, 9 Jun 2021 15:11:01 -0400
+Subject: [License-review] Fwd: request for review of the 3D Slicer License
+In-Reply-To: <01b701d75d45$d0f78d10$72e6a730$@rosenlaw.com>
+References: <01b701d75d45$d0f78d10$72e6a730$@rosenlaw.com>
+Message-ID: <43d8fabd-449e-bd0f-4ad6-a4f130554f51@chesteklegal.com>
+
+Forwarding to license-review. I asked a question specifically about the 
+interpretation of a sentence in a license that is pending review. I 
+would like the opportunity for others to provide input if they like and 
+a number of people on this list don't read license-discuss.
+
+McCoy asked Larry to discuss his OWN license on license-discuss. I agree 
+with that. But this question was about the 3D Slicer License, not 
+Larry's license.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+-------- Forwarded Message --------
+Subject: 	Re: [License-discuss] [License-review] request for review of 
+the 3D Slicer License
+Date: 	Wed, 9 Jun 2021 08:40:45 -0700
+From: 	Lawrence Rosen <lrosen at rosenlaw.com>
+Reply-To: 	lrosen at rosenlaw.com, license-discuss at lists.opensource.org
+To: 	license-discuss at lists.opensource.org
+
+
+
+[Returning this to license-discuss@]
+
+Pam, you are misreading my response. If the word ?agree? turns this 
+license into a bilateral license, even then the provision is enforceable 
+and the license is contrary to the OSD, just as a ?you agree not to 
+export contrary to US law? provision is unfortunate with the OSD but 
+nevertheless enforceable in the US. Whether a court will call it a 
+?condition on the copyright grant? is something that lawyers like you 
+will argue about incessantly to no avail until the judge speaks. (Do you 
+remember the nonsense about the Artistic license and its ?conditions? 
+where the court had to search hard to find some condition not explicitly 
+called a condition it could enforce?)
+
+You seem to take the view that it's not a condition. I was asking you to 
+parse the language in the 3D Slicer license to explain how you reached 
+that legal conclusion.
+
+I said no such thing. There are issues more important, such as the 
+unfortunate formation of a bilateral contract.? But if you forced me to 
+take a position in a brief to the court (depending on who my client 
+might be!), I would argue that an ?agreement? by the licensee is an 
+enforceable condition precedent (?don?t violate or the license won?t 
+take effect?) or condition subsequent (?don?t violate or the license 
+terminates?) simply because the licensee agreed to it. Does it matter 
+**when** the condition is breached?
+
+There are various reasons I have largely ignored license submissions on 
+this site in recent years. One, I am largely retired from the actual 
+practice of law. Second, I am frustrated at the continuous efforts by 
+software vendors to find yet another way to say the same thing about the 
+use of their software so that licensees and you can quibble forever 
+about it. Third, I see nothing important in the 3D Slicer License that 
+would make me worry about using that software as open source **in 
+conformity with US law**. And finally, many years ago I wrote several 
+licenses whose words are continually ignored by the ?experts? on this 
+list as if they don?t matter to anyone because there is some subtle and 
+unique ?condition? that I perhaps forgot at the time.
+
+It is all a waste of energy and a continuing puzzle imposed on the use 
+of open source software probably because people on this list find such 
+arguments fun. But I don?t.
+
+For what it may be worth, I will repeat what I said below: ?License 
+drafting is not a job for the amateur.? I?m sure you feel the same way 
+about trademarks!
+
+/Larry
+
+*From:* License-review <license-review-bounces at lists.opensource.org> *On 
+Behalf Of *Pamela Chestek
+*Sent:* Wednesday, June 9, 2021 6:31 AM
+*To:* License submissions for OSI review 
+<license-review at lists.opensource.org>
+*Subject:* Re: [License-review] request for review of the 3D Slicer License
+
+Larry,
+
+You've misunderstood my question. No one questioned that the term is 
+enforceable or that the licensee has agreed to it. The question was 
+whether the phrase in the 3D license is a condition on the copyright 
+grant or not. If it is a condition, then the copyright license 
+terminates on a licensee's failure to act lawfully, which, as you agree, 
+is a violation of OSD 6. You seem to take the view that it's not a 
+condition. I was asking you to parse the language in the 3D Slicer 
+license to explain how you reached that legal conclusion.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com <mailto:pamela at chesteklegal.com>
+www.chesteklegal.com <http://www.chesteklegal.com>
+
+On 6/8/2021 9:02 PM, Lawrence Rosen wrote:
+
+    Hi Pam, I?m moving this to license-discuss at .
+
+    If you believe that the language in the 3D Slicer license doesn't
+    terminate the license I'd be interested in hearing how you parse the
+    sentence. For your reference, the sentence is: "You further agree to
+    use, reproduce, make derivative works of, display and distribute the
+    Software in compliance with all applicable governmental laws,
+    regulations and orders, including without limitation those relating
+    to export and import control."
+
+
+    As I tried to make clear in my own licenses, I don?t believe it is
+    appropriate to require a licensee ?to agree? to anything in ?a
+    unilateral contract?. Perhaps that is too subtle for this list, but
+    I believe there is legal authority for that difference from ?a
+    bilateral contract? in which both parties accept obligations. I was
+    very careful in my drafting.
+
+    This is a legal distinction from ?a condition? that must be met by
+    every licensee. Please review the legal distinction between
+    ?unilateral? and ?bilateral? contracts. (Google is helpful here!)
+
+    So since the 3D Slicer license requires an agreement from the
+    licensee, that turns this into a bilateral contract. I agree with
+    others on this list, including you, that requiring a licensee to
+    agree to honor the law goes beyond the open source definition. On
+    the other hand (since every lawyer has two hands!) a failure to obey
+    the law can result in legal penalties, not from the licensor but
+    from the government. I do not believe it is inappropriate for OSI,
+    and individual licenses, to remind licensees about that. It doesn?t
+    hurt to do so. As McCoy suggests, it is probably surplusage.
+
+    We tackled this problem at OSI years ago in the context of export
+    restrictions in US law. Several drafters attempted to insert an
+    ?export? provision in their licenses, which OSI rejected. But a
+    licensee?s rights to certain software may be withdrawn by the
+    government if they attempt to export in contravention to that law.
+
+    As for what Thai law mandates or prohibits, I say nothing.
+
+    License drafting is not a job for the amateur.
+
+    /Larry
+
+    *From:* License-review <license-review-bounces at lists.opensource.org>
+    <mailto:license-review-bounces at lists.opensource.org> *On Behalf Of
+    *Pamela Chestek
+    *Sent:* Tuesday, June 8, 2021 4:22 PM
+    *To:* license-review at lists.opensource.org
+    <mailto:license-review at lists.opensource.org>
+    *Subject:* Re: [License-review] request for review of the 3D Slicer
+    License
+
+    Larry,
+
+    As others have pointed out, there's a difference between my duty to
+    comply with laws, in which case compliance with those laws may mean
+    I am not at liberty to exercise the license granted to me, and
+    whether or not the license to me terminates because I failed in a
+    duty not to break the law. It is the latter situation that is a
+    violation of OSD6 and the objection to the license under review.
+
+    If you believe that the language in the 3D Slicer license doesn't
+    terminate the license I'd be interested in hearing how you parse the
+    sentence. For your reference, the sentence is: "You further agree to
+    use, reproduce, make derivative works of, display and distribute the
+    Software in compliance with all applicable governmental laws,
+    regulations and orders, including without limitation those relating
+    to export and import control."
+
+    Pam
+
+    Pamela S. Chestek
+    Chestek Legal
+    PO Box 2492
+    Raleigh, NC 27602
+    919-800-8033
+    pamela at chesteklegal.com <mailto:pamela at chesteklegal.com>
+    www.chesteklegal.com <http://www.chesteklegal.com>
+
+
+    On 6/8/2021 4:49 PM, Lawrence Rosen wrote:
+
+        Simon, I?ve never been to Thailand nor reviewed its software
+        laws. But in the US, if you distribute open source software that
+        violates the export law of the US, you could go to jail. ?Open
+        source? is irrelevant. Copyright law is irrelevant. /Larry
+
+        Lawrence Rosen
+
+        707-478-8932
+
+        3001 King Ranch Rd., Ukiah, CA 95482
+
+        lrosen at rosenlaw.com <mailto:lrosen at rosenlaw.com>
+
+        LinkedIn: Lawrence Rosen
+
+        *From:* Simon Phipps <simon at webmink.com> <mailto:simon at webmink.com>
+        *Sent:* Tuesday, June 8, 2021 12:04 PM
+        *To:* Lawrence Rosen <lrosen at rosenlaw.com>
+        <mailto:lrosen at rosenlaw.com>; License submissions for OSI review
+        <license-review at lists.opensource.org>
+        <mailto:license-review at lists.opensource.org>
+        *Subject:* Re: [License-review] request for review of the 3D
+        Slicer License
+
+        On Tue, Jun 8, 2021 at 6:46 PM Lawrence Rosen
+        <lrosen at rosenlaw.com <mailto:lrosen at rosenlaw.com>> wrote:
+
+            Here is AFL 3.0, section 15:
+
+            15) *Right to Use.*?You may use the Original Work in all
+            ways not otherwise restricted or conditioned by this License
+            or by law, and Licensor promises not to interfere with or be
+            responsible for such uses by You.
+
+        Please help me understand this. If I were in Thailand and used
+        AFL 3.0 licensed software to publish a call for a republic,
+        would I be in breach of the author's copyright as well as in
+        breach of their /lese majeste/ laws?
+
+        S.
+
+
+
+
+        _______________________________________________
+
+        The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+
+          
+
+        License-review mailing list
+
+        License-review at lists.opensource.org  <mailto:License-review at lists.opensource.org>
+
+        http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org  <http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org>
+
+
+
+    _______________________________________________
+
+    The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Official statements by the Open Source Initiative will be sent from an opensource.org email address.
+
+    License-discuss mailing list
+
+    License-discuss at lists.opensource.org  <mailto:License-discuss at lists.opensource.org>
+
+    http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org  <http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20210609/e2cc58db/attachment-0001.html>
+-------------- next part --------------
+_______________________________________________
+The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Official statements by the Open Source Initiative will be sent from an opensource.org email address.
+
+License-discuss mailing list
+License-discuss at lists.opensource.org
+http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
