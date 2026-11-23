@@ -256,12 +256,12 @@ said *"the documents may assure the necessary rights through the use of legal me
 any license that is approved by only one of {OSI, FSF, Debian} is an indicator of an unaddressed issue. So,
 simply as an exercise of reflection, asking if one's license will be approved by all is a great pre-flight
 check."* (`review-readings-2.md` §1.229). Neither the FSF nor Debian has looked at ACD. **What follows is our
-own reading of the 1.4 draft against their published tests, not their assessment**, and it should be
-weighed as such. Clause numbers are those of the 1.4 draft. The FSF's positions are taken from its licence list
+own reading of ACD-1.4 against their published tests, not their assessment**, and it should be
+weighed as such. Clause numbers are those of ACD-1.4. The table was first written on the 1.4 draft on 2026-11-15 and 16; on 2026-11-23 every clause and quotation it cites was checked again against the frozen text and holds there. The FSF's positions are taken from its licence list
 (`https://www.gnu.org/licenses/license-list.html`, read on 2026-11-15 and again on 2026-11-16 with the owner's
 permission to fetch from gnu.org). The entries for CC0, the Unlicense and *Public Domain*, and the Debian Wiki's public-domain note, are quoted below from `rounds/2026-11-16-fsf-license-list-and-debian-dfsg-public-domain-snapshot.txt` (portfolio-2f): the fetch tool's verbatim quotes, not a byte copy of the page, and to be re-fetched before anything relies on the exact wording. The 0BSD and Expat0 (MIT-0) entries were added to the same file later the same day and are quoted from it too.
 
-| Test | What it asks | ACD (1.4 draft) |
+| Test | What it asks | ACD-1.4 |
 |---|---|---|
 | FSF freedom 0 | Run the program for any purpose | §4.1 *"for any purpose whatsoever"*; §4.3 excludes conditions on field of use and on the user |
 | FSF freedoms 1 and 3 | Study and change it; distribute changed versions; access to source is a precondition | §4.2 includes study, adaptation and distribution *"in source form, in object form, or in any other form"*. ACD does not require anyone to provide source (§10.2), which the FSF accepts in permissive licences |
