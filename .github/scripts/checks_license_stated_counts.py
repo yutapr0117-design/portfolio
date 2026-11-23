@@ -11,7 +11,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        "the remaining N" / "those N carry" / (c) FAQ mirror の「B. プロセス（N 問）」/
        (d) submission-reference §4c の "**X / Y**, no gaps either way" の両辺 / (e) register の
        集計行の「解消済み N」「構造的拒否候補 N」(分類の列の `12`) / (f) 逐条リファレンスが繰り返す「N 条すべてを収録」「抽出した N 条」/
-       (g) submission.md の "across N files" と、そこで名指す分冊 / (h) AS-OF の「未読スレッドの残り」の
+       (g) submission.md の "across N files" と、そこで名指す分冊 / (h) AS-OF の「未読スレッドの残り」の (h2 は候補の一覧の census の定義の指紋)
        「候補 N 本のうち M 本を読んだ。K 本は読んでいない」が N = M + K であり、N が THREAD-CANDIDATES.txt の
        会話の数、M が READ-THREADS.txt のうちそこに在る会話の数であること (後者 2 つは 2026-11-15・9b) /
        (j) 「1.0 から何が変わったか」の英文 (CHANGELIST の切り替えの日の節・切り替えた後は REVIEWERS) が述べる
@@ -187,6 +187,19 @@ def run(ctx):
             check(_k498h == 0, "Check 498 (h) (ADVISORY): 提出のゲート 6c の (i) —— 候補の未読は 0",
                   f"Check 498 (h) (ADVISORY): 候補の未読が {_k498h} 本ある。提出のゲート 6c (未読 0・全て反映) を満たしていない。"
                   "読んで record_read.py で記録する (オーナー: 「全て読んで反映してこそ、出せるクオリティ」)", blocking=False)
+
+    # (h2) 候補の一覧が、いまの census の定義で作られたこと (2026-11-23・BLOCKING): 一覧は --pin でだけ書き直されるので、
+    #   決める側の照合 (DECIDERS) や閾値を変えて --pin を回さなければ、gate_6c と (h) は古い定義の一覧を読み「未読 0」を返し
+    #   続ける (6d の指摘・「無いと黙る」gate と同じ形)。11-23 に d7 が、表示名が小文字・アドレスだけ・MIME 符号化の決める側の
+    #   通 約 224 通が照合から落ちていたのを見つけ、直すと候補が 19 本増えた
+    from census_decision_statements import FP_LINE, definition_fingerprint, split_files as _sf498
+    _fps = {_f.name: next((l[len(FP_LINE):].split()[0] for l in text(_f).splitlines() if l.startswith(FP_LINE)), None)
+            for _f in _sf498("THREAD-CANDIDATES", L)}
+    _stale_fp = {n: v for n, v in _fps.items() if v != definition_fingerprint()}
+    if _stale_fp:
+        bad.append(f"(h2) 候補の一覧の census の定義の指紋 {_stale_fp} が、いまの定義 {definition_fingerprint()} と違う。"
+                   "DOSSIER_ARCHIVE_CACHE=<写し> python3 .github/scripts/census_decision_statements.py threads <out> --pin で作り直し、"
+                   "AS-OF の未読の行を直す")
 
     # (i) AS-OF の「答えていない問い」の行: 件数「**N 件**」を手で書き、問いが届くたびに状態の欄へ
     #   「**Qn** 届いた日・発言者・`rounds/<file>`・§N・未回答｜YYYY-MM-DD にオーナーが回答」を「；」で
