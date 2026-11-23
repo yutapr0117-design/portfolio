@@ -18,13 +18,14 @@ canonical-ref: LICENSES/ACD-1.0.against.md (不利な事実の本体) / LICENSES
 
 **The analysis below is mostly in Japanese, so this table is the whole register in English.** "Who can
 move it" names who has to act. The status is our own reading, not OSI's. Section numbers are those of
-the 1.0 text.
+ACD-1.4, the version that would be submitted; where 1.0 numbers a clause differently, its number follows
+in parentheses.
 
 | ID | The problem | Severity | Where it stands | Who can move it |
 |---|---|---|---|---|
 | B1 | No legal review | Highest | Nothing here supplies it. It is not a requirement: the process asked for an analysis by a licensed practitioner until December 2007 and then dropped it (`review-rules.md` §1.141). Members keep asking submitters for one (#291), and the review is *"not for workshopping a license"* (#298). Of at least 24 new licences submitted with no review, one is on the list (#297). The questions a lawyer would need are in `QUESTIONS-FOR-COUNSEL.md` | The owner, by engaging one |
 | B2 | One adopter: this repository | Highest | We can improve discoverability. We cannot produce adoption, and will not claim any. Non-use alone has not been a ground (Committee rationale, 2020 and 2021). The one hold on record (Tiwaz, 2025-09-11) lifts if one project uses the licence or expresses interest. Approval would not by itself put ACD on an adopter's list of accepted licences or on a licence chooser, where the dedication type is already present (#322) | Third parties; the owner can ask |
-| B3 | Length: 4,896 words, 16 sections, 82 clauses | High | It can be shortened but not answered | Us, in part |
+| B3 | Length: ACD-1.4 has 5,879 words, 16 sections, 80 clauses (1.0 had 4,896 words and 82 clauses) | High | Longer than GPL-3.0 both in full (5,644) and in the operative text, and its sentences are longer than 1.0's (`against.md` #6, #329). It can be shortened but not answered | Us, in part |
 | B4 | The §3 surrender beside the §4 licence | High | Tested as a possible structural refusal, and that was rejected. An article on OSI's site named the two parts as the solution in 2017. In the 2012 straw poll on CC0 all 13 votes against named patents and none named the structure, though one reviewer objected to the form that year. What OSI reviews is the licence part: *"OSI could analyze CC0 for its license fallback terms, but not as a public domain dedication"* (Lawrence Rosen, 2011; the same line in 2003, `gap-measurements.md` §1.143, §1.146). The judgment is OSI's | OSI |
 | B5 | The legal account in §4.4 | Medium | The drafting defect closed in 1.1. The design question stays open | OSI |
 | B6 | The name | Medium | Decided on 2026-10-24: no rename | Decided |
@@ -36,7 +37,7 @@ the 1.0 text.
 | B12 | One steward, and succession | Low | The recorded worry is control, and ACD has no upgrade clause. No successor is named | The owner, and someone willing |
 | B13 | The cost of understanding this submission | High | Continuing. It is the only real relief for B3 | Us |
 | B14 | The moderators' notice on AI-written posts | Highest | The decision is OSI's. At least three posts were rejected by moderation | OSI, the owner |
-| B15 | Subject matter: §1.2's list touches a reason the Board gave in 2023 | High | The Committee stated a test in 2021 (CERN-OHL): licences *"written such that they can be used for software"* are appropriate for review. ACD meets it on its face. In 2024 OSI's Executive Director said review may reach datasets and model parameters. §1.2 is wider than CERN's, and the judgment is OSI's | OSI |
+| B15 | Subject matter: §1.3's list (§1.2 in 1.0) touches a reason the Board gave in 2023 | High | The Committee stated a test in 2021 (CERN-OHL): licences *"written such that they can be used for software"* are appropriate for review. ACD meets it on its face. In 2024 OSI's Executive Director said review may reach datasets and model parameters. §1.3 is wider than CERN's, and the judgment is OSI's | OSI |
 
 ## 2026-09-11 の掘削で確定したこと（この節は結論だけ。逐語は `review-corpus.md` §1.67〜§1.70a）
 
