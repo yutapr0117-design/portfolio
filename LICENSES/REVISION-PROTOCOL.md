@@ -1,7 +1,7 @@
 ---
 file: LICENSES/REVISION-PROTOCOL.md
 audience: 次のセッションの実装者（一次読者） / OSI license-discuss・license-review の参加者（§0 の英文）
-last-updated: 2026-11-15
+last-updated: 2026-11-23
 canonical-ref: LICENSES/FROZEN.md (凍結と venue の単一ソース) / LICENSES/ACD-1.0.discussion-log.md (指摘の記録) / LICENSES/ACD-1.0.errata.md (既知の欠陥)
 ---
 
@@ -28,7 +28,7 @@ courtesy — a discussion whose subject changes underneath it is not a review of
 |---|---|---|
 | **① 受領** | **公開アーカイブを一次経路として自分で読む**（オーナーの転送を待たない）。`https://lists.opensource.org/pipermail/license-{review,discuss}_lists.opensource.org/` の索引から月次 `.txt` を**ブラウザ相当の UA** で取り、`LICENSES/rounds/<YYYY-MM-DD>-<venue>[-<thread>]-<sent\|<相手>-received>.txt` へ**無改変**で保存する。整形・要約・翻訳・並べ替えをしない | ここで手を入れると、以降のすべての判断が検証不能になる。**アーカイブの方が転送より速い**（オーナー 2026-09-07）。オーナーが貼った全文も同じ規則で保存するが、**出典はアーカイブを優先する** —— 送信控えは手元にしかなく審査者が確かめられないのに対し、アーカイブは**配送された形**であり読み手が実際に読むものだから |
 | **② 分解** | 指摘を 1 件 1 行へ分解し `ACD-1.0.discussion-log.md` に追記。**不利なものから先に**書く | 「同じ趣旨」でまとめない。まとめた瞬間に 1 件が消える |
-| **③ 分類** | 各件を `認めた` / `反論した` / `次版候補` / `撤回検討` / `未回答` のどれかへ（2026-09-28: 旧値 `1.1 候補`。行き先は**現在の草案**の CHANGELIST ＝ いまは `ACD-1.4-CHANGELIST.md`（2026-11-01 訂正: 旧文は `ACD-1.2-CHANGELIST.md` を名指しし、1.2・1.3 の確定後も古い行き先を指していた）。テキストの欠陥は `errata.md` へ、不利な事実は `against.md` へ**行を足す**（既存行は消さない） | 反論できるからといって against から消さない。status を動かすだけ |
+| **③ 分類** | 各件を `認めた` / `反論した` / `次版候補` / `撤回検討` / `未回答` のどれかへ（2026-09-28: 旧値 `1.1 候補`。行き先は**現在の草案**の CHANGELIST ＝ いまは `ACD-1.4-CHANGELIST.md`（2026-11-01 訂正: 旧文は `ACD-1.2-CHANGELIST.md` を名指しし、1.2・1.3 の確定後も古い行き先を指していた。**2026-11-23 追記**: 1.4 も 2026-11-23 に確定したので、いまの行き先は `ACD-1.5-CHANGELIST.md`）。テキストの欠陥は `errata.md` へ、不利な事実は `against.md` へ**行を足す**（既存行は消さない） | 反論できるからといって against から消さない。status を動かすだけ |
 | **④ 応答** | list へ返す。**答えていない件を答えたことにしない** | 未回答は未回答と書く |
 | **⑤ 改訂** | §2 の版管理に従って次版を作る。**1.0 は触らない** | 凍結解除＝1.0 を編集してよい、ではない |
 | **⑤b 改訂は我々が書く** | 指摘に同意したなら、**改訂版のテキストをこちらが起草して出す**。「直すべきだと思う」と述べるだけ、あるいは**他者に改訂を募る**のは、審査上は改訂していないのと同じ | **実例がある。** Berkeley Artistic V5 の否決理由は *"agreed that a revision was advisable … only solicited others to revise the license and **did not submit an amended version**"* （`review-corpus.md` §1.69）|
@@ -245,7 +245,7 @@ the basis of this response, I wrote everything else myself"*）。**これを毎
 > moderator の 5 問への回答は 2026-09-07 に送られており、前提条件は満たされている。
 >
 > **これが作業の優先順位を決める**: **(i) カンファレンスで出たものを取り込む先は
-> `ACD-1.2-DRAFT.txt` と `ACD-1.2-CHANGELIST.md` である**（1.1 は凍結済み・Check 453 が pin。**2026-10-17 追記**: 1.2 も確定したので、いまの取り込み先は `ACD-1.3-DRAFT.txt` と `ACD-1.3-CHANGELIST.md`。**2026-11-01 追記**: 1.3 も 2026-10-25 に確定したので、いまの取り込み先は `ACD-1.4-DRAFT.txt` と `ACD-1.4-CHANGELIST.md`）。
+> `ACD-1.2-DRAFT.txt` と `ACD-1.2-CHANGELIST.md` である**（1.1 は凍結済み・Check 453 が pin。**2026-10-17 追記**: 1.2 も確定したので、いまの取り込み先は `ACD-1.3-DRAFT.txt` と `ACD-1.3-CHANGELIST.md`。**2026-11-01 追記**: 1.3 も 2026-10-25 に確定したので、いまの取り込み先は `ACD-1.4-DRAFT.txt` と `ACD-1.4-CHANGELIST.md`。**2026-11-23 追記**: 1.4 も 2026-11-23 に確定したので、いまの取り込み先は `ACD-1.5-DRAFT.txt` と `ACD-1.5-CHANGELIST.md`）。
 > **(ii) 出す版は 1.2 になる**（**2026-11-01 訂正**: 1.2・1.3 は確定済み。**出す版は申請の日に確定する最新版**で、手順の現行版は `SUBMISSION-MATERIALS.md` §0）ので、`ACD-1.1-CHANGELIST.md` §0.13 と `submission.md` §B.0 の
 > **確定手順 5 手**を 1.2 について実行する（版に紐づく Check の付け替え・§4c の数値の再導出・
 > XML の生成・FREEZE-DATA への追加・適用版の判断）。**(iii) `license-review` へ送る本文は
