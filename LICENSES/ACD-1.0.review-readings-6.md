@@ -433,3 +433,19 @@ census の `DECIDERS` は差出人の表示名を大文字小文字を区別し�
 **この節が establish しないこと。** 雛形の手紙を写した提出が審査でどう扱われたかの直接の記録（今回の語の当て方では見つからなかった）。
 
 **反映**: B14（Chestek 氏 2026 を「送る文は噛み合いで読まれる」の材料として・議題 3b の C′ の側に・6d と cd へ）。本文は変えない。
+
+## 1.470 許容型・献呈型に引き上げ条項（"or later"）を求めた決める側の記録は無い。Steward の死亡・解散・承継を論じた記録も無い —— 5e の種 2 つの採掘（2026-11-23）
+
+5e が 1.5 の試作の種として出した 2 つの問い（(1) ACD に版の引き上げ条項が無いこと、(2) ACD-1.4 の §16.5 が Steward の死亡・解散のときを述べないこと）を、全 508 か月の両 list に当てた。どちらも、記録で「要る」が立ったときだけ試作にする、という約束の採掘である。
+
+**(1) 引き上げ条項。** 全差出人の通のうち、本人の文の同じ文に "permissive"・"BSD"・"MIT"・"public domain"・"CC0"・"dedication" のどれかと、"or later version"・"and later version"・"upgrade clause"・"versioning clause"・"new version(s) of the/this license" のどれかが在る通は 4 通で、どれも決める側ではない（EUPL の提出者 2008-03 が 2 list へ同じ通、Tiwaz の提出者 2025-05 が 2 通）。許容型・献呈型の本文に引き上げ条項を求めた、要らないとした、害とした決める側の文は、この語の当て方では見つからない。近い記録は既にドシエに在る: Carlo Piana 氏 2025-05-29（Tiwaz・MPL 2.0 から *"any later version"* を外した提出へ）*"a legitimate choice and I won't fuss about it. There are different views on this kind of provisions."*（`ACD-OSI-BOTTLENECKS.md`）—— 外すことを正当な選択とした。逆側は Rob Landley 氏 2025-07-19（決める側でない）*"walling that option off for anything nontrivial seems a bit weird"*。§1.468 の Nelson 氏 2004・Perens 氏 2008・Berkus 氏 2024 は、移行の強制と "or later" の権威を問題にした側である。
+
+**(2) Steward の承継・消滅。** 全差出人の通のうち、本人の文の同じ文に "steward" と、"dies"・"died"・"dead"・"death"・"bankrupt"・"out of business"・"goes away"・"defunct"・"dissolved"・"orphan"・"no longer exists"・"disappear"・"ceases to exist"・"successor" のどれかが在る通は 0 通である。決める側の通を "steward" の代わりに "license author"・"licensor" でも当てた（2 通・Rosen 氏 2004-11-05 と 2006-11-15）が、どちらも Work の licensor の話で、2006 の *"What happens to the licence if So-and-so, the licensor, goes bankrupt or disappears in ten years' time?"* は Rosen 氏の文ではなく、氏が list へ転送した Janet Hope 氏の BiOS の論の引用である（答えは fork の自由）。ACD で当たるのは Work 側の ACD-1.4 の §2.8（承継人を拘束する）で、§16.5 ではない。近い文は Lawrence Rosen 氏 2012-10-05 *"Is there any license steward who would care (or is alive to care) about OSI simply making that declaration on its website"*（死んだ、または関心の無い Steward の本文を OSI が CC0 で配る案）で、承継の論ではない。CPL の Steward の役が IBM から Eclipse へ譲られた先例は、既に `review-readings-2.md` §1.226 に在る。
+
+**読み。** どちらの問いにも、試作を起こす根拠になる決める側の文は無い。ACD-1.4 の §16.5 は譲渡の後を定め、死亡・解散の後を定めない。そのとき新しい版が出なくなるだけで、各版の本文は §16.4 で固定のまま、Work の許しは §16 に依存しない（ACD-1.4 の §16.6）。
+
+**逆側。** 「無い」は語の当て方の範囲での不在である。"successor license"・"orphan works" などの語の言い換えで論じた通、off-list の議論、OSI の記事は当てていない。引き上げ条項を求めない記録が、要らないという判断の記録でもない。
+
+**この節が establish しないこと。** 審査で Steward の承継を問われないこと。
+
+**反映**: 1c（T140 を起こさない根拠として・1.5 試作 §2 の点検の表へ・5e へ）。本文は変えない。
