@@ -470,7 +470,7 @@ claim in the Work is transferred"* と書き、定義（Dedicator・You）は *"
 **破産・管財人。** 1.0 の §2.9 は「適用された時点で完全に履行済み」で、Dedicator にも You にも
 継続的な義務を残さないと述べ、続けて *"and so is not executory"* と分類まで言い切った。
 **その分類と結果の言い切りは欠陥として外した**（errata E5・E30）—— 未履行双務契約に当たるかは
-法廷地の倒産法が決め、本文が決められない。1.4 草案の §2.9 は、倒産手続や管財人の行為を
+法廷地の倒産法が決め、本文が決められない。ACD-1.4 の §2.9 は、倒産手続や管財人の行為を
 条件にしないことと、管財人が §2.8 の移転先であることだけを述べる。どちらの側にも継続的な
 義務を残さない構造は、管財人が「履行を拒絶してライセンスを終わらせる」筋道に乗りにくくする
 ことを狙っている。米国では 2019 年の最高裁判決（*Mission Product Holdings v. Tempnology*）が、倒産での
@@ -597,7 +597,7 @@ Dedicator が既に公開した写しについて「さらなる条件・制限�
 
 ### A32. 特許を持っている。その方法を説明した文書に ACD を付けてよいか
 
-**付けてよいが、その方法の特許を手放すことに近い。** 1.4 草案の §8.4 は、Work が教える特徴について、学習から生じたモデルと出力に特許許諾を及ぼす。
+**付けてよいが、その方法の特許を手放すことに近い。** ACD-1.4 の §8.4 は、Work が教える特徴について、学習から生じたモデルと出力に特許許諾を及ぼす。
 
 - **何が起きるか**: 誰かがあなたの文書でモデルを学習し、そのモデルが方法を実施するコードを出力すれば、その出力についてあなたの請求項は許諾されている。文書そのものは方法を実施しないので §8.1 は発火しないが、§8.4 は発火する。**小さなモデルを経由するだけで足りる。**
 - **止められるか**: 止められない。§8.2 は条件も終了も置かないので、許諾の範囲を後から狭めることも、特許訴訟で報復することもできない。
@@ -613,7 +613,7 @@ Dedicator が既に公開した写しについて「さらなる条件・制限�
 > makes a Dedicator of the person applying it. You are free to keep or remove the tag (Section 10.2).
 > If your changes are under other terms, say so next to the tag. No court has tested this.
 
-**なぜ問うか**: §3 は取り消せず §8 は終了しないので、誤って成立したときの費用が他のライセンスより重い。SPDX のタグは REUSE などの道具が既定で残すので、起きやすい。1.4 草案からタグだけでも適用になるので（§16.1・`ACD-1.1-SELF-AUDIT.md` §3v）、この線がタグにも引かれる。
+**なぜ問うか**: §3 は取り消せず §8 は終了しないので、誤って成立したときの費用が他のライセンスより重い。SPDX のタグは REUSE などの道具が既定で残すので、起きやすい。ACD-1.4 からタグだけでも適用になるので（§16.1・`ACD-1.1-SELF-AUDIT.md` §3v）、この線がタグにも引かれる。
 
 - **読みの根拠**: §16.1 は *"To apply this Dedication, place a notice"* で、目的の語と「置く」行為の語を持つ。残すことはどちらにも当たらない。
 - **どうすればよいか**: 改変分を別の条件で出すなら、タグの隣にそう書く。書かないと次の読み手には区別できない。
@@ -624,9 +624,9 @@ Dedicator が既に公開した写しについて「さらなる条件・制限�
 
 ### A34. 自分の作品の一部（例: `corpus/`）だけは学習に使わせたくない。opt-out の通知を置けば ACD から外れるか
 
-> **English (ACD-1.4 draft):** No. To keep material out of the Dedication, assign it to other terms: a notice that names another licence, or that reserves all rights. A notice that only reserves text and data mining or training (an Article 4(3) DSM opt-out, a robots or "noai" signal) assigns nothing to other terms (Section 16.2), and Section 6.2 does not read it as a Reservation. Material already released under the Dedication cannot be taken back (Section 2.2).
+> **English (ACD-1.4):** No. To keep material out of the Dedication, assign it to other terms: a notice that names another licence, or that reserves all rights. A notice that only reserves text and data mining or training (an Article 4(3) DSM opt-out, a robots or "noai" signal) assigns nothing to other terms (Section 16.2), and Section 6.2 does not read it as a Reservation. Material already released under the Dedication cannot be taken back (Section 2.2).
 
-**外れない。素材を ACD から外すには、その素材を別の条件へ割り当てる。DSM 指令 4 条 3 項の opt-out だけでは外れない。** この答えは **1.4 草案の文**についてのもの（§16.2 の第 3 文と、2026-11-10 に足した *"a notice that is only a Reservation assigns nothing to other terms (Section 6.2)"*・`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.24 の T52）。
+**外れない。素材を ACD から外すには、その素材を別の条件へ割り当てる。DSM 指令 4 条 3 項の opt-out だけでは外れない。** この答えは **確定した ACD-1.4 の文**についてのもの（2026-11-23 に凍結した本文で引用を確かめた）（§16.2 の第 3 文と、2026-11-10 に足した *"a notice that is only a Reservation assigns nothing to other terms (Section 6.2)"*・`ACD-1.4-SECOND-CLARITY-TRIAL.md` §14.24 の T52）。
 
 - **外す方法**: その素材の隣に、別のライセンスを名指す通知か、すべての権利を留保する表示を置く（§16.2 の「狭い通知」）。学習だけを禁じたいなら、そのための別の条件を書いた通知が要る。
 - **外れない通知**: TDM や学習の留保だけを述べる通知、robots の指示、"noai" の meta、ホスティングが既定で付ける信号。どれも「他の条件への割り当て」ではなく、§6.2 はそれを Reservation として読まない。§6.3 は Dedicator 自身が後から置いた Reservation も撤回する。

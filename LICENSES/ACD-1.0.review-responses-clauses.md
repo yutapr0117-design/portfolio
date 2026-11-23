@@ -35,7 +35,7 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 
 問いの元は Lawrence Rosen 氏（`license-discuss` 2004-01-27）—— *"I don't think your analysis is correct. Promissory estoppel is a contract doctrine that has nothing to do with a bare license like the GPL."*（`rounds/2004-to-2026-license-lists-bare-licence-and-extrinsic-statements-observed.txt`）。
 
-> **English (ACD-1.4 draft):**
+> **English (ACD-1.4):**
 >
 > If a court treats the Dedication as a bare licence and refuses estoppel, Section 2.5 does no
 > work, and recipients depend on other clauses. Section 3.1 is an irrevocable surrender and
@@ -633,7 +633,7 @@ of copyright** or words of the same purport **that such person knows to be false
 
 問いの元は Bruce Perens 氏（`license-discuss` 2026-03-19、上と同じ AI-MIT のスレッド）—— *"One is CREATION OF NORMS. Capitalized because I want Open Source folks to keep it in mind. Courts look at informal norms and codify them, and this is a tremendous risk to us."*（`rounds/1999-to-2026-license-lists-unread-threads-cited-observed-3of5.txt`）。
 
-> **English (ACD-1.4 draft):**
+> **English (ACD-1.4):**
 >
 > The draft is written so as not to assert either premise. The Preamble says "silence is not
 > refusal"; Section 6.5 says Section 6 "states expressly what Sections 3 to 5 and 8 would in any
@@ -782,7 +782,7 @@ of copyright** or words of the same purport **that such person knows to be false
 §16.4 は改変した本文を名前・識別子の下で頒布する誰でもを制限し、§16.5 は翻訳の頒布に条件を置くので、
 受領者はそのどちらにもなりうる —— errata **E48**。**この答えの結論は変わらない**: 制限が及ぶのは
 本文という文書の扱いだけで、Work の利用（ホスト型サービスでの提供を含む）には条件が無い。
-1.4 草案の §16.6 は *"they bind no one in respect of the Work"* と述べる。
+ACD-1.4 の §16.6 は *"they bind no one in respect of the Work"* と述べる。
 
 **なぜこの 2 問を置くか**: どちらも **2026 年 9 月の実際の審査で他の instrument に向けられた
 問い**であり、条項が違っても**判断軸は同じ**である —— 「許諾した集合と反応する集合が違うなら、
@@ -860,10 +860,10 @@ ACD はどちらも構造的に回避しているが、**回避しているこ�
 
 問いの元は Pamela Chestek 氏 —— 2019-10-29（`license-review`）*"it is only the Licensor's intent, not the license"* steward の意図ではない、2026-09-01（同）*"there is no requirement for a court to consider statements outside the four corners of the license itself"*、*"So you can't count on FAQs to prevent an unintended interpretation."*（`rounds/2004-to-2026-license-lists-bare-licence-and-extrinsic-statements-observed.txt`）。
 
-> **English (ACD-1.4 draft):**
+> **English (ACD-1.4):**
 >
 > We agree with the premise. Where someone other than the Steward applies the Dedication under
-> Section 16.3, our dossier is a non-party's statement. In the 1.4 draft the Steward appears only
+> Section 16.3, our dossier is a non-party's statement. In ACD-1.4 the Steward appears only
 > in Sections 16.4 and 16.5, which Section 16.6 says "bind no one in respect of the Work", so
 > the only readings that reach such a dispute are those each Dedicator adopts with the text: the
 > reason sentences in Sections 6.5 and 8.2 to 8.4, and the construction rules in Sections 15.1
