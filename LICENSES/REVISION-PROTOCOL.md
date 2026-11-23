@@ -396,6 +396,14 @@ the basis of this response, I wrote everything else myself"*）。**これを毎
    ところ、他者のライセンスについて述べた 4 通すべてで開示していなかった**（`against.md` #137）。
    **質問しかしていない場合でも開示する** ——CoC の基準は「賛否を述べたか」ではなく「利害があるか」である。
 
+8. **指摘ごとに噛み合う答えを返し、前提にできないものを前提にしない。** 根拠は Pamela Chestek 氏
+   2026-03-15（AI-MIT の審査）*"This response is inadequate and not thoughtful. … Your revised draft then
+   assumes that these tags have been added to SPDX, something we cannot assume in license approval. …
+   make sure they actually are responsive to the points raised and are workable solutions."*
+   （`ACD-1.0.review-readings-6.md` §1.469）。他の組織の将来の変更（SPDX の一覧への追加など）を、
+   答えの前提にしない。見出しと罫線で整えた形は噛み合いを示さない。**逆側**: その通の却下の理由は
+   中身で、返信の形や起草の手段ではない。
+
 ### この規律が守るもの
 
 **時間の希少な参加者を失わないこと。** 引用の最後の一文が理由をすべて述べている ——
