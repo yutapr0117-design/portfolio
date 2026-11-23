@@ -145,7 +145,7 @@ clauses behind it, criterion by criterion, are in §B.0 section 3, and
 
 ---
 
-### B.0 Facts for the owner's message (**material, not a message to send**)
+### B.0 Facts for the owner's message (**1,634 words**, measured 2026-11-23 from the line after this heading to §B.1; **material, not a message to send**)
 
 > **This is not a message.** It is a list of facts and sources, drafted by an AI, for the owner to draw on when he writes his own message to `license-review` in his own words (B14, gate 0 of `REVISION-PROTOCOL.md`). It has no greeting, no first-person sentences and no signature, on purpose. Decision 3b of the five (2026-11-23, 5/0/0) replaced the letter that stood here; that letter, drafted for ACD-1.0, is kept as a record in the history of this file at commit `87c52107474d` and is not to be sent.
 
@@ -160,7 +160,7 @@ clauses behind it, criterion by criterion, are in §B.0 section 3, and
 
 | OSI asks for | Fact for ACD-1.4 |
 | :-- | :-- |
-| Subject line | The list uses the form *"For Approval: <licence name and version>"*; here, Autonomous Commons Dedication 1.4 (ACD-1.4) |
+| Subject line | The list uses the form For Approval: followed by the licence name and version; here, Autonomous Commons Dedication 1.4 (ACD-1.4) |
 | The licence text, attached as plain text | The part of `LICENSES/ACD-1.4.txt` below the line of 80 hyphens, which the file's own header names as the end of its description (*"Everything above the line below describes this file. It is not part of the Dedication (Section 1.1), and a copy may leave it out."*): 674 lines, 5,879 words, SHA-256 `ce76f3ab337c367741a6a1cea237657d371a3a193b43aa9fd2d34fdcfa8b962f`. Reproduce with `sed '1,/^-\{80\}$/d' LICENSES/ACD-1.4.txt \| shasum -a 256`. The fixed file itself is at `https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.4.txt` (fixed on 2026-11-23, SHA-256 `6792e804486e59082b84fce663d2bc24c22d72720c6d1bab8af43a90c9e3b615`, pinned in `LICENSES/FROZEN.md` and checked in CI); the attachment leaves out only its header (decision 4 of the five) |
 | License name and version | Autonomous Commons Dedication, version 1.4 |
 | Legacy or new | New |
