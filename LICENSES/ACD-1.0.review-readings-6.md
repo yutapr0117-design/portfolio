@@ -449,3 +449,20 @@ census の `DECIDERS` は差出人の表示名を大文字小文字を区別し�
 **この節が establish しないこと。** 審査で Steward の承継を問われないこと。
 
 **反映**: 1c（T140 を起こさない根拠として・1.5 試作 §2 の点検の表へ・5e へ）。本文は変えない。
+
+## 1.471 「審査中のライセンスは変えられない。前の版を取り下げて新しい版を出す。その前に、指摘をまとめてから」（Chestek 氏 2026）—— REVISION-PROTOCOL §2 の取り下げと再提出の、list の上の実例。新しい概念は license-discuss で（2026-11-23）
+
+§1.469 と同じ AI-MIT の審査のスレッドで、同じ日の 20 分前に Chestek 氏が提出者へ書いた通である。OSI の review-process の頁の *"a license cannot be changed while it is being considered"* は、ドシエが既に `ACD-1.0.review-rules.md` §1.82 と `REVISION-PROTOCOL.md` §2 で引いている。list の上で、決める側がその規則を提出者へ当てた実例は、ドシエに無かった。
+
+| 発言 | 誰が | 当たり方 |
+| :-- | :-- | :-- |
+| *"You can't change a license while it's being considered, it makes it a nightmare for the license committee and its recordkeeping. The proper approach is to withdraw the previous version and resubmit a newer version. But before you do that I would suggest waiting some more for more comments, because there may be other ways in which you want to change it, so you can do it cumulatively."* | Pamela Chestek 氏 2026-03-15（AI-MIT License の審査・`rounds/2026-03-license-review-ai-mit-chestek-withdraw-and-resubmit-observed.txt`） | **支え（REVISION-PROTOCOL §2・凍結と併置）。** 審査中は本文を変えず、変えるなら取り下げて新しい版を出し、その前に指摘をまとめる。ACD は確定した版を凍結し（Check 453）、欠陥は errata に記録して次版の草案で直す —— この手順の形である。理由は委員会の記録の管理（*"recordkeeping"*）で、process の頁が書かない理由を足す |
+| *"I've also seen a suggestion that it should be discussed on the license-discuss list, instead of the license-review list, given the novelty of the concept, so you might want to see where that goes. The license review process is by consensus and people contributing on their spare time, so you need to give adequate time for feedback."* | 同じ通 | **支え（経路）。** 新しい概念のライセンスは license-review の前に license-discuss で、合意の手続きは参加者の余暇で回るので時間を置け。ACD-1.0 を license-discuss へ先に出した経路（`REVISION-PROTOCOL.md` §3.6）に合う。提出者は 2026-03-19 に取り下げ、license-discuss で続けると書いた |
+
+**読み。** 確定した版を凍結して審査中に変えないこと、指摘をまとめてから次の版を出すこと、新しい概念を license-discuss で先に出すこと —— ACD の手順の 3 つが、同じ 1 通で決める側の口から述べられている。
+
+**逆側。** 個人の通で（差出人は `chesteklegal.com`）、委員会の決定ではない。ACD は 1.0 を license-discuss に出した後、1.1〜1.4 を確定し、提出対象を 1.4 に切り替えた —— 「指摘をまとめてから」の指摘は list からはほとんど届いておらず（`REVIEWERS.md` の Status）、まとめたのは自分で見つけた欠陥である。1.5 の草案を併置したまま 1.4 を出すと、「どの版が審査されているか」を審査者が問いうるので、提出の材料に「審査中に変えない・変えるなら取り下げて出し直す」を書いておくのがよい（議題 3b の箇条の候補）。
+
+**この節が establish しないこと。** 取り下げと再提出が審査の結果に不利に働かないこと。
+
+**反映**: 入口（submission.md の §B.0 の事実の箇条に「審査中は 1.4 を変えない・1.5 は草案として併置・変えるなら取り下げて再提出」の 1 行の候補・5e と 6d へ）。本文は変えない。
