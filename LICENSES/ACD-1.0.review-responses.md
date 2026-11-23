@@ -395,6 +395,7 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 | 名称の由来 | Autonomous（本リポジトリの運用モデル）/ Commons（条件ゼロで共有領域に置く）/ Dedication（許諾ではなく献呈という法的形式）。2026-08-23 時点で SPDX License List・OSI 承認一覧のいずれにも同名・類似識別子が無いことを確認済み（`acd-license-rationale.md` §6） |
 | 実装（コード）は誰が書いたか | 本リポジトリは AI が実装し人間が設計・監査する体制で運用している。ライセンス本文もその過程で起草された。**この事実を隠さない**（§9 の存在理由と直結する） |
 | 撤回する用意はあるか | ある。Q1 の最後の一文がその表明である |
+| 前文の「献呈は特許を明示に留保するか沈黙する」には反例がある（errata E88・2026-11-23） | 認めて errata を指す。英文の要点: *"The preamble's first paragraph is about the legal tools in common use, as its first sentence says. Lifted out of that paragraph, the sentence about dedications is untrue: a modified CC0 that addresses patents was mentioned on license-discuss in 2013, and ACD is itself a dedication that grants a patent licence. Errata E88 records this. The preamble is not operative (Sections 1 to 16 are, and nothing in the preamble qualifies them), so nothing anyone may do turns on it."* 直さない理由（1 文だけを限ると、限っていない隣の文が全称に見える）は errata の E88 の行に在る。同じ段落の「許容型は学習について沈黙する」は、承認済みの 141 本については gap 測定（`ACD-1.0.gap-measurements.md` §1.97）が支える（合議の議題 1・d7 の条件） |
 
 ---
 
