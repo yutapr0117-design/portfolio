@@ -138,7 +138,7 @@ MUTATIONS_ARCHIVE6 = [
     "name": "Check 496: CHANGELIST の表の見出しから「件数」の列を外す —— 行は 4 セルのままなので、GFM は 4 列目を描かずに捨てる (2026-11-08 まで実際にこの状態だった)",
     # 表は 1.4 の記録に在る。確定の道具が作る次版の CHANGELIST は空で始まるので、草案の版で引くと確定の日に Check 362 が RED になる (2026-11-08 の予行)
     # 2026-11-20 にこの表の節を CHANGELIST の分冊 (…-CHANGELIST-REVIEWS.md) へ移した (本体のバイト数の上限・Check 495a)
-    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST-REVIEWS.md",
+    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST-REVIEWS.md",
     "find": "| レンズ | やったこと | 結果 | 件数 |",
     "replace": "| レンズ | やったこと | 結果 |",
 },
@@ -540,8 +540,8 @@ MUTATIONS_ARCHIVE6 = [
     {
     "name": 'Check 444m: 接頭辞の無い「1.2 を適用している」 —— `ACD-x.y` の形しか版として読まず、申請日の 1 枚の現行の文の形を素通りしていた',
     "file": ROOT / 'LICENSES' / 'SUBMISSION-MATERIALS.md',
-    "find": '（申請時は出す版を適用する）',
-    "replace": '（1.2 を適用している。申請時は出す版を適用する）',
+    "find": '。申請時は出す版を適用する）',
+    "replace": '。このリポジトリは 1.2 を適用している。申請時は出す版を適用する）',
 },
     {
     "name": 'Check 154: og:description の末尾に「\'s」で始まる語を足す —— `[^"\']+` が値の中の \' で取り出しを切り、その先を twitter と比べていなかった',
@@ -721,7 +721,7 @@ MUTATIONS_ARCHIVE6 = [
 },
     {
     "name": 'Check 469: errata が閉じたと述べる E42 の、ただ 1 つの状態の行を「未着手」にする —— 状態の行が 1 つの E-ID は矛盾の組が作れず、errata とも照合していなかった',
-    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md",
+    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
     "find": '上の表の §8.6 行と同じ変更） | **反映済み**（2026-11-01）|',
     "replace": '上の表の §8.6 行と同じ変更） | **未着手**（2026-11-01）|',
 },
