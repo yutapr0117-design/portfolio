@@ -43,7 +43,7 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 | 否認は目立つ形で（Smith 氏 2025-12-05）| §13.1・§13.2・§14.1 は大文字 | 満たす |
 | *term* は期間の合意と読まれ、一部の法域で解約できる（Piana 氏 2025-02-24）| §3.2 *"for the full term for which the Covered Rights would otherwise subsist"*（権利の存続期間）、§1.10 *"contractual term"*、§2.2 *"further term, condition, or restriction"* | 反例の担当（portfolio-cd）へ —— §3.2 の *term* は権利の存続期間で合意の期間ではない、と読むが、§2.2 の撤回不能と組み合わせて当てる |
 
-## 3. T136 —— §4.1 と §8.1 の *perpetual* を、権利の存続期間に結ぶ（+17 / +35 語・2026-11-23・種は portfolio-cd・起草 5e）
+## 3. T136 —— §4.1 と §8.1 の *perpetual* を、権利の存続期間に結ぶ（+17 / +35 語・2026-11-23・種は portfolio-cd・起草 5e・**採らない**）
 
 **種**: Carlo Piana 氏 2025-02-24（`license-review`・ModelGo Zero）は、期間の定めの無い合意は一部の法域で相当の予告により解約できると書いた（本人は *"not probably something relevant to the approval"* と前置きした）。cd が原文を読み、ACD-1.4 でそれに一番近いのは §3.2 の *term*（権利の存続期間で、合意の期間ではない）ではなく、§4.1 と §8.1 の *"irrevocable, perpetual"* だと当てた。期間の定めの無いことをそのまま名乗る語である。EU 法の下で起草された EUPL は *"for the duration of copyright vested in the Original Work"*（`license-review` 2008-03 に出た本文）、CC0 の予備の許諾は *"for the maximum duration provided by applicable law or treaty (including future time extensions)"*（`license-discuss` 2024-04 に引かれた本文）と書き、どちらも *perpetual* を使わない（どちらもアーカイブの写しで原文に当てた・2026-11-23）。
 
@@ -56,4 +56,6 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 
 **逆側**: (i) Apache-2.0 は *"perpetual, worldwide, … irrevocable"* で承認済みで、イタリアを含む欧州で広く使われている —— 実務で解約の争いが起きた記録を我々は持たない。(ii) Rosen 氏 2003-08-27 は *perpetual* を「今の意図の表明」として擁護した（`jurisdictions.md` 5a の 2003 の段）。外すと、その意図の表明を失う。(iii) Piana 氏の指摘は 1 人の法律家の自国の読みで、承認に関係しないと本人が書いた。(iv) B3 に逆らう（(A) で +35 語・(B) で +17 語）。(v) (B) の *"for as long as … subsist"* は、権利が一度消えて回復した場合（期間の回復）に許諾が戻るかを語で決めない —— (A) はそれを §3.2 と同じ語で閉じるが長い。(vi) 期間を権利の存続に結んでも、それが期間の定めのある約束と扱われるかは法域の判断で、文で決められない（法律家への問い）。(vii) 米国の読み手には「なぜ perpetual を外したか」の説明が要り、外したこと自体が狭めたと読まれうる（`SUBMISSION-MATERIALS.md` の「差だけを読む人が「狭めた・条件を足した」と読みうる箇所と、その 1 行の注」の表に足す対象）。
 
-**採否**: 未決。不利な事実としては portfolio-cd が `against.md` に記録する（cd が番号を取った）。規則 1 の欄には上の「消す読みの分岐」を書く。採るなら §8.4 は *"on the terms of Section 8.1"* で同じ期間を受ける。
+**反例の 2 巡目（portfolio-cd・2026-11-23）—— 採らない理由が 2 つ増えた**: (viii) **回復の穴は (B) だけでなく、*perpetual* を外すこと自体の費用である。** §4.1 は *"all Covered Rights"*（§1.5 *"now or in future … whether or not presently subsisting"*）を *perpetual* で許すので、権利が一度消えて回復しても（米国の 17 U.S.C. §104A の回復、EU の保護期間の調和で復活した権利、特許の期間の回復や SPC）許諾は語の上で途切れない。(B) はそこに空白の読みを生み、(A) は §3.2 と同じ語で閉じるが、1 語で済んでいたことを +35 語で作り直すだけである。(ix) **期間に結んでも、期間の無い権利が残る。** Covered Rights は *"rights against unfair extraction"* と *"any right of similar effect"* を含み、不正競争の側の権利には法定の存続期間が無く、sui generis のデータベース権は相当の投資のたびに新しい期間が始まる。だから (A) でも (B) でも、消そうとした読みの分岐（期間の定めの無い許諾として予告で解約できる）は閉じきれない。EUPL の *"for the duration of copyright"* が成り立つのは EUPL が著作権だけを許す文書だからで、Covered Rights が著作権より広い ACD には同じ語を移せない。(x) (A) の +35 語は、1.5 で T135 が得た −15 の 2 倍を戻す変更で、しかも (ix) のとおり分岐を閉じきれない。
+
+**採否**: **採らない**（2026-11-23・5e と cd）。規則 1 の欄に書いた分岐を、どの案も閉じきれないため。法律家への問いとして `QUESTIONS-FOR-COUNSEL.md` の問い 1 に (k) を足した（期間の定めの無い許諾は予告で解約できるとする法域で §4.1・§8.1 が服するか、服するなら存続期間の無い Covered Rights を含む ACD で EUPL の形が効くか）。不利な事実としては portfolio-cd が `against.md` に記録し、潰し方を「T136 は採らず、法律家への問いへ」とする。規則 1 の欄には上の「消す読みの分岐」を書く。採るなら §8.4 は *"on the terms of Section 8.1"* で同じ期間を受ける。

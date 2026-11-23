@@ -1,7 +1,7 @@
 ---
 file: LICENSES/QUESTIONS-FOR-COUNSEL.md
 audience: a lawyer asked to read ACD, or reading it on license-review / license-discuss; the steward, when asking one
-last-updated: 2026-11-15
+last-updated: 2026-11-23
 canonical-ref: LICENSES/ACD-1.4.txt (the latest fixed text, applied to this repository) / LICENSES/ACD-1.5-DRAFT.txt (the successor draft) / LICENSES/ACD-1.0.jurisdictions.md (where we think each question sits, by jurisdiction) / LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (B1)
 ---
 
@@ -189,6 +189,19 @@ public dedication still work as a unilateral consent of the kind the German Fede
 recognised in 2010 (I ZR 69/08, *Vorschaubilder I*), and if so, can the Dedicator revoke that consent
 despite §2.2? (`jurisdictions.md` §2 and §3; `against-2.md` #321.)
 
+(k) A licence of no fixed duration (added 2026-11-23). §4.1 and §8.1 grant an *"irrevocable, perpetual"* licence.
+A list participant who is a lawyer wrote on `license-review` (2025-02-24, on another submission) that in some
+jurisdictions an agreement of no fixed duration can be ended on reasonable notice, while saying it was probably
+not relevant to approval. Does such a rule reach the licence in §4.1 or §8.1 in Italy or France, despite
+*"irrevocable"* and §2.2? If it does, would tying the term to the life of the rights, as EUPL does with
+*"for the duration of copyright vested in the Original Work"*, help a text whose Covered Rights also include
+rights with no fixed statutory term (rights against unfair extraction) and sui generis database rights, whose
+term can begin again with new investment? We drafted that change for the next version and did not adopt it
+(`ACD-1.5-CLARITY-TRIAL.md` §3, T136): the single word *"perpetual"* also carries the licence across a right that
+lapses and is restored, which a term tied to subsistence would interrupt. We have not read the French or
+Italian provisions in an official copy (Légifrance refused automated retrieval on 2026-11-23), so the premise
+is the list participant's statement, not our reading of the statute.
+
 **What a German attorney has written about the closest instrument (added 2026-11-16).** Till Kreutzer's
 analysis of CC0 under German law (c. 2011, cited on `license-review` in 2020) narrows (c). He wrote that
 the waiver is ineffective there (*"the waiver in sec. 2 of the CC0 is not legally effective under German
@@ -204,7 +217,8 @@ he turns to moral rights, so §12 is not covered by it.
 "independent". An answer to (b) or (h) would change what the dossier says rather than the text: no
 wording contracts out of a statute that forbids it. An answer to (i) would change whether §2.5 needs
 anything beyond §4.1 and §5, or whether the dossier must say that it has no answer. An answer to (j) would change whether
-the guidance for adopters should suggest a signed statement, which nothing in the text asks for.
+the guidance for adopters should suggest a signed statement, which nothing in the text asks for. An answer to (k)
+would change whether a later version ties the term of §4.1 and §8.1 to the life of the rights it can name.
 
 ## 2. Does the patent licence reach what it is meant to reach? (§8.1, §8.4, §8.6)
 
