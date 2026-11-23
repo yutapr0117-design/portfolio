@@ -83,7 +83,9 @@ def faces_468yz(ROOT: Path, dr: Path, cl: set, t468: str) -> tuple[list[str], in
                 if _c not in (cl if "." in _c else _secs468z):
                     _miss468z.append(_c)
         # 表の逐語 (*"…"*) も草案に在る (11-12・aa: T22 より前の語が残っていた)。記述子自身の文 (note / $comment) と旧い文は除く
-        _d468z = " ".join(t468.split())
+            # 本文 (区切り線の後) だけで照らす (2026-11-23): t468 は冒頭の変更の一覧も含み、一覧が逐語を引けば本文から消えても通る
+        #   (468x で実測した形・#3970)
+        _d468z = " ".join(t468.split("-" * 80, 1)[-1].split())
         for _mq in re.finditer(r'\*"(.+?)"\*', "\n".join(_x for _x in _ms468z.group(0).split("\n") if _x.startswith(("|", "- ")))):
             _q = " ".join(_mq.group(1).replace('\\"', '"').split()).strip(" .,;:")
             if not re.search(r"note|\$comment|より前の|旧|訂正前", _mq.string[max(0, _mq.start() - 40):_mq.start()]) and not all(
