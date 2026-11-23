@@ -100,7 +100,8 @@ def run(ctx):
         bad.append(f"(c) faq mirror のプロセス: 申告 {m.group(1)} / 実測 {fb}")
 
     # (d) §4c の条の行: 460 (n) は分子だけを掴み、分母は \d+ で読み捨てていた
-    cls = len(re.findall(r"^  \d+\.\d+\s", text(L / "ACD-1.0.txt"), re.M))
+    from _lib_dossier import submission_target_version as _stv_d  # 提出対象の版の条を数える (2026-11-23)
+    cls = len(re.findall(r"^  \d+\.\d+\s", text(L / f"ACD-{_stv_d(L)}.txt"), re.M))
     m = re.search(r"\*\*(\d+) / (\d+)\*\*, no gaps either way", text(L / "ACD-1.0.submission-reference.md"))
     if not m:
         bad.append("(d) submission-reference.md §4c: \"**X / Y**, no gaps either way\" が読めない")

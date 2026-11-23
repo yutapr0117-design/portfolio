@@ -465,7 +465,7 @@ def run(ctx):
             # Machine-Generated Material と同値）だった** —— 本文は凍結されているので drift では
             # なく**書いた時点で誤り**で、29/29 と同じ形。数え方は表の文言どおり
             # 「その語を定義する条を除いた本文での出現」に固定する。
-            _txt_i = (_L460 / "ACD-1.0.txt")
+            _txt_i = (_L460 / f"ACD-{__import__('_lib_dossier').submission_target_version(_L460)}.txt")  # 提出対象の版 (2026-11-23)
             if _txt_i.exists():
                 _lines_i = _txt_i.read_text(encoding="utf-8").split("\n")
                 _defs_i = []
@@ -648,8 +648,9 @@ def run(ctx):
         #   ここで縛るのは**機械的に導出できる 5 つ**だけで、手読みの行（pointer が主張を支えるか等）は
         #   対象にしない ——**機械で確かめられないものを機械が確かめたことにしない。**
         _srp460 = _L460 / "ACD-1.0.submission-reference.md"
-        _txp460 = _L460 / "ACD-1.0.txt"
-        _mjp460 = _L460 / "ACD-1.0.machine.json"
+        _tv460n = __import__("_lib_dossier").submission_target_version(_L460)  # 提出対象の版を測る (2026-11-23)
+        _txp460 = _L460 / f"ACD-{_tv460n}.txt"
+        _mjp460 = _L460 / f"ACD-{_tv460n}.machine.json"
         if _srp460.exists() and _txp460.exists() and _mjp460.exists():
             _lic460 = _txp460.read_text(encoding="utf-8")
             _srt460 = _srp460.read_text(encoding="utf-8")
