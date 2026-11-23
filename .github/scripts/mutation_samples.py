@@ -553,6 +553,13 @@ _MUTATIONS_TAIL.append({
     "find": "*\"Nothing in this Dedication, as to those acts, reserves, preserves, or leaves unaffected any patent claim they reach.\"*（*as to those acts* は T99 で入った）",
     "replace": "*\"Nothing in this Dedication reserves, preserves, or leaves unaffected any patent claim they reach.\"*",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 468z: 次版の CHANGELIST の「## 記述子の候補」の箇条が引く条を、草案に無い §5.9 にする —— 節の名が「### N.M の記述子の"
+            "下書き」から変わり、468z は OK 行に「—」を出して候補を照らしていなかった (2026-11-23)",
+    "file": ROOT / "LICENSES" / "ACD-1.5-CHANGELIST.md",
+    "find": "`true`・§5.2・`note`",
+    "replace": "`true`・§5.9・`note`",
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
