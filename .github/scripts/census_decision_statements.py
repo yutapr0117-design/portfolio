@@ -40,7 +40,10 @@
 """
 import collections
 import datetime
+import email.errors
+import email.header
 import email.utils
+import hashlib
 import glob
 import json
 import os
@@ -66,6 +69,38 @@ DECIDERS = re.compile("|".join(re.escape(x) for x in [
     #   漏れのぶん狭い範囲の 0 だった
     "Jagielski", "Masson", "Brasseur",
 ]))
+# 決める側の宛名 (2026-11-23・d7 の実測): DECIDERS は表示名を大小文字を区別して照らすので、表示名が小文字・アドレスだけ・
+#   MIME 符号化の通 (全 508 か月で約 224 通: "bruce at perens.com (bruce at perens.com)" 121・"(Josh berkus)" 72・
+#   "lrosen at rosenlaw.com" 9・"carlo at piana.eu (Carlo)" 9 ほか) が落ち、候補と unquoted-decider の外にいた。名前を re.I に
+#   すると短い姓 (Villa・Oliver・Dolan …) の誤検出が増えるので、本人のアドレスで照らし、MIME の表示名は decode してから照らす
+DECIDER_ADDRS = re.compile(r"\b(?:bruce at perens\.com|josh at postgresql\.org|lrosen at rosenlaw\.com|carlo at piana\.eu"
+                           r"|osi-review at piana\.eu|nelson at crynwr\.com|mdtiemann at gmail\.com|bkuhn at ebb\.org"
+                           r"|coar at opensource\.org|massonpj at \S+|pamela at chesteklegal\.com|mccoy at lexpan\.law)\b", re.I)
+
+
+def decode_sender(sender: str) -> str:
+    """From の MIME 符号化 (=?utf-8?…?=) を解いた文字列。解けなければそのまま。"""
+    try:
+        return str(email.header.make_header(email.header.decode_header(sender)))
+    except (ValueError, LookupError, email.errors.HeaderParseError):
+        return sender
+
+
+def is_decider(sender: str) -> bool:
+    d = decode_sender(sender)
+    return bool(DECIDERS.search(d) or DECIDER_ADDRS.search(d))
+
+
+FP_LINE = "# census-definition: "
+
+
+def definition_fingerprint() -> str:
+    """候補の定義 (決める側・会話の切り方・閾値) の指紋。THREAD-CANDIDATES の見出しに書き、定義を変えたのに一覧を作り直して
+    いない形を Check 498 (h2) が止める (2026-11-23・6d: 古い一覧を読んで「未読 0」を返す gate は「無いと黙る」と同じ形)。"""
+    src = "\n".join([DECIDERS.pattern, DECIDER_ADDRS.pattern, str(GAP_DAYS), str(CANDIDATE_MIN), str(UNQUOTED_MIN)])
+    return hashlib.sha256(src.encode("utf-8")).hexdigest()[:16]
+
+
 RULE = re.compile(r"""(
  \b(?:osi|we|the\ board|the\ committee|lrc|board|committee)\b[^.?!\n]{0,60}\b(?:will\ not|won't|wouldn't|would\ not|cannot|can't|should\ not|shouldn't|must\ not|never|refuse[sd]?|reject(?:s|ed)?|decline[sd]?|don't|do\ not|does\ not|doesn't|did\ not)\b[^.?!\n]{0,60}\b(?:approv\w+|certif\w+|accept\w*|list\w*)\b
  |\b(?:should|must|cannot|can't|could)\ (?:not\ )?be\ (?:approved|rejected|disapproved|certified)\b
@@ -165,7 +200,7 @@ def rules(out):
     for name, head, body in messages():
         total += 1
         sender = field(head, "From")
-        if not DECIDERS.search(sender):
+        if not is_decider(sender):
             continue
         try:
             when = email.utils.parsedate_to_datetime(field(head, "Date")).date().isoformat()
@@ -195,6 +230,7 @@ def title_key(subject):
 
 
 CANDIDATES = REPO / "LICENSES" / "THREAD-CANDIDATES.txt"
+CANDIDATE_MIN = (3, 120)  # 候補の会話: 通の数と、決める側の語数の下限
 UNQUOTED_MIN = 40  # 決める側の未引用の通として数える最小の語数 (挨拶・受領の一言を除く)
 
 
@@ -395,7 +431,7 @@ def threads(out):
                 own_hits = sum(1 for gm in grams(text) if gm in seen_in_dossier)
                 hits += own_hits
                 topic += len(TOPIC.findall(text))
-                if DECIDERS.search(sender):
+                if is_decider(sender):
                     words += len(text.split())
                     # 決める側の通で、その通単独ではドシエに 8 語連鎖が 1 つも無いもの (2026-11-15・2f / 30 の報告):
                     #   候補の閾値は会話全体の一致で見るので、ドシエが一部だけ引いた大きな会話 (license-review の ModelGo・
@@ -404,18 +440,18 @@ def threads(out):
                         # 論点の点 (2026-11-23・d7 の依頼): B_TOPICS の語に当たった回数と、当たった B。§1.257 / §1.458 は
                         #   「論点の語で点数づけし上位から読んだ」と書いたが点の付け方が無く、上位 100 を再現できなかった
                         _bh = {b: len(re.findall(rx, text, re.I)) for b, rx in B_TOPICS.items()}
-                        unquoted.append((_iso(date), sender.split("<")[0].strip().strip('"'), len(text.split()), fname, msgid,
+                        unquoted.append((_iso(date), decode_sender(sender).split("<")[0].strip().strip('"'), len(text.split()), fname, msgid,
                                          sum(_bh.values()), sorted(b for b, n in _bh.items() if n)))
-            dec_text = " ".join(own_text(x[4]) for x in g if DECIDERS.search(x[2]))
+            dec_text = " ".join(own_text(x[4]) for x in g if is_decider(x[2]))
             row_b = sorted(b for b, rx in B_TOPICS.items() if re.search(rx, dec_text, re.I))
             row = {"b_topics": row_b, "title": g[0][3], "first": g[0][1], "start": start, "key": key,
                    "messages": n, "decider_words": words, "dossier_hits": hits, "topic_hits": topic,
-                   "decision_form": bool(g and DECIDERS.search(g[0][2]) and DECISION.search(own_text(g[0][4]))),
+                   "decision_form": bool(g and is_decider(g[0][2]) and DECISION.search(own_text(g[0][4]))),
                    # 途中の通に決める側の文がある会話 (portfolio-00 の報告・11-12: 2013 の "License drafting quality and
                    #   process" の Berkus 氏、2005 の OSL 3.0 / AFL 3.0 の Nelson 氏。最初の通は提出者だった)
-                   "decision_inside": any(DECIDERS.search(x[2]) and DECISION_EVENT.search(own_text(x[4])) for x in g[1:]),
+                   "decision_inside": any(is_decider(x[2]) and DECISION_EVENT.search(own_text(x[4])) for x in g[1:]),
                    "unquoted_decider": unquoted}
-            if n >= 3 and words >= 120:
+            if n >= CANDIDATE_MIN[0] and words >= CANDIDATE_MIN[1]:
                 rows.append(row)
             elif n >= 3 and topic >= TOPIC_MIN:
                 topical.append(row)
@@ -458,11 +494,13 @@ def threads(out):
     kept = [r for r in candidates if r["dossier_hits"] >= 8 and (r["key"], r["start"]) in pinned]
     new = [r for r in candidates if (r["key"], r["start"]) not in pinned]
     stale = [l for l in pinned_rows if (l[0], l[1]) not in pairs | pinned]
-    if "--pin" in sys.argv and (new or stale):
-        # 年で分けた 2 つの file へ、それぞれの見出しを残して書く (2026-11-16)
+    if "--pin" in sys.argv:
+        # 年で分けた 2 つの file へ、それぞれの見出しを残して書く (2026-11-16)。定義の指紋の行は毎回書き直す (2026-11-23):
+        #   新しい候補が 0 でも、定義を変えて回し直したことを一覧が記録する (Check 498 (h2) が照らす)
         body = {f"{r['start']}\t{r['title']}\n" for r in candidates}
         for _f in {CANDIDATES, split_file_for("THREAD-CANDIDATES", READ_THREADS_SPLIT)}:
-            head = [l for l in open(_f, encoding="utf-8") if l.startswith("#")] if _f.exists() else []
+            head = [l for l in open(_f, encoding="utf-8") if l.startswith("#") and not l.startswith(FP_LINE)] if _f.exists() else []
+            head.append(f"{FP_LINE}{definition_fingerprint()} (census_decision_statements.py の候補の定義。変えたら --pin で回し直す)\n")
             mine = [l for l in body if split_file_for("THREAD-CANDIDATES", l[:10]) == _f]
             _f.write_text("".join(head) + "".join(sorted(mine, key=lambda l: (l[:10], l))), encoding="utf-8")
     unread = sorted((r for r in candidates if not is_read(r)), key=lambda r: -r["decider_words"])
@@ -495,7 +533,7 @@ def threads(out):
     inflow = [r for r in new if is_read(r) and r["dossier_hits"] >= 8]
     print(f"一覧 (THREAD-CANDIDATES.txt) に無い候補の会話 {len(new)} 件 (うち閾値では候補の外で、読んだので母数に入った "
           f"{len(inflow)} 件・N と M が同じだけ増え K は動かない)・日付が会話の始まりでない一覧の行 {len(stale)} 行"
-          + ("（--pin で一覧を作り直した）" if "--pin" in sys.argv and (new or stale) else "（--pin で一覧を作り直す）" if new or stale else ""))
+          + ("（--pin で一覧を作り直した）" if "--pin" in sys.argv else "（--pin で一覧を作り直す）" if new or stale else ""))
     for r in sorted(new, key=lambda r: r["start"])[:20]:
         how = "読んで入った" if r in inflow else "新"
         print(f"  {how}: {r['start']}\t{r['title']}  (通 {r['messages']}・決める側の語 {r['decider_words']}・ドシエの語 {r['dossier_hits']})")
