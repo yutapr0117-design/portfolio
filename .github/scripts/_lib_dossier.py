@@ -425,3 +425,15 @@ def backfill_table_misses(licenses_dir: Path) -> tuple[int, list[str], list[str]
     missing = [f"{f} §1.{num}" for (f, num), has in sorted(heads.items(), key=lambda x: (x[0][1], x[0][0]))
                if num < REFLECT_FROM and not has and (f, num) not in covered]
     return n, bad, missing
+
+
+# ── 提出対象の版 (2026-11-23・議題 3 の下ごしらえ・fc) ───────────────────────────
+def submission_target_version(licenses_dir: Path) -> str:
+    """submission.md の `<!-- SUBMISSION-TARGET: ACD-x.y -->` の版 ("1.0" など)。読めなければ "1.0"。
+
+    §4c の機械監査の表 (定義語・節・非 ASCII・記述子の条の参照・逐条の行) を照らす 460 (i)・(n) と 498 (d) は、ACD-1.0.txt と
+    ACD-1.0.machine.json を名で読んでいた。提出対象を 1.4 へ切り替えると、表を 1.4 で測り直しても照合だけが 1.0 を見続ける。
+    """
+    sm = licenses_dir / "ACD-1.0.submission.md"
+    m = re.search(r"<!--\s*SUBMISSION-TARGET:\s*ACD-(\d+\.\d+)\s*-->", sm.read_text(encoding="utf-8")) if sm.exists() else None
+    return m.group(1) if m else "1.0"
