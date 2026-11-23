@@ -77,6 +77,9 @@ def gate(version: str, today: datetime.date | None = None) -> list[str]:
 
 
 def main(argv: list[str]) -> int:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _lib_git_guard import require_unambiguous_origin
+    require_unambiguous_origin()  # origin/main が古い作業 branch に解決されないこと (2026-11-23)
     vers = [a for a in argv if re.fullmatch(r"ACD-\d+\.\d+", a)]
     if len(vers) != 1:
         print(__doc__.split("使い方:")[1].strip())

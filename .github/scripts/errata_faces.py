@@ -41,6 +41,9 @@ FACES = [
 
 
 def main(argv: list[str]) -> int:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _lib_git_guard import require_unambiguous_origin
+    require_unambiguous_origin()  # origin/main が古い作業 branch に解決されないこと (2026-11-23)
     ids = [a for a in argv if re.fullmatch(r"E\d+", a)]
     if len(ids) != 1:
         print(__doc__.split("使い方:")[1].split("errata の行そのもの")[0])
