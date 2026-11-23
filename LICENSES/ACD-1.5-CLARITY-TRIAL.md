@@ -75,3 +75,25 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 | 次の文の **those terms**（*"Section 5 reaches those terms to the extent they restrict what may be done with that copy"*） | *"the terms or measures the Dedicator applies to that material or to the use of a service …"* —— 素材の条件とサービスの条件の両方 | 最も近い *terms* は第 2 文の素材の条件だけ | **狭まる** |
 
 **採らない理由**: 分けると *those terms* の先行詞からサービスの条件が落ち、Dedicator が API の利用規約などで、受け手が素材の中に持つ Work の写しの扱いを縛る場面が §5 の外に出る読みが立つ。直す語（*those terms* → *"the terms that the two preceding sentences describe"*）を足すと +16 語で、45 語超の文を 1 つ減らすための費用として重い。**逆側**: サービスは写しを渡さずに Work を動かすものなので、サービスの条件が「その写し」を縛る場面は狭い、と読む余地もある —— だがその読みに頼るなら、分ける前の文のほうが確かである。**方針が働いた例**: cd が足した「限定句と名指しの語を表で示す」条件が、語を足さない分割に見えた変更の狭まりを捕まえた。
+
+## 5. T138 —— §5.2(b) に、偽りの言明をしない義務だけを除外として足す（+14 語・2026-11-23・errata E87・起草 5e・**反例待ち**）
+
+**種**: errata E87。§5.1・§5.2(b)・§5.2(d) の除外の列を並べた（SELF-AUDIT §3zd の一般形「後から入った変更が別の条の列を古くする」の当て直し）。
+
+| 条 | 除外 |
+| :-- | :-- |
+| §5.1 第 2 文 | 特許（§8）・商標と名（§11.1）・偽りの言明と表示（§11.3）・合意した支払い |
+| §5.2(b) | 商標と名（§11.1・T104）・合意した支払い（T112・T118）—— **偽りの言明と表示が無い** |
+| §5.2(d) | 偽りの言明と表示（§11.3）|
+
+§5.2(b) は Dedicator が *"impose by contract, terms of service, … an obligation in respect of the Work that this Dedication does not itself impose"* をしないと約束する。偽りの帰属や推奨をしない義務は本 Dedication が課さない（§11.3 *"not a condition upon You"*）ので、利用規約の「当方が書いた・推奨したと示さないこと」の 1 行が約束に反すると読める。1.0〜1.3 は §5.1 も除外を持たなかったので 2 つの条は揃っていたが、1.4 が §5.1 にだけ偽りの言明の除外を足して非対称になった。
+
+**After**（§5.2(b) の末尾）: *"… an obligation in respect of the Work that this Dedication does not itself impose, **other than an obligation not to make a false statement or representation (Section 11.3)**, and this Dedication imposes none (Section 10.1);"*（+14 語）。
+
+**測定**（`--compare`・1.5 草案）: 条 80、指示語 0、許可の声 +0、そろえ残し 0、全称 0、外向きの依拠 0（記録 1: errata E81 が 1.0〜1.3 の文を引く）。45 語超の文は 28 のまま（(b) は列の中の項で、道具は §5.2 の頭から (d) までを 1 文に数えない）。
+
+**限定句の表**: §5.2(b) に足す句は *an obligation* を名指し、*not to make* の否定の形に限る —— 改変した版に印を付ける義務（§10.2 が要らないと言う）のような**積極の義務**は入らない。§5.2(b) の *"in respect of the Work"* と *"that this Dedication does not itself impose"* の掛かり先は変わらない。
+
+**逆側**: (i) 契約上の義務は、偽りの表示の法だけでは得られない救済（契約違反の損害）を Dedicator に足す。(ii) §5.2(b) は、利用規約が裏口から条件を足すのを止める唯一の条で、除外を足すたびに狭まる。(iii) (b) の頭に既に *"other than under trademark rights … or for a payment …"* が在り、同じ項に *other than* が 2 度出る（頭は約束からの除外、末尾は義務からの除外）。(iv) 同じことを法が既に禁じているので、契約で重ねる必要は無い、と読む審査者もいる（Fogel 氏 2014-06-30 *"I worry about building trademark-law-type provisions into licenses that are really about copyright"*・`review-readings-6.md` §1.459）。(v) 変えない場合の費用は、採用者が標準の利用規約を写して知らずに約束を破ること —— 本文でなく採用者向けの案内（ADOPTING.md）で知らせる道もある。
+
+**採否**: 反例待ち（portfolio-cd）。
