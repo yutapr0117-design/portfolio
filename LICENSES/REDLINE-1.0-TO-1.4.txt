@@ -753,6 +753,8 @@ Section 16.6: changed
 
 Section 15.5 of ACD-1.0: not in ACD-1.4 (ACD-1.4 uses the number 15.5 for other
 content)
+Its content is now in the last sentence of Section 2.2 of ACD-1.4 (by the table
+in LICENSES/ACD-1.4-CHANGELIST.md, section on clause numbers 1.0 to 1.4).
     [-No act, omission, delay, course of dealing, or silence on the part of the
     Dedicator is to be read as reviving, reserving, or narrowing any right
     surrendered under Section 3, licensed under Section 4 or Section 8, or
@@ -767,6 +769,8 @@ content)
 
 Section 16.5 of ACD-1.0: not in ACD-1.4 (ACD-1.4 uses the number 16.5 for other
 content)
+Its content is now in Section 16.4 of ACD-1.4 (by the table in
+LICENSES/ACD-1.4-CHANGELIST.md, section on clause numbers 1.0 to 1.4).
     [-A translation is not a modified text for the purpose of Section 16.4, and
     may be distributed under the name and the identifier, provided it is
     identified as a translation and states that the English text prevails
@@ -776,11 +780,13 @@ content)
     English. The proviso in this Section is a condition upon distributing the
     translated text, not upon any use of the Work, and Section 10.5 applies.-]
 
-Summary: 32 unchanged, 64 changed, 1 new, 3 removed.
+Summary: 32 unchanged, 64 changed, 1 new, 3 removed (of the removed, 2 moved
+into another section).
 
   Generated with .github/scripts/make_redline.py LICENSES/ACD-1.0.txt
-  LICENSES/ACD-1.4.txt on 2026-11-23 (regenerated after the tool learned to
-  match by text the clauses the 1.0 to 1.1 table leaves unmatched; the first
-  output, at commit 03ab4dd1, split 1.0 sections 15.2 and 15.3 into a removal
-  and an addition). Both inputs are frozen (LICENSES/FROZEN.md), so the output
-  changes only if the tool does.
+  LICENSES/ACD-1.4.txt on 2026-11-24 (regenerated after the tool learned to say
+  where the content of a removed 1.0 clause now stands, from the table of clause
+  numbers in LICENSES/ACD-1.4-CHANGELIST.md; earlier outputs, at commits
+  03ab4dd1 and d490b5f8, said only "not in ACD-1.4"). Both inputs are frozen
+  (LICENSES/FROZEN.md), so the output changes only if the tool or the table
+  does.

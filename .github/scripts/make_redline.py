@@ -89,6 +89,25 @@ def map_from_10() -> dict[str, str | None]:
 
 
 TEXT_MATCH_MIN = 0.5
+MOVED_TABLE = ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md"  # 「条項の対応表（1.0 → 1.4）」の §15・§16 の表 (d7)
+
+
+def moved_from_10() -> dict[str, tuple[str, str]]:
+    """1.0 の条で、中身が 1.4 の別の条の一部へ移ったもの {1.0 の番号: (1.4 の番号, "the last sentence" か "")}。
+
+    2026-11-24 (5e の案): redline は 1.0 §15.5 と §16.5 を「not in ACD-1.4」とだけ出し、list の審査者には不行使の規則と翻訳の
+    扱いが消えたように読めた。語の近さでは 1.0 §15.5 → 1.4 §2.2 (0.36) と誤った組 1.0 §15.6 → 1.4 §11.1 (0.36) を分けられない
+    ので、d7 が 1.0 と 1.4 の凍結した本文から作った対応表の「§X の末文」「§X の中」の行を読む。表が読めなければ空 (行き先を出さない)。
+    """
+    if not MOVED_TABLE.exists():
+        return {}
+    sec = MOVED_TABLE.read_text(encoding="utf-8").split("## 条項の対応表（1.0 → 1.4）", 1)
+    out: dict[str, tuple[str, str]] = {}
+    for row in (sec[1] if len(sec) > 1 else "").splitlines():
+        m = re.match(r"^\| §(\d+\.\d+) \|[^|]*\| §(\d+\.\d+) ?の(末文|中) \|", row)
+        if m:
+            out[m.group(1)] = (m.group(2), "the last sentence of " if m.group(3) == "末文" else "")
+    return out
 
 
 def match_leftovers(A: dict[str, str], B: dict[str, str], to_new: dict[str, str | None]) -> dict[str, tuple[str, float]]:
@@ -255,14 +274,21 @@ def main(argv: list[str]) -> int:
             print(f"{tag}: changed")
             print(fill(wdiff(A[old], B[key], context)))
             print()
+    moved = moved_from_10() if m10 and vb == "1.4" else {}
     for key in A:
         if to_new.get(key) not in B:
             counts["removed"] += 1
             now = f" (ACD-{vb} uses the number {key} for other content)" if key in B else ""
             print(fill(f"{label(key)} of ACD-{va}: not in ACD-{vb}{now}", indent=""))
+            if key in moved:
+                counts["moved into another section"] = counts.get("moved into another section", 0) + 1
+                print(fill(f"Its content is now in {moved[key][1]}Section {moved[key][0]} of ACD-{vb} (by the table in "
+                           f"LICENSES/{MOVED_TABLE.name}, section on clause numbers 1.0 to 1.4).", indent=""))
             print(fill("[-" + A[key] + "-]"))
             print()
-    print("Summary: " + ", ".join(f"{v} {k}" for k, v in counts.items()) + ".")
+    print(fill("Summary: " + ", ".join(f"{v} {k}" for k, v in counts.items() if k != "moved into another section")
+               + (f" (of the removed, {counts['moved into another section']} moved into another section)"
+                  if counts.get("moved into another section") else "") + ".", indent=""))
     return 0
 
 
