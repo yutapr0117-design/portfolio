@@ -179,16 +179,25 @@ def run(ctx):
     # 472o — 送る本文が述べる ACD の版が、提出対象であること (2026-11-07)。472f は欄の 16 箇所しか見ず、切り替えた日に
     #   "I affirm that ACD-1.0 complies" のように本文が別の版の適合を宣言したまま送られるところだった。
     _sub472o = (ROOT / "LICENSES" / "ACD-1.0.submission.md").read_text(encoding="utf-8")
-    # 置き換え中の記録の区画は送る文ではない (2026-11-23・議題 3b の C′)。区画を外すと、送る本文の版は §A.1 の宣言だけになる
-    _sup472o = bool(re.search(r"<!--\s*SUPERSEDED-LETTER:[^>]*-->.*?<!--\s*/SUPERSEDED-LETTER\s*-->", _sub472o, re.S))
     _sub472o = re.sub(r"<!--\s*SUPERSEDED-LETTER:[^>]*-->.*?<!--\s*/SUPERSEDED-LETTER\s*-->", " ", _sub472o, flags=re.S)
     _tg472o = re.search(r"<!--\s*SUBMISSION-TARGET:\s*(ACD-\d+\.\d+)\s*-->", _sub472o)
-    _start472o, _end472o = _sub472o.find("I am submitting the **"), _sub472o.find("### B.1 ")
-    _ids472o = re.findall(r"(?<![\w-])ACD-\d+\.\d+", _sub472o[_start472o:_end472o]) if 0 < _start472o < _end472o else []
-    _ids472o += re.findall(r"I affirm that (ACD-\d+\.\d+)", _sub472o)  # §A.1 の宣言も同じ版を述べる
-    _bad472o = sorted({_i for _i in _ids472o if _tg472o and _i != _tg472o.group(1)})
+    # 2026-11-23 (議題 3b の C′): §B.0 は送る手紙から、オーナーが自分の言葉で書くための材料 (事実の箇条と表) になった。材料の
+    #   中の版の名は提出対象であること。別の版の名は、出来事の文脈 (posted・sent・drafted・→ の差・record・history) の文だけに
+    #   在ってよい。file 名 (ACD-1.0.gap-measurements.md など) は版の主張ではないので数えない
+    _start472o = _sub472o.find("### B.0 Facts for the owner's message")
+    _end472o = _sub472o.find("### B.1 ", _start472o + 1) if _start472o >= 0 else -1
+    _b472o = _sub472o[_start472o:_end472o] if 0 <= _start472o < _end472o else ""
+    _ids472o, _bad472o = [], set()
+    for _mo in re.finditer(r"(?<![\w-])(ACD-\d+\.\d+)(?!\.[A-Za-z])", _b472o):
+        _ids472o.append(_mo.group(1))
+        _sent = _b472o[max(_b472o.rfind(". ", 0, _mo.start()), _b472o.rfind("\n", 0, _mo.start()), 0):
+                       min(_x for _x in (_b472o.find(". ", _mo.end()), _b472o.find("\n", _mo.end()), len(_b472o)) if _x >= 0)]
+        if _tg472o and _mo.group(1) != _tg472o.group(1) and not re.search(r"post(?:ed|ing)|sent|drafted|→|record|history|was rejected", _sent):
+            _bad472o.add(_mo.group(1))
+    _sup472o = True  # 材料の形では提出対象の名が 3 つ以上在れば足りる
+    _bad472o = sorted(_bad472o)
     check(
-        len(_ids472o) >= (1 if _sup472o else 5) and not _bad472o,
+        sum(1 for _i in _ids472o if _tg472o and _i == _tg472o.group(1)) >= 3 and not _bad472o,
         f"Check 472o: 送る本文が述べる ACD の版 {len(_ids472o)} 箇所が提出対象に合う",
         (f"Check 472o: 送る本文が提出対象でない版を述べている: {_bad472o or '本文か提出対象を読めない'}。"
          "別の版の適合を宣言したまま送らないよう、1 文ずつ読んで提出対象へ向ける"),

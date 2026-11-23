@@ -67,7 +67,7 @@ discussion is visibly accounted for rather than repeated.
 
 | Field | Value |
 |---|---|
-| Full name | Autonomous Commons Dedication 1.0 |
+| Full name | Autonomous Commons Dedication 1.4 |
 | Short identifier | `ACD-1.4` |
 | Licence steward | Yuta Yokoi (横井雄太) |
 | Canonical text | **Attached to the message as plain text.** OSI's process asks for "a copy of the license as an attachment in simple text format", and a reviewer's first response to a 2026 submission that gave only a repository link was *"we need a version that isn't subject to dynamic changes to evaluate"*. The published copy is at `https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.4.txt`, and **a reviewer can confirm the attachment is that text**: `LICENSES/FROZEN.md` pins its SHA-256 and `grep -E "^[0-9a-f]{64}  " LICENSES/FROZEN.md \| shasum -a 256 -c` checks it |

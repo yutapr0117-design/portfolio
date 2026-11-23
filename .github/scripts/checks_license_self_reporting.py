@@ -712,24 +712,21 @@ def run(ctx):
         if _sb460p.exists():
             _t460p = _sb460p.read_text(encoding="utf-8")
             _h460p = re.search(r"### B\.0 [^\n]*?\(\*\*([\d,]+) words\*\*", _t460p)
-            _s460p = [m.start() for m in re.finditer(r"(?m)^\*\*Subject:\*\*", _t460p)]
-            _e460p = _t460p.find("### B.1")
+            # 2026-11-23 (議題 3b の C′): §B.0 は送る手紙から材料になり、Subject 行と署名が無くなった。数え方は見出しが述べる
+            #   「見出しの次の行から §B.1 まで」
+            _s460p = _t460p.find("\n", _h460p.end()) + 1 if _h460p else -1
+            _e460p = _t460p.find("### B.1", _s460p) if _s460p > 0 else -1
             if not _h460p:
                 _bad460.append("submission.md: §B.0 の見出しに語数の申告が無い "
                                "(消して黙らせない —— 長さは B3 そのものなので、数えられる形で書く)")
-            elif not _s460p or _e460p <= _s460p[0]:  # [2026-11-08] 印が変わると数え直しを黙って飛ばした
-                _bad460.append("(p) submission.md §B.0 の送る文面の始まり (行頭の **Subject:**) か §B.1 が見つからない")
+            elif _e460p <= _s460p:
+                _bad460.append("(p) submission.md §B.0 の見出しの後に §B.1 が見つからない (語数を数える終わりが無い)")
             else:
-                _occ460p = [m.start() for m in re.finditer("Yuta Yokoi", _t460p[_s460p[0]:_e460p])]
-                if not _occ460p:
-                    _bad460.append("(p) submission.md §B.0 の署名が見つからない (語数を数える終わりが無い)")
-                if _occ460p:
-                    _end460p = _t460p.find("\n", _s460p[0] + _occ460p[-1])
-                    _n460p = len(re.findall(r"\S+", _t460p[_s460p[0]:_end460p]))
-                    _d460p = int(_h460p.group(1).replace(",", ""))
-                    if _d460p != _n460p:
-                        _bad460.append(f"submission.md §B.0 の語数: 申告 {_d460p} / 実測 {_n460p} "
-                                       "(instrument は file 自身が書いている: Subject 行から署名まで)")
+                _n460p = len(re.findall(r"\S+", _t460p[_s460p:_e460p]))
+                _d460p = int(_h460p.group(1).replace(",", ""))
+                if _d460p != _n460p:
+                    _bad460.append(f"submission.md §B.0 の語数: 申告 {_d460p} / 実測 {_n460p} "
+                                   "(instrument は見出しが書いている: 見出しの次の行から §B.1 まで)")
 
         # (q) **審査者に示す検証コマンドの期待値が、実際の出力件数 (`FROZEN.md` の digest 行数) と一致すること。**
         #   審査者が貼って走らせる 1 行。2026-09-22 に「3× OK」と述べ実際は 5 だった (凍結対象の追加に追従せず)。

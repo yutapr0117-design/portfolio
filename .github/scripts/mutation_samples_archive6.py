@@ -15,14 +15,16 @@ MUTATIONS_ARCHIVE6 = [
     {
     "name": "Check 463: 送る文面の法的レビューの段落を HTML コメントに隠す —— 描画されず送られないのに、生の markdown で照合して通っていた",
     "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "**Legal review: none.** No lawyer has drafted or read it.",
-    "replace": "<!-- **Legal review: none.** No lawyer has drafted or read it. -->",
+    # 2026-11-23 (議題 3b の C′): §B.0 は送る手紙から材料の表になった。材料の表 / §A の行を打つ
+    "find": "| Any legal review, including whether a lawyer drafted it | None. No lawyer has drafted or reviewed any version |",
+    "replace": "<!-- | Any legal review, including whether a lawyer drafted it | None. No lawyer has drafted or reviewed any version | -->",
 },
     {
     "name": "Check 463: 送る文面から「新規か legacy か」の行を消す —— 申請日の 1 枚は要件に持つのに、§B.0 の照合には無かった",
     "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "Legacy or New:                  New License\nDrafted By Lawyer:              No\nApproved or Used by Projects:   One — my own repository",
-    "replace": "Drafted By Lawyer:              No\nDrafted By Lawyer:              No\nApproved or Used by Projects:   One — my own repository",
+    # 2026-11-23 (議題 3b の C′): §B.0 は送る手紙から材料の表になった。材料の表 / §A の行を打つ
+    "find": "| Legacy or new | New |\n",
+    "replace": "",
 },
     {
     "name": "Check 468: §8.4 から「Section 8.1 alone governs」の alone を落とす —— 付け足した機能に §8.4 が及ぶかの線が消える (468u の目印)",
@@ -173,12 +175,6 @@ MUTATIONS_ARCHIVE6 = [
     "replace": "The agent determined that the repository needed a license and\n  the owner said it should aim at external approval;",
 },
     {
-    "name": "Check 473b: 送る文面の Provenance 段落から「外部承認を目指す」を外す —— file のどこかに在れば通り、送る段落だけを変えても見えなかった",
-    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "**Provenance.** I decided to have a licence of my own and said it should aim at external approval;",
-    "replace": "**Provenance.** I decided to have a licence of my own and said it should aim at broad adoption;",
-},
-    {
     "name": "Check 468: §16.2 の「in a comment within a file」を落とす —— ファイルの中のタグが及ぶ範囲が消え、取り込んだ他人のファイルまで通知の適用に入る (468u の目印・#2645)",
     "file": CURRENT_DRAFT,
     "find": "place in a comment within a file, by a file name that refers to other",
@@ -215,12 +211,6 @@ MUTATIONS_ARCHIVE6 = [
     "first_occurrence": True,  # 先頭の出現が「have produced **N adverse facts」の総括の文 (2026-11-08 に位置で確認)
     "find": "adverse facts, ",
     "replace": "negative findings, ",
-},
-    {
-    "name": "Check 460 (p): §B.0 の Subject 行の印を変える —— 送る文面の語数の数え直しを、黙って飛ばしていた",
-    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "**Subject:** For Approval:",
-    "replace": "**Subject**: For Approval:",
 },
     {
     "name": "Check 460 (k): 入口の errata 参照を 3 桁の E124 にする —— E(\\d{1,2}) は 3 桁を読まず、存在しない番号が通った",
@@ -761,8 +751,9 @@ MUTATIONS_ARCHIVE6 = [
     {
     "name": "Check 472f: 送る件名の名前の版だけを別の版にする —— 括弧の識別子しか比べず、名前の \"Dedication 1.0\" は照合していなかった",
     "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "**Subject:** For Approval: Autonomous Commons Dedication ",
-    "replace": "**Subject:** For Approval: Autonomous Commons Dedication 9",
+    # 2026-11-23 (議題 3b の C′): §B.0 は送る手紙から材料の表になった。材料の表 / §A の行を打つ
+    "find": "| Subject line | The list uses the form For Approval: followed by the licence name and version; here, Autonomous Commons Dedication ",
+    "replace": "| Subject line | The list uses the form For Approval: followed by the licence name and version; here, Autonomous Commons Dedication 9",
 },
     {
     "name": "Check 472j: ADOPTING が版で別の条を指す §1.3 を引く —— 番号が全部の版に在るかしか見ず、§1.3 が 1.0 では Dedicator、1.1 からは Work を定義していても通った",

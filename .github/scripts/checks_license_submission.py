@@ -138,50 +138,47 @@ def run(ctx):
     _sb463 = ROOT / "LICENSES" / "ACD-1.0.submission.md"
     if _sb463.exists():
         _t463 = _sb463.read_text(encoding="utf-8")
-        _i463 = _t463.find("### B.0 The message as it should actually be sent")
-        _j463 = _t463.find("### B.1 Reference material", _i463 + 1) if _i463 >= 0 else -1
+        # 2026-11-23 (議題 3b の C′・5/0/0): §B.0 は AI が書いた「そのまま送る手紙」から、オーナーが自分の言葉で書くための
+        #   事実の材料 (OSI の要求 1 項目 1 行の表) に替わった (B14 のゲート 0)。463 は表の左の列に各要求の行が在り、右の列が
+        #   空でないことを見る。旧版は手紙の **Subject:** から後を正規表現で探していた。
+        #   [FIX 2026-11-23] 旧版は見出しが見つからないと _req463 を作らずに進み、成功文の f-string (失敗の道でも評価される) で
+        #   UnboundLocalError になって後ろの Check を全部覆い隠した (5e が #3969 で見つけた)。表を先に定義する
+        _req463 = [
+            ("subject", r"^Subject line$", r"For Approval"),
+            ("attachment", r"attached as plain text", r"\S"),
+            ("name and version", r"^License name and version$", r"\d+\.\d+"),
+            ("legacy or new", r"^Legacy or new$", r"\S"),
+            # 要件は「OSD 3, 5, 6, 9 を満たすと specifically 明言する」(原文 "including specifically affirming it meets OSD 3, 5, 6
+            #   and 9")。欠落は議論の不成立を招く (`against.md` #97)。明言はオーナーの言葉で書く (§A.1)
+            ("OSD affirmation (3/5/6/9)", r"affirmation.*Open Source Definition.*OSD 3, 5, 6 and 9", r"\S"),
+            # 委員長は BOS Public License の提出に対し、欠けている項目のうちこの 1 件だけを名指しした (2026-07-23・§1.75)
+            ("legal review", r"legal review", r"None"),
+            ("projects using it", r"^Projects that use it$", r"https://"),
+            ("steward contact", r"^Steward and contact$", r"\S"),
+            # 答えが「無い」項目ほど書き落としても自然に読めるので機械で縛る (`review-precedents.md` §1.76)
+            ("third-party endorsement", r"Debian, the FSF or Fedora", r"\S"),
+            ("SPDX / ScanCode", r"SPDX or ScanCode", r"\S"),
+            ("proposed tags", r"^Proposed tags$", r"\S"),
+            ("gap statement", r"gap it fills", r"\S"),
+            ("nearest approved licences", r"nearest approved licence", r"\S"),
+            ("entry page URL", r"Where a reviewer can check", r"https://github\.com/\S+/blob/main/LICENSES/REVIEWERS\.md"),
+        ]
+        _i463 = _t463.find("### B.0 Facts for the owner's message")
+        _j463 = _t463.find("### B.1 ", _i463 + 1) if _i463 >= 0 else -1
         _bad463 = []
         if _i463 < 0 or _j463 < 0:
-            _bad463.append("§B.0 / §B.1 の見出しが見つからない (送る文面と参考資料の境界が失われている)")
+            _bad463.append("§B.0 (Facts for the owner's message) / §B.1 の見出しが見つからない (材料と参考資料の境界が失われている)")
         else:
-            _b0 = _t463[_i463:_j463]
-            # [FIX 2026-11-08] 照合は実際に送る部分だけ。見出しから **Subject:** までの作業メモ (約 13 KB) と、
-            #   送られない HTML コメントは除く (法的レビューの段落をコメントにしても通ることを実測した)。
-            _s463 = re.search(r"^\*\*Subject:\*\*", _b0, re.M)
-            if not _s463:
-                _bad463.append("§B.0 に送る文面の始まり (行頭の **Subject:**) が見つからない")
-            _b0 = re.sub(r"<!--.*?-->", "", _b0[_s463.start():] if _s463 else "", flags=re.S)
-            _req463 = [
-                ("attachment", r"attached as plain text"),
-                ("OSD affirmation", r"I affirm that ACD-\d+\.\d+ complies with the Open Source Definition"),
-                # 要件は「OSD 3, 5, 6, 9 を満たすと specifically 明言する」(原文 "including specifically
-                # affirming it meets OSD 3, 5, 6 and 9")。欠落は議論の不成立を招く (`against.md` #97)。
-                ("OSD 3/5/6/9 specific", r"OSD 3\*\*[\s\S]{0,400}?OSD 5 and OSD 6\*\*[\s\S]{0,400}?OSD 9\*\*"),
-                ("projects using it", r"Approved or Used by Projects"),
-                # [2026-11-08] 463b が要件に持つのに、ここに無かった 2 項目 (行を消しても通ることを実測)。
-                ("legacy or new", r"^Legacy or New:\s*\S"),
-                ("subject", r"^\*\*Subject:\*\*.*For Approval:"),
-                ("steward contact", r"Steward:.*@"),
-                ("name and version", r"License Name:"),
-                # 2026-09-13 追加。Debian / FSF / Fedora の承認を問う項目だけが答えられていなかった。
-                # 答えが「無い」項目ほど書き落としても自然に読めるので機械で縛る (`review-precedents.md` §1.76)。
-                ("third-party endorsement", r"Third-party Endorsement:"),
-                ("SPDX / ScanCode", r"SPDX / ScanCode Identifier"),
-                ("proposed tags", r"Proposed Tags:"),
-                ("gap statement", r"\*\*The gap\.\*\*"),
-                ("nearest approved licences", r"\*\*Nearest approved licences\.\*\*"),
-                # **2026-09-13 追記（この項目を足した理由の裏付け）。** 委員長は BOS Public License の
-                # 提出に対し、欠けている項目のうち**この 1 件だけを名指しして**
-                # *"in particular do not skip 'Describe any legal review the license has been
-                # through, including whether it was drafted by a lawyer.'"* と述べている (2026-07-23)。
-                # 最大の弱点を述べる項目なので書き落とす圧力が構造的にある (`review-precedents.md` §1.75)。
-                ("legal review", r"\*\*Legal review: none\.\*\*"),
-                ("entry page URL", r"https://github\.com/\S+/blob/main/LICENSES/REVIEWERS\.md"),  # 読み手に入口への道が無かった
-                ("project URL", r"Approved or Used by Projects:.*https://"),
-            ]
-            _miss463 = [_n for _n, _r in _req463 if not re.search(_r, _b0, re.M)]
+            _b0 = re.sub(r"<!--.*?-->", "", _t463[_i463:_j463], flags=re.S)
+            _rows463 = [[_c.strip() for _c in re.split(r"(?<!\\)\|", _l.strip())[1:-1]] for _l in _b0.splitlines()
+                        if _l.startswith("| ") and not _l.startswith(("| OSI asks for", "| :--"))]
+            _miss463 = []
+            for _n, _left, _fact in _req463:
+                _hit = [_r for _r in _rows463 if len(_r) >= 2 and re.search(_left, _r[0], re.I)]
+                if not _hit or not any(re.search(_fact, _r[1]) for _r in _hit):
+                    _miss463.append(_n)
             if _miss463:
-                _bad463.append(f"§B.0 に OSI 要求項目が欠けている: {_miss463}")
+                _bad463.append(f"§B.0 の材料の表に OSI 要求項目の行が無いか、事実の列が空: {_miss463}")
         # ── 463b: 申請日の 1 枚 (SUBMISSION-MATERIALS.md) の要件表が、各要件の行を持つこと ──
         #   §B.0 は 1.0 向けの文面で、申請の日に実際に使うと宣言されているのは
         #   `SUBMISSION-MATERIALS.md` の要件表 (「申請の日に使うのはこの 1 枚」)。そちらはどれかの行が
@@ -222,7 +219,7 @@ def run(ctx):
             # **項目を足しても OK メッセージは 11 のままだった** —— Check 460 が他所で禁じている
             # 「自己申告の件数が実測とずれる」を、**Check 自身の成功メッセージでやっていた。**
             # 成功メッセージは読み手が最も信用する場所なので、ここでの drift は最も悪い。
-            f"Check 463: 送る文面 (§B.0) が OSI の要求 {len(_req463)} 項目をすべて含み、申請日の 1 枚 (SUBMISSION-MATERIALS.md) も {len(_rows463b)} 行すべてを持つ",
+            f"Check 463: 材料 (§B.0) の表が OSI の要求 {len(_req463)} 項目の行をすべて持ち、申請日の 1 枚 (SUBMISSION-MATERIALS.md) も {len(_rows463b)} 行すべてを持つ",
             (f"Check 463: {_bad463}。要件の単一ソースは "
              "https://opensource.org/licenses/review-process。**§B.0 は実際にメールへ貼られる文面**で、"
              "§B.1 以降は貼らない参考資料である。#77 で 3 件の欠落を埋めたが、文面は増分のたび"
@@ -442,10 +439,11 @@ def run(ctx):
             r"(?m)^Version:\s+(\S+)\s*$",  # [2026-11-08] 1.4-rc1 のような値も読む (形が崩れると照合から黙って外れた)
             # 件名と書き出しは名前の版と識別子の両方を読む (2026-11-09・監査 #29: 括弧の識別子しか比べず、
             #   名前の "Dedication 1.0" は確かめていなかった)
-            r"\*\*Subject:\*\* For Approval: Autonomous Commons Dedication ([\d.]+) \((ACD-\d+\.\d+)\)",
-            r"\*\*SPDX XML:\*\* `LICENSES/(ACD-\d+\.\d+)\.spdx",
-            r"I am submitting the \*\*Autonomous Commons Dedication ([\d.]+) \((ACD-\d+\.\d+)\)",
-            r"\*\*Full name:\*\* Autonomous Commons Dedication (\d+\.\d+)",
+            # 2026-11-23 (議題 3b の C′): 手紙の欄 (**Subject:**・**SPDX XML:**・I am submitting・**Full name:**) は材料の表になった。
+            #   表の欄を読む。旧い形では §A の表の「| Full name | … 1.0 |」を読まず、提出対象の切り替えで 1.0 のまま残った
+            r"(?m)^\| Subject line \|.*Autonomous Commons Dedication ([\d.]+) \((ACD-\d+\.\d+)\)",
+            r"`(?:https://\S+/)?LICENSES/(ACD-\d+\.\d+)\.spdx\.xml`",
+            r"(?m)^\| Full name \| Autonomous Commons Dedication (\d+\.\d+) \|",
         ]
         _seen472f, _bad472f = 0, []
         if _mk472f:
