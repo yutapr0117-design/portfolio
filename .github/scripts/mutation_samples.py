@@ -546,6 +546,13 @@ _MUTATIONS_TAIL.append({
     "find": "| 追跡ファイル総数 | **数は書かない**",
     "replace": "| 追跡ファイル総数 | **2330**",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 470b: 逐条の §8.4 の行が引く 1.4 §8.3 第 2 文から *as to those acts* を落とし、T99 より前の文を「いまの文」として引く形に"
+            "戻す (2026-11-23 に 470b を足したとき main に在った 1 件)",
+    "file": ROOT / "LICENSES" / "ACD-1.4-CLAUSE-REFERENCE-DRAFT.md",
+    "find": "*\"Nothing in this Dedication, as to those acts, reserves, preserves, or leaves unaffected any patent claim they reach.\"*（*as to those acts* は T99 で入った）",
+    "replace": "*\"Nothing in this Dedication reserves, preserves, or leaves unaffected any patent claim they reach.\"*",
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
