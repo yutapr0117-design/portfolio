@@ -723,85 +723,13 @@ def run(ctx):
         if _bad468o:
             _bad468.append(f"468o: licence (名詞) / license (動詞) の語形が前の語と合わない: {_bad468o}")
 
-        # ── 468y: 試作で「変えない」「退けた」とした条の、逐条の下書きの行がその試作に触れていること ─────────
-        #   portfolio-aa の依頼 (2026-11-11)。見出しが「変えない」「退けた」を述べる試作の節について、見出しの §N.M と、
-        #   節の中の「変えない理由」の列を持つ表の 1 列目の §N.M を扱った条とし、逐条の下書きのその条の行が、見出しの
-        #   T 番号か節の番号 (§14.N) を含むこと。審査者は逐条の行で条を読むので、試作の結論 (変えない理由) が
-        #   そこから辿れないと、同じ問いを同じ答えのまま繰り返させる。いままで手で揃えていた (6 組)
-        _v468y = _dr468.name.split("-")[1]
-        # 試作は 2 冊目から 3 冊目へ続く (2026-11-15: 2 冊目が 1,000 行に当たり §15 から THIRD へ分けた)。作業中の版の試作の
-        #   冊をすべて読む (2026-11-23・fc: 1.4 の確定の後、名で決め打ちした SECOND / THIRD は 1.5 に無く、1.5 の試作
-        #   ACD-1.5-CLARITY-TRIAL.md を 1 つも読まずに黙っていた)
-        _trs468y = sorted((ROOT / "LICENSES").glob(f"ACD-{_v468y}-*CLARITY-TRIAL.md"))
-        _tr468y = _trs468y[0] if _trs468y else ROOT / "LICENSES" / f"ACD-{_v468y}-CLARITY-TRIAL.md"
-        # 逐条の下書きは作業中の版のものが無ければ、直前の版のもの (次版の逐条は確定まで書き直さない・1.4 の逐条が 1.5 の条を述べる)
-        # 逐条は確定の後に ACD-N.M.clause-reference.md へ改名しうる (2026-11-23 の合議の小議題)。新旧どちらの名も読む
-        _crs468y = sorted([*(ROOT / "LICENSES").glob("ACD-1.*-CLAUSE-REFERENCE-DRAFT.md"), *(ROOT / "LICENSES").glob("ACD-1.*.clause-reference.md")],
-                          key=lambda _p: int(re.match(r"ACD-1\.(\d+)", _p.name).group(1)))
-        _cr468y = ROOT / "LICENSES" / f"ACD-{_v468y}-CLAUSE-REFERENCE-DRAFT.md"
-        if not _cr468y.exists() and _crs468y:
-            _cr468y = _crs468y[-1]
-        _pairs468y, _miss468y = 0, []
-        if _tr468y.exists():
-            _trt = "\n".join(_p.read_text(encoding="utf-8") for _p in _trs468y if _p.exists())
-            _rows468y = {}
-            for _l in (_cr468y.read_text(encoding="utf-8").split("\n") if _cr468y.exists() else []):
-                _mr = re.match(r"^\|\s*\*\*(\d+\.\d+)\*\*\s*\|", _l)
-                if _mr:
-                    _rows468y[_mr.group(1)] = _l
-            # 見出しは 1.4 の冊が「### 14.25 …」、1.5 の冊が「## 1. T135 —— …」の形 (2026-11-23)。両方を節として読む
-            _secs = list(re.finditer(r"^#{2,3} (\d+(?:\.\d+)?)\.? (.*)$", _trt, re.M))
-            for _k, _ms in enumerate(_secs):
-                if not re.search(r"変えない|退けた", _ms.group(2)):
-                    continue
-                _body = _trt[_ms.end():_secs[_k + 1].start() if _k + 1 < len(_secs) else len(_trt)]
-                _cls = set(re.findall(r"§(\d+\.\d+)", _ms.group(2)))
-                for _tm in re.finditer(r"^\|[^\n]*変えない理由[^\n]*\|\n\|[-: |]+\|\n((?:\|[^\n]*\n)+)", _body, re.M):
-                    for _r in _tm.group(1).splitlines():
-                        _cls |= set(re.findall(r"§(\d+\.\d+)", _r.split("|")[1]))
-                _refs = sorted(set(re.findall(r"\bT\d+\b", _ms.group(2)))) + ["§" + _ms.group(1)]
-                for _c in sorted(_cls):
-                    _pairs468y += 1
-                    if not any(re.search(re.escape(_x) + r"(?!\d)", _rows468y.get(_c, "")) for _x in _refs):
-                        _miss468y.append(f"§{_c} ← {'/'.join(_refs)}")
-            if not _cr468y.exists() and _pairs468y:
-                _bad468.append(f"468y: {_tr468y.name} は在るのに {_cr468y.name} が無い")
-            elif _miss468y:
-                _bad468.append(f"468y: 試作で変えない / 退けたとした条の逐条の行が、その試作に触れていない: {_miss468y}。"
-                               "行に T 番号か節の番号 (§N.M) を書き、結論 (変えない理由) を辿れるようにする")
-
-        # ── 468z: CHANGELIST の「記述子の下書き」の表が引く §N.M と note の "Section N.M" が、草案に実在すること ─────
-        #   aa の問い (2026-11-11): 凍結版の記述子の note は 451f が照合するが、確定の日まで記述子は CHANGELIST の表の中の下書きで
-        #   照合の外だった。条の番号は試作で動くので、下書きの番号が草案に無くなったら確定の日を待たずに RED にする
-        _cltxt468z = _dr468.with_name(_dr468.name.replace("-DRAFT.txt", "-CHANGELIST.md"))
-        # 1.5 からは「## 記述子の候補」の節に箇条で書く (2026-11-23・確定の道具の雛形)。旧い「### N.M の記述子の下書き」の表も読む。
-        #   節の名が変わっただけで 468z は OK 行に「—」を出して黙っていた (1.5 の候補 §5.2 を照らしていなかった)
-        _ms468z = re.search(r"^(?:### " + re.escape(_v468y) + r" の記述子の下書き|## 記述子の候補).*?(?=^#{1,3} |\Z)",
-                            _cltxt468z.read_text(encoding="utf-8") if _cltxt468z.exists() else "", re.S | re.M)
-        _n468z, _u468z = None, set()   # 下書きの節が無い版では OK 行に「—」と出す (黙って 0 と書かない)
-        if _ms468z:
-            _secs468z = {_n.split(".", 1)[0] for _n in _cl468}
-            _miss468z, _n468z = [], 0
-            for _l in (_x for _x in _ms468z.group(0).split("\n") if _x.startswith(("|", "- "))):
-                _cs = [_c for _m in re.finditer(r"\b[Ss]ections?\s+(\d+(?:\.\d+)?(?:(?:,\s*|\s+and\s+|\s+or\s+|\s+to\s+)"
-                                                  r"\d+(?:\.\d+)?)*)", _l) for _c in re.findall(r"\d+(?:\.\d+)?", _m.group(1))]
-                _cs += re.findall(r"§(\d+\.\d+)", _l)
-                for _c in _cs:
-                    _n468z += 1
-                    _u468z.add(_c)
-                    if _c not in (_cl468 if "." in _c else _secs468z):
-                        _miss468z.append(_c)
-            # 表の逐語 (*"…"*) も草案に在る (11-12・aa: T22 より前の語が残っていた)。記述子自身の文 (note / $comment) と旧い文は除く
-            _d468z = " ".join(_t468.split())
-            for _mq in re.finditer(r'\*"(.+?)"\*', "\n".join(_x for _x in _ms468z.group(0).split("\n") if _x.startswith(("|", "- ")))):
-                _q = " ".join(_mq.group(1).replace('\\"', '"').split()).strip(" .,;:")
-                if not re.search(r"note|\$comment|より前の|旧|訂正前", _mq.string[max(0, _mq.start() - 40):_mq.start()]) and not all(
-                        _p.strip(" .,;:") in _d468z for _p in re.split(r"…|\.\.\.", _q) if len(_p.strip()) > 3):
-                    _miss468z.append(f"逐語 {_q[:50]!r}")
-            if _miss468z:
-                _bad468.append(f"468z: {_cltxt468z.name} の記述子の下書きが、草案に無い条か語を引く: {sorted(set(_miss468z))}")
-            elif not _n468z:
-                _bad468.append(f"468z: {_cltxt468z.name} の記述子の下書きから条の参照を 1 件も読めない (読めないまま黙らせない)")
+        # ── 468y / 468z の本体は _lib_draft_faces.faces_468yz (2026-11-23 に移した・checks_license_draft.py が 933 行で advisory を越えた)
+        #   468y: 試作で「変えない」「退けた」とした条の、逐条の下書きの行がその試作に触れていること (portfolio-aa の依頼・2026-11-11)
+        #   468z: CHANGELIST の記述子の下書き (と 1.5 からの「## 記述子の候補」) が引く条と逐語が、草案に実在すること (aa の問い・2026-11-11)
+        from _lib_draft_faces import faces_468yz
+        _b468yz, _pairs468y, _n468z, _u468z = faces_468yz(ROOT, _dr468, _cl468, _t468)
+        _bad468 += _b468yz
+        _cltxt468z = _dr468.with_name(_dr468.name.replace("-DRAFT.txt", "-CHANGELIST.md"))  # 468x も読む
 
         # ── 468v: 草案の冒頭が述べる最新の凍結版・適用中の版・pin された版の一覧が実物と合う ─────────
         #   版を確定して次の草案を作る日に、この 1 段落の書き換えを忘れても無音だった (2026-11-06 の予行で
