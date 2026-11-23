@@ -70,10 +70,26 @@ def overlay_check(pr: str, head: str, base: str) -> tuple[bool, str]:
         if c.returncode or errors:
             return False, (f"STOP: #{pr} をいまの main ({base[:8]}) に重ねると consistency が赤 ({len(errors)} 件):\n"
                            + "\n".join(errors))
+        # 確定の道具と、確定の直後に効く面を触る PR は、確定の予行も重ねた形で回す (2026-11-24・fc): 予行は週次 (mutation-probe.yml)
+        #   でしか回らず、#3922 (道具が空の「## 記述子の候補」を置く) と #3932 (468z がその節を読む) は、それぞれ緑で入ったのに
+        #   組み合わせで次の確定を止めていた (#4000 で直した)。予行は 30 秒ほどかかるので、触った file で絞る
+        changed = [f for f in run(["git", "diff", "-z", "--name-only", f"{base}...{head}"], check=False).stdout.split("\0") if f]
+        if any(REHEARSE_TRIGGER.search(f) for f in changed):
+            r = run([sys.executable, ".github/scripts/rehearse_version_freeze.py"], cwd=wt, check=False)
+            if r.returncode:
+                tail = [ln for ln in (r.stdout + r.stderr).splitlines() if ln.startswith(("ERROR", "確定の直後"))]
+                return False, (f"STOP: #{pr} をいまの main ({base[:8]}) に重ねると、確定の予行が一覧の外で止まる (次の確定を止める):\n"
+                               + "\n".join(tail[-4:]))
+            return True, f"OK: #{pr} ({head[:8]}) をいまの main ({base[:8]}) に重ねて consistency は緑・確定の予行も通る"
         return True, f"OK: #{pr} ({head[:8]}) をいまの main ({base[:8]}) に重ねて consistency は緑"
     finally:
         run(["git", "worktree", "remove", "--force", str(wt)], check=False)
         shutil.rmtree(tmp, ignore_errors=True)
+
+
+# 確定の予行を重ねて回す PR の file (確定の道具・草案の Check・CHANGELIST の雛形を読む面・mutation の版の組み立て)
+REHEARSE_TRIGGER = re.compile(r"^\.github/scripts/(?:prepare_version_freeze|rehearse_version_freeze|checks_license_draft|_lib_draft_\w+"
+                              r"|checks_license_stated_counts|mutation_samples_common|make_redline)\.py$")
 
 
 # diff3 の形 (`||||||| base` の節) も読む。base は両側が書き換えた元の行で、reland は merge.conflictStyle=diff3 で cherry-pick する
