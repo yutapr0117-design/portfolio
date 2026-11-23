@@ -48,6 +48,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | **実際に来た指摘**とその答え | [`ACD-1.0.discussion-log.md`](ACD-1.0.discussion-log.md) |
 | **審査者が最初に読む英語の入口**（license-discuss から来た人向け） | [`REVIEWERS.md`](REVIEWERS.md) |
 | **受け取った議論の原文**（無改変で置く場所。**2026-09-28 訂正**: 旧文は「いまは空」だった —— 実際は 2026-08-26 の送信文以来ファイルが在り、在庫の申告は `rounds/README.md` が持ち Check 465 が実ファイルと照合する） | [`rounds/`](rounds/README.md) |
+| **受け取った原文の在庫表**（年の帯ごとの分冊。2026-11-23 に `rounds/README.md` から移した。日付・venue・相手・file 名で引く） | [`INVENTORY-1999-2012.md`](rounds/INVENTORY-1999-2012.md) / [`INVENTORY-2013-2019.md`](rounds/INVENTORY-2013-2019.md) / [`INVENTORY-2020-onward.md`](rounds/INVENTORY-2020-onward.md) |
 | **疑問から引く索引（審査者向け・英語）** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) |
 | **不利な事実の網羅（先に読ませる用・英語）** | [`ACD-1.0.against.md`](ACD-1.0.against.md) |
 | **不利な事実の網羅の続き（#223 から・新しい行はここの末尾へ・英語）** | [`ACD-1.0.against-2.md`](ACD-1.0.against-2.md) —— 2026-11-15 にバイトの予算（Check 495）で分けた。番号・状態の記法・総括は 1 冊目と共通 |
