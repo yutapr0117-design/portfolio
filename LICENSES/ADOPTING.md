@@ -50,6 +50,14 @@ choice. Section numbers below are the same in every version unless the page says
   (§5.2, final paragraph); we read a service's output as such material. Who may use the service, and a
   payment for it, stay yours (§5.2(b)). 1.0 to 1.3 have no such carve-out: their §5.2(b) bars any
   obligation in respect of the work imposed by terms of service, without exception for a service.
+- **Check your site's terms of service before you apply it.** In every version, §5.2(b) is a promise not to
+  impose, by contract or terms of service, any obligation in respect of the work that the Dedication does
+  not impose itself, except under your trademarks or name and for a payment. A clause such as "do not imply
+  that we endorse you" is within that exception only if it rests on your name or marks; a bare "do not
+  misrepresent the work" is not, and would break the promise as to the work (errata
+  [E87](ACD-1.0.errata.md)). You do not need such a clause: the law against false statements and false
+  endorsement still applies, and the Dedication leaves it alone (§5.1, §11.3). We decided not to change
+  the text, because the line it draws is that the law stays and no new contractual obligation is added.
 
 ## What nobody can tell you yet
 
