@@ -219,13 +219,24 @@ def build_status() -> str:
                          f"／次版の作業場: `{draft.relative_to(ROOT) if draft else '(なし)'}`")
         # 段 6b (出す版の新しい語を license-discuss に 30 日) はオーナーにしかできない行為で、提出の前提である。
         # 投稿の記録は作業中の草案の冒頭の "Changes since the version posted on" の節 (gate_6b が読むのと同じ所)。
-        posted = draft is not None and "Changes since the version posted on" in draft.read_text(encoding="utf-8")
-        lic_lines.append("- **オーナーにしかできないこと（提出の前提）**: "
-                         + ("段 6b の投稿は記録済み（作業中の草案の冒頭の *Changes since the version posted on* の節）。"
-                            if posted else
-                            f"**段 6b が未了** —— 確定した {m_app.group(1) if m_app else '版'} の新しい語を、1.0 との差として"
-                            "自分の言葉で `license-discuss` へ出す（30 日の時計はここから動く・材料は "
-                            "`LICENSES/SUBMISSION-MATERIALS.md` §0b / §0d）。")
+        # 投稿の記録は 2 か所に在りうる: 凍結済みの版を出す道は FROZEN.md の POSTED-VERSION marker (submission_gate.py
+        # が読む・#3929)、次版の草案を出す道は草案の冒頭の "Changes since the version posted on" の節 (gate_6b が読む)。
+        # 片方だけを見ると、オーナーが投稿した日に STATUS だけが「未了」のまま残る (2026-11-23・6d)。
+        app_id = m_app.group(1) if m_app else ""
+        posted_frozen = re.search(rf"<!--\s*POSTED-VERSION:\s*{re.escape(app_id)}\s+(\d{{4}}-\d{{2}}-\d{{2}})\s+\S+\s*-->",
+                                  frozen_txt) if app_id else None
+        posted = bool(posted_frozen) or (draft is not None
+                                         and "Changes since the version posted on" in draft.read_text(encoding="utf-8"))
+        if posted_frozen:
+            stage6b = (f"段 6b の投稿は記録済み（`FROZEN.md` の POSTED-VERSION・{app_id} が公開アーカイブに届いた日 "
+                       f"{posted_frozen.group(1)}。30 日と 6c は `submission_gate.py {app_id}` が確かめる）。")
+        elif posted:
+            stage6b = "段 6b の投稿は記録済み（作業中の草案の冒頭の *Changes since the version posted on* の節）。"
+        else:
+            stage6b = (f"**段 6b が未了** —— 確定した {app_id or '版'} の新しい語を、1.0 との差として"
+                       "自分の言葉で `license-discuss` へ出す（30 日の時計はここから動く・材料は "
+                       "`LICENSES/SUBMISSION-MATERIALS.md` §0b / §0d）。")
+        lic_lines.append("- **オーナーにしかできないこと（提出の前提）**: " + stage6b
                          + "実在のプロジェクトへの使用の表明の依頼（窓口 `.github/ISSUE_TEMPLATE/acd-use.yml`・B2）も同じ。")
         lic_lines.append(f"- **投稿先**: `{venue}`（単一ソース = FROZEN.md の VENUE-DATA・Check 458 が全 status 面に強制）。"
                          f"**承認の窓口である `license-review` にも SPDX にも未提出。**")
