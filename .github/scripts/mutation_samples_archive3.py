@@ -217,8 +217,9 @@ MUTATIONS_ARCHIVE3 = [
     # file を 1 つ足すだけで動くので、そこを anchor にすると **増分のたび Check 362 が orphan を
     # 報告する**（2026-08-23 に実際に発生）。**2** は docs/files の 2 つの非 mirror file を数えた
     # 値で、file 数が動いても変わらない。2→3 にすると和が総数を 1 超えて 413b が RED になる。
-    "find": "`docs/files/_template.md` の **2**",
-    "replace": "`docs/files/_template.md` の **3**",
+    # 2026-11-23: 行は数を持たず式を述べる形になった。式の定数を変える (式を述べない行になる)
+    "find": "総数 = 2 × source + 2",
+    "replace": "総数 = 2 × source + 3",
 },
     {
     "name": "Check 441a (ライセンス本文の条項番号): 節内で番号を重複させる —— 条項を挿入・削除して "
