@@ -69,13 +69,13 @@ answer none of them:
    whether a trained model is "the Work" or a derivative of it is unresolved, and a
    provision that merely avoided doubt would be read down together with the reading it was
    written to correct. Section 8.5 states the limits of the grant honestly, and Section 8.6 adds a
-   covenant not to assert, for any jurisdiction in which the patent licence itself is held
-   ineffective. Permission under the Covered Rights stands on three footings in this
+   covenant not to assert, given for every jurisdiction and not waiting for the patent licence
+   to be held ineffective. Permission under the Covered Rights stands on three footings in this
    instrument (surrender, licence, covenant); Section 8.6 gives the patent grant the second
    footing it would otherwise lack, in the manner Section 12.2 uses for moral rights.
-   *(Note, 2026-11-02: this describes ACD-1.0 accurately, but "in the manner Section 12.2
-   uses" overstates the parallel. Section 12.2 operates by the state of the law; Section 8.6
-   operates only once a licence "is held ineffective", so no covenant exists yet at the
+   *(Note, 2026-11-02, on the earlier wording of this paragraph, which described ACD-1.0 to 1.3:
+   "in the manner Section 12.2 uses" overstated the parallel there. Section 12.2 operated by the state of the law; Section 8.6
+   operated only once a licence "is held ineffective", so no covenant exists yet at the
    assertion that would produce the holding (errata E42). The ACD-1.4 draft gives the
    covenant for every jurisdiction, without waiting for a licence to be held
    ineffective (2026-11-12: it no longer says "alongside them"; 2026-11-16, trial T86: it
