@@ -244,6 +244,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2025-12 | `license-discuss` | **観測（"Total Reciprocity Public License (TRPL v1.0)" から 3 通・出力を派生物とみなす条は使用の制限か、ライセンスが法の語を作り直すこと）** | `2025-12-license-discuss-trpl-functional-output-observed.txt` |
 | 2025-12 | `license-discuss` | **観測（同じ会話から 2 通・同じ誤解がほぼ月に一度来ること、出力への条件は契約でしか働かず同意した者しか縛らないこと）** | `2025-12-license-discuss-trpl-once-a-month-and-contract-observed.txt` |
 | 2025-07〜10 | `license-review` | **観測（PPPL BSD-3 の提出から 4 通・名前だけが違う同じライセンスは承認しない、著作権者の表示はライセンスの外に置く、名は steward が決める）** | `2025-07-to-10-license-review-pppl-same-license-new-name-observed.txt` |
+| 2025-07 | `license-review` | **観測（The Better Attribution License の審査から 1 通・Chestek 氏 2025-07-19・起草の型）** | `2025-07-license-review-better-attribution-chestek-drafting-conventions-observed.txt` |
 | 2025-08 | `license-review` | **観測（Berkus 氏の 1 通・撤回不能の明記は少し冗長、撤回の実例は無い）** | `2025-08-license-review-mit-i-berkus-irrevocable-redundant-observed.txt` |
 | 2026-03 | `license-review` | **観測（CNRI-Python-GPL-Compatible の提出から 4 通・clickwrap の文と OSD 10、同意の別の道が在れば反しないという読み）** | `2026-03-license-review-cnri-python-clickwrap-osd10-observed.txt` |
 | 2026-01 | `license-discuss` | **観測（Project Tick の草案から Perens 氏の 1 通・選択で起動する条項はライセンスを増やす、提出の前に法律家を使え）** | `2026-01-license-discuss-project-tick-attorney-observed.txt` |
@@ -259,6 +260,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2013-08 | `license-discuss` | **観測（Rosen 氏の 1 通・OWFa の後継者を縛る約束、倒産法 365(n)、迂回しない約束）** | `2013-08-license-discuss-owfa-successors-bankruptcy-observed.txt` |
 | 2016-06 | `license-review` | **観測（Moritz30 の提出から 6 通・読めなければ適合しないと推定する、法律家への相談を要件にしない、長い語は効くために要る）** | `2016-06-license-review-moritz30-unclear-means-nonconformant-observed.txt` |
 | 2025-02 | `license-review` | **観測（ModelGo への Berkus 氏の所見 1 通・機械学習の条項に AI を作る実務家の読みを、英語に母語話者の編集者を）** | `2025-02-license-review-modelgo-berkus-practitioner-review-observed.txt` |
+| 2025-02 | `license-review` | **観測（MGB 1.0 の審査から 1 通・Piana 氏 2025-02-24・前例は論拠にならない）** | `2025-02-license-review-mgb-piana-no-stare-decisis-observed.txt` |
 | 2026-08 | `license-review` | **観測（OpenMDW の審査から 3 通・著作権の反訴による終了は公平か、ソフトウェアでないものに及ぶライセンスを「ソフトウェアなら」の基準だけで量らない）** | `2026-08-license-review-openmdw-antisuit-and-non-software-observed.txt` |
 | 2026-08 | `license-review` | Villa 氏 2026-08-14 | `2026-08-license-review-openmdw-villa-mpl2-defensive-clause-observed.txt` |
 | 2024〜2026 | `license-review` | **観測（ドシエが引いていなかった決める側の 6 通・前例を論拠にするな、精確な語は品質の問題、AI 生成の表示はファイル単位で、完全な許諾は全法域の動詞を持つ）** | `2024-to-2026-license-review-unquoted-decider-messages-observed.txt` |
@@ -287,7 +289,10 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2002-11 | `license-discuss` | **観測（"time frame between request for approval …" から 1 通・Rosen 氏 2002-11-21）** | `2002-11-license-discuss-time-frame-rosen-no-legal-blessing-observed.txt` |
 | 2016-12 | `license-discuss` | **観測（React の別ファイルの特許許諾と、CC0 に添える特許の文言・4 通）** | `2016-12-license-discuss-react-patents-and-cc0-patent-language-observed.txt` |
 | 2025-05〜12 | `license-review` | **観測（ModelGo の再提出の審査から、出力・AI の語彙・権利の列挙・3 通）** | `2025-05-to-12-license-review-modelgo-outputs-and-vocabulary-observed.txt` |
+| 2025-05 | `license-review` | **観測（Tiwaz License の審査から 1 通・Piana 氏 2025-05-28・自分で使わない新しいライセンスは知的な演習）** | `2025-05-license-review-tiwaz-piana-intellectual-exercise-observed.txt` |
 | 2023-11〜2024-01 | `license-review` | **観測（Blue Oak の審査から承認の告知まで・6 通）** | `2023-11-to-2024-01-license-review-blue-oak-approval-observed.txt` |
+| 2024-01 | `license-discuss` | **観測（SADL への意見の求めから 1 通・Smith 氏 2024-01-29・法律家のレビューは提出の要件）** | `2024-01-license-discuss-sadl-smith-legal-review-requirement-observed.txt` |
+| 2024-01 | `license-discuss` | **観測（SADL への意見の求めから 1 通・Perens 氏 2024-01-29・法律家の作ったライセンス・献呈）** | `2024-01-license-discuss-sadl-perens-legal-professional-observed.txt` |
 | 2018-11 | `license-discuss` | **観測（OSD は特許にも及ぶという言明と、特許を含む定義の案・3 通）** | `2018-11-license-discuss-osd-and-patents-observed.txt` |
 | 2017-01〜04 | `license-discuss` | **観測（人気の一覧の作り方の提案と返信・3 通）** | `2017-01-to-04-license-discuss-systematic-approach-popular-licenses-observed.txt` |
 | 2024-11 | `license-discuss` | **観測（学術医療機関が特許の許諾を狭める案・3 通）** | `2024-11-license-discuss-academic-medical-center-patents-observed.txt` |
@@ -383,6 +388,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2019-03 | `license-review` | **観測（Fontana 氏の 1 通・v1.4 を共同体の合意と改訂の見込みの無さを理由に却下）** | `2019-03-license-review-cfsl-fontana-rejected-observed.txt` |
 | 2020-04 | `license-discuss` | **観測（Certifying MIT-0・3 通）** | `2020-04-license-discuss-certifying-mit0-observed.txt` |
 | 2025-03 | `license-review` | **観測（ModelGo の出力の通知の条項・4 通）** | `2025-03-license-review-modelgo-output-notice-observed.txt` |
+| 2025-03 | `license-review` | **観測（MGB 1.0 の 2 回目の出し直しから 1 通・Chestek 氏 2025-03-13・意図を言葉どおりに取る）** | `2025-03-license-review-mgb-chestek-take-you-at-your-word-observed.txt` |
 | 2014〜2024 | `license-discuss` | **観測（公有・特許・AI の 3 本から引いた 11 通）** | `2014-to-2024-license-discuss-public-domain-patents-ai-cited-observed.txt` |
 | 2011〜2017 | `license-discuss` / `license-review` | **観測（waive all rights と BSD + Patent から引いた 16 通・2 分割の 1/2 部）** | `2011-to-2017-license-lists-cc0-patents-and-bsd-patent-cited-observed-1of2.txt` |
 | 2011〜2017 | `license-discuss` / `license-review` | **観測（waive all rights と BSD + Patent から引いた 16 通・2 分割の 2/2 部）** | `2011-to-2017-license-lists-cc0-patents-and-bsd-patent-cited-observed-2of2.txt` |

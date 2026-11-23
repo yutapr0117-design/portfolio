@@ -108,6 +108,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `LICENSES/ACD-OSI-BOTTLENECKS.md` | 525 | 700 | `advisory` | **承認を阻害する要因の唯一の canonical 一覧**（B1〜B14 + 2026-09-11 の掘削結果）。**2026-09-11 に 800 行を越え Check 454 が「早期警告が存在しない」と検出したので登録した** —— **黙らせるためではなく、BLOCKING (1,000) の手前で鳴らすため**に advisory を 900 に置く。越えたら**圧縮ではなくテーマ分割**で対処する（分析の切り出し先は `ACD-1.0.review-precedents.md`） **2026-09-13 に advisory を 900 → 950 へ上げた。理由を測ってから上げている** —— 当日の追加は B4 / B5 / B11 への「解消したときに失うもの」欄 **計 54 行**で、**それを除くと 860 行＝予算内**。つまり**超過は冗長さではなく分析の分**である。**圧縮も検討して退けた**: 冒頭 30 行の掘削サマリは「register の各項目はこれを前提に読む」という読み順を与えており、20 行を買うために削るのは**圧縮で黙らせる**ことにあたる。**分割も退けた** —— 本文が「**この文書が唯一の canonical なボトルネック一覧である**」と宣言しており、**割ると単一ソース性そのものを壊す**。**次に鳴ったときの分割線は決めてある**: **索引 + status（短い面）** と **bottleneck ごとの深い分析（長い面）** で割る |
 | `LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md` | 594 | 800 | `advisory` | **register のうち「外の答えに依存する 7 項目」の深い分析**（B1+B2 / B4 / B5 / B7 / B10 / B11 / B14）。**2026-09-14 に register が 957 行で advisory (950) を鳴らしたので分割した。** **⚠ 分割線は前日に測らずに書いた線とは違う** —— 「索引+status / 深い分析」で割ると **85 / 871** で受け皿が即座に再び鳴る。**測ってから「行為主体で割る」へ変えた（370 / 586）。** **索引・分類・集計は分離しない** ——本文が「唯一の canonical なボトルネック一覧」と宣言しており、一覧＝索引の表だから |
 | `LICENSES/PEER-REVIEW-WATCH.md` | 896 | 950 | `advisory` | 同時代 instrument（OpenMDW / ModelGo）の経過観察と、**アーカイブ取得の手順・取得済みの窓・そこで得たもの**。2026-09-15 に両アーカイブの全期間取得を実測したので、**窓は取得の制約ではなく「何を測ったか」の記録**になった |
+| `LICENSES/rounds/README.md` | 803 | 900 | `advisory` | **`rounds/` の受領文の在庫表**（1 通 1 行・`add_round.py` が日付の位置へ行を差し込む）。**2026-11-23 に 803 行で Check 454（>800 行は登録必須）に当たったので登録した**（portfolio-d7・採掘で受領文を 1 日に 20 通足した）。受領文が増えるたびに 1 行ずつ育つ側の file で、1,000 行（Check 365）の手前で年の帯ごとの分冊へ移す（機械層の fc に分け方を依頼した） |
 | `LICENSES/AUDIT-LEDGER.md` | 613 | 900 | `advisory` | 手で回す道具（引用照合・アーカイブ全数調査・文長測定など）を回した結果の台帳。**回すたびに 1 節伸びる追記型**なので、900 で早期警告し、1,000 の手前で古い節を archive へ分ける |
 | `LICENSES/AUDIT-LEDGER-ARCHIVE.md` | 298 | 900 | `advisory` | **`AUDIT-LEDGER.md` から退避した日付つきの回**（2026-09-27 / 09-27〜28 / 10-10）。**2026-11-01 に本台帳が 898 行（advisory の 2 行手前）に達したので先回りで分けた**。本文は無改変で移しており、新しい回は本台帳へ足す |
 | `LICENSES/ACD-1.4-CLARITY-TRIAL.md` | 884 | 900 | `advisory` | **1.4 草案の明瞭性の試作の記録**（Before / After・反例・比較）。試作の族ごとに節が増えるので、1,000 行の前に鳴らす。伸びたら節の単位で分ける |
@@ -662,6 +663,7 @@ LICENSES/ACD-1.0.board-decisions.md | 700 | advisory
 LICENSES/ACD-OSI-BOTTLENECKS.md | 700 | advisory
 LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md | 800 | advisory
 LICENSES/PEER-REVIEW-WATCH.md | 950 | advisory
+LICENSES/rounds/README.md | 900 | advisory
 LICENSES/AUDIT-LEDGER.md | 900 | advisory
 LICENSES/AUDIT-LEDGER-ARCHIVE.md | 900 | advisory
 LICENSES/ACD-1.4-CLARITY-TRIAL.md | 900 | advisory

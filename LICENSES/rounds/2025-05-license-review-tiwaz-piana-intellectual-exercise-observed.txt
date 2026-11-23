@@ -1,0 +1,211 @@
+Source: OSI license-review public archive, 2025-May.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 9 in "Request for OSI Approval: Tiwaz License, version 1.0 (New License)" (2025-05-26)
+Senders: Carlo Piana
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From carlo at piana.eu  Wed May 28 08:55:15 2025
+From: carlo at piana.eu (Carlo Piana)
+Date: Wed, 28 May 2025 10:55:15 +0200 (CEST)
+Subject: [License-review] Request for OSI Approval: Tiwaz License,
+ version 1.0 (New License)
+In-Reply-To: 
+ <651e4db59886463fb0ecc208eb7978a7@ab00ed1007684103992c9a753c93ddcb>
+References: 
+ <651e4db59886463fb0ecc208eb7978a7@ab00ed1007684103992c9a753c93ddcb>
+Message-ID: <1269632539.50816311.1748422515889.JavaMail.zimbra@piana.eu>
+
+If I understand correctly, the main difference with MPL is the avoidance of the license compatibility of the license. 
+
+While I believe that the license compatibility is indeed a good feature of the MPL that makes it one of the most viable licenses in the file-level copyleft realm, and possibly the best, this is obviously a matter of personal preference and my disagreement with the criticism should not fetter the discussion of the technical choice. 
+
+May I point out, however, that the license compatibility can be opted out, removing at least in part the rationale for putting forward this license. Admittedly, the way the opt out is done is not clear and I have seen bad and confusing strict uses that required interaction with the owner of the project, but this is more a matter of poor use of the licensing statement than a flaw of MPL. 
+
+Therefore, I believe this license scores negative points in terms of proliferation. See also the remarks in the last paragraph. 
+
+Coming to a technical analysis, while by substantially reusing MPL would lessen the burden of reviewing any single sintagma of the license, I am not sure 10.1-10.3 is legit. In the original version, OK, but I think you should retain the original disclaimer of Mozilla (the author and ostensibly copyright holder of the license) and if anything *add* a requirement to distinguish from your derivative version of the license, by claiming -- I guess -- some kind of trademark protection over the name to avoid confusion. This would be consistent with 10.3 of the MPL. I would check with them they are ok with it. 
+
+This is exactly one of the things a lawyer would probably have noticed as deserving more attention. 
+
+Also, I am personally not impressed by the idea that someone offers a new license not for using it as copyright holder, but just to offer a new variant or license in case some projects wanted and have been advised to adopt it. Until there is some appetite by actual projects, submitting it appears to be nothing but an intellectual exercise, not meeting the bar for eliciting the attention of OSI and approve it. I would welcome contrarian arguments. 
+
+Cheers 
+
+Carlo 
+
+> Da: "Loncothad" <me at loncothad.cc>
+> A: "license-review at lists.opensource.org" <license-review at lists.opensource.org>
+> Inviato: Martedì, 27 maggio 2025 0:57:37
+> Oggetto: [License-review] Request for OSI Approval: Tiwaz License, version 1.0
+> (New License)
+
+> Dear OSI License Review Board,
+
+> I am writing to request the review and approval of the "Tiwaz License, version
+> 1.0" as a new Open Source Initiative (OSI) approved license. I believe this
+> license aligns with the Open Source Definition and offers a valuable option for
+> the open source community.
+
+> This license comes as a stricter and disambiguated version of the "Mozilla
+> Public License Version 2.0". More info on that in the README of the main
+> repository of the "Tiwaz License, version 1.0" - [
+> https://github.com/tiwaz-license/version-1.0/blob/draft/README.md |
+> https://github.com/tiwaz-license/version-1.0/blob/draft/README.md ] .
+
+> I am contacting you on behalf of the Tiwaz Project as the owner of the domain
+> (https://tiwaz.fyi/, currently empty website) and the GitHub organization
+> (https://github.com/tiwaz-license/).
+
+> 1. License Name:
+> Tiwaz License, version 1.0
+
+> 2. License Text:
+> The full license text can be found at [
+> https://raw.githubusercontent.com/tiwaz-license/version-1.0/refs/heads/draft/LICENSE.txt
+> |
+> https://raw.githubusercontent.com/tiwaz-license/version-1.0/refs/heads/draft/LICENSE.txt
+> ] . I'm also attaching it as a LICENSE.txt file in the attachments.
+
+> 3. Affirmation of Compliance with the Open Source Definition (OSD):
+> The Tiwaz License, version 1.0 complies with the Open Source Definition, as its
+> progenitor, the Mozilla Public License Version 2.0, does.
+
+> * It meets OSD 3 (Derived Works): The license explicitly permits modifications
+> and derived works. Section 2.1 grants the right to "modify... its
+> Contributions." Section 3.1 mandates that any distribution of Covered Software,
+> including "Modifications that You create or to which You contribute, must be
+> under the terms of this License." Section 3.2 ensures that if an Executable
+> Form is distributed, its Source Code Form remains available under this License
+> and that terms for the Executable Form do not limit rights to the Source Code
+> Form.
+
+> * It meets OSD 5 (No Discrimination Against Persons or Groups): The license
+> grants rights universally. The term "You" (Section 1) applies to "an individual
+> or a legal entity exercising rights under this License" without any
+> discrimination based on personal or group characteristics.
+
+> * It meets OSD 6 (No Discrimination Against Fields of Endeavor): The license
+> does not restrict the use of the software in any specific field. Section 2.1
+> grants broad rights to "use... and otherwise exploit its Contributions" for any
+> purpose.
+
+> * It meets OSD 9 (License Must Not Restrict Other Software): The license does
+> not impose restrictions on other software distributed alongside it. Section 3.3
+> allows You to "create and distribute a Larger Work under terms of Your choice,"
+> provided You comply with the Tiwaz License requirements for the "Covered
+> Software" component. A "Larger Work" (Section 1) explicitly combines Covered
+> Software with "other material... that is not Covered Software."
+
+> 4. Projects Currently Using the License
+> None as it was created just now because of the drawbacks of the MPL.
+
+> 5. License Steward and Submitter Details:
+
+> 5.1. License Steward
+> 5.1.1. Name: Tiwaz Project
+> 5.1.2. Contact: [ mailto:contact at tiwaz.fyi | contact at tiwaz.fyi ] or [
+> https://github.com/tiwaz-license | https://github.com/tiwaz-license ]
+
+> 5.2. Submitter
+> 5.2.1. Name: Sviatoslav
+> 5.2.2. Email: [ mailto:me at loncothad.cc | me at loncothad.cc ]
+> 5.2.3. Affilation: None
+> 5.2.4. Relationship to Steward: Author of the license
+
+> 6. Additional Information for License Review
+> The primary motivation for this license is to provide a clear, disambiguated,
+> and version-immutable option for developers, drawing from the robust structure
+> of MPL 2.0 but with distinct policy choices.
+
+> 7. Unique Identifiers
+
+> As a new license, it does not yet have an assigned SPDX identifier or a ScanCode
+> identifier. I would be happy to work with SPDX to obtain an identifier upon OSI
+> approval.
+> 8. Gap Filled by the New License:
+
+> The Tiwaz License, version 1.0 aims to fill a specific niche for developers
+> seeking:
+
+> * A modern, file-level copyleft license with explicit patent grants and a
+> defensive termination clause, similar in structure to the MPL 2.0.
+
+> * Strict version immutability: Unlike licenses that allow distribution under
+> "this version or any later version," (MPL 2.0 allows it too) the Tiwaz License
+> 1.0 (Section 10.2) mandates that software licensed under it must always be
+> distributed under that exact version. This provides absolute predictability of
+> terms for a given piece of software over its entire lifecycle, which some
+> developers and organizations find crucial.
+
+> * Simplicity through omission of direct GPL-family compatibility mechanisms:
+> Unlike MPL 2.0, the Tiwaz License 1.0 intentionally omits the "Secondary
+> License" framework. This simplifies the license text and its direct
+> application, creating a different compatibility profile. While Larger Works can
+> still incorporate Tiwaz-licensed code alongside GPL-licensed code (as separate
+> components), the Tiwaz-licensed files themselves do not have a direct path to
+> be relicensed under GPL terms via the license itself.
+
+> 9. Comparison with Similar OSI-Approved Licenses:
+> The most similar OSI-approved license is the Mozilla Public License Version 2.0,
+> which is the progenitor to this license.
+
+> Key differences:
+
+> * Version immutability: Tiwaz License 1.0 mandates distribution only under the
+> originally received version. MPL 2.0 (Section 10.2) permits distribution under
+> the original version or any later version published by the steward. This is the
+> most significant policy difference.
+
+> * Tiwaz License 1.0 does not include definitions for "Secondary License" or
+> "Incompatible With Secondary Licenses," nor the associated provisions found in
+> MPL 2.0 (e.g., MPL 2.0 Section 3.3, Exhibit B) that allow MPL 2.0 covered code
+> to be distributed under certain GPL-family licenses when part of a Larger Work.
+> This makes the Tiwaz License 1.0 text simpler in this regard but alters its GPL
+> compatibility characteristics.
+
+> * Notices (Section 3.4): The Tiwaz License 1.0 does not include MPL 2.0's
+> explicit clause allowing alteration of notices to remedy known factual
+> inaccuracies. This is a minor difference making Tiwaz 1.0 slightly stricter on
+> notice alteration.
+
+> * Removed Section 2.4 (Subsequent Licenses): Due to the strict version
+> immutability in 10.2, the clause corresponding to MPL 2.0's Section 2.4 (which
+> clarifies contributor obligations if a later license version is chosen) was
+> removed as it became contradictory.
+
+> 10. Legal Review
+
+> The Tiwaz License, version 1.0 was drafted by me based on the already
+> established open source license patterns (specifically MPL 2.0) with specific
+> policy changes. It has not undergone a formal review by legal counsel but given
+> the nature of the license I don't think it is necessary. I welcome the rigorous
+> review process of the OSI and am open to feedback from legal experts.
+
+> ---
+
+> I believe the Tiwaz License, version 1.0 meets the requirements for OSI approval
+> and offers a useful, clear, and dependable option for the open source
+> community. I look forward to your feedback and am available to answer any
+> questions you may have.
+
+> P.S. I have no affiliation with the Mozilla Foundation or their projects.
+
+> Sincerely,
+
+> Sviatoslav, a.k.a. loncothad
+> [ mailto:me at loncothad.cc | me at loncothad.cc ]
+
+> Contact Tiwaz Project at: contact at tiwaz.fyi
+
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily
+> those of the Open Source Initiative. Communication from the Open Source
+> Initiative will be sent from an opensource.org email address.
+
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20250528/3c9c13b2/attachment-0001.htm>

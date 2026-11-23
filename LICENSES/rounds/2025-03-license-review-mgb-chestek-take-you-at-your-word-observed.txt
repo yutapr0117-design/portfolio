@@ -1,0 +1,211 @@
+Source: OSI license-review public archive, 2025-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 11 in "2nd resubmission of the new MGB 1.0 license" (2025-03-04)
+Senders: Pamela Chestek
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Thu Mar 13 17:56:01 2025
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Thu, 13 Mar 2025 10:56:01 -0700
+Subject: [License-review] 2nd resubmission of the new MGB 1.0 license
+In-Reply-To: <BY5PR04MB6550B54C6138EA9D4846C782CED32@BY5PR04MB6550.namprd04.prod.outlook.com>
+References: <BY5PR04MB6550B54C6138EA9D4846C782CED32@BY5PR04MB6550.namprd04.prod.outlook.com>
+Message-ID: <e657b6be-3bc7-b369-09c9-3a179a27d0d5@chesteklegal.com>
+
+You are talking yourself out of approval. What you are failing to 
+understand is that we are trying to find a way to approve your license. 
+License-review is not going to approve a license that allows a patent 
+infringement claim against a user of the licensor's unmodified version 
+of the software under any theory. McCoy suggested that perhaps the OSI 
+could approve your license, despite your misunderstanding of patent law, 
+based on a belief that your interpretation of the license language is 
+not one a court would ever agree with and instead the court would 
+interpret it as a grant of a license under all infringement theories.
+
+But when you insist that your intention is */not /*to grant all rights 
+necessary, I am inclined to take you at your word, which means your 
+license should not be approved.
+
+Pam (in my personal capacity)
+
+Pamela S. Chestek
+Chestek Legal
+PLEASE NOTE OUR NEW MAILING ADDRESS
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+On 3/13/2025 2:25 AM, Barksdale, Marvin wrote:
+>
+> Responding to the previous two notes ?
+>
+> 1.??????? > What about making it more generic to PII laws in general?? 
+> It's best to write licenses for posterity, and there's no way for us 
+> to predict what new data privacy laws may exist in the future.
+>
+> Although I understand the general desire to ?write licenses for 
+> prosperity,? it appears the drafters of several popular osi licenses 
+> have similarly looked to strike a balance between evergreen language 
+> and utilizing critical statutory definitions which are relevant to 
+> industry standards in licensing. This practice has even extended as 
+> far as historical statutory definitions that are 20+ years old, 
+> ?deemed relevant to the practices and standards of the time:
+>
+> *OSET Public License version 2.1 (2015): ?*The Covered Software is a 
+> ?commercial item,? as that term is defined in 48**C.F.R. 2.101 (/Oct. 
+> 1995/), consisting of ?commercial computer software? and ?commercial 
+> computer software documentation,? as such terms are used in 48 C.F.R. 
+> 12.212 (/Sept. 1995). /Consistent with 48 C.F.R. 12.212 and 48 C.F.R. 
+> 227.7202-1 through 227.7202-4 (/June 1995/), all U.S. Government End 
+> Users acquire Covered Software with only those rights set forth herein.?**
+>
+> *NASA Open Source Agreement v1.3*: (2004)**?Modification means any 
+> alteration of, including addition to or deletion from, the substance 
+> or structure of either the Original Software or Subject Software, and 
+> includes derivative works, as that term is defined in the Copyright 
+> Statute, 17 USC 101.?**
+>
+> *Common Development and Distribution License 1.0 (2004): * ?The 
+> Covered Software is a commercial item, as that term is defined in 
+> 48?C.F.R.?2.101 (Oct. 1995), consisting of commercial computer 
+> software (as that term is defined at 48 C.F.R. ?252.227-7014(a)(1)) 
+> and commercial computer software documentation as such terms are used 
+> in 48?C.F.R.?12.212 (Sept. 1995).? **
+>
+> In each of these licenses there was no way for the osi board to 
+> predict which new Federal Acquisition or IP laws may exist in the 
+> future, but a balance was made to define terms in a way that was 
+> relevant to the analysis at hand. Hopefully that can happen again with 
+> MGB 1.0
+>
+> 2. > I must say, although you say that [this] is your aim, the use of 
+> ?"embodied" over "infringed" doesn't do that.
+>
+> I?m not sure? where the misunderstanding ?lies here but I question if 
+> there is true understanding of my aim if the analysis is again 
+> shifting to ?contracting around patent exhaustion.? As I ?have 
+> ?stated, drafting language to ?alter licensees? patent rights in the 
+> identified claim or licensed software is not the aim. Thus patent 
+> exhaustion and the facts of Quinta/LGE and ?Helferich do not align 
+> with my MGB 1.0 goals, or the goals of similar patent grant language 
+> of the GNU v3 license. Both the language used in MGB 1.0 and GNU v3 
+> use different patent grant language than Apache 2.0, which 
+> individually narrows the subject invention (eg. what it applies to) of 
+> the patent grant, instead of altering patent rights to alter the use 
+> and sale of a given invention (Patent Exhaustion).
+>
+> Reviewing the Quinta/LGE fact pattern, in the License Agreement LGE 
+> authorized?Intel to make and sell?microprocessor?products using the 
+> patented inventions, but also stated that no license was granted to 
+> any third party for combining licensed products with other products 
+> (for example, for combining Intel microprocessor products with other 
+> parts of a computer).? Here LG?s first licensing step was to 
+> satisfactorily identify the licensed patented inventions, and then to 
+> use language to put controls on how the licensed patent rights could 
+> be used.? In the both the MGB 1.0 and the Apache 2.0, as patents can 
+> extend beyond the face of the claim, the patent grants attempts to 
+> identify exactly what claims the grant applies to. If the licenses 
+> were to patented IP versus to copywritten software with an ancillary 
+> patent grant, this specification of application would be unnecessary. 
+> ?In Apache the drafters are clear, ??such license applies only to 
+> those patent claims licensable by such Contributor that are 
+> necessarily infringed by their Contribution(s) alone or by combination 
+> of their Contribution(s) with the Work to which such Contribution(s) 
+> was submitted.? ?Similar to MGB 1.0, the Apache ?language is not 
+> attempting to alter how licensees can exercise their patent rights; 
+> they similarly are establishing what claims the grant of patent rights 
+> are applicable to. ??Thus, neither Apache 1.0 nor MGB 1.0 are 
+> violative of the patent exhaustion doctrine, and even though the 
+> Helferich license similarly uses the word embody, its license, like 
+> LGE?s, ?aimed to alter patent use, not narrow the subject of the grant 
+> itself. As the reach of patented inventions is beyond copyright?s 
+> ?fixed in a tangible medium? standard, clarifying the subject of the 
+> patent grant in a software license is appropriate under law, while, in 
+> contrast, attempting to contract around how you can use the patent 
+> violates the doctrine of patent exhaustion.
+>
+> It was also offered that the Apache 2.0?s patent grant is ?bounded by 
+> the copyright in the Work?. For reference, the Apache language is 
+> "where such license applies only ?to those patent claims licensable by 
+> such Contributor that are necessarily infringed by their 
+> Contribution(s) alone or by combination ?of their Contribution(s) with 
+> the Work to which such Contribution(s) was ?submitted" (where 
+> "Contribution" means "any work of authorship, ?including the original 
+> version of the Work and any modifications or ?additions to that Work 
+> or Derivative Works thereof, that is intentionally submitted to 
+> Licensor for inclusion in the Work by the copyright owner or by an 
+> individual or Legal Entity authorized to submit ?on behalf of the 
+> copyright owner.").? I do not agree with this ?bounded to Copyrights 
+> in the Work? reading of Apache. ?The language states ?such license 
+> applies only to THOSE PATENT CLAIMS licensable by such Contributor 
+> that are necessarily infringed by their Contribution(s) alone or by 
+> combination? with the Work?.? Thus if the grant applies to Patent 
+> Claims that are infringed by Contributor copyrights (as Patent Claims 
+> can contain copyrightable code), the grant is not bounded to Work?s 
+> copyrights, as the grant applies to Patent Claims, not the 
+> Contribution / Work itself.? In the Apache language, the function of 
+> ?that are necessarily Infringed by their Contribution,? is to identify 
+> what particular Patent Claims the grant applies to. ?Thus if a 
+> separate PATENT CLAIM ?is necessarily infringed (via DOE for example) 
+> by a Contribution / combination of the Work + Contribution, under 
+> Apache 2.0, the grant would extend to the separate patent claim.
+>
+> Although I have maintained that DoE is at the center of MGB?s 
+> alternative strategy, I have Never said contracting around it is my 
+> goal. Apache?s choice to identify the patent claims its grant applies 
+> to via patent infringement has always been at issue for AMCs who 
+> manage a patent portfolio, as well as MGB and our 10,000 researcher 
+> community. ?The goal is not to tell licensees what they can do with 
+> the software they are licensed, but to properly align the patent 
+> grant?s reach ?with the intended scope of open source distribution, 
+> the software itself.
+>
+> *__________________*
+>
+> Marvin Barksdale, JD
+>
+> Associate Director, Business Development and Digital Health, Innovation
+>
+> *Mass General Brigham*
+>
+> 399 Revolution Drive, Suite 955, Somerville, MA 02145
+>
+> Cell 347.217.8247
+>
+> Innovation.partners.org
+>
+>
+> The information in this e-mail is intended only for the person to whom 
+> it is addressed.? If you believe this e-mail was sent to you in error 
+> and the e-mail contains patient information, please contact the Mass 
+> General Brigham Compliance HelpLine at 
+> https://www.massgeneralbrigham.org/complianceline .
+>
+>
+> Please note that this e-mail is not secure (encrypted).? If you do not 
+> wish to continue communication over unencrypted e-mail, please notify 
+> the sender of this message immediately.? Continuing to send or respond 
+> to e-mail after receiving this message means you understand and accept 
+> this risk and wish to continue to communicate over unencrypted e-mail.
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20250313/f670e641/attachment-0001.htm>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: image002.jpg
+Type: image/jpeg
+Size: 13443 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20250313/f670e641/attachment-0001.jpg>

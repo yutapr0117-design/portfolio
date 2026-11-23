@@ -1,0 +1,58 @@
+Source: OSI license-review public archive, 2025-February.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-23)
+Messages: 1 of 8 in "Request for approval of the resubmitted new "MGB 1.0" license" (2025-02-21)
+Senders: Carlo Piana
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From carlo at piana.eu  Mon Feb 24 18:15:49 2025
+From: carlo at piana.eu (Carlo Piana)
+Date: Mon, 24 Feb 2025 19:15:49 +0100 (CET)
+Subject: [License-review] Request for approval of the resubmitted new
+ "MGB 1.0" license
+In-Reply-To: <84b05454-1fe9-42d7-939c-285aed820cb8@lexpan.law>
+References: <BY5PR04MB65509A9A72F56CC796AE6774CEC72@BY5PR04MB6550.namprd04.prod.outlook.com>
+ <84b05454-1fe9-42d7-939c-285aed820cb8@lexpan.law>
+Message-ID: <1688767557.11087695.1740420949313.JavaMail.zimbra@piana.eu>
+
+> Da: "McCoy Smith" <mccoy at lexpan.law>
+> A: "license-review at lists.opensource.org" <license-review at lists.opensource.org>
+> Inviato: Luned?, 24 febbraio 2025 17:15:02
+> Oggetto: Re: [License-review] Request for approval of the resubmitted new "MGB
+> 1.0" license
+> Some comments below on the DoE issue.
+> On 2/21/2025 9:42 AM, Barksdale, Marvin wrote:
+
+> [...]
+
+> Given that I believe the intent and actual effect of the language of AFL & OSL
+> -- as well as the actual effect of the language in MGB 1.0 under current law --
+> would be to encompass equivalents, this submission raises an interesting
+> question on license text vs license intent and approval of licenses. The patent
+> grant of AFL & OSL has already been approved, and MGB 1.0 attempts to use that
+> same language in its own grant.* Specifically, can the parol evidence of the
+> intent of the licensor in drafting language in a license be considered in both
+> the decision to approve or disapprove of a license, or for that matter in
+> interpreting the license itself later when it is used? I tend to think if a
+> license submitter submits a license with language that under prevailing law
+> does not violate the OSB (and which has been approved in the past as complying
+> with the OSB), but the licensor in submitting the license says they intend for
+> the license text to violate the OSD, the intent should play into approval even
+> if the text itself doesn't effectuate the intent. Which in this case, as I've
+> said before, the intent to carve out DoE from the license in my opinion
+> violates OSD and makes this license non-approvable, even if the language which
+> purportedly accomplishes that intent has previously been approved.
+This is a recurrent item of discussion. I submit that in a standard license, the intent of the drafter bears little to no weight in the interpretation of a legal instrument that is offered for the use of the many. It has little bearing also in a situation where it is being used only by the drafter. In any cases, being a matter of interpretation, which is heavily impacted by the relevant rules of the applicable law, it would be disingenuous by anyone to attempt any such interpretation, especially in the absence of an interested counterpart. Therefore, we, and the Licensing committee first and foremost, should interpret the license for what it says and according to the general understanding of similar wording, if there is a customary use of it in the trade. But the intent, both pro o against the OSD, should in principle not be considered, unless -- and this is a notable exception -- if it is expressly stated that one sought goal is against the OSD. Which includes carving out any rights which, under any legal theory or instrument, is required to fully exploit the grant and do Open Source. I long time ago have been guilty of attempting to do so, and I have long since repented of my nefarious deeds. 
+
+Despite we concentrate on legal text (maybe with an hammer-nail attitude), the main purpose of clearing a license is to certify that the text under scrutiny is a legal instrument that enables the obstacles coming from of "all rights reserved" default as well as from other potential obstacles coming from other instruments; so that the recipient is allowed to use of the freedoms that need to be granted. The scope of the licensing approval, in other words, is IMHO that of making sure that the software **is** Open Source, not that the license is compliant (the OSD is a means to an end). The software is Open Source if the distribution artifact grants everything that legally is required and if it provides everything that technically is necessary to use, study and modify, make copies and distribute original or derivatives. Anything that does limit or purports to limit the Open Source-ness of the software (as opposed to imposing conditions to foster it) is aiming short of Open Source and should be rejected because it falls short the most important test. 
+
+Finally, as it has been stated many times before, prior approval of similar language cannot be used as an argument to have another license approved. At most, it can serve as a discussion point. But there is no stare decisis here. 
+
+[...] 
+
+My two cents. 
+
+Carlo, in his own capacity. 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20250224/528f9edd/attachment.htm>
