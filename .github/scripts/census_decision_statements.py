@@ -21,7 +21,10 @@
 会話のうち、決める側の通で、その通単独ではドシエに 8 語連鎖が 1 つも無いもの (40 語以上) を会話ごとに並べる。
 **「引いていない」であって「読んでいない」ではない** —— 読んでも引かなかった通も出る。母数 (候補・読了・AS-OF の数) は
 動かさない。ドシエが一部だけ引いた大きな会話 (ModelGo 約 120 通) の残りの通が、どの一覧にも出なかった穴を埋める。
-各通は [日付, 差出人, 語数, 写しの file 名, Message-ID] (後の 2 つは 2026-11-16・2f の依頼: 件名を書き換えた通を写しから引く)。
+各通は [日付, 差出人, 語数, 写しの file 名, Message-ID, 点, 当たった B] (file 名と Message-ID は 2026-11-16・2f の依頼: 件名を
+書き換えた通を写しから引く。点と B は 2026-11-23・d7 の依頼)。**点 = B_TOPICS の語に当たった回数** (読む順の目安)。
+隣に `<out>.unquoted-decider.ranked.tsv` (通ごとの順位表・点の降順・日付・Message-ID で決定的) も出す。読んだ節は
+「ranked.tsv の 1〜N 位」と書けば、次の人が同じ通を引き直せる。
 
 `noreview`: `license-review` の提出 (件名が For Approval / Approval / Submission の
 スレッドの最初の通) のうち、提出者が本文で法的レビューの不在を自分で述べたものを数える。
@@ -398,7 +401,11 @@ def threads(out):
                     #   候補の閾値は会話全体の一致で見るので、ドシエが一部だけ引いた大きな会話 (license-review の ModelGo・
                     #   約 120 通) は候補の外に出て、残りの決める側の通がどの一覧にも出なかった。短い通 (40 語未満) は除く
                     if own_hits == 0 and len(text.split()) >= UNQUOTED_MIN:
-                        unquoted.append((_iso(date), sender.split("<")[0].strip().strip('"'), len(text.split()), fname, msgid))
+                        # 論点の点 (2026-11-23・d7 の依頼): B_TOPICS の語に当たった回数と、当たった B。§1.257 / §1.458 は
+                        #   「論点の語で点数づけし上位から読んだ」と書いたが点の付け方が無く、上位 100 を再現できなかった
+                        _bh = {b: len(re.findall(rx, text, re.I)) for b, rx in B_TOPICS.items()}
+                        unquoted.append((_iso(date), sender.split("<")[0].strip().strip('"'), len(text.split()), fname, msgid,
+                                         sum(_bh.values()), sorted(b for b, n in _bh.items() if n)))
             dec_text = " ".join(own_text(x[4]) for x in g if DECIDERS.search(x[2]))
             row_b = sorted(b for b, rx in B_TOPICS.items() if re.search(rx, dec_text, re.I))
             row = {"b_topics": row_b, "title": g[0][3], "first": g[0][1], "start": start, "key": key,
@@ -499,6 +506,16 @@ def threads(out):
     outside_unq = sorted((r for r in rows if (r["key"], r["start"]) not in known and r["unquoted_decider"]),
                          key=lambda r: (-len(r["unquoted_decider"]), r["start"]))
     json.dump(outside_unq, open(str(out) + ".unquoted-decider.json", "w"), ensure_ascii=False, indent=0)
+    # 通ごとの順位表 (2026-11-23・d7 の依頼): 点 (B_TOPICS の語の回数) の降順・日付・Message-ID で決定的に並べる。
+    #   読んだ節は「ranked.tsv の 1〜N 位 (点 ≥ X)」と書けば、次の人が同じ通を引き直せる。点は読む順の目安で、論点の判定ではない
+    _flat = sorted(((m, r["title"]) for r in outside_unq for m in r["unquoted_decider"]),
+                   key=lambda x: (-x[0][5], x[0][0], x[0][4] or ""))
+    with open(str(out) + ".unquoted-decider.ranked.tsv", "w", encoding="utf-8") as fh:
+        fh.write("rank\tscore\tdate\tsender\twords\tB\tfile\tmessage_id\ttitle\n")
+        for i, (m, title) in enumerate(_flat, 1):
+            fh.write(f"{i}\t{m[5]}\t{m[0]}\t{m[1]}\t{m[2]}\t{','.join(m[6])}\t{m[3]}\t{m[4]}\t{' '.join(title.split())[:120]}\n")
+    print(f"通ごとの順位表 (点 = B_TOPICS の語に当たった回数・点の降順): {out}.unquoted-decider.ranked.tsv "
+          f"({len(_flat)} 通・点 ≥ 5 は {sum(1 for m, _ in _flat if m[5] >= 5)} 通)")
     print(f"候補の外で、決める側の通のうちドシエに 8 語連鎖が無い通 ({UNQUOTED_MIN} 語以上) を持つ会話 {len(outside_unq)} 件・"
           f"その通 {sum(len(r['unquoted_decider']) for r in outside_unq)} 通: {out}.unquoted-decider.json")
     for r in outside_unq[:15]:
