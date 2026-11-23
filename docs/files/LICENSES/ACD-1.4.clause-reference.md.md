@@ -1,11 +1,11 @@
 ---
-file: LICENSES/ACD-1.4-CLAUSE-REFERENCE-DRAFT.md
+file: LICENSES/ACD-1.4.clause-reference.md
 audience: ai, human (新卒), 監査人, 第三者全般
 last-updated: 2026-11-08
 canonical-ref: LICENSES/ACD-1.4.txt / LICENSES/ACD-1.0.clause-reference.md / LICENSES/ACD-1.4-CHANGELIST.md
 ---
 
-# LICENSES/ACD-1.4-CLAUSE-REFERENCE-DRAFT.md
+# LICENSES/ACD-1.4.clause-reference.md
 
 ## What
 

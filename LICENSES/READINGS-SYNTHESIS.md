@@ -38,7 +38,7 @@ canonical-ref: LICENSES/REFLECTION-BACKFILL.md / LICENSES/ACD-1.4-THIRD-CLARITY-
 | 読みの節が起点で本文を変えた | T67・T69・T72（T73 は T72 の再改）・T82 | T67 は §12.2 の同意（`review-readings-2.md` §1.218・Sado 氏）、T69 は §2.6 の識別の形（`review-readings.md` §1.203・Piana 氏。形は portfolio-50 の反例で決まった）、T72 は前文の他の道具への評価の語（`review-readings-2.md` §1.251・Chestek 氏と Atkinson 氏）、T82 は §14.1 の全部免責の前に外せない責任の除外を置く（`review-readings-2.md` §1.258・Chestek 氏 2023 の「縮減を認めない国では句ごと無視される」。法に条件づける形は portfolio-9b の反例、*which nothing in Section 14 limits* は portfolio-30 の反例で決まった・`ACD-1.4-THIRD-CLARITY-TRIAL.md` の 15.22 節） |
 | 反例が起点で、読みの節が支えた | T64・T66・T71 | T64（§5.2(a) の回避の不行使・起点は portfolio-30 の反例、CAL の審査の Berkus 氏 2019 が支え）、T66（起点は `against.md` #280、`review-readings-2.md` §1.219 が逆側の材料）、T71（§8.3 の理由の文を外す・Chestek 氏の #295 の異議） |
 | 本文は変えない（その読みを本文の語が既に持つ） | 12 節 | 例: §2.6 は提出の行為を結びつけの根拠にしている（`review-readings-2.md` §1.232）、§6.4 は権利の存在を決めない（同 §1.250・THIRD 16.4 節）、§8.1 の主題の限定（`gap-measurements.md` §1.161）。THIRD の 14.39・14.40・14.43・15.2・15.6・15.10・15.23 節も読みの節を引いて「変えない」とした（15.23 は "irrevocable" の 4 か所・`review-readings-2.md` §1.260 の Berkus 氏 2025） |
-| 逐条の説明の行に材料として置いた | 36 節 | `ACD-1.4-CLAUSE-REFERENCE-DRAFT.md` の各条の行、THIRD の各節 |
+| 逐条の説明の行に材料として置いた | 36 節 | `ACD-1.4.clause-reference.md` の各条の行、THIRD の各節 |
 
 （最初の版は「本文を変えたのは 4 節」と書き、T66 を読みが起点のものに数えていた。portfolio-1c の整理で直した。）
 

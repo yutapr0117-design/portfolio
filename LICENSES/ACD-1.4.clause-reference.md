@@ -1,11 +1,11 @@
 ---
-file: LICENSES/ACD-1.4-CLAUSE-REFERENCE-DRAFT.md
+file: LICENSES/ACD-1.4.clause-reference.md
 audience: ai, human (提出者), 監査人, 採用検討者, 第三者全般
 last-updated: 2026-11-23
 canonical-ref: LICENSES/ACD-1.4.txt (この文書が説明する草案・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (1.0 の逐条・凍結版の説明として残す) / LICENSES/ACD-1.4-CHANGELIST.md (1.3 からの各変更の理由) / LICENSES/ACD-1.0.errata.md (1.0 の欠陥と、どの版で閉じたか)
 ---
 
-# ACD-1.4 草案 — 逐条リファレンス（全 16 節 80 条・下書き）
+# ACD-1.4 — 逐条リファレンス（全 16 節 80 条）
 
 ```
 本書の役割 : 1.4 草案について「この条項は何のためにあるのか」に全条項で答える
@@ -13,19 +13,20 @@ canonical-ref: LICENSES/ACD-1.4.txt (この文書が説明する草案・唯一�
 対象の版   : ACD-1.4.txt（2026-11-23 に確定・凍結）。行は確定前の草案で書き、その後の試作は
              各行の T 番号の段に足した。現在形で引く引用は 2026-11-23 に確定した本文で当て直した
              （「1.3 までは」「T.. の前は」と書いた経緯の引用と、審査者の発言は当時の語のまま）
-状態       : 下書き（文書名に DRAFT が残る）。入口（submission.md・REVIEWERS.md・README.md・
-             QUESTION-INDEX.md）が紹介する逐条は、まだ 1.0 の clause-reference である
+状態       : 確定した ACD-1.4 の逐条。入口（submission.md・REVIEWERS.md・README.md・
+             QUESTION-INDEX.md）が紹介する逐条をここへ向けるのは、提出対象を 1.4 へ切り替える
+             PR（議題 3）で行う
 ```
 
-## 0. この下書きについて
+## 0. この文書について
 
-1.0 の逐条リファレンス（`ACD-1.0.clause-reference.md`）は、1.0 の番号で 82 条を説明している。1.4 草案は 80 条である。1.1 で定義を並べ替え（errata E13）、§15 を整理したので、番号の違う条がある。中身も errata と各版の CHANGELIST の変更で変わった。1.0 の表は凍結版の説明として当時正しかったので直さず残し、本書は 1.4 草案について書き直した。1.0 と番号が違う条には「（1.0 の §x.y）」と書く。番号の対応の全表は `ACD-1.2-CHANGELIST.md` の「条項の対応表」にある（1.2・1.3・1.4 草案は同じ番号を使う）。
+1.0 の逐条リファレンス（`ACD-1.0.clause-reference.md`）は、1.0 の番号で 82 条を説明している。ACD-1.4 は 80 条である。1.1 で定義を並べ替え（errata E13）、§15 を整理したので、番号の違う条がある。中身も errata と各版の CHANGELIST の変更で変わった。1.0 の表は凍結版の説明として当時正しかったので直さず残し、本書は 1.4 草案について書き直し、確定した 1.4 に当て直した。1.0 と番号が違う条には「（1.0 の §x.y）」と書く。番号の対応の全表は `ACD-1.2-CHANGELIST.md` の「条項の対応表」にある（1.2・1.3・1.4 は同じ番号を使う）。
 
 **作り方（2026-11-08）**: 節ごとに、1.0 の表と 1.4 草案・CHANGELIST・errata を読んで書いた。そのあと別の読み手が 1.4 の本文に当て、引用が逐語か、条に過不足が無いか、番号の対応が正しいかを確かめて直した。最後に portfolio-00 が、1.0 の表から引き継ぐと誤る説明を 12 か所挙げ、それを該当する節に当てた。どれも読みであって、法律家の判断ではない。
 
 **完全性**: 草案の本文から条番号を抜き出し、80 条すべてに 1 行ずつあることを確かめた（2026-11-08）。内容の正しさは機械では守れない。草案の条文を変えた commit では、その条の行も同じ commit で直す。
 
-**逆側**: 草案は確定まで動くので、本書は確定の日に読み直しが要る。1.0 の逐条と並べて読む人は、同じ条番号が別の条を指す場合がある（§1・§15・§16）ことに注意が要る。
+**逆側**: 行は確定前の草案で書いたので、確定の後に変わった語は各行の T 番号の段で追う必要がある（現在形の引用は 2026-11-23 に当て直した）。1.0 の逐条と並べて読む人は、同じ条番号が別の条を指す場合がある（§1・§15・§16）ことに注意が要る。
 
 ---
 
@@ -224,5 +225,5 @@ sui generis データベース権。著作権とは別の権利なので、明�
 ---
 
 **Lost?** [`QUESTION-INDEX.md`](QUESTION-INDEX.md) indexes every worked entry in this directory by
-the question it answers. [`ACD-1.4-DRAFT.txt`](ACD-1.4-DRAFT.txt) is the text this page describes, and
+the question it answers. [`ACD-1.4.txt`](ACD-1.4.txt) is the text this page describes (frozen 2026-11-23), and
 [`ACD-1.0.clause-reference.md`](ACD-1.0.clause-reference.md) is the same kind of page for ACD-1.0.
