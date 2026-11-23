@@ -431,6 +431,11 @@ def run(ctx):
     if _sub472f.exists():
         _t472f = _sub472f.read_text(encoding="utf-8")
         _mk472f = re.search(r"<!--\s*SUBMISSION-TARGET:\s*(ACD-\d+\.\d+)\s*-->", _t472f)
+        # 置き換え中の記録の区画 (2026-11-23・議題 3b の C′): §B.0 の手紙は 1.0 について AI が書いた記録で、送る文ではない。
+        #   宣言の区画 (SUPERSEDED-LETTER … /SUPERSEDED-LETTER) だけを空白にして行の番号を保つ。宣言が無ければ今どおり照らす
+        _full472f = _t472f
+        _t472f = re.sub(r"<!--\s*SUPERSEDED-LETTER:[^>]*-->.*?<!--\s*/SUPERSEDED-LETTER\s*-->",
+                        lambda _m: re.sub(r"[^\n]", " ", _m.group(0)), _t472f, flags=re.S)
         _pats472f = [
             r"https://yutapr0117-design\.github\.io/portfolio/LICENSES/(ACD-\d+\.\d+)\.",
             r"Short [Ii]dentifier(?: requested)?[:*| ]+`?(ACD-\d+\.\d+)",
@@ -448,8 +453,8 @@ def run(ctx):
             for _p in _pats472f:
                 # [2026-11-08] 欄ごとに 1 つ以上在ること。旧版は合計の下限 (10) だけで、欄の形が崩れると
                 #   その欄は比べられないまま黙って外れた (16 欄のうち 6 欄まで)
-                if not re.search(_p, _t472f):
-                    _bad472f.append(f"欄が読めない: {_p[:40]}")
+                if not re.search(_p, _t472f) and not (_full472f != _t472f and re.search(_p, _full472f)):
+                    _bad472f.append(f"欄が読めない: {_p[:40]}")  # 記録の区画の中にだけ在る欄 (件名・手紙の冒頭) は求めない
                 for _m in re.finditer(_p, _t472f):
                     _seen472f += 1
                     for _g in _m.groups():

@@ -594,8 +594,10 @@ MUTATIONS_ARCHIVE3 = [
             "在るので番号の存在しか見ない Check 472 は通すが、*\"except by the Steward\"* は 1.0 に無く、"
             "審査者は存在しない条文を読まされる (against.md #160 の実例)",
     "file": ROOT / "LICENSES" / "ACD-1.0.submission-osd.md",
-    "find": "**Applies identically to every distributor of the text, the steward included.**",
-    "replace": "**Applies identically; §16.4 reads *\"except by the Steward\"*.**",
+    # 2026-11-23: 提出対象を 1.4 へ切り替え、§16.4 の行は 1.4 の Steward の例外を述べる形に書き直された (議題 3)。
+    #   1.0〜1.3 にだけ在る語句 (*"terminates for any reason"*) を、版を名乗らずに 1.4 の条の行へ引かせる
+    "find": "**Applies identically to every recipient.** It is a limit of",
+    "replace": "**Applies identically to every recipient** (*\"terminates for any reason\"*). It is a limit of",
 },
     {
     "name": "Check 467c (発信停止の現在形): 再開後の入口 README に「停止している」を戻す —— 467 の状態の面は"

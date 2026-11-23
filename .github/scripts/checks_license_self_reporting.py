@@ -451,7 +451,7 @@ def run(ctx):
             elif int(_mi1.group(1)) != _rows460 or int(_mi1.group(2)) != _rows460:
                 _bad460.append(f"submission-reference.md §4c の不利な事実: 申告 {_mi1.group(1)}–{_mi1.group(2)} / "
                                f"実測 {_rows460}")
-            _md_i = _L460 / "ACD-1.0.machine.json"
+            _md_i = _L460 / f"ACD-{__import__('_lib_dossier').submission_target_version(_L460)}.machine.json"  # 提出対象の版 (2026-11-23)
             _cnt = _json_clauses(_md_i) if _md_i.exists() else None
             if _cnt is not None:
                 _mi2 = re.search(r"\*\*(\d+) / (\d+)\*\*", _st)

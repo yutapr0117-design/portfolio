@@ -109,7 +109,7 @@ submitter's own (#4).
 ### A.1 Affirmative statement of OSD compliance
 
 OSI's process requires the submitter to "affirmatively state that the license complies with the
-Open Source Definition". **Stated plainly: I affirm that ACD-1.0 complies with the Open Source
+Open Source Definition". **Stated plainly: I affirm that ACD-1.4 complies with the Open Source
 Definition.** The criterion-by-criterion analysis is in §3, and **§3b sets out, for each of the ten
 criteria, where a reviewer could still argue the opposite** — the affirmation is not offered in
 place of that, and nothing in §3b is withdrawn by making it.
@@ -167,6 +167,9 @@ Open Source Definition, and to say where the licence is used.
 ---
 
 ### B.0 The message as it should actually be sent (**1743 words**, measured 2026-11-07)
+
+<!-- SUPERSEDED-LETTER: ACD-1.0 -->
+> **Superseded record — not to be sent (2026-11-23, decision 3b of the five, 5/0/0).** The letter below was drafted for ACD-1.0 by an AI. The submission target is now ACD-1.4, and the owner writes the message to the list in his own words (B14, gate 0). This section is being replaced by a list of facts for him to draw on; until then the letter stays as a record of what was prepared for 1.0, and the checks that read the message to be sent (472f, 472o) skip it.
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -461,6 +464,8 @@ Thank you for your time.
 Yuta Yokoi
 
 ---
+
+<!-- /SUPERSEDED-LETTER -->
 
 ### B.1 Reference material behind the message (**not for pasting**)
 
