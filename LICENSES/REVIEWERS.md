@@ -176,10 +176,11 @@ the English change list each draft carried, kept word for word in the appendix o
 also [`CHANGES-ACD-1.4.txt`](CHANGES-ACD-1.4.txt). Every word changed from 1.0: [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt).
 
 **Clause numbers do not transfer cleanly between 1.0 and its successors, and this matters when you read the
-analysis below, which is written against 1.0.** Measured, not assumed:
+analysis in this directory, much of which was written against 1.0; this page cites ACD-1.4.** Measured, not assumed:
 
-- **§2 to §14 — every clause number means the same thing in both texts.** The citations on
-  this page (§4.4, §6, §8.4, §9, §10.1) are therefore good for either.
+- **§2 to §14 — every clause number names the same subject in both texts, but several of those clauses were
+  substantially rewritten**, among them §2.2, §2.6, §2.8, §2.9, §5.3, §8.4, §8.6, §12.2 and §14.2. A sentence quoted from
+  one version is therefore no evidence of the other; [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt) shows each change.
 - **§1's definitions were reordered, so four of them changed number.** Matched by defined term:
   1.0's §1.2 *Work* is 1.2's §1.3, §1.3 *Dedicator* is §1.4, §1.4 *You* is §1.6, and §1.6 *Moral
   Rights* is §1.2. **The numbers all exist in both, so nothing dangles — they simply mean
@@ -332,7 +333,7 @@ reading: a second pass found new ones. That a reading does not stand is our judg
 | | File | Note |
 |---|---|---|
 | **What is blocking approval** | [`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) | **The register. Mostly Japanese; it opens with a full index in English.** Each item says why it is an approval problem, what is fact and what is inference, the smallest resolution, what would be lost, and who can move it — **four are marked highest severity, and none of them is repaired by editing the licence**: no legal review (B1) and one adopter (B2) advance only by submitting and by time; whether the gap justifies a new licence is OSI's call (B10); and the moderators' notice about AI-written posts is for OSI as an organisation to decide (B14). Its summary line is derived from the table by a CI check, so it cannot quietly understate what is left |
-| **Which known objections land** | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **In English.** Every objection **we have found** in the `license-review` / `license-discuss` archives of the last two years **that bears on a public-domain-equivalent or AI-facing instrument**, plus the older statements that decide this submission — found by a subject census plus reading the threads that matched, which is **a floor, not a census of every objection ever raised** (#87). Whether each applies to ACD-1.0, and — for the ones that do not — the clause that answers it. **Objections that land are listed first** |
+| **Which known objections land** | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **In English.** Every objection **we have found** in the `license-review` / `license-discuss` archives of the last two years **that bears on a public-domain-equivalent or AI-facing instrument**, plus the older statements that decide this submission — found by a subject census plus reading the threads that matched, which is **a floor, not a census of every objection ever raised** (#87). Whether each applies to ACD, cited by the clause numbers of ACD-1.4 (the readings were first made against 1.0, and the rows on clauses rewritten since were read again against 1.4 on 2026-11-24), and — for the ones that do not — the clause that answers it. **Objections that land are listed first** |
 | The licence itself | [`ACD-1.4.txt`](ACD-1.4.txt) | 701 lines, 16 sections. Plain ASCII, no placeholders in the clauses (one in §16.1's notice template). The text posted to the list is [`ACD-1.0.txt`](ACD-1.0.txt) (597 lines); [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt) shows the changes |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
