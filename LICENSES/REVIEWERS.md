@@ -223,9 +223,10 @@ are in `rounds/`; the analysis is `against.md` #119 and `ACD-OSI-BOTTLENECKS.md`
 reducing the disclosure in response.**
 
 The text is **frozen** while this is open. `LICENSES/FROZEN.md` exists to say so, and
-**Check 453 in CI pins the SHA-256 of twelve files** — the three submitted ones
-(`ACD-1.0.txt`, `ACD-1.0.spdx.xml`, `ACD-1.0.machine.json`) and two for each of the
-**frozen successors** (`ACD-1.1.txt`, `ACD-1.1.machine.json`, `ACD-1.2.txt`, `ACD-1.2.machine.json`, `ACD-1.3.txt`, `ACD-1.3.machine.json`), none of them
+**Check 453 in CI pins the SHA-256 of twelve files** — the three posted ones
+(`ACD-1.0.txt`, `ACD-1.0.spdx.xml`, `ACD-1.0.machine.json`), two for each of the earlier
+**frozen successors** (`ACD-1.1.txt`, `ACD-1.1.machine.json`, `ACD-1.2.txt`, `ACD-1.2.machine.json`, `ACD-1.3.txt`, `ACD-1.3.machine.json`), and three for
+ACD-1.4 (`ACD-1.4.txt`, `ACD-1.4.machine.json`, `ACD-1.4.spdx.xml`), none of them
 submitted for approval (ACD-1.4 is the one this repository applies) — so that an accidental edit fails the build rather than
 silently changing the text you are reading. If you find a defect in the text, it will be **reported, not quietly
 patched** — changing the wording underneath a live discussion would make your review of it
