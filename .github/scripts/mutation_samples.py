@@ -588,6 +588,13 @@ _MUTATIONS_TAIL.append({
     "find": "Counted on `REDLINE-1.0-TO-1.4.txt`: of ACD-1.4's ",
     "replace": "Counted on `REDLINE-1.0-TO-1.4.txt`: of ACD-1.4's 1",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 503: register の英語の索引の最初の \"Other side:\" の句の印を崩す —— 日本語の行に逆側を足しても英語の行が片側のまま"
+            "黙ってずれた (B1・2026-11-23 の議題 7)",
+    "file": ROOT / "LICENSES" / "ACD-OSI-BOTTLENECKS.md",
+    "find": "Other side: ",
+    "replace": "Other side — ",
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
