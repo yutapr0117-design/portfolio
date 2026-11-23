@@ -193,8 +193,9 @@ MUTATIONS_ARCHIVE6 = [
     {
     "name": 'Check 472f: 提出パケットの Version を 1.4-rc1 にする —— 欄の形が崩れると照合から黙って外れていた',
     "file": ROOT / 'LICENSES/ACD-1.0.submission.md',
-    "find": "Version:                        1.0\nShort Identifier:               ACD-1.0\nCopyleft:                       No\nLegacy or New:                  New License\nDrafted By Lawyer:              No\nApproved or Used by Projects:   One — the submitter's own repository",
-    "replace": "Version:                        1.4-rc1\nShort Identifier:               ACD-1.0\nCopyleft:                       No\nLegacy or New:                  New License\nDrafted By Lawyer:              No\nApproved or Used by Projects:   One — the submitter's own repository",
+    # 2026-11-23: 提出対象を 1.4 へ切り替えた (議題 3)。§A.0 の欄を提出対象の版から組み立てる (次の切り替えでも外れない)
+    "find": f"Version:                        {SUBMISSION_TARGET[4:]}\nShort Identifier:               {SUBMISSION_TARGET}\nCopyleft:                       No\nLegacy or New:                  New License\nDrafted By Lawyer:              No\nApproved or Used by Projects:   One — the submitter's own repository",
+    "replace": f"Version:                        1.4-rc1\nShort Identifier:               {SUBMISSION_TARGET}\nCopyleft:                       No\nLegacy or New:                  New License\nDrafted By Lawyer:              No\nApproved or Used by Projects:   One — the submitter's own repository",
 },
     {
     "name": 'Check 472i: 入口の表の register の行を #節 付きのリンクにして、日本語であることを消す —— #付きのリンクの行は読まれていなかった',
@@ -455,8 +456,9 @@ MUTATIONS_ARCHIVE6 = [
     {
     "name": 'Check 498 (d): §4c の条の行の分母を 81 にする —— 460 (n) は分子だけを掴み、分母は読み捨てていた',
     "file": ROOT / 'LICENSES' / 'ACD-1.0.submission-reference.md',
-    "find": '**82 / 82**, no gaps either way',
-    "replace": '**82 / 81**, no gaps either way',
+    # 2026-11-23: 提出対象を 1.4 にし、§4c の条の行は 1.4 の 80 / 80 になった (議題 3)。数に anchor しない (数は版で動く)
+    "find": '**, no gaps either way',
+    "replace": '1**, no gaps either way',
 },
     {
     "name": 'Check 498 (e): register の集計行に「解消済み 4」を書く —— 460 (m) は解消済みを読まず、有利な向きの偽が通った',

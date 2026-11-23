@@ -834,8 +834,9 @@ MUTATIONS_ARCHIVE5 = [
     {
     "name": "Check 472o: 送る本文の適合の宣言が別の版を述べる —— 472f の 16 欄の外で、切り替えた日に無音で残るところだった",
     "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": f"**I affirm that {SUBMISSION_TARGET} complies with the Open Source Definition**, and",
-    "replace": "**I affirm that ACD-1.1 complies with the Open Source Definition**, and",
+    # 2026-11-23: §B.0 の手紙は置き換え中の記録になり 472o が読まない (議題 3b)。§A.1 の宣言を打つ
+    "find": f"Stated plainly: I affirm that {SUBMISSION_TARGET} complies with the Open Source",
+    "replace": "Stated plainly: I affirm that ACD-1.1 complies with the Open Source",
     "check": CHECK,
 },
     {
