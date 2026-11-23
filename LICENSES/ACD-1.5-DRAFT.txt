@@ -29,6 +29,8 @@ ACD-1.5 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
   descriptors, and it must be closed again for each new version because each
   version carries its own descriptor), and E87 (Section 5.2(b) has no
   exception for an obligation not to make a false statement -- examined
+  and deliberately left as it is), and E88 (two statements of fact in the
+  preamble read as universal when lifted out of their paragraph -- examined
   and deliberately left as it is).
 
 --------------------------------------------------------------------------------
