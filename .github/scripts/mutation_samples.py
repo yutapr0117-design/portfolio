@@ -532,6 +532,13 @@ _MUTATIONS_TAIL.append({
     "find": "# census-definition: ",
     "replace": "# census-definition: 0",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 468y: 1.5 の試作の T135 の見出しを「§11.4 は変えない」にする —— 逐条の §11.4 の行は T135 に触れていないので RED に"
+            "なるはず。1.4 の確定の後、468y は名で決め打ちした SECOND / THIRD しか読まず、1.5 の試作を 1 つも読まなかった (2026-11-23)",
+    "file": ROOT / "LICENSES" / "ACD-1.5-CLARITY-TRIAL.md",
+    "find": "## 1. T135 —— §11.4 第 2 文の",
+    "replace": "## 1. T135 —— §11.4 は変えない。第 2 文の",
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
