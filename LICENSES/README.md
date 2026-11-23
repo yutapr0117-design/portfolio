@@ -10,7 +10,8 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 > **Reviewing the licence and cannot read Japanese?** Start at
 > **[`REVIEWERS.md`](REVIEWERS.md)** — it is in English, states the submission status, says which
 > documents are already in English, and gives the commands to verify every claim made here.
-> The authoritative text is [`ACD-1.0.txt`](ACD-1.0.txt); the case against approving it is
+> The licence this repository applies, and the one that would be submitted, is [`ACD-1.4.txt`](ACD-1.4.txt); the text posted to
+> `license-discuss` was [`ACD-1.0.txt`](ACD-1.0.txt), and [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt) shows what changed. The case against approving it is
 > [`ACD-1.0.against.md`](ACD-1.0.against.md), written by us.
 
 > **発信は 2026-09-17 に再開した**（オーナーが ACD-1.1 の短い Discussion Request を自分の言葉で `license-discuss` へ送った）。2026-09-09 から 09-17 までは止めていた —— OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と投稿したため（`ACD-1.0.against.md` #119 / `ACD-OSI-BOTTLENECKS.md` **B14**・逐語は `rounds/`）。**再開後の 1 通（2026-09-17）は moderation で拒否されており、リストに届いていない**（`against.md` #215・2026-09-23 に steward が提供した転記による。09-21 時点の「現れたかは未確認」は #192）。**単一ソースは `FROZEN.md` の `POSTING-STATUS` marker**で、**Check 467 が状態を述べる面と恒久の手続きの面を両方向で照合し、467c が「停止している」という現在形の残存を LICENSES 全体で禁じる。**
@@ -71,6 +72,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | **1.4 の確定テキスト（凍結・2026-11-23）—— このリポジトリに適用している版** | [`ACD-1.4.txt`](ACD-1.4.txt) —— **FROZEN / NOT SUBMITTED FOR APPROVAL**。2026-11-23 の時点ではどのリストにも出していない（投稿の記録は [`FROZEN.md`](FROZEN.md) の POSTING-STATUS）。条番号は 1.3 に従う。冒頭は適用状態を述べない。1.3 から変わった条と理由は [`CHANGES-ACD-1.4.txt`](CHANGES-ACD-1.4.txt)（英語）と下の変更記録 |
 | **1.3 → 1.4 の変更記録（確定の判断と、草案ヘッダの逐語を含む）** | [`ACD-1.4-CHANGELIST.md`](ACD-1.4-CHANGELIST.md) |
 | **その機械可読記述子（1.4）** | [`ACD-1.4.machine.json`](ACD-1.4.machine.json) / [`ACD-1.4.spdx.xml`](ACD-1.4.spdx.xml) |
+| **1.0 → 1.4 の条ごとの語の差（英語・80 桁）** | [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt) —— list に出した 1.0 から、適用している 1.4 への差。`make_redline.py` の出力で、入力が 2 つとも凍結なので変わらない |
 | **旧い草案の file 名（案内のみ・本文ではない）** | [`ACD-1.4-DRAFT.txt`](ACD-1.4-DRAFT.txt) —— 凍結済みの 1.3 が名指すので残した |
 | **次版の草案（作業場）** | [`ACD-1.5-DRAFT.txt`](ACD-1.5-DRAFT.txt) |
 | **次版に反映するものの集約点（1.5）** | [`ACD-1.5-CHANGELIST.md`](ACD-1.5-CHANGELIST.md) |
