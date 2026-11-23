@@ -13,8 +13,9 @@ MUTATIONS_ARCHIVE4 = [
     "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
     # anchor は件数そのものを含めない（件数は file 追加のたび動き anchor が orphan 化する）。
     # 数字の直前に "9" を差し込んで値を変える＝実測と必ず食い違う。
-    "find": "OK メッセージ `all ",
-    "replace": "OK メッセージ `all 9",
+    # 2026-11-23: 行は数を持たず「all N tracked files」と引く形になった。N を数へ戻す形を打つ
+    "find": "`all N tracked files have a 1-to-1 docs/files mirror`",
+    "replace": "`all 284 tracked files have a 1-to-1 docs/files mirror`",
     "check": CHECK,
 },
     {
