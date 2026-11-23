@@ -464,7 +464,7 @@ rule of thumb であって規則でもない。**
 >
 > | | OpenMDW-1.1 | MG0-2.0 | MG-BY-2.0 | ACD-1.0 |
 > |---|---|---|---|---|
-> | Subject matter | Model Materials (model + data + docs + software) | Model + Complementary Materials; **pretraining data excluded** | same as MG0 | any Work; data, metadata, audiovisual named (§1.2) |
+> | Subject matter | Model Materials (model + data + docs + software) | Model + Complementary Materials; **pretraining data excluded** | same as MG0 | any Work; data, metadata, audiovisual named (§1.3) |
 > | Copyright | yes | yes | yes | §3 surrender, §4 licence |
 > | Patent | yes, incl. indirect infringement | yes | termination clause; grant not stated in the same terms | §8.1, and §8.4 reaching models and outputs |
 > | Database rights | yes | yes | yes | §7 (sui generis + unfair extraction) |
@@ -535,22 +535,28 @@ rule of thumb であって規則でもない。**
 ### §12.5 について、正確に述べる
 
 **§12.5 は「reach の限界」ではない。実際に利益を残す。** そう書くのが正しい
-（`clause-reference.md` は最初からそう書いていた）。**ただし残るのは §12.2 の法域だけである** ——
-§12.1 は人格権を**放棄**し、§12.2 は「人格権が放棄不能である法域では代わりに不行使を約束する」と
-定める。**§12.5 が外すのはその §12.2 の約束であって、§12.1 の放棄ではない。**
+（`clause-reference.md` は最初からそう書いていた）。**ACD-1.4 では、その利益は法域を問わず残る** ——
+ACD-1.4 の §12.1 は人格権を**放棄**し、§12.2 は不行使を約束して同意する。その約束と同意は
+*"given for every jurisdiction, whether or not Section 12.1 has effect there"*（T101）。§12.5 は、
+§11.3 に当たる行為（偽りの著作者表示）へ §12.1 の放棄も §12.2 の約束と同意も及ばないと定め、
+その利益は *"survives all three"* と書く。
 
-**帰結**: 放棄が有効な法域では、虚偽の帰属に対抗する利益も**放棄されている**。残るのは
-**法そのものが放棄を認めない法域だけ** ——つまり **どのみち渡せなかった場所でだけ残る**。
+**1.0 の形（記録として・書き換えない読み）**: 1.0 の §12.2 は「人格権が放棄不能である法域では
+1.0 の §12.1 に代えて不行使を約束する」で、1.0 の §12.5 が外すのはその約束だけだった。だから 1.0 では、
+放棄が有効な法域で虚偽の帰属に対抗する利益も**放棄されていて**、残るのは**法そのものが放棄を
+認めない法域だけ** ——つまり **どのみち渡せなかった場所でだけ残った**。
 
 ### この節が establish しないこと
 
 - **B4 は解決しない。** 献呈と許諾を並置してよいかは OSI の判断であり（class 10）、
-  承認済みライセンスがより強い条項を持つことは **ACD-1.0 が OSD に適合する証明にはならない**。
+  承認済みライセンスがより強い条項を持つことは **ACD-1.4 が OSD に適合する証明にはならない**。
   適合はライセンスごとに判断される。
-- **不利な読みが残る。** 虚偽の帰属に対抗する人格権が、パリでは残りカリフォルニアでは
+- **1.0 には不利な読みが在った。** 虚偽の帰属に対抗する人格権が、パリでは残りカリフォルニアでは
   放棄される —— **法域による非対称は、審査者が「一貫していない」と読みうる。**
-  §12.1 / §12.2 の設計（放棄できるところは放棄する）から必然的に出るものだが、
-  **必然であることは、そう読まれないことを意味しない。**
+  1.0 の §12.1 / §12.2 の設計（放棄できるところは放棄する）から必然的に出るものだったが、
+  **必然であることは、そう読まれないことを意味しない。** 偽りの著作者表示に対抗する利益については、ACD-1.4 は §12.5 でこの非対称を外した。
+  **逆側**: §12.5 の外の人格権では、§12.1 の放棄が効くかどうかは今も法域で違い、ACD-1.4 は
+  §12.2 の約束と同意でその差を埋めるが、約束・同意が放棄と同じ強さで効くかは法域の法による（B1）。
 
 ## 2. Copyleft 系（GPL / AGPL / LGPL / MPL / EUPL）
 
@@ -565,15 +571,15 @@ rule of thumb であって規則でもない。**
 >   and that source be made available. **AGPL-3.0** extends that to network use. Those are
 >   conditions, and this instrument is built on having none (Section 10.1) — not because
 >   conditions are bad, but because the work exists to be absorbed by systems that cannot
->   accept terms (Section 1.4 speaks of automated actors, Section 2.3 removes acceptance).
+>   accept terms (Section 1.6 speaks of automated actors, Section 2.3 removes acceptance).
 >   A model trained on a corpus cannot "distribute the corresponding source".
 > - **LGPL** and **MPL-2.0** are weaker but still conditional: MPL is file-level copyleft with
 >   a patent grant and **patent retaliation**. Section 8.2 explains why retaliation is
 >   deliberately absent here.
 > - **EUPL-1.2** is a copyleft licence published in the official EU languages, all equally
 >   authentic, with a compatibility list for other copyleft licences. Its multilingual design
->   is a genuinely good idea and Section 16.5 borrows the spirit — translations may circulate
->   under the same name — but Section 15.8 keeps English authoritative rather than making
+>   is a genuinely good idea and Section 16.4 borrows the spirit — translations may circulate
+>   under the same name — but Section 15.4 keeps English authoritative rather than making
 >   every language equally binding, because a licence that imposes no condition has far less
 >   to lose from a translation dispute than one that does.
 >
@@ -581,7 +587,7 @@ rule of thumb であって規則でもない。**
 > improve it, and share nothing back. That is a real cost and I accept it. Section 4.5 says
 > so plainly — You may redistribute under terms incompatible with these.
 
-**なぜこう答えるか**: copyleft 支持者に対して「条件は悪」と言うと議論が価値観の衝突になる。**「あなたの選択が誤りだとは言っていない。この作品には合わないだけだ」**と述べ、**失うもの（還元されない）を自分から認める**のが唯一噛み合う形である。EUPL の多言語設計を褒めているのは追従ではなく、§16.5 が実際にその方向を採っているからである。
+**なぜこう答えるか**: copyleft 支持者に対して「条件は悪」と言うと議論が価値観の衝突になる。**「あなたの選択が誤りだとは言っていない。この作品には合わないだけだ」**と述べ、**失うもの（還元されない）を自分から認める**のが唯一噛み合う形である。EUPL の多言語設計を褒めているのは追従ではなく、§16.4 が実際にその方向を採っているからである。
 
 ---
 
@@ -641,7 +647,7 @@ rule of thumb であって規則でもない。**
 
 > **English:**
 >
-> The Work here is not only software (Section 1.2 includes data, metadata and audiovisual
+> The Work here is not only software (Section 1.3 includes data, metadata and audiovisual
 > material), so data licences are a fair comparison.
 >
 > - **ODbL** is share-alike for databases: derived databases must be offered under ODbL. That

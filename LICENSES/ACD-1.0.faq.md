@@ -46,7 +46,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LIC
 > incompatible with these (Section 4.5). You need not mark changes (Section 10.2).
 
 ただし §4.6 が、**あなたが付けた条件は「あなたが与えるもの」を規律するだけ**で、受領者と本
-Dedication の関係を切らないと定めている。受領者は自分の権利として §1.4 の "You" になる。
+Dedication の関係を切らないと定めている。受領者は自分の権利として §1.6 の "You" になる。
 
 ### A4. 商用利用・軍事利用・その他の用途制限はあるか
 
@@ -78,7 +78,7 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 
 ### A7. データセットやモデルに使えるか
 
-> **English:** Yes. Section 1.2 defines the Work to include data, metadata and audiovisual
+> **English:** Yes. Section 1.3 defines the Work to include data, metadata and audiovisual
 > material as well as source and object code. Section 7 addresses the sui generis database
 > right explicitly, and Section 7.2 permits repeated and systematic extraction and
 > re-utilisation of substantial parts.
@@ -86,9 +86,11 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 ### A8. 学習に使ってよいか。学習して作ったモデルや出力は自由か
 
 > **English:** Yes to both. Section 6.1 permits computational use for any purpose; Section 6.2
-> states that no reservation is made; Section 6.4 says no model, parameter set, weight,
-> embedding or output derived from the Work is subject to this Dedication or to any claim of
-> the Dedicator arising from it; Section 8.4 grants the corresponding patent licence, because
+> states that no reservation is made; Section 6.4 says that, to the fullest extent the law
+> permits, no enforceable claim arises against You, under this Dedication or under any Covered
+> Right of the Dedicator, in respect of a model, parameter set, weight, embedding, output or
+> other data resulting from Computational Use of the Work, and that You owe nothing under this
+> Dedication in respect of any of them; Section 8.4 grants the corresponding patent licence, because
 > Covered Rights exclude patents (Section 1.5) and a copyright-only permission would leave a
 > patent-shaped hole.
 
@@ -214,7 +216,7 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 
 **ただし §4.6** —— あなたが付けた条件は「あなたが与えるもの」を規律するだけで、
 **受領者と本 Dedication の関係を切らない**。fork を閉じた条件で配っても、元の Work に
-ついては受領者が自分の権利として §1.4 の "You" になる。
+ついては受領者が自分の権利として §1.6 の "You" になる。
 
 ### A18. 名称や識別子は商標登録されているのか
 
@@ -248,7 +250,7 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 **これは「適用してよいか」ではなく「あなたが権利を持っているか」の問題である。** そして
 **実務で最も多い取り違え**でもある。
 
-> **English:** Section 1.3 defines the Dedicator as each person or entity applying this
+> **English:** Section 1.4 defines the Dedicator as each person or entity applying this
 > Dedication **"to the extent that person or entity holds or may hold Covered Rights in it"**.
 > If your employer holds the rights — through a work-for-hire rule, an employment agreement,
 > or an assignment — then you are not the person who can apply this, and applying it does not
@@ -301,7 +303,7 @@ source / object / documentation に加えて **data / metadata / audiovisual** �
 
 | 資産 | 扱い |
 |---|---|
-| `yuta-yokoi-ai-pm-orchestration-system.webp` | 対象。**XMP に埋め込まれた AIO メタデータも Work の一部**（§1.2 が metadata を含む） |
+| `yuta-yokoi-ai-pm-orchestration-system.webp` | 対象。**XMP に埋め込まれた AIO メタデータも Work の一部**（§1.3 が metadata を含む） |
 | `yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3` | 対象。ID3 の埋め込みフィールドも同様 |
 | `icon.svg` | 対象 |
 | `e2e/.../homepage-baseline-chromium-linux.png` | 対象（テストの基準画像） |
@@ -424,7 +426,7 @@ ACD-1.0 は前者を放棄しているだけで、後者には触れていない
 取り込んでいる場合、この Dedication はその権利に影響せず、影響させようともせず、その素材が
 負担を負っていないという表明でもない」。§13.2 が対応する無保証を述べる。
 
-**適用する側の実務。** §1.3 の Dedicator は「この Dedication を適用する各人または各主体」
+**適用する側の実務。** §1.4 の Dedicator は「この Dedication を適用する各人または各主体」
 なので、**複数人がそれぞれ適用できる**。多人数の作品で全体を自由にしたいなら、
 **権利者全員が適用する**必要がある。一部だけが適用した状態は「その人の持ち分については
 自由」という中途半端な状態で、受領者から見ると使えるかどうかが判断できない。
@@ -465,7 +467,7 @@ claim in the Work is transferred"* と書き、定義（Dedicator・You）は *"
 本文には *person* が法人を含むという解釈規定が無いので、**会社が売却されて権利を受け取る法人は §2.8 に
 名指されていない、と読む筋が立つ** —— errata **E58**（§5.1・§8.6・§12.2・§12.4 も同じ）。その読みは
 §15.1（許諾を広く読む）と §2.8 の目的に反するので採られにくいが、「そう書いてある」と言えるのは自然人の
-移転先についてまでである。1.4 草案は §15.5 に *"person"* が entity を含むことを足した。
+移転先についてまでである。ACD-1.4 は §15.5 に *"person"* が entity を含むことを足した。
 
 **破産・管財人。** 1.0 の §2.9 は「適用された時点で完全に履行済み」で、Dedicator にも You にも
 継続的な義務を残さないと述べ、続けて *"and so is not executory"* と分類まで言い切った。
@@ -570,7 +572,7 @@ Dedicator が既に公開した写しについて「さらなる条件・制限�
 保証・サポートである。1.2 と 1.3 の §5.1 第 2 肢はこの代金の請求まで不行使と読める語で、
 1.4 草案は *"a payment You agreed to make"* を例外に足し、T118 でそれを *"for providing a copy or for a service that is not permission to use the Work"* の支払いに限って §5.2(b) にも同じ除外を置いた —— 写しや保守・サポートの代金は取れるが、許しそのものを「サービス」と名づけた代金は取れない。
 
-**⚠ この答えは §4.5 の中には書かれていない**（§2.2・§5.2(b)・§1.3 に分かれている）。
+**⚠ この答えは §4.5 の中には書かれていない**（§2.2・§5.2(b)・§1.3（1.0 の §1.2）に分かれている）。
 2026-11-01 に外部の敵対的レビューがこの読みを問い（`ACD-1.0.against.md` #279）、
 次版の草案に相互参照を足すことも検討したが、**答えは本文全体で既に出ており、足す語は
 長さ（register B3）に対する費用になる**ので、本文は変えずにこの FAQ で答えることにした

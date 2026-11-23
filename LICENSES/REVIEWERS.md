@@ -10,7 +10,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (the text posted) / LICENSES/ACD-1.4.txt (th
 ## The short path, and what it costs you
 
 **You are a volunteer. Nothing here is required reading.** Measured 2026-11-23, the analysis in
-this directory — everything except `rounds/` — is **594,967 words**, **122 times the licence**, and
+this directory — everything except `rounds/` — is **594,967 words**, **101 times the licence**, and
 more than that in fact, because Japanese is not space-delimited. `rounds/` holds the primary
 sources verbatim so that every quotation can be checked against what was actually sent; **nobody
 is asked to read it.** The whole of it exists so that a claim we make can be checked, **not so
@@ -20,11 +20,11 @@ that it must be**. *(Re-measure: `git ls-files -z LICENSES ':!LICENSES/rounds' |
 
 | | words | why |
 | :-- | --: | :-- |
-| [`ACD-1.0.txt`](ACD-1.0.txt) | **4,896** | the licence as posted to `license-discuss` on 2026-08-26: the base of the redline, and what the commands below check. Nothing outside it fixes it. The version applied here, and to be submitted, is [`ACD-1.4.txt`](ACD-1.4.txt) (5,879 words); [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt) shows every changed word |
+| [`ACD-1.4.txt`](ACD-1.4.txt) | **5,879** | the licence: the version this repository applies and the one that would be submitted. Nothing outside it fixes it. [`ACD-1.0.txt`](ACD-1.0.txt) (4,896 words) is the text posted to `license-discuss` on 2026-08-26 and the base of [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt), which shows every changed word |
 | the two facts **#1 and #4** in [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~220 | **no lawyer has read this text**, and **the only project using it is the author's**. These are the strongest points against it. Neither is one of the eight published criteria, and the Licensing Committee's chair has called legal review *"not a blocker"*, but a reviewer may weigh both |
 | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **5,340** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
 
-**≈ 10,456 words** *(`wc -w`, 2026-11-23.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
+**≈ 11,439 words** *(`wc -w`, 2026-11-23.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
 jurisdiction analysis, and the archive measurements — **all of which are evidence for claims,
 not claims themselves.** The four commands below check the licence text without trusting any
 of it.
@@ -328,7 +328,7 @@ reading: a second pass found new ones. That a reading does not stand is our judg
 |---|---|---|
 | **What is blocking approval** | [`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) | **The register. Mostly Japanese; it opens with a full index in English.** Each item says why it is an approval problem, what is fact and what is inference, the smallest resolution, what would be lost, and who can move it — **four are marked highest severity, and none of them is repaired by editing the licence**: no legal review (B1) and one adopter (B2) advance only by submitting and by time; whether the gap justifies a new licence is OSI's call (B10); and the moderators' notice about AI-written posts is for OSI as an organisation to decide (B14). Its summary line is derived from the table by a CI check, so it cannot quietly understate what is left |
 | **Which known objections land** | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **In English.** Every objection **we have found** in the `license-review` / `license-discuss` archives of the last two years **that bears on a public-domain-equivalent or AI-facing instrument**, plus the older statements that decide this submission — found by a subject census plus reading the threads that matched, which is **a floor, not a census of every objection ever raised** (#87). Whether each applies to ACD-1.0, and — for the ones that do not — the clause that answers it. **Objections that land are listed first** |
-| The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders in the clauses (one in §16.1's notice template). This is the text posted to the list; the version applied here and to be submitted is [`ACD-1.4.txt`](ACD-1.4.txt) (701 lines, with the same sixteen sections), and [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt) shows the changes |
+| The licence itself | [`ACD-1.4.txt`](ACD-1.4.txt) | 701 lines, 16 sections. Plain ASCII, no placeholders in the clauses (one in §16.1's notice template). The text posted to the list is [`ACD-1.0.txt`](ACD-1.0.txt) (597 lines); [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt) shows the changes |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
 | **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 442 worked entries, indexed by the question rather than the filename |
@@ -385,23 +385,23 @@ and it is the check that matters, because it compares *the bytes you were sent* 
 pinned value rather than against anything this repository asserts about itself:
 
 ```sh
-shasum -a 256 ACD-1.0.txt
+shasum -a 256 ACD-1.4.txt
 curl -s https://yutapr0117-design.github.io/portfolio/LICENSES/FROZEN.md \
-  | grep -E '^[0-9a-f]{64}  LICENSES/ACD-1\.0\.txt$'
-# the two digests must be identical; as of 2026-11-02 (first run 2026-09-07) both are
-# 924e6a90d05cbc5dd8a400b4e892d7f323581c281d585d55a093d65a997b2d8a
+  | grep -E '^[0-9a-f]{64}  LICENSES/ACD-1\.4\.txt$'
+# the two digests must be identical; as of 2026-11-23 (first run 2026-09-07) both are
+# 6792e804486e59082b84fce663d2bc24c22d72720c6d1bab8af43a90c9e3b615
 ```
 
 ```sh
 # No project, author, domain or URL appears in the licence body      → expect 0
-grep -icE "yokoi|portfolio|github|https?://" LICENSES/ACD-1.0.txt
+grep -icE "yokoi|portfolio|github|https?://" LICENSES/ACD-1.4.txt
 
 # Placeholders: only §16.1's notice template, which the adopter fills in
 # their own notice — the licence text itself needs no editing            → expect 1
-grep -cE "<[^>]+>|\[year\]|\[name\]|YYYY" LICENSES/ACD-1.0.txt
+grep -cE "<[^>]+>|\[year\]|\[name\]|YYYY" LICENSES/ACD-1.4.txt
 
 # Section count                                                       → expect 16
-grep -cE "^[0-9]+\. [A-Z]" LICENSES/ACD-1.0.txt
+grep -cE "^[0-9]+\. [A-Z]" LICENSES/ACD-1.4.txt
 
 # Verify that the text you are reading is the text that is pinned      → 12× OK
 grep -E "^[0-9a-f]{64}  " LICENSES/FROZEN.md | shasum -a 256 -c

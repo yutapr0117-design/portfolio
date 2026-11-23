@@ -180,11 +180,11 @@ against us more sharply than the argument does.
 | "program" | **0** |
 | "executable" | **0** |
 | "software" | **2**, both in the explanatory preamble and in §8.3's reasoning; **none in an operative grant or condition** |
-| "source code" / "object code" | 1 each, inside §1.2's list of what a Work may be, alongside documentation, data, metadata and audiovisual material |
+| "source code" / "object code" | 1 each, inside §1.3's list (§1.2 in 1.0) of what a Work may be, alongside documentation, data, metadata and audiovisual material |
 
 **Read against ACD-1.0, this is a liability.** If the criterion is that OSI reviews software
 licences, an instrument whose operative provisions never mention software is further from that
-line than one that does. §1.2 places source code in a list where it is one item among six. A
+line than one that does. §1.3 (§1.2 in 1.0) places source code in a list where it is one item among six. A
 reviewer inclined to draw the line strictly has the text on their side, and I am not going to
 argue that "any Work" quietly means "software".
 
@@ -225,7 +225,7 @@ of them a given sentence belongs to.
 
 **Every section listed above is a legal operation on the same Work.** §3 surrenders, §4 grants,
 §5 covenants, §6 permits, §7 and §8 and §12 do the same over a different right, and §9 states
-what is not represented. There is one subject matter throughout — the Work identified in §1.2 —
+what is not represented. There is one subject matter throughout — the Work identified in §1.3 (§1.2 in 1.0) —
 and one section per kind of right in it. **The nearest thing here to a declaration is §9.2, and
 it is a refusal to represent rather than an information system**: it tells a recipient that no
 claim is made about whether rights subsist in machine-generated material, which is a statement
@@ -290,7 +290,7 @@ was a grant, this text says so.
 
 *"No requirement to include the licence on redistribution — how effective is the disclaimer?"*
 This one lands, and lands harder here than there: §10.2 says expressly that You need not retain
-the file or reproduce any notice. The permissions are unaffected (§1.4, §4.1 and §2.3 make the
+the file or reproduce any notice. The permissions are unaffected (§1.6 (§1.4 in 1.0), §4.1 and §2.3 make the
 grant run to each recipient directly, which is how MIT-0 and 0BSD operate), but a warranty
 disclaimer asserted against someone who never saw it is weaker than one that travelled with the
 work. **The loss falls on the Dedicator, not on the recipient**, which is why it is disclosed
@@ -535,7 +535,7 @@ disclosed**, and this list is the wrong place to argue.
   circulation. Section 4.3 forecloses them expressly (OSD 6). **Cost:** a Dedicator who later
   objects to a particular use has no recourse under this instrument, and adopters who want
   such limits cannot get them here. **OSD 6 requires this; the cost is still real.**
-- **No choice of law or forum.** Section 15.7. Naming one jurisdiction would disadvantage
+- **No choice of law or forum.** Section 15.3 (15.7 in 1.0). Naming one jurisdiction would disadvantage
   recipients everywhere else. **Cost:** a plaintiff chooses the venue, and neither party can
   predict which law governs before a dispute begins. An adversarial reading of 2026-09-20
   called this the instrument's greatest systemic defect; **the dossier answers it
@@ -548,12 +548,12 @@ disclosed**, and this list is the wrong place to argue.
   outside the covenant entirely (`against.md` #171). **The Work stays free; copies of it need
   not.**
 - **No barrier to translation.** Section 16.4 fixes the text that the name denotes, but
-  Section 16.5 makes a translation an express exception: it may carry the name and the
+  Section 16.4 (16.5 in 1.0) makes a translation an express exception: it may carry the name and the
   identifier so long as it is identified as a translation and states that the English text
   prevails. A rule that kept translations out would have put Section 16.4 at odds with
-  Section 15.8 and would have kept the licence away from readers who do not read English.
+  Section 15.4 (15.8 in 1.0) and would have kept the licence away from readers who do not read English.
   **Cost:** a translation may drift in meaning while carrying the same name and identifier.
-  Section 15.8 makes English authoritative, but **a reader who relies on the translation is
+  Section 15.4 makes English authoritative, but **a reader who relies on the translation is
   misled in fact even where the text is right in law.**
 - **No trademark licence.** Section 11.1. Trademarks identify origin, and an unconditional
   grant would mislead. Section 11.2 preserves truthful nominative reference. **Cost:** an
@@ -629,7 +629,7 @@ and it is why the text is byte-identical for every adopter.
 | A standards body publishing a reference implementation | The public-domain-like effect is wanted **together with** a patent grant. CC0's exclusion of patents is precisely what stopped it at OSI; ACD-1.0 §8 grants, and §8.4 reaches the trained model and its outputs |
 | A publisher of machine-generated artefacts | MIT/BSD assume a copyright exists to license. Where authorship may not subsist at all, that assumption is the problem; ACD-1.0 §9 makes the permissions independent of whether any right subsists |
 | A public-sector or civic-data publisher in a jurisdiction where waiver is ineffective | A bare dedication can fail outright in such jurisdictions. ACD-1.0 §3 falls back rather than failing |
-| Anyone shipping assets with embedded metadata (images, audio, models) | The status of embedded metadata is usually left unstated. ACD-1.0 §1.2 includes data, metadata and audiovisual material in the defined Work |
+| Anyone shipping assets with embedded metadata (images, audio, models) | The status of embedded metadata is usually left unstated. ACD-1.4 §1.3 (§1.2 in 1.0) includes data, metadata and audiovisual material in the defined Work |
 
 None of these depend on anything about my project. Each is a gap that exists for the adopter
 regardless of who drafted the instrument.

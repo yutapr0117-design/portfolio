@@ -440,7 +440,7 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 > **English:**
 >
 > Section 8.1 does not travel down a chain. It is granted by the Dedicator
-> directly to "You", and Section 1.4 defines "You" as any person exercising
+> directly to "You", and Section 1.6 defines "You" as any person exercising
 > permissions under the Dedication; no recipient holds the patent licence
 > through a predecessor's licence, so no link in a chain can fail and take the
 > grant with it.
@@ -569,8 +569,9 @@ OpenMDW-1.1 の審査で、著作権侵害の主張を終了の引き金にす�
 > In Japan, yes: Article 59 makes moral rights personal to the author and not
 > transferable, and the prevailing view is that they cannot be waived outright.
 > That is why Section 12.1 is expressed "to the fullest extent permitted by the
-> law of each jurisdiction" and why Section 12.2 supplies a covenant not to
-> exercise them wherever waiver is unavailable. A covenant not to exercise is the
+> law of each jurisdiction" and why Section 12.2 gives a covenant not to exercise
+> them, and a consent, for every jurisdiction whether or not the waiver takes
+> effect. A covenant not to exercise is the
 > mechanism Japanese practice actually uses (fukōshi tokuyaku), and it is what
 > commercial agreements there rely on.
 >
@@ -723,7 +724,7 @@ of copyright** or words of the same purport **that such person knows to be false
 >
 > **The honest answer has two halves, and the second is a cost we accept.**
 >
-> **On the permissions**, nothing is weakened. §1.4 defines You as any person exercising
+> **On the permissions**, nothing is weakened. §1.6 defines You as any person exercising
 > permissions, §4.1 grants to that person directly, and §2.3 makes the grant effective without
 > any act of acceptance. A recipient who never sees the text still holds the grant, because it
 > does not travel through a chain of assent. This is the same structure that MIT-0 and 0BSD
@@ -798,11 +799,12 @@ of copyright** or words of the same purport **that such person knows to be false
 > delivery mechanism. Where AI models are concerned, that split is not marginal: hosted inference
 > is the dominant mode.
 >
-> ACD-1.0 does not encounter this because §10.1 imposes no condition in respect of the Work and
-> §4.3 attaches none to the licence, so there is nothing whose satisfiability depends on how the
-> Work reaches someone. §16.4 and §16.5 do impose conditions, but §10.5 and §16.6 confine them to
-> the licence text as a document: they "are not terms of the Work, they bind no recipient of the
-> Work." A hosted-service operator is a recipient of the Work and owes nothing.
+> ACD does not encounter this because §10.1 imposes no condition in respect of the Work and §4.3
+> attaches none to the licence, so there is nothing whose satisfiability depends on how the Work
+> reaches someone. §16.4 does place provisos on distributing the text, but §10.5 and §16.6
+> confine them to the licence text as a document: they "are not terms of the Work, they bind no
+> one in respect of the Work". A hosted-service operator is a recipient of the Work and owes
+> nothing.
 
 **⚠ 2026-11-01 注**: 引用した *"they bind no recipient of the Work"* は 1.0 の §16.6 の字面だが、
 §16.4 は改変した本文を名前・識別子の下で頒布する誰でもを制限し、§16.5 は翻訳の頒布に条件を置くので、
@@ -855,17 +857,18 @@ ACD はどちらも構造的に回避しているが、**回避しているこ�
 「審査でどう答えるか」は別に用意する必要がある。
 
 
-**Q. §15.7 で準拠法を定めないのは欠陥では。**
+**Q. §15.3（1.0 の §15.7）で準拠法を定めないのは欠陥では。**
 
 > **English:**
 >
 > A choice-of-law clause in a unilateral grant that takes effect without
 > acceptance (Section 2.3) would be asserting a term the recipient never agreed
 > to, and would invite the argument that acceptance was needed after all.
-> Section 15.7 therefore says the instrument is intended to operate under the law
-> of each jurisdiction in which the Work is used, according to that law. That is
-> also how CC0 and the Unlicense behave in practice. Section 15.4 handles the
-> consequence — per-jurisdiction reformation and severance.
+> Section 15.3 therefore specifies no governing law and no forum, so the
+> instrument operates under the law of each jurisdiction in which the Work is
+> used, according to that law. That is also how CC0 and the Unlicense behave in
+> practice. Section 15.2 handles the consequence — per-jurisdiction reformation
+> and severance.
 
 **Q. §16.4 は本文の改変を禁じている。ライセンス文書自体が自由でないのは矛盾では。**
 
@@ -877,7 +880,7 @@ ACD はどちらも構造的に回避しているが、**回避しているこ�
 > Licence and MPL, all of which are distributable verbatim only. The reason is
 > identical: if "ACD-1.0" could name a modified text, the identifier would stop
 > carrying information, and Section 16.2 makes the identifier alone sufficient
-> notice. Section 16.5 exempts translations, and Section 15.8 keeps English
+> notice. Section 16.4 exempts translations, and Section 15.4 keeps English
 > authoritative so that a translation cannot change the terms.
 
 ---
@@ -906,6 +909,6 @@ ACD はどちらも構造的に回避しているが、**回避しているこ�
 
 **Q22〜Q33 は [`ACD-1.0.review-responses-boilerplate.md`](ACD-1.0.review-responses-boilerplate.md) にある。**
 「条文を読んだ上で、その書き方は効かないと言ってくる」種類の指摘——構成の指針（§15.1）、
-contra proferentem の排除（§15.3）、不行使の扱い（§15.5）、倒産（§2.9）、反 DRM（§5.2(a)）、
+contra proferentem の排除（ACD-1.4 の §15.6・1.0 の §15.3）、不行使の扱い（ACD-1.4 の §2.2 の末文・1.0 の §15.5）、倒産（§2.9）、反 DRM（§5.2(a)）、
 追加条件（§5.2(b)）、データベース権（§7）、全大文字（§13・§14）、法域固有の論点、
 1.0 承認後の 1.1 の扱い、機械を "You" に含める理由——を扱う。**番号は動かしていない。**

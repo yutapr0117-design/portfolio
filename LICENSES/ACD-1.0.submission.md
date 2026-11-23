@@ -11,7 +11,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (the text being submitted) / LICENSES/REVIEW
 > Commons Dedication 1.0 to the SPDX License List and to OSI License Review, written in
 > the language those bodies use, so that the human-only step is *send*, not *compose*.
 >
-<!-- SUBMISSION-TARGET: ACD-1.0 -->
+<!-- SUBMISSION-TARGET: ACD-1.4 -->
 <!--
   **この packet がどの版を提出対象にしているかを宣言する単一ソース。** 値は `ACD-<版>`。
   **Check 472 が、提出側の文書に現れる `§N.M` 引用のすべてが、この版の条文に実在することを

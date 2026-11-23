@@ -148,12 +148,13 @@ canonical-ref: LICENSES/ACD-1.0.review-responses-clauses.md (第 1 層・条項�
 
 この段は根拠の記録で、英文の答えに足す文面ではない。どう言うかは送る人が決める（`REVISION-PROTOCOL.md` ゲート 0）。
 
-### Q24. §15.5（不行使を放棄と読むな）——やりすぎではないか
+### Q24. §2.2 の末文（1.0 の §15.5・不行使を放棄と読むな）——やりすぎではないか
 
 > **English:**
 >
-> Section 15.5 runs in one direction only: nothing the Dedicator does or fails to
-> do may be read as *reviving, reserving, or narrowing* what was given away. It
+> The last sentence of Section 2.2 runs in one direction only: silence, delay or
+> non-enforcement by the Dedicator does not *revive, reserve, or narrow* anything
+> given away. It
 > cannot be used by the Dedicator to claw anything back — it is the opposite of
 > the usual no-waiver clause, which preserves the drafter's rights.
 >
@@ -161,7 +162,7 @@ canonical-ref: LICENSES/ACD-1.0.review-responses-clauses.md (第 1 層・条項�
 > that non-enforcement does not waive a right protects the licensor. Here that
 > same rule would work backwards: a successor could argue that because the
 > Dedicator never enforced, nothing was ever intended to be given up. Section
-> 15.5 says that argument is not available.
+> 2.2 says that argument is not available.
 
 ### Q25. §2.9「fully performed / not executory」——米国倒産法を意識しているのか
 
@@ -306,9 +307,9 @@ Work, binds …"* とした。倒産管財人が §2.8 の譲受人に当たる�
 >
 > **Moral rights.** Article 59 makes them personal to the author and not
 > transferable, and the prevailing view is that they cannot be waived outright.
-> Section 12.2 therefore supplies a covenant not to exercise them — the mechanism
-> Japanese commercial practice actually relies on — and Section 12.3 keeps it
-> limited to this Work, because an unlimited renunciation would be more
+> Section 12.2 therefore gives a covenant not to exercise them, and a consent, for
+> every jurisdiction — the covenant is the mechanism Japanese commercial practice
+> actually relies on — and Section 12.3 keeps both limited to this Work, because an unlimited renunciation would be more
 > vulnerable, not less.
 >
 > **Succession.** Moral rights are protected after death, and relatives may act.
@@ -343,7 +344,7 @@ Work, binds …"* とした。倒産管財人が §2.8 の譲受人に当たる�
 the question it answers. [`AS-OF.md`](AS-OF.md) lists which claims about the outside world were
 verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against approving this.
 
-### Q33. §1.4（1.1 以降は §1.6）——なぜ機械が「You」なのか。法人格の無いものを licensee にする必要があるのか
+### Q33. §1.6（1.0 の §1.4）——なぜ機械が「You」なのか。法人格の無いものを licensee にする必要があるのか
 
 **この問いには答えが用意されていなかった。** 2026-09-19 に `automated` / `legal person` で
 ドシエ全体を検索すると、**この構造を説明した箇所は 1 つも無かった**（引用としての出現のみ）。
