@@ -466,3 +466,26 @@ census の `DECIDERS` は差出人の表示名を大文字小文字を区別し�
 **この節が establish しないこと。** 取り下げと再提出が審査の結果に不利に働かないこと。
 
 **反映**: 入口（submission.md の §B.0 の事実の箇条に「審査中は 1.4 を変えない・1.5 は草案として併置・変えるなら取り下げて再提出」の 1 行の候補・5e と 6d へ）。本文は変えない。
+
+## 1.472 「何が、なぜ変わったかの要約は無いか」（Berkus 氏 2010）、「前の版から何が変わり、指摘にどう答えたかを説明せよ」（Chestek 氏 2022）—— 版を替えて出す提出者に、決める側は redline と理由を求めてきた。ACD-1.4 の redline は在り、1.0 → 1.4 の理由を英語で 1 か所に読む面は無い（2026-11-23）
+
+提出対象を 1.4 に切り替えたので、list に出した 1.0 と出す 1.4 の差を、審査者がどう読むかを確かめた。全 508 か月の決める側の通のうち、本人の文に "redline"・"red-line"・"diff between/against/from"・"summary of (the) changes"・"list of (the) changes"・"what (has) changed"・"tracked changes"・"comparison with the previous" のどれかが在る通は 55 通。そのうち、提出者に差の示し方を求めた、またはそれで読んだと書いた通を読んだ。次の 4 つはドシエに無かった。
+
+| 発言 | 誰が | 当たり方 |
+| :-- | :-- | :-- |
+| *"I am very keen to understand what needed fixing and why, and I don't see a red-line in your submission."* | Simon Phipps 氏 2008-03-27（`license-review`・CDDL を下敷きにした提出への返信。当時は Sun の側で CDDL の steward として書いた —— 決める側になったのは後で、この通は審査者の立場の文ではない） | **求め（redline と理由）。** 下敷きの版から何を直したか、なぜかを、redline で見せよ |
+| *"For the non-attorneys, is there a summary somewhere of what changed and why?"* | Josh Berkus 氏 2010-11-18（`license-review`・MPL 2 Alpha 3 の早期の審査）。同じスレッドで Luis Villa 氏は 1.1 からの master redline を作って添えた（2010-11-19） | **求め（法律家でない読み手のための要約）。** 差の「何」と「なぜ」を、法律家でない審査者が読める形で |
+| *"ask that Luis advise the list of changes with a red-line diff between this version and the final release version"* | Simon Phipps 氏 2011-08-28（MPL 2.0 RC1 の承認の勧め） | **求め（承認の後の版の差も）。** 審査した版と出す版の差を redline で |
+| *"Please explain what has changed between the version that was not approved and this version, and how you have addressed the reasons given for rejection, as well as the other issues raised by the license-review list"* | Pamela Chestek 氏 2022-03-21（委員長・YATeam Public License の再提出） | **求め（差と、指摘への答え）。** 前の版から何が変わったか、指摘にどう答えたか |
+
+ドシエに既に在る同じ向きの文: Shuji Sado 氏 2026-01-24（Project Tick）の redline か *"innovations only"* の抜粋の求め（`review-readings.md` ほか）、Karl Fogel 氏 2011-12-15 の *"examined its diff against RC2"*（`rounds/2011-12-license-review-mpl2-fogel-proliferation-not-grounds-observed.txt`）。提出者の側の先例は Lawrence Rosen 氏の OSL・AFL の版ごとの redline（2002-11-05・2003-06-28・2004-03-24）。
+
+**ACD に当てると。** 「何」は在る —— `REDLINE-1.0-TO-1.4.txt`（1.0 → 1.4・条ごと・番号の動いた条は 1.0 の番号を括弧で示す）。「なぜ」は、1.0 → 1.4 を英語で 1 か所に読む面が無い。版ごとの英語の変更の一覧は、確定のたびに各版の `ACD-1.x-CHANGELIST.md`（日本語の文書）の付録へ逐語で移り、`CHANGES-ACD-1.4.txt` は付録を指すだけである。理由は CHANGELIST の日本語の本文と errata（日本語と英語の混在）に在る。Berkus 氏の *"for the non-attorneys"* と Chestek 氏の *"how you have addressed"* に、英語だけで答える経路が無い。
+
+**読み。** 版を替えて出す提出に、決める側は redline と「なぜ」の要約を求めてきた。ACD は redline を持ち、要約を持たない。 list が受け取った本文は 1.0 だけで、1.4 の 80 条のうち 62 条が変わり 1 条が新しい（cd が REDLINE で数え、PR 3973 で against に足す行）ので、審査者が差を読む費用は小さくない。1.0 の投稿に list からの指摘はほとんど無かった（`REVIEWERS.md` の Status）ので、Chestek 氏 2022 の「指摘にどう答えたか」は、我々の場合「自分で見つけた欠陥にどう答えたか」になる。
+
+**逆側。** 4 つはどれも、却下された版の再提出か、大きな下敷きを持つ提出か、承認の後の版の差への求めで、license-discuss に出しただけの版から別の版へ移る提出の記録ではない。要約を英語で書くと、AI が書いた長い文書を審査者に渡すことになり、B14 と長さ（B3）の費用を負う。redline だけで足りると読む審査者もいる（Fogel 氏 2011 は diff を読んで判断した）。
+
+**この節が establish しないこと。** 要約が無いことが審査の結果に効くこと。
+
+**反映**: 入口（REVIEWERS か submission の §B.0 の事実の箇条に、1.0 → 1.4 の「なぜ」を英語で読む経路 —— errata の英語の列と各版の CHANGELIST の付録の英語の一覧を指す 1 行、または短い英語の要約の要否を合議へ・cd と 6d へ）。本文は変えない。
