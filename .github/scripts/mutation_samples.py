@@ -574,6 +574,13 @@ _MUTATIONS_TAIL.append({
     "find": " lines, 5,879 words, SHA-256 `",
     "replace": " lines, 5,878 words, SHA-256 `",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 498 (l): redline を数えた文 (against #331) の条の数の先頭に 1 を足す —— make_redline を直して redline を作り直すと数が動く"
+            "のに、文は手で書いた数のまま残る (2026-11-23・cd の依頼)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.against-2.md",
+    "find": "Counted on `REDLINE-1.0-TO-1.4.txt`: of ACD-1.4's ",
+    "replace": "Counted on `REDLINE-1.0-TO-1.4.txt`: of ACD-1.4's 1",
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
