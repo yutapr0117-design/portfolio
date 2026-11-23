@@ -69,11 +69,12 @@ MUTATIONS_ARCHIVE4 = [
     "check": CHECK,
 },
     {
-    "name": "Check 468: 英語の入口が作業場を前の版の草案のまま名指す (468k) —— 2026-10-29 に 7 箇所が "
+    "name": "Check 468: 索引の「次版の草案（作業場）」の行が作業場を前の版の草案のまま名指す (468k) —— 2026-10-29 に 7 箇所が "
             "1.3 草案を指したままだった実例。語数・条数・題名は草案側の性質なので他の face は気付かない",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": f"happens in [`{CURRENT_DRAFT.name}`]({CURRENT_DRAFT.name})",
-    "replace": f"happens in [`ACD-{PREVIOUS_VER}-DRAFT.txt`](ACD-{PREVIOUS_VER}-DRAFT.txt)",
+    # 2026-11-23 (議題 5): 英語の入口は 1.5 草案を名指さなくなった (「入口は次版を宣伝しない」)。468k が照らし続ける索引の行を打つ
+    "file": ROOT / "LICENSES" / "README.md",
+    "find": f"| **次版の草案（作業場）** | [`{CURRENT_DRAFT.name}`]({CURRENT_DRAFT.name}) |",
+    "replace": f"| **次版の草案（作業場）** | [`ACD-{PREVIOUS_VER}-DRAFT.txt`](ACD-{PREVIOUS_VER}-DRAFT.txt) |",
     "check": CHECK,
 },
     {
