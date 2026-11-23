@@ -185,7 +185,7 @@ def build_status() -> str:
         if site_url:
             audit_lines.append(f"- **公開サイト（機能性の目視確認）**: {site_url}")
 
-    # ── ライセンス・トラック (ACD-1.0 / OSI) ─────────────────────────────────
+    # ── ライセンス・トラック (ACD / OSI) ─────────────────────────────────
     # オーナーが「OSI 全振り」を指示している当のトラックが、**オーナーの唯一の BLUF ページに
     # 一行も無かった** (実測 2026-09-09)。制御と監査の面に、優先度 1 の対象が映っていない状態は
     # 「宣言はあるが見ている層が無い」class の裏返しである。
@@ -199,7 +199,34 @@ def build_status() -> str:
         pinned = len(re.findall(r"(?m)^[0-9a-f]{64}  \S+$", frozen_txt))
         lic_lines.append(f"- **本文の状態**: **凍結中**（`LICENSES/FROZEN.md` の存在が凍結を意味し、"
                          f"Check 453 が {pinned} ファイルの sha256 を pin）。"
-                         f"**欠陥を見つけても直さず errata へ記録する。**")
+                         f"**欠陥を見つけても凍結した本文は直さず、1.0 にも在る文なら errata、後継が持ち込んだ文なら "
+                         f"`ACD-1.1-SELF-AUDIT.md` へ記録して次版の草案で直す。**")
+        # **どの版を適用し、どの版が凍結済みで、作業場はどこか** —— 2026-11-23 に 1.4 を確定・適用した後も、
+        # 唯一の BLUF 面の見出しが「ACD-1.0 → OSI」のままで、適用中の版を 1 行も述べていなかった (6d)。
+        # 適用版はルートの LICENSE の SPDX 行、凍結済みは FREEZE-DATA の本文の file 名、作業場は冒頭に
+        # "HAS BEEN FROZEN" を持たない草案 (rehearse_version_freeze.py と同じ規則) から導く。
+        lic_txt = _read("LICENSE")
+        m_app = re.search(r"(?m)^SPDX-License-Identifier: (\S+)$", lic_txt or "")
+        frozen_vers = sorted(set(re.findall(r"(?m)^[0-9a-f]{64}  LICENSES/ACD-(\d+\.\d+)\.txt$", frozen_txt)),
+                             key=lambda v: tuple(int(x) for x in v.split(".")))
+        # 版の数で並べる (file 名の辞書順だと 1.10 が 1.9 より前に来る)
+        drafts = [d for d in sorted((ROOT / "LICENSES").glob("ACD-*-DRAFT.txt"),
+                                    key=lambda d: tuple(int(x) for x in re.findall(r"\d+", d.name)[:2]))
+                  if "HAS BEEN FROZEN" not in d.read_text(encoding="utf-8").split("\n", 1)[0]]
+        draft = drafts[-1] if drafts else None
+        lic_lines.append(f"- **適用している版**: **{m_app.group(1) if m_app else '(LICENSE に SPDX 行が無い)'}**"
+                         f"（ルートの `LICENSE` から導出）／凍結済み: {' / '.join(frozen_vers) or '(なし)'}"
+                         f"／次版の作業場: `{draft.relative_to(ROOT) if draft else '(なし)'}`")
+        # 段 6b (出す版の新しい語を license-discuss に 30 日) はオーナーにしかできない行為で、提出の前提である。
+        # 投稿の記録は作業中の草案の冒頭の "Changes since the version posted on" の節 (gate_6b が読むのと同じ所)。
+        posted = draft is not None and "Changes since the version posted on" in draft.read_text(encoding="utf-8")
+        lic_lines.append("- **オーナーにしかできないこと（提出の前提）**: "
+                         + ("段 6b の投稿は記録済み（作業中の草案の冒頭の *Changes since the version posted on* の節）。"
+                            if posted else
+                            f"**段 6b が未了** —— 確定した {m_app.group(1) if m_app else '版'} の新しい語を、1.0 との差として"
+                            "自分の言葉で `license-discuss` へ出す（30 日の時計はここから動く・材料は "
+                            "`LICENSES/SUBMISSION-MATERIALS.md` §0b / §0d）。")
+                         + "実在のプロジェクトへの使用の表明の依頼（窓口 `.github/ISSUE_TEMPLATE/acd-use.yml`・B2）も同じ。")
         lic_lines.append(f"- **投稿先**: `{venue}`（単一ソース = FROZEN.md の VENUE-DATA・Check 458 が全 status 面に強制）。"
                          f"**承認の窓口である `license-review` にも SPDX にも未提出。**")
         # 発信を止めているか。**オーナーの唯一の BLUF 面に、いま最も重い事実が映らないのを避ける。**
@@ -264,7 +291,7 @@ def build_status() -> str:
         f"- **最新 Session Record**: #{latest_sr}（`AI2AI.md`）",
         "- **CI ゲート**: `npm run verify`（consistency Check + AIO digest + binary metadata + CSS lint + ESLint + node --check）が exit 0 で全緑が前提。behavior e2e が BLOCKING、homepage pixel screenshot は ADVISORY（§3(B)）。",
         "",
-        "## ライセンス・トラック（ACD-1.0 → OSI）",
+        "## ライセンス・トラック（ACD → OSI）",
         "",
         *lic_lines,
         "",

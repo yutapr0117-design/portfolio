@@ -17,9 +17,11 @@
 - **最新 Session Record**: #38（`AI2AI.md`）
 - **CI ゲート**: `npm run verify`（consistency Check + AIO digest + binary metadata + CSS lint + ESLint + node --check）が exit 0 で全緑が前提。behavior e2e が BLOCKING、homepage pixel screenshot は ADVISORY（§3(B)）。
 
-## ライセンス・トラック（ACD-1.0 → OSI）
+## ライセンス・トラック（ACD → OSI）
 
-- **本文の状態**: **凍結中**（`LICENSES/FROZEN.md` の存在が凍結を意味し、Check 453 が 12 ファイルの sha256 を pin）。**欠陥を見つけても直さず errata へ記録する。**
+- **本文の状態**: **凍結中**（`LICENSES/FROZEN.md` の存在が凍結を意味し、Check 453 が 12 ファイルの sha256 を pin）。**欠陥を見つけても凍結した本文は直さず、1.0 にも在る文なら errata、後継が持ち込んだ文なら `ACD-1.1-SELF-AUDIT.md` へ記録して次版の草案で直す。**
+- **適用している版**: **ACD-1.4**（ルートの `LICENSE` から導出）／凍結済み: 1.0 / 1.1 / 1.2 / 1.3 / 1.4／次版の作業場: `LICENSES/ACD-1.5-DRAFT.txt`
+- **オーナーにしかできないこと（提出の前提）**: **段 6b が未了** —— 確定した ACD-1.4 の新しい語を、1.0 との差として自分の言葉で `license-discuss` へ出す（30 日の時計はここから動く・材料は `LICENSES/SUBMISSION-MATERIALS.md` §0b / §0d）。実在のプロジェクトへの使用の表明の依頼（窓口 `.github/ISSUE_TEMPLATE/acd-use.yml`・B2）も同じ。
 - **投稿先**: `license-discuss`（単一ソース = FROZEN.md の VENUE-DATA・Check 458 が全 status 面に強制）。**承認の窓口である `license-review` にも SPDX にも未提出。**
 - **発信の状態**: 通常（`FROZEN.md` の POSTING-STATUS が `active`）。**`active` は「我々の側で止めていない」であって「リストに届く」ではない** —— moderation の拒否は `LICENSES/ACD-OSI-BOTTLENECKS-POSTING.md`（B14）に記録する。
 - **自分で書いた不利な事実**: 330 件（`LICENSES/ACD-1.0.against.md`・不利なものを先に並べる）／**既知の欠陥**: 85 件（`ACD-1.0.errata.md`）—— **1.0 では全件未修正**（凍結中のため）、**うち 83 件は次版の草案で閉じた**（残る 2 件は errata の状態欄が理由を述べる）。
