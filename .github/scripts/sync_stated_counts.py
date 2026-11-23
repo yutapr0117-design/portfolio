@@ -11,8 +11,8 @@ CHANGELIST の「前版の N 語から +N 語」「1.0 の N 語から見ると 
 "N words from the title to *END OF TERMS* against 1.0's N, in M clauses against M"、B3 の見出しのかっこ、
 SUBMISSION-MATERIALS の長さの行 (後半の「条文では N 語長いまま」を含む)。ドシエの規模の数 (2026-11-15・30 の依頼) —— 不利な事実の件数 (against の総括・REVIEWERS・READY-TO-SUBMIT・§4c)、
 errata の件数 (against・REVIEWERS・READY-TO-SUBMIT・errata 冒頭の英語の数詞と閉じた番号の一覧)、worked entries の総数
-(REVIEWERS・QUESTION-INDEX) (`_lib_dossier.count_sites`)。runbook §9 の追跡ファイルの 5 つの数と実測日 (2f の依頼・
-`git ls-files` で数えるので、新しい file は git add してから回す)。「1.0 から何が変わったか」の英文の errata の数と § ごとの件数
+(REVIEWERS・QUESTION-INDEX) (`_lib_dossier.count_sites`)。runbook §9 の追跡ファイルの数は 2026-11-23 に行から外した
+(並行の衝突源だったので、Check 413 の OK 行が実測を出す)。「1.0 から何が変わったか」の英文の errata の数と § ごとの件数
 (Check 498 (j)・`>` の引用で行をまたいでも照らす)。AS-OF の未読スレッドの候補・読了・残り (Check 498 (h) と同じ数え方)。REVIEWERS 冒頭のドシエ全体の語数・倍率・実測日 (Check 472m・
 実測と 5% を越えて違うときだけ)。**判断の数は書き換えない**: 束の表の各行と、
 草案冒頭の箇条の (+N words.) (どの変更に何語かは人が決め、Check 468n が照らす)。
@@ -34,41 +34,6 @@ from _lib_dossier import count_sites, is_against  # noqa: E402
 from _lib_draft_counts import apply_sites, length_sites  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
-
-
-def repo_sites() -> list[dict]:
-    """runbook §9 の「追跡ファイル総数」の行の 6 つの数 (2026-11-15・2f の依頼)。
-
-    rounds/ に受領文を 1 つ足すたびに、総数・source・mirror・`= N`・Check 108 の OK 文の数を手で +2 / +1 していた。
-    数え方は行が名乗る権威のとおり: 総数 = `git ls-files`、source = `git -c core.quotepath=off ls-files` のうち
-    docs/files/ の外。mirror は Check 108 が bijection を強制するので source と同数。数が変わったら行の実測日も今日へ。
-    """
-    rb = ROOT / "docs" / "architecture" / "total-check-runbook.md"
-    files = subprocess.run(["git", "-c", "core.quotepath=off", "ls-files"], cwd=ROOT, text=True,
-                           capture_output=True, check=True).stdout.split("\n")
-    files = sorted({f for f in files if f})  # 衝突中は同じ file を stage 1〜3 で 3 回出すので重複を除く (2026-11-15 に 2 多く数えた)
-    total, source = len(files), sum(1 for f in files if not f.startswith("docs/files/"))
-    mirror = total - source - 2  # docs/files の README と _template を除いた数。mirror の無い file がある途中でも行の算術を保つ
-    text = rb.read_text(encoding="utf-8")
-    m_row = re.search(r"^\| 追跡ファイル総数 \|.*$", text, re.M)
-    if not m_row:
-        return []
-    row, off = m_row.group(0), m_row.start()
-    rules = [(r"^\| 追跡ファイル総数 \| \*\*(\d+)\*\*", total), (r"source file が \*\*(\d+)\*\*", source),
-             (r"mirror が \*\*(\d+)\*\*", mirror), (r"の \*\*2\*\* = \*\*(\d+)\*\*", total),
-             (r"all (\d+) tracked files have a 1-to-1", source)]
-    sites = []
-    for rx, v in rules:
-        for m in re.finditer(rx, row):
-            sites.append({"path": rb, "line": text[:off].count("\n") + 1, "abs": True, "start": off + m.start(1),
-                          "end": off + m.end(1), "old": m.group(1), "new": str(v), "what": "runbook §9 の追跡ファイルの数"})
-    if any(s["old"] != s["new"] for s in sites):
-        m = re.search(r"(\d{4}-\d{2}-\d{2}) 実測", row)
-        if m:
-            sites.append({"path": rb, "line": text[:off].count("\n") + 1, "abs": True, "start": off + m.start(1),
-                          "end": off + m.end(1), "old": m.group(1), "new": datetime.date.today().isoformat(),
-                          "what": "runbook §9 の実測日"})
-    return sites
 
 
 def reviewers_size_sites() -> list[dict]:
@@ -182,7 +147,7 @@ def main(argv: list[str]) -> int:
         print(__doc__)
         return 0
     sites, bad = length_sites(ROOT / "LICENSES", is_against, "all")
-    sites += count_sites(ROOT / "LICENSES") + repo_sites() + defects_sites() + reviewers_size_sites() + asof_sites()
+    sites += count_sites(ROOT / "LICENSES") + defects_sites() + reviewers_size_sites() + asof_sites()
     if bad:
         print("\n".join(f"ERROR: {b}" for b in bad))
         return 2

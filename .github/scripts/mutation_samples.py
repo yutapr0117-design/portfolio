@@ -539,6 +539,13 @@ _MUTATIONS_TAIL.append({
     "find": "## 1. T135 —— §11.4 第 2 文の",
     "replace": "## 1. T135 —— §11.4 は変えない。第 2 文の",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 413: runbook §9 の追跡ファイルの行に絶対値を戻す —— 5 人が並行して file を足すと merge のたびに数がずれ、"
+            "PR どうしが衝突して workflow が起動しなかった (2026-11-23 に数を外した)",
+    "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
+    "find": "| 追跡ファイル総数 | **数は書かない**",
+    "replace": "| 追跡ファイル総数 | **2330**",
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
