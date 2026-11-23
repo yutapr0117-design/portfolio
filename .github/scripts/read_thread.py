@@ -52,7 +52,7 @@ def main() -> int:
     g = hit[0]
     n_dec = words = cut = 0
     for i, (_when, date, frm, _title, body, *_loc) in enumerate(g, 1):
-        dec = bool(c.DECIDERS.search(frm))
+        dec = c.is_decider(frm)  # アドレスと MIME の表示名も照らす (#3896 と同じ判定・2026-11-23)
         n_dec += dec
         if o.deciders_only and not dec and i != 1:
             continue

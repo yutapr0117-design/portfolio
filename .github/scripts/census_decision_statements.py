@@ -165,7 +165,12 @@ def _chrono(path):
 
 
 def messages():
-    for path in sorted(glob.glob(str(CACHE / "license-*.txt")), key=_chrono):
+    # 写しが無いか空なら止める (2026-11-23・d7 の報告): import して回すと DOSSIER_ARCHIVE_CACHE が無いとき CACHE が cwd 相対の
+    #   "archive-cache" になり、黙って 0 通を返した (「該当 0」と読みかけた)。「無いと黙る」gate は RED にする
+    paths = sorted(glob.glob(str(CACHE / "license-*.txt")), key=_chrono)
+    if not paths:
+        raise SystemExit(f"STOP: アーカイブの写しが無いか空 ({CACHE.resolve()})。DOSSIER_ARCHIVE_CACHE=<写しの dir> を付ける")
+    for path in paths:
         text = open(path, errors="replace").read()
         marks = [m.start() for m in SPLIT.finditer(text)] + [len(text)]
         for a, b in zip(marks, marks[1:]):
