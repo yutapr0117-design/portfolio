@@ -139,7 +139,7 @@ def run(ctx):
                 # 引用の中の語は名乗りに数えない ("LicenseRef-ACD-1.1 while …" を引いた段落が 1.1 を名乗ったことになった)
                 _named470 = ({f"1.{next(_g for _g in _m.groups() if _g)}" for _m in _verrx470.finditer(_q470.sub(" ", _txt470))}
                              & set(_vers470)
-                             if not re.match(r"ACD-1\.[1-9]-", _f470.name) else set())
+                             if not re.match(r"ACD-1\.[1-9][.-]", _f470.name) else set())  # 確定した版の文書 (ACD-1.4.…) も同じ扱い (2026-11-23)
                 # 1.0 の地図と、名乗った版の地図のどれかで帰属が合えば良しとする (置き換えると、1.0 の番号で引きながら後の版も
                 #   名乗る register の行を誤検出した)。どの地図でも合わないときだけ RED
                 _maps470 = [_clause470] + [_vers470[_v] for _v in sorted(_named470) if _v != "1.0"]
@@ -147,7 +147,9 @@ def run(ctx):
                 #   UNIQUE-READING の行が、1.0 の地図だけで照らされて「§1.3 の語」と出ていた)。ただし母数 (どの引用を照らすか) は
                 #   今までどおり 1.0 と名乗った版の地図で決める —— 作業文書は自分の節にも § を振る (§14.22) ので、草案にだけ在る
                 #   引用まで照らすと、節の番号を条の番号と取り違えて誤検出する (2026-11-18 に地図を置き換えて 19 件が出た)
-                _fv470 = re.match(r"ACD-(1\.[1-9])-", _f470.name)
+                # 確定した版の文書 (ACD-1.4.clause-reference.md・版の後がドット) も、その版の地図で帰属を受ける (2026-11-23: 逐条を
+                #   改名したら、1.4 の番号で正しく書いた §2.4・§16.6 の 2 件を 1.0 の地図だけで照らして誤検出した・5e の報告)
+                _fv470 = re.match(r"ACD-(1\.[1-9])[.-]", _f470.name)
                 _accept470 = _maps470 + ([_vers470[_fv470.group(1)]] if _fv470 and _fv470.group(1) in _vers470 else [])
                 def _cov_of470(_m):
                     _c = set()
