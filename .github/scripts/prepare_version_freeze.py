@@ -428,6 +428,13 @@ def report(version: str) -> int:
     print(f"\n### 残りの面: {len(rest)} 行のうち ACD-{base} と名指していない {len(unnamed)} 行")
     for f, i, hit, line in unnamed:
         print(f"  {f}:{i}  {' '.join('§' + n for n in hit)}  {_snippet(line, CITE.search(line).start())}")
+    from measure_citation_drift import rewritten_lines
+    rkinds, rrows = rewritten_lines(base, version)
+    rrows = [r for r in rrows if FIRST_READ.search(r[0])]  # 審査者が最初に読む面だけ (全面では 1.0 → 1.4 で 375 行・読まれない)
+    print(f"\n## 同じ番号のまま大きく書き直した条を、版の名なしに述べる行（{len(rrows)} 行・番号が合うので 472 系は拾わない・d7 の依頼）")
+    print("  " + "  ".join(f"§{n} ({r})" for n, r in sorted(rkinds.items(), key=lambda x: [int(p) for p in x[0].split(".")])))
+    for f, i, hit, line in rrows:
+        print(f"  {f}:{i}  {' '.join('§' + n for n in hit)}  {_snippet(line, CITE.search(line).start())}")
     print(f"\n## submission.md の §A が ACD-{base} を述べる行（送る本文は Check 472o が見る。履歴の文は残す）")
     head = (L / "ACD-1.0.submission.md").read_text(encoding="utf-8").split("\n## B. ")[0].split("\n")
     for i, line in enumerate(head, 1):
