@@ -111,7 +111,11 @@ submitter's own (#4).
 ### A.1 Affirmation of OSD compliance — the owner's to make
 
 OSI's process requires the submitter to "affirmatively state that the license complies with the
-Open Source Definition", naming OSD 3, 5, 6 and 9 in particular. **The affirmation is the owner's
+Open Source Definition". The element a submission is asked for is to affirm OSD 3, 5, 6 and 9 by
+name: McCoy Smith listed it on `license-review` (2024-10-13, the FFOL thread) among the items a
+submission had not done — *"Affirmatively state that the license complies with the Open Source
+Definition, including specifically affirming it meets OSD 3, 5, 6 and 9."*
+(`PEER-REVIEW-WATCH.md`; `ACD-1.0.against.md` #97). **The affirmation is the owner's
 to make, in his own words** (decision 3b of the five, extended to this section on 2026-11-23); the
 clauses behind it, criterion by criterion, are in §B.0 section 3, and
 [`ACD-1.0.submission-osd.md`](ACD-1.0.submission-osd.md) sets out, for each of the ten criteria,
