@@ -67,6 +67,18 @@ def subject_core(s: str) -> str:
         s = t
 
 
+def date_matches(msg: str, day, hhmm) -> bool:
+    """--date の 1 つ (日付と、あれば時刻) が、この通の Date 見出しに合うか。時刻は見出しの現地時刻で比べる。"""
+    if msg_date(msg) != day:
+        return False
+    if hhmm is None:
+        return True
+    try:
+        return email.utils.parsedate_to_datetime(header(msg, "Date")).strftime("%H:%M:%S" if hhmm.count(":") == 2 else "%H:%M") == hhmm
+    except (TypeError, ValueError):
+        return False
+
+
 def msg_date(msg: str):
     """通の Date を日付に (読めなければ None)。"""
     try:
@@ -109,28 +121,31 @@ def main(argv: list[str]) -> int:
         return 1
     # 件名は既定で文字どおりに照らす (2026-11-15・2f の検証: "BSD + Patent" を正規表現として読み 0 通で止まった)
     rx = re.compile(o.subject_regex if o.subject_regex else r"\s+".join(re.escape(w) for w in o.subject.split()), re.I)
-    want_dates = set()
+    want_dates = set()  # (日付, 時刻 or None)。時刻つきは Date 見出しの現地時刻と秒まで (分までなら分まで) 比べる
     for d in o.date:  # Date は日付として比べる ("2 Sep 2015" の部分一致は "12 Sep 2015" にも当たった・2f の検証)
-        for fmt in ("%d %b %Y", "%Y-%m-%d", "%d %B %Y"):
+        # 時刻つき ("16 Mar 2008 13:57:10") も読む (2026-11-23・d7: 同じ日に同じ人の通が複数ある会話で止まった)
+        for fmt in ("%d %b %Y", "%Y-%m-%d", "%d %B %Y", "%d %b %Y %H:%M:%S", "%d %b %Y %H:%M", "%Y-%m-%d %H:%M:%S", "%Y-%m-%d %H:%M"):
             try:
-                want_dates.add(datetime.datetime.strptime(" ".join(d.split()), fmt).date())
+                _dt = datetime.datetime.strptime(" ".join(d.split()), fmt)
+                want_dates.add((_dt.date(), _dt.strftime("%H:%M:%S" if fmt.endswith("%S") else "%H:%M") if "%H" in fmt else None))
                 break
             except ValueError:
                 continue
         else:
-            print(f"STOP: --date を日付として読めない: {d!r} (例: '2 Sep 2015' / 2015-09-02)")
+            print(f"STOP: --date を日付として読めない: {d!r} (例: '2 Sep 2015' / 2015-09-02 / '16 Mar 2008 13:57:10')")
             return 1
     thread = [m for s in srcs for m in messages(s.read_text(encoding="utf-8", errors="surrogateescape"))
               if rx.search(subject_core(header(m, "Subject")))]
     picked = [m for m in thread
               if (not o.sender or any(s.lower() in header(m, "From").lower() for s in o.sender))
-              and (not want_dates or msg_date(m) in want_dates)
+              and (not want_dates or any(date_matches(m, d, tm) for d, tm in want_dates))
               and (not o.needle or any(n in own(m) for n in o.needle))]
     if not picked:
         print(f"STOP: 一致する通が無い (件名に一致 {len(thread)} 通・差出人・日付・本文の決め手で 0 通)")
         return 1
     if o.count is not None and len(picked) != o.count:
-        print(f"STOP: 選ばれた通が {len(picked)} 通で --count {o.count} と違う。--needle / --date / --sender で絞る:")
+        print(f"STOP: 選ばれた通が {len(picked)} 通で --count {o.count} と違う。--needle / --date / --sender で絞る "
+              "(同じ日に同じ人の通が複数あるなら、--needle に本文の決め手を渡すか、--date に下の時刻まで渡す):")
         for m in picked:
             print(f"  {header(m, 'Date')} | {header(m, 'From')} | {own(m)[:80]}")
         return 1
