@@ -406,10 +406,10 @@ report の残り 3 段は見出しどおりに直す。**§A が ACD-1.0 を述�
 > **If you read ACD-1.0 on `license-discuss`, this is what is different in the version submitted.**
 > The direction is unchanged: no condition is placed on You in respect of the Work (§10.1), the
 > surrender, the licence and the covenant stand side by side (§2.4, §4.4), and the patent grant
-> reaches models and outputs (§8.4). What changed is precision. Of the 86 defects recorded against
+> reaches models and outputs (§8.4). What changed is precision. Of the 87 defects recorded against
 > 1.0 in [`ACD-1.0.errata.md`](ACD-1.0.errata.md), 83 are closed: 36 in 1.1 to 1.3 (19, 13 and 4)
 > and 47 for the first time in 1.4. E10 is carried into finalisation and E6 is left as it is by
-> design. E87, found after 1.4 was fixed, was examined and is likewise left as it is.
+> design. E87 and E88, found after 1.4 was fixed, were examined and are likewise left as they are.
 > By the clause
 > each entry names first, most were in §8 (patents, 15), §16 (applying the text and its name, 13),
 > §2 (scope and effect, 11) and §1 (definitions, 8); seven name the preamble or several clauses at
