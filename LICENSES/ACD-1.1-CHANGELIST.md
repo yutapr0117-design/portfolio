@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.1-CHANGELIST.md
 audience: ai, 監査人, OSI license-review / license-discuss participants, 第三者全般
-last-updated: 2026-11-06
+last-updated: 2026-11-23
 canonical-ref: LICENSES/ACD-1.0.errata.md (欠陥の一次記録) / LICENSES/REVISION-PROTOCOL.md (§1 ラウンドの流れ・§2 版管理) / LICENSES/FROZEN.md (1.0 が動かないことの機械強制)
 ---
 
