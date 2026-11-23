@@ -144,8 +144,9 @@ MUTATIONS_ARCHIVE5 = [
     {
     "name": "Check 460 (p): §B.0 の見出しの語数が本文の実測と合わない (face 単位の帰属・2026-11-03)",
     "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "### B.0 The message as it should actually be sent (**",
-    "replace": "### B.0 The message as it should actually be sent (~**",
+    # 2026-11-23 (議題 3b の C′): §B.0 は送る手紙から材料の表になった。材料の表 / §A の行を打つ
+    "find": "### B.0 Facts for the owner's message (**",
+    "replace": "### B.0 Facts for the owner's message (~**",
     "check": CHECK,
 },
     {
@@ -813,8 +814,9 @@ MUTATIONS_ARCHIVE5 = [
     {
     "name": "Check 463: 送る文面が入口を URL でなく path で述べる —— メールの読み手は 2026-11-07 まで入口へ辿れなかった",
     "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "Start at https://github.com/yutapr0117-design/portfolio/blob/main/LICENSES/REVIEWERS.md.",
-    "replace": "Start at `LICENSES/REVIEWERS.md`.",
+    # 2026-11-23 (議題 3b の C′): §B.0 は送る手紙から材料の表になった。材料の表 / §A の行を打つ
+    "find": "| Where a reviewer can check the claims | `https://github.com/yutapr0117-design/portfolio/blob/main/LICENSES/REVIEWERS.md` |",
+    "replace": "| Where a reviewer can check the claims | `LICENSES/REVIEWERS.md` |",
     "check": CHECK,
 },
     {
@@ -835,8 +837,9 @@ MUTATIONS_ARCHIVE5 = [
     "name": "Check 472o: 送る本文の適合の宣言が別の版を述べる —— 472f の 16 欄の外で、切り替えた日に無音で残るところだった",
     "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
     # 2026-11-23: §B.0 の手紙は置き換え中の記録になり 472o が読まない (議題 3b)。§A.1 の宣言を打つ
-    "find": f"Stated plainly: I affirm that {SUBMISSION_TARGET} complies with the Open Source",
-    "replace": "Stated plainly: I affirm that ACD-1.1 complies with the Open Source",
+    # 2026-11-23 (議題 3b の C′): §B.0 は送る手紙から材料の表になった。材料の表 / §A の行を打つ
+    "find": "| License name and version | Autonomous Commons Dedication, version 1.4 |",
+    "replace": "| License name and version | Autonomous Commons Dedication, version 1.4 (ACD-1.3) |",
     "check": CHECK,
 },
     {

@@ -519,8 +519,9 @@ MUTATIONS_ARCHIVE3 = [
             "2026-09-07 に Carlo Piana 氏が別の提出へ『required information が無いので解決するまで"
             "コメントしない』と述べた (against.md #97) ため、欠落は議論の遅れではなく不成立を招く",
     "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
-    "find": "**OSD 5 and OSD 6**",
-    "replace": "**OSD 5/6**",
+    # 2026-11-23 (議題 3b の C′): §B.0 は送る手紙から材料の表になった。材料の表 / §A の行を打つ
+    "find": "complies with the Open Source Definition, naming OSD 3, 5, 6 and 9 |",
+    "replace": "complies with the Open Source Definition, naming OSD 3 and 9 |",
     "check": CHECK,
 },
     {
