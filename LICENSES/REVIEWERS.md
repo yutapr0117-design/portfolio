@@ -16,7 +16,7 @@ sources verbatim so that every quotation can be checked against what was actuall
 is asked to read it.** The whole of it exists so that a claim we make can be checked, **not so
 that it must be**. *(Re-measure: `git ls-files -z LICENSES ':!LICENSES/rounds' | xargs -0 cat | python3 -c "import sys; print(len(sys.stdin.read().split()))"`. `wc -w` gives about 2% more, because it splits the Japanese text differently.)*
 
-**If you read three things you have checked the parts that decide the question:**
+**If you read three things, you will have checked the parts that decide the question:**
 
 | | words | why |
 | :-- | --: | :-- |
@@ -42,10 +42,10 @@ decide what is worth translating, and gives you the commands to check the claims
 - **Why it should be approved.** OSI's own FAQ gives two reasons a public-domain dedication falls
   short: it is *"still not a license"*, and CC0's *"most serious"* concern was its patent exclusion.
   An article on OSI's site named the fix in 2017: *"disclaim ownership for the jurisdictions where
-  that is possible, and then grant a copyright license"*. ACD has both parts (§3, §4), its licence
-  applying everywhere, and grants patents (§8). It imposes no condition (§10.1), so conditions, field limits and
-  discrimination, one of the two grounds on which submissions fail, have nothing to attach to. Each
-  published criterion has an answer below.
+  that is possible, and then grant a copyright license"*. ACD has both parts (§3, §4), with a licence that
+  applies everywhere, and grants patents (§8). It imposes no condition (§10.1), so a condition, a
+  field-of-use limit or discrimination — one of the two grounds on which submissions fail — has nothing
+  to attach to. Each published criterion has an answer below.
 - **The gap it claims, in one sentence.** **No OSI-approved instrument grants all three of these
   at once**: (i) a **patent licence that survives the transformation of the work into a model** and
   its outputs; (ii) **no condition on you at all**; and (iii) a grant that expressly reaches
@@ -57,22 +57,21 @@ decide what is worth translating, and gives you the commands to check the claims
   SPDX marks OSI-approved and not deprecated, exactly three impose no condition on the licensee** —
   **0BSD, MIT-0 and the Unlicense** — and **none of those three contains the word** *patent*. Seven extend a patent grant beyond the work itself, and **all seven carry a condition**
   ([`ACD-1.0.gap-measurements.md`](ACD-1.0.gap-measurements.md) §1.97, §1.133).
-- **What this does not claim.** That existing licences forbid training: MIT's *"deal in the
+- **What this does not claim:** that existing licences forbid training. MIT's *"deal in the
   Software without restriction"* may well reach these rights. §6.1, §7 and §9 state expressly what a broad permission may already
   give, so **they are not grounds of uniqueness** (§1.134).
 - **Nearest approved licences.** Closest in effect to the Unlicense, MIT-0 and 0BSD (and to CC0,
   which is **not** OSI-approved), and in patent terms to UPL-1.0, BlueOak-1.0.0 and
   BSD-2-Clause-Patent, which already combine a permissive grant with an express patent grant under
-  one notice condition — **against those three it adds less**: the difference established is that
-  condition ([`gap-measurements.md`](ACD-1.0.gap-measurements.md) §1.133).
+  one notice condition — **against those three it adds less**: the one difference established is that
+  ACD has no such condition ([`gap-measurements.md`](ACD-1.0.gap-measurements.md) §1.133).
 - **The three weaknesses, first.** **No lawyer has read it**; **it has one adopter — this
   repository**; and **it is long**: its terms run longer than GPL-3.0's, a length a Committee
   member has held, with other faults, against another licence. None is repaired here. The first two are not published
   criteria: the chair called legal review *"not a blocker"*, and a Committee rationale (2020) calls
   non-use *"not a basis for rejection that the OSI has applied in the past"*.
-- **Anyone can adopt it.** No project names, and nothing in the text to edit.
-- **If you read one more thing**, read [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md):
-  every objection raised on the lists, and whether it lands.
+- **Anyone can adopt it.** It names no project and needs no editing.
+- **If you read one more thing**, read [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md).
 
 ## The new language, next to the nearest approved text
 
@@ -86,7 +85,7 @@ quotes the nearest OSI-approved text we found.
 | :-- | :-- | :-- |
 | §8.4: *"grants You a licence on the terms of Section 8.1 to put the Work to Computational Use and to make, have made, use, offer, sell, lend, lease, import, export, keep, possess, and otherwise practise or transfer any model, parameter set, weight, embedding, output, or other data, in each case resulting from Computational Use of the Work"* | UPL-1.0, one of the seven approved licences whose patent grant reaches beyond the work ([`gap-measurements.md`](ACD-1.0.gap-measurements.md) §1.133), extends it to *"(ii) the Larger Works (as defined below)"*: *"(b) any piece of software and/or hardware listed in the lrgrwrks.txt file if one is included with the Software"* | UPL reaches beyond the work only to what is **listed in advance** in a file shipped with it. A model trained on the work later cannot be listed. UPL also carries a notice condition |
 | §10.1 of ACD-1.4: *"This Dedication imposes no condition, obligation, restriction, or requirement upon You in respect of the Work, other than in Your capacity as a Dedicator."* The closing words keep the promises a contributor makes as a Dedicator (§2.6, §5); none of them is a condition on using the Work | 0BSD: *"Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted."* | **Nothing, in this sentence alone** — 0BSD is as unconditional. What is new is the pairing with the patent grant above: none of the three approved licences without a condition contains the word *patent* (§1.97) |
-| §7.2: *"You may extract and re-utilise the whole or any substantial part of the contents of the Work, repeatedly and systematically, without limit and without condition"* | **None that we found** names this right. CC0 1.0, which is **not** OSI-approved, lists *"database rights (such as those arising under Directive 96/9/EC"* among the rights it waives | A difference in what is **stated**, not necessarily in effect: an unrestricted permission may already reach this right. The draft uses the Directive's own verbs. The right exists in the EU and the UK; Japan and the United States protect a database only as a creative compilation, so there §7 has nothing to reach and copyright in the compilation falls to §§3–6 |
+| §7.2: *"You may extract and re-utilise the whole or any substantial part of the contents of the Work, repeatedly and systematically, without limit and without condition"* | **None that we found** names this right. CC0 1.0, which is **not** OSI-approved, lists *"database rights (such as those arising under Directive 96/9/EC"* among the rights it waives | A difference in what is **stated**, not necessarily in effect: an unrestricted permission may already reach this right. ACD-1.4 uses the Directive's own verbs. The right exists in the EU and the UK; Japan and the United States protect a database only as a creative compilation, so there §7 has nothing to reach and copyright in the compilation falls to §§3–6 |
 
 **The defined terms.** *Work*, *You* and *Contribution* are Apache-2.0's words; *Moral Rights* is
 one of CC0's listed rights; *the Steward* follows EPL's *Agreement Steward*; *Reservation* is tied to Article 4(3) of
@@ -151,7 +150,7 @@ rules stayed; the reasons moved here. The full records are in the change list, i
 | §8.4 | No threshold of how much of the Work was used; the test is causation, not quantity | A recipient usually cannot measure how much of a work shaped a model. The reason was removed because someone fine-tuning on their own data sometimes can, and a reason that fails for them invites a threshold for them |
 | §6.5 | Machine learning and text and data mining are permitted expressly | Earlier versions said silence had proved ambiguous in practice; we could not source that claim. ACD-1.4 says silence leaves it to be inferred whether this is permitted, which is true everywhere, including where unnamed uses are read narrowly (Germany, UrhG §31(5)). Since trial T108 it also says that *"Section 6 operates on its own footing (Section 2.4)"*, so §6 is a permission in its own right and not only a restatement of §3 to §5 and §8 |
 | §10.4 | No permission terminates under the Dedication | Earlier versions said none terminates for any reason. In the United States an author may end a licence after 35 years notwithstanding any agreement (17 U.S.C. §203; `ACD-1.0.jurisdictions.md` §5a), so the text now speaks only of itself |
-| §14.1 | Liability for wilful misconduct, gross negligence, death or personal injury is excepted where the law does not permit it to be excluded, and nothing in Section 14 limits it | In Germany an exclusion that reaches these may fall away entirely, and a clause that only limits them may fall with it. EUPL-1.2 §8 excepts wilful misconduct and damage to natural persons outright; this draft, like Apache-2.0 §8, excepts them only where the law requires it (`ACD-1.0.jurisdictions.md` §3). This row is an addition rather than a removed reason; it is here because the same countries are the reason |
+| §14.1 | Liability for wilful misconduct, gross negligence, death or personal injury is excepted where the law does not permit it to be excluded, and nothing in Section 14 limits it | In Germany an exclusion that reaches these may fall away entirely, and a clause that only limits them may fall with it. EUPL-1.2 §8 excepts wilful misconduct and damage to natural persons outright; ACD-1.4, like Apache-2.0 §8, excepts them only where the law requires it (`ACD-1.0.jurisdictions.md` §3). This row is an addition rather than a removed reason; it is here because the same countries are the reason |
 
 ## Which text you are looking at
 
@@ -316,7 +315,7 @@ Japan, with Canada for moral rights, the EU directives on text and data mining, 
 technological measures, and the Berne Convention and TRIPS, kept each text in `rounds/`, and wrote
 under each question in
 [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) what the law already settles and what it
-leaves open. Where a reading turned on our own words, the draft was changed instead. This narrows the
+leaves open. Where a reading turned on our own words, the text was changed instead, before ACD-1.4 was fixed. This narrows the
 questions a lawyer would be asked. It is not legal review, and it does not answer #1 or #2.
 For every clause of ACD-1.4 we also wrote down at least the strongest other reading its words
 allow (a modifier after a list, a pronoun without an antecedent, an exception present in one covenant
@@ -342,7 +341,7 @@ reading: a second pass found new ones. That a reading does not stand is our judg
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
 | **What we would ask a lawyer** | [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) | ACD has had no legal review. Ten questions on which a lawyer's reading would most change the text, ranked by consequence, each answerable on its own |
 | **What we would ask someone who builds ML systems** | [`QUESTIONS-FOR-PRACTITIONERS.md`](QUESTIONS-FOR-PRACTITIONERS.md) | The review record asks for this reader by name. Five questions on whether the machine-learning clauses (§1.7, §6.2, §6.3, §6.4, §8.4, §2.6) match a real pipeline, each answerable on its own |
-| **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md); for defects that a successor introduced, [`ACD-1.1-SELF-AUDIT.md`](ACD-1.1-SELF-AUDIT.md) (Japanese) | A frozen text is not repaired either: a defect in a sentence that 1.0 also has is recorded in the errata, one that a successor introduced is recorded in the self-audit, and the next draft repairs both. The first defect recorded in the frozen ACD-1.4 is self-audit §3zd (2026-11-23): §11.4's second sentence says the Dedication reaches nothing beyond the Covered Rights, the §8 patent claims and Moral Rights, save for the covenants in Section 5, but the authorisation and waiver as to technological measures that 1.4 added to §5.2 are not covenants. §11.1 (second sentence) and §15.1 keep that sentence from narrowing anything a recipient has. Low; repaired in the 1.5 draft (trial T135). 87 known imprecisions, all unrepaired in 1.0 while the freeze holds, with what the successor does (the Status column is authoritative) |
+| **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md); for defects that a successor introduced, [`ACD-1.1-SELF-AUDIT.md`](ACD-1.1-SELF-AUDIT.md) (Japanese) | A frozen text is not repaired either: a defect in a sentence that 1.0 also has is recorded in the errata, one that a successor introduced is recorded in the self-audit, and a later version repairs both. The first defect recorded in the frozen ACD-1.4 is self-audit §3zd (2026-11-23): §11.4's second sentence says the Dedication reaches nothing beyond the Covered Rights, the §8 patent claims and Moral Rights, save for the covenants in Section 5, but the authorisation and waiver as to technological measures that 1.4 added to §5.2 are not covenants. §11.1 (second sentence) and §15.1 keep that sentence from narrowing anything a recipient has. Low; the self-audit entry records how a later version closes it. 87 known imprecisions, all unrepaired in 1.0 while the freeze holds, with what the successor does (the Status column is authoritative) |
 | Known weaknesses, longer form | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) | **Mostly Japanese.** Stated by us, before you have to find them |
 
 ## Disclosures you should not have to dig for
@@ -356,7 +355,7 @@ reading: a second pass found new ones. That a reading does not stand is our judg
   model's maker trains models, and §6.4 and §8.4 favour those who do; we name it so that you can
   read those clauses with that in mind (`ACD-1.0.against.md` #319). **The name ACD-1.0, the generalised instrument and the
   submission material took shape during that delegated work, and he came to know their concrete
-  state afterwards.** He read the full text and understood it before sending it. He is the
+  state afterwards.** He read the full text of ACD-1.0 and understood it before posting it on 2026-08-26. He is the
   Dedicator and the steward and answers for it; **he did not write its clauses**
   (`submission.md` §E.1).
 - **Who answers your questions.** The owner, in his own words; the AI that drafted the text does
@@ -371,9 +370,9 @@ reading: a second pass found new ones. That a reading does not stand is our judg
   question. We state this here so that you can weigh it before the first question, not after.
 - **One adopter: this repository.** That is the only real-world use. The repository calls itself a public
   experiment in AI orchestration; the licence is not a text written for discussion but the terms
-  the repository's contents are released under today (ACD-1.3, applied 2026-10-25), and it is
+  the repository's contents are released under today (ACD-1.4, applied 2026-11-23), and it is
   written so that anyone can apply it unchanged.
-- These are stated at length in `ACD-1.0.submission-reference.md` §5 and §E.1, not buried.
+- These are stated at length in `ACD-1.0.submission-reference.md` §5 and `ACD-1.0.submission.md` §E.1, not buried.
 
 ## Checking the claims yourself
 
