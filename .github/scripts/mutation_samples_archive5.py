@@ -742,7 +742,7 @@ MUTATIONS_ARCHIVE5 = [
 },
     {
     "name": "Check 472l: 入口の OSI の FAQ の引用を読みやすく動かす —— 承認されるべき理由の先頭の出典が原文とずれる",
-    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "file": ROOT / "LICENSES" / "REVIEWERS-RECORD.md",
     "find": "it's still not a license",
     "replace": "it is still not a license",
     "check": CHECK,

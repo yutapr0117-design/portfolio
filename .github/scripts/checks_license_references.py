@@ -93,15 +93,16 @@ def run(ctx):
     _snap472l = sorted((ROOT / "LICENSES" / "rounds").glob("*-osi-faq-*-snapshot.txt"))
     _src472l = _n472l(_snap472l[-1].read_text(encoding="utf-8")) if _snap472l else ""
     _quotes472l = []
-    for _l472l in (ROOT / "LICENSES" / "REVIEWERS.md").read_text(encoding="utf-8").splitlines():
-        if _l472l.startswith("|") and "FAQ" in _l472l:
-            from verify_dossier_quotations import italic_quotes as _iq472l  # 内側の引用符を含む引用も拾う
-            _quotes472l += [("REVIEWERS.md", _q) for _q in _iq472l(_l472l, 10)]
+    for _f472l in sorted((ROOT / "LICENSES").glob("REVIEWERS*.md")):  # 入口と、入口から移した記録の頁 (2026-11-24・議題 14)
+        for _l472l in _f472l.read_text(encoding="utf-8").splitlines():
+            if _l472l.startswith("|") and "FAQ" in _l472l:
+                from verify_dossier_quotations import italic_quotes as _iq472l  # 内側の引用符を含む引用も拾う
+                _quotes472l += [(_f472l.name, _q) for _q in _iq472l(_l472l, 10)]
     _mt472l = (ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md").read_text(encoding="utf-8")
     _quotes472l += [("SUBMISSION-MATERIALS.md", _q) for _q in re.findall(r'(?<!OSAID の )FAQ[^*"]{0,60}\*"([^"]{10,})"\*', _mt472l)]
     _miss472l = [f"{_f}: {_q[:60]}" for _f, _q in _quotes472l if _n472l(_q).rstrip(".,") not in _src472l]
     check(
-        len(_quotes472l) >= 3 and not _miss472l,
+        len(_quotes472l) >= 8 and not _miss472l,
         f"Check 472l: OSI の FAQ として引く {len(_quotes472l)} 件が rounds/ の本文に在る",
         (f"Check 472l: OSI の FAQ として引く文が保存した本文と違う: {_miss472l or '引用か本文が見つからない'}。"
          "承認されるべき理由の先頭に置いた出典なので、語を動かさない。REVIEWERS.md の表は「FAQ」の語を含む行の"

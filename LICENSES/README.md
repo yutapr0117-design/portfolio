@@ -48,6 +48,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | 同・起草の出自 / 名称 / 運用（**LLM 起草の扱い・撤回条件**） | [`ACD-1.0.review-responses-meta.md`](ACD-1.0.review-responses-meta.md) |
 | **実際に来た指摘**とその答え | [`ACD-1.0.discussion-log.md`](ACD-1.0.discussion-log.md) |
 | **審査者が最初に読む英語の入口**（license-discuss から来た人向け） | [`REVIEWERS.md`](REVIEWERS.md) |
+| **入口から移した英語の記録**（決める側の有利な発言の表と、1.4 の本文から外した理由の表・2026-11-24 に分けた） | [`REVIEWERS-RECORD.md`](REVIEWERS-RECORD.md) |
 | **受け取った議論の原文**（無改変で置く場所。**2026-09-28 訂正**: 旧文は「いまは空」だった —— 実際は 2026-08-26 の送信文以来ファイルが在り、在庫の申告は `rounds/README.md` が持ち Check 465 が実ファイルと照合する） | [`rounds/`](rounds/README.md) |
 | **受け取った原文の在庫表**（年の帯ごとの分冊。2026-11-23 に `rounds/README.md` から移した。日付・venue・相手・file 名で引く） | [`INVENTORY-1999-2012.md`](rounds/INVENTORY-1999-2012.md) / [`INVENTORY-2013-2019.md`](rounds/INVENTORY-2013-2019.md) / [`INVENTORY-2020-onward.md`](rounds/INVENTORY-2020-onward.md) |
 | **疑問から引く索引（審査者向け・英語）** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) |

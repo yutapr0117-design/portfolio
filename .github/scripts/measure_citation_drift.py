@@ -36,7 +36,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 CITE = re.compile(r"§\s?(\d{1,2}\.\d{1,2})|Sections?\s+(\d{1,2}\.\d{1,2})")
 OTHER_CLAUSE = 0.15  # これ未満の一致度は、番号が同じでも別の条として扱う
 # 申請の日に全部読む面。審査者と採用者が最初に読む。残りの外向きの面は、前の版と名指していない行だけ読む。
-FIRST_READ = re.compile(r"(submission[^/]*|REVIEWERS|objection-map|SUBMISSION-MATERIALS|READY-TO-SUBMIT|ADOPTING)\.md$")
+FIRST_READ = re.compile(r"(submission[^/]*|REVIEWERS[^/]*|objection-map|SUBMISSION-MATERIALS|READY-TO-SUBMIT|ADOPTING)\.md$")
 
 
 def _path(ver: str) -> pathlib.Path:
