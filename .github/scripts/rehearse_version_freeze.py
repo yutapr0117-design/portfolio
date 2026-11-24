@@ -41,6 +41,9 @@ def rehearse(tree: Path) -> list[str]:
                           cwd=tree, text=True, capture_output=True)
     if tool.returncode != 0:
         return [f"確定の道具が止まった: {(tool.stderr or tool.stdout)[-300:]}"]
+    # 確定の日の probe の一行 (2026-11-24): 規則が出力から消えると、確定の日に probe を回す手掛かりが無くなる
+    if "gh workflow run mutation-probe.yml" not in tool.stdout:
+        return ["確定の道具の出力に、確定の日に mutation-probe を回す一行 (PROBE_LINE) が無い"]
     # 付録に変更の一覧の箇条が逐語で入ったか (2026-11-20・30: 一覧を草案の外 CHANGES-ACD-N.M.txt へ出した後、道具が草案の
     #   ファイルだけを読むと付録から一覧が落ちる)。確定した版は作業中の草案の版 (予行の木の前の状態) から読む
     ver = re.match(r"ACD-(\d+\.\d+)-DRAFT", next(p for p in sorted((ROOT / "LICENSES").glob("ACD-*-DRAFT.txt"))
