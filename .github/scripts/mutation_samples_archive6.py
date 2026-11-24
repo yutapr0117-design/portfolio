@@ -27,7 +27,7 @@ MUTATIONS_ARCHIVE6 = [
     "replace": "",
 },
     {
-    "name": "Check 468: §2.3 (b) の「governed by paragraph (a) alone」の alone を落とす —— 付け足した機能に (b) が及ぶかの線が消える (468u の目印)",
+    "name": "Check 468u: §2.3 (b) の「governed by paragraph (a) alone」の alone を落とす —— 付け足した機能に (b) が及ぶかの線が消える (468u の目印)",
     "file": CURRENT_DRAFT,
     "find": "teach or embody, is governed by paragraph (a) alone, by whatever",
     "replace": "teach or embody, is governed by paragraph (a), by whatever",
@@ -131,7 +131,7 @@ MUTATIONS_ARCHIVE6 = [
     "replace": "new version that <your name> publishes",
 },
     {
-    "name": "Check 468: §10.2 の通知が及ぶ先を「それが特定する素材」から「どの素材」へ広げる —— タグを残しただけの取り込み手の素材まで通知の適用に入る (468u の目印)",
+    "name": "Check 468u: §10.2 の通知が及ぶ先を「それが特定する素材」から「どの素材」へ広げる —— タグを残しただけの取り込み手の素材まで通知の適用に入る (468u の目印)",
     "file": CURRENT_DRAFT,
     "find": "applies this Dedication to the material it identifies",
     "replace": "applies this Dedication to any material",
@@ -151,7 +151,7 @@ MUTATIONS_ARCHIVE6 = [
     "replace": '*"OSI requires a prior review by a lawyer"*',
 },
     {
-    "name": "Check 468: §1.7 の「if, and only if」を「if」へ縮める —— controlled の定義が片方向の条件になり、§2.3 が及ぶ請求項が広がる (468u の目印)",
+    "name": "Check 468u: §1.7 の「if, and only if」を「if」へ縮める —— controlled の定義が片方向の条件になり、§2.3 が及ぶ請求項が広がる (468u の目印)",
     "file": CURRENT_DRAFT,
     "find": "controls a claim if, and only if, at the time in question, the Dedicator",
     "replace": "controls a claim if, at the time in question, the Dedicator",
@@ -175,7 +175,7 @@ MUTATIONS_ARCHIVE6 = [
     "replace": "The agent determined that the repository needed a license and\n  the owner said it should aim at external approval;",
 },
     {
-    "name": "Check 468: §10.2 の「in a comment within a file」を落とす —— ファイルの中のタグが及ぶ範囲が消え、取り込んだ他人のファイルまで通知の適用に入る (468u の目印・#2645)",
+    "name": "Check 468u: §10.2 の「in a comment within a file」を落とす —— ファイルの中のタグが及ぶ範囲が消え、取り込んだ他人のファイルまで通知の適用に入る (468u の目印・#2645)",
     "file": CURRENT_DRAFT,
     "find": "place in a comment within a file",
     "replace": "place in a file",

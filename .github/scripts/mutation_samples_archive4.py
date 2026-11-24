@@ -61,7 +61,7 @@ MUTATIONS_ARCHIVE4 = [
     "check": CHECK,
 },
     {
-    "name": "Check 468: 次版草案の題名行を前の版へ戻す (468j) —— 1.2 を複製した 1.3 草案で題名だけが "
+    "name": "Check 468j: 次版草案の題名行を前の版へ戻す —— 1.2 を複製した 1.3 草案で題名だけが "
             "7 日間 \"Version 1.2\" のまま残った実例 (2026-10-24)。語数は版数で変わらないので他の face は気付かない",
     "file": CURRENT_DRAFT,
     "find": f"                              Version {CURRENT_DRAFT_VER}\n",

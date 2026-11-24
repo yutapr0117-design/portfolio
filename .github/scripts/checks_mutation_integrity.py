@@ -215,6 +215,7 @@ def run(ctx):
     try:
         import importlib as _importlib362
         _ms362 = _importlib362.import_module("mutation_samples")
+        _find_spans362 = _importlib362.import_module("mutation_samples_common").find_spans
         _orphans362: list[str] = []
         for _lst362, _lbl362 in ((_ms362.MUTATIONS, "MUTATIONS"), (_ms362.E2E_MUTATIONS, "E2E_MUTATIONS")):
             for _m362 in _lst362:
@@ -224,7 +225,7 @@ def run(ctx):
                 except OSError:
                     _orphans362.append(f"[{_lbl362}] {_m362['name'][:55]} → file 不在: {_f362}")
                     continue
-                if _m362["find"] not in _txt362:
+                if not _find_spans362(_m362, _txt362):
                     _orphans362.append(f"[{_lbl362}] {_m362['name'][:55]} → find-anchor 不在 in {_f362.name}")
         check(
             not _orphans362,
@@ -442,6 +443,7 @@ def run(ctx):
         if str(ROOT / ".github" / "scripts") not in _sys420.path:
             _sys420.path.insert(0, str(ROOT / ".github" / "scripts"))
         _ms420 = _importlib420.import_module("mutation_samples")
+        _fs420 = _importlib420.import_module("mutation_samples_common").find_spans
         _n_e2e420 = len(_ms420.E2E_MUTATIONS)
         for _mu420 in _ms420.E2E_MUTATIONS:
             _f420 = _mu420["file"]
@@ -458,7 +460,7 @@ def run(ctx):
             _f420 = _mu420["file"]
             if _mu420.get("first_occurrence") or not _f420.exists():
                 continue
-            _n420 = _f420.read_text(encoding="utf-8", errors="replace").count(_mu420["find"])
+            _n420 = len(_fs420(_mu420, _f420.read_text(encoding="utf-8", errors="replace")))
             if _n420 > 1:
                 _dupe420.append(f"{_f420.name}: x{_n420} ({_mu420['name'][:50]}…) [consistency・first_occurrence の印が無い]")
     except Exception as _e420:
