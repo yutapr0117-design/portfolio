@@ -49,7 +49,11 @@ criteria the committee asks submitters to speak to directly:
   **under the same terms as the license of the original software**"*, and §16.3 permits anyone
   to apply this text to a work in which they hold rights — so a derivative may carry ACD-1.0
   itself. **Checked word for word against the source on 2026-09-13**; the earlier rendering
-  answered the first limb only.
+  answered the first limb only. Those who decide have read the second limb as a permission the licence must give, not a term it must
+  impose: Russ Nelson, 2004-09-21, *"#3 says explicitly that a license has to allow redistribution under the same terms as the license of the original software."*;
+  and Bruce Perens, 2022-09-19, that the OSD does not require a licence to permit *all* modifications
+  (`ACD-1.0.review-readings-7.md` §1.477). In ACD-1.4, §16.3 reaches the parts in which the modifier holds
+  rights, and §4.6 keeps the original parts under the original Dedication.
 - **OSD 4 (Integrity of the author's source code).** No restriction is imposed. Section
   16.4 concerns the text of the licence *as a document*, not the licensed work; Sections
   10.5 and 16.6 state this expressly. *(Corrected 2026-11-01: this said "10.5 and 16.5"; in
