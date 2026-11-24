@@ -142,7 +142,7 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 3. **判断できないなら使わない** —— それは正当な選択であり、こちらから止める理由は無い
 
 > **English:** If your tooling cannot classify it and your policy requires a listed licence,
-> the correct answer is to wait. I would rather you decline than adopt something your process
+> the correct answer is to wait. Declining is better than adopting something your process
 > cannot account for.
 
 ### A13. 既存プロジェクトを ACD-1.0 へ移行できるか
@@ -192,10 +192,10 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 **その場合は使えない。** ACD-1.0 は **OSI 承認を受けていない**（`license-discuss` へ投稿した
 段階で、承認申請の窓口である `license-review` へも未投稿）。
 
-> **English:** If your policy requires an OSI-approved licence, ACD-1.0 does not qualify today
-> and I would not want you to argue otherwise on my behalf. The current status is recorded in
-> `LICENSES/FROZEN.md`, and I would rather you wait — or use an approved licence — than
-> spend your own credibility on an unapproved one.
+> **English:** If your policy requires an OSI-approved licence, ACD-1.0 does not qualify today,
+> and nobody should argue otherwise on its behalf. The current status is recorded in
+> `LICENSES/FROZEN.md`. Waiting, or using an approved licence, is better than spending your own
+> credibility on an unapproved one.
 
 **これは採用者を減らす記述であり、意図的である。** 承認されていないものを「実質的に同等だ」と
 言わせるのは、こちらの都合で相手の信用を使わせることになる。
@@ -277,9 +277,9 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 > nor purports to. If your ability to grant is constrained by an existing commitment, then
 > what Section 8 grants is correspondingly constrained.
 >
-> I state the structure rather than the conclusion, because how a prior commitment interacts
-> with a later unconditional grant is exactly the kind of question I have not had counsel look
-> at (`ACD-1.0.jurisdictions.md` §10).
+> This states the structure rather than the conclusion, because how a prior commitment interacts
+> with a later unconditional grant is exactly the kind of question no lawyer has looked at
+> (`ACD-1.0.jurisdictions.md` §10).
 
 **構造だけ述べて結論を述べていない**のは、`jurisdictions.md` と同じ姿勢による。
 **助言を得ていない領域で断定しない。**

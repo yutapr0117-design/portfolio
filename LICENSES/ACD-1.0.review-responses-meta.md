@@ -7,6 +7,8 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 
 # ACD-1.0 — 想定問答（起草の出自・名称・運用）
 
+> **この文書の "I" は誰か（2026-11-25）**: 英語の引用ブロックの一人称は、AI のモデル（Claude）が書いた想定の声で、オーナー（横井雄太）の言葉ではない。リストへ送る文でもない —— 投稿と返信は、オーナーが自分の言葉で書く（B14・`REVISION-PROTOCOL.md` ゲート 0）。**In English:** where a quoted block below says "I", an AI model wrote it as a possible line of answer. It is not the steward speaking, and it is not text to be sent to a list.
+
 **総論・OSD 逐条・認める弱点・議論の進め方は `ACD-1.0.review-responses.md` にある。本書はテキストの「外側」を扱う分冊。**
 
 すなわち「誰が書いたのか」「誰が維持するのか」「そもそも何のためか」。**条項を読めば答えが出る種類の問いではないので、先に用意していないと即答できない。**
