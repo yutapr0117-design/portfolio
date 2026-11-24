@@ -19,6 +19,24 @@ canonical-ref: LICENSES/ACD-1.5-DRAFT.txt / .github/scripts/measure_legal_uncert
 
 ### 19.2 §2（portfolio-59・二度目は portfolio-3f）
 
+- §2.1 | 別の読み: *"in each jurisdiction that gives effect to such an act"* が *"surrenders"* にも掛かり、公有を認めない法域では放棄も無い | 一意 | 根拠: そこでは次の文の放棄（waives）と §2.2 の許諾・§2.5(a) の約束が、§2.7 *"whether or not another is effective"* でそれぞれ働き、受け手の結果が変わらない | 本文 218787b8
+- §2.1 第 3 文 | 別の読み: *"remuneration"* が、写しやサポートの代金の契約上の請求まで放棄する（§5.4(c) と食い違う） | 一意 | 根拠: *"any right under the Covered Rights to remuneration"* —— 契約の代金は Covered Rights の下の権利でない（固定 9 の *together with any right to remuneration from any use* で一度開き、固定 17 で閉じた） | 本文 218787b8
+- §2.1 第 3 文 (b) | 別の読み: EU 法が放棄を認めない報酬請求権まで放棄したと言い切る | 法の側 | 根拠: §2.7 *"to the fullest extent the law permits"* が surrender と waiver に掛かる（固定 36 で surrender を列に入れた）。何が残るかは法域による（`ACD-1.0.jurisdictions.md` の報酬請求権の節・against #156） | 本文 218787b8
+- §2.1 第 1 文 | 別の読み: *"places the Work in the public domain"* が、他人の権利のある部分まで公有にする（3f の二度目の読み） | 一意 | 根拠: §6.1 *"affects no right held by a person other than the Dedicator"*、§1.3 *"the Work is the material to which that Dedicator has applied this Dedication"*、§1.6 *"that the Dedicator holds"* | 本文 218787b8
+- §2.2 | 別の読み: *"any adaptation of it"* が、Dedicator が別に作った自分の改変物（未公開・別条件）まで許諾する | 一意 | 根拠: 許諾は *"to exercise all Covered Rights"* で、Covered Rights は §1.6 *"in the Work"*、その Work は §1.3 *"the material to which that Dedicator has applied this Dedication"*。改変物に新しく生じた権利はそこに無い | 本文 218787b8
+- §2.2 (b) | 別の読み: *"The licence includes any Computational Use"* が、Covered Rights の外の行為（特許・他人の権利）まで許す | 一意 | 根拠: §2.2 は Covered Rights の許諾で、特許は §2.3、他人の権利は §6.1 | 本文 218787b8
+- §2.3 柱書 | 別の読み: (a) と (b) が *"and"* で結ばれ、両方を満たす請求項だけに及ぶ | 一意 | 根拠: *"as to the Work or anything derived from it"* と *"as to Computational Use or a Result"* が対象で分ける。重なる対象（コンパイルの出力など）にはどちらか一方で足りる（§9.1） | 本文 218787b8
+- §2.3(a) | 別の読み: (b) の *"in whole or in part"* との対比で、*"caused by"* は単独の原因に限る | 一意 | 根拠: *"including by its combination"* が組み合わせの原因を含めることを示し、残る割れは §9.1 *"the reading that gives You more prevails"* が広い側を選ぶ。逆側: 大きな製品の一部に Work を使うときの射程が広い側に決まる（B7） | 本文 218787b8
+- §2.3(a) (b) | 別の読み: *"anything derived from it"* が著作権法の二次的著作物に限る | 一意 | 根拠: 同じ文が *"derived"* を著作権の語で定義せず、(a) の条件は由来ではなく Work の中身が原因であること（E41 の型は語を替えて消えた） | 本文 218787b8
+- §2.3(b) | 別の読み: プログラムの実行も *"automated processing"* なので、普通の使用がすべて (b) になり、後から足した特徴まで教えていれば及ぶ | 一意 | 根拠: Work に在る特徴には §2.3(a) でも (b) でも及び結果が同じ。足した特徴は (b) の末文 *"is governed by paragraph (a) alone"* が (a) だけに任せる（Work 自身が教えるか具えていたものを除く —— そこは 1.4 より広げた・CHANGELIST の表の 6 番） | 本文 218787b8
+- §2.3(b) (b) | 別の読み: *"teaches"* は特許の語で、実施できる程度の開示に限る / 触れただけで足りる | 法の側 | 根拠: 本文は程度を定めない（1.4 §8.4 から同じ）。行き先は法律家への問い 2 (h2) | 本文 218787b8
+- §2.4 | 別の読み: *"transferable"* により、譲った人が許しを失う | 一意 | 根拠: 同じ条の第 2 文 *"Everyone who receives … holds them directly from the Dedicator"* | 本文 218787b8
+- §2.5 柱書 | 別の読み: *"that another person holds through the Dedicator"* で、Dedicator が他人の不主張まで保証する | 一意 | 根拠: 主語は The Dedicator で、約束は *"not to assert or exercise … and not to authorise or assist"*。他人の行為の保証ではない。他人を縛るのは §7.2 | 本文 218787b8
+- §2.5(d) | 別の読み: 第 2 文 *"This also includes a claim under a right of privacy, publicity, or personality held by the Dedicator"* が、Work の使用と関わらない請求（別件のプライバシー侵害）まで含む | 試作 T159 | 根拠: 指示語 *"This"* は (d) の請求を受けるが *"also includes"* が (d) の条件（*"treats a use of the Work … by reason of its being a use"*）の外を足すと読める。§9.1 の *"As to the Work"* でしか止まらない。案: 2 文を 1 つに —— *"… as wrongful, or as without legal basis, by reason of its being a use of the Work or of a right of privacy, publicity, or personality held by the Dedicator."*（−8 語前後） | 本文 218787b8
+- §2.6 第 1 文 | 別の読み: 1.5 の Moral Rights は持ち主を Dedicator に限らないので、*"waives all Moral Rights in the Work, and consents …"* が共著者・実演家ほか他人の人格権まで放棄し同意する（3f の二度目の読み） | 試作 T165 | 根拠: §6.1 と §2.5 の柱書 *"that the Dedicator holds"* が効果を止めるので結果は一意に近いが、§2.5 だけが持ち主の限定を持つ対比が残る。案: *"waives all the Dedicator's Moral Rights in the Work"*（+2 語） | 本文 218787b8
+- §2.6 | 別の読み: *"every act … that would otherwise infringe them"* が、虚偽の表示の行為まで同意する | 一意 | 根拠: §6.3 *"neither Section 2.5(c) nor Section 2.6 extends to that conduct"* | 本文 218787b8
+- §2.7 | 別の読み: *"Each surrender, grant, waiver, consent, authorisation, and covenant"* の列に無いもの（§3.1 の撤回・否認、§3.2 の *"asserts none"*）は独立でなく、法の許す最大限でもない | 一意 | 根拠: §3.1 の撤回は *"that the Dedicator has the power to withdraw"* と自分で限り、否認と不主張は他の条の効力に依らない独立の文で、依る相手が無い | 本文 218787b8
+
 ### 19.3 §3〜§5（portfolio-df）
 
 ### 19.4 §6〜§8（portfolio-3f・2026-11-24）
