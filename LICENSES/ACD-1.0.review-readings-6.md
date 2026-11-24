@@ -507,3 +507,33 @@ census の `DECIDERS` は差出人の表示名を大文字小文字を区別し�
 **この節が establish しないこと。** 許しの側の技術の名指しが OSD 10 に当たらないこと。
 
 **反映**: 入口（`submission-osd.md` の OSD 10 の行に Sado 氏 2026-03-14 を「OSD 10 の問いは学習を引き金にした条件から生じた」の記録として・逆側に OSD 10 の "No provision" の語を・cd へ）。本文は変えない。
+
+## 1.474 OSI の事務局長の講演（ATO 2026・2026-11-23 に OSI の blog へ）—— 審査の手順と AI の投稿の方針には触れず、「オープンソース AI の固有の懸念を扱うと称するライセンスの、近ごろの緩やかな増殖」を語った（2026-11-24）
+
+6d の日次取得が見つけた OSI の blog の記事 "ATO 2026: The State of the Open Source Initiative"（`https://opensource.org/blog/ato-2026-the-state-of-the-open-source-initiative`・*"November 23, 2026"*・byline は Nick Vidal 氏）を読んだ。中身は All Things Open（2026-10）の "State of the Source" の講演の書き起こしで、話し手は OSI の事務局長 Duane O'Brien 氏である。**取得の方法**: オーナーが 2026-11-24 に取得を許し、portfolio-d7 の web-fetch の agent が 1 回で全文を読んだ（HTTP 200）。下の引用は agent が逐語として返した文で、HTML を rounds/ に無改変で置いてはいない —— 逐語の照合（`verify_dossier_quotations.py`）の対象外で、使う前に頁で当て直すこと。
+
+**問いと答え**（6d の依頼: 審査の手順と AI の利用の方針に触れているか）:
+
+- **審査の手順**: 一般的な言及だけ。*"We host the process to review licenses to see if they adhere to the Open Source Definition to protect user freedoms."*、*"We very much see our role as the conveners of community and distillers of community consensus."*、*"So the open source licenses aren't what they are because the OSI said they are."*。委員会・承認と却下の決め方・理事会からの委任・期限・手順の変更には**触れていない**。
+- **AI の投稿の方針**（moderators 2026-09-09・行動規範の改定・計画 §3.8 の 5・B14）: **触れていない**。
+- **件数**: *"the volume of licenses at least until this year had somewhat trickled off, right? There were fewer licenses coming in."*
+- **AI 向けのライセンス**: *"the recent slow proliferation of licenses that purport to address unique specific concerns related to open source AI has really re-energized this conversation."* —— OpenMDW・ModelGo ほか個別の名は出さない。
+- **用途の制限**: *"The license cannot implement fields of restriction."*
+- **入口の勧め**: *"I highly recommend joining the License Discuss list and just reading through the conversations as they come through"*
+
+**当たり方。**
+
+| 文 | ACD への当たり方 |
+| :-- | :-- |
+| *"the recent slow proliferation of licenses that purport to address unique specific concerns related to open source AI"* | **不利な面（B13・B10）。** OSI の事務局長が、AI の固有の懸念を扱うと称するライセンスを「増殖」の語で括った。ACD は前文で機械学習を名指す instrument で、審査者がこの括りに入れて読む余地がある。この発言は OSI の審査の基準ではなく、講演の 1 文である。**有利な読み**: 同じ文は、その増殖が会話を *"re-energized"* したとも言い、否定の評価だけではない。ACD は条件を課さず（§10.1）、括られうる instrument（RAIL の用途の制限、OCL の頒布の規則、ModelGo の出力についての条件など）が持つ条件を持たない |
+| *"The license cannot implement fields of restriction."* | **有利な面（OSD 6）。** 用途の制限を置けないという事務局長の言明。ACD-1.4 の §4.3 は目的に条件を付けず、§10.1 は条件を課さない |
+| *"So the open source licenses aren't what they are because the OSI said they are."* | **両面。** OSI の承認は合意の蒸留だという自己規定。承認の重み（B2・採用）を OSI 自身が相対化する文で、承認されない間も採用は可能だという ACD の位置（`REVIEWERS.md`）と合うが、承認の価値を下げる読みにも使える |
+| *"I highly recommend joining the License Discuss list and just reading through the conversations"* | **支え（経路）。** license-discuss を読むことを勧める。ACD が license-discuss に先に出し、全アーカイブを読んできた経路（計画 §4・REVISION-PROTOCOL §3.6）に合う |
+
+**読み。** 審査の手順と AI の投稿の方針について、この記事は新しいことを何も言わない —— 計画 §3.8 と B14 の扱いは変えなくてよい。新しく記録すべきは、事務局長が AI 向けのライセンスを「増殖」と括ったことで、B13 の不利な側に置く材料である。
+
+**逆側。** 講演の書き起こしで、話し手の文としての正確さは書き起こしに依る。byline の Vidal 氏が書き起こしたか載せただけかを頁は述べない（agent の報告）。
+
+**この節が establish しないこと。** OSI が AI 向けのライセンスを審査で不利に扱うこと。
+
+**反映**: B13（事務局長の「増殖」の 1 文を不利な事実の候補として・cd へ）/ 入口（`OSI-EVENTS` の 2026-11 の行と PEER-REVIEW-WATCH に記事の存在と「審査の手順・AI の方針には触れない」を・6d へ）。本文は変えない。
