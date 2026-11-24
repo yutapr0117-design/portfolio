@@ -474,8 +474,8 @@ MUTATIONS_ARCHIVE5 = [
     {
     "name": "Check 468u: §7.2 の限度「to the fullest extent the law permits」を別の語へ —— 拘束の限度が 1 つの語で読めなくなる (T76・1.5 の書き直しで §12.4 → §7.2)",
     "file": CURRENT_DRAFT,
-    "find": "This Dedication binds, to the fullest extent the law permits:",
-    "replace": "This Dedication binds, wherever it can be made to bind:",
+    "find": "binds, to the fullest extent the law permits:",
+    "replace": "binds, wherever it can be made to bind:",
     "check": CHECK,
 },
     {
@@ -495,8 +495,8 @@ MUTATIONS_ARCHIVE5 = [
     {
     "name": "Check 468u: §2.3 (b) の \"however much or little of it was used\" が崩れる —— 請求項の範囲が CERN-OHL-P と同じ「作品の内容の量で限る」形へ戻りうる (1.5 の書き直しで §8.4 → §2.3)",
     "file": CURRENT_DRAFT,
-    "find": "much or little of it was used.",
-    "replace": "much of it was used.",
+    "find": "material, however much or little of the Work",
+    "replace": "material, provided that most of the Work",
     "check": CHECK,
 },
     {
