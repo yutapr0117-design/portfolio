@@ -551,3 +551,5 @@ census の `DECIDERS` は差出人の表示名を大文字小文字を区別し�
 **この節が establish しないこと。** 見直しが FAQ の句を保つこと。
 
 **反映**: 入口（OSI-EVENTS / PEER-REVIEW-WATCH の見張りの行に「FAQ の explicit assertion の句は 2026-11-24 に在る・見直しの話題は discuss 1458」を・6d へ）。本文は変えない。
+
+§1.475 でこの文書は終わり、節 1.476 からは `ACD-1.0.review-readings-7.md` に続く（2026-11-24・BYTE-BUDGET の上限 200,000 B の手前で分けた。この文書の既存の節は動かしていない）。
