@@ -19,7 +19,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 L = ROOT / "LICENSES"
-ENTRY = ("SUBMISSION-MATERIALS.md", "REVIEWERS.md", "QUESTION-INDEX.md", "READY-TO-SUBMIT.md", "REVISION-PROTOCOL.md", "OSI-APPROVAL-PLAN.md")
+ENTRY = ("SUBMISSION-MATERIALS.md", "REVIEWERS.md", "REVIEWERS-RECORD.md", "QUESTION-INDEX.md", "READY-TO-SUBMIT.md", "REVISION-PROTOCOL.md", "OSI-APPROVAL-PLAN.md")
 
 
 def section_b(lines: list[str], i: int) -> str | None:

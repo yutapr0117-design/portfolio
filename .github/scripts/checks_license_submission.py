@@ -291,7 +291,7 @@ def run(ctx):
                 #     (2) 版に中立な入口・索引の面 —— どの版が対象でも対象版を指すべき
                 #   **版名を持つ他版の file は自然に外れる** —— `ACD-1.1-CHANGELIST.md` が
                 #   1.1 の条を引くのは正しく、対象版で照合したら誤検出になる。
-                _neutral472 = ("REVIEWERS.md", "READY-TO-SUBMIT.md", "QUESTION-INDEX.md",
+                _neutral472 = ("REVIEWERS.md", "REVIEWERS-RECORD.md", "READY-TO-SUBMIT.md", "QUESTION-INDEX.md",
                                "ACD-1.0.objection-map.md")
                 _faces472 = sorted(
                     {_q.name for _q in (ROOT / "LICENSES").glob("ACD-1.0.submission*.md")} | {_q.name for _q in (ROOT / "LICENSES").glob(f"{_ver472}.*.md")} |
@@ -363,7 +363,7 @@ def run(ctx):
                 #   **移した逐語引用を射程から外した**（mutation の anchor 追従で発覚）。
                 #   広げるのではなく**同じ文書を分割しても射程が変わらない**ようにする。
                 _faces472b = sorted({_q.name for _q in (ROOT / "LICENSES").glob("ACD-1.0.submission*.md")}
-                                    | {"REVIEWERS.md", "ACD-1.0.objection-map.md"})
+                                    | {"REVIEWERS.md", "REVIEWERS-RECORD.md", "ACD-1.0.objection-map.md"})
                 # ── 472b. 提出側の逐語引用が、提出対象の版の本文に実在すること ────────────────
                 #   472 は**番号の存在**しか見ない。§16.4 は 1.0 にも 1.1 にも在るので、
                 #   1.1 の語句 *"except by the Steward"* を 1.0 の §16.4 として引いても通った

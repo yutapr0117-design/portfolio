@@ -25,7 +25,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約) / LICENSES/ACD-1.0
 
 ## Change impact
 
-`ACD-1.0.against.md` #127、`ACD-OSI-BOTTLENECKS.md`、`REVIEWERS.md` の "What the record already says in its favour" がこの file に依拠する。
+`ACD-1.0.against.md` #127、`ACD-OSI-BOTTLENECKS.md`、`REVIEWERS-RECORD.md` の "What the record already says in its favour" がこの file に依拠する。
 
 ## Audience-specific notes
 

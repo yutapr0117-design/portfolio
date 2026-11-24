@@ -25,7 +25,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約) / LICENSES/REVIEWE
 
 ## Change impact
 
-`REVIEWERS.md` の "What the record already says in its favour" がこの file に依拠する。
+`REVIEWERS-RECORD.md` の "What the record already says in its favour" がこの file に依拠する。
 
 ## Audience-specific notes
 
