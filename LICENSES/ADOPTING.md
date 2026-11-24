@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ADOPTING.md
 audience: anyone thinking of applying ACD to their own work
-last-updated: 2026-11-23
+last-updated: 2026-11-24
 canonical-ref: LICENSE (names the version this repository applies) / LICENSES/ACD-1.0.faq.md (the adopter's questions in full) / LICENSES/ACD-1.0.comparison.md (the alternatives) / LICENSES/ACD-1.0.against.md (the adverse record)
 ---
 
@@ -26,7 +26,13 @@ choice. Section numbers below are the same in every version from ACD-1.0 to ACD-
 - **You give up more patent rights than most licences ask.** The patent licence has no condition
   and you cannot terminate it (§8.2), and it reaches models and outputs that result from using the
   work (§8.4). If you hold a patent on a method your work explains, read
-  [FAQ A32](ACD-1.0.faq.md) before you apply it.
+  [FAQ A32](ACD-1.0.faq.md) before you apply it. A claim you own is granted even if you have already
+  licensed it exclusively to someone else, so check that first (errata [E91](ACD-1.0.errata.md)).
+- **You give up some claims that are not about copyright.** In 1.2 to 1.4, §5.1 also promises not to
+  assert claims that treat a permitted use as wrongful, with listed exceptions. Read literally that reaches
+  a claim against someone who attacks you with a tool you released
+  ([`ACD-1.1-SELF-AUDIT.md`](ACD-1.1-SELF-AUDIT.md) §3zf, in Japanese). Many laws do not let a promise
+  made in advance cover deliberate harm; no lawyer has checked how far this one goes.
 - **You cannot answer a patent suit by ending the suer's rights.** Retaliation clauses are absent,
   and a competitor can take the work and still sue you (`ACD-1.0.against.md` #174).
 - **If you serve copies from your own server, read §5.2 first.** In 1.0 to 1.3 you covenant not to
@@ -102,6 +108,14 @@ accompanies (Section 16 of ACD-1.4, on notices). A README that names ACD only to
 a version, or say in the same sentence that the work is not under it. Section 16 speaks of a notice that
 a Dedicator places, so an article or a comparison table about other people's work does not apply
 ACD to that work; that is our reading, and no lawyer has checked it.
+
+**If you pass on a file that carries someone else's ACD notice, say whose it is.** The text of 1.0 to 1.4
+does not say that keeping or recording another person's notice leaves your own material outside it
+(errata [E90](ACD-1.0.errata.md)); we read it that way ([FAQ A33](ACD-1.0.faq.md)). **If your project is
+under another licence and includes an ACD file, state your terms for patches.** In 1.4 a patch to that file,
+sent to a repository that offers it with its notice, is read as a contribution under ACD unless its author
+says otherwise (`ACD-1.1-SELF-AUDIT.md` §3zg). Both are repaired in the 1.5 draft, which is not fixed and
+not applied.
 
 There is nothing to register, and you do not need to tell us.
 
