@@ -924,3 +924,13 @@ T48（2026-11-09）は、*"Paragraphs (a) and (b) do not reach a service through
 **見つけ方**: 縮約の本文だけを読む独立の読み手（portfolio-6c・第三者の意見ではない）。1.0 の語には無いので errata ではなくここに記録する。
 
 **1.5 草案で閉じた（2026-11-24・T147・議題 17）**: 1.5 草案 1.11 の除外の列に *"is submitted to a repository or forum that puts such submissions under other terms instead"*。*instead* は上乗せの許諾（ホスティングの規約が自社に求める許諾、CLA の追加の許諾）を外に出す語で、最初の案 *"or the place it is submitted to states other terms for such submissions"* は GitHub の利用規約で普通の寄与まで外へ出した。除いた素材は 10.4 の *"excluded by Section 1.11"* で識別の約束に届く。退けた候補: *"unless either of them, when submitting it, or the terms of the place it is submitted to, puts it under other terms"*（10.4 の文が長くなった）。**逆側**: 宛先の規約が寄与を別の条件に置けるので、fork の側の規約で寄与が ACD の外に出る —— 出た素材を識別する約束（10.4）はその素材を Work と一緒に含める Dedicator にだけ掛かる。1.4 は凍結のまま未修正。
+
+## 3zh. 1.2 が持ち込んだ欠陥 —— §5.2(d) のプライバシー・パブリシティ・人格の約束が、Work に写ったものに結ばれていない（2026-11-24）
+
+**なに**: 1.2〜1.4 の §5.2(d) は *"a right of privacy, publicity, or personality held by the Dedicator, in respect of any use of the Work that this Dedication permits"* を主張しないと約束する（errata E31 を閉じるため 1.2 で足した）。Work が画像や音声を作る道具（モデル・ソフトウェア）のとき、第三者がその道具で Dedicator 本人の偽の像（deepfake）を作ることは「Work の使用」で、像は Work に写っていない。字面では、その像についての人格権の請求まで不行使になる。CC0 の放棄は *"publicity and privacy rights pertaining to a person's image or likeness depicted in a Work"* と、作品に写った像に結ばれている。1.0 には §5.2(d) が無いので errata ではなくここに記録する。
+
+**重さ**: Medium（採用と公平）。§5.2(d) の除外は虚偽の言明だけで、偽の像が「虚偽の言明」に当たるかは場面による。E31 が守ろうとしたのは、Work に入っている Dedicator 自身の像を受け手が使う場面で、道具で作られた像ではない。
+
+**見つけ方**: 縮約の本文だけを渡した読み手（審査者の役・AI の agent・第三者の意見ではない）。E31 と試作 T159 は「誰の権利か」と「どの使用か」を当て、像がどこに在るかを当てていなかった。
+
+**1.5 草案で閉じた（2026-11-24）**: 2.5(d) *"as to the Dedicator's own likeness, voice, name, or performance contained in the Work, under a right of privacy, publicity, or personality"*。**逆側**: 像・声・名・実演の外の私事（Work に書かれた本人の病歴など）についてのプライバシーの請求は、Work の使用であることを理由とするもの（同じ文の前半）に限って約束に入る。1.2〜1.4 は凍結のまま未修正。
