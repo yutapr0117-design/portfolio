@@ -549,7 +549,7 @@ OpenMDW-1.1 の審査で、著作権侵害の主張を終了の引き金にす�
 > no other sentence in the text excludes a licence by implication (Section 2.5's estoppel binds the
 > Dedicator and grants nothing). Approved licences use the same kind
 > of sentence: MPL-2.0 Section 2.3, "No additional rights or licenses will be implied from the
-> distribution or licensing of Covered Software under this License", and EPL-2.0 Section 5,
+> distribution or licensing of Covered Software under this License", and EPL-2.0 Section 7,
 > "whether expressly, by implication, estoppel or otherwise".
 >
 > Against that: in ACD-1.4 the sentence says more than it needs to. "It reaches nothing else" is
@@ -558,7 +558,7 @@ OpenMDW-1.1 の審査で、著作権侵害の主張を終了の引き金にす�
 > quoted above, which closes implication and claims nothing about reach. Neither sentence can
 > exclude an implied licence or exhaustion that a law gives regardless of the text.
 
-> *(Corrected 2026-11-24: this answer first gave §8.4's limit in the words of 1.1 to 1.3, "only claims whose infringement depends upon the use of the Work"; ACD-1.4 states it by the infringing feature.)*
+> *(Corrected 2026-11-24: it also cited EPL-2.0 "Section 5"; the sentence is in Section 7, GENERAL. And this answer first gave §8.4's limit in the words of 1.1 to 1.3, "only claims whose infringement depends upon the use of the Work"; ACD-1.4 states it by the infringing feature.)*
 
 **逆側**: Chestek 氏の問いは別のライセンスの、許諾の条が既に範囲を定めている文についてのもので、ACD の §15.1（広い読みが勝つ）のような解釈の規則と並んだ場面ではない。ACD がこの文を要するのは §15.1 を持つからで、§15.1 を持たないライセンスに同じ理由は立たない —— 問いは「§15.1 が無ければ要らない文ではないか」へ移りうる。
 
