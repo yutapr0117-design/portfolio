@@ -165,7 +165,7 @@ rules stayed; the reasons moved here. The full records are in the change list, i
 | [`ACD-1.4.txt`](ACD-1.4.txt) | **ACD-1.4, the fourth successor, frozen 2026-11-23, and the licence this repository applies from that date** (the root `LICENSE` says so). It is the version this dossier prepares for submission (the submission target since 2026-11-23); it has **not** been submitted to `license-review`, and as of 2026-11-23 it had not been posted to any list (postings are recorded in [`FROZEN.md`](FROZEN.md)). What changed from 1.3, clause by clause, is in [`CHANGES-ACD-1.4.txt`](CHANGES-ACD-1.4.txt). |
 
 **No frozen text moves.** A defect found in a frozen text is recorded (in the errata, or in the self-audit when a
-successor introduced it) and repaired only in a later version. All five are pinned by SHA-256 in
+successor introduced it) and repaired only in a later version. **If ACD-1.4 is submitted, it will not be changed while it is under review:** a later version would come only by withdrawing 1.4 and resubmitting, after the review comments have been gathered so that the changes come together — the review-process page's rule that a licence cannot be changed while it is being considered, as Pamela Chestek applied it to another submitter on `license-review`, 2026-03-15 (`ACD-1.0.review-readings-6.md` §1.471). All five are pinned by SHA-256 in
 [`FROZEN.md`](FROZEN.md) and checked in CI; the command to verify that is below.
 
 **Why each version changed, in English.** 1.0 → 1.1: the header of [`ACD-1.1.txt`](ACD-1.1.txt) and the entries of
