@@ -76,7 +76,7 @@ MUTATIONS_ARCHIVE7 = [
     {
     "name": "Check 478: 地図の 476 の行の「実装:」を分割前の module (checks_license_submission.py) にする —— 所在列しか読まず、説明の欄の「実装:」の形は照合していなかった (473 の行が実際にそうなっていた)",
     "file": ROOT / "docs" / "architecture" / "check-repository-consistency-map.md",
-    "find": "\u3002\u5b9f\u88c5: `.github/scripts/checks_license_dossier.py`",
+    "find": "\u3002\u5b9f\u88c5: `.github/scripts/checks_license_corpus.py`",
     "replace": "\u3002\u5b9f\u88c5: `.github/scripts/checks_license_submission.py`",
 },
     {
