@@ -525,7 +525,7 @@ census の `DECIDERS` は差出人の表示名を大文字小文字を区別し�
 
 | 文 | ACD への当たり方 |
 | :-- | :-- |
-| *"the recent slow proliferation of licenses that purport to address unique specific concerns related to open source AI"* | **不利な面（B13・B10）。** OSI の事務局長が、AI の固有の懸念を扱うと称するライセンスを「増殖」の語で括った。ACD は前文で機械学習を名指す instrument で、審査者がこの括りに入れて読む余地がある。この発言は OSI の審査の基準ではなく、講演の 1 文である。**有利な読み**: 同じ文は、その増殖が会話を *"re-energized"* したとも言い、否定の評価だけではない。ACD は条件を課さず（§10.1）、括られうる instrument（RAIL の用途の制限、OCL の頒布の規則、ModelGo の出力についての条件など）が持つ条件を持たない |
+| *"the recent slow proliferation of licenses that purport to address unique specific concerns related to open source AI"* | **不利な面（B13・B10）。** OSI の事務局長が、AI の固有の懸念を扱うと称するライセンスを「増殖」の語で括った。ACD は前文で機械学習を名指す instrument で、審査者がこの括りに入れて読む余地がある。この発言は OSI の審査の基準ではなく、講演の 1 文である。同じ文の *"re-energized"* は論点が活きているという中立の語で、有利には数えない（cd の判断・2026-11-24）。**有利な読み**: ACD は条件を課さず（§10.1）、括られうる instrument（RAIL の用途の制限、OCL の頒布の規則、ModelGo の出力についての条件など）が持つ条件を持たない |
 | *"The license cannot implement fields of restriction."* | **有利な面（OSD 6）。** 用途の制限を置けないという事務局長の言明。ACD-1.4 の §4.3 は目的に条件を付けず、§10.1 は条件を課さない |
 | *"So the open source licenses aren't what they are because the OSI said they are."* | **両面。** OSI の承認は合意の蒸留だという自己規定。承認の重み（B2・採用）を OSI 自身が相対化する文で、承認されない間も採用は可能だという ACD の位置（`REVIEWERS.md`）と合うが、承認の価値を下げる読みにも使える |
 | *"I highly recommend joining the License Discuss list and just reading through the conversations"* | **支え（経路）。** license-discuss を読むことを勧める。ACD が license-discuss に先に出し、全アーカイブを読んできた経路（計画 §4・REVISION-PROTOCOL §3.6）に合う |
