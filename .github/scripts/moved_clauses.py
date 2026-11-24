@@ -33,7 +33,9 @@ if sys.version_info < (3, 10):
 
 ROOT = Path(__file__).resolve().parents[2]
 RULE = "-" * 80
-STAMP = re.compile(r"<!-- EFFECT-DIFF: base=ACD-(\d+\.\d+) commit=([0-9a-f]{7,40}) body-sha256=([0-9a-f]{64}) unsorted=(\d+) -->")
+STAMP = re.compile(r"<!-- EFFECT-DIFF: base=ACD-(?P<base>\d+\.\d+) commit=(?P<commit>[0-9a-f]{7,40}) body-sha256=(?P<body>[0-9a-f]{64}) "
+                   r"readers=(?P<readers>\d+) read-sha256=(?P<read>[0-9a-f]{64}) reapplied=(?P<re>none|[\d.,]+) high=(?P<high>\d+) "
+                   r"unsorted=(?P<unsorted>\d+) -->")
 REV_IN_ROW = re.compile(r"本文 `?([0-9a-f]{7,40})`?")
 
 
@@ -93,14 +95,28 @@ def effect_diff_gate(v: str, prev: str, draft: str) -> list[str]:
         return [f"{p.name} が無い (候補と ACD-{prev} の 2 本だけを、ドシエを持たない読み手に読ませ、差を 1 件ずつ仕分けた記録)"]
     m = STAMP.search(p.read_text(encoding="utf-8"))
     if not m:
-        return [f"{p.name} に印 (<!-- EFFECT-DIFF: base=ACD-x.y commit=… body-sha256=… unsorted=N -->) が無い"]
+        return [f"{p.name} に印 (<!-- EFFECT-DIFF: base=ACD-x.y commit=… body-sha256=… readers=N read-sha256=… reapplied=none|2.3,… "
+                "high=N unsorted=N -->) が無い"]
     out = []
-    if m.group(1) != prev:
-        out.append(f"{p.name} の基準が ACD-{m.group(1)} (直前の凍結版は ACD-{prev})")
-    if int(m.group(4)):
-        out.append(f"{p.name} に仕分けの無い差が {m.group(4)} 件ある")
-    if m.group(3) != body_sha(draft):
-        a, b = clauses(load(m.group(2))), clauses(draft)
+    if m["base"] != prev:
+        out.append(f"{p.name} の基準が ACD-{m['base']} (直前の凍結版は ACD-{prev})")
+    if int(m["readers"]) < 2:
+        out.append(f"{p.name} の読み手が {m['readers']} 体 (独立の 2 体が要る・議題 24)")
+    if int(m["high"]):
+        out.append(f"{p.name} に HIGH の差が {m['high']} 件残っている")
+    if int(m["unsorted"]):
+        out.append(f"{p.name} に仕分けの無い差が {m['unsorted']} 件ある")
+    # 読み手が読んだ固定と候補が違うなら、動いた条を当て直した印が要る。読んだ固定は repo に無いことがあるので、条の列が正しいかは見えない
+    redo = [] if m["re"] == "none" else [x for x in m["re"].split(",") if x]
+    if m["read"] != m["body"] and not redo:
+        out.append(f"{p.name}: 読んだ固定と候補の本文が違うのに、当て直した条 (reapplied) が無い")
+    if len(redo) > 10:
+        out.append(f"{p.name}: 読んだ後に {len(redo)} 条が動いた。10 条を超えるので、読み手に読み直させる")
+    bad_re = [x for x in redo if x not in clauses(draft)]
+    if bad_re:
+        out.append(f"{p.name}: reapplied の条 {bad_re} が候補に無い")
+    if m["body"] != body_sha(draft):
+        a, b = clauses(load(m["commit"])), clauses(draft)
         ch, new, gone = moved(a, b)
         n = len(ch) + len(new) + len(gone)
         out.append(f"{p.name} の後に候補が動いた: 条 {n} 個 ({' '.join('§' + k for k in ch + new + gone) or '条の外 (見出し・題名)'})。"
