@@ -13,18 +13,21 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
       to 8.2, 9.1 to 9.3, and 10.1 to 10.7. (-2400 words.)
     * ACD-1.4: 5879 words, 80 clauses. This draft: 3479 words, 52 clauses.
 
-  What differs in effect, so that a reader need not compare the two texts:
+  What we know to differ in effect (this list is kept by hand, and readers have
+  found omissions in it; the two texts are the authority):
 
     1. A Dedicator is each person who applies the Dedication, whether or not a
        right subsists; as to each Dedicator, the Work is the material to which
        that Dedicator applied it, and the text of the Dedication is not part of
        it (Sections 1.2 and 1.3; errata E93).
     2. Moral Rights include those of a performer (Section 1.5; errata E92).
-    3. A person bound as a successor or transferee is not a Dedicator as to
-       what that person holds otherwise than from the Dedicator (Section 1.3),
-       and utility models are named (Section 1.7).
-    4. A Result may result from the Work indirectly, and a copy of the Work is
-       not itself a Result (Section 1.8).
+    3. A person bound as a successor or transferee is not a Dedicator as to what
+       that person holds otherwise than from the Dedicator (Section 1.3), and
+       utility models are named (Section 1.12).
+    4. A Result may result from the Work indirectly. A copy of the Work in any
+       form, object code compiled from it included, is not itself a Result; a
+       patent claim on what such a copy does is reached, if at all, under
+       Section 2.3(a) (Section 1.8).
     5. The patent licence reaches subject matter in the Work, which is the
        material to which the Dedicator applied the Dedication, including, where
        the Work is a Contribution, by its combination with the material it was
@@ -37,8 +40,12 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        and leaves every feature added to the Work to its Section 8.1 (Section
        2.3(b)). Narrower: a feature the Work played only a part in producing.
        Wider: a feature added to the Work that was learned from the Work
-       together with other material, or that combines what the Work teaches
-       with what another text teaches.
+       together with other material, or that combines what the Work teaches with
+       what another text teaches. That the Work was processed, or was the
+       starting point, does not by itself show that a feature was learned or
+       extracted from it. The same test governs Computational Use. Use of the
+       Work only to evaluate, select, or steer is for that reason likely
+       outside.
     7. Everyone who receives the Work, anything derived from it, or a Result
        holds the licences directly from the Dedicator (Section 2.4).
     8. The covenants as to Moral Rights and as to other claims reach what the
@@ -48,25 +55,37 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        wrongful by reason of its being a use of the Work or of a Result, or of
        what the Work contains (Section 2.5(d); ACD-1.1-SELF-AUDIT.md, sections
        3zf and 3zh). A claim for an attack made with the Work, or for an image
-       made with it from something else, is outside it.
+       made with it from something else, is outside it. So is a claim that rests
+       on the manner or effect of a use, such as one for unfair competition or
+       for the load placed on a server, and not on its being a use or on what
+       the Work contains. ACD-1.4's Sections 5.1 and 5.2(d) carried no such
+       limit.
    10. Nothing is imposed in respect of a Result, as well as of the Work, and
-       the covenant on collateral obligations, the sentence on requests, and
-       the rule of construction speak of a Result too; and a person bound as a
+       the covenant on collateral obligations, the sentence on requests, and the
+       rule of construction speak of a Result too; and a person bound as a
        transferee is named beside the Dedicator where the absence of conditions,
        and the freedom to choose terms, do not reach (Sections 4.1, 4.3, 4.4,
        5.1, and 9.1; ACD-1.1-SELF-AUDIT.md, section 3ze).
    11. The covenant on technological measures speaks of, and authorises
        circumvention for, a copy that has been made available (Section 5.2).
+       Narrower: ACD-1.4 speaks of the Work, and of a copy of it, without that
+       limit.
    12. The covenant not to assert a narrower reading of a permission (ACD-1.4's
        Section 5.2(c)) is left out; Section 9.1 governs the reading.
    13. The exceptions from the covenants are stated covenant by covenant
-       (Sections 5.4 to 5.6). A term about a Contribution, other than one
-       restricting use of the Work, asked of the person submitting it, is
-       outside the covenant on collateral obligations (Section 5.4(d)).
-   14. The omission of attribution alone is not a false statement (Section
-       6.3).
+       (Sections 5.4 to 5.6). Rights of privacy, publicity, or personality are
+       taken out of the exception for a name (Section 5.4(a)). A term about a
+       Contribution, asked of the person submitting it, is outside the covenants
+       in Sections 2.5(d) and 5.1 unless it restricts, or imposes an obligation
+       in respect of, use of the Work or of any Result (Section 5.4(d)). ACD-1.4
+       excepts a service only where no copy of the Work is provided; here the
+       exception covers a service that provides a copy, other than as to that
+       copy (Section 5.5(b)).
+   14. The omission of attribution alone is not a false statement (Section 6.3).
    15. The statement in ACD-1.4's Section 11.4 that the Dedication reaches
-       nothing else is gone (ACD-1.1-SELF-AUDIT.md, section 3zd).
+       nothing else is gone (ACD-1.1-SELF-AUDIT.md, section 3zd). In its place
+       Section 6.1 says that the Dedication gives nothing by implication beyond
+       what its words give.
    16. Neither passing on or recording another person's notice with the material
        it applies to, nor mentioning the Dedication, applies it to anything
        unless done to apply it (Section 10.2; errata E90).
@@ -78,15 +97,15 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        sentence of its Section 9.2 that the Dedication adds nothing where no
        right subsists, and the sentence of its Section 16.3 that it is not
        specific to any project, person, or field, are left out.
-   19. ACD-1.4's Section 6.4 says that no enforceable claim arises in respect
-       of a model or an output. Here that is a covenant (Section 2.5(a)) and an
+   19. ACD-1.4's Section 6.4 says that no enforceable claim arises in respect of
+       a model or an output. Here that is a covenant (Section 2.5(a)) and an
        absence of conditions (Section 4.1).
    20. A Contribution is any material, not only a work of authorship, and not
        material submitted to a repository or forum that puts such submissions
        under other terms instead (Section 1.11; ACD-1.1-SELF-AUDIT.md, section
        3zg).
-   21. The warranties and the kinds of loss are named in shorter lists
-       (Sections 8.1 and 8.2).
+   21. The warranties and the kinds of loss are named in shorter lists (Sections
+       8.1 and 8.2). Section 8.2 also names the use of any Result.
    22. The suggested notice says that the work is provided as is, and points to
        Section 2.5(d) (Section 10.1).
    23. A person to whom a Covered Right or a Patent Claim is later exclusively
@@ -103,17 +122,22 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
    25. Readings that a reader raised and that were accepted, not repaired (the
        reasons are in LICENSES/ACD-1.5-CLARITY-TRIAL.md, section 13, in
        Japanese): (a) the terms a Dedicator applies to its own material may
-       include measures (Section 5.6; ACD-1.4 says the same of those terms);
-       (b) a person to whom a patent claim is later exclusively licensed, or
-       who buys one, is bound by Section 5.1 as well, in respect of the Work
-       (Section 7.2; the effect of ACD-1.4's Sections 2.8 and 5.3); (c) a
-       Contribution that contains another person's ACD material makes the
-       person who submits it a Dedicator as to it, for the rights that person
-       holds (Sections 1.6, 1.7, and 10.4), although Section 10.2 says that
-       passing on a notice applies nothing;
-       (d) a person who takes an assignment and applies the Dedication itself
-       may be read as having to mark material that the Dedication already
-       covers (Section 10.4); (e) Section 6.1 excludes implication and Section
-       9.1 takes the widest reading (they are read together; ACD-1.4 has the
-       same pair); (f) the limit in Section 2.5(d) to the Dedicator's own
-       likeness does not attach to the first limb.
+       include measures (Section 5.6; ACD-1.4 says the same of those terms); (b)
+       a person to whom a patent claim is later exclusively licensed, or who
+       buys one, is bound by Section 5.1 as well (Section 7.2; ACD-1.4's
+       Sections 2.8 and 5.3 bind a transferee in respect of the Work); (c) a
+       Contribution that contains another person's ACD material makes the person
+       who submits it a Dedicator as to it, for the rights that person holds
+       (Sections 1.6, 1.7, and 10.4), although Section 10.2 says that passing on
+       a notice applies nothing; (d) a person who takes an assignment and
+       applies the Dedication itself may be read as having to mark material that
+       the Dedication already covers (Section 10.4); and (e) Section 6.1
+       excludes implication and Section 9.1 takes the widest reading (they are
+       read together; ACD-1.4 pairs the statement of reach in its Section 11.4
+       with its Section 15.1).
+   26. The right to remuneration that is surrendered is one "under the Covered
+       Rights" (Section 2.1); ACD-1.4's Section 3.2 speaks of one arising from
+       any use of the Work.
+   27. The sentence on silence, delay, and non-enforcement speaks of any copy of
+       the Work that has been made available (Section 7.1); ACD-1.4's Section
+       2.2 puts no such limit on that sentence.
