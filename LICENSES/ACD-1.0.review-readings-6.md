@@ -378,23 +378,23 @@ census の `DECIDERS` は差出人の表示名を大文字小文字を区別し�
 
 ## 1.467 「条件か非条件かは、どちらかへ明確な語で解け」（Piana 氏 2024）、「条件を意図するときは明示で書く」（Dolan 氏 2026）—— ACD-1.4 の §16.4 末文の「条件は本文の頒布に掛かり、Work の使用には掛からない」に当たる（2026-11-23）
 
-5e の優先 (3)。ACD-1.4 の §16.4 末文 *"Both provisos are conditions upon distributing the text, not upon any use of the Work (Section 10.5)."* が、条件の形で書いて次の文で引っ込めるように見えうるか（cd の指摘）を、審査者の文で当てた。全 508 か月の決める側の通のうち、"not a condition"・"condition of/on the license"・covenant と condition の区別・ライセンスの名の語に当たる 43 通を数え、ドシエの分析の文書と重ならない 30 通の該当段落と前後を読んだ（§1.466 と同じ読み方の限定）。
+5e の優先 (3)。ACD-1.4 の §16.4 末文 *"Both provisos are conditions upon distributing the text, not upon any use of the Work (Section 10.5)."* が、条件の形で書いて次の文で引っ込めるように見えうるか（cd の指摘）を、審査者の文で当てた。全 508 か月の決める側の通のうち、"not a condition"・"condition of/on the license"・covenant と condition の区別・ライセンスの名の語に当たる 43 通を数え、ドシエの分析の文書と重ならない 30 通の該当段落と前後を読んだ（§1.466 と同じ読み方の限定）。**2026-11-24 の訂正**: その時の census の `DECIDERS` は、決める側でない Sado 氏・Dolan 氏（OpenMDW の steward・Linux Foundation）・Wheeler の名（別人 2 人）・Oliver 氏を含んでいた（機械層 fc が PR 4011 と PR 4016 で外した）。43 通・30 通はその照合での数で、下の表の Dolan 氏の行は決める側の文ではない。
 
 | 発言 | 誰が | ACD-1.4 の §16.4 末文への当たり方 |
 | :-- | :-- | :-- |
 | *"If it is read as a non-permission (nothing in this license and license grant permits you to breach into xyz rights of privacy and no terms can be construed as consent to use data in such respect) I think it keeps the grant separated from the rights and my tentative position is that it is respectful of OSD."* / *"If it is a condition to the grant, I am afraid it would fall within the "ethical licenses" conundrum. I would therefore suggest to resolve the possible controversial interpretation with clearer wording in either direction."* | Carlo Piana 氏 2024-10（Accountable Resolver License の審査） | **支え。** 条件か非条件かの曖昧さは「どちらかへ明確な語で」解け、と審査者が勧めた。§16.4 末文は、2 つの但し書きが何への条件で何への条件でないかを名指す —— この勧めに答える形である。同じ通の「許可しないことの表明なら OSD を尊重する」は ACD-1.4 の §11.4（データ保護・プライバシーの限界）の形にも当たる |
-| *"Where this license family intends a condition, it says so expressly."* | Michael Dolan 氏 2026-09（OpenMDW の審査・Linux Foundation の側として） | **支え。** 条件を意図するところでは明示で書く、という承認の審査中の慣行。§16.4 末文は条件である所を条件と書き、そうでない所をそうでないと書く |
+| *"Where this license family intends a condition, it says so expressly."* | Michael Dolan 氏 2026-09（OpenMDW の審査・**提出した側の steward**（Linux Foundation）が自分のライセンスの族について書いた文で、審査者の文ではない —— 2026-11-24 に訂正） | **支え（弱い）。** 条件を意図するところでは明示で書く、という承認の審査に出た提出者の書き方。§16.4 末文は条件である所を条件と書き、そうでない所をそうでないと書く |
 | *"if they are drafted in a way that they are unambiguously non-legally binding, they probably would be"* | McCoy Smith 氏 2020-12（OIN License の審査・法的に拘束しない文が OSD を満たしうるか） | **支え（弱い）。** 拘束しないことが曖昧でなく書かれていれば足りる、という読み |
 | *"I found the Apache v2 interesting, because it says "Subject to the terms and conditions of this License, each Contributor hereby grants to You ..." So one can argue that this means everything in the license is expressly a condition."* | Pamela Chestek 氏 2014-09（"Sublicensing"） | **反例側（形の問題）。** 許諾を「条件に従って」と書くと、全部が条件と論じられうる。ACD-1.4 の §4.3 と §8.2 は許諾が *"subject to no condition"* だと書き、§10.1 で条件を課さないと書く —— この危険の外に在る。ただし §16.4 の *conditions* の語は、本文の頒布についての条件として、ACD の中で唯一「条件」を名乗る所で、その範囲が広く読まれない限定（*"upon distributing the text"*）が要る —— 末文はその限定を持つ |
 | *"There's a case to be made that even a call-out -- that is not a condition of the license -- that specified uses, or users, are bad, or shouldn't use the software, violates OSD 5 and/or 6."* | Smith 氏 2020-02（倫理の前文の議論） | **当たらない（記録として）。** 非条件と書いても、使用や使用者を悪いと名指す文は OSD 5・6 に当たりうる。§16.4 の但し書きは本文の名と識別子についてだけで、使用も使用者も名指さないので、この型に入らない |
 
-**読み。** §16.4 末文は、Turner 氏 2020 の「条件の形で書いて次で引っ込める」に見えるより、Piana 氏 2024 の「条件か非条件かをどちらかへ明確な語で」と Dolan 氏 2026 の「条件は明示で書く」に答える形と読める材料が強い。
+**読み。** §16.4 末文は、Turner 氏 2020 の「条件の形で書いて次で引っ込める」に見えるより、Piana 氏 2024 の「条件か非条件かをどちらかへ明確な語で」に答える形と読める材料が強い（Dolan 氏 2026 の「条件は明示で書く」は提出者の文で、重みは低い）。
 
 **逆側。** Chestek 氏 2014 の「条件の語は広く読まれうる」は、末文の *conditions* の語そのものに向く。支えの 3 つはどれも ACD のような献呈ではなく、条件を持つライセンスの審査の文である。
 
 **この節が establish しないこと。** 30 通の該当段落の外の論点。Turner 氏 2020 の文脈（§16.4 に当たると読んだのは cd）を、この節は読み直していない。
 
-**反映**: 1c（§16.4 末文の 1.5 の扱いへの審査者の文 —— 支え = Piana 氏 2024・Dolan 氏 2026・Smith 氏 2020-12、形の注意 = Chestek 氏 2014。**5e の判断（2026-11-23）: 変えない** —— 末文は Piana 氏 2024 の「どちらかへ明確に」に答える形（条件の対象＝本文の頒布、対象外＝Work の利用を 1 文で分ける）と読み、1.5 の試作の §2 の点検の表に「変えない」で入れた（採掘は d7））。本文は変えない。
+**反映**: 1c（§16.4 末文の 1.5 の扱いへの審査者の文 —— 支え = Piana 氏 2024・Smith 氏 2020-12（Dolan 氏 2026 は提出者の文・弱い）、形の注意 = Chestek 氏 2014。**5e の判断（2026-11-23）: 変えない** —— 末文は Piana 氏 2024 の「どちらかへ明確に」に答える形（条件の対象＝本文の頒布、対象外＝Work の利用を 1 文で分ける）と読み、1.5 の試作の §2 の点検の表に「変えない」で入れた（採掘は d7））。本文は変えない。
 
 ## 1.468 「版 1 の利用者に版 2 への移行を強いる」のが問題（Nelson 氏 2004）、「or later」には公式の版を決める権威が要る（Berkus 氏 2024）—— ACD は以降の版の仕組みを持たない（B12 の有利な側）。前文は「ライセンスの一部でないと明示した序文」の形（Nyst 氏 2013）（2026-11-23）
 
