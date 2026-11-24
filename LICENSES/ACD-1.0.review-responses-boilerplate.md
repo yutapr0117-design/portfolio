@@ -7,6 +7,8 @@ canonical-ref: LICENSES/ACD-1.0.review-responses-clauses.md (第 1 層・条項�
 
 # ACD-1.0 — 想定問答（定型条項・解釈条項への攻撃）
 
+> **この文書の "I" は誰か（2026-11-25）**: 英語の引用ブロックの一人称は、AI のモデル（Claude）が書いた想定の声で、オーナー（横井雄太）の言葉ではない。リストへ送る文でもない —— 投稿と返信は、オーナーが自分の言葉で書く（B14・`REVISION-PROTOCOL.md` ゲート 0）。**In English:** where a quoted block below says "I", an AI model wrote it as a possible line of answer. It is not the steward speaking, and it is not text to be sent to a list.
+
 **本書は `ACD-1.0.review-responses-clauses.md` の第 2 層である。** 条項別の第 1 層（§2〜§16 を
 条ごとに読む）はそちらに、総論・OSD 逐条・認める弱点・議論の進め方は
 `ACD-1.0.review-responses.md` にある。

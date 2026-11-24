@@ -7,6 +7,8 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / doc
 
 # ACD-1.0 — ライセンス族ごとの比較（「なぜ既存のあれではないのか」への答え）
 
+> **この文書の "I" は誰か（2026-11-25）**: 英語の引用ブロックの一人称は、AI のモデル（Claude）が書いた想定の声で、オーナー（横井雄太）の言葉ではない。リストへ送る文でもない —— 投稿と返信は、オーナーが自分の言葉で書く（B14・`REVISION-PROTOCOL.md` ゲート 0）。**In English:** where a quoted block below says "I", an AI model wrote it as a possible line of answer. It is not the steward speaking, and it is not text to be sent to a list.
+
 ```
 本書の役割 : 「X で足りるのでは」への答えを**族ごと**に置く
 既にある比較 : docs/architecture/acd-license-rationale.md §2
