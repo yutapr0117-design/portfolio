@@ -273,7 +273,7 @@ def descriptor(v: str, prev: str, body: str, date: str) -> str:
     d = json.loads(raw.replace(f"ACD-{prev}", f"ACD-{v}").replace(f'"{prev}"', f'"{v}"').replace(f"Dedication {prev}", f"Dedication {v}"))
     m = re.search(r"following form:\s*\n(.*?)\n\n  16\.2 ", body, re.S)
     d["notice"] = " ".join(m.group(1).split())
-    # 状態の key は凍結すると承認の日に偽になるので、日付つきの記録へ移す (ACD-1.4-CHANGELIST.md「確定前検証（段 7）」)。
+    # 状態の key は凍結すると承認の日に偽になるので、日付つきの記録へ移す (ACD-1.4-CHANGELIST-VERIFICATION.md「確定前検証（段 7）」・2026-11-24 に本体から分けた)。
     if "osiApproved" in d:
         d["schemaVersion"] = 2
         d["$comment"] = d["$comment"].replace(

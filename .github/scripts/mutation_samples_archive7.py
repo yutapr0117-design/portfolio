@@ -64,13 +64,13 @@ MUTATIONS_ARCHIVE7 = [
 },
     {
     "name": "Check 498: 「1.0 から何が変わったか」の下書きの版ごとの閉鎖数の 1.3 を 5 にする —— 使い捨ての計数で版の語の最初の一致を数え、閉鎖の印 (19 / 13 / 4) と違う数を書いた",
-    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
+    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST-VERIFICATION.md",
     "find": "(19, 13 and 4)",
     "replace": "(19, 13 and 5)",
 },
     {
     "name": "Check 498: 「1.0 から何が変わったか」の下書きの §2 の件数を 12 にする —— 節ごとの件数は errata の表の 2 列目から導けるのに、照合していなかった",
-    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST.md",
+    "file": ROOT / "LICENSES" / "ACD-1.4-CHANGELIST-VERIFICATION.md",
     "find": "§2 (scope and effect, 11)",
     "replace": "§2 (scope and effect, 12)",
 },

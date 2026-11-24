@@ -257,7 +257,8 @@ def run(ctx):
     from prepare_version_freeze import errata_closures, size
     total_j, closed_j, unmarked_j, sections_j = errata_closures()
     hits_j, soft_j = 0, []
-    for p in sorted(L.glob("ACD-*-CHANGELIST.md")) + [L / "REVIEWERS.md"]:
+    # 分冊 (ACD-1.4-CHANGELIST-VERIFICATION.md・2026-11-24 に段 7 を移した) も読む: 下書きは段 7 の中に在る
+    for p in sorted(L.glob("ACD-*-CHANGELIST*.md")) + [L / "REVIEWERS.md"]:
         quote = " ".join(" ".join(x[1:].strip() for x in text(p).split("\n") if x.startswith(">")).split())
         for m in re.finditer(r"Of the (\d+) defects recorded against 1\.0 .{0,80}?, (\d+) are closed: (\d+) in 1\.1 to "
                              r"(\d+\.\d+) \(([\d, and]+)\) and (\d+) for the first time in (\d+\.\d+)\.(.{0,900})", quote):
