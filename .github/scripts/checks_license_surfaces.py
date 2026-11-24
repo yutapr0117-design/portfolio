@@ -410,8 +410,9 @@ def run(ctx):
         if _vt451e > (1, 3):
             _tgt451e.append(_ver)
             _secs451e = {_c.split(".", 1)[0] for _c in _cited}
-            # 1.5 の書き直し (2026-11-24・議題 15) から、3 つの gap は §2 (許諾) と §3 (Reservation と機械生成) が担う
-            _lack451e = sorted(({"6", "8", "9"} if _vt451e < (1, 5) else {"2", "3"}) - _secs451e, key=int)
+            # 書き直した版 (通知の条が §10.1・2026-11-24 の議題 15) では、3 つの gap を §2 (許諾) と §3 (Reservation と機械生成) が担う
+            _gap451e = {"2", "3"} if clause_by_lead(_src, NOTICE_LEAD)[0] == "10.1" else {"6", "8", "9"}
+            _lack451e = sorted(_gap451e - _secs451e, key=int)
             if _lack451e:
                 _bad451d.append(f"451e: {_md.name} が gap を担う §{'/§'.join(_lack451e)} を 1 つも引いていない "
                                 "(PREAMBLE の 3 つの gap が記述子から見えない)")
