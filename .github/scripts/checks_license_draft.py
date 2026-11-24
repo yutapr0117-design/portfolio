@@ -708,11 +708,11 @@ def run(ctx):
         #   2026-11-09 (T49): 譲渡のあと (§16.5・T45) の Steward が前の Steward の公表した番号を使えないよう、
         #   "the Steward or a former Steward has published" の形も許す。
         #   "published by a Steward" は冠詞が不定なので、前の Steward の本文も数える (2026-11-24・T49 と同じ射程)。
-        elif (_mx468m.group(1).strip(" ,") not in ("published by a Steward",
-                                                    "published by a Steward, other than a draft identified as such")
+        elif (_mx468m.group(1).strip(" ,") not in ("published by the Steward or a former Steward",
+                                                    "published by the Steward or a former Steward, other than a draft identified as such")
               or _mx468m.group(2).strip(" ,")):
             _bad468.append(f"468m: 例外句が変わった: {(_mx468m.group(1) + '|' + _mx468m.group(2)).strip(' ,|')!r} "
-                           "(許すのは 'published by a Steward' と、その後の 'other than a draft identified as such' だけ。広げると 1 識別子 = 1 固定本文が崩れる)")
+                           "(許すのは 'published by the Steward or a former Steward' と、その後の 'other than a draft identified as such' だけ。広げると 1 識別子 = 1 固定本文が崩れる)")
 
         # ── 468l: 草案の全行が 80 桁以内であること ─────────────────────────────────────
         #   1.0 は全行 ≤80 で、本文は `-` × 80 の区切り線と同じ幅で組まれている。1.1 / 1.2 / 1.3 は

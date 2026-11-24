@@ -56,8 +56,8 @@ MUTATIONS_ARCHIVE4 = [
     "file": CURRENT_DRAFT,
     # 語を足すと 468 の語数申告の face が先に拾い帰属が曖昧になる (初版で実測)。語を変えずに 2 行を
     # 1 行へ繋いで 80 桁を超えさせ、468l だけを狙う。
-    "find": "formality, this Dedication is revocable or ineffective and, so far as the\n       law",
-    "replace": "formality, this Dedication is revocable or ineffective and, so far as the law",
+    "find": "formality, this Dedication is revocable or ineffective. So far as the law\n       allows,",
+    "replace": "formality, this Dedication is revocable or ineffective. So far as the law allows,",
     "check": CHECK,
 },
     {
@@ -376,8 +376,8 @@ MUTATIONS_ARCHIVE4 = [
     "file": CURRENT_DRAFT,
     # 同じ語句が草案冒頭の変更一覧にも引用されている (初版の find は 2 箇所に当たり、先頭 = 変更一覧を
     # 打って §16.4 は無傷だった)。§16.4 の行だけにある直後の "," まで含めて一意にする。
-    "find": "no earlier text published by a Steward",
-    "replace": "an earlier text published by a Steward",
+    "find": "no earlier text published by the Steward or a former",
+    "replace": "an earlier text published by the Steward or a former",
     "check": CHECK,
 },
     {
