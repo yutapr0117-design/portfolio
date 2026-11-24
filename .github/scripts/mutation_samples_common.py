@@ -2,7 +2,7 @@
 """mutation_samples_common.py — 共有パス定数 (ROOT / CHECK) for mutation_samples*.py
 
 mutation_samples.py / mutation_samples_archive.py が共通で参照する ROOT / CHECK を
-単一定義する小モジュール (循環 import 回避 + 重複排除)。データもロジックも持たない。
+単一定義する小モジュール (循環 import 回避 + 重複排除)。データは持たない。ロジックは anchor の当て方 (find_spans / apply_mutation) だけを持つ。
 """
 from __future__ import annotations
 
@@ -49,3 +49,30 @@ SUBMISSION_TARGET = _mt.group(1) if _mt else "ACD-UNRESOLVED"
 # (2026-11-04)。走査は _aggregate_check_numbers と同じ section header の形。
 NEXT_CHECK = 1 + max(int(n) for p in (ROOT / ".github" / "scripts").glob("check*.py")
                      for n in re.findall(r"^\s*#\s*──\s*(\d+)\.", p.read_text(encoding="utf-8"), re.M))
+
+
+def find_spans(m: dict, text: str) -> list[tuple[int, int]]:
+    """mutation の find が当たる範囲。まず逐語で当て、無ければ作業中の草案に限り、空白 (折り返しと字下げ) を畳んで当てる。
+
+    草案の本文は議題の束ごとに折り返しが動く。語を 1 つも変えない折り直しで anchor が切れ、2026-11-24 の 1 日に 5 回付け替えた
+    (行をまたがない短い句へ直しても、次の束で句の途中に改行が来る)。語の並びが同じなら当たる形にする。行の配置が的の mutation
+    (468l の 80 桁) は find に改行を持つので逐語でしか当てない。
+    """
+    if m["find"] in text:
+        out, i = [], text.find(m["find"])
+        while i >= 0:
+            out.append((i, i + len(m["find"])))
+            i = text.find(m["find"], i + len(m["find"]))
+        return out
+    if m["file"] != CURRENT_DRAFT or "\n" in m["find"] or len(m["find"].split()) < 2:
+        return []
+    return [x.span() for x in re.finditer(r"\s+".join(re.escape(w) for w in m["find"].split()), text)]
+
+
+def apply_mutation(m: dict, text: str) -> str | None:
+    """最初の当たりを replace に替えた文。当たらなければ None (probe は DRIFT と報告する)。"""
+    sp = find_spans(m, text)
+    if not sp:
+        return None
+    a, b = sp[0]
+    return text[:a] + m["replace"] + text[b:]

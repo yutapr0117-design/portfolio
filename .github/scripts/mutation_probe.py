@@ -49,6 +49,7 @@ CHECK = ROOT / ".github" / "scripts" / "check_repository_consistency.py"
 
 # 肥大化解消 (2026-07-04): curated mutation データ (~1,450 行) は mutation_samples.py へ分離。
 # 本ファイルは runner (completeness-critic) 専任。増分の追記はデータ側 (mutation_samples.py) に行う。
+from mutation_samples_common import apply_mutation  # noqa: E402
 from mutation_samples import MUTATIONS, E2E_MUTATIONS  # noqa: E402 (ROOT/CHECK 定義後に import)
 
 
@@ -213,12 +214,13 @@ def main() -> int:
     for m in _targets:
         f: Path = m["file"]
         original = f.read_text(encoding="utf-8")
-        if m["find"] not in original:
+        mutated = apply_mutation(m, original)
+        if mutated is None:
             drifted.append(m["name"])
             print(f"  DRIFT  : {m['name']} — find-anchor absent (probe needs updating)")
             continue
         try:
-            f.write_text(original.replace(m["find"], m["replace"], 1), encoding="utf-8")
+            f.write_text(mutated, encoding="utf-8")
             # 「捕捉」は Check 362 (anchor orphan) 以外の error があることで判定する。
             # exit code だけを見ると mutation 適用の副作用で必ず RED になり全件 caught になる。
             # 速い経路: 名指した Check の module だけで走らせ、名指しどおり捕捉されればそれで決まる。
