@@ -287,7 +287,8 @@ Short identifier: ACD-1.5
   5.6  Section 5.5 applies even where use of that material or service is a
        Computational Use. A copy of any part of the Work contained in that
        material, or provided through that service, remains the Work, and nothing
-       in Section 5.5 lets those terms restrict what may be done with that copy.
+       in Section 5.5 lets the terms it names restrict what may be done with
+       that copy.
 
 6. LIMITS
 
@@ -432,8 +433,8 @@ Short identifier: ACD-1.5
        stated otherwise, or that Section 1.11 excludes, will identify it in a
        form that accompanies the Work, so that a person or an automated system
        can determine what this Dedication does not cover. That undertaking binds
-       that Dedicator and imposes nothing upon You. Nothing in Section 10.4
-       obliges anyone to submit or to accept anything.
+       that Dedicator, is subject to Section 8.2, and imposes nothing upon You.
+       Nothing in Section 10.4 obliges anyone to submit or to accept anything.
 
   10.5 Anyone may copy and distribute this text verbatim. A modified text may
        not be distributed under a name that contains "Autonomous Commons
