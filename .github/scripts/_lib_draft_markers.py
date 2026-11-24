@@ -5,6 +5,20 @@ checks_license_draft.py から移した (468r を足すと Check の module が�
 """
 import re
 
+# 適用の通知を定める条・本文の再頒布を定める条は、番号でなく書き出しの文で探す (2026-11-24: 1.5 の書き直しで §16.1 → §10.1、
+#   §16.4 → §10.5 へ動き、番号を直書きした 7 か所が一度に外れた)。凍結版 (1.0〜1.4) と作業中の版が同じ関数で読める。
+NOTICE_LEAD = "To apply this Dedication"
+TEXT_RULE_LEADS = ("The text of this Dedication may be copied", "Anyone may copy and distribute this text")
+
+
+def clause_by_lead(text, leads):
+    """書き出しが leads のどれかに一致する条の (番号, 条の原文 [次の条の手前まで])。無ければ (None, "")。"""
+    for m in re.finditer(r"(?ms)^  (\d+\.\d+) (.*?)(?=^  \d+\.\d+ |^\d+\. [A-Z]|^END OF TERMS|\Z)", text):
+        if " ".join(m.group(2).split()).startswith((leads,) if isinstance(leads, str) else leads):
+            return m.group(1), m.group(0)
+    return None, ""
+
+
 # 468u の目印 (条, 句)。checks_license_draft.py (Check 468u) と measure_clause_overlap.py --guard が同じ一覧を import して
 # 試作ファイルに当てる (2 か所に持つと食い違う)。§2.8 / §15.5 は CLARITY-TRIAL 試作 e の効果の保存、
 # §8.4 / §8.2 は B10 の立証 (gap-measurements.md §1.133) が依拠する句。§5.1 の除外と §8.4 の "content" は §8.4 の

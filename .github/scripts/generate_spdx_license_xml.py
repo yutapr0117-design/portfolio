@@ -41,6 +41,8 @@ import sys
 from pathlib import Path
 from xml.sax.saxutils import escape
 
+from _lib_draft_markers import NOTICE_LEAD, clause_by_lead
+
 if sys.version_info < (3, 10):
     # check_repository_consistency.py 等と同様 3.10+ 専用 (PEP 604 の `str | None` を使う)。
     # guard が無いと Python 3.9 で cryptic な TypeError になる (Check 104 が強制)。
@@ -141,8 +143,7 @@ def _standard_header(src: str) -> str:
     #   マーカー存在しか見ないので緑のままだった)。本文では通知ブロックだけが
     #   **条項本文より深くインデント**されている (条項継続 = 7 / 通知 = 11) ので、
     #   そこから導出すれば行を足しても落ちない。
-    i = src.index("16.1 To apply this Dedication")
-    block = src[i:src.index("\n  16.2 ", i)]  # 行頭で探す。1.4 の §16.1 は本文で "Section 16.2" を引く
+    block = clause_by_lead(src, NOTICE_LEAD)[1]  # 1.4 まで §16.1・1.5 から §10.1。次の条の行頭まで
     raw = [l.strip() for l in block.splitlines()
            if l.strip() and (len(l) - len(l.lstrip())) >= 11]
     # 79 桁の折り返しを論理単位へ畳む (本文側と同じ規律 —— **折り返しを段落境界にしない**)。
@@ -175,6 +176,8 @@ NOTES = """      A dedication and an independent licence, written for works that
       from. It grants patents that reach models and outputs (section 8.4), imposes no condition
       on the recipient (section 10.1), and names the sui generis database right and its own
       verbs (section 7.2)."""
+# 1.5 の書き直し (2026-11-24・議題 15) で条の番号が変わった
+NOTES_1_5 = NOTES.replace("section 8.4", "section 2.3").replace("section 10.1", "section 4.1").replace("section 7.2", "section 2.2")
 
 
 def build() -> str:
@@ -185,7 +188,8 @@ def build() -> str:
     # **後**に題名が来る。区切り線より前を題名と読むと、SPDX の name が身分表示の文になる
     # (2026-11-01 に 1.3 で実測: name="ACD-1.3 -- FROZEN TEXT. NOT SUBMITTED FOR APPROVAL. and")。
     # 1.0 は区切り線を持たないので、従来どおり先頭行が題名 (凍結された 1.0 の出力は変わらない)。
-    _head = src[:src.index("PREAMBLE")]
+    _start = src.index("PREAMBLE") if "\nPREAMBLE" in src else src.index("\n1. DEFINITIONS") + 1  # 1.5 から前文が無い
+    _head = src[:_start]
     _sep = "\n" + "-" * 80 + "\n"
     _titled = src[_head.index(_sep) + len(_sep):] if _sep in _head else src
     _tl = [l.strip() for l in _titled.splitlines() if l.strip()]
@@ -194,10 +198,9 @@ def build() -> str:
     # 識別子側は ACD-1.0 なので、name も "…… 1.0" まで書かないと一覧で版が判らない。
     full_name = f"{title} {version_line.split()[-1]}"
 
-    # 本文は PREAMBLE 以降すべて (preamble は informative だが SPDX のテキスト一致は
+    # 本文は PREAMBLE (無い版は第 1 節) 以降すべて (preamble は informative だが SPDX のテキスト一致は
     # file 全体で行われるので、落とすと提出テキストと配布テキストが食い違う)
-    i = src.index("PREAMBLE")
-    body = src[i:]
+    body = src[_start:]
 
     paragraphs = "\n".join(
         f"        <p>{escape(p)}</p>" for p in _blocks(body)
@@ -217,7 +220,7 @@ def build() -> str:
       <crossRef>{escape(url)}</crossRef>
     </crossRefs>
     <notes>
-{NOTES_1_0 if VERSION == "1.0" else NOTES}
+{NOTES_1_0 if VERSION == "1.0" else NOTES if VERSION in ("1.1", "1.2", "1.3", "1.4") else NOTES_1_5}
     </notes>
     <standardLicenseHeader>
 {header}

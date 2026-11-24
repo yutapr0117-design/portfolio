@@ -93,6 +93,8 @@ import json
 import subprocess
 import datetime as _dt461
 
+from _lib_draft_markers import NOTICE_LEAD, clause_by_lead
+
 
 def run(ctx):
     ROOT = ctx.ROOT
@@ -532,7 +534,7 @@ def run(ctx):
     #   同じく全ての版を読む。pointer (確定済みの草案の置き場) は本文を持たないので除く。
     _proj441 = ROOT / "LICENSE"
     _texts441 = [_t for _t in sorted((ROOT / "LICENSES").glob("ACD-*.txt"))
-                 if "2. SCOPE AND EFFECT" in _t.read_text(encoding="utf-8", errors="replace")]
+                 if re.search(r"(?m)^1\. DEFINITIONS$", _t.read_text(encoding="utf-8", errors="replace"))]  # 本文を持つ版 (pointer は持たない)
     check(
         any(_t.name == "ACD-1.0.txt" for _t in _texts441),
         f"Check 441: ACD の本文 {len(_texts441)} 版 (凍結した版と草案) を読む",
@@ -557,8 +559,12 @@ def run(ctx):
         if _u441:
             _unres441[_t441.name] = _u441
         _def441 = set(re.findall(r'^  1\.\d+\s+"([^"]+)"\s+means', _src441, re.M))
-        _body441 = _src441.split("2. SCOPE AND EFFECT", 1)[-1]
-        _un441 = sorted(_d for _d in _def441 if _d not in _body441)
+        # 第 2 節の見出しは版で違う (1.4 まで "SCOPE AND EFFECT")。見出しの語で切ると、変わった日に全文が本文になり未使用が見えない
+        _parts441 = re.split(r"(?m)^2\. [A-Z]", _src441, maxsplit=1)
+        _body441 = _parts441[1] if len(_parts441) == 2 else ""
+        # 語は折り返しをまたぎ、定義は複数形で本文は単数形のことがある (1.5 の "Patent Claims" / "Patent\n Claim")
+        _flat441 = " ".join(_body441.split())
+        _un441 = sorted(_d for _d in _def441 if _d not in _flat441 and not re.search(r"\b" + re.escape(_d.removesuffix("s")) + r"\b", _flat441))
         if not _def441 or _un441:
             _unused441[_t441.name] = _un441 or ["定義が 1 つも読めない"]
         for _pt in (r"You must\b", r"You shall\b", r"You may not\b", r"You are required\b",
@@ -677,14 +683,14 @@ def run(ctx):
         ]
         # **441g も同じ理由で全版へ広げた**（上の 441f の注記を参照）。
         for _vp441 in _versions441:
-            _vt441 = re.sub(r"^  16\.1\s.*?(?=^  16\.2\s)", "", _vp441.read_text(encoding="utf-8", errors="replace"),
-                            flags=re.M | re.S)
+            _vt441 = _vp441.read_text(encoding="utf-8", errors="replace")
+            _vt441 = _vt441.replace(clause_by_lead(_vt441, NOTICE_LEAD)[1], "")  # 通知の雛形の条 (1.4 まで §16.1・1.5 から §10.1)
             _hits441 = [_lab for _pat441, _lab in _pats441 if re.search(_pat441, _vt441, re.I)]
             if _hits441:
                 _proj441[_vp441.name] = _hits441
         check(
             not _proj441,
-            f"Check 441g: ACD 各版の本文にプロジェクト固有の要素が無い ({len(_versions441)} 版・§16.3 の主張が真)",
+            f"Check 441g: ACD 各版の本文にプロジェクト固有の要素が無い ({len(_versions441)} 版・「どの素材にも当てられる」の主張が真)",
             (f"Check 441g: ACD 本文にプロジェクト固有の要素がある: {_proj441}。"
              "**§16.3 は条文で「いかなるプロジェクトにも固有ではない」と主張しており**、"
              "SPDX の inclusion principles も同じことを要件にする。主張と実態が乖離すれば"
