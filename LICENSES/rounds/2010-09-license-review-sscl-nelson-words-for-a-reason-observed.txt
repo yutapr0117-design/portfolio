@@ -1,0 +1,106 @@
+Source: OSI license-review public archive, 2010-September.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-24)
+Messages: 1 of 6 in "For Approval: SSCL" (2010-09-08)
+Senders: Russ Nelson
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From nelson at crynwr.com  Wed Sep  8 13:59:40 2010
+From: nelson at crynwr.com (Russ Nelson)
+Date: Wed, 8 Sep 2010 09:59:40 -0400
+Subject: For Approval: SSCL
+In-Reply-To: <AANLkTinakHaQRlpG2EMNgthTyujMvgX8FYmG7rWrMkg1@mail.gmail.com>
+References: <AANLkTimdTHMJm21OmnJ4z_DkObTyjbEBsZRDTlJiPqto@mail.gmail.com>
+	<4C2A61BA.7060707@perens.com>
+	<E6A2D16012EEC64FADD012E5E5A77FAA2A976CC499@GBMK-EXCH6.eu.uis.unisys.com>
+	<AANLkTim-2gZNqK7D0pAODkjcvyjFdjwsn-KDBMkYLbB7@mail.gmail.com>
+	<4C2E3207.5030807@perens.com>
+	<AANLkTinakHaQRlpG2EMNgthTyujMvgX8FYmG7rWrMkg1@mail.gmail.com>
+Message-ID: <19591.38604.434597.10371@desk.crynwr.com>
+
+Gregor, I really REALLY appreciate your enthusiasm, and desire for a
+succinct copyleft license.  But all those words and sentences and
+paragraphs in the GPL are there for a REASON.  I strongly encourage
+you to read the GPL, and reverse-engineer the wording to see what
+problem is being solved.  Then go and see if the SSCL actually solves
+that problem unambiguously.  Not in your mind, but in the mind of a
+hostile reader.
+
+Legal agreements are made between friends, and interpreted by
+enemies.  You only need a license when the other guy has turned into
+an asshole.
+
+I read through your submission email, and I don't see a description of
+your objection to the GPL, other than a philosophical objection to its
+length and complexity and that it doesn't cause compatibility problems
+(and yet it does, since the GPL requires you to license all derived
+works under the GPL, so this license is incompatible with the GPL).
+The GPL is fairly well understood at this point, so that's not a good
+reason to try to reinvent it.
+
+We have a board meeting today.  I'll mention the SSCL, and say that
+it's still under discussion.
+
+Gregor Pintar writes:
+ > 2010/7/2, Bruce Perens <bruce at perens.com>:
+ > > Nothing in your text, as presently stated, would reliably prevent
+ > > someone from combining the work with a GPL work and treating the whole
+ > > as if it was under the GPL. Unfortunately, you don't get that _and_
+ > > simplicity both. You'd have to put in more text about combining works,
+ > > the entire work being under this license, no additional restrictions, etc.
+ > >
+ > However, it won't be approved.
+ > 
+ > 
+ > Fixed licence:
+ > 
+ > Copyright (c) years, Company or Person's Name <E-mail address>
+ > 
+ > Permission is hereby granted to use, copy, modify and/or distribute
+ > this source code and binary programs derived from this source code
+ > provided that the following conditions are met:
+ > 
+ > - Redistributions of this source code must retain this licence text
+ >   and all copyright notices without alteration.
+ > 
+ > - Redistributions of binary programs which is derived from this source code must
+ >   reproduce this licence text and all copyright notices in the documentation,
+ >   which must be distributed with binary programs.
+ > 
+ > - If the binary program is derived from a modified version of this source code,
+ >   you must to publicly release the modified version of this source code
+ >   under this license.
+ > 
+ > THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
+ > WARRANTY. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY DAMAGES
+ > ARISING FROM THE USE OF THIS SOFTWARE.
+ > 
+ > >From AnastasiyaaqZhdanova at yandex.ru Mon Jul 05 10:10:22 2010
+ > Return-Path: <AnastasiyaaqZhdanova at yandex.ru>
+ > Delivered-To: nelson at desk.crynwr.com
+ > Received: (qmail 4765 invoked from network); 5 Jul 2010 10:10:17 -0000
+ > Received: from unknown (HELO ns.crynwr.com) (127.0.0.1)
+ >   by localhost with SMTP; 5 Jul 2010 10:10:17 -0000
+ > Received: (qmail 26639 invoked by uid 1003); 5 Jul 2010 08:30:41 -0000
+ > Delivered-To: nelson at crynwr.com
+ > Received: (qmail 26490 invoked from network); 5 Jul 2010 08:30:08 -0000
+ > Received: from mm-f4.mmnet-ai.ne.jp (HELO 228.224.74.1.122.in-addr.arpa) (122.1.74.228)
+ >   by ns1.crynwr.com with SMTP; 5 Jul 2010 08:30:08 -0000
+ > Received: from aivengo.com.ua (aivengo.com.ua [82.144.63.109]) by 228.224.74.1.122.in-addr.arpa with ESMTPA id 866820201 for lego-robotics-subscribe at crynwr.com; Mon, 5 Jul 2010 17:30:07 +0900
+ > Date: Mon, 5 Jul 2010 17:30:07 +0900
+ > From: "??????? ????????????" 
+ > 	<AnastasiyaaqZhdanova at yandex.ru>
+ > X-Mailer: axmgzaqe 27
+ > X-Priority: 3 (Normal)
+ > Message-ID: <5205154693.20100705173007 at yandex.ru>
+ > To: <lego-robotics-subscribe at crynwr.com>
+ > Cc: <nelson-dul-test at crynwr.com>,
+ > 	<nelson-rss-test at crynwr.com>
+ > In-Reply-To: <BC2A79F5615B8282B31E4AE68E26242D87D29D2D0B60 at crynwr.com>
+ > References: <1BAC4A745EB009B47A76866F70C3AFA79344EC46691A at crynwr.com> <0C081FB4C47366EE80DE015835149991DF910 at yandex.ru>
+ > Subject: ????????? 10 000??.-1000???. ?????????? 	10 000??.-2950???.
+ > MIME-Version: 1.0
+ > Content-Type: multipart/mixed;
+ >   boundary="----------E6079EE0F3F7E75"
+ > 
+ > ------------E6079EE0F3F7E75

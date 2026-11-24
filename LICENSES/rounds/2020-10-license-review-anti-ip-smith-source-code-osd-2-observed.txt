@@ -1,0 +1,66 @@
+Source: OSI license-review public archive, 2020-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-24)
+Messages: 1 of 3 in "Anti-IP License" (2020-10-11)
+Senders: McCoy Smith
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From mccoy at lexpan.law  Fri Oct 16 14:04:13 2020
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Fri, 16 Oct 2020 07:04:13 -0700
+Subject: [License-review] Anti-IP License
+In-Reply-To: <CAE+UdoqO5awmUWCb_pbzdMko5Dc=sZ1atijTK+te_D8QaqZJ2A@mail.gmail.com>
+References: <CA+ujgfPchEuk74KRVb-p0hmLtQPNbpCze=oCC38aA_hSdL+GcA@mail.gmail.com>
+ <CAE+UdoqO5awmUWCb_pbzdMko5Dc=sZ1atijTK+te_D8QaqZJ2A@mail.gmail.com>
+Message-ID: <064601d6a3c5$3a973080$afc59180$@lexpan.law>
+
+This is an interesting concept, but poorly executed. Kevin points out one
+problem. Another is that it doesn't anywhere discuss source code (which
+would seem to violate OSD 2).
+I'd say this is one that really needs a lawyer's involvement, to ensure its
+terms meet the goals of the author and also satisfy the OSD. 
+FWIW, I'm not sure how this would be found "unconscionable" at least under
+USA law; it appears to be something like an attempt to do a copyleft public
+domain dedication, which AFAIK, isn't unconscionable.
+
+> -----Original Message-----
+> From: License-review <license-review-bounces at lists.opensource.org> On
+> Behalf Of Kevin P. Fleming
+> Sent: Friday, October 16, 2020 6:29 AM
+> To: License submissions for OSI review
+<license-review at lists.opensource.org>
+> Subject: Re: [License-review] Anti-IP License
+> 
+> On Fri, Oct 16, 2020 at 8:18 AM Alex Williams <implementnap at gmail.com>
+> wrote:
+> 
+> > No Fraud
+> >
+> > No Licensable IP or Restricted work may be used to commit fraud. If you
+are
+> found guilty of committing fraud using any of the Licensable IP or a
+Restricted
+> work in a court of law, then your license ends immediately.
+> 
+> This is a restriction on use, and thus generally considered to be
+incompatible
+> with the OSD. If this was to have any chance at approval at all, the
+license
+> termination would need to apply to only the limited usage of the covered
+> works which were involved in the fraudulent activity. If the licensee also
+uses
+> the covered works in other activities, which have not been determined to
+be
+> fraudulent, then those licenses would have to stay in force. My opinion of
+> course, IANAL, yadda yadda.
+> 
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+necessarily
+> those of the Open Source Initiative. Communication from the Open Source
+> Initiative will be sent from an opensource.org email address.
+> 
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-
+> review_lists.opensource.org
