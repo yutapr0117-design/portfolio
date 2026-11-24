@@ -114,6 +114,25 @@ ACD-1.4 は 2026-11-23 に確定・凍結した。草案 `ACD-1.5-DRAFT.txt` は
 
 - `permissions.circumventionOfDedicatorMeasures`: `true`・§5.2・`note`: *"Only measures applied by or on behalf of the Dedicator to a copy of the Work, where the circumvention is effected in a use this Dedication permits or purports to permit; to the fullest extent the law permits."*。T124（1.4）が §5.2 に足した回避の授権は課すものでなく与えるもので、§6.5 の線（自動の仕組みが判定できない許しは許しでない）では `permissions` に置く読みが立つ。1.4 の記述子は持たない（確定を遅らせないため 1.4 では足さなかった・fc と 5e・2026-11-23）。**逆側**: 回避の法の授権は裁判所が読む事実で、機械が行動を変える値ではない。足すなら Check 451a の `clause` の照合に §5.2 が増える
 
+## OSD 1〜10 を 1.5 草案に当てた（2026-11-24・portfolio-59・固定 37・提出対象は 1.4 のまま）
+
+1.4 の行は `SUBMISSION-MATERIALS.md` §1c と `ACD-1.0.submission-osd.md` に在り、書き換えない。ここは 1.5 草案の条番号で、1.4 と条が変わった所の答えを先に確かめる表である。**OSD に反する条は見つからなかった。** 逆側の列は、審査者がその行で探すと分かっている語と、1.4 から失ったものを書く。
+
+| OSD | 1.5 の文 | 不利な面 / 逆側 |
+| :-- | :-- | :-- |
+| 1 自由な再頒布 | 2.2 *distribute, lend, rent, sell, and sublicense*・4.1 *no condition* | Smith 2025 / Chestek 2023 の「特許の明示の否定は OSD 1・7」に当たらない（2.3 が与える）。8.1 の無保証と 6.1 は特許の否定ではない |
+| 2 source | 2.2 *in source, object, or any other form*・4.2 *disclose source* 不要 | Smith 2020（献呈型が source に触れないと OSD 2）に *in source* の 1 句が答える —— 落とさない |
+| 3 派生物 | 2.2 *adapt, modify … prepare derivative and collective works of*・4.3 | 元と同じ条件での頒布（Nelson 2004・Perens 2022 の読み）は 10.3 と 4.3 |
+| 4 作者の source の完全性 | 4.1（条件が無い） | 10.5 は本文の名で、Work の名ではない（Perens 2019） |
+| 5 人・集団 | 4.2 *identity of any person, group* | 10.5 の Steward の例外は本文だけ（#160） |
+| 6 分野 | 4.2 *field of endeavour, jurisdiction, purpose, scale* | 学習・TDM を名指す 2.2 / 3.1 は許す側 |
+| 7 許諾の頒布 | 2.4 *holds them directly from the Dedicator*・4.2 *need not know of or accept* | 1.4 の §4.6 + §2.3 を 1 文にした。「許諾の追加が要らない」は 2.4 |
+| 8 製品に固有でない | 2.4・10.3 *(not specific の文は外した)* | 1.4 §16.3 の *not specific to any project* を外した —— 2.4・4.2・10.3 で足りるが、審査者は語を探す |
+| 9 他のソフトウェア | 4.1・4.3・5.4(e) 末 | 10.4 の識別の約束は Dedicator にだけ |
+| 10 技術中立 | 4.2 *technology*・*need not … accept* | 無し |
+
+**この表が示さないこと**: 外の審査者がこの読みに同意するか。1.4 で OSD 8 の行が引いた *"not specific to any project, person, organisation, jurisdiction, or field of endeavour"* は 1.5 に無く、性質は 2.4・4.2・10.3 の 3 か所から読む。
+
 ## Constraints
 
 ## Change impact
