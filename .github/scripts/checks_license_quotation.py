@@ -47,6 +47,14 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (cd が #3899 で submission-reference §4.4 と逐条 §12.5 の 2 件を手で見つけた)。T 番号を添えた引用は試作の歴史として
        外す (逐条は「T115 の前は *"…"*」の形で途中の草案を引く)。errata・against・試作の冊は途中の草案を歴史として引くので
        対象外。導入時の実測: 1,829 片のうち 1 件 (逐条 §8.4 の行・T99 より前の §8.3 第 2 文) で、同じ commit で直した。
+       **470c (2026-11-24・cd の #4029 と 5e の提案・fc・BLOCKING)**: 外向きの文書 (`_OUTWARD470B` に register と ADOPTING を足す)
+       の *"…"* で、Dedicator / Dedication / the Work / Section N のどれかを含み、提出対象の版 (SUBMISSION-TARGET) の本文に無く、
+       それより前の版 (1.0〜) のどれかの本文に在るものを数える。前後に版の名 (1.0〜1.3) か経緯の印 (外し・旧・was・formerly 等)
+       があれば外す。470b は「どの版にも無い語のずれ」を見るので、**前の版に逐語で在る文を版を名乗らずに現在形で引く**形
+       (提出対象を 1.4 へ切り替えた後の against #110・B10 の §6.4) は見えなかった。cd は経緯の文の判定が粗いので ADVISORY を勧めたが、
+       BLOCKING にした: ADVISORY は ::error:: を出さないので mutation の probe が捕捉を測れず (479d が名指しの mutation を求める)、
+       直し方は安い (版を名乗る "in ACD-1.0" を 1 句足す)。誤検出が出たら、印の語を足すか ADVISORY へ戻す。
+       導入時の実測: 12 冊の引用 201 件のうち 0 件 (cd が against #110 を直した後・SUBMISSION-MATERIALS の経緯の文 1 件は印の語「外し」で外れる)。
 """
 
 import re
@@ -196,11 +204,49 @@ def run(ctx):
             blocking=False,
         )
         _selfquote_470b(ROOT, check)
+        _target_version_470c(ROOT, check)
     else:
         # 対象が無いのに黙って skip しない (2026-11-02): 改名・移動を正しく済ませると他の Check は全部緑のまま、
         # ここだけが OK も ERROR も出さずに消える (460 / 469 で踏んだ形)。
         check(False, "Check 470: 対象ファイル",
               f"Check 470: 検査対象 {_lic470.relative_to(ROOT).as_posix()} が無い —— 改名・移動したならこの Check の参照先を直す (黙って skip しない)")
+
+
+def _target_version_470c(ROOT, check):
+    """470c の本体 (docstring の 470c)。返り値なし。"""
+    from _lib_dossier import submission_target_version
+    L = ROOT / "LICENSES"
+    tv = submission_target_version(L)
+    norm = lambda s: " ".join(s.replace("\u2019", "'").split())
+    bodies = {}
+    for f in sorted(L.glob("ACD-1.[0-9].txt")):
+        v = f.stem.split("-")[1]
+        if tuple(map(int, v.split("."))) <= tuple(map(int, tv.split("."))):
+            bodies[v] = norm(f.read_text(encoding="utf-8").split("-" * 80, 1)[-1])
+    key = re.compile(r"\b(?:Dedicator|Dedication|the Work|Sections? \d)")
+    mark = re.compile(r"(?:ACD-)?1\.[0-" + str(int(tv.split(".")[1]) - 1) + r"]\b|T\d+ の前|earlier version|formerly|used to|\bwas\b"
+                      r"|no longer|corrected|replaced|旧|訂正|外し|外れ|だった|の前の形")
+    faces = sorted({p for g in (*_OUTWARD470B, "ACD-OSI-BOTTLENECKS.md", "ADOPTING.md") for p in L.glob(g)})
+    n, bad = 0, []
+    for f in faces:
+        for ln_no, line in enumerate(f.read_text(encoding="utf-8").split("\n"), 1):
+            for m in re.finditer(r'\*"(.{12,}?)"\*', line):
+                q = norm(m.group(1))
+                parts = [x.strip(" .,;:") for x in re.split(r"\.\.\.|…", q) if len(x.strip(" .,;:")) > 8]
+                if not key.search(q) or not parts:
+                    continue
+                n += 1
+                if all(x in bodies.get(tv, "") for x in parts):
+                    continue
+                older = [v for v in bodies if v != tv and all(x in bodies[v] for x in parts)]
+                if older and not mark.search(line[max(0, m.start() - 250):m.end() + 150]):
+                    bad.append(f"{f.name}:{ln_no} ({'/'.join(older)}) *\"{q[:70]}\"*")
+    check(bool(faces) and bool(bodies.get(tv)) and not bad,
+          f"Check 470c: 外向きの文書の ACD の引用 {n} 件が、提出対象 ACD-{tv} の本文に在るか、前の版を名乗るか経緯の印を持つ",
+          (f"Check 470c: 前の版にだけ在る文を、版を名乗らずに引いている {len(bad)} 件: {bad[:5]}。ACD-{tv} の文に直すか、"
+           "その版を名乗る (\"in ACD-1.0\" など)" if faces and bodies.get(tv) else
+           f"Check 470c: 外向きの文書か ACD-{tv} の本文を読めない (黙って skip しない)"),
+          blocking=True)
 
 
 # 470b の対象: 審査者・法律家に出す、本文を「いまの文」として引く文書 (errata・against・試作の冊は途中の草案を歴史として引くので外す)
