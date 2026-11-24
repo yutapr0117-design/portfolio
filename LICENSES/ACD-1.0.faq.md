@@ -32,7 +32,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LIC
 **適用の仕方**: §16.1 の書式の通知を作品に添える。全文の同梱は不要で、
 **識別子だけでも通知として足りる**（§16.2）。
 
-*（1.4 の注・2026-11-24: ACD-1.4 の §16.3 は適用の対象を *"to any material in which they hold or may hold rights of their own"* に限る（1.0 の "to any work" は errata E2 で狭めた）。権利を持たない部分には適用できないことが本文に書いてある。§16.2 で通知として足りるのは、識別子、`SPDX-License-Identifier: ACD-1.4` か `LicenseRef-ACD-1.4` の tag、または**名前と版**による言及で、1.0 のように名前だけでは足りない）*
+*（1.4 の注・2026-11-24: ACD-1.4 の §16.3 は適用の対象を *"to any material in which they hold or may hold rights of their own"* に限る（1.0 の "to any work" を 1.1 から "to any work in which they hold rights" に狭めた・errata E2）。権利を持たない部分には適用できないことが本文に書いてある。§16.2 で通知として足りるのは、識別子、`SPDX-License-Identifier: ACD-1.4` か `LicenseRef-ACD-1.4` の tag、または**名前と版**による言及で、名前だけでは足りない。名前だけで足りたのは 1.0〜1.2 で、1.3 から版を要する（errata E38: 版が 2 つ以上ある今、版の無い名前はどの版にも自分の条件だと主張され、選ぶ規則が無かった）。1.3 の適用者にも同じ差がある）*
 
 ### A2. 通知や帰属表示を残す必要はあるか
 
