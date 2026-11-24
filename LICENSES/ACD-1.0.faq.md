@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.faq.md
 audience: 採用検討者, 法務, ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-12
+last-updated: 2026-11-24
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (逐条リファレンス) / LICENSES/ACD-1.0.comparison.md (族ごとの比較) / LICENSES/ACD-1.0.jurisdictions.md (法域別の問い)
 ---
 
@@ -163,7 +163,7 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 >   not later argue otherwise. If you are not certain, do not apply it yet.
 
 **§2.6 が助けになる場面**: 今後の貢献については、貢献者が別段の意思表示をしない限り
-本 Dedication の下で提出されたものとして扱われ、**そのために CLA のような別文書は要らない**。*（2026-11-24 訂正: 旧文は「別文書を要求できない」と書いていた。§2.6 からはそれは言えない —— どの版も「要らない」と言うだけで、1.4 の §2.6 は *"Whether the Dedicator asks a contributor for anything else is a matter of project governance and is not addressed here."* と明示する。寄与について CLA を求めることは統治の問題である。CLA の義務の目的語は Work ではなく貢献者自身の寄与で、Dedicator が受け入れる見返りでもある（§2.6 の末文は、Dedicator が何も受け入れる義務を負わないと述べる）。**ただし端が 2 つ §5.2(b) の約束に反する**: (a) CLA が貢献者の Work の使い方を縛る条項（フォークしない、改変物を Dedicator にだけ許諾する、競合に使わない など）を持つとき、(b) 署名を Work の写しやリポジトリの入手の条件にするとき（§5.2(b) の *"access condition, click-through, registration requirement"*）。portfolio-5e の読み）。**逆側**: §2.6 の *"not addressed here"* の *here* は、本文の用法（*"a permission granted here"* など）では「この Dedication」と読むのが自然で、そう読むと Dedication 全体が CLA を扱わないと言い、(a)(b) の端と緊張する。それでも (a)(b) は §5.2(b) が自分の語で扱う Work についての義務と入手の条件で、*anything else* は寄与について求めるものなので、端は §5.2(b) に残る（両方の読みが残るなら §15.1 が §5.2(b) の及ぶ読みを選ぶ・`ACD-1.4-UNIQUE-READING.md` の §2.6 の CLA の行）。当初の「我々は『§2.6』と読む」は用法に合わなかったので改めた）*
+本 Dedication の下で提出されたものとして扱われ、**そのために CLA のような別文書は要らない**。*（2026-11-24 訂正: 旧文は「別文書を要求できない」と書いていた。それは 1.0 と 1.1 の答えである —— その §2.6 は *"none may be required of them as a condition of the Contribution being accepted"* と書く (in ACD-1.0 and ACD-1.1)。1.2 からこの句は無く「要らない」と言うだけで、1.4 の §2.6 は *"Whether the Dedicator asks a contributor for anything else is a matter of project governance and is not addressed here."* と明示する。寄与について CLA を求めることは統治の問題である。CLA の義務の目的語は Work ではなく貢献者自身の寄与で、Dedicator が受け入れる見返りでもある（§2.6 の末文は、Dedicator が何も受け入れる義務を負わないと述べる）。**ただし端が 2 つ §5.2(b) の約束に反する**: (a) CLA が貢献者の Work の使い方を縛る条項（フォークしない、改変物を Dedicator にだけ許諾する、競合に使わない など）を持つとき、(b) 署名を Work の写しやリポジトリの入手の条件にするとき（§5.2(b) の *"access condition, click-through, registration requirement"*）。portfolio-5e の読み）。**逆側**: §2.6 の *"not addressed here"* の *here* は、本文の用法（*"a permission granted here"* など）では「この Dedication」と読むのが自然で、そう読むと Dedication 全体が CLA を扱わないと言い、(a)(b) の端と緊張する。それでも (a)(b) は §5.2(b) が自分の語で扱う Work についての義務と入手の条件で、*anything else* は寄与について求めるものなので、端は §5.2(b) に残る（両方の読みが残るなら §15.1 が §5.2(b) の及ぶ読みを選ぶ・`ACD-1.4-UNIQUE-READING.md` の §2.6 の CLA の行）。当初の「我々は『§2.6』と読む」は用法に合わなかったので改めた）*
 ただしこれは**将来の貢献**についての規律であって、**過去の貢献を遡って変えるものではない**。
 
 **貢献を受ける側の実務**: §2.6 の *"unless they state otherwise"* は記録を残さない。Apache-2.0 §5 も同じ形（*"Unless You explicitly state otherwise"*）で、承認済みの先例があるので本文は変えない。違いは費用で、ACD の放棄は寄与者にとって取り消せない。**別段の意思が述べられた貢献は、merge しないのが最も簡単である。**
@@ -345,7 +345,7 @@ source / object / documentation に加えて **data / metadata / audiovisual** �
 「何も定まっていない」わけではない** —— §2.6 は、Contribution は**この Dedication の下で提出
 されたものとし、提出者はその Contribution について Dedicator になる。ただし提出時に別段の
 表示をした場合を除く**、と定める。つまり**既定は献呈で、外れたい人は提出時にそう言う**。
-別途の証書や合意は要らず、受入の条件として要求してもならない。
+別途の証書や合意は要らない。受入の条件として要求してもならないのは 1.0 と 1.1 だけで、1.2 からは統治の問題として扱わない（A13）。
 
 この既定の限界も書いておく。**ライセンスが自分の文言で第三者の行為の法的効果を決めることは
 できない** —— 貢献者が拘束されるかは、その人が知らされていたか・提出をどう評価するかに
@@ -369,7 +369,7 @@ source / object / documentation に加えて **data / metadata / audiovisual** �
 
 **全部そのまま効くとは限らない。そう書いてある。** §14.2 は「適用法が排除・制限を認めない
 責任については、その法が認める最大限まで制限され、残りの条項は効き続ける」と述べており、
-§13.1 / §14.1 も冒頭で "TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW" と条件を付けている。
+§14.1 は "TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW" と条件を付けている（§13.1 の無保証はこの句をどの版でも持たない —— 2026-11-24 に本文に当てて訂正。旧文は §13.1 も持つと書いていた）。
 **効かない可能性を否認していない**のがこの条項群の設計である。
 
 具体的に何が制限されうるか。
