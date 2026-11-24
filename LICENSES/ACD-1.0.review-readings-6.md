@@ -537,3 +537,17 @@ census の `DECIDERS` は差出人の表示名を大文字小文字を区別し�
 **この節が establish しないこと。** OSI が AI 向けのライセンスを審査で不利に扱うこと。
 
 **反映**: B13（事務局長の「増殖」の 1 文を不利な事実の候補として・cd へ）/ 入口（`OSI-EVENTS` の 2026-11 の行と PEER-REVIEW-WATCH に記事の存在と「審査の手順・AI の方針には触れない」を・6d へ）。本文は変えない。
+
+## 1.475 OSAID の FAQ の「explicit assertion」は 2026-11-24 の時点で変わっていない。OSAID の見直しの議論は 2026-11-10 に始まり、学習データと open weights の「どの条件で共有するか」を未決とした —— 入口が引く支えの見張り（2026-11-24）
+
+6d の依頼（入口 `REVIEWERS.md` の 2 行 —— "It has a use case" と "AI and ML" —— が OSAID の FAQ の *"we require an explicit assertion"* を §6・§8.4・§9 の支えに引くので、OSAID の見直しでその文が動けば支えが動く）で、FAQ の現物と見直しの公開の議論を見た。**取得の方法**: web-fetch の agent が 3 頁を 1 つずつ読んだ（オーナーが 2026-11-24 に取得を許した・HTTP 200）。agent は非公認の出典の引用を 125 字までに区切るので、下の引用は断片で、rounds/ に原文は無い —— 逐語の照合の対象外。
+
+- **FAQ**（`https://opensource.org/ai/faq`・"Are model parameters copyrightable?"・19 問の 15 問目）: 入口が引く 2 つの句は**在り、変わっていない** —— *"They may be free by nature, or a license or other legal instrument may be required to ensure their freedom."*、*"we require an explicit assertion accompanying the distribution of Parameters"*。頁に更新日の表示は無い（agent の報告）。
+- **見直しの議論**（`https://discuss.opensource.org/t/what-s-next-for-osaid-1-0-the-first-open-source-ai-salons/1458`・2026-11-10・返信 3）: 学習データについて *"Ideally, more models would share full training datasets under terms that allow for their use, study, sharing"*、open weights について *"the norms around what is shared and under what terms are unclear"*、参加者の声として *"Participants noted the need for information on use restrictions, provenance, and specifics on what is shared"*。返信の 1 つで Shuji Sado 氏（決める側ではない・2026-11-11）は *"I do not believe that major changes to the current definition are necessary"*。
+- 2026-10-01 以降の他の話題（"Opening New Paths for Open Source"・"New website reflects OSI's evolving mission"・ATO 2026 の告知）は題だけを見て、本文は読んでいない。
+
+**当たり方。** 入口の 2 行が引く FAQ の句は、取得の日に在る。見直しの議論は「何をどの条件で共有するか」が不明確だと言い、使用の制限・来歴・共有するものの明細の情報を求める声を記録した —— ACD は Work（weights・data を含む・ACD-1.4 の §1.3）に条件を付けず（§10.1）、計算利用を明示に許す（§6.1）ので、「どの条件で」の問いに明示の答えを持つ側に立つ。**逆側**: 見直しの結論は出ていない。FAQ の句が見直しで変われば、入口の 2 行の支えが動く。OSAID は承認の基準ではない（入口の AI and ML の行が既にそう書く）。
+
+**この節が establish しないこと。** 見直しが FAQ の句を保つこと。
+
+**反映**: 入口（OSI-EVENTS / PEER-REVIEW-WATCH の見張りの行に「FAQ の explicit assertion の句は 2026-11-24 に在る・見直しの話題は discuss 1458」を・6d へ）。本文は変えない。
