@@ -15,6 +15,9 @@
     python3 .github/scripts/moved_clauses.py --effect-diff
         # 凍結の門「効果の差の読み」の記録 (ACD-N.M-EFFECT-DIFF.md の印) が、いまの候補についてのものかを見る。印に書く sha256 も出す
 
+    python3 .github/scripts/moved_clauses.py --pin
+        # 出す版を替える前の門 (ACD-N.M-GATE.md・議題 31) の印を、いまの草案・一覧・文で書き直す (動いたら since は今日 = 数え直し)
+
 **条の本文**は空白を畳んで比べる（折り返しだけの差は動いたと数えない）。条の中の段 (a)〜(e) は条に含める。
 **測っていないもの**: 動いた条を引く別の条の読み（`Section N.M` の参照）。--refs を付けると、動いた条を参照する条も添える。
 終了コード: 動いた条（--ledger では当て直しの要る行）が 1 つ以上なら 1、無ければ 0、読めなければ 2。
@@ -151,6 +154,10 @@ def main(argv: list[str]) -> int:
     if "-h" in argv or "--help" in argv or not argv:
         print(__doc__)
         return 0 if argv else 2
+    if argv[0] == "--pin":
+        from _lib_gate_pin import repin
+        print(repin())
+        return 0
     if argv[0] == "--effect-diff":
         d = working_draft()
         v = re.match(r"ACD-(\d+\.\d+)-DRAFT", d.name).group(1)
