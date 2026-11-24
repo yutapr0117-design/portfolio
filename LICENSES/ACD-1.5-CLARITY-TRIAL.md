@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.5-CLARITY-TRIAL.md
 audience: 次のセッションの実装者（一次読者）/ 監査人
-last-updated: 2026-11-23
+last-updated: 2026-11-24
 canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、採った変更の記録先) / LICENSES/ACD-1.5-DRAFT.txt (試作の対象・この file は草案を上書きしない) / LICENSES/ACD-1.4-THIRD-CLARITY-TRIAL.md (1.4 の試作の 3 冊目・§15.54 が 1.5 の候補の始まり)
 ---
 
@@ -25,11 +25,11 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 
 **反例（portfolio-cd・2026-11-23）**: (b) を退ける —— 1.4 の本文で黙示の許諾を外しているのは *"It reaches nothing else"* の 1 文だけで、*implied* / *estoppel* / *no other licence* の類いは §13 の保証の否認の *IMPLIED* を除いて 0 件（grep）。この文を外すと、§15.1（広い読みが勝つ）と組み合わさって、§4 の *use* の許諾から、§8.4 の限定の外の Dedicator の特許について、米国の黙示の特許許諾の議論に足場を与える。B7 は §8.4 の限定を B10 との意図した取引として守っているので、(b) は B7 の釣り合いを黙って動かす。
 
-**(c) の逆側**: (i) *estoppel* を書かないのは §2.5（Dedicator が *estopped*）との混同を避けるためだが、そのぶん禁反言による許諾の排除は明示されない。(ii) 法が黙示の許諾や消尽を強行的に与える法域では、文で外せない（どの案でも同じ）。(iii) 第 1 文は網羅の主張を失い、「及ぶものの例示」に読まれうる。(iv) *"what its words give"* は、§2.5 の約束や §5.2 の授権のような「与える」でない文の扱いを読み手に委ねる —— ただしそれらは明示の語なので、黙示の排除の外に在る（cd）。(v) §15.6 *"no rule that construes a grant narrowly against the grantee"* と衝突しないか —— (c) は語の外の黙示を外す文で、§15.1 も *"that its words allow"* の中の読みなので、同じ線に立つ、と読む（5e）。(vi) 第 3 文の *"It grants no permission under the law of data protection …"* と並び、*It grants nothing … / It grants no permission …* の 2 文が続く —— 前者は量、後者は種類を限るので重ならない、と読む。
+**(c) の逆側**: (i) *estoppel* を書かないのは §2.5（Dedicator が *estopped*）との混同を避けるためだが、そのぶん禁反言による許諾の排除は明示されない。(ii) 法が黙示の許諾や消尽を強行的に与える法域では、文で外せない（どの案でも同じ）。(iii) 第 1 文は網羅の主張を失い、「及ぶものの例示」に読まれうる。(iv) *"what its words give"* は、§2.5 の約束や §5.2 の授権のような「与える」でない文の扱いを読み手に委ねる —— ただしそれらは明示の語なので、黙示の排除の外に在る（cd）。(v) 1.4 の §15.6 の、許諾を受け手に不利に狭く読む規則を外す文 と衝突しないか —— (c) は語の外の黙示を外す文で、§15.1 も *"that its words allow"* の中の読みなので、同じ線に立つ、と読む（5e）。(vi) 第 3 文の *"It grants no permission under the law of data protection …"* と並び、*It grants nothing … / It grants no permission …* の 2 文が続く —— 前者は量、後者は種類を限るので重ならない、と読む。
 
 **反例の 2 巡目（portfolio-cd・2026-11-23）**: (1) *"what its words give"* の *give* は、ACD 自身の語の使い方で許諾より広い —— 約束（§8.6 *"This covenant is given on the same footing"*）、同意（§12.2 *"The covenant and the consent are given for every jurisdiction"*）、否認（§6.3 *"the disclaimer of reliance is given in every case"*）、前文の *"Each is given on its own terms"*、§11.1 の *"what any other Section of this Dedication gives"*。だから §5 の約束・§5.2 の授権・§12.2 の同意は「語が与えるもの」に入り、害は無い。**新しい反例**: そのため動詞の *grants* が目的語の *give* より狭く、黙示の許諾は外すが黙示の約束（行為から推定される不行使の約束など）は外さない → 動詞を *gives* にした（語数は同じ。逆側: *give* が 2 度続き、文体が硬い）。(2) 第 1 文が例示に読まれても、止まり先は 5 つ残る —— 第 3 文（データ保護・プライバシー等・他人の権利）、§11.1（商標・名）、§1.5 の除外の列（特許・商標・人格権・データ保護は Covered Rights の外）、第 1 文と §1.5 の *in respect of the Work* / *in the Work*（ほかの著作物へ伸びない）、§12.3（人格権の約束は他の作品へ及ばない）。残る隙は Dedicator の契約上の権利（配布サイトの利用規約など）だが、それは §5.2 の約束が自分の語で扱う。
 
-**反例の 3 巡目（portfolio-cd・2026-11-23）**: 止める反例なし。(1) *It* と *its words* は第 1 文の *This Dedication* を受ける。(2) 法が与える黙示の許諾（米国の legal estoppel・特許の消尽）は文で外せず、外せるのは Dedication が黙示に与えるものだけ —— 旧文の *"reaches nothing else"* と同じ射程で、§8.4 の限定（B7）を広げも狭めもしない。(3) ドイツの目的移転の原則（UrhG 31 条 5 項）は、§4.1 が *"all Covered Rights"* を明示で許すので黙示に頼る場面が残らない。(4) §11.4 末文の *"states a limit of the Dedication's reach"* は、第 3 文が限界を述べ続けるので真のまま。**逆側 (vii)**: *"gives nothing by implication beyond what its words give"* は、本文の外の Dedicator の言動（「学習に自由に使ってよい」という公の発言など）から受け手が得る禁反言の防御まで、完全合意条項（entire agreement）のように締め出すと読まれる余地がある。主語は Dedication なので、Dedication の外の言動が与えるものには及ばない、と読むのが自然で、§2.5 も本文の内から禁反言を支える —— この文は「本文が黙示に与えるもの」を限る文であって、完全合意条項ではない、と読む（法律家への問いの材料）。
+**反例の 3 巡目（portfolio-cd・2026-11-23）**: 止める反例なし。(1) *It* と *its words* は第 1 文の *This Dedication* を受ける。(2) 法が与える黙示の許諾（米国の legal estoppel・特許の消尽）は文で外せず、外せるのは Dedication が黙示に与えるものだけ —— 旧文の *"reaches nothing else"* と同じ射程で、§8.4 の限定（B7）を広げも狭めもしない。(3) ドイツの目的移転の原則（UrhG 31 条 5 項）は、§4.1 が *"all Covered Rights"* を明示で許すので黙示に頼る場面が残らない。(4) §11.4 末文の、及ぶ範囲の限界を述べると言う語 は、第 3 文が限界を述べ続けるので真のまま。**逆側 (vii)**: *"gives nothing by implication beyond what its words give"* は、本文の外の Dedicator の言動（「学習に自由に使ってよい」という公の発言など）から受け手が得る禁反言の防御まで、完全合意条項（entire agreement）のように締め出すと読まれる余地がある。主語は Dedication なので、Dedication の外の言動が与えるものには及ばない、と読むのが自然で、§2.5 も本文の内から禁反言を支える —— この文は「本文が黙示に与えるもの」を限る文であって、完全合意条項ではない、と読む（法律家への問いの材料）。
 
 **4 巡目 —— 決める側の文で当て直した（portfolio-d7 の採掘・2026-11-23。引用はアーカイブの写しで原文に当てた）**:
 
@@ -182,3 +182,62 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 **効果**: *here* を本文の用法どおり Dedication 全体と読むと、「Dedication のどこも You の条件を限らない」が §5.2(b) と同じ条の末文（Dedicator でもある配布者は §5 が禁じるものを課せない）に食い違う。*in Section 4.5* はその文の届く範囲を §4.5 の許しに限り、末文と並べて読める。Dedication 全体として You に条件を課さないことは §10.1・§10.2 が自分の文で言っているので、狭めて失うものは無い。
 
 **逆側**: (i) 効果は変わらない —— 末文と §10.1 の *"other than in Your capacity as a Dedicator"* が既に決めている（UNIQUE-READING の行は「一意」に近い）。文の上の食い違いを消すだけの +2 語は B3 に逆らう。(ii) *here* は本文に 11 か所あり、ここだけ名指しへ替えると、残りの *here* が Dedication 全体を指すことが対比で強まる —— それは用法どおりなので害は無いと見るが、§6.4 *"not decided here"*・§8.2 *"expressed here"* が §6.4・§8.2 だけを指すつもりで書かれていたなら、意味が広がって読まれる（どちらも Dedication 全体と読んでも偽にならないことは確かめた）。**反例をお願いしたい点（cd）**: 狭めることで、Dedicator でない You について何かが失われないか。
+
+**反例（portfolio-59・2026-11-24）**: なし。Dedicator でない You が失うものは無い —— §10.1 と、§10.2 の *license anything under this Dedication or any other terms* / *retain this file* が同じことを言う。「在り物 + Section N」は §2.6・§11.1・§10.5 と同じ型。**効果は上の記録より大きい**: *here* を Dedication 全体と読むと、§16.4（改変した本文を ACD の名で配ることの制限）とも食い違い、そこは末文ではなく §10.5 を経ないと解けない。
+
+## 11. T144・T145 —— 縛られる者として Dedicator だけを名指す 2 つの文を、§2.8 が縛る者まで届かせる（−6 / +7 語・2026-11-24・種は portfolio-59 と 0d）
+
+**方針の欄**: 規則 1 の本則 —— `ACD-1.1-SELF-AUDIT.md` §3ze（1.4 の T121・T120 が持ち込んだ欠陥）。欠陥の全体と重さはそこに書いた。
+
+| 試作 | 条 | Before | After | 語 |
+| :-- | :-- | :-- | :-- | --: |
+| T144 | §4.5 末文 | *"Section 4.5 does not permit a person to impose what Section 5 forbids on material as to which that person is a Dedicator."* | *"Section 4.5 does not permit a person to impose what Section 5 forbids that person to impose."* | −6 |
+| T145 | §10.1 | *"… upon You in respect of the Work, other than in Your capacity as a Dedicator."* | *"… other than in Your capacity as a Dedicator or as a person Section 2.8 names."* | +7 |
+
+**測定**（T143・T144・T145 をまとめて `--compare`）: 条 80、本文 +3 語（§4.5 は 89 → 85、§10.1 は 24 → 31）、先行詞の無い指示語 0 / 0、許可の声 +0、そろえ残し 0、全称 0。外した文に依拠する外向きの箇所 3（逐条の 4.5、`SUBMISSION-MATERIALS.md` の OSD 3・OSD 9 の行 —— どれも 1.4 の文を 1.4 として引く）。
+
+**退けた案（T144 の案 B）**: *"… to impose on any material what Section 5 forbids that person to impose on it."*（22 語）。素材ごとの射程を文の中に残すが、§1.3・§1.4 の *severally* と §2.6 の *as to that Contribution* が既に決めているので、語だけが増える。
+
+**逆側**: (i) T144 は「自分が Dedicator である素材だけ」の明示を落とす。寄与者が Work 全体の EULA を禁じられると読む余地は、§1.3（その Dedicator が適用した素材が Work）と §2.6 が閉じる。(ii) T145 は §10.1 の「受け手に何も課さない」に 2 つ目の例外の語を足す —— 買い手の法務が「うちは譲受人に当たるのか」を読むことになる。課されるのは §2.8 が既に課しているものだけで、Work の受け手としての行為には何も掛からない。
+
+## 12. T146 —— 同じ効果を、1 度ずつ述べる形に書き直す（縮約の再起草・2026-11-24・起草 0d・合議の議題 12）
+
+**方針の欄**: 規則 1 の例外（同じことの述べ直しを外す）を、文ごとではなく本文の構造に当てる。消す errata や分岐の番号を 1 つに絞れないので、合議（議題 12）で採否を決める。
+
+**種**: B3 と B13。1.4 は題名から 5,879 語で GPL-3.0 より長い。`ACD-OSI-BOTTLENECKS.md` の B3 の節は「削る」案だけを測り（306 語・機構部の圧縮で約 360 語）、3,888 語に届かないので「縮められるが答えきれない」と結んでいた。測っていなかったのは、同じ型を何度も述べる構造そのものを 1 度に畳む道である。5 人とも 1.5 草案を初めて読む日に、3f が初見読みの議題を、0d が再起草を、同じ時刻に出した。
+
+**なぜ「短い」でなく「2 度言わない」か**（採掘は portfolio-6c・節は `ACD-1.0.review-readings-7.md` の §1.479 以降）: Chestek 氏（委員・元委員長）2026-01-24 *"anytime you say things twice, unless they are exactly the same, you created the potential for two different interpretations"*。同じ人は 2026-02 に説明の文が問題を増やすとも書いた。逆側: McCoy Smith 氏（委員長）2019-05-11 は、複雑さそのものは却下の理由にならないと書いた（*"Complexity qua complexity is … not"*）。
+
+**同じことを何度述べていたか（1.4）と、縮約でどこに 1 度書いたか**:
+
+| 1.4 で繰り返していた文 | 1.4 の条 | 縮約の条 |
+| :-- | :-- | :-- |
+| 「どれが有効かを判定しなくてよい・許しはそれに依らない」 | §4.4・§8.6・§12.2（と §2.4 の独立） | 2.7（機械生成か否かの事実の問いは 3.2） |
+| 「条件でない・§10.1 は影響を受けない」 | §10.5・§11.1・§11.3・§11.4・§16.4・§16.6 | 6.5 と 10.7 |
+| 「承継人・譲受人を縛る・法が許す最大限」 | §2.8・§5.3・§12.4 | 7.2（最大限は 2.7） |
+| 計算の利用の許しと成果物 | §1.7・§6.1・§6.4・§6.5・§8.4 | 1.8・1.9・2.2・2.3(b)・2.5(a)・4.1 |
+| 許諾の形容詞の列 | §4.1・§8.1 | 2.4 |
+| 特許の支配の条件 | §8.5 | 1.7（定義の側） |
+
+1.4 の 80 条がどこへ行ったかは `CLAUSE-MAP-1.4-1.5.tsv` が持つ。上の表の右の列は 1.5 草案の条番号である。
+
+**測定**（題名から・`measure_clause_clarity.py` の `body` と `sentences`）:
+
+| | 1.4 | 述べ直し（固定 33） |
+| :-- | --: | --: |
+| 語（題名から） | 5,879 | 3,177 |
+| 条 | 80 | 50 |
+| 45 語超の文 | 28 / 191（14.7%） | 5 / 144（3.5%） |
+| 最長の文（語） | 93 | 51 |
+
+**回帰試験**（固定 9 から固定 33 まで・2026-11-24）: 番号を固定した本文に、閉じた欠陥と一意の読みの行を分担で当て、行ごとに「閉じたまま / 対象が消えた / 開いた」を付けた。分担は errata E1〜E29 = portfolio-59、E30〜E58 = 6c、E59〜E88 = 3f、SELF-AUDIT §3e〜§3zd = df、UNIQUE-READING の行は条で 4 人。**開いたもの（どれも直してから次の番号に固定した）**: E13（定義が後の定義語を先に使う）、E34（信頼は目的・禁反言）、E39（*if, and only if*）、E42・E45（約束が許諾の有効に依る語）、E51、E52、E62、E74、E75、E80、E83 の型、E30・T89（*under its terms*）、T45・T57（Steward の番号）、T96（*in each case*）、T102・T126（責任の例外が無条件になる）、T115（*exercise*）、T117（waiver が期間に掛からない）、T129（可分性の言い切り）、§3u(2)（*rights of their own*）、§3zd の型（及びの網羅の言い切りが 1 度戻った）、§1.4(d)・E35（権利を持たない適用者）、通知が *only* Reservation のとき。**この列が示すこと**: 短くする書き直しは、閉じた欠陥を 20 件以上の単位で開け直す。番号を固定して全件を当て直さなければ、どれも緑のまま入っていた。
+
+**文脈なしの読み手**（3f と 59 が固定 14・17・24・26 を、ドシエも記録も見せずに本文だけ渡した agent の読み —— **人の審査ではない**。役は敵対的な審査者・企業の特許担当・企業法務・非母語の保守者ほか）: OSD 10 項に反するものは無いという答えが続き、求められたのは基準 3（曖昧さ）の改訂だった。採ったもの: 通知を写しただけの人が Dedicator にならない 1 文（10.2）、3.1 の *in respect of the Work*、5.4 を *do not reach* の形に、4.1〜4.3 の外側で EULA が丸ごと違反にならない自己執行の文（5.4(e)）、*directly or indirectly*（1.8・多段の生成）、寄与者にとっての Work（1.3）、実演家の人格権（1.5）、2.5 の柱書の「Dedicator が持つもの」への限定（他人の請求の証言まで止めない）。
+
+**採らなかった案と理由**: (i) *a claim for unauthorised access* を 5.4 で外す —— Dedicator のサイトに置いた Work を集めた人への不正アクセスの請求が戻り、機械学習の許しを裏口で狭める。サーバへの侵入そのものは 2.5(d) の *by reason of its being a use of the Work* で外れている。(ii) 特許の定義を *licensable* の型（Apache-2.0・MPL-2.0）へ —— 従業者発明の対価（独 ArbnErfG・日本特許法 35 条）が *incurring a payment* に当たり、自社の請求項が丸ごと抜ける。一度入れて戻した（固定 23〜27）。(iii) 10.4 の表示の約束を *included on other terms* まで広げる —— 第三者の依存物すべてに掛かる。(iv) 7.2(a) の承継人を「譲り受けた権利について」に限る —— 権利でない約束（5.1・5.2）から承継人が外れる。特許だけを 1.7 の末で限った。(v) 営業秘密を Covered Rights の例示に足す —— 1.4 に無い放棄なので別の試作に分けた。
+
+**残した種**（1.4 と同じ扱いで、今回は変えない）: 実行は *automated processing* に当たるか、社内の非公開の fork への寄与、コードを配る hosted service と 5.4(e)、却下された寄与。
+
+**決める側の文を当てた結果**（6c・原文照合・節は `ACD-1.0.review-readings-7.md`）: Chestek 氏 2026-01-24（前文は説明の場所でない・番号の無い段落を置かない・定義は見つけやすく）、2025-10（Orivex・*as delivered by the Licensor* の型）、2025-03（MGB・*under any theory*）、Smith 氏 2026-01-03（curl・*sublicense* を落とさない）、2025-01-22（Berne と米国法の動詞）、2025-12（免責は目立つ形で）を条に入れた。*sublicensable* は Chestek 氏 2025-10 が外せ、Smith 氏 2026-01 が落とすなと割れたので残した。
+
+**逆側**: (i) 条番号がすべて変わる —— 外向きの逐条・索引・記述子の引用が新しい番号を要る（1.4 は凍結のまま、提出対象も変えない）。(ii) 1.4 で「その場で述べる」と決めたもの（E26・E7、`ACD-1.4-CLARITY-TRIAL.md` §4.1・§4.2）を 1 か所へ寄せる。1 条だけを読む読者には答えが 1 段遠くなる。(iii) 80 条の一意の読みの台帳（`ACD-1.4-UNIQUE-READING.md`）を新しい条に当て直す費用。(iv) 理由の文を外したので、審査者の問いに本文の言葉で答える場所が減る（四隅の原則）。(v) 版が増え（B13）、改訂が控えている版を出すのかという問い（Nelson 氏 2005）が、出す版を決めるまで残る。
