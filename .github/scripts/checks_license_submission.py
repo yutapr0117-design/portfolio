@@ -98,6 +98,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        提出対象と一致すること。
        **(472l・2026-11-06)** 入口ページと申請日の 1 枚が OSI の FAQ として引く文が、`rounds/` の FAQ の本文に在ること。
        承認されるべき理由の先頭に置いた出典なので、語を読みやすく動かすと審査者が最初に確かめて落ちる。
+       **(472q・2026-11-24・議題 25)** 提出側の面の frontmatter が、条番号の版 (`clause-numbers`) を提出対象と同じと名乗る。
        **(472m / 472n / 472o・2026-11-07)** 入口の表の語数 / 入口の引用 / 送る本文が述べる版 (`checks_license_references.py`)。
        **(472k・2026-11-06)** `objection-map.md` が引く §2〜§16 の条が提出対象に在ること。472 はどれかの版に在る番号しか
        見ないので、どの版にも無い番号は黙って通っていた。§1.x はドシエの節と同じ形なので対象外。
@@ -350,6 +351,24 @@ def run(ctx):
                     blocking=True,
                 )
 
+                # 472q: 条番号がどの版のものかを、面の frontmatter が名乗り、提出対象と合う (2026-11-24・議題 25)。上の照合は「対象に無い条」
+                #   だけを止めるので、番号が在って中身が別の条 (1.4 の §10.1 = 条件なし・1.5 の §10.1 = 通知) は緑のまま審査者を別の条へ送る。
+                #   提出対象を替える日に、書き換えを読み終えた file だけ値を替える。名が版を持つ file (ACD-1.4.*.md) は名が名乗る
+                _bad472q = []
+                _qf472q = [_n for _n in _faces472 if not _n.startswith(f"{_ver472}.")]
+                for _rel in _qf472q:
+                    _fm472q = re.match(r"---\n(.*?)\n---\n", (ROOT / "LICENSES" / _rel).read_text(encoding="utf-8"), re.S)
+                    _cn472q = re.search(r"(?m)^clause-numbers:\s*(\S+)\s*$", _fm472q.group(1)) if _fm472q else None
+                    if not _cn472q or _cn472q.group(1) != _ver472:
+                        _bad472q.append(f"{_rel}: {_cn472q.group(1) if _cn472q else '無い'}")
+                check(
+                    bool(_qf472q) and not _bad472q,
+                    f"Check 472q: 提出側 {len(_qf472q)} 面の frontmatter が、条番号の版 (clause-numbers) を提出対象 {_ver472} と名乗る",
+                    (f"Check 472q: 条番号の版 (frontmatter の clause-numbers) が提出対象 {_ver472} と違うか無い: {_bad472q}。"
+                     "472 は対象に無い条だけを止め、番号が在って中身が別の条を見ない。renumber_refs.py で書き換え、many / gone の行を読み終えた"
+                     "file だけ値を替えよ (行だけ替えると、審査者を別の条へ送ったまま緑になる)"),
+                    blocking=True,
+                )
                 # **472b の面は広げない（2026-09-25・#227 で測って決めた）。**
                 #   472 を 4 面 → 25 面へ導出型にした直後、472b が 4 file・16 件で発火した。
                 #   **読むとすべて正当だった** —— `errata.md` が「E<n> は 1.1 でこう直った」と

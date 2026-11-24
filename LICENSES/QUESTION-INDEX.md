@@ -2,6 +2,7 @@
 file: LICENSES/QUESTION-INDEX.md
 audience: OSI license-discuss / license-review participants, licence reviewers
 last-updated: 2026-11-23
+clause-numbers: ACD-1.4
 canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md (the adverse case) / LICENSES/ACD-1.4.txt (the licence applied here and prepared for submission) / LICENSES/ACD-1.0.txt (the text posted for discussion)
 ---
 

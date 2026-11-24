@@ -2,6 +2,7 @@
 file: LICENSES/REVIEWERS-RECORD.md
 audience: OSI license-discuss / license-review participants, licence reviewers
 last-updated: 2026-11-24
+clause-numbers: ACD-1.4
 canonical-ref: LICENSES/REVIEWERS.md (the entry point; this page was part of it until 2026-11-24) / LICENSES/ACD-1.4.txt (the frozen text the clause numbers refer to)
 ---
 

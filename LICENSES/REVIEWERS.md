@@ -2,6 +2,7 @@
 file: LICENSES/REVIEWERS.md
 audience: OSI license-discuss / license-review participants, licence reviewers, anyone arriving from the mailing list
 last-updated: 2026-11-15
+clause-numbers: ACD-1.4
 canonical-ref: LICENSES/ACD-1.0.txt (the text posted) / LICENSES/ACD-1.4.txt (the frozen successor this repository applies since 2026-11-23) / LICENSES/FROZEN.md (freeze + venue, single source) / LICENSES/rounds/2026-08-26-license-discuss-sent.txt (what was actually sent) / LICENSES/ACD-1.0.submission.md (the packet prepared for license-review)
 ---
 
@@ -22,7 +23,7 @@ that it must be**. *(Re-measure: `git ls-files -z LICENSES ':!LICENSES/rounds' |
 | :-- | --: | :-- |
 | [`ACD-1.4.txt`](ACD-1.4.txt) | **5,879** | the licence: the version this repository applies and the one that would be submitted. Nothing outside it fixes it. [`ACD-1.0.txt`](ACD-1.0.txt) (4,896 words) is the text posted to `license-discuss` on 2026-08-26 and the base of [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt), which shows every changed word |
 | the two facts **#1 and #4** in [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~220 | **no lawyer has read this text**, and **the only project using it is the author's**. These are the strongest points against it. Neither is one of the eight published criteria, and the Licensing Committee's chair has called legal review *"not a blocker"*, but a reviewer may weigh both |
-| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **5,426** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
+| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **5,428** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
 
 **≈ 11,525 words** *(`wc -w`, 2026-11-24.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
 jurisdiction analysis, and the archive measurements — **all of which are evidence for claims,

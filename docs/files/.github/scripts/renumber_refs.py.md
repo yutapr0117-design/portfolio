@@ -29,6 +29,8 @@ python3 .github/scripts/renumber_refs.py 1.4 1.5 --apply LICENSES/ADOPTING.md
 - 番号しか見ない。条の中身が変わった文（言い換え）が新しい条についても真かは、人が読む。
 - 版の名乗りは同じ文の手前だけを見る（。 ; | で切る）。名乗りが前の文に在る引用は one に数えるので、下書きを読んでから `--apply` する。
 
+- 提出対象を替える日に、読み終えた file だけ frontmatter の `clause-numbers` を新しい版にする（Check 472q が、提出側の面の名乗りを SUBMISSION-TARGET と照らす）。書き換えた file に当て直すと 2 度写すので、残りの many / gone は書き換える前の版に当てて数える（`git show <直前>:LICENSES/…`）。
+
 ## Change impact
 
 文書を書き換えるのは `--apply` のときだけ。書き換えた後は 470・470b・470c・472・471 が条番号と引用を照らす。

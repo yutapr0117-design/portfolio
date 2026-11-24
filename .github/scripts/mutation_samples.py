@@ -314,6 +314,14 @@ _MUTATIONS_TAIL.append({
     "replace": "横井雄太の指示により実行",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 472q: 入口の frontmatter の clause-numbers を 1.0 にする —— 番号が在って中身が別の条を 472 は見ないので、条番号の版の名乗りが"
+            "提出対象と違うまま通ると、審査者を別の条へ送る (2026-11-24・議題 25)",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": f"clause-numbers: {SUBMISSION_TARGET}",
+    "replace": "clause-numbers: ACD-1.0",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
