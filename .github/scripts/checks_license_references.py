@@ -545,8 +545,13 @@ def run(ctx):
                             or "review-responses" in _f471.name):
                         continue
                     _own471 = re.match(r"ACD-(1\.\d+)[.-]", _f471.name)
+                    # 版を名に持たない文書 (SELF-AUDIT・実務家への問い) は、同じ行で版を名乗る引用だけを、その版の条に解決する
+                    #   (2026-11-24・59 の依頼: 「1.5 草案の §1.12」が「どの文書の節にも解決しない」と止まり、§ を外して避けていた)
+                    _ln471 = {f"1.{_a or _b}" for _a, _b in
+                              re.findall(r"ACD-1\.([1-9])(?!\d)|(?<![\d.§])1\.([1-9])\s*(?:草案|draft|の\s*§|§)", _l471[:_m471.end()])}
                     if (_sid471 in _clause471 or _sid471 in _headnum471.get(_f471.name, set())
                             or (_own471 and _sid471 in _verclause471.get(_own471.group(1), set()))
+                            or any(_sid471 in _verclause471.get(_v, set()) for _v in _ln471)
                             or _sid471 in _pack471 or _sid471 in _series471
                             or _sid471 in _allnum471):
                         continue
