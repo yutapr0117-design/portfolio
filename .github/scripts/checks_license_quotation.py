@@ -168,6 +168,11 @@ def run(ctx):
                 #   改名したら、1.4 の番号で正しく書いた §2.4・§16.6 の 2 件を 1.0 の地図だけで照らして誤検出した・5e の報告)
                 _fv470 = re.match(r"ACD-(1\.[1-9])[.-]", _f470.name)
                 _accept470 = _maps470 + ([_vers470[_fv470.group(1)]] if _fv470 and _fv470.group(1) in _vers470 else [])
+                # 版 N の作業文書 (試作・CHANGELIST) は直前の凍結版の条を論じる。1.5 は番号を総替えしたので、1.4 の番号で正しく引いた
+                #   行が 1.0 と 1.5 の地図だけで照らされて誤検出した (2026-11-24・議題 16)
+                if _fv470:
+                    _pv470 = f"1.{int(_fv470.group(1).split('.')[1]) - 1}"
+                    _accept470 += [_vers470[_pv470]] if _pv470 in _vers470 and _pv470 != "1.0" else []
                 def _cov_of470(_m):
                     _c = set()
                     for _r470 in _refs470:

@@ -581,9 +581,13 @@ def run(ctx):
         _at472j = _ad472j.read_text(encoding="utf-8") if _ad472j.exists() else ""
         _cite472j = sorted(set(re.findall(r"§(\d+\.\d+)", _at472j)))
         _miss472j, _id472j = [], {}
+        # 主張は版の範囲を名乗る (2026-11-24: 1.5 草案が番号を総替えしたので「every version」は草案に当てられない)。範囲の凍結版に当てる
+        _rg472j = re.search(r"the same in every version from ACD-(\d+)\.(\d+) to\s+ACD-(\d+)\.(\d+)", _at472j)
+        _lo472j, _hi472j = ((int(_rg472j.group(1)), int(_rg472j.group(2))), (int(_rg472j.group(3)), int(_rg472j.group(4)))) if _rg472j else (None, None)
         for _v472j in sorted((ROOT / "LICENSES").glob("ACD-*.txt")):
             _t472j = _v472j.read_text(encoding="utf-8")
-            if "HAS BEEN FROZEN" in _t472j.split("\n", 1)[0]:
+            _vn472j = re.match(r"ACD-(\d+)\.(\d+)\.txt$", _v472j.name)
+            if not _rg472j or not _vn472j or not _lo472j <= (int(_vn472j.group(1)), int(_vn472j.group(2))) <= _hi472j:
                 continue
             _have472j = set(re.findall(r"^  (\d+\.\d+) ", _t472j, re.M))
             _miss472j += [f"§{_c} が {_v472j.name} に無い" for _c in _cite472j if _c not in _have472j]
@@ -597,8 +601,9 @@ def run(ctx):
                     _id472j.setdefault(_c, {}).setdefault(_d.group(1) if _d else " ".join(_b.split()[:3]), []).append(_v472j.name)
         _miss472j += [f"§{_c} は版で別の条を指す: {_ids}" for _c, _ids in sorted(_id472j.items()) if len(_ids) > 1]
         check(
-            "the same in every version" in _at472j and len(_cite472j) >= 3 and not _miss472j,
-            f"Check 472j: ADOPTING.md が引く {len(_cite472j)} 条が全部の版に在る",
+            bool(_rg472j) and (ROOT / "LICENSES" / f"ACD-{_rg472j.group(3)}.{_rg472j.group(4)}.txt").exists()
+            and len(_cite472j) >= 3 and len(_id472j) >= len(_cite472j) and not _miss472j,
+            f"Check 472j: ADOPTING.md が引く {len(_cite472j)} 条が、名乗った範囲の版で同じ条を指す",
             (f"Check 472j: ADOPTING.md の「どの版でも同じ番号」が成り立たない: {_miss472j or '文が無いか引用が読めない'}。"
              "版で番号が違う条を引くなら、その条について版を述べよ"),
             blocking=True,

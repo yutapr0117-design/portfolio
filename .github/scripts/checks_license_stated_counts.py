@@ -264,16 +264,26 @@ def run(ctx):
                              r"(\d+\.\d+) \(([\d, and]+)\) and (\d+) for the first time in (\d+\.\d+)\.(.{0,900})", quote):
             hits_j += 1
             tgt, rest = m.group(7), m.group(8)
-            olds = sorted((v for v in closed_j if v != tgt), key=lambda x: tuple(map(int, x.split("."))))
-            want = [total_j, sum(map(len, closed_j.values())), sum(len(closed_j[v]) for v in olds),
+            vk = lambda x: tuple(map(int, x.split(".")))
+            olds = sorted((v for v in closed_j if vk(v) < vk(tgt)), key=vk)
+            # 凍結した tgt の英文は、その版の確定までの記録 (2026-11-24: 1.5 草案で閉じた E89〜E92 を数に入れて鳴った)。tgt より後の版で
+            #   閉じた errata が在るときは、総数 = tgt までに閉じた数 + 英文が名指す印の無い番号の数とし、節ごとの数は照らさない
+            later_j = any(vk(v) > vk(tgt) for v in closed_j) and (L / f"ACD-{tgt}.txt").exists()
+            if later_j:
+                named_j = [e for e in unmarked_j if re.search(rf"\b{e}\b", rest[:200])]
+                total_t, closed_t, unm_t = sum(len(closed_j[v]) for v in olds) + len(closed_j.get(tgt, [])) + len(named_j), \
+                    {v: closed_j[v] for v in olds + [tgt] if v in closed_j}, named_j
+            else:
+                total_t, closed_t, unm_t = total_j, closed_j, unmarked_j
+            want = [total_t, sum(map(len, closed_t.values())), sum(len(closed_j[v]) for v in olds),
                     [len(closed_j[v]) for v in olds], len(closed_j.get(tgt, []))]
             got = [int(m.group(1)), int(m.group(2)), int(m.group(3)),
                    [int(x) for x in re.findall(r"\d+", m.group(5))], int(m.group(6))]
             if got != want:
                 bad.append(f"(j) {p.name}: errata の数 {got} / errata の閉鎖の印から {want} (件数・閉じた・{tgt} より前・版ごと・{tgt})")
-            if [e for e in unmarked_j if not re.search(rf"\b{e}\b", rest[:200])]:
-                bad.append(f"(j) {p.name}: 閉鎖の印の無い {unmarked_j} を英文が名指していない")
-            for sec, n in re.findall(r"§(\d+) \([^()]*?, (\d+)\)", rest):
+            if [e for e in unm_t if not re.search(rf"\b{e}\b", rest[:200])]:
+                bad.append(f"(j) {p.name}: 閉鎖の印の無い {unm_t} を英文が名指していない")
+            for sec, n in ([] if later_j else re.findall(r"§(\d+) \([^()]*?, (\d+)\)", rest)):
                 if sections_j.get(sec) != int(n):
                     bad.append(f"(j) {p.name}: §{sec} の件数 {n} / errata の表から {sections_j.get(sec)}")
             mw = re.search(r"([\d,]+) words from the title to \*?END OF TERMS\*? against 1\.0's ([\d,]+), in (\d+) clauses against (\d+)", rest)
@@ -300,7 +310,7 @@ def run(ctx):
     m_k = re.search(r"(\d+\.\d+) の ([\d,]+) 語から " + re.escape(str(ver_k)) + r" 草案は ([+−-]\d+) 語", sec_k)
     rows_k = re.findall(r"^\| ([^|]+?) ?\| ([+−-]\d+) \|", sec_k, re.M)
     sum_k = re.search(r"（([^（）]+?)の (\d+) 束で ([+−-]\d+)）", sec_k)
-    old_k = re.search(r"1\.0 の ([\d,]+) 語から見ると (\d+) 語長い", sec_k)
+    old_k = re.search(r"1\.0 の ([\d,]+) 語から見ると ([\d,]+) 語(長い|短い)", sec_k)
     sn = lambda s: int(s.replace("−", "-").replace(",", ""))
     from _lib_draft_counts import draft_has_changes
     from _lib_draft_counts import with_changes as _wc_k
@@ -317,7 +327,7 @@ def run(ctx):
                                 ("束の表の合計", sum(tab_k.values()), w_k - w_prev),
                                 ("名指した束の数", int(sum_k.group(2)), len(names_k)),
                                 ("名指した束の和", sn(sum_k.group(3)), sum(tab_k[k] for k in picked_k) if len(picked_k) == len(names_k) else None),
-                                ("1.0 の語数", sn(old_k.group(1)), w_10), ("1.0 からの差", int(old_k.group(2)), w_k - w_10)):
+                                ("1.0 の語数", sn(old_k.group(1)), w_10), ("1.0 からの差", sn(old_k.group(2)) * (1 if old_k.group(3) == "長い" else -1), w_k - w_10)):
             if got != want:
                 bad.append(f"(k) ACD-{ver_k}-CHANGELIST.md の語数の内訳: {what} {got} / 表と実測から {want}")
     # (l) redline を数えたと述べる文 ("Counted on `REDLINE-…`: of ACD-x.y's N clauses, A changed …, B is new … and C are unchanged;

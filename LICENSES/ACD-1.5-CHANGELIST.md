@@ -54,7 +54,7 @@ ACD-1.4 は 2026-11-23 に確定・凍結した。草案 `ACD-1.5-DRAFT.txt` は
 
 | 対象 | 何を変えるか | なぜ | 費用（語） | 状態 |
 | :-- | :-- | :-- | :-- | :-- |
-| §11.4 第 2 文（T135） | *"It reaches nothing else, save that the covenants in Section 5 are promises about the Dedicator's own conduct and are not limited by this sentence."* を *"It gives nothing by implication beyond what its words give."* へ | 規則 1: `ACD-1.1-SELF-AUDIT.md` §3zd（1.4 の T124 の授権と放棄が但し書きの外）。網羅の言い切りが同じ型を 3 度生んだ（E44・§2.5・T124）ので、言い切りを黙示の排除に置き換え、型をまとめて消す。黙示の許諾と黙示の約束の排除は残す（cd の反例: 1.4 でその働きを持つのはこの 1 文だけ）。試作と 3 巡の反例は `ACD-1.5-CLARITY-TRIAL.md` §1 | −15（45 語超の文の数は変わらない） | 草案へ入れた（2026-11-23） |
+| §11.4 第 2 文（T135） | *"It reaches nothing else, save that the covenants in Section 5 are promises about the Dedicator's own conduct and are not limited by this sentence."* を *"It gives nothing by implication beyond what its words give."* へ（後の行で再改 —— T146 で主語を名指し §6.1 *"This Dedication gives nothing by implication beyond what its words give."* になった） | 規則 1: `ACD-1.1-SELF-AUDIT.md` §3zd（1.4 の T124 の授権と放棄が但し書きの外）。網羅の言い切りが同じ型を 3 度生んだ（E44・§2.5・T124）ので、言い切りを黙示の排除に置き換え、型をまとめて消す。黙示の許諾と黙示の約束の排除は残す（cd の反例: 1.4 でその働きを持つのはこの 1 文だけ）。試作と 3 巡の反例は `ACD-1.5-CLARITY-TRIAL.md` §1 | −15（45 語超の文の数は変わらない） | 草案へ入れた（2026-11-23） |
 | 全体（T146） | 1.4 が何か所にも書いていることを 1 度だけ書く形に、16 節 80 条から 10 節 50 条へ述べ直す。前文と、他の文を説明する文を外す | 合議の議題 12・15。規則 1 の例外（述べ直しを外す）を本文の構造に当てた。読みの回帰は errata E1〜E88、`ACD-1.1-SELF-AUDIT.md` §3e〜§3zd、`ACD-1.4-UNIQUE-READING.md` の行を 4 人で当て、「開いた」と返った行を直してから固定した（`ACD-1.5-CLARITY-TRIAL.md` §12）。T143〜T145 と §3ze はこの述べ直しの中で閉じた | −2696 | 草案へ入れた（2026-11-24） |
 
 ## T146 で意味が動く所（議題 16 の条件・英語の同じ一覧は `CHANGES-ACD-1.5.txt`）

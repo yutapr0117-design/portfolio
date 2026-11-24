@@ -32,8 +32,8 @@ ACD-1.5 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
   no exception for an obligation not to make a false statement -- examined
   and deliberately left as it is), and E91 (a claim the Dedicator owns is
   licensed even where another already holds an exclusive licence under it --
-  examined and deliberately left as it is). E88 concerned the preamble of 1.0 to 1.4,
-  which this draft does not have.
+  examined and deliberately left as it is). E88 concerned the
+  preamble of ACD-1.0 to ACD-1.4, which this draft does not have.
 
 --------------------------------------------------------------------------------
 

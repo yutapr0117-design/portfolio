@@ -67,11 +67,10 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
-    "name": "Check 468 (定義語): §16.5 が定義する語を \"the Stewardship\" に変える —— 定義だけが残り、本文はどこもその語を使わない。"
-            "語を外す試作が続く中で、使い先の無い定義を誰も見ていなかった (2026-11-15)",
+    "name": "Check 468 (定義語): §10.5 が定義する語を \"The Stewardship\" に変える —— 定義だけが残り、本文はどこもその語を使わない。語を外す試作が続く中で、使い先の無い定義を誰も見ていなかった (2026-11-15)",
     "file": CURRENT_DRAFT,
-    "find": "In Section 16.4, \"the Steward\" means",
-    "replace": "In Section 16.4, \"the Stewardship\" means",
+    "find": "\"The Steward\" means the person",
+    "replace": "\"The Stewardship\" means the person",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
@@ -147,11 +146,11 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
-    "name": "Check 451g: 確定の道具の textRedistribution の注を「ACD- を含む」から「ACD- で始まる」へ戻す —— 草案の §16.4 は "
-            "contains と書くので、確定すると 1.4 の記述子が本文より狭い制限を述べる (errata E10 の型・2026-11-16)",
+    "name": "Check 451g: 確定の道具の textRedistribution の注を「ACD- を含まない」から「ACD- で始まらない」へ変える —— 草案の §10.5 は "
+            "does not contain と書くので、確定すると記述子が本文より狭い制限を述べる (errata E10 の型・2026-11-16)",
     "file": ROOT / ".github" / "scripts" / "prepare_version_freeze.py",
-    "find": "or under any identifier that contains \\\"ACD-\\\", regardless of case, followed by a digit",
-    "replace": "or under any identifier that begins with \\\"ACD-\\\" followed by a digit",
+    "find": "and an identifier that does not contain",
+    "replace": "and an identifier that does not begin with",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
@@ -163,11 +162,10 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
-    "name": "Check 468ab: 草案の §14.2 の条件を「does not permit a liability to be excluded or limited」にする (T126 の前と同じ割れ) —— "
-            "否定が or の並びに掛かり、除外は許さないが制限は許す場面が文から外れる型 (2026-11-20・1c の 4 巡目)",
+    "name": "Check 468ab: 草案の §9.2 の条件を「If it cannot be reformed or enforced」にする (T126 の前と同じ割れ) —— 否定が or の並びに掛かり、片方だけの場面が文から外れる型 (2026-11-20・1c の 4 巡目)",
     "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-DRAFT.txt",
-    "find": "to be excluded, that liability is limited",
-    "replace": "to be excluded or limited, that liability is limited",
+    "find": "If it cannot be reformed, it is",
+    "replace": "If it cannot be reformed or enforced, it is",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
@@ -296,9 +294,9 @@ _MUTATIONS_TAIL.append({
     "name": "Check 479e: archive7 の mutation の file を作業中の版の名の literal にする —— 確定の日に Check は次版を読むのに mutation は"
             "前の版を打ち続け、find が残るので 362 は黙る (11-24 の全数の当て直しの 7 件と同じ型)",
     "file": ROOT / ".github" / "scripts" / "mutation_samples_archive7.py",
-    "find": '    "file": CURRENT_DRAFT,\n    "find": "       requirement upon You in respect of the Work, other than in Your capacity",',
+    "find": '    "file": CURRENT_DRAFT,\n    "find": "terminates or narrows, under this Dedication, for any reason",',
     "replace": (f'    "file": ROOT / "LICENSES" / "ACD-{CURRENT_DRAFT_VER}-DRAFT.txt",\n'
-                '    "find": "       requirement upon You in respect of the Work, other than in Your capacity",'),
+                '    "find": "terminates or narrows, under this Dedication, for any reason",'),
 })
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 

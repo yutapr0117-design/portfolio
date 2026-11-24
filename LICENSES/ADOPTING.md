@@ -9,7 +9,7 @@ canonical-ref: LICENSE (names the version this repository applies) / LICENSES/AC
 
 **Read this first. It is short, and you should treat the decision as final.** ACD is written so that anyone
 can apply it to any work without asking us. For most projects an approved licence is the better
-choice. Section numbers below are the same in every version unless the page says otherwise.
+choice. Section numbers below are the same in every version from ACD-1.0 to ACD-1.4 unless the page says otherwise.
 
 ## What you cannot get back
 
