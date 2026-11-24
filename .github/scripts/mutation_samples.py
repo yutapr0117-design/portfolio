@@ -547,6 +547,12 @@ _MUTATIONS_TAIL.append({
     "find": "| **B3** | ",
     "replace": "| **B3** | **逆側**: ",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 503: B6 の \"Other side:\" の句を残して中身を「—」にする —— 句が在るまま無効にする退行 (安全網の規律 (4)・d7 の条件)",
+    "file": ROOT / "LICENSES" / "ACD-OSI-BOTTLENECKS.md",
+    "find": "no rename Other side: all 58 licence names",
+    "replace": "no rename Other side: — | all 58 licence names",
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
