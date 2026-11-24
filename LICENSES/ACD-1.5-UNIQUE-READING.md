@@ -15,7 +15,31 @@ canonical-ref: LICENSES/ACD-1.5-DRAFT.txt / .github/scripts/measure_legal_uncert
 
 **方法**: 1.4 の第 19 節と同じ（型: 先行詞・修飾の掛かり先・量化・or・including・定義語の混用・時点・主語・否定の範囲）。加えて縮約に固有の型を 3 つ見る —— (あ) 1 文にまとめた列に、1.4 では別の条にあった限定が行き先を持つか、(い) 1.4 の試作（T 番号）で直した語が、短くしたときに元の語へ戻っていないか（`git log -S` と THIRD の記録に当てる）、(う) 2 つの条に分けて書いていた効果が、1 つの語で片側だけになっていないか。**行の形**: `- §x.y | 別の読み: … | 一意 / 試作 Tnn / 法の側 | 根拠: … | 本文 <main の commit>`（末尾の commit は判定した本文。条の語がその後に動いた行は `moved_clauses.py --ledger` が出し、判定した人が当て直す —— 議題 16 の条件 4）。**小節**: 19.1 = §1（6c）、19.2 = §2（59・二度目は 3f）、19.3 = §3〜§5（df）、19.4 = §6〜§8（3f）、19.5 = §9〜§10（6c）。各自、自分の小節の中にだけ書く。1.4 の条を引くときは版を名乗る。
 
-### 19.1 §1（portfolio-6c）
+### 19.1 §1（portfolio-6c・2026-11-24）
+
+- §1.1 | 別の読み: *"Sections 1 to 10 of this document"* に 10.1 の例の notice が入るので、例の中の *"No rights in this work are reserved"* が条文として働く | 一意 | 根拠: 10.1 *"for example:"* が例として引く枠で、主語のある規定の文ではない。条文の中身と食い違わないので、読みが割れても効果は同じ
+- §1.2 第 1 文 | 別の読み: *"including software, documentation, data, and media"* が直前の *"every separable part of it"* だけに掛かる | 一意 | 根拠: どちらに掛かっても例示（1.12）で、Work の範囲は *"the material to which the Dedicator has applied this Dedication"* が決める
+- §1.2 第 1 文（時点） | 別の読み: *"has applied"* が最初の適用の時点に固定され、後の版は Work に入らない | 一意 | 根拠: 現在完了で、後の版に置かれた（または伴う）notice が新しい適用になる（10.2 *"applies this Dedication to the material it identifies"*）。1.3 第 2 文も Dedicator ごとに同じ
+- §1.2 第 2 文 | 別の読み: *"the text of this Dedication"* を除くので、ライセンス集を献呈した人の集の中の ACD の写しだけが集の許しから欠ける | 一意 | 根拠: 写しの頒布は 10.5 第 1 文が誰にでも許し、集のほかの部分は *"every separable part"* として残る
+- §1.3 第 1 文 | 別の読み: *"or patent claims"* に *"in it"* が無いので、どんな特許でも持つ人は「持つ範囲で」Dedicator になる | 一意 | 根拠: Dedicator になるのは *"applies this Dedication to the Work"* した人で、句は範囲を言うだけ。特許の届く先は 2.3 が絞る（E35 の閉じ方）
+- §1.3 第 1 文（循環） | 別の読み: 1.2 の Work は Dedicator の適用で、1.3 の Dedicator は Work への適用で決まるので、どちらも決まらない | 一意 | 根拠: 2 つとも 10.1 の *"place with the material a notice"* という 1 つの行為から同時に決まる（1.4 でも相互の定義だった）
+- §1.3 第 3 文 | 別の読み: *"operates severally"* により、共同の著作の 1 人の適用では他の持ち分に触れず、受け手は残りの共有者の許しが要る | 一意 | 根拠: 意図した読み。他人の権利に触れないことは 6.1 *"affects no right held by a person other than the Dedicator"*
+- §1.4 第 1 文 | 別の読み: *"exercising a permission"* なので、受け取っただけの人や、行使の前に訴えられた人は You でなく、2.5 の約束の相手にならない | 一意 | 根拠: 2.4 *"Everyone who receives the Work, anything derived from it, or a Result, from anyone, holds them directly"* と 7.4 *"You, and anyone who receives the Work"* が受け取った人を名指す。行使が争われる使用そのものは行使に当たる
+- §1.4 第 2 文 | 別の読み: 委託者と運用者は許しを「与えられる」だけで You ではなく、2.5 の約束は及ばない | 一意 | 根拠: 自分の許しを自動化システムで行使する人は、その行使について *"exercising a permission"* に当たる。7.4 も受領者として覆う
+- §1.5 | 別の読み: *"to control first publication"* が、米国で著作権の一部とされる最初の公表の支配まで Moral Right に入れ、1.6 の除外で 2.1・2.2 から落とす | 一意 | 根拠: *"any other right of a personal character"* の *other* が、列挙の 3 つも人格的な権利として読ませる（1.4 の §1.2 の行と同じ）。落ちても 2.6 の放棄と同意が受ける
+- §1.6 第 1 文 | 別の読み: *"every right in the Work"* に有体物の所有権が入り、2.1 で放棄される | 試作 T153 | 根拠: 0d の列（除外に有体物の所有権・弱い）。列挙が無体の権利だけで、*"in the Work"* の Work は媒体でなく素材なので一意と読む側が強いが、列が閉じるまで残す
+- §1.6 第 2 文 | 別の読み: *"any similar right"* が列挙のどれに似るかが決まらず、意匠権・トポグラフィの権利が入るかが割れる | 一意 | 根拠: 第 1 文 *"every right in the Work"* が列挙に依らず全部を取り、第 3 文の除外だけが外す。登録意匠は特許でも商標でもないので Covered Rights の側
+- §1.7 第 1 文 | 別の読み: *"claims of patents, including utility models"* が、米国の意匠特許の請求項を含まない | 一意 | 根拠: 意匠特許も patent の claim を持つ。入らないと読んでも、第 1 文 *"every right in the Work"*（1.6）が受け、どちらにも入らない部分は無い
+- §1.7 第 2 文 | 別の読み: *"at the time in question"* が許諾の時・行為の時・訴えの時のどれかで割れる | 一意 | 根拠: *"now or at any later time"* と並べ、各時点で読む（E60・1.4 の §8.5 の行と同じ）。約束の側（2.5(b)）は訴えの時に働く
+- §1.7 第 1 文（owns） | 別の読み: *"owns"* は無負担の条件に服さず、独占許諾に出した特許まで届く | 法の側 | 根拠: 問い 2（特許の許諾の届く範囲）。E91 は直さないと決めた（議題 16）—— 所有者が独占の被許諾者を助けて訴えることは 2.5 が止め、独占の被許諾者自身の訴えは 1.3 の Dedicator でない人の行為として法が決める
+- §1.8 第 1 文 | 別の読み: *"directly or indirectly"* により、Work を 1 度学習したモデルの出力の、その先の派生まで全部が Result になり、誰のものでも 2.3 の許諾に入る | 一意 | 根拠: 2.3(b) が *"where the infringing feature results, in whole or in part, from the content of the Work"* と特徴で絞る。Result の定義の広さは、許しを広げ、請求の届きを広げない
+- §1.8 第 2 文 | 別の読み: Dedicator が Work を別の言語へ変換した物は *"a copy of the Work in any form"* でない Result なので、5.4(e) で Dedicator が自分の条件を付けられる | 一意 | 根拠: 変換した物に Dedicator が新しい条件を付けても、受け手が持つ元の Work の許しは 7.1 と 5.4(e) 末文で残る（1.4 の §5.2 末段と同じ）。単なる符号化・コンパイルは *"in any form"* の写し
+- §1.9 | 別の読み: *"and the making, distribution, and use of a Result"* が *including* の列の一部でなく別の本体で、Result の作成が「Work の処理」を要しない | 一意 | 根拠: Result 自身が *"resulting, directly or indirectly, from automated processing of the Work"* を要するので、どちらの構文でも同じ
+- §1.10 | 別の読み: *"by which a rightsholder purports"* なので、権利者でない第三者が付けた信号は Reservation でなく、3.1 の宣言の外に出る | 一意 | 根拠: 3.1 第 2 文 *"whoever placed it there"* が、誰が置いた信号も Dedicator の権利の留保と読まないと言う
+- §1.11 第 1 文 | 別の読み: *"offers the Work with a notice of this Dedication"* の the Work が、通知つきのファイルを 1 つ含むだけのリポジトリの、他の素材への patch まで含む | 一意 | 根拠: the Work は 1.2・1.3 で適用された素材に限り、*"for inclusion in the Work"* がそこへの取り込みを要する。受け入れ先の条件が別の場合は試作 T147 が閉じる
+- §1.11 第 2 文 | 別の読み: *"sent for discussion only"* の意図が受け手から見えず、議論に貼った code が Contribution になるかが割れる | 一意 | 根拠: *"intentionally submitted … for inclusion in the Work"* と対で、意図は提出する人の側。*"marked as not being a Contribution"* が外す道を残す（1.4 の §1.9 と同じ）
+- §1.12 | 別の読み: *"The singular includes the plural"* が 1.3 の *"As to each Dedicator"* を複数に読ませ、severally を打ち消す | 一意 | 根拠: 1.3 第 3 文 *"This Dedication operates severally as to each Dedicator"* が個別に働くと明言し、単複の読み替えの規則（*"The singular includes the plural and the reverse"*）はそれに優らない（特別の文が一般の文に優る）
+- §1.8 第 2 文（記憶した重み） | 別の読み: *"It does not include a copy of the Work in any form"* により、Work を記憶した重みのモデルが丸ごと Result でなくなり、2.3(b)・2.4・2.5(a) の外に出る | 試作 T163 | 根拠: 1.4 には写しの除外が無い（独立の読み手による効果の差の読み・2026-11-24）。案: "A copy of the Work contained in a Result is not itself a Result."（写しだけを除き、入れ物は Result のまま）。反例待ち
 
 ### 19.2 §2（portfolio-59・二度目は portfolio-3f）
 
@@ -62,4 +86,26 @@ canonical-ref: LICENSES/ACD-1.5-DRAFT.txt / .github/scripts/measure_legal_uncert
 - §8.2 第 2 文（including の挿入） | 別の読み: *"including for wilful misconduct, gross negligence, death, or personal injury"* が、法が制限を許す法域でもこれらを無制限にする | 一意 | 根拠: 挿入句は *"a liability … that the law does not permit to be limited"* の例で、関係節がその全体を限る（1.12 *"including"* は例を挙げるだけ） | 本文 01211ae9
 - §8.2 第 1 文 | 別の読み: *"TO THE FULLEST EXTENT THE LAW PERMITS"* の一般の留保だけでは、約款の法（独 BGB 307・309 条）で免責の全体が落ちる | 法の側 | 根拠: 問い 9（責任の制限と約束の違反）。第 2 文が故意・重過失・人身を名指して外すのは、その法の下で第 1 文を残すため（1.4 の §14.1 と同じ構え・`ACD-1.0.jurisdictions.md` §3） | 本文 01211ae9
 
-### 19.5 §9〜§10（portfolio-6c）
+### 19.5 §9〜§10（portfolio-6c・2026-11-24）
+
+- §9.1 第 1 文・第 2 文 | 別の読み: *"the reading that gives You more prevails"* が 5.4 と §6 の例外にも掛かり、例外が最も狭く読まれる | 一意 | 根拠: 意図した読み（1.4 の §15.1 と同じ）。*"that its words allow"* が限り、語の外の例外の否定はできない
+- §9.1 第 2 文（You どうし） | 別の読み: 2 人の You の利益がぶつかるとき（配布者と受領者）、どちらに多く与える読みかが決まらない | 一意 | 根拠: *"As to the Work"* と Dedicator が与える範囲の文で、You どうしの条件は 4.3 が *"Those terms govern what You give"* と分ける
+- §9.1 第 3 文 | 別の読み: *"its drafter"* が Steward だけを指し、適用した Dedicator には contra proferentem が働く | 一意 | 根拠: *"No rule applies that construes this Dedication against its drafter"* は規則そのものを外し、誰を drafter と見るかに依らない
+- §9.2 第 1 文 | 別の読み: *"held invalid"* なので、無効でなく強制できない（unenforceable）とされた条は、改める・切り離すの規則の外に出る | 試作 T161 | 根拠: 1.4 の §15.2 は *"held invalid or unenforceable"*。縮約で *or unenforceable* が落ちた（縮約の型 (い)）。案: 戻す（+2 語）。反例待ち
+- §9.2 第 2 文 | 別の読み: *"severed there only"* の *there* が、条でなく法域を指すか、条の一部を指すか | 一意 | 根拠: 第 1 文の *"in a jurisdiction"* の先行詞で、*"continuing in full force everywhere"* と対になる
+- §9.3 第 2 文 | 別の読み: *"This English text prevails over any translation"* が、英語を知らない消費者への約款の提示の規則（法域の強行法）に反し、条全体が落ちる | 法の側 | 根拠: 問い 7（準拠法と法廷地を定めないこと）の隣の問いで、どの言語が拘束するかは法域の法（1.4 の §15.4 と同じ・`ACD-1.0.jurisdictions.md`）。無効なら 9.2 がその法域で切り離す
+- §10.1 | 別の読み: *"To apply this Dedication, place with the material a notice"* が唯一の方法で、パッケージの metadata の license 欄では適用にならない | 一意 | 根拠: 第 1 文 *"place with the material a notice that names it by name and version, or that bears the identifier"* の notice は形を限らず、license 欄は識別子を bears する notice。*"for example"* の枠は例示
+- §10.1（式の中の識別子） | 別の読み: *"MIT OR ACD-1.5"* のような式も識別子を *"bears"* するので、ACD が単独で適用される | 一意 | 根拠: 式は受け手にどちらかを選ばせ、ACD を選ぶ受け手には全部が適用される。選ばない受け手の許しを減らす条は無い（§4.1 *"imposes no condition, obligation, or restriction upon You"*・§9.1）。逆側: 与える人が「どちらか」だけを意図したときも、選べることで結果は同じ
+- §10.2 第 1 文 | 別の読み: *"placed by a Dedicator"* は、置く前には Dedicator でないので循環し、どの notice も当たらない | 一意 | 根拠: 1.3 の *"applies this Dedication"* が notice を置く行為そのもので、置いた時に Dedicator になる（10.1）
+- §10.2 第 2 文（mentioning） | 別の読み: *"merely mentioning this Dedication applies it to nothing"* が 10.1 *"a notice that names it by name and version"* と食い違い、README に ACD-1.5 とだけ書いた Dedicator の適用が落ちる | 試作 T164 | 根拠: 名を挙げることが notice である場合とそうでない場合を語が分けていない（効果の差の読み・2026-11-24）。案: "mentioning it other than as a notice for the material"。反例待ち
+- §10.2 第 2 文 | 別の読み: *"Passing on, or recording, another person's notice"* の文により、改変した人が元の notice を残すと、自分の改変部分が何の条件も無くなる（許しの無い素材になる） | 一意 | 根拠: 改変した人の条件は 4.3 *"on any terms You choose"* で自分が決める。notice を残しただけでは自分の部分を献呈しないと言うのが意図（E90）
+- §10.2 第 5 文 | 別の読み: *"a narrower notice, placed or kept by the Dedicator, puts under other terms"* を、献呈の後に置けば撤回できる | 一意 | 根拠: 7.1 *"no later … narrow what it gives as to any copy of the Work that has been made available"* が、出した写しを残す（第 5 文は以後に出す写しの適用の範囲だけ）
+- §10.3 | 別の読み: *"rights of their own"* により、他人の権利だけの素材に notice を置いた人は何も適用していないので、虚偽の適用の責任も無い | 一意 | 根拠: 権利の無い適用が他人の権利に触れないのは §6.1 *"affects no right held by a person other than the Dedicator"*、誤った表示の責任は本文の外（§5.4(b) は約束の側の例外）
+- §10.4 第 1 文 | 別の読み: *"unless one of them states otherwise"* の 1 人の表明が、雇用者と従業者の両方の適用を止める | 一意 | 根拠: *"unless one of them states otherwise when"* の *one of them* が 1 人で足りると言い切る（受け入れ側は別の条件の素材として識別する・§10.4 第 2 文）。与える側が狭まる方向は 9.1 より語が優先する
+- §10.4 第 2 文 | 別の読み: *"material submitted on other terms or excluded"* に、提出されたのでない vendored library は入らず、Dedicator は識別しなくてよい | 一意 | 根拠: 意図した読み（1.4 の §2.6 と同じ）で、第 2 文の目的語 *"material submitted on other terms or excluded by Section 1.11"* が提出された素材に限る。他人の権利の素材に Dedication が及ばないことは §6.1
+- §10.5 第 2 文 | 別の読み: *"may be distributed only under a name that does not contain … and an identifier that does not contain"* が、名と識別子を付けることを求める肯定の条件で、名の無い抜粋や識別子の無い改作は頒布できない | 試作 T162 | 根拠: 1.4 の §16.4 は *"may not be distributed under any name that contains … or under any identifier that contains"* の否定形だった（縮約の型 (い)）。案: 否定形へ戻す（0〜−2 語）。反例待ち
+- §10.5(c) | 別の読み: *"a new version that the Steward publishes"* の Steward が、この版の Steward と後の版の Steward で割れる | 一意 | 根拠: 10.6 が役を *"last assigned by its holder"* で 1 人に決め、*"no earlier text published by a Steward"* は役を持った人の全部を数える
+- §10.6 | 別の読み: *"first published this text"* が、この版を最初に公開した人（草案を公開した人）で、確定版の公開者と割れる | 一意 | 根拠: *"this text"* は確定したこの本文。草案の公開は別の本文（10.5(c) *"other than a draft identified as such"*）
+- §10.7 | 別の読み: 10.5 と 10.6 だけを名指すので、10.1〜10.4 は Work の条件として You に課される | 一意 | 根拠: 4.1 *"imposes no condition, obligation, or restriction upon You in respect of the Work"* が全体を覆い、10.1〜10.4 は適用する人（Dedicator）の条
+- §10.5（改変の許し） | 別の読み: 改変した本文を作ること・別の名で配ることの許しが本文のどこにも無く、1.2 が本文を Work から外し 6.1 が黙示を退けるので、改変は無断の複製・翻案になる | 試作 T165 | 根拠: 1.4 の §16.4 は *"Making a modified text is not restricted"* と *"A modified text may be distributed under a different name."* を持っていた（縮約で落ちた・効果の差の読み・2026-11-24）。案: "A modified text may be made, and may be distributed under a different name and identifier."。反例待ち
+- §10.5(c)（識別子） | 別の読み: 新しい版が番号だけを新しくし、識別子は古い版のものを使える | 試作 T165 | 根拠: 1.4 の §16.4 は *"under a version number and identifier"* だった。案: 戻す（+2 語・同じ束）
