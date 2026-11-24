@@ -191,3 +191,24 @@ cd が `submission-osd.md` の早見表の OSD 3 の行に「The second limb …
 **この節が establish しないこと。** 委員の過半がどの書き方を好むか。
 
 **反映**: 1c 種（0d・前文を外す理由の述べ方）/ B13。
+
+## 1.484 縮約した 1.5 草案の新しい語を、決める側は近い条文でどう読んだか —— 「鎖は無い」（Rosen 氏 2016）と再許諾の語への異議（同 2015）、「寄与者だけの定義は元の許諾者の特許を落とす」（Fontana 氏 2016）、「必然的に侵害する請求項まで、それ以上は無い」（Perens 氏 2025）（2026-11-24）
+
+3f の依頼。縮約（固定 37・議題 16）の本文が 1.4 に無い形で持つ語 —— *on any theory*（2.3）、*holds them directly from the Dedicator*（2.4）、*by reason of its being a use of the Work*（2.5(d)）、*Result*（1.8）、*including by its combination with*（2.3(a)）—— に近い語を、決める側の全 7,657 通で当てた（scratch の走査・2026-11-24）。*any theory* の型は 69 通で、読みを述べたのは既に記録した Chestek 氏 2025-03-13 の 1 通、残りは免責の定型の引用か、許諾の射程でない話（OSD 5・6 の議論、報復終了の条文）。*by reason of* の型は 7 通で、どれも免責か定義の引用（当たる読みは 0）。*directly … from the licensor* の型は 32 通、*necessarily infringed / alone or combined* の型は 49 通で、ドシエに 8 語連鎖の無い通を読み、当たるものを置く。
+
+| 発言 | 誰が | 当たり方 |
+| :-- | :-- | :-- |
+| *"Each licensee receives his or her license directly from the licensor. There is no chain."* | Lawrence Rosen 氏 2016-08-16（`license-discuss`・U.S. Army Research Laboratory の会話。Apache・GPL・MPL について） | **2.4 の支え。** *"Everyone who receives the Work, anything derived from it, or a Result, from anyone, holds them directly from the Dedicator."* と同じ構造 |
+| *"All persons who obtain a copy of the Software receive a license directly from the Licensor."* | Rosen 氏 2002-06-26（同・AFL） | **2.4 の支え。** 直接の許諾を条文で述べる型の起草者の文 |
+| *"That's why I objected to the sublicensing provision in a recently-approved license. Most licenses nowadays fortunately are directly from the licensor to the licensee. Sublicensing not involved."* | Rosen 氏 2015-03-11（同） | **2.4 の *sublicensable* の不利な側。** Chestek 氏 2025-10-23 と同じ向き。対する側は Smith 氏 2026-01-03（*sublicense* が無いのは劣る・§1.481）—— 直接の許諾と *sublicensable* の両方を書く今の形は、どちらの人の言う欠けも作らない代わりに、Rosen 氏の言う余分を 1 語持つ |
+| *"The alternative is to propogate a right to sublicense, which is more complicated so it's generally not handled that way."* | Bruce Perens 氏 2002-10-26（同） | 直接の許諾の側 |
+| *"This seems to mean that Covered Patents will never include patents held by 'Government Agency'. While 'Contributor' includes 'Government Agency', what if all the Government Agency distributes is 'Original Software'? This might be a major problem (not sure yet)."* | Richard Fontana 氏 2016-02-04（`license-review`・NOSA 2.0 の逐条。当時の委員長） | **2.3(a) の形の支え。** 寄与の組合せだけで特許の射程を書くと、元の Work の許諾者の特許が落ちる、という欠陥の型。縮約の途中の版は *alone or combined* を寄与の側の語で書いて公開した Work を狭め、採決の前に *including by its combination* で直した —— 同じ型を内側で踏んで直した記録 |
+| *"Some Open Source licensors have arrived at the compromise of allowing the use of their patent claims *necessarily infringed* in use of the licensed copyrighted property, and no more."* | Perens 氏 2025-11-12（`license-discuss`・TERO-GL） | **不利な面（B7）。** 広く受け入れられた射程は *necessarily infringed … and no more* で、2.3(b) の *in whole or in part … however much or little* はそれより広い。1.4 の §8.4 から変えていない |
+
+**読み。** 新しい語のうち *holds them directly* は決める側の長い読みに支えられ、*on any theory* は 1 人の通（Chestek 氏 2025-03-13）に正面から応える語である。*by reason of its being a use of the Work* と *Result* の型は、決める側が読みを述べた記録が無い —— 支えも反対も無いので、法律家への問いか、`license-discuss` で最初に問われうる語として扱う。
+
+**逆側。** (1) Rosen 氏の通は、*sublicensable* を書くこと自体への異議を含む。(2) *Output* に触れることへの Chestek 氏 2025-12-15 の懸念（against #133）は *Result* という定義語にしても変わらない —— 定義が 1 か所になって短くなっただけである。(3) 語の一致で探したので、別の言い回しの読みは取りこぼしうる。
+
+**この節が establish しないこと。** 新しい語が法域の法でどう働くか。
+
+**反映**: 1c 種（0d・*sublicensable* の両側）/ B7（Perens 氏 2025-11-12 を広さの逆側へ・59 へ）。法律家への問いの候補として *by reason of its being a use of the Work* を 59 へ。
