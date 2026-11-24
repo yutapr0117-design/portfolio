@@ -214,13 +214,17 @@ def run(ctx):
     _tg472p = re.search(r"<!--\s*SUBMISSION-TARGET:\s*(ACD-\d+\.\d+)\s*-->", _sub472p)
     _bad472p = []
     _vals472p = re.search(r"\(([\d,]+) lines, ([\d,]+) words, SHA-256 `([0-9a-f]{64})`\)", _row472p)
-    _cmd472p = re.search(r"`sed '1,/\^-\\\{80\\\}\$/d' LICENSES/(ACD-\d+\.\d+)\.txt \\\| shasum -a 256`", _row472p)
+    # 再現のコマンドは shasum -a 256 (mac) と sha256sum (Linux) のどちらの形も読む。欄に両方を併記すれば両方を照らす
+    #   (2026-11-24・d7 の候補・6d の依頼: Linux の審査者は sha256sum を使うことが多い)
+    _cmds472p = list(re.finditer(r"`sed '1,/\^-\\\{80\\\}\$/d' LICENSES/(ACD-\d+\.\d+)\.txt \\\| (shasum -a 256|sha256sum)`", _row472p))
+    _cmd472p = _cmds472p[0] if _cmds472p else None
     if not (_row472p and _vals472p and _cmd472p and _tg472p):
         _bad472p.append("Canonical text の欄に (N lines, N words, SHA-256 `…`) か再現のコマンド (sed '1,/^-\\{80\\}$/d' LICENSES/ACD-x.y.txt \\| shasum -a 256) が無い")
     else:
         _src472p = ROOT / "LICENSES" / f"{_cmd472p.group(1)}.txt"
-        if _cmd472p.group(1) != _tg472p.group(1):
-            _bad472p.append(f"コマンドの本文 {_cmd472p.group(1)} が提出対象 {_tg472p.group(1)} でない")
+        for _c472p in _cmds472p:
+            if _c472p.group(1) != _tg472p.group(1):
+                _bad472p.append(f"コマンドの本文 {_c472p.group(1)} が提出対象 {_tg472p.group(1)} でない")
         _txt472p = _src472p.read_text(encoding="utf-8") if _src472p.exists() else ""
         _ls472p = _txt472p.split("\n")
         _cut472p = next((_i for _i, _l in enumerate(_ls472p) if _l == "-" * 80), None)
@@ -231,13 +235,17 @@ def run(ctx):
         #   sed の振る舞いを真似ているだけなので、欄の sed が GNU sed (CI は Linux) で同じ値を出すかは測っていなかった。mac の BSD sed
         #   では d7 と 5e が ce76f3ab… を実測済み。shasum が無い環境 (一部の Linux) では sha256sum で同じ出力を作る
         import shutil as _sh472p
-        _cmd_shell472p = (_cmd472p.group(0).strip("`").replace("\\|", "|")
-                          .replace("shasum -a 256", "shasum -a 256" if _sh472p.which("shasum") else "sha256sum"))
-        _run472p = subprocess.run(_cmd_shell472p, shell=True, cwd=ROOT, capture_output=True, text=True)
-        _shell_sha472p = (_run472p.stdout.split() or [""])[0]
-        if _shell_sha472p != _sha472p:
-            _bad472p.append(f"欄のコマンドを shell で実行した SHA-256 {_shell_sha472p[:12] or '(出力なし)'}… が、切り出しの {_sha472p[:12]}… と違う "
-                            f"(この環境の sed が欄の形を同じに読まない)")
+        for _c472p in _cmds472p:
+            # この環境に無い方の道具は、在る方で同じ出力を作る (shasum -a 256 と sha256sum は同じ 1 行を出す)
+            _tool472p = _c472p.group(2)
+            if not _sh472p.which(_tool472p.split()[0]):
+                _tool472p = "sha256sum" if _sh472p.which("sha256sum") else "shasum -a 256"
+            _cmd_shell472p = _c472p.group(0).strip("`").replace("\\|", "|").replace(_c472p.group(2), _tool472p)
+            _run472p = subprocess.run(_cmd_shell472p, shell=True, cwd=ROOT, capture_output=True, text=True)
+            _shell_sha472p = (_run472p.stdout.split() or [""])[0]
+            if _shell_sha472p != _sha472p:
+                _bad472p.append(f"欄のコマンド ({_c472p.group(2)}) を shell で実行した SHA-256 {_shell_sha472p[:12] or '(出力なし)'}… が、"
+                                f"切り出しの {_sha472p[:12]}… と違う (この環境の sed が欄の形を同じに読まない)")
         if not _n_lines472p or not _n_words472p:
             _bad472p.append(f"再現のコマンドの出力が空 ({_src472p.name} に区切り線が無いか、その下が空)")
         _want472p = (int(_vals472p.group(1).replace(",", "")), int(_vals472p.group(2).replace(",", "")), _vals472p.group(3))
