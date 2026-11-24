@@ -263,3 +263,23 @@ cd が `submission-osd.md` の早見表の OSD 3 の行に「The second limb …
 **この節が establish しないこと。** Z″ が審査で広すぎるとされること、足された特徴を外す文が要ること。
 
 **反映**: B7（広さの費用を Berkus 氏 2019 の文で両側に・59 へ）/ 1c 種（0d・M5 の採決の材料）。
+
+## 1.487 出力に条件を付けることを、決める側はどう読んできたか —— 「出力について回る義務は、open source ライセンスで受け入れられたことがない」（Chestek 氏 2025-05）（4.1・5.1 の Result の材料・2026-11-25）
+
+縮約の 4.1 と 5.1 は、条件も義務も Work だけでなく Result（モデル・重み・出力）についても課さないと述べる（Result の語は 1.5 で足した）。決める側の全 7,657 通のうち 2018 年以降で、AI・学習・出力の語を持ち、出力と条件・義務・規約が近くに並ぶ通の抜き書き 44 件（重なりを除いた数・前後あわせて約 400 字まで）を読み、下の 5 通は引用の前後数百字を開いた（全文を通しては読んでいない）。
+
+| 発言 | 誰が | 向き |
+| :-- | :-- | :-- |
+| *"you are imposing a obligation that runs with the output, which has never been acceptable in an open source license."* | Pamela Chestek 氏 2025-05-17（`license-review`・ModelGo の改訂の審査） | **支える側。** 続けて、新しい領域なので出来ないとは言えないが理由を要するとも述べた |
+| *"I think that imposing anything on the output of the model is against the OSD as it is a restriction on the use of the licensed subject matter."* | Carlo Piana 氏 2025-05-14（同） | **支える側** |
+| *"I do not believe that putting conditions on output of a model is workable and, where the output is not a derivative work under copyright law, it violates OSD9, "License Must Not Restrict Other Software.""* | Chestek 氏 2025-12-05（ModelGo の 2 度目の再提出。`ACD-1.0.review-corpus.md` に在る） | **支える側** |
+| *"This is the purview of legislation, an area that we have been careful to avoid overlapping with."* | Chestek 氏 2025-03-02（出力が AI 生成であるとの notice の義務） | **支える側。** 利益を受けるのが公衆である条件への異議 |
+| *"So can you elaborate how this restriction on output discriminates against a field of endeavor or a person or group?"* | Chestek 氏 2025-12-03（`license-discuss`・Total Reciprocity。Perens 氏が出力の制限を *"pretty clearly a use restriction"* とした返信） | **逆側。** 出力の制限が自動的に OSD 6 に当たるとは言わない |
+
+**読み。** ACD が Result にも条件を課さないことは、決める側の文の向きと同じ側に在る。1.4 は *Computational Use of the Work* の中に作成と使用を入れていたので、Result を名指さなくても届いていた。1.5 が名指すのは、Result の語を別に立てたことで「Work だけ」と読める対比ができたからで、名指す理由は記録の側でなく本文の側にある。
+
+**逆側。** (1) どの文も、課す側の条件を論じたもので、課さない文が審査で求められたことを示さない。(2) Dedicator 自身の契約で出力の義務を付けることを止める約束（5.1）は、ライセンス文の外へ踏み込む —— 議題の外の契約を縛るとして広すぎると読まれる向きを、この表は扱っていない。(3) Chestek 氏 2025-05 は、同じ文で新しい領域への余地を残した。
+
+**この節が establish しないこと。** 5.1 の Result の句が審査で受け入れられること。
+
+**反映**: B10（出力・モデルに条件を課さないことの支えを両側で・59 へ）/ 入口（なし）。
