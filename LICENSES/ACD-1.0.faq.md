@@ -159,7 +159,7 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 >   not later argue otherwise. If you are not certain, do not apply it yet.
 
 **§2.6 が助けになる場面**: 今後の貢献については、貢献者が別段の意思表示をしない限り
-本 Dedication の下で提出されたものとして扱われ、**そのために CLA のような別文書は要らない**。*（2026-11-24 訂正: 旧文は「別文書を要求できない」と書いていた。どの版も「要らない」と言うだけで、要求を禁じてはいない。1.4 の §2.6 は *"Whether the Dedicator asks a contributor for anything else is a matter of project governance and is not addressed here."* と明示する）*
+本 Dedication の下で提出されたものとして扱われ、**そのために CLA のような別文書は要らない**。*（2026-11-24 訂正: 旧文は「別文書を要求できない」と書いていた。§2.6 からはそれは言えない —— どの版も「要らない」と言うだけで、1.4 の §2.6 は *"Whether the Dedicator asks a contributor for anything else is a matter of project governance and is not addressed here."* と明示する。寄与について CLA を求めることは統治の問題である。CLA の義務の目的語は Work ではなく貢献者自身の寄与で、Dedicator が受け入れる見返りでもある（§2.6 の末文は、Dedicator が何も受け入れる義務を負わないと述べる）。**ただし端が 2 つ §5.2(b) の約束に反する**: (a) CLA が貢献者の Work の使い方を縛る条項（フォークしない、改変物を Dedicator にだけ許諾する、競合に使わない など）を持つとき、(b) 署名を Work の写しやリポジトリの入手の条件にするとき（§5.2(b) の *"access condition, click-through, registration requirement"*）。portfolio-5e の読み）。**逆側**: §2.6 の *"not addressed here"* の *here* を「§2.6」でなく「この Dedication」と読むと、(a)(b) の端と緊張する。我々は「§2.6」と読む）*
 ただしこれは**将来の貢献**についての規律であって、**過去の貢献を遡って変えるものではない**。
 
 **貢献を受ける側の実務**: §2.6 の *"unless they state otherwise"* は記録を残さない。Apache-2.0 §5 も同じ形（*"Unless You explicitly state otherwise"*）で、承認済みの先例があるので本文は変えない。違いは費用で、ACD の放棄は寄与者にとって取り消せない。**別段の意思が述べられた貢献は、merge しないのが最も簡単である。**
