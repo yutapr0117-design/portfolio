@@ -99,6 +99,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | 未読のスレッドを読んだ記録（節 1.350 から・2004〜2005 のスレッド） | [`ACD-1.0.review-readings-4.md`](ACD-1.0.review-readings-4.md) —— 2026-11-15 に未読の 285 本を 5 人で読むため、年の帯ごとに書き場所を分けた |
 | 未読のスレッドを読んだ記録（節 1.400 から・2006〜2008 のスレッド） | [`ACD-1.0.review-readings-5.md`](ACD-1.0.review-readings-5.md) —— 2026-11-15 に未読の 285 本を 5 人で読むため、年の帯ごとに書き場所を分けた |
 | 未読のスレッドを読んだ記録（節 1.450 から・2002〜2003 と 2009〜2010 のスレッド） | [`ACD-1.0.review-readings-6.md`](ACD-1.0.review-readings-6.md) —— 2026-11-15 に未読の 285 本を 5 人で読むため、年の帯ごとに書き場所を分けた |
+| 採掘の記録の続き（節 1.476 から） | [`ACD-1.0.review-readings-7.md`](ACD-1.0.review-readings-7.md) —— readings-6 が BYTE-BUDGET の上限の手前に来たので 2026-11-24 に分けた |
 | 読んだスレッドの件名の一覧（AS-OF の未読数の元） | [`READ-THREADS.txt`](READ-THREADS.txt)（2009 年までの会話）と [`READ-THREADS-2010.txt`](READ-THREADS-2010.txt)（2010 年以後）—— 1 行 1 件名。会話の始まりの年で分ける（2026-11-16・`record_read.py` が書く file を選ぶ）。読んだら同じ commit で足す |
 | 古い節（§1.242 より前）の反映先の表 | [`REFLECTION-BACKFILL.md`](REFLECTION-BACKFILL.md) —— 1 節 1 行。提出のゲート 6c が求める「読んだ節がすべて反映されている」を、1,000 行の上限に当たらずに満たすため（2026-11-15） |
 | 読みの合成（未読 0 の後の全体） | [`READINGS-SYNTHESIS.md`](READINGS-SYNTHESIS.md) —— 読みの節 244 の反映先を、条文・register・入口に分けて数えた。本文を変える指摘は残っておらず、残るのは B1・B10・B2（2026-11-16） |

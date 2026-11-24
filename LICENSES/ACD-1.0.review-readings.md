@@ -986,4 +986,4 @@ Project Tick General Public License の `license-review` 側の会話（v1 の�
 
 ---
 
-§1.217 でこの文書は終わり、§1.218 からは `ACD-1.0.review-readings-2.md` に続く（2026-11-15・1,000 行の手前で分けた。この文書の既存の節は動かしていない）。同じ日に未読の 285 本を 5 人で読むため、書き場所を年の帯ごとに分けた: `ACD-1.0.review-readings-3.md`（節 1.300〜）、`ACD-1.0.review-readings-4.md`（節 1.350〜）、`ACD-1.0.review-readings-5.md`（節 1.400〜）、`ACD-1.0.review-readings-6.md`（節 1.450〜）。
+§1.217 でこの文書は終わり、§1.218 からは `ACD-1.0.review-readings-2.md` に続く（2026-11-15・1,000 行の手前で分けた。この文書の既存の節は動かしていない）。同じ日に未読の 285 本を 5 人で読むため、書き場所を年の帯ごとに分けた: `ACD-1.0.review-readings-3.md`（節 1.300〜）、`ACD-1.0.review-readings-4.md`（節 1.350〜）、`ACD-1.0.review-readings-5.md`（節 1.400〜）、`ACD-1.0.review-readings-6.md`（節 1.450〜）、`ACD-1.0.review-readings-7.md`（節 1.476〜・readings-6 が 200 KB の手前で 2026-11-24 に分けた）。
