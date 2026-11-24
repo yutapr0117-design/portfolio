@@ -32,7 +32,7 @@ choice. Section numbers below are the same in every version from ACD-1.0 to ACD-
   assert claims that treat a permitted use as wrongful, with listed exceptions. Read literally that reaches
   a claim against someone who attacks you with a tool you released
   ([`ACD-1.1-SELF-AUDIT.md`](ACD-1.1-SELF-AUDIT.md) §3zf, in Japanese). Many laws do not let a promise
-  made in advance cover deliberate harm; no lawyer has checked how far this one goes.
+  made in advance cover deliberate harm; no lawyer has checked how far this one goes. The 1.5 draft limits it, and is not fixed and not applied.
 - **You cannot answer a patent suit by ending the suer's rights.** Retaliation clauses are absent,
   and a competitor can take the work and still sue you (`ACD-1.0.against.md` #174).
 - **If you serve copies from your own server, read §5.2 first.** In 1.0 to 1.3 you covenant not to
