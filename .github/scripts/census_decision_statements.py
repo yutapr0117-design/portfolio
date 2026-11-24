@@ -65,7 +65,7 @@ DECIDERS = re.compile(r"\b(?:" + "|".join(re.escape(x) for x in [
     "Oliver", "Asay", "Weerawarana", "Deb Bryant", "Colannino", "Maffulli", "Freund", "Raymond",
     "DiBona", "Mathur", "Chestek", "Fogel", "Mallett", "Chris Lamb", "Nicholson", "Phipps",
     "Hashman", "Liambotis", "Josh Simmons", "Vignoli", "Zacchiroli", "Villa", "Rosen", "Perens",
-    "Fontana", "McCoy", "Behlendorf", "Vidal", "Kuhn", "Wheeler", "Dolan", "Sado", "Randal",
+    "Fontana", "McCoy", "Behlendorf", "Vidal", "Kuhn", "Wheeler", "Dolan", "Randal",
     "Milinkovich", "Langel",
     # 2026-11-16 (2f の発見): OSI の公の宛名 (opensource.org) で書いていた 3 人が漏れていた —— Jim Jagielski 氏 (理事)、
     #   Patrick Masson 氏 (General Manager & Director)、VM (Vicky) Brasseur 氏 (理事)。足すと候補が 4 本増え、「未読 0」は
