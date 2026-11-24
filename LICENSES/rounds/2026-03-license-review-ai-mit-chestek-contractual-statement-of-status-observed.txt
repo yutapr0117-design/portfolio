@@ -1,0 +1,59 @@
+Source: OSI license-review public archive, 2026-March.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-24)
+Messages: 1 of 22 in "[SUBMISSION] AI-MIT License 1.0 — permissive license for AI-generated code" (2026-03-12)
+Senders: Pamela Chestek
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Sun Mar 15 22:51:46 2026
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Sun, 15 Mar 2026 15:51:46 -0700
+Subject: [License-review] =?utf-8?q?=5BSUBMISSION=5D_AI-MIT_License_1?=
+ =?utf-8?q?=2E0_=E2=80=94_permissive_license_for_AI-generated_code?=
+In-Reply-To: 
+ <CA+gCWQUpJv8GCQyvmP7Vs817m=K6EASPd3MJJuMu9UFyKk9TpA@mail.gmail.com>
+References: 
+ <CALoGuP0cedKVm4_V-S0VBWUGjD-0r_G0JvkX72CSiosUh8f6QA@mail.gmail.com>
+ <18108e57-6a6e-4930-814a-d84e30f4b27f@opensource.org>
+ <CALoGuP33x+Egm5aV6V0a52FgT=Xh-wjtp=g2w9P_yYZg2JzN8g@mail.gmail.com>
+ <CAAvo7O5EMkimhzQQEfoQ7hHQUd3s2mn4A9+AeoOZHdWV4raCQg@mail.gmail.com>
+ <CA+gCWQUpJv8GCQyvmP7Vs817m=K6EASPd3MJJuMu9UFyKk9TpA@mail.gmail.com>
+Message-ID: <22063060-bc89-4f06-9ae1-2fb3023a3fcc@chesteklegal.com>
+
+On 3/14/2026 9:36 AM, Joshua Gay via License-review wrote:
+> This license proposal assumes that a file labeled "fully AI generated" 
+> can simply be treated as public domain. That conclusion seems much 
+> stronger than current law supports.
+>
+> <snip>
+>
+> When outputs are produced through modern LLM-based workflows it 
+> becomes much harder to characterize the result as lacking human 
+> authorship entirely.
+>
+> <snip>
+>
+> Even the US Copyright Office guidance is fairly high level and still 
+> developing. It recognizes that human authorship may arise through 
+> selection, arrangement, editing, or other creative control, but it 
+> does not provide a clear framework for evaluating prompt driven or 
+> context driven systems.
+
+I think that's the reason for this license proposal, it eliminates the 
+ambiguity. It doesn't matter whether the law would characterize the code 
+as copyrightable, it is a contractually adopted and legally enforceable 
+statement about the legal status of the content, "When the 'Fully 
+AI-generated' box is checked, the Originator makes no copyright claim 
+over the Software."  It gives adopters security about their use.
+
+Pam
+
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
