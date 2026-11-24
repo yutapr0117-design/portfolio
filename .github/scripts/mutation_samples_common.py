@@ -29,6 +29,9 @@ CURRENT_DRAFT_VER = f"{_m.group(1)}.{_m.group(2)}" if _m else "0.0"
 CURRENT_CHANGES = CURRENT_DRAFT.with_name("CHANGES-" + CURRENT_DRAFT.name.replace("-DRAFT.txt", ".txt"))
 PREVIOUS_VER = f"{_m.group(1)}.{int(_m.group(2)) - 1}" if _m and int(_m.group(2)) > 0 else "0.0"
 FROZEN_PREVIOUS = ROOT / "LICENSES" / f"ACD-{PREVIOUS_VER}.txt"
+# 一意に定める台帳 (Check 468ac / 468ad が読む file・measure_legal_uncertainty.section19 と同じ選び方)。版の台帳が増えた日に、
+#   名で書いた mutation は前の版を打ち続け、find が残るので 362 は黙る (2026-11-24: 1.5 の台帳ができて 2 件が SURVIVED になった)
+UNIQUE_READING = sorted((ROOT / "LICENSES").glob("ACD-1.*-UNIQUE-READING.md"))[-1]
 
 # LICENSE が宣言する適用中の版。適用する版を上げる日に mutation が的を外さないよう導出する。
 _ml = re.search(r"^SPDX-License-Identifier: (ACD-\d+\.\d+)$", (ROOT / "LICENSE").read_text(encoding="utf-8"), re.M)
