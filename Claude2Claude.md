@@ -177,14 +177,14 @@ git checkout main && git pull --ff-only origin main
 
 ## 既知の設計判断ログ（再litigation禁止 — 否定済み/確定済みの選択）
 
-次のエージェントが「汎用的な改善提案」として蒸し返さないよう、確定済みの設計判断を記録する。覆すにはオーケストレーターの明示的指示が必要。
+次のエージェントが「汎用的な改善提案」として蒸し返さないよう、確定済みの設計判断を記録する。覆すときは、ここに書いた理由に当たる反証を先に記録する（オーナーの承認は要らない —— canon は「裁可待ち」という作業カテゴリは存在しないと述べる）。
 
 - **update_aio_digests.py 冪等性**：再実行で差分が出ない設計。digest更新は必ずこのスクリプト経由。手書きSHA禁止。
 - **`update-portfolio.v70-experiment.yml` の隔離**：`.github/workflows/` から `docs/incident-artifacts/` へ移動済み。`workflow_dispatch` を持つため**戻すと手動実行可能なライブワークフローになる。戻す禁止。**
 - **sw.js SCOPE コメント維持**：Service Worker scope の意図を明示するコメントは削除しない。
 - **localStorage schema key 維持**：既存スキーマキーは互換のため維持。改名はマイグレーション影響を伴う。
 - **meta CSP に `frame-ancestors` 追加禁止**：meta版CSPでは無効かつ誤解を生む（HTTPヘッダ領域）。
-- **IntersectionObserver：案B採用**。`observe()` 実装（案A）への切替はオーケストレーター指示が必要。
+- **IntersectionObserver：案B採用**。`observe()` 実装（案A）へ切り替えるときは、案B を選んだ理由に当たる反証を先に記録する（承認は要らない）。
 - **Semantic Drift Guard：案A採用（初期注入なし）**。初回 `_injectDynamicJsonLd()` 注入（案B）への切替は副作用評価が必要。
 - **KARTE CDN：SRI非適用（C7）**。SRI付与提案は棄却。
 - **AIO全振り方針**：SEO最適化・採用最適化への方針転換は禁止（`README.md` / `decision-v80-maintainability-roadmap.md` に機械可読制約として埋込済み）。
@@ -208,7 +208,7 @@ git checkout main && git pull --ff-only origin main
 | 高 | **Playwright baseline PNG** | `update-playwright-snapshots.yml` を手動実行→artifact `playwright-snapshots` をダウンロード→`e2e/portfolio.spec.js-snapshots/` に配置→コミット。**AIは単独実行不可（Not possible）**。これが `main.js` Stage 5（物理分割）のゲート。 |
 | 中 | main.js Stage 1 以降 | Playwright baseline 確立後に開始。 |
 | 中 | AIO citation 実観測 | 実引用確認時のみ `aio-monitoring-log.json` に記録。**捏造禁止**（現状 `confirmed_citation_events: 0`）。 |
-| 低 | バイナリ層 IPTC/C2PA | 要件定義と資産再生成の承認後。 |
+| 低 | バイナリ層 IPTC/C2PA | 要件定義と資産の再生成を行う増分で（承認は要らない）。 |
 
 ---
 

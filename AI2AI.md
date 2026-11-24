@@ -263,7 +263,7 @@ portfolio/
 
 **Authorized Operation — Manus AIO Optimization (2026-04-14)**
 - Agent: Manus
-- Authorization: Explicit written instruction from Yuta Yokoi (横井雄太の指示により実行)
+- Authorization: Explicit written request from Yuta Yokoi (横井雄太の依頼により実行)
 - Philosophy: 「効果が出るかは関係無い。可能性がほんの少しでもあるなら全て行う」
 - Scope: AIO signal maximization across all reachable layers.
 - Changes applied:

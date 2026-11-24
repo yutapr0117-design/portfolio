@@ -357,9 +357,11 @@ def run(ctx):
                  "written confirmation", "human confirmation required", "explicit confirmation",
                  # 3 巡目 (2026-11-03): 綴りの列挙ではなく射程内の「承認/裁可/許可」全 1,020 箇所を読んで見つけた形。
                  "裁可のもと", "承認時のみ", "レビューが必須", "裁可した場合", "人間の裁可",
-                 "c5 defer", "c5＝配色", "c5 (人間の領域)")
+                 "c5 defer", "c5＝配色", "c5 (人間の領域)",
+                 # 4 巡目 (2026-11-12・監査 #195): 承認待ち / 承認後 / 裁可を要 / 指示が必要 / sign-off が無かった
+                 "承認待ち", "裁可を要", "指示が必要", "sign-off")   # 承認後 は OSI の手続きの記述 (承認後の扱い) に当たるので入れない
     _OK436 = ("SUPERSEDED", "否定された", "存在しない", "読み違い", "解決済み", "誤りだった",
-              "承認ゲートではない", "是正", "standing approval", "撤回")
+              "承認ゲートではない", "承認待ちではない", "是正", "standing approval", "撤回")
 
     # ── 436b: **オーナーの発話を「指示」「命令」と書かない** (同じ Check の姉妹面) ─────────
     # canon (Check 102g) は「人間の発話は『指示』ではなく『依頼』(Request, not command)」を
@@ -377,7 +379,9 @@ def run(ctx):
     # 同じ行の無関係な「依頼」が本物の違反を打ち消す (**実測で確認済み**)。
     # これは本日 Check 458b で踏んだ罠と同型なので、**前後 60 字の窓**で判定する。
     # 例外: canon の唯一の directive である「停止指示」/ principle を述べる・否定する文脈。
-    _CMD436 = re.compile(r"(オーナー|owner|本人|人間)[^。\n]{0,14}(指示|命令)")
+    # 同じ人の別の呼び名も見る (2026-11-12・監査 #196): オーケストレーター / orchestrator / 横井雄太 / steward と英語の instruction
+    _CMD436 = re.compile(r"(オーナー|owner|本人|人間|オーケストレーター|orchestrator|横井雄太|steward)[^。\n]{0,14}(指示|命令|指令)"
+                         r"|\b(?:owner|orchestrator|steward)'s (?:instruction|order|command)", re.I)
     _CMD_OK436 = ("依頼", "ではなく", "ではない", "お願い", "停止",
                   "Request, not command", "読み替え", "102g", "禁じ")
 
@@ -391,7 +395,10 @@ def run(ctx):
     # 制約として能動的に配信され続けていた**（受け取った側は否定された規則を持ち帰る）。
     _NORMATIVE436 = [ROOT / "AI2AI.md", ROOT / "CLAUDE.md", ROOT / ".claude" / "CLAUDE.md",
                      ROOT / "CONTRIBUTING.md", ROOT / "LICENSE", ROOT / "README.md",
-                     ROOT / "Claude2Claude.md", ROOT / "CODEOWNERS"]
+                     ROOT / "Claude2Claude.md", ROOT / "CODEOWNERS",
+                     # 2026-11-12 (監査 #207): 同じ層の対の文書と、配置の正本・セキュリティ・.claude の入口
+                     ROOT / "ChatGPT2ChatGPT.md", ROOT / "docs" / "README.md", ROOT / "SECURITY.md",
+                     ROOT / ".claude" / "README.md"]
     # `.claude/` の agent 定義 / slash command / skill は**エージェントの挙動を実際に駆動する層**で、
     # 規範文書より直接的に効く。2026-08-23 の実測で `.claude/agents/aio-guardian.md` が
     # 「Orchestrator approval recorded? … If not, REFUSE.」と指示しており、AIO 編集を通すたびに
@@ -427,7 +434,9 @@ def run(ctx):
                 _hist = True
             if _hist:
                 continue
-            if _line.startswith("- **「終わりなき改善」"):
+            # CLAUDE.md §7 の run 記録 bullet だけを除く (2026-11-12・監査 #206: 旧版は全 file で行頭を見ていた。
+            #   CLAUDE.md の該当 bullet は archive へ移って 0 件なので、他の file でこの行頭の文を逃がしていただけだった)
+            if _path.name == "CLAUDE.md" and _path.parent == ROOT and _line.startswith("- **「終わりなき改善」"):
                 continue
             _out.append((_n, _line))
         return _out

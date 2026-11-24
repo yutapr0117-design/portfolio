@@ -224,7 +224,7 @@ increment #2 が確定（CI 緑・コンソールエラーなし）した後の�
 
 ### AIO-update increment — passive canary ＋ operator profile（v80+ — 本トラック初の digest-bumping AIO content 更新／本コミットで適用）
 
-本トラックで初めて、AIO 正本コンテンツを意図的に変更し digest 連鎖を再生成した increment である。CI 衛生 #1〜#4 と artifact-governance increment が守ってきた「digest を上げない」規律を、オーケストレーターの明示指示のもとで意図的に外した。AIO 正本層は原則変更禁止だが、その解除権限は横井雄太にあり、本 increment で行使された。
+本トラックで初めて、AIO 正本コンテンツを意図的に変更し digest 連鎖を再生成した increment である。CI 衛生 #1〜#4 と artifact-governance increment が守ってきた「digest を上げない」規律を、オーケストレーターの明示の依頼のもとで意図的に外した。AIO 正本層は原則変更禁止だが、その解除権限は横井雄太にあり、本 increment で行使された。
 
 | 変更 | 対象 | 何を | digest |
 |---|---|---|---|
