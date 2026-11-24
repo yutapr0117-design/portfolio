@@ -331,10 +331,11 @@ MUTATIONS_ARCHIVE7 = [
 },
     {
     "name": "Check 472n: 申請日の 1 枚が引く草案の句 (§5.2 の \"that the Dedicator itself makes or makes available\") を草案から消す —— "
+    # 2026-11-24 (fc・ライセンスの mutation 256 件の全数の当て直しで MISSED): 1.4 の確定と提出対象の切り替えで前提が外れたので付け替えた
             "旧版の manifest は本文で確かめた引用の hash も残すので、草案が句を失っても引用を解決し続けた (2026-11-12)",
-    "file": CURRENT_DRAFT,
-    "find": "       the Work, that the Dedicator itself makes or makes available, or the",
-    "replace": "       the Work, that the Dedicator itself makes or distributes, or the",
+    "file": ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md",
+    "find": "*\"that the Dedicator itself makes or makes available\"*",
+    "replace": "*\"that the Dedicator itself makes or distributes\"*",
     "check": CHECK,
 },
     {
@@ -355,10 +356,11 @@ MUTATIONS_ARCHIVE7 = [
 },
     {
     "name": "Check 468b: §4.6 の書き出し \"Section 4.5 does not cut\" を言い換える —— 冒頭の変更一覧はその句を引いたまま残り、"
+    # 2026-11-24 (fc・ライセンスの mutation 256 件の全数の当て直しで MISSED): 1.4 の確定と提出対象の切り替えで前提が外れたので付け替えた
             "旧版は一覧の言い換えが古くなっても黙っていた (2026-11-12・portfolio-aa の提案)",
     "file": CURRENT_DRAFT,
-    "find": "  4.6  Section 4.5 does not cut Your recipients off from this Dedication: a",
-    "replace": "  4.6  Section 4.5 does not sever Your recipients from this Dedication: a",
+    "find": "       Section 12. It gives nothing by implication beyond what its words give.",
+    "replace": "       Section 12. It gives nothing by implication beyond what its terms give.",
     "check": CHECK,
 },
     {

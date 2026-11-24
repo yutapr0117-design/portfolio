@@ -73,14 +73,28 @@ _SKIP_468A = re.compile(r"CHANGELIST|TRIAL|SELF-AUDIT|ADVERSARIAL|RESEARCH-RECOR
 def dossier_draft_quote_misses(licenses_dir: Path, version: str, draft_text: str) -> tuple[int, list[str]]:
     """468a: ドシエ (作業記録と errata を除く LICENSES/*.md) が「N.M draft / N.M 草案 / N.M の草案」の後 80 字以内に引く
     逐語が、いまの草案に在るか (2026-11-12・portfolio-00 の提案: 日付つきの注記が後の試作で古くなる)。前後に過去の形の印が
-    あれば除き、草案の語と引用の間に「氏」があれば審査者の文として除く。"…" で切った 8 字を超える断片を当てる。"""
-    flat_draft = " ".join(draft_text.split())
+    あれば除き、草案の語と引用の間に「氏」があれば審査者の文として除く。"…" で切った 8 字を超える断片を当てる。
+
+    2026-11-24 (fc・mutation の全数の当て直しで MISSED): 作業中の版の「N.M 草案」しか読んでいなかったので、1.4 を確定した日から
+    「1.4 草案」と書いた引用を 1 つも照らさなくなった (FAQ の *"a payment You agreed to make"* を別の語にしても黙っていた)。
+    468w と同じく、作業中の版は草案に、凍結した版は凍結した本文 (区切り線より下) に当てる。"""
+    texts = {version: " ".join(draft_text.split())}
+
+    def body(v: str):
+        if v not in texts:
+            f = licenses_dir / f"ACD-{v}.txt"
+            raw = f.read_text(encoding="utf-8") if f.exists() else None
+            texts[v] = " ".join(raw.split("-" * 80, 1)[-1].split()) if raw else None
+        return texts[v]
     n, miss = 0, []
     for f in sorted(licenses_dir.glob("*.md")):
         if _SKIP_468A.search(f.name):
             continue
         for i, line in enumerate(f.read_text(encoding="utf-8").split("\n"), 1):
-            for m in re.finditer(re.escape(version) + r" (?:draft|草案|の草案)", line):
+            for m in re.finditer(r"(?<![\d.])(1\.[1-9]) (?:draft|草案|の草案)", line):
+                flat_draft = body(m.group(1))
+                if flat_draft is None:
+                    continue
                 tail = line[m.end():m.end() + 80]
                 qm = re.search(r'\*"(.{12,}?)"\*', tail)
                 if not qm or '*"' in tail[:qm.start()] or "氏" in tail[:qm.start()]:
@@ -89,7 +103,7 @@ def dossier_draft_quote_misses(licenses_dir: Path, version: str, draft_text: str
                 if all(p in flat_draft for p in _parts(qm.group(1), 8)):
                     continue
                 if not _PAST_468A.search(line[max(0, m.start() - 200):m.end() + 300]):
-                    miss.append(f"{f.name}:{i} {qm.group(1)[:50]!r}")
+                    miss.append(f"{f.name}:{i} ({m.group(1)}) {qm.group(1)[:50]!r}")
     return n, miss
 
 

@@ -771,13 +771,16 @@ MUTATIONS_ARCHIVE6 = [
     "name": "Check 472b: 版を示さずに 1.1 の語句 \"except by the Steward\" を引き、直前に §1.2 だけが在る —— 条番号の中の 1.2 を版の目印と読み、明示して引いたと数えていた",
     "file": ROOT / "LICENSES" / "ACD-1.0.submission-osd.md",
     "find": "preamble's first sentence is *\"Software and the works that surround it\"*, and the work the",
-    "replace": "preamble's first sentence is *\"Software and the works that surround it\"*, §16.4 reads *\"except by the Steward\"*, and the work the",
+    # 2026-11-24 (fc・ライセンスの mutation 256 件の全数の当て直しで MISSED): 1.4 の確定と提出対象の切り替えで前提が外れたので付け替えた
+    #   ("except by the Steward" は 1.4 の本文に在るので、1.1 に在り 1.4 に無い §2.5 の句にした)
+    "replace": "preamble's first sentence is *\"Software and the works that surround it\"*, §1.2 reads *\"and will not assert that it is revocable\"*, and the work the",
 },
     {
     "name": "Check 472b: 1.1 の語句を平の二重引用符で、版を示さずに引く —— 斜体の *\"…\"* しか読まず、アスタリスク無しの同じ引用が見えなかった",
+    # 2026-11-24 (fc・ライセンスの mutation 256 件の全数の当て直しで MISSED): 1.4 の確定と提出対象の切り替えで前提が外れたので付け替えた
     "file": ROOT / "LICENSES" / "ACD-1.0.submission-osd.md",
     "find": "preamble's first sentence is *\"Software and the works that surround it\"*, and the work the",
-    "replace": "preamble's first sentence is *\"Software and the works that surround it\"*, §16.4 reads \"except by the Steward\", and the work the",
+    "replace": "preamble's first sentence is *\"Software and the works that surround it\"*, §2.5 reads \"and will not assert that it is revocable\", and the work the",
 },
     {
     "name": "Check 469: E12 の行の状態を「未着手（E3 は反映済み）」にする —— 行ごとに分類していたので、両方の語を持つ行は全 E-ID が both になり、E12 の未着手が矛盾の組から消えていた",
@@ -907,8 +910,10 @@ MUTATIONS_ARCHIVE6 = [
 },
     {
     "name": "Check 468w: 草案の前文の 1 語を変える (Covered Rights → Covered Right) —— errata が「1.4 draft」として引く逐語が、いまの草案に在るかを照合していなかった",
-    "file": CURRENT_DRAFT,
-    "find": "  Section 3 surrenders the Covered Rights. Section 4 grants a licence over the",
-    "replace": "  Section 3 surrenders the Covered Right. Section 4 grants a licence over the",
+    # 2026-11-24 (fc・ライセンスの mutation 256 件の全数の当て直しで MISSED): 1.4 の確定と提出対象の切り替えで前提が外れたので付け替えた
+    "file": ROOT / "LICENSES" / "ACD-1.0.errata.md",
+    "find": "*\"Section 3 surrenders the Covered Rights\"*",
+    # 1 字を落とす形 (Rights → Right) は部分文字列として本文に在り続けるので、動詞を変える
+    "replace": "*\"Section 3 waives the Covered Rights\"*",
 },
 ]
