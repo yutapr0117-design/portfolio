@@ -230,6 +230,16 @@ def main(argv: list[str]) -> int:
     pa, pb = Path(args[0]), Path(args[1])
     ta, tb = pa.read_text(encoding="utf-8"), pb.read_text(encoding="utf-8")
     va, vb = version_of(pa, ta), version_of(pb, tb)
+    # 述べ直した版 (CLAUSE-MAP-x-y.tsv が間に在る) をまたぐ差は、同じ番号を当てると別の条どうしを並べる。1 条が複数の条へ分かれ、
+    #   複数の条が 1 条に集まるので、条ごとの語の差は成り立たない。黙って誤った差を出さず止まる (2026-11-24・議題 16)
+    vk = lambda v: tuple(int(x) for x in re.findall(r"\d+", v))
+    for cm in sorted(pb.resolve().parent.glob("CLAUSE-MAP-*-*.tsv")):
+        m = re.match(r"CLAUSE-MAP-(\d+\.\d+)-(\d+\.\d+)\.tsv$", cm.name)
+        if m and vk(va) <= vk(m.group(1)) and vk(m.group(2)) <= vk(vb):
+            print(f"ACD-{m.group(2)} restates ACD-{m.group(1)} and renumbers its clauses, so a clause-by-clause redline from ACD-{va} to "
+                  f"ACD-{vb} would set different clauses side by side. Use the full text, CHANGES-ACD-{m.group(2)}.txt (what differs in "
+                  f"effect) and {cm.name} (where each clause went).", file=sys.stderr)
+            return 2
     A, B = parts(ta), parts(tb)
     m10 = map_from_10() if va == "1.0" and vb != "1.0" else {}
     to_new = {k: (m10.get(k, k) if re.fullmatch(r"\d+\.\d+", k) else k) for k in A}
