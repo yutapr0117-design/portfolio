@@ -235,3 +235,28 @@ cd が `submission-osd.md` の早見表の OSD 3 の行に「The second limb …
 **この節が establish しないこと。** 因果の語が審査で退けられること、具現の語なら受け入れられること。
 
 **反映**: B7・B10（広さの不利な事実と、広くした理由を両側で・59 へ）/ 1c 種（0d・T167 の材料）。
+
+## 1.486 後から足された特徴に特許の許諾は及ぶか —— 「改変に関わらず白紙の許諾を与える既存のライセンスは無い」（Berkus 氏 2019）と「変更した瞬間に許諾が消えるのは受け入れられない」（Chestek 氏・Piana 氏 2025）の間（議題 22・M5 の材料・2026-11-24）
+
+縮約の 2.3(b) の案 Z″ は、1.4 §8.4 の *"Section 8.1 alone governs a feature added to the Work, by whatever means."* に当たる文を持たない。効果の差の読み（7 回目・2 体）は 2 体ともこれを挙げた。決める側の全 7,657 通から、特許の語を含み、改変・派生・組合せの型に当たる 146 通（重なりを除いて 129）の抜き書き（前後約 120〜130 字）のうち、2001 年以降の 122 通を読んだ（1999〜2000 年の 7 通は読んでいない）。下の表の通は全文を開いた（Fontana 氏 2018-11 の行は引いている本文の前後）。
+
+| 発言 | 誰が | 向き |
+| :-- | :-- | :-- |
+| *"a patent grant cannot include carte blanche grants to any patent affecting the software regardless of modifications, and no existing license does."* | Josh Berkus 氏 2019-12-06（`license-review`・CAL。`ACD-1.0.reviewer-positions.md` に在る） | **広くしない側。** 改変が生む請求を外すことを「避けられない帰結」と述べた |
+| *"New infringement is the only kind of patent claims that can be excluded in an open source license."* | Pamela Chestek 氏 2025-09-19（MGB。同） | 除いてよいのは新しい侵害だけ。除かなければならないとは言っていない |
+| *"This language withholds the patent license the moment a change is made to the software, whether it has anything to do with the patented function or not."* | Chestek 氏 2025-09-19（同じ通） | **狭くしない側。** 改変で許諾そのものが消える形を拒む |
+| *"this is would create space for a potential patent ambush. The grant is insufficient to permit derivative works in case of contributions made by patent holders of the contributed invention"* | Carlo Piana 氏 2025-09-22（同） | **狭くしない側** |
+| *"If it's on the strong side, any modification of the subject software *after *the contribution that necessarily makes use of the patent claim is covered. If weak, only the patent claim *exactly *as exercised in the contribution by the patent holder is covered. Some corporations that own patent portfolios are loath to join into licenses with strong patent clauses, but will accept weak ones."* | Bruce Perens 氏 2018-02-21（NOSA 2.0 の審査） | 強い形も弱い形も在るという説明。費用を負うのは特許を持つ献呈者 |
+| *"but do not include claims that would be infringed only as a consequence of further modification of the contributor version"* | GPL-3.0 §11 の文（Richard Fontana 氏 2018-11-23 が引いた。GPL-3.0 は承認済み） | 承認済みの条が「さらなる改変の結果だけ」を外す |
+| *"it is critical for those downstream modifiers to know if they are covered by the patent grant or not, or there's no point in including the patent grant in the first place."* | Berkus 氏 2014-04-15（UPL の審査） | **狭くしない側、かつ判りやすさ。** 改変する人が及ぶか否かを知れることを求めた |
+| *"would it just be about abanding patent rights for the code as released by the original licensor, or would it mean abandoning patent rights on derivative works?"* | Karl Fogel 氏 2012-02-18（CC0 の審査） | 同じ問いを先に立てた。答えは述べていない |
+| *"provided that this does not license additional patent claims beyond those covering the unmodified Software and Larger Works"* | UPL の 2014 年 7〜9 月の草案の但し書き（Berkus 氏 2014-08-30 がこれに 開発者の立場で *"I'm still confused about how this actually works. I'm not objecting, I'm asking for clarification."* と書いた） | 改変が足す請求を外す型。**承認された UPL-1.0 にこの但し書きが残ったかは確かめていない** |
+| *"There is a patent license for the FOSS work as distributed and its derivative works."* / *"There is a patent license for all FOSS works."* | Lawrence Rosen 氏 2014-05-04（`license-discuss`。特許の扱いの型の一覧） | 派生まで・全 FOSS までの型がそれぞれ在ると述べる。出力や Result は挙げていない |
+
+**読み。** 記録の中で拒まれたのは 2 つの端である —— 改変で許諾が消える形（Chestek 氏・Piana 氏 2025）と、改変に関わらず白紙の形（Berkus 氏 2019）。1.4 §8.4 の「足された特徴は §8.1 だけ」は、その間に在る。Z″ は白紙ではない（特徴が Work から学ばれ、抜き出され、または Work が教え具えることを要する）が、改変版に足された特徴を §8.1 へ戻す文が無いので、1.4 より Berkus 氏の文に近づく。
+
+**逆側。** (1) Berkus 氏の文は CAL の審査での短い返答で、学習の結果を想定していない。(2) Z″ の要件は Work と特徴の間の結び目で、*"any patent affecting the software regardless of modifications"* に当たる形ではない。(3) Work がモデルの重みのとき、足された特徴を外す文は fine-tune を外し、蒸留との間で答えが割れる（3f の伏せた比較・2026-11-24）。(4) GPL-3.0 と同じ語を ACD が使っていないことは、欠けたことを意味しない。(5) Berkus 氏 2014 は改変する人が知れることを求めた。Z″ の「学ばれ、抜き出された」は、改変する人が自分の足した特徴について判じにくい語である —— 広いか狭いかとは別の費用。
+
+**この節が establish しないこと。** Z″ が審査で広すぎるとされること、足された特徴を外す文が要ること。
+
+**反映**: B7（広さの費用を Berkus 氏 2019 の文で両側に・59 へ）/ 1c 種（0d・M5 の採決の材料）。
