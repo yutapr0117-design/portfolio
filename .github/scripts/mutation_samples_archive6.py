@@ -27,10 +27,10 @@ MUTATIONS_ARCHIVE6 = [
     "replace": "",
 },
     {
-    "name": "Check 468u: §2.3 (b) の「governed by paragraph (a) alone」の alone を落とす —— 付け足した機能に (b) が及ぶかの線が消える (468u の目印)",
+    "name": "Check 468: §2.3 (b) の末文の does not by itself show を shows へ —— 処理しただけ・起点にしただけの特徴まで許諾に入る (468u の目印)",
     "file": CURRENT_DRAFT,
-    "find": "teach or embody, is governed by paragraph (a) alone, by whatever",
-    "replace": "teach or embody, is governed by paragraph (a), by whatever",
+    "find": "made, does not by itself show that a",
+    "replace": "made, shows that a",
 },
     {
     "name": "Check 444n: REUSE.toml の全 file への宣言を前の版へ戻す —— 2026-09-23〜11-08 に実際にこの状態だった (どの Check も読んでいなかった)",
@@ -133,8 +133,8 @@ MUTATIONS_ARCHIVE6 = [
     {
     "name": "Check 468u: §10.2 の通知が及ぶ先を「それが特定する素材」から「どの素材」へ広げる —— タグを残しただけの取り込み手の素材まで通知の適用に入る (468u の目印)",
     "file": CURRENT_DRAFT,
-    "find": "applies this Dedication to the material it identifies",
-    "replace": "applies this Dedication to any material",
+    "find": "a Dedicator places applies this Dedication to the material it identifies,",
+    "replace": "a Dedicator places applies this Dedication to any material,",
 },
     {
     "name": "Check 496: CHANGELIST の表の見出しから「件数」の列を外す —— 行は 4 セルのままなので、GFM は 4 列目を描かずに捨てる (2026-11-08 まで実際にこの状態だった)",
@@ -153,8 +153,8 @@ MUTATIONS_ARCHIVE6 = [
     {
     "name": "Check 468u: §1.7 の「if, and only if」を「if」へ縮める —— controlled の定義が片方向の条件になり、§2.3 が及ぶ請求項が広がる (468u の目印)",
     "file": CURRENT_DRAFT,
-    "find": "controls a claim if, and only if, at the time in question, the Dedicator",
-    "replace": "controls a claim if, at the time in question, the Dedicator",
+    "find": "and only if, at the time in question, the Dedicator has the right to",
+    "replace": "at the time in question, the Dedicator has the right to",
 },
     {
     "name": "Check 472n: 内側に引用符を持つ Fontana 氏の引用の語を動かす —— 取り出しが内側の \" で切れ、照合から黙って漏れていた (portfolio-00 の指摘)",
@@ -177,8 +177,8 @@ MUTATIONS_ARCHIVE6 = [
     {
     "name": "Check 468u: §10.2 の「in a comment within a file」を落とす —— ファイルの中のタグが及ぶ範囲が消え、取り込んだ他人のファイルまで通知の適用に入る (468u の目印・#2645)",
     "file": CURRENT_DRAFT,
-    "find": "place in a comment within a file",
-    "replace": "place in a file",
+    "find": "by its place in a comment",
+    "replace": "by its place in a part",
 },
     {
     "name": "Check 472: 送る文面の §8.4 を、どの版にも無い §8.9 にする —— 提出対象が 1.0 の間、472 は一度も RED になりえなかった (後の版の条番号は 1.0 の部分集合)",

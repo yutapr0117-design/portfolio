@@ -10,8 +10,8 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
       are left out, and the clauses are renumbered
       (LICENSES/CLAUSE-MAP-1.4-1.5.tsv). It covers Sections 1.1 to 1.12, 2.1
       to 2.7, 3.1 to 3.2, 4.1 to 4.4, 5.1 to 5.6, 6.1 to 6.5, 7.1 to 7.4, 8.1
-      to 8.2, 9.1 to 9.3, and 10.1 to 10.7. (-2440 words.)
-    * ACD-1.4: 5879 words, 80 clauses. This draft: 3439 words, 52 clauses.
+      to 8.2, 9.1 to 9.3, and 10.1 to 10.7. (-2388 words.)
+    * ACD-1.4: 5879 words, 80 clauses. This draft: 3491 words, 52 clauses.
 
   What differs in effect, so that a reader need not compare the two texts:
 
@@ -93,3 +93,26 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        Section 2.5(d) (Section 10.1).
    23. A person to whom a Covered Right or a Patent Claim is later exclusively
        licensed is named beside a transferee (Section 7.2(b)).
+   24. The covenant against collateral obligations reaches a Result only by
+       reason of its being a Result; a term asked of a contributor may not
+       impose an obligation in respect of use of the Work or of any Result;
+       the persons bound as successors are bound in respect of the Work, and
+       those entitled to the Dedicator's Moral Rights only as to Sections
+       2.5(c) and 2.6; and the marking that excludes material from being a
+       Contribution is made when the material is submitted (Sections 1.11,
+       5.1, 5.4(d), and 7.2).
+   25. Readings that a reader raised and that were accepted, not repaired (the
+       reasons are in LICENSES/ACD-1.5-CLARITY-TRIAL.md, section 13, in
+       Japanese): (a) the terms a Dedicator applies to its own material may
+       include measures (Section 5.6; ACD-1.4 says the same of those terms);
+       (b) a person to whom a patent claim is later exclusively licensed, or
+       who buys one, is bound by Section 5.1 as well, in respect of the Work
+       (Section 7.2; the effect of ACD-1.4's Sections 2.8 and 5.3); (c) a
+       Contribution that contains another person's ACD material makes the
+       person who submits it a Dedicator of that material (Section 10.4);
+       (d) a person who takes an assignment and applies the Dedication itself
+       may be read as having to mark material that the Dedication already
+       covers (Section 10.4); (e) Section 6.1 excludes implication and Section
+       9.1 takes the widest reading (they are read together; ACD-1.4 has the
+       same pair); (f) the limit in Section 2.5(d) to the Dedicator's own
+       likeness does not attach to the first limb.

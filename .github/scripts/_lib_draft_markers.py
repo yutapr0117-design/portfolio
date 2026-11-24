@@ -32,10 +32,9 @@ EFFECT_MARKERS_468U = (
     # 1.4 §8.4 (§6.4 の成果物の定義を含む): 因果で限り、量で限らない
     ("1.8", "in each case resulting, directly or indirectly, from automated processing of the Work"),
     ("1.8", "A copy of the Work in any form, including object code compiled from it and a copy contained in a Result, is not itself a Result"),
-    ("2.3", "in whole or in part, from the content of the Work"),
-    ("2.3", "however much or little of it was used"),
-    ("2.3", "teaches or embodies is treated as resulting from that content"),
-    ("2.3", "that a modified version of the Work has, and that the Work itself did not teach or embody, is governed by paragraph (a) alone"),
+    ("2.3", "one that the Work teaches or embodies, that is extracted from its content, or that is learned from its content by processing it"),
+    ("2.3", "alone or together with other material, however much or little of the Work was used"),
+    ("2.3", "was the starting point for what was made, does not by itself show that a feature was learned or extracted from it"),
     # 1.4 §8.1 (T16〜T20)・§8.3・§8.5
     ("2.3", "otherwise practise or transfer the Work, anything derived from it, and any Result"),
     ("2.3", "caused by subject matter in the Work, including, where the Work is a Contribution, by its combination with the material it was submitted for inclusion in"),
@@ -47,7 +46,7 @@ EFFECT_MARKERS_468U = (
     # 1.4 §5.1・§5.2(d)・§8.6・§12.2: 第三者を通じた主張と、行使 (T115)
     ("2.5", "not to authorise or assist any other person to assert or exercise"),
     ("2.5", "any Patent Claim that Section 2.3 reaches"),
-    ("2.5", "as wrongful, or as without legal basis, whether by reason of its being a use of the Work"),
+    ("2.5", "as wrongful, or as without legal basis, either by reason of its being such a use"),
     ("2.5", "that another person holds through the Dedicator"),
     ("5.4", "Sections 2.5(d) and 5.1 do not reach"),
     ("5.5", "Sections 2.5(d), 5.1, and 5.2 do not reach"),
@@ -80,9 +79,9 @@ EFFECT_MARKERS_468U = (
     ("10.2", "applies this Dedication to the material it identifies"),
     ("10.2", "in a comment within a file"),
     # errata E90: 他人の notice を渡す・記録する・名を挙げるだけでは適用でない
-    ("10.2", "nor mentioning this Dedication otherwise than to apply it, applies it to anything"),
+    ("10.2", "nor mentioning this Dedication, applies it to anything unless done to apply it"),
     # 回帰で閉じた句 (5.4 の列)
-    ("5.4", "a term about a Contribution, other than one restricting use of the Work, asked of the person submitting it"),
+    ("5.4", "a term about a Contribution, other than one restricting, or imposing an obligation in respect of, use of the Work or of any Result, asked of the person submitting it"),
 )
 
 # 468r の語と除外 (条, 句)。除外は語ではなく句で持つ: 同じ語を別の構文で使えば鳴り、句を書き換えたら読み直しの合図になる。
@@ -91,7 +90,7 @@ STATE_WORDS_468R = (r"unresolved|unsettled|uncertain|currently|presently|at pres
                     r"|not yet|so far|now fails|increasingly|in most jurisdictions|common use|remains? open|open question"
                     r"|undecided|not (?:been )?(?:settled|decided)|to date|at the time of writing|for now|recent(?:ly)?|nowadays|still")
 STATE_EXEMPT_468R = (
-    ("5.4", "so far as they impose nothing"), ("4.1", "so far as Section 7.2 binds You"), ("5.3", "so far as the law allows"), ("7.4", "so far as the law permits"),  # 範囲の語
+    ("4.1", "so far as Section 7.2 binds You"), ("5.3", "so far as the law allows"), ("7.4", "so far as the law permits"),  # 範囲の語
     ("1.6", "whether or not presently known or subsisting"),   # 範囲の語
 )
 
@@ -117,7 +116,7 @@ GAP_MARKERS_468D = {
         "permission for text and data mining or for the development of a machine learning model"),
     2: ("The licence includes any Computational Use of the Work",
         "licence under the Patent Claims to make any Computational Use of the Work",
-        "however much or little of it was used"),
+        "however much or little of the Work was used"),
     3: ("makes no Reservation",
         "is to be read as a Reservation",
         "withdraws any Reservation",
