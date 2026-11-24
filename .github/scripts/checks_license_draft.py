@@ -311,12 +311,17 @@ def run(ctx):
                     else _dr468.with_name(_dr468.name.replace("-DRAFT.txt", "-CHANGELIST.md")))
         _in468ad = {_m.group(1) for _f in _u468ad for _l in _f.read_text(encoding="utf-8").splitlines() if _l.startswith("- §")
                     for _m in re.finditer(r"試作 (T\d+) で入った", _l)}
-        _named468ad = set(re.findall(r"\b(T\d+)\b", _cl468ad.read_text(encoding="utf-8"))) if _cl468ad.exists() else set()
+        # 台帳の版より後の版の CHANGELIST も読む (2026-11-24・fc): 台帳は確定した 1.4 の名のまま 1.5 の試作 (T135 など) も記録するので、
+        #   1.4 の CHANGELIST だけと照らすと、1.5 で入った試作を「名の無い T」と出す (いまは該当 0 で緑だった)
+        _v468ad = lambda _p: tuple(map(int, re.search(r"ACD-(\d+)\.(\d+)-", _p.name).groups()))
+        _cls468ad = [_c for _c in sorted((ROOT / "LICENSES").glob("ACD-1.*-CHANGELIST.md"))
+                     if _cl468ad.exists() and _v468ad(_c) >= _v468ad(_cl468ad)]
+        _named468ad = {_x for _c in _cls468ad for _x in re.findall(r"\b(T\d+)\b", _c.read_text(encoding="utf-8"))}
         _miss468ad = sorted(_in468ad - _named468ad, key=lambda _x: int(_x[1:]))
         check(
             bool(_u468ad) and _cl468ad.exists() and not _miss468ad,
-            f"Check 468ad: §19 が「本文に入った」と言う試作 {len(_in468ad)} 件が、すべて {_cl468ad.name} に名指されている",
-            (f"Check 468ad: §19 が「試作 Tnn で入った」と言うのに {_cl468ad.name} に名の無い T: {_miss468ad}" if _u468ad and _cl468ad.exists()
+            f"Check 468ad: §19 が「本文に入った」と言う試作 {len(_in468ad)} 件が、すべて {' / '.join(_c.name for _c in _cls468ad)} に名指されている",
+            (f"Check 468ad: §19 が「試作 Tnn で入った」と言うのに {' / '.join(_c.name for _c in _cls468ad)} に名の無い T: {_miss468ad}" if _u468ad and _cl468ad.exists()
              else "Check 468ad: §19 の記録 (ACD-1.N-UNIQUE-READING.md) か作業中の版の CHANGELIST が無い") +
             "。台帳が本文に入ったと言う試作は、変更の記録 (CHANGELIST の主表) に行を持つ",
             blocking=True,
