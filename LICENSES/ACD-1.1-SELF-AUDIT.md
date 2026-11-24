@@ -912,3 +912,15 @@ T48（2026-11-09）は、*"Paragraphs (a) and (b) do not reach a service through
 **1.5 草案で閉じた（2026-11-24）**: *"treats a use of the Work … as wrongful, or as without legal basis, by reason of its being a use of the Work"* —— 攻撃の請求は攻撃を理由とし、Work の使用であることを理由としない。1.2〜1.4 は凍結のまま未修正。退けた形: *"for want of the Dedicator's permission"*・*"does not depend on the use lacking the Dedicator's permission"* —— 許諾の不在に依らない不正競争・不当利得の請求が約束の外に戻る（T90 で *"depends on … being unauthorised"* を退けたのと同じ理由）。
 
 **逆側**: 「Work の使用であることを理由とする」の境は裁判所が決める。プライバシー・パブリシティの請求は理由が人の像であって Work の使用でないと争えるので、次の文で明示に入れてある。
+
+## 3zg. 1.4 が持ち込んだ欠陥 —— ACD の通知つきの素材を取り込んだ別ライセンスのリポジトリへの patch が、書いた人の知らないうちに Contribution になる（2026-11-24）
+
+**なに**: 1.0〜1.3 の §1.9 は宛先を *"the Dedicator or … a repository or forum the Dedicator maintains"* に限っていた。1.4 は errata E65（保守者が替わると寄与でなくなる）を閉じるため、宛先を *"a repository or forum, in either case offering the Work with a notice of this Dedication"* に替えた。MIT のリポジトリが ACD の通知つきファイルを取り込み（§4.5 が許す）、通知を残して公開すると、そのリポジトリは「Work を通知つきで提供する」宛先に当たる。そこへ、そのファイルを直す patch を MIT のつもりで出した人は、提出のときに別段のことを述べなければ、§2.6 で Dedicator になり、特許の許諾を含めて取り消せない。リポジトリの全体のライセンスや寄与の規約は「本人が述べた」ことに当たらない。
+
+**及ぶ範囲**: ACD の素材への取り込みを目的とする patch（*"for inclusion in the Work"*）だけで、MIT の側のファイルへの patch は当たらない。ファイルの頭に通知が在るので、気づく手掛かりはある。
+
+**重さ**: Medium（採用と公平）。errata E65 の採用のとき、*"maintains or has maintained"* を「後で再ライセンスされたリポジトリの寄与者を知らないうちに Dedicator にする」という同じ理由で退けていた —— 採った語も別の経路で同じ結果を生む。`ACD-1.0.against.md` #313（Markham 氏 2014・Ingo 氏 2014 *"the surprise element"*）と同じ型の懸念である。
+
+**見つけ方**: 縮約の本文だけを読む独立の読み手（portfolio-6c・第三者の意見ではない）。1.0 の語には無いので errata ではなくここに記録する。
+
+**閉じ方の候補（1.5 草案 §10.4・未採用）**: *"unless either of them, when submitting it, or the terms of the place it is submitted to, puts it under other terms"*。**逆側**: 宛先の規約が寄与を別の条件に置けるので、fork の側の規約で寄与が ACD の外に出る —— 出た素材を識別する約束（10.4）はその素材を Work と一緒に含める Dedicator にだけ掛かる。1.4 は凍結のまま未修正。

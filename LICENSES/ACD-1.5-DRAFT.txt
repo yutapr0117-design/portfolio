@@ -52,10 +52,11 @@ Short identifier: ACD-1.5
        the text of this Dedication.
 
   1.3  "Dedicator" means each person who applies this Dedication to the Work, so
-       far as that person holds or may hold rights in it. As to each Dedicator,
-       the Work is the material to which that Dedicator has applied this
-       Dedication. This Dedication operates severally as to each Dedicator, and
-       the failure of one Dedicator's act does not affect another's.
+       far as that person holds or may hold Covered Rights or Moral Rights in
+       it, or patent claims. As to each Dedicator, the Work is the material to
+       which that Dedicator has applied this Dedication. This Dedication
+       operates severally as to each Dedicator, and the failure of one
+       Dedicator's act does not affect another's.
 
   1.4  "You" means any person or automated system exercising a permission given
        here. A permission an automated system exercises is given equally to the
@@ -104,9 +105,10 @@ Short identifier: ACD-1.5
 
   1.11 "Contribution" means any material intentionally submitted, by or on
        behalf of a person, for inclusion in the Work, to a Dedicator,
-       repository, or forum that offers the Work with a notice of this
-       Dedication to the public or to those invited to contribute. Material sent
-       for discussion only, or marked as not being a Contribution, is excluded.
+       repository, or forum, in each case one that offers the Work with a notice
+       of this Dedication to the public or to those invited to contribute.
+       Material sent for discussion only, or marked as not being a Contribution,
+       is excluded.
 
   1.12 The singular includes the plural and the reverse; "person" includes an
        entity; "including" and "in particular" do not limit what precedes them;
@@ -139,18 +141,15 @@ Short identifier: ACD-1.5
        infringe, on any theory:
 
        (a)  as to the Work or anything derived from it, where the infringement
-            is caused by subject matter that was in the Work when the Dedicator
-            made the Work available, or in the Contribution that the Dedicator
-            submitted, alone or combined with the material it was submitted for
-            inclusion in; and
+            is caused by subject matter in the Work, alone or combined with the
+            material the Work was submitted for inclusion in; and
 
        (b)  as to Computational Use or a Result, where the infringing feature
             results, in whole or in part, from the content of the Work, however
             much or little of it was used. A feature that the Work teaches or
             embodies is treated as resulting from that content. A feature added
-            to the Work, by whatever means, that the Work did not teach or
-            embody when the Dedicator made the Work available or submitted the
-            Contribution is governed by paragraph (a) alone.
+            to the Work, by whatever means, that the Work itself did not teach
+            or embody is governed by paragraph (a) alone.
 
   2.4  Terms of the licences. The licences in Sections 2.2 and 2.3 are
        worldwide, royalty-free, non-exclusive, irrevocable, perpetual,
@@ -174,7 +173,7 @@ Short identifier: ACD-1.5
        (d)  subject to Section 5.4, any other claim, known or unknown, that
             treats a use of the Work that this Dedication permits or purports to
             permit as wrongful, or as without legal basis, by reason of its
-            being a use of the Work. This includes a claim under a right of
+            being a use of the Work. This also includes a claim under a right of
             privacy, publicity, or personality held by the Dedicator.
 
   2.6  Moral Rights. The Dedicator also waives all Moral Rights in the Work, and
@@ -183,11 +182,12 @@ Short identifier: ACD-1.5
        them. The waiver, the consent, and the covenant in Section 2.5(c) extend
        to no other work of the Dedicator.
 
-  2.7  Independence. Each grant, waiver, consent, and covenant in this
-       Dedication is given in its own right, cumulatively, for every
-       jurisdiction, and to the fullest extent the law permits, whether or not
-       another is effective. You need not determine which of them is effective
-       in any jurisdiction, and none depends on how that question is answered.
+  2.7  Independence. Each surrender, grant, waiver, consent, authorisation, and
+       covenant in this Dedication is given in its own right, cumulatively, for
+       every jurisdiction, and to the fullest extent the law permits, whether or
+       not another is effective. You need not determine which of them is
+       effective in any jurisdiction, and none depends on how that question is
+       answered.
 
 3. MACHINE LEARNING RESERVATIONS AND MACHINE-GENERATED MATERIAL
 
@@ -394,10 +394,10 @@ Short identifier: ACD-1.5
        hold rights of their own, without permission from or notice to the
        authors of this Dedication.
 
-  10.4 A Contribution is made under this Dedication, and the person by whom, or
-       with whose authority, it is submitted applies this Dedication to it, and
-       becomes a Dedicator as to it, unless either states otherwise when
-       submitting it. A Dedicator who includes with the Work, or causes to be
+  10.4 A Contribution is made under this Dedication, and each person who submits
+       it, or has authorised its submission, applies this Dedication to it and
+       becomes a Dedicator as to it, unless one of them states otherwise when it
+       is submitted. A Dedicator who includes with the Work, or causes to be
        included with it, material submitted on other terms or excluded by
        Section 1.11 will identify it in a form that accompanies the Work, so
        that a person or an automated system can determine what this Dedication
