@@ -18,7 +18,7 @@
 #   "License Committee Report for August 2007").
 # 2026-11-16: split by the year the conversation began, before the 1,000-line ceiling (Check 365). This file holds
 #   conversations begun before 2010; THREAD-CANDIDATES-2010.txt holds 2010 onward. --pin writes both (candidate_rows reads both).
-# census-definition: 0b50c7d2dddf1757 (census_decision_statements.py の候補の定義。変えたら --pin で回し直す)
+# census-definition: 920c0bdcf435ff24 (census_decision_statements.py の候補の定義。変えたら --pin で回し直す)
 1999-04-14	Copyright
 1999-04-14	Get ready....
 1999-04-15	Stop. Stop, stop, stop, stop, stop

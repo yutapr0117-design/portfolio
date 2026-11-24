@@ -65,17 +65,21 @@ SPLIT = re.compile(r"^From \S+ at \S+  \w{3} \w{3} [ \d]\d \d\d:\d\d:\d\d \d{4}\
 #   根拠あり —— Weerawarana ("Director; Open Source Initiative"・2006)・Asay ("I'm an OSI board member"・2006-11)・Colannino と
 #   Blondelle (理事会の議事録の "Board members:")・Mathur ("I used to be one"・2008-08。在任の年は不明)・Vidal (事務局・moderator。
 #   委員・理事ではない)。
-#   根拠を見つけられない (推測で外さず残す) —— Souza・Greant・Mallett (webmaster の署名)・Langel・Garbee。Gune・Freund・Nwakanma は
+#   2026-11-24 の 2 回目 (6c が全 508 か月で当てた) —— 外した: Greant (OSI Editor・2007-11。本人の Editor's Handbook は役を
+#   "primarily an administrative, ombuds" と言い、決めるのは理事会)・Mallett (webmaster・2001〜02。Nelson 氏 "Steve Mallett, our
+#   webmaster")・Langel (2020 年の理事選の候補で落選・2020-03 の license-discuss)。根拠あり (弱い): Souza (license-discuss 2005-08-22 に
+#   「理事ではない」と言われての本人の返信 "not everyone on the board will be directly involved in every activity …")。
+#   根拠も別の役の根拠も見つけられない (推測で外さず残す) —— Garbee (From は 2007-09-05 の 1 通で役の文が無い)。Gune・Freund・Nwakanma は
 #   From に当たる通が 0。ここに名前を足すときは、在任の根拠 (本人の文・署名・議事録) を 1 行で書く
 DECIDERS = re.compile(r"\b(?:" + "|".join(re.escape(x) for x in [
     "Tiemann", "Danese Cooper", "Coar", "Radcliffe", "Rishab", "Souza", "Nelson", "Nwakanma",
     "Alolita", "Tracy Hinds", "Maracke", "Piana", "Aniszczyk", "Choudhury", "Carrez", "Majerus",
-    "Prabhakar", "Blondelle", "Berkus", "Greant", "Gune", "Garbee", "Suehle", "Michlmayr",
+    "Prabhakar", "Blondelle", "Berkus", "Gune", "Garbee", "Suehle", "Michlmayr",
     "Asay", "Weerawarana", "Deb Bryant", "Colannino", "Maffulli", "Freund", "Raymond",
-    "DiBona", "Mathur", "Chestek", "Fogel", "Mallett", "Chris Lamb", "Nicholson", "Phipps",
+    "DiBona", "Mathur", "Chestek", "Fogel", "Chris Lamb", "Nicholson", "Phipps",
     "Hashman", "Liambotis", "Josh Simmons", "Vignoli", "Zacchiroli", "Villa", "Rosen", "Perens",
     "Fontana", "McCoy", "Behlendorf", "Vidal", "Kuhn", "Randal",
-    "Milinkovich", "Langel",
+    "Milinkovich",
     # 2026-11-16 (2f の発見): OSI の公の宛名 (opensource.org) で書いていた 3 人が漏れていた —— Jim Jagielski 氏 (理事)、
     #   Patrick Masson 氏 (General Manager & Director)、VM (Vicky) Brasseur 氏 (理事)。足すと候補が 4 本増え、「未読 0」は
     #   漏れのぶん狭い範囲の 0 だった
