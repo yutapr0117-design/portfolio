@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.faq.md
 audience: 採用検討者, 法務, ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-24
+last-updated: 2026-11-25
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (逐条リファレンス) / LICENSES/ACD-1.0.comparison.md (族ごとの比較) / LICENSES/ACD-1.0.jurisdictions.md (法域別の問い)
 ---
 
@@ -16,7 +16,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LIC
 
 ---
 
-> **版の注（2026-11-24）**: この FAQ は ACD-1.0 に向けて書いた。このリポジトリが適用し、`ADOPTING.md` が採用者に勧めるのは ACD-1.4（root の `LICENSE` が名指す）で、答えが版で変わる所は各問に注がある。採用者が先に知っておくべき差: (1) 識別子は適用する版の番号で書く（1.4 なら `LicenseRef-ACD-1.4`。A10・A11 の `LicenseRef-ACD-1.0` は 1.0 の例）。(2) 1.4 の §1.4（Dedicator）は *"Covered Rights, Moral Rights, or patent claims in it"* と、人格権と特許の請求項も持つ者を Dedicator に数える（A20 の引用は 1.0 の §1.3 の語）。(3) §5.2(b) の除外（商標・名前・支払い）は 1.4 にだけ在る（`ADOPTING.md`）。(4) §8.4 の範囲は版で違う（A32）。条番号の対応は `REVIEWERS.md` の "Which text you are looking at" にある。
+> **版の注（2026-11-24）**: この FAQ は ACD-1.0 に向けて書いた。このリポジトリが適用し、`ADOPTING.md` が採用者に勧めるのは ACD-1.4（root の `LICENSE` が名指す）で、答えが版で変わる所は各問に注がある。採用者が先に知っておくべき差: (1) 識別子は適用する版の番号で書く（1.4 なら `LicenseRef-ACD-1.4`。A10・A11 の `LicenseRef-ACD-1.0` は 1.0 の例）。(2) 1.4 の §1.4（Dedicator）は *"Covered Rights, Moral Rights, or patent claims in it"* と、人格権と特許の請求項も持つ者を Dedicator に数える（A20 の引用は 1.0 の §1.3 の語）。(3) §5.2(b) の除外（商標・名前・支払い）は 1.4 にだけ在る（`ADOPTING.md`）。(4) §8.4 の範囲は版で違う（A32）。 (5) A9・A24 が引く 1.0 の §2.9（*"fully performed"*・未履行の義務が無い）は 1.1 で外れ、ACD-1.4 の §2.9 は倒産の手続きを条件にしないことだけを述べる（A27・errata E5・E30）。(6) A14 の *"it reaches nothing else"* は ACD-1.4 の §11.4 では但し書きを持つ（*"It reaches nothing else, save that the covenants in Section 5 are promises about the Dedicator's own conduct and are not limited by this sentence."*）。(7) A18・A19 の §16.4 は ACD-1.4 で広く、名は *"any name that contains "Autonomous Commons Dedication""*、識別子は *"ACD-"* に数字が続くものすべてで、Steward だけが新しい版を出せる。(8) A21 の *owns or controls* は ACD-1.4 の §8.5 が定義する: 支配するのは、義務に反さず支払いも生まずに許諾できる請求項だけ。**ただし所有する請求項にはこの条件が掛からない**ので、既に独占実施権を出した請求項も許諾する（errata E91・FRAND の約束との関係は法律家の確認が無いまま）。(9) A24 の §14.2 は、ACD-1.4 では §14.1 が *"EXCEPT FOR ANY LIABILITY FOR WILFUL MISCONDUCT, GROSS NEGLIGENCE, DEATH, OR PERSONAL INJURY"* を先に除き、§14.2 が、約束（§2.5・§5・§8.6・§12.2）に反して請求を主張し権利を行使した責任を限らない。(10) A25 の識別子は 1.0 の例（1.4 なら `ACD-1.4`）。条番号の対応は `REVIEWERS.md` の "Which text you are looking at" にある。
 
 ## A. 使う側の疑問
 
