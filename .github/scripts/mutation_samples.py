@@ -26,7 +26,7 @@ if sys.version_info < (3, 10):
     print("ERROR: mutation_samples.py requires Python 3.10+ (got %d.%d)" % sys.version_info[:2])
     sys.exit(1)
 
-from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_CHANGES, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID, APPLIED_DATE, SUBMISSION_TARGET, FROZEN_PREVIOUS  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_CHANGES, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID, APPLIED_DATE, SUBMISSION_TARGET, FROZEN_PREVIOUS, UNIQUE_READING  # noqa: F401 (entry 内で参照)
 from mutation_samples_archive import MUTATIONS_ARCHIVE
 from mutation_samples_archive7 import MUTATIONS_ARCHIVE7
 from mutation_samples_archive6 import MUTATIONS_ARCHIVE6
@@ -59,11 +59,12 @@ _MUTATIONS_TAIL = [
 
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 468ac: §19 の §1.4 第 1 文の行の分類の欄を太字にする —— ROW19 に合わず台帳が数えなくなる形 (2026-11-19・50 が "
+    "name": "Check 468ac: 一意に定める台帳の最初の「一意」の行の分類の欄を太字にする —— ROW19 に合わず台帳が数えなくなる形 (2026-11-19・50 が "
             "「**試作 T112 で入った**」で開いている試作 3 が 0 に見えたのを見つけた型)",
-    "file": ROOT / "LICENSES" / "ACD-1.4-UNIQUE-READING.md",
-    "find": "- §1.4 第 1 文 | 別の読み: *\"holds or may hold … in it\"* の *it* が Dedication を指す | 一意 |",
-    "replace": "- §1.4 第 1 文 | 別の読み: *\"holds or may hold … in it\"* の *it* が Dedication を指す | **一意** |",
+    "file": UNIQUE_READING,
+    "find": " | 一意 | 根拠: ",
+    "replace": " | **一意** | 根拠: ",
+    "first_occurrence": True,
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
@@ -177,11 +178,12 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
-    "name": "Check 468ad: §19.5 の §14.2 の否定の掛かり先の行を「試作 T999 で入った」にする —— CHANGELIST に名の無い試作を台帳が"
+    "name": "Check 468ad: 一意に定める台帳の最初の「一意」の行を「試作 T999 で入った」にする —— CHANGELIST に名の無い試作を台帳が"
             "「本文に入った」と言う形 (2026-11-20)",
-    "file": ROOT / "LICENSES" / "ACD-1.4-UNIQUE-READING.md",
-    "find": "| 試作 T126 で入った | 根拠: T126（PR 3742）で",
-    "replace": "| 試作 T999 で入った | 根拠: T999（PR 3742）で",
+    "file": UNIQUE_READING,
+    "find": " | 一意 | 根拠: ",
+    "replace": " | 試作 T999 で入った | 根拠: ",
+    "first_occurrence": True,
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
