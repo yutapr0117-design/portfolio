@@ -10,8 +10,8 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
       are left out, and the clauses are renumbered
       (LICENSES/CLAUSE-MAP-1.4-1.5.tsv). It covers Sections 1.1 to 1.12, 2.1
       to 2.7, 3.1 to 3.2, 4.1 to 4.4, 5.1 to 5.4, 6.1 to 6.5, 7.1 to 7.4, 8.1
-      to 8.2, 9.1 to 9.3, and 10.1 to 10.7. (-2712 words.)
-    * ACD-1.4: 5879 words, 80 clauses. This draft: 3167 words, 50 clauses.
+      to 8.2, 9.1 to 9.3, and 10.1 to 10.7. (-2711 words.)
+    * ACD-1.4: 5879 words, 80 clauses. This draft: 3168 words, 50 clauses.
 
   What differs in effect, so that a reader need not compare the two texts:
 
@@ -24,9 +24,9 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
     4. A Result may result from the Work indirectly, and does not include a copy
        of the Work in any form (Section 1.8).
     5. The patent licence reaches subject matter in the Work, which is the
-       material to which the Dedicator applied the Dedication, alone or
-       combined with the material the Work was submitted for inclusion in, and
-       an infringement on any theory (Section 2.3(a); errata E89).
+       material to which the Dedicator applied the Dedication, including by its
+       combination with the material the Work was submitted for inclusion in,
+       and an infringement on any theory (Section 2.3(a); errata E89).
     6. A feature that the Work taught or embodied, added to the Work later by
        whatever means, comes within the licence for Results (Section 2.3(b));
        in ACD-1.4 Section 8.1 alone governed every feature added to the Work.
