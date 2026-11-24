@@ -40,7 +40,7 @@ def reviewers_size_sites() -> list[dict]:
     """REVIEWERS.md 冒頭のドシエ全体の語数・倍率・実測日 (Check 472m が 10% の幅で照らし、8% で ADVISORY)。
 
     2026-11-15、472m の ADVISORY が鳴った (453,125 語と書き実測 492,630 語・8.0%)。数え方は文が名乗る再測の
-    コマンド (rounds/ を除く LICENSES の `git ls-files` の語数)。**実測との差が 5% を越えたときだけ書き換える**
+    コマンド (rounds/ を除く LICENSES の `git ls-files` の語数)。**実測との差が 5% を越えたときだけ書き換える** (Check 472m の幅 10% (8% で ADVISORY) より狭いのは意図どおり —— 道具が先に直し、472m は回し忘れだけを止める)
     —— この 1 行は全員の増分で毎回動くので、毎回書き換えると並行 PR がこの行で衝突し続ける (8% の ADVISORY・
     10% の BLOCKING の手前で 1 回だけ動かす)。倍率は 472m と同じ割り算で、表の the licence の語数で割る。
     """

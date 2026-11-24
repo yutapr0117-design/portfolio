@@ -127,6 +127,8 @@ def run(ctx):
         if abs(sum(_got472m[:3]) - _got472m[3]) > 10:
             _bad472m.append(f"合計 ≈ {_got472m[3]} 語 / 3 行の和 {sum(_got472m[:3])} 語")
     # ドシエ全体の語数は増え続けるので 10% の幅を持つ。09-28 の値のまま 3 分の 1 少なく述べていた (2026-11-07)。
+    #   閾値は三段で、違うのは意図どおり (2026-11-24・cd の問い): sync_stated_counts.py --apply が差 5% を越えたら先に書き換え、
+    #   472m は 8% で ADVISORY、10% で BLOCKING —— sync を回し忘れた PR だけを止める。5% と 10% の間で緑のまま書き換わるのは正常
     _all472m = re.search(r"is \*\*([\d,]+) words\*\*, \*\*(\d+) times the licence\*\*", _rv472m)
     _ls472m = subprocess.run(["git", "ls-files", "-z", "LICENSES", ":!LICENSES/rounds"], cwd=ROOT, text=True, capture_output=True).stdout
     _size472m = sum(len((ROOT / _f).read_text(encoding="utf-8", errors="replace").split()) for _f in _ls472m.split("\0") if _f)
