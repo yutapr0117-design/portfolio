@@ -12,6 +12,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約と、分冊の一�
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
 | 2026-03 / 2026-08 | `license-review` | **観測（本文を AI が書いたことは問題か —— AI-MIT の審査の 4 通と、承認が AI の著作権訴訟で引かれる懸念 —— OpenMDW の審査の 1 通）** | `2026-03-and-08-license-review-ai-drafting-and-endorsement-observed.txt` |
+| 2026-03 | `license-review` | **観測（license-review 2026-03 の AI-MIT から 1 通・Chestek 氏・契約で採った法的地位の言明は採用者に確実さを与える）** | `2026-03-license-review-ai-mit-chestek-contractual-statement-of-status-observed.txt` |
 | 2026-03 | `license-review` | **観測（license-review 2026-03 の AI-MIT から 1 通・Chestek 氏・審査中は変えず取り下げて再提出・まとめてから）** | `2026-03-license-review-ai-mit-chestek-withdraw-and-resubmit-observed.txt` |
 | 2026-03 | `license-review` | **観測（license-review 2026-03 の AI-MIT から 1 通・Chestek 氏・返信が噛み合わないことを却下の理由に）** | `2026-03-license-review-ai-mit-chestek-not-responsive-observed.txt` |
 | 2020-01 | `license-review` | **観測（Smith 氏の 1 通・bare license で party の語を使う危うさ）** | `2020-01-license-review-mulan-psl-smith-party-bare-license-observed.txt` |
