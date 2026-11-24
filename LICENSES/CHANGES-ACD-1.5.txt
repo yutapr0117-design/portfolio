@@ -10,8 +10,8 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
       are left out, and the clauses are renumbered
       (LICENSES/CLAUSE-MAP-1.4-1.5.tsv). It covers Sections 1.1 to 1.12, 2.1
       to 2.7, 3.1 to 3.2, 4.1 to 4.4, 5.1 to 5.4, 6.1 to 6.5, 7.1 to 7.4, 8.1
-      to 8.2, 9.1 to 9.3, and 10.1 to 10.7. (-2683 words.)
-    * ACD-1.4: 5879 words, 80 clauses. This draft: 3196 words, 50 clauses.
+      to 8.2, 9.1 to 9.3, and 10.1 to 10.7. (-2599 words.)
+    * ACD-1.4: 5879 words, 80 clauses. This draft: 3280 words, 50 clauses.
 
   What differs in effect, so that a reader need not compare the two texts:
 
@@ -19,10 +19,11 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        applied the Dedication, and the text of the Dedication is not part of
        it (Sections 1.2 and 1.3).
     2. Moral Rights include those of a performer (Section 1.5; errata E92).
-    3. A patent claim that a transferee holds otherwise than from the
-       Dedicator is excluded, and utility models are named (Section 1.7).
-    4. A Result may result from the Work indirectly, and does not include a copy
-       of the Work in any form (Section 1.8).
+    3. A person bound as a successor or transferee is not a Dedicator as to
+       what that person holds otherwise than from the Dedicator (Section 1.3),
+       and utility models are named (Section 1.7).
+    4. A Result may result from the Work indirectly, and a copy of the Work is
+       not itself a Result (Section 1.8).
     5. The patent licence reaches subject matter in the Work, which is the
        material to which the Dedicator applied the Dedication, including by its
        combination with the material the Work was submitted for inclusion in,
@@ -59,8 +60,8 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
    16. Passing on or recording another person's notice, or mentioning the
        Dedication, does not apply it, and a narrower notice that the Dedicator
        kept puts material under other terms (Section 10.2; errata E90).
-   17. Each person who submits a Contribution, or has authorised its
-       submission, applies the Dedication to it, unless one of them states
+   17. Each person who submits a Contribution, or on whose authority it is
+       submitted, applies the Dedication to it, unless one of them states
        otherwise when it is submitted (Section 10.4).
    18. ACD-1.4's preamble, its Section 8.3, which says that no patent claim is
        reserved, the sentences of purpose in its Sections 6.5 and 12.3, the

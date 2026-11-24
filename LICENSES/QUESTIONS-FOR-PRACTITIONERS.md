@@ -31,7 +31,7 @@ The 1.5 draft restates the same clauses under new numbers, and four of the five 
 | 1 | §1.7, §15.5 | 1.9, 1.12 | Nothing in the list of uses; the example acts are fewer. |
 | 2 | §1.7, §6.4, §8.4 | §1.8 | One definition, *Result*, with *"directly or indirectly"*; a copy of the Work is not a Result. |
 | 3 | §8.4 | §2.3 (b) | The causal test is the same; *"however much or little of it was used"* replaces the sentence on quantity. |
-| 4 | §6.2, §6.3 | §3.1 | The list of signals is shorter: *"notice, metadata, protocol element, or other signal"*. It no longer names markings, headers or robots directives. **Would you read those as outside it?** |
+| 4 | §6.2, §6.3 | §3.1 | The list of signals is shorter: *"notice, metadata, protocol element, header, robots directive, or other signal"*. It no longer names markings. **Would you read those as outside it?** |
 | 5 | §2.6 | §10.4 | The promise is the same and still names no standard. |
 
 **Who wrote this page.** An AI model (Claude), working in this repository under the steward's
