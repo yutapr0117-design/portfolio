@@ -440,6 +440,14 @@ def run(ctx):
                 _mc471b = re.match(r"(\d{1,2})\.\s+[A-Z]", _cl471)
                 if _mc471b:
                     _clause471.add(_mc471b.group(1))
+        # 版を名に持つ文書 (ACD-1.5-CHANGELIST・逐条・試作) の裸の §N.M は、その版の条にも解決する (2026-11-24・議題 16: 1.5 は番号を
+        #   総替えし、1.0 に無い §1.12・§10.6 などを持つ。1.4 までは番号が 1.0 と続いていたので 1.0 の条だけで足りていた)
+        _verclause471 = {}
+        for _vt471 in sorted(_lic471.glob("ACD-1.*.txt")):
+            _vm471 = re.match(r"ACD-(1\.\d+)(?:-DRAFT)?\.txt$", _vt471.name)
+            if _vm471:
+                _verclause471.setdefault(_vm471.group(1), set()).update(
+                    re.findall(r"(?m)^  (\d{1,2}\.\d{1,2})\s", _vt471.read_text(encoding="utf-8")))
         # 想定問答の Q 番号（`\u00a731` / `\u00a732` はこの Q を指す記法として使われている）
         _qnum471 = set()
         for _qf471 in sorted(_lic471.glob("ACD-1.0.review-responses*.md")):
@@ -536,7 +544,9 @@ def run(ctx):
                             re.search(r"\u60f3\u5b9a\u554f\u7b54|\u5206\u518a|review-responses", _l471)
                             or "review-responses" in _f471.name):
                         continue
+                    _own471 = re.match(r"ACD-(1\.\d+)[.-]", _f471.name)
                     if (_sid471 in _clause471 or _sid471 in _headnum471.get(_f471.name, set())
+                            or (_own471 and _sid471 in _verclause471.get(_own471.group(1), set()))
                             or _sid471 in _pack471 or _sid471 in _series471
                             or _sid471 in _allnum471):
                         continue
