@@ -428,16 +428,15 @@ Short identifier: ACD-1.5
 
   10.4 Each person who made and submits a Contribution, and each person on whose
        authority, the submitter's own included, it is submitted, applies this
-       Dedication to it and becomes a Dedicator as to it, other than as to
-       another person's material passed on with that other person's notice,
-       unless the person so applying it, or the person submitting it, states
-       otherwise when it is submitted. A Dedicator who includes with the Work,
-       or causes to be included with it, material as to which a person stated
-       otherwise, or that Section 1.11 excludes, will identify it in a form that
-       accompanies the Work, so that a person or an automated system can
-       determine what this Dedication does not cover. That undertaking binds
-       that Dedicator, is subject to Section 8.2, and imposes nothing upon You.
-       Nothing in Section 10.4 obliges anyone to submit or to accept anything.
+       Dedication to it and becomes a Dedicator as to it, unless that person, or
+       the person submitting it, states otherwise when it is submitted. A
+       Dedicator who includes with the Work, or causes to be included with it,
+       material as to which a person stated otherwise, or that Section 1.11
+       excludes, will identify it in a form that accompanies the Work, so that a
+       person or an automated system can determine what this Dedication does not
+       cover. That undertaking binds that Dedicator, is subject to Section 8.2,
+       and imposes nothing upon You. Nothing in Section 10.4 obliges anyone to
+       submit or to accept anything.
 
   10.5 Anyone may copy and distribute this text verbatim. A modified text may
        not be distributed under a name that contains "Autonomous Commons
