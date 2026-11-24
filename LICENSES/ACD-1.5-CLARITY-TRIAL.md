@@ -151,3 +151,17 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 
 **採否**: **どちらも採らない**（5e）。例外の条件は「45 語超の文が減る」ことで、どちらも減らさず語だけを足す。**逆側**: (i) T140 は、除外の列が *claim* に掛かることを構文で示すので、T39 が読みで決めた点を文の形でも決める利点がある —— だがそれは分岐を消す変更ではなく（分岐は「一意」）、規則 1 の本則にも当たらない。(ii) 45 語超の割合（14.7%）は 1.0 の 10.3% より高いまま残る。下げるには列挙の文（§8.1・§8.4 の行為の列、§1.2・§1.5・§1.7・§1.10 の定義、§4.2・§4.3）に手を入れるしかなく、それは語を足さずには分けられない（THIRD §15.54 の結び・B3 と引き換え）。**反例（portfolio-cd・2026-11-24）**: なし。(1) 第 2 文は *"The Dedicator further covenants …"* で始まるので、*This further covenant* の *further* はその文の約束だけを名指す。(2) 仮に第 1 文まで掛かると読んでも、除外の 4 項（特許・商標と名前・虚偽の言明・合意した支払い）はどれも Covered Right ではない（§1.5 の定義、§11.4 が特許の請求項と Moral Rights を別に数える）ので、第 1 文から何も外れない。閉じるのは THIRD の案（*That covenant*）が分けたときに生む読みで、1.4 の 1 文の形には元からその分岐が無い。**逆側**（文体）: *This further* と限定詞が 2 つ並ぶ形は契約文ではやや珍しい。
 
+## 9. T142 —— §8.4 の因果の文に、重複原因でも足りることを 1 文で足す（+14 語・2026-11-24・種は 5e が cd の gap ② の読みに当てた反例・**反例待ち**）
+
+**方針の欄**: 規則 1 の本則 —— 消す読みの分岐は `ACD-1.4-UNIQUE-READING.md` の「§8.4 (4 巡目・but-for)」の行。errata の番号は無い（1.0〜1.3 の末文は別の形で反事実を問うていたので、1.0 から在る文の欠陥ではない）。
+
+**Before**（1.5 草案 §8.4 の末尾）: *"… a feature that the Work teaches or embodies is taken so to result. That is a question of causation and not of quantity: no threshold of how much of the Work was used is imposed."*
+
+**After**: *"… no threshold of how much of the Work was used is imposed. A feature so results even if it would also have resulted without the Work."*
+
+**測定**（`--compare`・1.5 草案）: 条 80、§8.4 は 184 → 198 語（+14）、草案 5,864 → 5,878 語。足した文は 14 語の独立の文で、45 語超の文は増えない。先行詞の無い指示語 0（*it* は *A feature*）、そろえ残し 0、全称 0、`--guard` の 468r・468d・冒頭の理由の句はどれも 0。外向きの依拠 1（`ACD-1.0.review-responses-clauses.md` の、特許の除外の理由を §8.4 の文に置く答え —— 足す文で狭まる読みは無いが、1.5 を出すなら見直す）。
+
+**効果**: *so results* が直前の文の *"results, in whole or in part, from the content of the Work"* を受け、因果の基準が but-for ではなく寄与であることを本文で決める。Work が教えも体現もしない特徴でも、Work の内容が一部でも寄与していれば、他のデータだけでも同じ特徴が生じたかどうかを問わない。
+
+**逆側**: (i) 語を足す（B3・+14）。(ii) 寄与の基準は、Work の寄与が小さい特徴まで §8.4 に入れる —— ただしそれは *"no threshold of how much of the Work was used is imposed"* が既に言っていることで、足す文は量ではなく反事実の問いだけを外す。(iii) 採用者の特許の負担（B7）は広い側に寄る。(iv) 法律家への問い 2 (h2) の答えを待たずに本文を動かすことになる —— 答えが「寄与で足りると読むのが普通」なら、この文は要らない（重複の文になる）。(v) *would also have resulted without the Work* は、それ自体が仮定の問いを名指すので、「その仮定を立てて調べてよい」と読まれる余地を作らないか（否定の文脈だが、反例の担当に当ててほしい点）。
+
