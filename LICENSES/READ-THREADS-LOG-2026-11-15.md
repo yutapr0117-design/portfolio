@@ -138,7 +138,7 @@ canonical-ref: LICENSES/READ-THREADS-LOG.md（いまの記録・record_read.py �
 
 - 2026-11-15 に "For Approval: CUA Office Public License"（`license-discuss` 2003-12・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。MPL の名前だけを変えた提出。名前を変えるだけのライセンスを作る理由を問う Rosen 氏の通は、§1.302 の線と同じなので節は立てない
 
-- 2026-11-15 に "That Notorious Suit (Slightly OT)"（`license-discuss` 2003-10・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。SCO と IBM の訴訟と GPL をめぐる会話。決める側の通は Greant 氏の 1 通で、ACD の論点は無かった（節は立てない）
+- 2026-11-15 に "That Notorious Suit (Slightly OT)"（`license-discuss` 2003-10・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。SCO と IBM の訴訟と GPL をめぐる会話。決める側の通は Greant 氏の 1 通で、ACD の論点は無かった（節は立てない）（2026-11-24 訂正: Greant 氏は 2007 年の OSI Editor —— 本人が書いた手引きで administrative・ombuds の役 —— で、理事・委員の記録が無く census の一覧から外れた。この会話に決める側の通は無い）
 
 - 2026-11-15 に "Termination for Patent Action"（`license-discuss` 2003-09・決める側の通を全文、他の通を冒頭で読んだ・9b の帯から 30 が引き受けた）。AFL 2.0 の特許の終了の条項。OSI と同時に FSF に送った、広い報復の条項は採用者が拒んで外した、の Rosen 氏の通を `review-readings-3.md` §1.309 と against #328・#46 へ
 
