@@ -141,8 +141,9 @@ Short identifier: ACD-1.5
        infringe, on any theory:
 
        (a)  as to the Work or anything derived from it, where the infringement
-            is caused by subject matter in the Work, alone or combined with the
-            material the Work was submitted for inclusion in; and
+            is caused by subject matter in the Work, including by its
+            combination with the material the Work was submitted for inclusion
+            in; and
 
        (b)  as to Computational Use or a Result, where the infringing feature
             results, in whole or in part, from the content of the Work, however
