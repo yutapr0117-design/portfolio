@@ -133,8 +133,8 @@ MUTATIONS_ARCHIVE6 = [
     {
     "name": "Check 468: §10.2 の通知が及ぶ先を「それが特定する素材」から「どの素材」へ広げる —— タグを残しただけの取り込み手の素材まで通知の適用に入る (468u の目印)",
     "file": CURRENT_DRAFT,
-    "find": "notice applies this Dedication to the material it identifies, whether by",
-    "replace": "notice applies this Dedication to any material, whether by",
+    "find": "applies it to nothing. A notice applies this Dedication to the",
+    "replace": "applies it to nothing. A notice applies this Dedication to any",
 },
     {
     "name": "Check 496: CHANGELIST の表の見出しから「件数」の列を外す —— 行は 4 セルのままなので、GFM は 4 列目を描かずに捨てる (2026-11-08 まで実際にこの状態だった)",
@@ -177,8 +177,8 @@ MUTATIONS_ARCHIVE6 = [
     {
     "name": "Check 468: §10.2 の「in a comment within a file」を落とす —— ファイルの中のタグが及ぶ範囲が消え、取り込んだ他人のファイルまで通知の適用に入る (468u の目印・#2645)",
     "file": CURRENT_DRAFT,
-    "find": "by its place in a comment within a file",
-    "replace": "by its place within a file",
+    "find": "whether by its words, by its place in a comment",
+    "replace": "whether by its words, by its place in a part",
 },
     {
     "name": "Check 472: 送る文面の §8.4 を、どの版にも無い §8.9 にする —— 提出対象が 1.0 の間、472 は一度も RED になりえなかった (後の版の条番号は 1.0 の部分集合)",
@@ -671,8 +671,8 @@ MUTATIONS_ARCHIVE6 = [
     {
     "name": "Check 468u: §5.4 (d) の自社素材の除外から「including a Result」を落とす —— 自社のモデルの条件まで §5.1 が禁じる読みが戻る (aa の依頼・2026-11-08・1.5 の書き直しで §5.2 → §5.4)",
     "file": CURRENT_DRAFT,
-    "find": "own that is not the Work, including a Result, or to a",
-    "replace": "own that is not the Work, or to a",
+    "find": "Dedicator makes or makes available, including a Result, or the terms",
+    "replace": "Dedicator makes or makes available, or the terms",
 },
     {
     "name": "Check 498 (h): AS-OF の未読スレッドの行で、読んだ数の頭に 1 を足す —— 3 つの数を手で数えており、和が合わなくても通っていた (2026-11-08 に手で 362 / 409 を直した)",

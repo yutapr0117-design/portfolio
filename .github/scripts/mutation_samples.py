@@ -147,11 +147,11 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
-    "name": "Check 451g: 確定の道具の textRedistribution の注を「ACD- を含まない」から「ACD- で始まらない」へ変える —— 草案の §10.5 は "
-            "does not contain と書くので、確定すると記述子が本文より狭い制限を述べる (errata E10 の型・2026-11-16)",
+    "name": "Check 451g: 確定の道具の textRedistribution の注を「ACD- を含む」から「ACD- で始まる」へ変える —— 草案の §10.5 は "
+            "contains と書くので、確定すると記述子が本文より狭い制限を述べる (errata E10 の型・2026-11-16)",
     "file": ROOT / ".github" / "scripts" / "prepare_version_freeze.py",
-    "find": "and an identifier that does not contain",
-    "replace": "and an identifier that does not begin with",
+    "find": "or an identifier that contains",
+    "replace": "or an identifier that begins with",
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({

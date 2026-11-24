@@ -31,7 +31,7 @@ EFFECT_MARKERS_468U = (
     ("1.12", '"person" includes an entity'),
     # 1.4 §8.4 (§6.4 の成果物の定義を含む): 因果で限り、量で限らない
     ("1.8", "in each case resulting, directly or indirectly, from automated processing of the Work"),
-    ("1.8", "does not include a copy of the Work in any form"),
+    ("1.8", "A copy of the Work in any form, including one contained in a Result, is not itself a Result"),
     ("2.3", "in whole or in part, from the content of the Work"),
     ("2.3", "however much or little of it was used"),
     ("2.3", "teaches or embodies is treated as resulting from that content"),
@@ -52,9 +52,9 @@ EFFECT_MARKERS_468U = (
     ("2.5", "subject to Section 5.4"),
     ("5.4", "claim for patent infringement outside what Section 2.3 reaches"),
     # 1.4 §5.2 末段 (E67)
-    ("5.4", "that is not the Work, including a Result"),
+    ("5.4", "rights in material, other than the Work, that the Dedicator makes or makes available, including a Result"),
     ("5.4", "without providing a copy of the Work"),
-    ("6.2", "does not restrict stating truthfully"),
+    ("6.2", "does not restrict nominative reference, including stating truthfully"),
     ("6.3", "accompanied or was contained in the Work"),
     ("9.2", "invalid or unenforceable"),
     # 1.4 §2.4・§8.6・§12.2 の独立 (E18 / E26 / E42)
@@ -78,7 +78,7 @@ EFFECT_MARKERS_468U = (
     ("10.2", "applies this Dedication to the material it identifies"),
     ("10.2", "in a comment within a file"),
     # errata E90: 他人の notice を渡す・記録する・名を挙げるだけでは適用でない
-    ("10.2", "merely mentioning this Dedication applies it to nothing"),
+    ("10.2", "mentioning this Dedication, other than as a notice for material, applies it to nothing"),
     # 回帰で閉じた句 (5.4 の列)
     ("5.4", "a term about a Contribution, asked of the person submitting it"),
 )

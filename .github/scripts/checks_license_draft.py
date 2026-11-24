@@ -687,7 +687,7 @@ def run(ctx):
         #   終わる。終わりの "." まで固定し、後ろに例外を足せないようにする。
         _n468m, _b468m = clause_by_lead(_t468, TEXT_RULE_LEADS)
         _s468m = " ".join(_b468m.split())
-        _lack468m = [_k for _k in ("a new version that the Steward publishes under a version number that no earlier text", "has borne.")
+        _lack468m = [_k for _k in ("a new version that the Steward publishes under a version number and identifier that no earlier text", "has borne.")
                      if _k not in _s468m]
         if _lack468m:
             _bad468.append(f"468m: §{_n468m} から「1 識別子 = 1 固定本文」の保証が欠けている: {_lack468m} "
