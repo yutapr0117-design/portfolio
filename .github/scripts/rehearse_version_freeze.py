@@ -8,6 +8,12 @@
 consistency を回す。RED が「人が読んで直す」一覧 `EXPECTED` の中に収まれば成功である。一覧の外の RED、
 traceback、道具の失敗は失敗で、確定の日に止まる場所が増えたことを意味する。作業ツリーは触らない。
 
+**予行が見ないもの (測って採らなかった・2026-11-24・fc)**: 確定で RED にならず黙る Check (前提が外れた mutation の型)。
+確定の前後で consistency の OK の行の件数が 0 に落ちた Check を出す照合を試作したが、1.4 の確定の直前の commit (2dea1142^) で
+対照を取ると、実際に黙った 468a・468x・468y・472 を 1 つも出さなかった —— 件数を自分の OK の行に出さない Check と、同じ件数の
+まま別の file を見る Check を捕まえない。確定で黙る型は、確定の道具の PROBE_LINE (merge した日に mutation-probe を回す) と
+Check 479e (作業中の版の名を mutation に直書きしない) が持つ。同じ試作を回し直さない。
+
 使い方:
     python3 .github/scripts/rehearse_version_freeze.py
 """
