@@ -9,8 +9,8 @@ canonical-ref: LICENSES/ACD-1.0.txt (the text posted) / LICENSES/ACD-1.4.txt (th
 
 ## The short path, and what it costs you
 
-**You are a volunteer. Nothing here is required reading.** Measured 2026-11-23, the analysis in
-this directory — everything except `rounds/` — is **594,967 words**, **101 times the licence**, and
+**You are a volunteer. Nothing here is required reading.** Measured 2026-11-24, the analysis in
+this directory — everything except `rounds/` — is **626,393 words**, **107 times the licence**, and
 more than that in fact, because Japanese is not space-delimited. `rounds/` holds the primary
 sources verbatim so that every quotation can be checked against what was actually sent; **nobody
 is asked to read it.** The whole of it exists so that a claim we make can be checked, **not so
@@ -22,9 +22,9 @@ that it must be**. *(Re-measure: `git ls-files -z LICENSES ':!LICENSES/rounds' |
 | :-- | --: | :-- |
 | [`ACD-1.4.txt`](ACD-1.4.txt) | **5,879** | the licence: the version this repository applies and the one that would be submitted. Nothing outside it fixes it. [`ACD-1.0.txt`](ACD-1.0.txt) (4,896 words) is the text posted to `license-discuss` on 2026-08-26 and the base of [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt), which shows every changed word |
 | the two facts **#1 and #4** in [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~220 | **no lawyer has read this text**, and **the only project using it is the author's**. These are the strongest points against it. Neither is one of the eight published criteria, and the Licensing Committee's chair has called legal review *"not a blocker"*, but a reviewer may weigh both |
-| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **5,395** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
+| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **5,426** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
 
-**≈ 11,494 words** *(`wc -w`, 2026-11-24.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
+**≈ 11,525 words** *(`wc -w`, 2026-11-24.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
 jurisdiction analysis, and the archive measurements — **all of which are evidence for claims,
 not claims themselves.** The four commands below check the licence text without trusting any
 of it.
