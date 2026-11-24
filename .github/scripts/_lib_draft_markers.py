@@ -47,13 +47,16 @@ EFFECT_MARKERS_468U = (
     # 1.4 §5.1・§5.2(d)・§8.6・§12.2: 第三者を通じた主張と、行使 (T115)
     ("2.5", "not to authorise or assist any other person to assert or exercise"),
     ("2.5", "any Patent Claim that Section 2.3 reaches"),
-    ("2.5", "as wrongful, or as without legal basis, by reason of its being a use of the Work"),
+    ("2.5", "as wrongful, or as without legal basis, whether by reason of its being a use of the Work"),
     ("2.5", "that another person holds through the Dedicator"),
     ("2.5", "subject to Section 5.4"),
     ("5.4", "claim for patent infringement outside what Section 2.3 reaches"),
     # 1.4 §5.2 末段 (E67)
     ("5.4", "that is not the Work, including a Result"),
-    ("5.4", "without providing a copy of it"),
+    ("5.4", "without providing a copy of the Work"),
+    ("6.2", "does not restrict stating truthfully"),
+    ("6.3", "accompanied or was contained in the Work"),
+    ("9.2", "invalid or unenforceable"),
     # 1.4 §2.4・§8.6・§12.2 の独立 (E18 / E26 / E42)
     ("2.7", "cumulatively, for every jurisdiction, and to the fullest extent the law permits, whether or not another is effective"),
     ("2.7", "need not determine which of them is effective"),
