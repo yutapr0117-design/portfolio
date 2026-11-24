@@ -298,6 +298,20 @@ _MUTATIONS_TAIL.append({
     "replace": (f'    "file": ROOT / "LICENSES" / "ACD-{CURRENT_DRAFT_VER}-DRAFT.txt",\n'
                 '    "find": "terminates or narrows, under this Dedication, for any reason",'),
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 436: Claude2Claude の「（承認は要らない）」を「（承認待ち）」へ —— 禁句の列に「承認待ち」が無く、11-12 の監査まで素通りした",
+    "file": ROOT / "Claude2Claude.md",
+    "find": "に当たる反証を先に記録する（承認は要らない）",
+    "replace": "に当たる反証を先に記録する（承認待ち）",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 436b: AI2AI の「横井雄太の依頼により」を「横井雄太の指示により」へ —— 呼び名の列に本人の名が無く、規範層に残っていた",
+    "file": ROOT / "AI2AI.md",
+    "find": "横井雄太の依頼により実行",
+    "replace": "横井雄太の指示により実行",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
