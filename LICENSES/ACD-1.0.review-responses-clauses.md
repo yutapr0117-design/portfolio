@@ -292,7 +292,7 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 >   does is a question about how far down a chain "resulting from" runs, and neither version
 >   answers it. This is the weakest point in the section and it is recorded rather than argued.
 >
-> *(Version note, 2026-11-04: the answers above describe 1.0 and 1.1 to 1.3. In the 1.4 draft the first covers only features that result from the content of the Work; the third asks whether the use contributed, not whether it was necessary; in the fourth, a model that in fact used the Work is inside as to such a feature, and an independently made model is outside. The fifth and sixth stand.)*
+> *(Version note, 2026-11-04: the answers above describe 1.0 and 1.1 to 1.3. In the 1.4 draft, and in ACD-1.4 as fixed on 2026-11-23 (checked again 2026-11-24), the first covers only features that result from the content of the Work; the third asks whether the use contributed, not whether it was necessary; in the fourth, a model that in fact used the Work is inside as to such a feature, and an independently made model is outside. The fifth and sixth stand.)*
 >
 > **What this shows about the design.** Five of the six turn on words already in the section —
 > "use", "resulting from", "depends upon" — and the sixth is a genuine gap. **The section is
