@@ -1,7 +1,7 @@
 ---
 file: LICENSES/QUESTIONS-FOR-COUNSEL.md
 audience: a lawyer asked to read ACD, or reading it on license-review / license-discuss; the steward, when asking one
-last-updated: 2026-11-23
+last-updated: 2026-11-24
 canonical-ref: LICENSES/ACD-1.4.txt (the latest fixed text, applied to this repository) / LICENSES/ACD-1.5-DRAFT.txt (the successor draft) / LICENSES/ACD-1.0.jurisdictions.md (where we think each question sits, by jurisdiction) / LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (B1)
 ---
 
@@ -404,9 +404,18 @@ the equivalent rule in other jurisdictions? Our reading is that a surrender tran
 and that §4 in any case needs no writing, but Rosen's remark was about a transfer to a project, which
 ACD does not take, and we have not found a case on an unsigned surrender.
 
+A fourth question is what a notice does when the person who carries it did not mean to apply it. §16.2 of
+1.0 to 1.3 says that where a work *"is accompanied by the identifier"* the terms apply in full; ACD-1.4
+speaks of *"A notice a Dedicator places"*, but a Dedicator is a person *"applying this Dedication"*. A
+distributor that keeps a file's tag, a notices file, and a software bill of materials all carry the
+identifier next to other material (errata E90). Would a court find that such a person surrendered rights or
+licensed patents, or would the law on declarations of intent, mistake, or agency answer it before the
+text does? The converse matters as much: if carrying a notice never applies it, can a recipient rely on a tag?
+
 **An answer would change** whether §2.6 should require an affirmative statement, at a cost to
-projects that accept contributions informally, whether the opt-out needs an addressee, and
-whether adopters should be told to keep a signed statement from contributors.
+projects that accept contributions informally, whether the opt-out needs an addressee, whether adopters
+should be told to keep a signed statement from contributors, and whether the rule on notices needs words
+about intention.
 
 ## 5. How far does the covenant against "any claim or cause of action" reach? (§5.1, §5.2(d), §11)
 
@@ -538,8 +547,22 @@ portfolio-30). **ACD-1.4 answers it (trial T93):** §5.1 and §5.2(d) now say *"
 that this Dedication permits or purports to permit"*, so the covenant holds where §4 does not take
 effect.
 
+A seventh question is where the covenant stops when the harm is not the use of rights but what was done
+with a tool. Suppose a Dedicator releases a network scanner under ACD-1.4 and someone uses it to break into
+the Dedicator's own server. §4.1 permits use *"for any purpose whatsoever"*, so the use is one *"that this
+Dedication permits or purports to permit"*, and a claim for the break-in treats that use as wrongful. None of
+the four exceptions fits. Our reading above leaves out a claim that only accompanies a use; on the words, the
+break-in is the use. Germany does not let liability for intent be excluded in advance (civil code section
+276(3)), and other laws have similar rules, so the covenant may fail there; does it fail only for the
+deliberate act, or does a court read the whole limb down? The same point touches §5.2(d): if the Work is an
+image generator, a false image of the Dedicator made with it is a *"use of the Work"*, and §5.2(d) is not
+tied to a likeness the Work contains, as CC0's waiver is (*"depicted in a Work"*). Both are recorded as
+defects of 1.2 to 1.4 (`ACD-1.1-SELF-AUDIT.md` §3zf and §3zh, in Japanese); the 1.5 draft limits the first to
+a claim made because the use is a use, and the second to what is *"contained in the Work"*. It is not fixed.
+
 **An answer would change** whether §5.1's *"treats as wrongful, or as without legal basis"* is the right wording,
-and whether data protection needs its own exception. An answer to the second question would change whether §11.3 needs the altered-work case in words.
+and whether data protection needs its own exception. An answer to the seventh would change whether adopters who
+release security or generative tools under ACD-1.4 should be told to wait for a later version. An answer to the second question would change whether §11.3 needs the altered-work case in words.
 The third is settled in ACD-1.4 by T91. The sixth is settled in ACD-1.4 by T93. An answer to the fourth would change whether §5.3 should keep the words *intended beneficiary*, and whether T66 should have extended them to §8.6. An answer to the fifth would change whether the second limb of §5.2(a) needs a carve-out for computer-misuse law.
 
 ## 6. Do the text-and-data-mining declarations do anything? (§6.2, §6.3)
