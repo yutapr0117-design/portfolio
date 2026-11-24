@@ -1,0 +1,117 @@
+Source: OSI license-review public archive, 2023-August.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-24)
+Messages: 1 of 11 in "A request for checking the review status of Mulan OWLs v1" (2023-08-10)
+Senders: Pamela Chestek
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Tue Aug 15 16:22:37 2023
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Tue, 15 Aug 2023 09:22:37 -0700
+Subject: [License-review] A request for checking the review status of
+ Mulan OWLs v1
+In-Reply-To: <007001d9cf8c$4bf07080$e3d15180$@lexpan.law>
+References: <tencent_432242E7C4943D054CCD1A4363B191998608@qq.com>
+ <1545611467.2073870.1688565578446.JavaMail.zimbra@piana.eu>
+ <b425c2dc-3ae6-e31f-1ed0-c120be7e5fb1@opensource.org>
+ <d97a8028-ca18-486c-afbb-ff9ab38ea935@berkus.org>
+ <003b01d9cc74$2c5941e0$850bc5a0$@lexpan.law>
+ <51714949-539f-174b-b02c-ace93789412a@chesteklegal.com>
+ <144958de-68d3-4176-9f96-e56cc27422a2@berkus.org>
+ <cc74c82f-5243-92cf-a873-9baf3b56847f@opensource.org>
+ <007001d9cf8c$4bf07080$e3d15180$@lexpan.law>
+Message-ID: <829c9ba8-4dcc-bb7e-37bc-c5d06c221395@chesteklegal.com>
+
+Don't you think that the a disclaimer of a patent grant is a violation 
+of several points of the OSD? Unfortunately the OSD doesn't expressly 
+memorialize freedom to run, I suspect because that's kind of the whole 
+point, missed the forest for the trees. Nevertheless, I believe the 
+express withholding of a patent license is a failure to ensure software 
+freedom, which is also a current requirement, because there is no 
+freedom to run. As to the OSD,
+
+OSD 6 - No Discrimination Against Fields of Endeavor - it would be 
+discrimination against the patented field of endeavor to withhold the 
+patent grant.
+OSD 7 - Distribution of License: "The rights attached to the program 
+must apply to all to whom the program is redistributed without the need 
+for execution of an additional license by those parties." The 
+withholding of a patent license means that an additional patent license 
+must be executed.
+OSD 8 - License Must Not Be Specific to a Product - This is the inverse 
+of OSD 6, without a patent grant, the license is specific to the 
+non-patented field of use (if any).
+
+IIRC, the CERN OHLs were written specifically with software in mind, so 
+that one license could be applied to the combination product of hardware 
+and software. That benefit was why it was submitted to the OSI and we 
+considered it. So it's not just a hardware license, but also by design 
+could be used as a stand alone software license (which was no mean trick 
+in the drafting). On my review, I walked through it as only a software 
+license to make sure it didn't have any unintended consequences when 
+applied that way.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+300 Fayetteville Street
+Unit 2492
+Raleigh, NC 27602
+pamela at chesteklegal.com
+(919) 800-8033
+www.chesteklegal.com
+
+On 8/15/2023 8:22 AM, McCoy Smith wrote:
+> FWIW, I agree that licenses that disclaim patent grants are not approvable. That's the lesson of CC. I continue to think that the OSI should articulate that as a hard-and-fast rule about approvable licenses so that future submitters know that that's a requirement for any submitted license. There's an underlying issue within that about whether a license that doesn't disclaim patent licenses but doesn't articulate any express patent license is approvable (at least, going forward) which probably also should be addressed (and explained wrt to the approved licenses that do do that).
+>
+> I'm not sure I agree that a "content" license is not approvable. Not sure, but don't think, that was an impediment to a consideration of CC. Also, there are licenses already on the list that are not specifically limited to software and could be equally applied to content. For example, the Fair license: https://opensource.org/license/fair/  They've also approved the CERN OHLs.  I think if OSI is going to limit itself to only "software" licenses, it need to make that policy decision and make it clear, and perhaps articulate how one distinguishes between a "software" (or "primarily software") and a "non-software" (or "primarily non-software") license, keeping in mind that software licenses have and are being applied to non-software, and vice versa. I suppose a "content" license that expressly states that it must not or cannot be used for software probably shouldn't be approved, but absent that I see no reason why it shouldn't be approved if it could be used with software equally with content.
+>
+>
+>> -----Original Message-----
+>> From: License-review <license-review-bounces at lists.opensource.org> On
+>> Behalf Of Pamela Chestek
+>> Sent: Tuesday, August 15, 2023 7:46 AM
+>> To: license-review at lists.opensource.org
+>> Subject: Re: [License-review] A request for checking the review status of
+>> Mulan OWLs v1
+>>
+>>
+>> On 8/14/2023 5:31 PM, Josh Berkus wrote:
+>>> On 8/11/23 09:56, Pamela Chestek wrote:
+>>>> The context of the question is whether to approve the submitted Mulan
+>>>> OWL licenses, so the discussion needs to be on license-review. It's
+>>>> specifically whether we should approve these licenses. The only
+>>>> issues that anyone mentioned were that they were content licenses
+>>>> (and I raised the patent issue).
+>>> Those are sufficient issues, no?  I mean, they're not going to change
+>>> these from being content licenses, and right now we have no idea how
+>>> to approve content licenses.
+>>>
+>> I think so, it's only that the response on the list has been somewhat
+>> equivocal, so I want to make sure everyone is in agreement.
+>>
+>> Pam
+>>
+>> Pamela S. Chestek
+>> Chair, License Committee
+>> Open Source Initiative
+>>
+>>
+>>
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not
+>> necessarily those of the Open Source Initiative. Communication from the
+>> Open Source Initiative will be sent from an opensource.org email address.
+>>
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-
+>> review_lists.opensource.org
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
