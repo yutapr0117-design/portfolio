@@ -815,10 +815,13 @@ def orphan_mutations() -> None:
     CHANGELIST を読む Check は無いので、付け替えずに退役させる。mutation_samples は別の process で読み直す (この process は
     確定の前の CURRENT_DRAFT を import していないが、念のため子 process で数える)。
     """
+    # 当て方は Check 362 と同じ find_spans (2026-11-25: 362 だけを折り返しに依らない当て方にした日に、この一覧が逐語のままで
+    #   折り返しをまたぐ anchor を「無い」と数え、予行が「362 の orphan と一覧の数が合わない」で止まった)
     code = ("import mutation_samples as m\n"
+            "from mutation_samples_common import find_spans\n"
             "for x in m.MUTATIONS + m.E2E_MUTATIONS:\n"
             "    t = x['file'].read_text(encoding='utf-8') if x['file'].exists() else ''\n"
-            "    print(x['name'][:100]) if x['find'] not in t else None\n")
+            "    print(x['name'][:100]) if not find_spans(x, t) else None\n")
     r = subprocess.run([sys.executable, "-c", code], cwd=Path(__file__).resolve().parent, text=True, capture_output=True)
     names = [ln for ln in r.stdout.splitlines() if ln.strip()]
     if names:
