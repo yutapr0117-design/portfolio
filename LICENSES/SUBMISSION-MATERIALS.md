@@ -86,7 +86,7 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 
 | もの | 作り方 | なぜ |
 |---|---|---|
-| 1.0 からの redline | `python3 .github/scripts/make_redline.py --changed-only LICENSES/ACD-1.0.txt LICENSES/ACD-1.4.txt`（投稿の日に作る） | list に出ているのは 1.0 で、審査者が求めたのは redline か新しいところだけの抜粋（Sado 氏 2026-01-24・§1.206） |
+| 1.0 からの redline | **既に `LICENSES/REDLINE-1.0-TO-1.4.txt` に在る**（凍結した 2 本の本文から `make_redline.py` で作る決定的な出力で、2026-11-24 に条の結び方を直して作り直した・入口 `REVIEWERS.md` が名指す）。変わった条だけを出すなら `python3 .github/scripts/make_redline.py --changed-only LICENSES/ACD-1.0.txt LICENSES/ACD-1.4.txt`（2026-11-23 まで「投稿の日に作る」だった） | list に出ているのは 1.0 で、審査者が求めたのは redline か新しいところだけの抜粋（Sado 氏 2026-01-24・§1.206） |
 | 新しい語と、最も近い承認済みの文 | `REVIEWERS.md` の "The new language, next to the nearest approved text" の表 | Perens 氏 2026-01-21 の求め（§1.205）。2005 年に委員長が求めた逐語の再利用（*"verbatim code reuse"*・§1.198） |
 | 承認済み＋追加の許諾で足りない理由 | 同じ節の "Why not an approved licence plus an additional permission?" | Sado 氏の問いの後半。特許については「足りる」と認める形で答えている（B10 H1-g） |
 | 変更ごとの英文の理由 | 変更の一覧（2026-11-20 から草案の外の `CHANGES-ACD-1.4.txt`・それまでは草案の冒頭）は 2026-11-16 に理由の句を外して詰めた（1c・bd5d71e3・草案の行数のため）。理由つきの英文は外す前の版に在る: `git show bd5d71e3^:LICENSES/ACD-1.4-DRAFT.txt` の冒頭の一覧（その後の T の理由は `ACD-1.4-CHANGELIST.md` の日本語だけ）。投稿の日に、出す版の変更の一覧へ英文の理由を写した 1 枚を作り、redline の隣に URL で置く | 英語で読む審査者が変更の理由を読める面が、草案から外した後は日本語の CHANGELIST だけになった（30 の指摘）。Perens 氏の求め（新しい語を理由と一緒に）に答えるには理由が要る。**逆側**: 写した 1 枚は本文でも CHANGELIST でもないので、Check が数と照らさない —— 作った日の草案と一緒に固定する |
@@ -103,7 +103,7 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 
 **出し方（決める側の先例・`review-readings-2.md` §1.220）**: (1) **1.0 の投稿への返信にせず、新しい件名で出す** —— Berkus 氏 2025-12-08 *"can you please start a new thread for the revised edition?"*。(2) **本文は全文を 1 つの文書で示す**（差だけを出さない）—— Chestek 氏（委員長）2025-02-10 *"It is too confusing and the recordkeeping too difficult to have multiple documents"*。(3) **redline は添付せず、リポジトリの URL で示す** —— 添付つきの通が一部に届かず、送り直した McCoy Smith 氏は 2023-08-30 *"I'm not including the attachments which might be the cause of the problem."* と書き、2026-09 には redline を GitHub に置いてリンクで配った。**大きさ（50 の実測・2026-11-16・main `ae7714c6`。草案が動くたびに動くので、投稿の日に測り直す）**: 1.0 → 1.4 の `make_redline.py --changed-only` は 5,706 語・618 行で、本体（道具の数え方で 5,546 語）とほぼ同じ長さ、`--context 8` でも 4,609 語（2026-11-15 の 9b の実測は 5,702 語・619 行・約 4,500 語で、向きは変わらない）。行動規範の *concise* の下で本文に貼る長さではないので、**投稿の本文は REVIEWERS の "The new language" の表と上の注の表にとどめ、redline は URL で示す**。有利な先例: Unicode v3 の委員会の理由書（2023-11）は提出者の番号つきの変更一覧をそのまま引いた。**逆側**: 1.0 → 1.4 の変更は数十件あり、量の多い一覧は「審査中に大きく書き直した」と読まれうる（`against.md` #249）。
 
-**投稿版を記録する**: 投稿の日の草案の commit と日付を草案の冒頭と `FROZEN.md` の POSTING-NOTE に書き、以後の変更は草案の冒頭の別節に分ける（段 6b）。
+**投稿版を記録する**: 出すのは凍結した ACD-1.4 なので、**公開アーカイブに届いた日と URL を `FROZEN.md` の POSTED-VERSION marker に書く**（`<!-- POSTED-VERSION: ACD-1.4 <届いた日> <公開アーカイブの URL> -->`・書くのは統合・Check 453c が形を、`submission_gate.py ACD-1.4` が 30 日を数える・2026-11-23 から）。その後に 1.5 草案を変えた分は、1.5 草案の冒頭の *"Changes since the version posted on <日付>"* の節に分ける（段 6b・1.5 を出す道のとき gate_6b が読む）。2026-11-23 まで、この段は「投稿の日の草案の commit と日付を草案の冒頭と POSTING-NOTE に書く」だった（草案を出す前提の形）。
 
 **⚠ 逆側**: 注を添えるほど投稿は長くなる（B3・B13）。注は「読み違えうる」と我々が判断した箇所だけで、審査者が別の箇所を読み違えることは防げない。1.1 の短い依頼が moderation で拒否された前例があり（`against.md` #215）、届くことは仮定しない（ゲート 10）。
 
