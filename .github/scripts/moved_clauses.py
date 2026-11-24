@@ -12,12 +12,16 @@
     python3 .github/scripts/moved_clauses.py --ledger LICENSES/ACD-1.5-UNIQUE-READING.md
         # 台帳の行（"- §x.y … ｜ 本文 <rev>" の <rev> を判定した本文とする）のうち、その条が判定の後に動いたものを出す
 
+    python3 .github/scripts/moved_clauses.py --effect-diff
+        # 凍結の門「効果の差の読み」の記録 (ACD-N.M-EFFECT-DIFF.md の印) が、いまの候補についてのものかを見る。印に書く sha256 も出す
+
 **条の本文**は空白を畳んで比べる（折り返しだけの差は動いたと数えない）。条の中の段 (a)〜(e) は条に含める。
 **測っていないもの**: 動いた条を引く別の条の読み（`Section N.M` の参照）。--refs を付けると、動いた条を参照する条も添える。
 終了コード: 動いた条（--ledger では当て直しの要る行）が 1 つ以上なら 1、無ければ 0、読めなければ 2。
 """
 from __future__ import annotations
 
+import hashlib
 import re
 import subprocess
 import sys
@@ -29,6 +33,7 @@ if sys.version_info < (3, 10):
 
 ROOT = Path(__file__).resolve().parents[2]
 RULE = "-" * 80
+STAMP = re.compile(r"<!-- EFFECT-DIFF: base=ACD-(\d+\.\d+) commit=([0-9a-f]{7,40}) body-sha256=([0-9a-f]{64}) unsorted=(\d+) -->")
 REV_IN_ROW = re.compile(r"本文 `?([0-9a-f]{7,40})`?")
 
 
@@ -71,6 +76,38 @@ def moved(a: dict[str, str], b: dict[str, str]) -> tuple[list[str], list[str], l
             sorted((k for k in b if k not in a), key=key), sorted((k for k in a if k not in b), key=key))
 
 
+def body_sha(text: str) -> str:
+    """区切り線の後の本文の sha256 (空白を畳む —— 折り返しの直しは候補を替えない)。"""
+    return hashlib.sha256(" ".join(text.split("\n" + RULE + "\n", 1)[-1].split()).encode()).hexdigest()
+
+
+def effect_diff_gate(v: str, prev: str, draft: str) -> list[str]:
+    """凍結の門「効果の差の読み」(2026-11-24・6c と 3f の提案): ACD-<v>-EFFECT-DIFF.md の印が、いまの候補についてのものか。
+
+    errata と UNIQUE-READING の回帰は「過去に問題になった語」しか見ない。書き直した 1.5 では、4 人の回帰で「開いた 0」の後に、
+    ドシエを持たない読み手が 2 本の本文だけを読んで記録の無い落ちを 11 件出した。差の数は数えない (1 回の読みの量に依る)。
+    見るのは「記録が在り、いまの候補の本文についてのもので、仕分けの無い差が 0」まで。仕分けの正しさは人が読む。
+    """
+    p = ROOT / "LICENSES" / f"ACD-{v}-EFFECT-DIFF.md"
+    if not p.exists():
+        return [f"{p.name} が無い (候補と ACD-{prev} の 2 本だけを、ドシエを持たない読み手に読ませ、差を 1 件ずつ仕分けた記録)"]
+    m = STAMP.search(p.read_text(encoding="utf-8"))
+    if not m:
+        return [f"{p.name} に印 (<!-- EFFECT-DIFF: base=ACD-x.y commit=… body-sha256=… unsorted=N -->) が無い"]
+    out = []
+    if m.group(1) != prev:
+        out.append(f"{p.name} の基準が ACD-{m.group(1)} (直前の凍結版は ACD-{prev})")
+    if int(m.group(4)):
+        out.append(f"{p.name} に仕分けの無い差が {m.group(4)} 件ある")
+    if m.group(3) != body_sha(draft):
+        a, b = clauses(load(m.group(2))), clauses(draft)
+        ch, new, gone = moved(a, b)
+        n = len(ch) + len(new) + len(gone)
+        out.append(f"{p.name} の後に候補が動いた: 条 {n} 個 ({' '.join('§' + k for k in ch + new + gone) or '条の外 (見出し・題名)'})。"
+                   + ("10 条を超えるので、読み手に読み直させる" if n > 10 else "動いた条だけを当て直し、印を書き直す"))
+    return out
+
+
 def ledger(path: Path) -> int:
     now, cache, stale, unread, rows = clauses(load(None)), {}, [], 0, 0
     for i, line in enumerate(path.read_text(encoding="utf-8").split("\n"), 1):
@@ -98,6 +135,15 @@ def main(argv: list[str]) -> int:
     if "-h" in argv or "--help" in argv or not argv:
         print(__doc__)
         return 0 if argv else 2
+    if argv[0] == "--effect-diff":
+        d = working_draft()
+        v = re.match(r"ACD-(\d+\.\d+)-DRAFT", d.name).group(1)
+        prev = max((re.match(r"ACD-(\d+\.\d+)\.txt$", p.name).group(1) for p in (ROOT / "LICENSES").glob("ACD-*.txt")
+                    if re.match(r"ACD-\d+\.\d+\.txt$", p.name)), key=lambda x: tuple(map(int, x.split("."))))
+        bad = effect_diff_gate(v, prev, d.read_text(encoding="utf-8"))
+        print(f"候補 {d.name} の body-sha256 {body_sha(d.read_text(encoding='utf-8'))}")
+        print("\n".join(f"  - {x}" for x in bad) if bad else "OK: 効果の差の読みは、いまの候補についてのもので、仕分けの無い差は 0")
+        return 1 if bad else 0
     if argv[0] == "--ledger":
         return ledger(Path(argv[1]))
     args = [a for a in argv if not a.startswith("--")]

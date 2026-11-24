@@ -43,7 +43,7 @@ def rehearse(tree: Path) -> list[str]:
     # 予行は確定の仕組みが届くかを見るので、提出の前提 (段 6b の 30 日・ゲート 6c) は外す (2026-11-20: 前提の止めが入った後、
     #   予行は毎週ここで止まり、仕組みの壊れを見ていなかった)。前提の止めそのものは prepare_version_freeze の gate が持つ
     tool = subprocess.run([sys.executable, ".github/scripts/prepare_version_freeze.py", "--date", datetime.date.today().isoformat(),
-                           "--not-for-submission"],
+                           "--not-for-submission", "--rehearsal"],
                           cwd=tree, text=True, capture_output=True)
     if tool.returncode != 0:
         return [f"確定の道具が止まった: {(tool.stderr or tool.stdout)[-300:]}"]

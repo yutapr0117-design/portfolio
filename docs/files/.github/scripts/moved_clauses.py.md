@@ -9,7 +9,7 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (合議の記録・議題 16) / .g
 
 ## What
 
-2 つの本文（file・git の版・作業中の草案）の条ごとの本文を空白を畳んで比べ、動いた条・新しい条・消えた条を出す手回しの道具。`--ledger` は、台帳の行が名乗る判定の本文（`本文 <commit>`）の後に動いた条の行だけを出す。`--refs` は、動いた条を参照する（自分は動いていない）条を添える。
+2 つの本文（file・git の版・作業中の草案）の条ごとの本文を空白を畳んで比べ、動いた条・新しい条・消えた条を出す手回しの道具。`--ledger` は、台帳の行が名乗る判定の本文（`本文 <commit>`）の後に動いた条の行だけを出す。`--effect-diff` は、凍結の門「効果の差の読み」の記録（`LICENSES/ACD-N.M-EFFECT-DIFF.md` の印）が、いまの候補の本文についてのものかを見る（`prepare_version_freeze.py` も同じ関数で、満たされなければ止まる）。`--refs` は、動いた条を参照する（自分は動いていない）条を添える。
 
 ## Why
 
@@ -19,6 +19,7 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (合議の記録・議題 16) / .g
 
 ```bash
 python3 .github/scripts/moved_clauses.py <commit> --refs
+python3 .github/scripts/moved_clauses.py --effect-diff
 python3 .github/scripts/moved_clauses.py --ledger LICENSES/ACD-1.5-UNIQUE-READING.md
 ```
 
