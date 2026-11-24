@@ -107,8 +107,9 @@ Short identifier: ACD-1.5
        behalf of a person, for inclusion in the Work, to a Dedicator,
        repository, or forum, in each case one that offers the Work with a notice
        of this Dedication to the public or to those invited to contribute.
-       Material sent for discussion only, or marked as not being a Contribution,
-       is excluded.
+       Material is excluded if it is sent for discussion only, is marked as not
+       being a Contribution, or is submitted to a repository or forum that puts
+       such submissions under other terms instead.
 
   1.12 The singular includes the plural and the reverse; "person" includes an
        entity; "including" and "in particular" do not limit what precedes them;
@@ -173,9 +174,9 @@ Short identifier: ACD-1.5
 
        (d)  subject to Section 5.4, any other claim, known or unknown, that
             treats a use of the Work that this Dedication permits or purports to
-            permit as wrongful, or as without legal basis, by reason of its
-            being a use of the Work. This also includes a claim under a right of
-            privacy, publicity, or personality held by the Dedicator.
+            permit as wrongful, or as without legal basis, whether by reason of
+            its being a use of the Work or under a right of privacy, publicity,
+            or personality held by the Dedicator.
 
   2.6  Moral Rights. The Dedicator also waives all Moral Rights in the Work, and
        consents to every act, by You or by anyone who receives the Work or
@@ -266,10 +267,10 @@ Short identifier: ACD-1.5
        (e)  terms or measures that the Dedicator applies to material of the
             Dedicator's own that is not the Work, including a Result, or to a
             service through which the Dedicator runs the Work for others without
-            providing a copy of it. That is so even where use of that material
-            or service is a Computational Use. Such terms and measures do not
-            reach a copy of any part of the Work contained in such material,
-            which remains the Work.
+            providing a copy of the Work. That is so even where use of that
+            material or service is a Computational Use. Such terms and measures
+            do not reach a copy of any part of the Work contained in such
+            material, which remains the Work.
 
 6. LIMITS
 
@@ -279,13 +280,14 @@ Short identifier: ACD-1.5
        that the Work is free of such rights.
 
   6.2  This Dedication grants no right in a trademark, trade name, logo, or
-       personal name. You may state truthfully what the Work is, where it came
-       from, and who made it.
+       personal name. Section 6.2 does not restrict stating truthfully what the
+       Work is, where it came from, and who made it.
 
   6.3  Representing falsely that the Dedicator authored, endorsed, sponsored, or
        is associated with a work is outside what this Dedication reaches, and
        neither Section 2.5(c) nor Section 2.6 extends to that conduct. Retaining
-       a notice that accompanied the Work is not such a representation.
+       a notice that accompanied or was contained in the Work is not such a
+       representation.
 
   6.4  This Dedication grants no permission under the law of data protection or
        under a right of privacy, publicity, or personality. Where the Work
@@ -311,7 +313,7 @@ Short identifier: ACD-1.5
             representatives;
 
        (b)  any person to whom a Covered Right, or a Patent Claim that Section
-            2.3 reaches, is transferred;
+            2.3 reaches, is later transferred or exclusively licensed;
 
        (c)  any person entitled to exercise Moral Rights in the Work after the
             Dedicator's death; and
@@ -351,10 +353,11 @@ Short identifier: ACD-1.5
        reading that gives You more prevails. No rule applies that construes this
        Dedication against its drafter, or a grant narrowly against the grantee.
 
-  9.2  A provision held invalid in a jurisdiction is to be reformed there to the
-       minimum extent necessary to make it valid while preserving its purpose.
-       If it cannot be reformed, it is to be treated as severed there only, and
-       the remainder as continuing in full force everywhere.
+  9.2  A provision held invalid or unenforceable in a jurisdiction is to be
+       reformed there to the minimum extent necessary to make it valid and
+       enforceable while preserving its purpose. If it cannot be reformed, it is
+       to be treated as severed there only, and the remainder as continuing in
+       full force everywhere.
 
   9.3  This Dedication specifies no governing law and no forum. This English
        text prevails over any translation.
@@ -405,11 +408,11 @@ Short identifier: ACD-1.5
        does not cover. That undertaking binds only that Dedicator. Nothing in
        Section 10.4 obliges anyone to submit or to accept anything.
 
-  10.5 Anyone may copy and distribute this text verbatim. A modified text may be
-       distributed only under a name that does not contain "Autonomous Commons
-       Dedication" and an identifier that does not contain "ACD-" followed by a
-       digit, in either case regardless of case. The following are not modified
-       texts, and anyone may distribute them:
+  10.5 Anyone may copy and distribute this text verbatim. A modified text may
+       not be distributed under a name that contains "Autonomous Commons
+       Dedication" or an identifier that contains "ACD-" followed by a digit, in
+       either case regardless of case. The following are not modified texts, and
+       anyone may distribute them:
 
        (a)  a translation that is identified as one and states that the English
             text prevails;

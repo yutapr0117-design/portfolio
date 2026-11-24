@@ -10,8 +10,8 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
       are left out, and the clauses are renumbered
       (LICENSES/CLAUSE-MAP-1.4-1.5.tsv). It covers Sections 1.1 to 1.12, 2.1
       to 2.7, 3.1 to 3.2, 4.1 to 4.4, 5.1 to 5.4, 6.1 to 6.5, 7.1 to 7.4, 8.1
-      to 8.2, 9.1 to 9.3, and 10.1 to 10.7. (-2711 words.)
-    * ACD-1.4: 5879 words, 80 clauses. This draft: 3168 words, 50 clauses.
+      to 8.2, 9.1 to 9.3, and 10.1 to 10.7. (-2683 words.)
+    * ACD-1.4: 5879 words, 80 clauses. This draft: 3196 words, 50 clauses.
 
   What differs in effect, so that a reader need not compare the two texts:
 
@@ -36,8 +36,9 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        about what the Dedicator holds, or another holds through the Dedicator
        (Section 2.5).
     9. The covenant against other claims is about a claim that treats a use as
-       wrongful by reason of its being a use of the Work (Section 2.5(d);
-       ACD-1.1-SELF-AUDIT.md, section 3zf).
+       wrongful by reason of its being a use of the Work or under a right of
+       privacy, publicity, or personality held by the Dedicator (Section
+       2.5(d); ACD-1.1-SELF-AUDIT.md, section 3zf).
    10. Nothing is imposed in respect of a Result, as well as of the Work; and a
        person bound as a transferee is named beside the Dedicator where the
        absence of conditions, and the freedom to choose terms, do not reach
@@ -69,9 +70,13 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
    19. ACD-1.4's Section 6.4 says that no enforceable claim arises in respect
        of a model or an output. Here that is a covenant (Section 2.5(a)) and an
        absence of conditions (Section 4.1).
-   20. A Contribution is any material, not only a work of authorship (Section
-       1.11).
+   20. A Contribution is any material, not only a work of authorship, and not
+       material submitted to a repository or forum that puts such submissions
+       under other terms instead (Section 1.11; ACD-1.1-SELF-AUDIT.md, section
+       3zg).
    21. The warranties and the kinds of loss are named in shorter lists
        (Sections 8.1 and 8.2).
    22. The suggested notice says that the work is provided as is, and points to
        Section 2.5(d) (Section 10.1).
+   23. A person to whom a Covered Right or a Patent Claim is later exclusively
+       licensed is named beside a transferee (Section 7.2(b)).
