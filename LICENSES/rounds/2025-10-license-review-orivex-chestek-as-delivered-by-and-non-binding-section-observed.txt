@@ -1,0 +1,343 @@
+Source: OSI license-review public archive, 2025-October.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-24)
+Messages: 1 of 11 in "Submission of Orivex Syscall Note License (OSN-1.0) for OSI Approval" (2025-10-20)
+Senders: Pamela Chestek
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Thu Oct 23 07:04:59 2025
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Thu, 23 Oct 2025 00:04:59 -0700
+Subject: [License-review] Submission of Orivex Syscall Note License
+ (OSN-1.0) for OSI Approval
+In-Reply-To: 
+ <CAAvo7O47-ivGkeHnsCaszE+g+r+A7-SxDU82AduJSJX7GRRzFg@mail.gmail.com>
+References: 
+ <CAE0NYFH31bsTaf_Mv1qcz7jqHwPPfy7NMaw_TzxRTC9WLQWYOw@mail.gmail.com>
+ <1760796185.26429334.1761052877264.JavaMail.zimbra@piana.eu>
+ <CAAvo7O47-ivGkeHnsCaszE+g+r+A7-SxDU82AduJSJX7GRRzFg@mail.gmail.com>
+Message-ID: <10d4c837-815a-4d1f-961d-c416f1618702@chesteklegal.com>
+
+I agree with all the prior commenters statements and would like to add 
+my thoughts.
+
+My primary concern is Section 6, which I recognize is the rationale for 
+creating a new license. However, it is expressly not binding. In my 
+view, it therefore has no business being in the document. There is a 
+legal principle (at least in the US) that every word in a written 
+agreement is there for a reason. Including terms that aren't binding 
+therefore opens the door to misinterpretation and misconstruction of the 
+license because a court may struggle to figure out what the heck it's 
+meant to do with this section. The place to express this sort of desire, 
+and in fact make it meaningful, is in your contribution policy. You can 
+reject a contribution if it does not preserve ABI and syscall interface 
+compatibility, so you can at least protect the blessed version of the 
+program. And, as you've conceded in the license, if downstream modifiers 
+don't do so, there's nothing you can do about it anyway. So I believe 
+this section can only create confusion and difficulty in its legal 
+interpretation and the problem is better dealt with elsewhere.
+
+Section 3.1 is a grant of a patent license "only to the extent such 
+patent claims are necessarily infringed by the Software */as delivered 
+by/* the Licensor." This can be read to say that only those who receive 
+the software directly from the patent holder are granted the patent 
+license. Sublicensees, or someone who receives the code from a mirror 
+site, would not have the patent license. That's not acceptable in an 
+open source license. I assume the problem you are trying to solve is to 
+avoid granting a license to later-modified software, but this word 
+choice isn't likely to be interpreted that way. As an example, the 
+Apache license uses the phrase "where such license applies only to those 
+patent claims licensable by such Contributor" to solve the problem.
+
+To Shuji-san's comment that there are two sublicense provisions, 2.2 and 
+4.6, I would add that there is another confusing spot, 2.4, which says 
+that a license is granted to "permit third parties to exercise any of 
+the foregoing rights." Isn't that a sublicense? What else might it mean? 
+Also, I believe nowadays sublicenses are generally disfavored in open 
+source licenses and the better practice is that everyone is a direct 
+licensee, as modeled by the way it's handled in the GPL licenses. So I 
+would just take out the concept of sublicensing altogether.
+
+Is it your intention to create a copyleft license? In section 5.2 you 
+state "Each Contributor Grants the Licensor and recipients of the 
+Software the licenses described in Sections 2 and 3 for their 
+Contribution." You also state in 1.2 that the "Licensor" means ... any 
+entity that subsequently holds copyright in the Software and distributes 
+it under OSN-1.0." The combination of these sections suggests that you 
+mean to have all Contributor's must use this license, that is, that it's 
+a copyleft license. If that is your intention, it needs to be said more 
+clearly. If it's not your intention, then the language needs to be 
+cleaned up to avoid the implication. Also, why mention only sections 2 
+and 3, why not require adoption of all the terms of the agreement? 
+Referring only to sections 2 and 3 means that the contributor could 
+argue they did not agree to other parts of the license, such as allowing 
+a cure period for termination.
+
+Section 7.3, when you say "compliance with such [external trademark] 
+guidelines is required to make use of Orivex trademarks beyond the 
+attribution described above," creates the possibility that there are 
+additional terms not contained in the license. The OSI won't approve 
+licenses that have unknown terms external to the license because it's 
+possible for those terms to impose additional requirements that are 
+inconsistent with the OSD. For example, the trademark guidelines could 
+prohibit a lawful use of the trademark in exchange for a requirement 
+that does not comply with the OSD, like "commercial distributions must 
+remove all use of the Orivex trademark in the source code," resulting in 
+a violation of OSD6.
+
+Section 5.4 is unnecessary. I've never seen it argued that a project 
+must accept contributions, so saying that you don't have to in some, or 
+any, circumstance doesn't add anything.
+
+For the above reasons I am not in favor of approving this license.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal
+www.chesteklegal.com
+
+
+On 10/21/2025 7:12 AM, Shuji Sado wrote:
+>
+> Hi,
+>
+> Thanks to Carlo-san for the thorough review. I broadly agree with his 
+> analysis. I'd like to add three narrower points that I don't think 
+> were explicitly covered, plus one suggestion about an existing pattern 
+> that may meet the author's stated goal without a new license.
+>
+> *1) Sublicensing inconsistency*
+>
+> §2.2 appears to grant an open-ended right to "sublicense," while §4.6 
+> conditions sublicensing on passing through the original terms; the 
+> definitions also fold "sublicense" into "Distribution." This creates 
+> ambiguity about whether downstreams rely on the original license or a 
+> new downstream license.
+>
+> *2) Fixed attribution phrase in §4.3*
+>
+> Mandating the exact sentence ("This distribution includes Orivex 
+> syscall interfaces (OSN-1.0) ...") to be displayed "prominently" is 
+> heavier than common NOTICE/attribution practice and reduces 
+> reusability for non-Orivex projects.
+>
+> *3) Making an SPDX identifier part of the redistribution requirement 
+> (§4.1)*
+>
+> SPDX tags are excellent metadata, but they are managed outside the 
+> license and may not exist for a new text. Making their inclusion a 
+> legal condition of redistribution can fail for reasons unrelated to 
+> copyright compliance.
+>
+> *Existing solution for the stated goal*
+>
+> If the aim is simply to clarify that user-space programs using kernel 
+> UAPI/ABI via syscalls are *not* derivative works of the kernel, there 
+> is an established SPDX exception used for this purpose: 
+> *Linux-syscall-note* (paired with GPL-2.0-only). Reusing that 
+> pattern--or documenting the clarification in project docs while using 
+> a standard license (e.g., Apache-2.0 or MIT/BSD)--would avoid 
+> introducing a new license and improve portability and adoption.
+>
+> Best,
+>
+>
+> 2025年10月21日(火) 22:22 Carlo Piana via License-review 
+> <license-review at lists.opensource.org>:
+>
+>     Hi,
+>
+>     thank you for the submission. I take that the .md file is just the
+>     gist of the license, but it is not useful to the approval process.
+>
+>     I firstly note a potential ambiguity on who is the Licensor.  It
+>     can be either of:
+>
+>     - everybody who holds any copyright  the software
+>     - who holds the copyright in the original
+>
+>     The second seems the case, as you elected to define also
+>     contributor (as the Apache 2.0 does), which is an interesting
+>     election WRT patent license, but in other cases it creates an
+>     unacceptable, in my view, discrimination between Licensor and
+>     Contributor, for instance in 11. Termination and with a lesser
+>     problem in 12. Export Control. This alone discriminates different
+>     classes of copyright holders and I consider it potentially against #5.
+>
+>     Also I am strongly in disfavor not only of any choice of law (only
+>     marginally problematic here), but also with any jurisdiction
+>     clause.  We had this discussion a number of times here.
+>
+>     On the positive side, I note Section 6 that you took pains at not
+>     creating a condition there. Good. Also the patent grant seems
+>     correct (again, Apache-style).
+>
+>     Section 7. creates text that makes difficult to port. It would be
+>     nice if submitters already decided to use placeholders instead of
+>     their name, or, better, to avoid placing the original licensor in
+>     a more favorable position than others, who might become even more
+>     prominent licensors.
+>
+>     Section 9 seems a good example of how you can protect the interest
+>     of Contributors, Apache style. I hoped you had done the same
+>     elsewhere (see above).
+>
+>     Also Section 10. although I am not sure I would accept it if I
+>     were a contributor and probably I would advise clients against it.
+>     The Apache license, which has a similar provision, makes it only
+>     as a consequence of the decision to provide a warranty, which
+>     makes more sense. This however does not seem to be against OSD,
+>     per se, but I urge you to reconsider this, it would create
+>     friction and I am not even sure it would hold water in many
+>     jurisdictions.
+>
+>     Also Section 14 is problematic, as it is not clear what the matter
+>     hereof is. Suppose licensing software is a part of a contract
+>     agreement?
+>
+>     As the copyright grant in Section 2, what language exactly enables
+>     the licensor to distribute dervative works at all? The license
+>     only extends to "prepare" and "reproduce", but the right to
+>     distribute is only granted in the software, in the source or
+>     binary form.
+>
+>     Please avoid, by all means "open-source". The correct spelling is
+>     Open Source.
+>     https://opensource.org/blog/is-open-source-ever-hyphenated
+>
+>     The definition of "Software" is also problematic. It only applies
+>     to Software as defined, and what if anyone would use it for
+>     different purposes? Why have not you defined software in Section 1
+>     "Definition", leaving the preamble as a a non-normative part of
+>     the license?
+>
+>     So, all in all there is some good faith effort and some quite
+>     apparent flaws, on a very cursory reading of the license.  I think
+>     fixing them (there might be others that I have not spotted) would
+>     be relatively easy, but at this version I would find it hard to
+>     approve it, even as a special purpose license.
+>
+>     Cheers
+>
+>     Carlo
+>     in his personal capacity
+>
+>     ------------------------------------------------------------------------
+>
+>         *Da: *"Righteousness" <karuman2013 at gmail.com>
+>         *A: *"license-review at lists.opensource.org"
+>         <license-review at lists.opensource.org>
+>         *Inviato: *Lunedì, 20 ottobre 2025 15:09:03
+>         *Oggetto: *[License-review] Submission of Orivex Syscall Note
+>         License (OSN-1.0) for OSI Approval
+>
+>         Dear Open Source Initiative License Review Committee,
+>
+>         I am submitting the Orivex Syscall Note License (OSN-1.0) for
+>         your consideration for OSI approval.
+>
+>         Background:
+>         Orivex is an operating system currently under active
+>         development. OSN-1.0 is a permissive license specifically
+>         designed for Orivex’s kernel-facing components, including
+>         kernel headers, syscall interface definitions, reference ABI
+>         documentation, and related API files. This license is intended
+>         to enable Orivex to be released as open source in the future.
+>
+>         Why a New License is Necessary:
+>         Existing OSI-approved licenses, such as MIT, BSD, or Apache
+>         2.0, provide general-purpose permissive licensing but do not
+>         explicitly address kernel- and syscall-level artifacts.
+>         OSN-1.0 fills this gap by:
+>         - Preserving attribution and provenance specifically for
+>         kernel interfaces and ABI contracts.
+>         - Providing guidance for ABI and syscall interface
+>         compatibility without imposing legal obligations.
+>         - Explicitly separating trademark rights from copyright and
+>         patent grants.
+>         - Clarifying contributor patent grants and termination
+>         conditions related to patent litigation.
+>
+>         Comparison to Similar OSI Licenses:
+>         - MIT/BSD: Similar in permissiveness and simplicity, but do
+>         not provide guidance on syscall/ABI traceability or
+>         contributor patent grant clarity.
+>         - Apache 2.0: Includes patent grants and some attribution
+>         requirements, but is heavier and not tailored for
+>         kernel-facing artifacts or syscall-specific documentation.
+>         OSN-1.0 balances permissiveness, clarity, and lightweight
+>         design, while providing explicit protections and guidance for
+>         kernel interface development.
+>
+>         Open Source Definition Compliance:
+>         OSN-1.0 has been designed to satisfy all ten criteria of the
+>         Open Source Definition (OSD), including:
+>         - Free redistribution
+>         - Availability of source code
+>         - Permission to create derivative works
+>         - No discrimination against persons, groups, or fields of endeavor
+>         - Technology-neutral terms
+>         - Clear redistribution and license grant requirements
+>
+>         Additional Information:
+>         - Copyright (c) 2025 Kartik
+>         - SPDX Identifier: Orivex-syscall-note
+>         - Governing Law: India
+>
+>         I believe OSN-1.0 provides a clear, permissive license
+>         suitable for projects requiring kernel- or syscall-level
+>         interfaces while remaining fully OSD-compliant. I would be
+>         happy to provide any additional information, clarifications,
+>         or documentation needed to facilitate your review.
+>
+>         Thank you for your time and consideration.
+>
+>         Best regards,
+>         Kartik
+>         karuman2013 at gmail.com
+>
+>         _______________________________________________
+>         The opinions expressed in this email are those of the sender
+>         and not necessarily those of the Open Source Initiative.
+>         Communication from the Open Source Initiative will be sent
+>         from an opensource.org <http://opensource.org> email address.
+>
+>         License-review mailing list
+>         License-review at lists.opensource.org
+>         http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>     _______________________________________________
+>     The opinions expressed in this email are those of the sender and
+>     not necessarily those of the Open Source Initiative. Communication
+>     from the Open Source Initiative will be sent from an
+>     opensource.org <http://opensource.org> email address.
+>
+>     License-review mailing list
+>     License-review at lists.opensource.org
+>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+>
+> -- 
+> Shuji Sado
+> Chairman, Open Source Group Japan
+> https://opensource.jp/
+> English blog: https://shujisado.org/
+> Japanese blog: https://shujisado.com/
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20251023/c74c6ac0/attachment-0001.htm>

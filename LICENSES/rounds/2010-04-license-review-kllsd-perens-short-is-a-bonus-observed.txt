@@ -1,0 +1,40 @@
+Source: OSI license-review public archive, 2010-April.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-24)
+Messages: 1 of 9 in "KLLSD License" (2010-04-05)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From bruce at perens.com  Wed Apr  7 02:52:46 2010
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 06 Apr 2010 19:52:46 -0700
+Subject: KLLSD License
+In-Reply-To: <h2ged4330601004061915o10430eb0i7945511324b78c07@mail.gmail.com>
+References: <r2ued4330601004051856sed79ff63i27ec87f97842eb4@mail.gmail.com> 	<03BFDEE4-E069-4B71-9169-8971FE87A677@gmail.com> <4BBAC839.9010801@perens.com> 	<x2ied4330601004061112h60edc92ex4ea439cfddd0877a@mail.gmail.com> 	<4BBBDF81.4080302@perens.com> <h2ged4330601004061915o10430eb0i7945511324b78c07@mail.gmail.com>
+Message-ID: <4BBBF37E.9000001@perens.com>
+
+Ricardo I. Vieitez wrote:
+> I didn't say the public is unwilling to accept it (I don't know that),
+> but is probably unwilling to read it or to understand it.
+They don't understand the short ones either.
+
+IMO what they really need is a license that implements the required 
+sharing paradigm (gift, sharing-with-rules, or something in between) and 
+works well in court. Being short and easy to read is a bonus but not 
+nearly so important as working well in court. Note that the JMRI project 
+has switched from Artistic 1.0 to LGPL after learning the hard way.
+> Indeed. It might be tedious. However, this clause is intended to be
+> applied on 'less
+> traumatic' way: a simple comment on the source field saying "This
+> piece of software is
+> based on XXXX" and then commenting when a modification took place so
+> that the final
+> user can identify them. On the other hand, patch files may use any
+> other license (as per (2)h)
+> and therefore such a warning may not be required.
+>   
+I don't think they'll approve it.
+
+    Thanks
+
+    Bruce

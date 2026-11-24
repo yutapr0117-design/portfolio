@@ -1,0 +1,38 @@
+Source: OSI license-discuss public archive, 2025-November.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-24)
+Messages: 1 of 21 in "Proposal of new new open-source license for graphics (TERO-GL-1.0)" (2025-11-01)
+Senders: McCoy Smith
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From mccoy at lexpan.law  Mon Nov  3 23:26:08 2025
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Mon, 3 Nov 2025 15:26:08 -0800
+Subject: [License-discuss] Proposal of new new open-source license for
+ graphics (TERO-GL-1.0)
+In-Reply-To: <2c685aa8-6e70-4641-8304-d87f6b867abe@berkus.org>
+References: 
+ <SJ2PR17MB64955F309CE62FF268387388A7FCA@SJ2PR17MB6495.namprd17.prod.outlook.com>
+ <feefcd3b-5581-40f7-92d3-6ff6d4256c7c@berkus.org>
+ <SJ2PR17MB649573B892449B86F4EF48B3A7C7A@SJ2PR17MB6495.namprd17.prod.outlook.com>
+ <2c685aa8-6e70-4641-8304-d87f6b867abe@berkus.org>
+Message-ID: <797b00ef-c9ce-440e-a0b8-211ed3dcb6dd@lexpan.law>
+
+
+On 11/3/2025 2:35 PM, Josh Berkus wrote:
+> On 11/3/25 1:01 AM, Morten Fruelund wrote:
+>> The license text does not contain any restrictions with regard to 
+>> fields of endeavor, and it does not distinguish between virtual and 
+>> physical use or the purpose of the use. In order to achieve the goal, 
+>> you mention, we simply opted to only grant a copyright license to the 
+>> licensed material, and not include, e.g., a patent license like many 
+>> other open-source licenses also do not do.
+>
+> That's an interesting approach, a big hedging on the spirit of OSS, 
+> but allowable (in my individual opinion) as long as you don't 
+> explicitly deny patent rights.  When you have updated your text from 
+> other commentary, go ahead and submit it to license-review and we'll 
+> delve into the actual text.
+The text of this license *does* explicitly deny patent rights though, 
+including implied patent license rights. So I think for that reason 
+alone this one violates OSD 1 & 7.

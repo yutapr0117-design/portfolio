@@ -121,6 +121,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約と、分冊の一�
 | 2012-03 | `license-review` | **観測（Piana 氏の 1 通・沈黙のライセンスは禁反言に頼れるが、明示に外したライセンスは頼れない）** | `2012-03-license-review-mxm-cc0-piana-agnostic-estoppel-observed.txt` |
 | 2010-05〜06 | `license-review` / `license-discuss` | **観測（WebM: BSD と別の特許許諾・4 通）** | `2010-05-to-06-license-lists-webm-patent-grant-observed.txt` |
 | 2010-06 | `license-discuss` | **観測（Nelson 氏・オープンデータの定義・1 通）** | `2010-06-license-discuss-nelson-open-data-definition-observed.txt` |
+| 2010-09 | `license-review` | **観測（SSCL の審査から Nelson 氏の 1 通・短さへの反論）** | `2010-09-license-review-sscl-nelson-words-for-a-reason-observed.txt` |
 | 2010-10 | `license-review` | **観測（Phipps 氏の 1 通・特定の相手への通知を条件にすると、相手が消えれば許諾が使えなくなり OSD に合わない）** | `2010-10-license-review-netx-phipps-unreachable-observed.txt` |
 | 2010-10 | `license-review` | **観測（Perens 氏の 1 通・最善は承認済みのライセンスを使うこと）** | `2010-10-license-review-netx-perens-approved-license-observed.txt` |
 | 2010-10 | `license-review` | **観測（Perens 氏の 1 通・サイトが消えてもライセンスは続かなければならない）** | `2010-10-license-review-netx-perens-website-observed.txt` |
@@ -163,6 +164,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約と、分冊の一�
 | 2012-03 | `license-review` | **観測（CC0 の意向調査・全 25 通・2 分割の 1/2 部）** | 票数そのものが証拠なのでスレッドを全部置いた（規則 6）。`2012-03-license-review-cc0-straw-poll-observed-1of2.txt` |
 | 2012-03 | `license-review` | **観測（CC0 の意向調査・全 25 通・2 分割の 2/2 部）** | 同じ束の 2/2 部。`2012-03-license-review-cc0-straw-poll-observed-2of2.txt` |
 | 2010-04 / 2017-04〜05 | `license-review` | **観測（我々の類型の提出 2 件・全 10 通・2 分割の 1/2 部）** | **全期間 census（199 か月）が挙げた 27 件のうち、ドシエ未言及だった 2 件。** **(B) の最初の実質返信は Fontana 氏の *"Do you see anything distinctive about your license relative to FPL/0BSD?"*** ——**Landley 氏が後に我々へ向けたのと同じ問いが 9 年前に在った**。**そして McCoy 氏が試験を言葉にしている** —— *"the wording they use in CC0 is **much more comprehensive** … The language you use is **quite brief**"*。**当てた結果は 5 要素中 4 つ被覆・1 つ未対応**（`review-doctrine.md` §1.129）。**(A) は我々の類型で返信ゼロの 1 例。** |
+| 2010-04 | `license-review` | **観測（KLLSD License から Perens 氏の 1 通・短さと法廷での働き）** | `2010-04-license-review-kllsd-perens-short-is-a-bonus-observed.txt` |
 | 2010-04 / 2017-04〜05 | `license-review` | **観測（我々の類型の提出 2 件・2 分割の 2/2 部）** | **同じ束の 2/2 部。** 本文は無改変で、2 部を順に結合すれば元に戻る（分割は早期警告 800 行のため・**行境界**。**一次資料に予算行を与えるのではなく、下に収める**）|
 | 2012-08 | `license-discuss` | **観測（著作権の放棄可能性・全 34 通・3 分割の 1/3 部）** | **ACD が立っている 2 問（著作権は放棄できるか / 「irrevocable」に何が残るか）を、リスト自身がどう扱ったか。****不利**: 実務弁護士 Lawrence Rosen 氏が *"If you want to worry about copyright law, consider **17 USC 203**"* と、我々が `jurisdictions.md` 5a で statute から見つけた当の条文を「心配すべき橋」として名指ししている。**有利**: Tom Callaway 氏（Fedora）が Red Hat Legal の結論として *"such a declaration, were it to go to trial, would likely **limit the effectiveness of the copyright 'holder' suing for infringement**"* ——**放棄の可否が不確かでも、明確な献呈は効果を持つ**（`jurisdictions.md` 5c） |
 | 2012-08 | `license-discuss` | **観測（著作権の放棄可能性・全 34 通・3 分割の 2/3 部）** | **同じスレッドの 2/3 部。** 本文は無改変で、3 部を順に結合すれば元に戻る（分割は Check 365 の 1,000 行上限のため・**行境界**） |

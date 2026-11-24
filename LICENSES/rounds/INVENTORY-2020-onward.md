@@ -230,12 +230,15 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約と、分冊の一�
 | 2025-09-11 | `license-review`（観測）| **委員会の Tiwaz への保留（Berkus 氏の報告）→ 観測保存** | *"voted to \*defer\* any recommendation"* と、解く条件 *"one or more projects begin using this license or express an interest in doing so"* が在る。B2 に効く決定で、窓の外にあって 14 か月未収録だった（`board-decisions.md` §2c / `against.md` #285）|
 | 2025-09 | `license-review` | **観測（Smith 氏の 1 通・語の使い方の不一致）** | `2025-09-license-review-mgb-smith-inconsistent-terminology-observed.txt` |
 | 2025-10 | `license-review` | **観測（Orivex への Piana 氏の所見 1 通・licensor と貢献者の扱いの差は OSD 5 に触れうる、改変物を頒布する語）** | `2025-10-license-review-orivex-licensor-contributor-observed.txt` |
+| 2025-11 | `license-discuss` | **観測（TERO-GL から Smith 氏の 1 通・特許の明示の否定と OSD 1・7）** | `2025-11-license-discuss-tero-gl-smith-denies-patent-rights-osd-1-7-observed.txt` |
+| 2025-10 | `license-review` | **観測（Orivex OSN-1.0 の審査から Chestek 氏の 1 通・拘束しない節と特許の語）** | `2025-10-license-review-orivex-chestek-as-delivered-by-and-non-binding-section-observed.txt` |
 | 2025-10 | `license-discuss` | **観測（PUWL の議論から 1 通・Chestek 氏 2025-10-16・ChatGPT の文の目的は何か）** | `2025-10-license-discuss-puwl-chestek-chatgpt-statement-observed.txt` |
 | 2025-10 | `license-discuss` | **観測（PUWL の草案から 4 通・人格権は放棄＋不行使の約束＋虚偽の著者表示の除外＋可分、特許の許諾は CC0 との違い）** | `2025-10-license-discuss-puwl-moral-rights-observed.txt` |
 | 2024-12-23 | `license-review`（観測）| **OSC License の提出の 1 通 → 観測保存** | *"there are currently no projects using the license. However, it is planned that the license will be used in mid/late January."* 計画段階の利用で承認された例である（`board-decisions.md` §2c）|
 | 2026-06-19 | `license-review`（観測）| **Carlo Piana 氏の Linkumori への 1 通 → 観測保存** | *"not having an active project with an urgency to adopt a license or to have it approved, I would suggest deferring license review"*。個人の自著の利用が足りるとは限らないことの逆側である（`board-decisions.md` §2c）|
 | 2020-08-04 | `license-review`（観測）| **委員会の MIT-0 の勧告と Rationale Document → 観測保存** | *"this is not a basis for rejection that the OSI has applied in the past (and the OSI has historically approved newly drafted licenses not yet in use)"*。理事会はこの勧告どおり承認した（`board-decisions.md` §2d）|
 | 2020-10 | `license-review` | **観測（Brasseur 氏の 1 通・リストの参加者は相談すべき法律家の代わりを務めない）** | `2020-10-license-review-digest95-brasseur-consult-lawyer-observed.txt` |
+| 2020-10 | `license-review` | **観測（Anti-IP License から Smith 氏の 1 通・source code と OSD 2）** | `2020-10-license-review-anti-ip-smith-source-code-osd-2-observed.txt` |
 | 2020-02 | `license-discuss` | **観測（委員長の Chestek 氏の 1 通・書いた本人が説明し、代理人はうまくいかなかった、直す意思が要る）** | `2020-02-license-discuss-authors-explain-not-proxies-observed.txt` |
 | 2021-09-12 | `license-review`（観測）| **委員会の Jam の勧告と Rationale Document → 観測保存** | *"to date, OSI has not used the number of projects adopting a license as a factor in deciding whether a license can be approved"*（`board-decisions.md` §2d）|
 | 2021-09 | `license-discuss` | **観測（Crane 氏の 1 通・AFL の文言は REUSE と SPDX の識別子での使用を妨げる）** | `2021-09-license-discuss-afl-reuse-crane-observed.txt` |
