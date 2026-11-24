@@ -212,3 +212,26 @@ cd が `submission-osd.md` の早見表の OSD 3 の行に「The second limb …
 **この節が establish しないこと。** 新しい語が法域の法でどう働くか。
 
 **反映**: 1c 種（0d・*sublicensable* の両側）/ B7（Perens 氏 2025-11-12 を広さの逆側へ・59 へ）。法律家への問いの候補として *by reason of its being a use of the Work* を 59 へ。
+
+## 1.485 特許の許諾の射程を、決める側はどの語で量ってきたか —— 「具現した」（Rosen 氏 2002・2016、Berkus 氏 2016）、「必然的に侵害する、それ以上は無い」（Perens 氏 2025）、「全ポートフォリオへ、際限なく」（Smith 氏 2018）（議題 21 の材料・2026-11-24）
+
+3f の議題 21 (A) は、縮約の 2.3(b)（Computational Use と Result に届く特許）を、因果の語 *results, in whole or in part, from* から、開示・具現の語 *where the Work teaches or embodies the infringing feature* に替える案だった。**合議で否決した**（59 の場面: 心電図の corpus と、それを学習して使う検出方法の請求項 —— データは方法を教えも具えもしないが、学習したモデルの特徴は Work の中身から生じる。(A) はそれを許諾から外し、「モデルと出力に届く特許の許諾」の芯を空にする）。6c は材料を送った時にこの場面を見ていなかった。材料そのものは 2.3(b) の広さへの不利な事実として残る。決める側の全 7,657 通で *embody / practise / claims reading on* の型 27 通、因果（*causes … infring*・*results from* ほか）の型 62 通、射程の広狭（*broad / narrow / scope / reluctant*）の型 20 通を読んだ（scratch の走査・2026-11-24）。
+
+| 発言 | 誰が | 向き |
+| :-- | :-- | :-- |
+| *"The grant extends only to claims that are embodied in the Original Work."* | Lawrence Rosen 氏 2002-07-28（`license-discuss`・OSL 1.0） | **具現の側。** 起草者の説明。AFL と OSL は承認された |
+| *"The only criteria is that those patent claims must be "embodied in the Original Work as furnished by the Licensor.""* | Rosen 氏 2016-01-21（`license-review`・BSD+Patent の審査で AFL / OSL 3.0 を説明） | **具現の側** |
+| *"is the patent grant language of the license correct and successful in granting a patent license on any concepts embodied in the code released, and only on those? It's more than a bit opaque to non-lawyers."* | Josh Berkus 氏 2016-01-19（同） | **具現の側と、読めるか。** 審査で問われた 2 点がここに揃う |
+| *"The definition of ?essential patent claims? is a unbounded patent license to the distributor?s entire portfolio with no boundaries as to scope."* | McCoy Smith 氏 2018-09-26（`license-review`・C-FSL。疑問符はアーカイブの文字化け） | **広い射程への不利な側。** 既に記録した Smith 氏 2025-05（*"reluctant to grant an open-ended patent license"*）と同じ向き |
+| *"The Apache License 2.0 patent license grant is more precisely scoped"* | Richard Fontana 氏 2014-04-13（`license-review`・UPL。*"this is not a criticism of any of those three licenses"* と断る） | 射程の精確さを比べた文。UPL は承認された |
+| *"Some Open Source licensors have arrived at the compromise of allowing the use of their patent claims *necessarily infringed* in use of the licensed copyrighted property, and no more."* | Bruce Perens 氏 2025-11-12（§1.484 に在る） | 広い側の外 |
+
+因果の語については、承認済みの BSD+Patent が組合せについて *"if, at the time the copyrighted material was added, such addition causes such combination to be covered by the patent claim"* の形を使う（Smith 氏 2016-01 の提出の本文）。結果・出力について「一部でも、そこから生じた」を使った承認済みの条も、因果の基準そのものを問うた決める側の文も見つからなかった。
+
+**読み。** 決める側が射程を量った語は *embodied*（元の Work が具えた請求）が主で、広い許諾への不利な文（*unbounded*・*open-ended*・*and no more*）が在る。ACD の 2.3(b)（1.4 の §8.4 と同じ）は、Work の中身から生じた特徴に届く点で、その主の語より広い。広くした理由は、学習の許しが特許の側で空にならないこと（B10 の gap）で、その費用は B7（採用者の特許の負担）に記録してある —— **この節は B7 の費用を、決める側の語で裏付ける**。
+
+**逆側（広さを支える側）。** (1) Chestek 氏 2025-03-13 *"under any theory"*（§1.481）は、未改変の版の利用者をどの理論でも訴えさせない、という最低線で、具現に限る許諾がその線を満たすかは、モデルの利用者については問われていない。(2) 因果の語は承認済みの BSD+Patent に組合せについて在り、語の型としては見慣れないものではない。(3) Rosen 氏の AFL / OSL の語は元の Work の具現で、モデルの出力を想定していない。
+
+**この節が establish しないこと。** 因果の語が審査で退けられること、具現の語なら受け入れられること。
+
+**反映**: B7・B10（広さの不利な事実と、広くした理由を両側で・59 へ）/ 1c 種（0d・T167 の材料）。
