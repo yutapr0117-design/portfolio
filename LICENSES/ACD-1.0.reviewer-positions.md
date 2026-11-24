@@ -503,6 +503,7 @@ and Section 10.1 is unaffected by it."* つまり「留保した権利を行使�
 「そもそも Dedicator のものではなかったから許可のしようがない」という形にしてある
 （*"it was never the Dedicator's to permit"*）。§11.4 が privacy / publicity / データ保護について
 同じことをする。
+*(2026-11-24・提出対象 ACD-1.4 の文に当て直した・cd: 理由の句 *"it was never the Dedicator's to permit"* は 1.4 で外した（T77）。1.4 の §11.3 は限界と条件でないことだけを述べ、理由は述べない。上の *"This Section states …"* は 1.4 では *"Section 11.3 states …"*。限界としての形は 1.4 でも同じだが、「許可のしようがない」という理由を本文から引くことは 1.4 ではできない）*
 
 ### それでも不利な事実として記録する理由（#110）
 
@@ -627,7 +628,7 @@ releasing all rights whatsoever… **The document is internally contradictory.**
    them.**"* である。**PUWL にはこの標識が無かった。**
 2. **"without conditions" の側は正確である**（§10.1）。不正確なのは "everything" だけである。
 3. **§11.3 と §11.4 は「留保」ではなく「reach の限界」として書かれている** ——
-   *"it was never the Dedicator's to permit"*。**Dedicator が持っていないものは渡せない**、
+   *"it was never the Dedicator's to permit"*（1.0〜1.3 の語。1.4 はこの句を外した・T77・上の注）。**Dedicator が持っていないものは渡せない**、
    というのは全部渡すことと矛盾しない。**この読みが通れば "everything" は正しい**
    ——「Dedicator が持っている everything」の意味で。
 4. **§11.1（商標）だけは、その読みでは救えない。** 商標は Dedicator が**持っている**権利であり、
