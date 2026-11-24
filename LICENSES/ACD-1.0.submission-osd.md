@@ -4,7 +4,7 @@ audience: OSI license-review participants / licence reviewers / 監査人 / 次�
 last-updated: 2026-11-23
 clause-numbers: ACD-1.4
 reachable-via: ACD-1.0.submission-reference.md
-canonical-ref: LICENSES/ACD-1.0.submission-reference.md (切り出し元・§1〜§2 / §4〜§5) / LICENSES/ACD-1.0.submission.md (送る文面は §B.0。**これを貼らない**)
+canonical-ref: LICENSES/ACD-1.0.submission-reference.md (切り出し元・§1〜§2 / §4〜§5) / LICENSES/ACD-1.0.submission.md (事実の箇条は §B.0・送る文はオーナーが書く。**これを貼らない**)
 ---
 
 # ACD-1.0 — 提出参考資料のうち OSD の節（§3 / §3b / §3c / §3d・**貼らない**）

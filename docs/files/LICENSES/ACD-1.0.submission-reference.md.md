@@ -2,7 +2,7 @@
 file: LICENSES/ACD-1.0.submission-reference.md
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
 last-updated: 2026-09-09
-canonical-ref: LICENSES/ACD-1.0.submission.md (送る文面は §B.0) / LICENSES/ACD-1.0.against.md / LICENSES/AS-OF.md
+canonical-ref: LICENSES/ACD-1.0.submission.md (事実の箇条は §B.0・送る文はオーナーが書く) / LICENSES/ACD-1.0.against.md / LICENSES/AS-OF.md
 ---
 
 # LICENSES/ACD-1.0.submission-reference.md
@@ -15,7 +15,7 @@ OSI 自身の却下理由リスト（§3c）／意図的な不在（§4）／ど
 **提出者専用ではないことの実証**（§4b）／**弁護士が読んでいないことに対置する機械的検証**（§4c）／
 開示（§5）。
 
-**貼らない。** 送るのは `ACD-1.0.submission.md` §B.0 だけである。
+**貼らない。** 送る文はオーナーが自分の言葉で書き、`ACD-1.0.submission.md` §B.0 はその材料である（2026-11-24 訂正）。
 
 ## Why
 
