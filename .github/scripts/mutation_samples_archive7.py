@@ -459,8 +459,8 @@ MUTATIONS_ARCHIVE7 = [
     {
     "name": "Check 468ab: 草案の §8.2 の例外の列から 2.5 を外す —— §2.5 の約束 (権利を主張しない) の違反まで §8.2 が免責する形に戻る (T88 で閉じた問い 9 (a) の型・2026-11-16・1.5 の書き直しで §14.2 → §8.2)",
     "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-DRAFT.txt",
-    "find": "breach of Section 2.5, 5.1, 5.2, or 5.3, or",
-    "replace": "breach of Section 5.1, 5.2, or 5.3, or",
+    "find": "            Section 2.5, 5.1, 5.2, or 5.3.",
+    "replace": "            Section 5.1, 5.2, or 5.3.",
     "check": CHECK,
 },
 ]
