@@ -28,3 +28,22 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 **この節が establish しないこと。** T142 の文が法域の法で効くか効かないか。
 
 **反映**: 1c（議題 9 の材料 —— T142 を採らない側 3 つと採る側 1 つ・5e と 6d へ）。本文は変えない。
+
+## 1.477 「OSD 3 は、元と同じ条件で配ることを許せと言う」（Nelson 氏 2004）、「OSD は全ての改変を許せとは言わない」（Perens 氏 2022）—— 決める側は OSD 3 の後半を「許す」で読んできた。ACD-1.4 の §4.5 と §16.3 の答え（cd の PR 4050）の支え（2026-11-24）
+
+cd が `submission-osd.md` の早見表の OSD 3 の行に「The second limb … is met by §4.5 and §16.3」を足したので（PR 4050）、その読みが言い過ぎでないかを、決める側の OSD 3 の読みで当てた。全 508 か月の決める側の通（census の `DECIDERS`・PR 4016 の後）のうち、本人の文に "OSD 3" か OSD 3 の本文 *"under the same terms as the license of the original"* が在り、前後に "same terms" と allow・require・permissive などの語が在る通は 3 通。うち 2 通が後半の読みを述べ、どちらもドシエに無かった。
+
+| 発言 | 誰が | 当たり方 |
+| :-- | :-- | :-- |
+| *"#3 says explicitly that a license has to allow redistribution under the same terms as the license of the original software."* | Russell Nelson 氏 2004-09-21（`license-discuss`・"compatibility and the OSD"） | **支え。** 後半は「同じ条件で配ることを許す」の要件。ACD-1.4 の §4.5 *"You may distribute the Work, and any adaptation or collection containing it, under any terms You choose"* は ACD 自身の条件を含むので、それを許す |
+| *"The license is permitted to restrict modifications to only those that allow the work to be distributed under the original license. So, *no,* the OSD does not require that a license permit *all* modifications."* | Bruce Perens 氏 2022-09-19（`license-discuss`・LinShare の帰属の通知） | **支え（向きの確認）。** OSD 3 は「元のライセンスで配れること」を守る条件で、それより広い許しを求めない。ACD は改変にも頒布にも条件を置かない（§4.2・§10.1）ので、この範囲の内に在る |
+
+3 通目の Smith 氏 2018-06-14（YetiForce）は OSD 3 の本文を引いて不適合を指摘した通で、後半の読みは述べていない。
+
+**読み。** 決める側は OSD 3 の後半を「同じ条件で配ることを**許す**」で読んできた。§4.5 はそれを満たし、§16.3（*"to any material in which they hold or may hold rights of their own"*）は、修正者が自分の権利を持つ部分に ACD を当てられることで、派生物の全体を ACD の下に置ける —— 元の部分は §4.6 で元の Dedication のもとに残る。cd はこの限定を括弧で足す（PR 4050 の後の 1 句・d7 の照合）。
+
+**逆側。** 2 通とも個別の会話の短い文で、委員会の基準の文書ではない。Perens 氏 2022 は帰属の通知の会話で、OSD 3 を「制限を許す」側から述べたもので、許容型の献呈を論じていない。
+
+**この節が establish しないこと。** OSD 3 の後半を「要する」で読む審査者がいないこと。
+
+**反映**: 入口（`submission-osd.md` の OSD 3 の行の支えとして Nelson 氏 2004 と Perens 氏 2022 を出典に足せるか・cd へ）。本文は変えない。
