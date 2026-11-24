@@ -10,8 +10,8 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
       are left out, and the clauses are renumbered
       (LICENSES/CLAUSE-MAP-1.4-1.5.tsv). It covers Sections 1.1 to 1.12, 2.1
       to 2.7, 3.1 to 3.2, 4.1 to 4.4, 5.1 to 5.6, 6.1 to 6.5, 7.1 to 7.4, 8.1
-      to 8.2, 9.1 to 9.3, and 10.1 to 10.7. (-2388 words.)
-    * ACD-1.4: 5879 words, 80 clauses. This draft: 3491 words, 52 clauses.
+      to 8.2, 9.1 to 9.3, and 10.1 to 10.7. (-2400 words.)
+    * ACD-1.4: 5879 words, 80 clauses. This draft: 3479 words, 52 clauses.
 
   What differs in effect, so that a reader need not compare the two texts:
 
@@ -45,13 +45,10 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        Dedicator holds (Section 2.5(c)), and a claim that the Dedicator holds or
        controls, or that another holds through the Dedicator (Section 2.5(d)).
     9. The covenant as to other claims is about a claim that treats a use as
-       wrongful by reason of its being a use of the Work, or, as to the
-       Dedicator's own likeness, voice, name, performance, or other information
-       about the Dedicator contained in the Work, under a right of privacy,
-       publicity, or personality; a claim under
-       the law of data protection, which the general words of ACD-1.4's Section
-       5.1 covered without naming it, is outside it (Section 2.5(d);
-       ACD-1.1-SELF-AUDIT.md, sections 3zf and 3zh).
+       wrongful by reason of its being a use of the Work or of a Result, or of
+       what the Work contains (Section 2.5(d); ACD-1.1-SELF-AUDIT.md, sections
+       3zf and 3zh). A claim for an attack made with the Work, or for an image
+       made with it from something else, is outside it.
    10. Nothing is imposed in respect of a Result, as well as of the Work, and
        the covenant on collateral obligations, the sentence on requests, and
        the rule of construction speak of a Result too; and a person bound as a
