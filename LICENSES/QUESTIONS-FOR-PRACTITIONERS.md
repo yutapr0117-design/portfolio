@@ -1,8 +1,8 @@
 ---
 file: LICENSES/QUESTIONS-FOR-PRACTITIONERS.md
 audience: a person who builds machine-learning systems, asked to read ACD's machine-learning clauses; the steward, when asking one
-last-updated: 2026-11-15
-canonical-ref: LICENSES/ACD-1.5-DRAFT.txt (the successor draft) / LICENSES/ACD-1.3.txt (the latest fixed text) / LICENSES/QUESTIONS-FOR-COUNSEL.md (the same page for a lawyer)
+last-updated: 2026-11-24
+canonical-ref: LICENSES/ACD-1.5-DRAFT.txt (the successor draft) / LICENSES/ACD-1.4.txt (the latest fixed text, applied to this repository) / LICENSES/QUESTIONS-FOR-COUNSEL.md (the same page for a lawyer)
 ---
 
 # Questions for machine-learning practitioners
@@ -22,8 +22,17 @@ practitioners actually do. It does not ask whether ACD is a good licence, or whe
 to the Open Source Definition; those are the OSI's questions. It asks whether a person who builds
 these systems would recognise their own acts in the words.
 
-**Which text.** Clause numbers are those of the 1.4 draft, which uses ACD-1.3's numbering.
-Quotations are from the 1.4 draft as it stood on 2026-11-15.
+**Which text.** Clause numbers and quotations are ACD-1.4's (fixed on 2026-11-23; "the 1.4 draft" below
+is that text before it was fixed, and the quotations were checked against the fixed text on 2026-11-24).
+The 1.5 draft restates the same clauses under new numbers, and four of the five questions stay open there:
+
+| Question | ACD-1.4 | 1.5 draft | What changed |
+| :-- | :-- | :-- | :-- |
+| 1 | §1.7, §15.5 | 1.9, 1.12 | Nothing in the list of uses; the example acts are fewer. |
+| 2 | §1.7, §6.4, §8.4 | §1.8 | One definition, *Result*, with *"directly or indirectly"*; a copy of the Work is not a Result. |
+| 3 | §8.4 | §2.3 (b) | The causal test is the same; *"however much or little of it was used"* replaces the sentence on quantity. |
+| 4 | §6.2, §6.3 | §3.1 | The list of signals is shorter: *"notice, metadata, protocol element, or other signal"*. It no longer names markings, headers or robots directives. **Would you read those as outside it?** |
+| 5 | §2.6 | §10.4 | The promise is the same and still names no standard. |
 
 **Who wrote this page.** An AI model (Claude), working in this repository under the steward's
 delegation. The licence text was drafted the same way.
