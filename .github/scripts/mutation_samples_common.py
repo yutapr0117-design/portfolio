@@ -51,6 +51,21 @@ NEXT_CHECK = 1 + max(int(n) for p in (ROOT / ".github" / "scripts").glob("check*
                      for n in re.findall(r"^\s*#\s*──\s*(\d+)\.", p.read_text(encoding="utf-8"), re.M))
 
 
+def _no_other_side() -> str:
+    """register の B のうち、英語の行に "Other side:" が無く日本語の行に「逆側」が無い最初のもの (Check 503 の mutation の的)。
+
+    B3 を名で書いていたら、2026-11-24 に B3 の英語の行へ Other side: が入り、足した「逆側」を 503 が咎めなくなって SURVIVED になった。
+    """
+    t = (ROOT / "LICENSES" / "ACD-OSI-BOTTLENECKS.md").read_text(encoding="utf-8")
+    en = {m.group(1): m.group(0) for m in re.finditer(r"^\| (B\d+) \|.*$", t, re.M)}
+    for m in re.finditer(r"^\| \*\*(B\d+)\*\* \|.*$", t, re.M):
+        if "逆側" not in m.group(0) and "Other side:" not in en.get(m.group(1), ""):
+            return m.group(1)
+    return "B0"  # 無ければ Check 362 が anchor の不在で RED にする (黙って別の行を打たない)
+
+
+NO_OTHER_SIDE = _no_other_side()
+
 def find_spans(m: dict, text: str) -> list[tuple[int, int]]:
     """mutation の find が当たる範囲。まず逐語で当て、無ければ作業中の草案に限り、空白 (折り返しと字下げ) を畳んで当てる。
 
