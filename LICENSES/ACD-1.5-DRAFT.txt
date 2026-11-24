@@ -324,8 +324,8 @@ Short identifier: ACD-1.5
        The Dedicator makes it intending that others rely on it, and that
        reliance is its purpose.
 
-  7.2  This Dedication, in respect of the Work, binds, to the fullest extent the
-       law permits:
+  7.2  This Dedication, in respect of the Work and of any Result, binds, to the
+       fullest extent the law permits:
 
        (a)  the Dedicator's successors, assigns, heirs, and personal
             representatives;
