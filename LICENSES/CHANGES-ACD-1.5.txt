@@ -44,8 +44,8 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        what another text teaches. That the Work was processed, or was the
        starting point, does not by itself show that a feature was learned or
        extracted from it. The same test governs Computational Use. Use of the
-       Work only to evaluate, select, or steer is for that reason likely
-       outside.
+       Work only to evaluate, select, or steer may be read as outside it for
+       that reason.
     7. Everyone who receives the Work, anything derived from it, or a Result
        holds the licences directly from the Dedicator (Section 2.4).
     8. The covenants as to Moral Rights and as to other claims reach what the
@@ -55,11 +55,11 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        wrongful by reason of its being a use of the Work or of a Result, or of
        what the Work contains (Section 2.5(d); ACD-1.1-SELF-AUDIT.md, sections
        3zf and 3zh). A claim for an attack made with the Work, or for an image
-       made with it from something else, is outside it. So is a claim that rests
-       on the manner or effect of a use, such as one for unfair competition or
-       for the load placed on a server, and not on its being a use or on what
-       the Work contains. ACD-1.4's Sections 5.1 and 5.2(d) carried no such
-       limit.
+       made with it from something else, is outside it. A claim that rests on
+       the manner or effect of a use, such as one for unfair competition or for
+       the load placed on a server, may be read as outside it; the general words
+       of ACD-1.4's Section 5.1 stopped such a claim, and its Section 5.2(d)
+       carried no such limit. Section 9.1 is against that reading.
    10. Nothing is imposed in respect of a Result, as well as of the Work, and
        the covenant on collateral obligations, the sentence on requests, and the
        rule of construction speak of a Result too; and a person bound as a
