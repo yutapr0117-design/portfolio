@@ -9,15 +9,16 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
       said once; the preamble and the sentences that explain other sentences
       are left out, and the clauses are renumbered
       (LICENSES/CLAUSE-MAP-1.4-1.5.tsv). It covers Sections 1.1 to 1.12, 2.1
-      to 2.7, 3.1 to 3.2, 4.1 to 4.4, 5.1 to 5.4, 6.1 to 6.5, 7.1 to 7.4, 8.1
-      to 8.2, 9.1 to 9.3, and 10.1 to 10.7. (-2599 words.)
-    * ACD-1.4: 5879 words, 80 clauses. This draft: 3280 words, 50 clauses.
+      to 2.7, 3.1 to 3.2, 4.1 to 4.4, 5.1 to 5.6, 6.1 to 6.5, 7.1 to 7.4, 8.1
+      to 8.2, 9.1 to 9.3, and 10.1 to 10.7. (-2427 words.)
+    * ACD-1.4: 5879 words, 80 clauses. This draft: 3452 words, 52 clauses.
 
   What differs in effect, so that a reader need not compare the two texts:
 
-    1. As to each Dedicator, the Work is the material to which that Dedicator
-       applied the Dedication, and the text of the Dedication is not part of
-       it (Sections 1.2 and 1.3).
+    1. A Dedicator is each person who applies the Dedication, whether or not a
+       right subsists; as to each Dedicator, the Work is the material to which
+       that Dedicator applied it, and the text of the Dedication is not part of
+       it (Sections 1.2 and 1.3; errata E93).
     2. Moral Rights include those of a performer (Section 1.5; errata E92).
     3. A person bound as a successor or transferee is not a Dedicator as to
        what that person holds otherwise than from the Dedicator (Section 1.3),
@@ -25,21 +26,25 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
     4. A Result may result from the Work indirectly, and a copy of the Work is
        not itself a Result (Section 1.8).
     5. The patent licence reaches subject matter in the Work, which is the
-       material to which the Dedicator applied the Dedication, including by its
-       combination with the material the Work was submitted for inclusion in,
-       and an infringement on any theory (Section 2.3(a); errata E89).
-    6. A feature that the Work taught or embodied, added to the Work later by
-       whatever means, comes within the licence for Results (Section 2.3(b));
-       in ACD-1.4 Section 8.1 alone governed every feature added to the Work.
+       material to which the Dedicator applied the Dedication, including, where
+       the Work is a Contribution, by its combination with the material it was
+       submitted for inclusion in, and an infringement on any theory (Section
+       2.3(a); errata E89).
+    6. A feature of a modified version that the Work itself did not teach or
+       embody is governed by Section 2.3(a) alone; in ACD-1.4 Section 8.1 alone
+       governed every feature added to the Work (Section 2.3(b)).
     7. Everyone who receives the Work, anything derived from it, or a Result
        holds the licences directly from the Dedicator (Section 2.4).
-    8. The covenants not to assert, and not to assist another to assert, are
-       about what the Dedicator holds, or another holds through the Dedicator
-       (Section 2.5).
-    9. The covenant against other claims is about a claim that treats a use as
-       wrongful by reason of its being a use of the Work or under a right of
-       privacy, publicity, or personality held by the Dedicator (Section
-       2.5(d); ACD-1.1-SELF-AUDIT.md, section 3zf).
+    8. The covenants as to Moral Rights and as to other claims reach what the
+       Dedicator holds (Section 2.5(c)), and a claim that the Dedicator holds or
+       controls, or that another holds through the Dedicator (Section 2.5(d)).
+    9. The covenant as to other claims is about a claim that treats a use as
+       wrongful by reason of its being a use of the Work, or, as to the
+       Dedicator's own likeness, voice, name, or performance contained in the
+       Work, under a right of privacy, publicity, or personality; a claim under
+       the law of data protection, which the general words of ACD-1.4's Section
+       5.1 covered without naming it, is outside it (Section 2.5(d);
+       ACD-1.1-SELF-AUDIT.md, sections 3zf and 3zh).
    10. Nothing is imposed in respect of a Result, as well as of the Work; and a
        person bound as a transferee is named beside the Dedicator where the
        absence of conditions, and the freedom to choose terms, do not reach
@@ -48,21 +53,22 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        copy that the Dedicator has made available (Section 5.2).
    12. The covenant not to assert a narrower reading of a permission (ACD-1.4's
        Section 5.2(c)) is left out; Section 9.1 governs the reading.
-   13. Terms and measures on the Dedicator's own material or service do not
-       reach a copy of the Work contained in it, instead of being a breach to
-       that extent; a term about a Contribution, asked of the person submitting
-       it, is outside the covenant on collateral obligations; and the Dedicator
-       may withhold its own material from training (Section 5.4).
+   13. The exceptions from the covenants are stated covenant by covenant
+       (Sections 5.4 to 5.6). A term about a Contribution, other than one
+       restricting use of the Work, asked of the person submitting it, is
+       outside the covenant on collateral obligations, and so are terms for the
+       use of a site or service generally, other than a registration or
+       acceptance required in order to obtain a copy (Section 5.4(d) and (e)).
    14. The omission of attribution alone is not a false statement (Section
-       5.4(b)).
+       6.3).
    15. The statement in ACD-1.4's Section 11.4 that the Dedication reaches
        nothing else is gone (ACD-1.1-SELF-AUDIT.md, section 3zd).
-   16. Passing on or recording another person's notice, or mentioning the
-       Dedication, does not apply it, and a narrower notice that the Dedicator
-       kept puts material under other terms (Section 10.2; errata E90).
-   17. Each person who submits a Contribution, or on whose authority it is
-       submitted, applies the Dedication to it, unless one of them states
-       otherwise when it is submitted (Section 10.4).
+   16. Neither passing on or recording another person's copy or notice with the
+       material it identifies, nor mentioning the Dedication otherwise than to
+       apply it, applies it to anything (Section 10.2; errata E90).
+   17. Each person who made and submits a Contribution, or on whose authority it
+       is submitted, applies the Dedication to it, unless that person states
+       otherwise (Section 10.4).
    18. ACD-1.4's preamble, its Section 8.3, which says that no patent claim is
        reserved, the sentences of purpose in its Sections 6.5 and 12.3, the
        sentence of its Section 9.2 that the Dedication adds nothing where no
@@ -81,3 +87,5 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        Section 2.5(d) (Section 10.1).
    23. A person to whom a Covered Right or a Patent Claim is later exclusively
        licensed is named beside a transferee (Section 7.2(b)).
+   24. The Dedication may be applied by placing a copy of its text with the
+       material as its licence (Section 10.1).
