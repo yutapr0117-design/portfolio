@@ -673,6 +673,10 @@ def main() -> int:
     # 凍結は提出するかに依らず取り消せないので、--not-for-submission でも見る (2026-11-24・議題 18)
     from moved_clauses import effect_diff_gate
     undone = effect_diff_gate(v, frozen_versions()[-1], draft_path.read_text(encoding="utf-8"))
+    # 出す版を替える前の門 (議題 29 の丁・議題 31)。1.5 と、GATE.md を置いた版・提出する版で見る
+    from _lib_gate_pin import gate_file, gate_problems
+    if v == "1.5" or gate_file(v).exists() or not args.not_for_submission:
+        undone += [f"門: {x}" for x in gate_problems(v)]
     if undone:
         print("凍結の門「効果の差の読み」が満たされていない:\n" + "\n".join(f"  - {x}" for x in undone))
         if not args.rehearsal:

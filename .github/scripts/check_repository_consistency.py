@@ -138,6 +138,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_license_surfaces.py",  # split: ライセンスの提出物と凍結 (445/451/452/453/490)
     ROOT / ".github" / "scripts" / "checks_license_declaration.py",  # split 2026-11-08: ライセンス宣言の cross-surface coherence (444)
     ROOT / ".github" / "scripts" / "checks_governance_sync.py",  # split: AIO/AI2AI/llms freshness & governance sync (21-27)
+    ROOT / ".github" / "scripts" / "checks_license_gate.py",  # split: 出す版を替える前の門の固定 (504)
     ROOT / ".github" / "scripts" / "checks_license_corpus.py",  # split: 承認済みライセンスの母集団の数 (476)
     ROOT / ".github" / "scripts" / "checks_license_dossier.py",  # split: ACD-1.0 ドシエの自己整合 (458-461b)
     ROOT / ".github" / "scripts" / "checks_license_submission.py",  # split: 審査者が受け取る面 (463/472/477)
@@ -367,6 +368,7 @@ _checks_governance_sync.run(_ctx)
 #    470 引用 / 471 参照 / 498 2 つ目の数) → checks_license_*.py。番号の直後に "." を置かない (Check 45b が二重計上で RED になる) ──
 import checks_license_dossier as _checks_license_dossier
 import checks_license_corpus as _checks_license_corpus
+import checks_license_gate as _checks_license_gate
 import checks_license_submission as _checks_license_submission
 import checks_license_provenance as _checks_license_provenance
 import checks_license_draft as _checks_license_draft
@@ -377,6 +379,7 @@ import checks_license_references as _checks_license_references
 import checks_license_stated_counts as _checks_license_stated_counts
 _checks_license_dossier.run(_ctx)
 _checks_license_corpus.run(_ctx)
+_checks_license_gate.run(_ctx)
 _checks_license_submission.run(_ctx)
 _checks_license_provenance.run(_ctx)
 _checks_license_draft.run(_ctx)

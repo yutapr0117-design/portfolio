@@ -322,6 +322,13 @@ _MUTATIONS_TAIL.append({
     "replace": "clause-numbers: ACD-1.0",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 504: 出す版を替える前の門の文から「3 つ目の門は作らない」を落とす —— 落ちた後に門を言い換えて読み直す余地が戻る (2026-11-25・議題 31)",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-GATE.md",
+    "find": "**3 つ目の門は作らない**。",
+    "replace": "次の門は別に決める。",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
