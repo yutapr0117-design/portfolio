@@ -376,7 +376,10 @@ def defined_term_uses(clauses: dict) -> tuple[dict, list[str]]:
     uses = {}
     for term, k in defs:
         rest = " ".join(v for kk, v in clauses.items() if kk != k)
-        uses[term] = len(re.findall(r"\b" + re.escape(term) + r"s?\b", rest))
+        # §1 の外で定義する語 (1.5 の §10.5 "The Steward") は、同じ条の、定義の文の手前までの使用も数える (2026-11-24)
+        if not k.startswith("1."):
+            rest += " " + clauses[k].split(f'"{term}"', 1)[0]
+        uses[term] = len(re.findall(r"\b" + re.escape(re.sub(r"^[Tt]he ", "", term)) + r"s?\b", rest))
     bad = [f"468 (定義語): §{k} が定義する \"{t}\" が、定義の外で 1 回も使われていない" for t, k in defs if not uses[t]]
     if not defs:
         bad.append("468 (定義語): 草案から定義を 1 つも読めない (定義の形が変わったなら関数を直すこと)")

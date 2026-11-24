@@ -69,6 +69,8 @@ import sys
 import json
 import xml.etree.ElementTree as ET
 
+from _lib_draft_markers import NOTICE_LEAD, TEXT_RULE_LEADS, clause_by_lead
+
 
 def run(ctx):
     ROOT = ctx.ROOT
@@ -203,8 +205,7 @@ def run(ctx):
             #   インデントされている (条項継続 = 7 / 通知 = 11) ので、そこから導ける。
             _need445e = []
             try:
-                _i445 = _src445.index("16.1 To apply this Dedication")
-                _blk445 = _src445[_i445:_src445.index("\n  16.2 ", _i445)]
+                _blk445 = clause_by_lead(_src445, NOTICE_LEAD)[1]
                 _need445e = [_l.strip() for _l in _blk445.splitlines()
                              if _l.strip() and (len(_l) - len(_l.lstrip())) >= 11]
             except ValueError:
@@ -278,8 +279,7 @@ def run(ctx):
             _n451 = " ".join((_d451.get("notice") or "").split())
             _blk451 = ""
             try:
-                _i451 = _src451.index("16.1 To apply this Dedication")
-                _body451 = _src451[_i451:_src451.index("\n  16.2 ", _i451)]
+                _body451 = clause_by_lead(_src451, NOTICE_LEAD)[1]
                 _blk451 = " ".join(
                     " ".join(_l.split()) for _l in _body451.splitlines()
                     if _l.strip() and (len(_l) - len(_l.lstrip())) >= 11
@@ -385,16 +385,15 @@ def run(ctx):
         _n = " ".join((_d.get("notice") or "").split())
         _blk = ""
         try:
-            _i = _src.index("16.1 To apply this Dedication")
-            # 行頭で探す: 1.4 の §16.1 は本文で "Section 16.2" を引くので、素の "16.2" だと通知文の手前で切れる
-            #   (2026-11-06 の段 7 で判明。確定の日に正しい記述子が 451d で赤くなるところだった)。
-            _body = _src[_i:_src.index("\n  16.2 ", _i)]
+            # 条は書き出しで探し、次の条の行頭まで取る: 1.4 の §16.1 は本文で "Section 16.2" を引くので、素の "16.2" だと通知文の
+            #   手前で切れた (2026-11-06 の段 7 で判明。確定の日に正しい記述子が 451d で赤くなるところだった)。
+            _body = clause_by_lead(_src, NOTICE_LEAD)[1]
             _blk = " ".join(" ".join(_l.split()) for _l in _body.splitlines()
                             if _l.strip() and (len(_l) - len(_l.lstrip())) >= 11)
         except ValueError:
             _blk = ""
         if not _n or _n not in _blk:
-            _bad451d.append(f"{_md.name}: notice が ACD-{_ver}.txt の §16.1 に含まれない")
+            _bad451d.append(f"{_md.name}: notice が ACD-{_ver}.txt の通知の条 (§{clause_by_lead(_src, NOTICE_LEAD)[0]}) に含まれない")
         if not str(_d.get("text", "")).endswith(f"/LICENSES/ACD-{_ver}.txt"):
             _bad451d.append(f"{_md.name}: text が自分の版の本文を指していない ({_d.get('text')!r})")
         if str(_d.get("version", "")) != _ver or str(_d.get("spdxId", "")) != f"ACD-{_ver}":
@@ -411,7 +410,8 @@ def run(ctx):
         if _vt451e > (1, 3):
             _tgt451e.append(_ver)
             _secs451e = {_c.split(".", 1)[0] for _c in _cited}
-            _lack451e = sorted({"6", "8", "9"} - _secs451e, key=int)
+            # 1.5 の書き直し (2026-11-24・議題 15) から、3 つの gap は §2 (許諾) と §3 (Reservation と機械生成) が担う
+            _lack451e = sorted(({"6", "8", "9"} if _vt451e < (1, 5) else {"2", "3"}) - _secs451e, key=int)
             if _lack451e:
                 _bad451d.append(f"451e: {_md.name} が gap を担う §{'/§'.join(_lack451e)} を 1 つも引いていない "
                                 "(PREAMBLE の 3 つの gap が記述子から見えない)")
@@ -455,12 +455,12 @@ def run(ctx):
     #   作られる。草案の §16.4 が動いたのに注が「ACD- で始まる」のまま残り、確定すると記述子が本文と違うことを言う形だった
     import prepare_version_freeze as _pvf451g
     _d451g = _pvf451g.working_draft()
-    _m451g = re.search(r"^  16\.4 (.*?)(?=^  16\.5 )", _d451g.read_text(encoding="utf-8"), re.M | re.S) if _d451g else None
-    _c451g = " ".join(_m451g.group(1).split()) if _m451g else ""
+    _n451g, _b451g = clause_by_lead(_d451g.read_text(encoding="utf-8"), TEXT_RULE_LEADS) if _d451g else (None, "")
+    _c451g = " ".join(_b451g.split())
     _miss451g = [w for w in _pvf451g.TEXT_REDISTRIBUTION_TERMS if w in _c451g and w not in _pvf451g.TEXT_REDISTRIBUTION_NOTE]
     check(bool(_c451g) and not _miss451g,
-          f"Check 451g: 確定の道具の textRedistribution の注が、草案 ({_d451g.name if _d451g else '?'}) の §16.4 の鍵の語を落としていない",
-          (f"Check 451g: 草案の §16.4 に在る語 {_miss451g or '(§16.4 を読めない)'} が、次版の記述子に書く注 "
+          f"Check 451g: 確定の道具の textRedistribution の注が、草案 ({_d451g.name if _d451g else '?'}) の §{_n451g} の鍵の語を落としていない",
+          (f"Check 451g: 草案の §{_n451g} に在る語 {_miss451g or '(本文の再頒布の条を読めない)'} が、次版の記述子に書く注 "
            "(prepare_version_freeze.TEXT_REDISTRIBUTION_NOTE) に無い。確定すると記述子が本文と違うことを言う (errata E10 の型)"),
           blocking=True)
 

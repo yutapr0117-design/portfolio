@@ -89,7 +89,7 @@ import json
 import re
 
 
-from _lib_draft_markers import EFFECT_MARKERS_468U, state_hits  # 一覧は _lib_draft_markers.py (measure_clause_overlap.py --guard と共有)
+from _lib_draft_markers import EFFECT_MARKERS_468U, TEXT_RULE_LEADS, clause_by_lead, state_hits  # 一覧は _lib_draft_markers.py (measure_clause_overlap.py --guard と共有)
 from _lib_dossier import errata_draft_quote_misses, dossier_draft_quote_misses  # 草案の逐語の照合 (468w / 468a)
 from _lib_draft_counts import with_changes, bullet_components, changelist_table_total, defined_term_uses, errata_list_mismatch, materials_0d_mismatches, draft_has_changes  # 468n / 468s / 定義語 / 468i / §0d
 
@@ -405,9 +405,12 @@ def run(ctx):
             if not isinstance(_tr, dict):
                 _bad468h.append(f"{_d.name}: textRedistribution が無い "
                                 "(§16.4 —— この文書が現に持つ唯一の制限)")
-            elif str(_tr.get("clause", "")) != "16.4":
-                _bad468h.append(f"{_d.name}: textRedistribution.clause が "
-                                f"{_tr.get('clause')!r} (16.4 であること)")
+            else:
+                _tx468h = _d.parent / _d.name.replace(".machine.json", ".txt")
+                _want468h = clause_by_lead(_tx468h.read_text(encoding="utf-8"), TEXT_RULE_LEADS)[0] if _tx468h.exists() else None
+                if not _want468h or str(_tr.get("clause", "")) != _want468h:
+                    _bad468h.append(f"{_d.name}: textRedistribution.clause が "
+                                    f"{_tr.get('clause')!r} (本文の再頒布を定める条は {_want468h!r})")
         if _bad468h:
             _bad468.append(f"descriptor が唯一の制限を述べていない: {_bad468h}")
 
@@ -621,6 +624,9 @@ def run(ctx):
                 _bul468n = " ".join(_bul468n.split())
                 _hdrn468n = " ".join(_hdr468n.split())
                 _named468n = set(re.findall(r"Section (\d+\.\d+)", _bul468n))
+                # 「Sections 1.1 to 1.12」は端と間の条を全部名指す (2026-11-24: 全条を書き直す版では 1 箇条が範囲で名指す)
+                for _a468n, _f468n, _l468n in re.findall(r"\b(\d+)\.(\d+) (?:to|through) \1\.(\d+)\b", _bul468n):
+                    _named468n |= {f"{_a468n}.{_i}" for _i in range(int(_f468n), int(_l468n) + 1)}
                 _unlisted468n = [k for k in _changed468n if k not in _named468n]
                 if _unlisted468n:
                     _bad468.append(f"468n: ACD-{_pv468n} から本文が変わったのに冒頭の変更一覧が名指さない条: "

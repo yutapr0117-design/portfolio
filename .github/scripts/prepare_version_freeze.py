@@ -36,6 +36,8 @@ import sys
 import textwrap
 from pathlib import Path
 
+from _lib_draft_markers import NOTICE_LEAD, clause_by_lead
+
 if sys.version_info < (3, 10):
     sys.exit("prepare_version_freeze.py requires Python 3.10+")
 
@@ -271,8 +273,8 @@ TEXT_REDISTRIBUTION_TERMS = ("name that contains", "identifier that contains", "
 def descriptor(v: str, prev: str, body: str, date: str) -> str:
     raw = (L / f"ACD-{prev}.machine.json").read_text(encoding="utf-8")
     d = json.loads(raw.replace(f"ACD-{prev}", f"ACD-{v}").replace(f'"{prev}"', f'"{v}"').replace(f"Dedication {prev}", f"Dedication {v}"))
-    m = re.search(r"following form:\s*\n(.*?)\n\n  16\.2 ", body, re.S)
-    d["notice"] = " ".join(m.group(1).split())
+    d["notice"] = " ".join(" ".join(x.split()) for x in clause_by_lead(body, NOTICE_LEAD)[1].splitlines()
+                           if x.strip() and len(x) - len(x.lstrip()) >= 11)
     # 状態の key は凍結すると承認の日に偽になるので、日付つきの記録へ移す (ACD-1.4-CHANGELIST-VERIFICATION.md「確定前検証（段 7）」・2026-11-24 に本体から分けた)。
     if "osiApproved" in d:
         d["schemaVersion"] = 2
