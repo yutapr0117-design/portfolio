@@ -888,3 +888,27 @@ T48（2026-11-09）は、*"Paragraphs (a) and (b) do not reach a service through
 **1.5 草案で閉じた（2026-11-23・T135・(c) を *"It gives nothing by implication beyond what its words give."* の形で）。1.4 は凍結のまま未修正。** **閉じ方の検討（`ACD-1.5-CLARITY-TRIAL.md` §1 の T135）**: 3 案を並べて測った。(a) 但し書きを *"save that Section 5 is not limited by this sentence."* にする（−11 語・split() で数えた）—— T124 を閉じるが網羅の言い切りは残る。(b) 第 2 文を丸ごと外す（−25 語）—— **退けた**: 1.4 の本文で黙示の許諾を外しているのはこの 1 文だけで（*implied* / *estoppel* の類いは §13 の *IMPLIED* と §2.5 の *estopped* のほかに無い・portfolio-cd の grep を 5e が確かめた）、外すと §4 の *use* の許諾から §8.4 の限定の外の特許へ黙示の許諾の議論に足場を与え、B7 の釣り合いを黙って動かす。**(c)** 第 2 文を *"It grants nothing by implication beyond what its words give."* に置き換える（−15 語・案は portfolio-cd）—— 網羅を言い切る文が無くなるので 3 件の型はまとめて消え、黙示の許諾の排除は残る。本命は (c)。**逆側**: (c) は第 1 文を「及ぶものの例示」に読ませうる、*estoppel* による許諾の排除を明示しない、法が強行的に与える黙示の許諾や消尽は外せない（どの案でも同じ）—— 逆側の全部は試作の節に在る。 1.4 の記述子（`ACD-1.4.machine.json`）は T124 の授権を `permissions` にも `covenants` にも持たない。1.5 の記述子の候補として `ACD-1.5-CHANGELIST.md` の「記述子の候補」に書いた（fc と 5e）。
 
 **一般形**: 及びや例外を列で述べる文（§2.4 の *grant, permission, consent, and covenant*、§5.3 の約束の列、§11.4 の但し書き、§14.2 の約束の列）は、後から入った変更が列の語に当たらない種類の行為（授権・放棄）を足すと、黙って古くなる。同じ目で 3 つの列を当てた: §2.4 は *waiver* を列に持たないが、T124 の放棄と §3.3 の放棄は *"Sections 3, 4, 5, and 6"* の中に在り、§12.1 の放棄だけが外に在る —— §12.1 を他の条の効力に条件づける文は無く、§12.2 は自分で *"whether or not Section 12.1 has effect"* と独立を述べるので、立たない。§5.3 の約束の列は T124 を持たないが、授権は相手を You に限らない（回避が許された使用の中で行われれば足りる）ので、受け手が頼るための第三者受益の文を要しない。§14.2 の列は約束の違反の責任を述べる文で、授権と放棄は違反しうる行為ではない。**この記録が establish しないこと**: 回避を禁じる力が Covered Right に当たるか（法域ごとの問い・`QUESTIONS-FOR-COUNSEL.md` の問い 5 の回避の授権の段（§5.2 の T124 を既に引いている）に、Covered Rights に当たるかの面を足す候補）。
+
+## 3ze. 1.4 が持ち込んだ欠陥 —— Dedicator だけを名指す 2 つの文が、§2.8 が同じに縛る承継人・譲受人・管財人を外す（§4.5 末文と §10.1・2026-11-24）
+
+**なに**: 1.4 の T121（THIRD §15.38）は §4.5 の末に *"Section 4.5 does not permit a person to impose what Section 5 forbids on material as to which that person is a Dedicator."* を足し、T120 は §10.1 の末に *"other than in Your capacity as a Dedicator"* を足した。どちらも「1 人が受け手（You）と、約束に縛られる者の両方の役を持つ」場面を決める文だが、縛られる者として **Dedicator だけ**を名指す。§2.8 と §5.3 は、約束と Dedication 全体が Dedicator の承継人・譲受人・相続人、権利を譲り受けた者、§2.9 は管財人も縛ると定める。その人が Work の受け手（You）でもあるとき、(i) §4.5 第 1 文の *any terms You choose* が働き、末文の除外は Dedicator でないその人に掛からないので、「譲受人は §5.2(b) が禁じる条件を §4.5 で課せる」と読める。(ii) §10.1 の *"imposes no condition, obligation, restriction, or requirement upon You"* は Dedicator の役だけを外すので、「譲受人である You には §2.8 の拘束も課されない」と読める。§15.1（You に多く与える読みが勝つ）は、その You が譲受人のとき、どちらの読みも支える。2 つの文は 1.0〜1.3 に無いので、errata ではなくここに記録する。
+
+**重さ**: Low〜Medium。§2.8 の *"A transferee takes subject to it"* と §5.3 が特定の文として勝つと読むのが自然だが、T120・T121 は「2 つの役」を決めるために足した文で、その文が 1 つの役だけを名指すこと自体が、名指されない役は外だという読みの足場になる。
+
+**見つけ方**: portfolio-59 が T143 の反例を当てる途中で §4.5 末文について見つけ（2026-11-24）、portfolio-0d が同じ型を §10.1 に当てた。UNIQUE-READING の §2.8・§5.3・§12.4 の 2 巡目の行は約束の範囲を見ていて、§4.5 と §10.1 の除外の側は見ていなかった。
+
+**閉じ方**: 1.5 草案で T144（§4.5 末文を *"Section 4.5 does not permit a person to impose what Section 5 forbids that person to impose."* へ —— 誰が・何についてを §5（§5.3 を含む）に任せる）と T145（§10.1 の除外に *"or as a person Section 2.8 names"* を足す）。試作と反例は `ACD-1.5-CLARITY-TRIAL.md` §11。1.4 は凍結のまま未修正。
+
+**一般形**: 役を名指して例外を決める文は、その役と同じ拘束を受ける別の役（承継人・譲受人・管財人・死後に人格権を行使する者）を数えてから書く。役の名を挙げる代わりに、拘束を定める条を指す形（*what Section 5 forbids that person*・*a person Section 2.8 names*）なら、後から拘束される者が増えても古くならない。**この記録が establish しないこと**: 譲受人が実際に §4.5 を援用した例は無い。
+
+## 3zf. 1.2 が持ち込んだ欠陥 —— §5.1 第 2 文は、許された使用を含む不法行為の請求（攻撃・事故）まで不行使と読める（2026-11-24）
+
+**なに**: 1.2 と 1.3 の §5.1 は *"any claim or cause of action … arising from or relating to a use of the Work that this Dedication permits"*、1.4 の §5.1 第 2 文は *"any claim or cause of action … that treats as wrongful, or as without legal basis, a use of the Work that this Dedication permits or purports to permit"* を主張しないと約束する。Work の使用は「どの目的でも」許される（§4.1・§4.2）ので、Dedicator が公開した検査・負荷の道具で第三者が Dedicator 自身の server を攻撃したとき、その請求は「許された使用を違法とする請求」に当たり、除外（特許・商標・虚偽の言明・支払い）のどれにも入らない。1.0 の §5.1 には第 2 文が無いので errata ではなくここに記録する。
+
+**重さ**: Low to Medium（採用）。故意の責任を前もって外す約束は多くの法域で効かない（独 BGB 276 条 3 項ほか）ので実害は小さいが、企業の法務は文字どおりに読んで止まる。文脈を渡さない読み手（AI の agent・本文だけを読む）2 体が独立に挙げた —— 欠陥の探し方であって、第三者の意見ではない。
+
+**見つけ方**: 試作 T90（THIRD §15.23 の後）は「何の請求を入れるか」（不当利得・不正競争を入れる）を決め、「何の請求を外すか」を攻撃・事故に当てていなかった。1.2 → 1.4 の 3 度の言い直しはどれも入れる側の漏れを塞ぐ変更だった。
+
+**1.5 草案で閉じた（2026-11-24）**: *"treats a use of the Work … as wrongful, or as without legal basis, by reason of its being a use of the Work"* —— 攻撃の請求は攻撃を理由とし、Work の使用であることを理由としない。1.2〜1.4 は凍結のまま未修正。退けた形: *"for want of the Dedicator's permission"*・*"does not depend on the use lacking the Dedicator's permission"* —— 許諾の不在に依らない不正競争・不当利得の請求が約束の外に戻る（T90 で *"depends on … being unauthorised"* を退けたのと同じ理由）。
+
+**逆側**: 「Work の使用であることを理由とする」の境は裁判所が決める。プライバシー・パブリシティの請求は理由が人の像であって Work の使用でないと争えるので、次の文で明示に入れてある。

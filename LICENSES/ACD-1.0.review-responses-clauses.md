@@ -535,7 +535,7 @@ OpenMDW-1.1 の審査で、著作権侵害の主張を終了の引き金にす�
 働くか**の対応づけだけである。
 
 
-**Q. §11.4 の第 2 文（1.4 の *"It reaches nothing else"*、1.5 草案の *"It gives nothing by implication beyond what its words give"*）は何のために在るのか。付与していないものを付与しないと言う必要は無いのでは。**
+**Q. §11.4 の第 2 文（1.4 の *"It reaches nothing else"*、1.5 草案は 6.1 で、黙示では何も与えないと述べる）は何のために在るのか。付与していないものを付与しないと言う必要は無いのでは。**
 
 問いの元は Pamela Chestek 氏 2022-07-04（`license-review`・Open Logistics License の審査）—— 黙示の許諾を外す文について *"What is this sentence designed to do?"*、*"It's not necessary to say that there is no grant of what is not granted."*（portfolio-d7 の採掘・5e が回した）。
 

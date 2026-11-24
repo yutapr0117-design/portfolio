@@ -13,25 +13,27 @@ ACD-1.5 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
 
     * It has had no legal review, like 1.0, 1.1, 1.2, 1.3 and 1.4.
     * It has not been posted to any list.
-    * Apart from the changes listed in LICENSES/CHANGES-ACD-1.5.txt, and the
-      version number and the identifiers that name it, the operative text is
-      ACD-1.4's. A list with entries in it is the whole of the difference.
-    * Clause numbers follow ACD-1.4, not ACD-1.0. Citations to an earlier
-      version must keep using that version's text.
+    * It restates ACD-1.4 as a whole, saying once what ACD-1.4 says in several
+      places. Where each clause of ACD-1.4 went, and what was left out, is in
+      LICENSES/CLAUSE-MAP-1.4-1.5.tsv. What differs in effect is listed in
+      LICENSES/CHANGES-ACD-1.5.txt.
+    * Clause numbers do not follow ACD-1.4. Citations to an earlier version
+      must keep using that version's text.
     * Changes are recorded in LICENSES/ACD-1.5-CHANGELIST.md.
 
-  The list of changes from ACD-1.4, one entry per change with its word count,
-  is in LICENSES/CHANGES-ACD-1.5.txt.
+  The list of changes from ACD-1.4, with its word count, is in
+  LICENSES/CHANGES-ACD-1.5.txt.
 
-  Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
-  well as the use of the Work -- examined and deliberately not narrowed), E10
-  (the machine-readable descriptor; closed for 1.1, 1.2, 1.3 and 1.4 in their
-  descriptors, and it must be closed again for each new version because each
-  version carries its own descriptor), and E87 (Section 5.2(b) has no
-  exception for an obligation not to make a false statement -- examined
-  and deliberately left as it is), and E88 (two statements of fact in the
-  preamble read as universal when lifted out of their paragraph -- examined
-  and deliberately left as it is).
+  Still open in this draft: E6 (whether the patent licence for results needs to
+  reach outputs as well as the use of the Work -- examined and deliberately not
+  narrowed), E10 (the machine-readable descriptor; closed for 1.1, 1.2, 1.3 and
+  1.4 in their descriptors, and it must be closed again for each new version
+  because each version carries its own descriptor), E87 (Section 5.1 has
+  no exception for an obligation not to make a false statement -- examined
+  and deliberately left as it is), and E91 (a claim the Dedicator owns is
+  licensed even where another already holds an exclusive licence under it --
+  examined and deliberately left as it is). E88 concerned the preamble of 1.0 to 1.4,
+  which this draft does not have.
 
 --------------------------------------------------------------------------------
 
@@ -40,670 +42,387 @@ ACD-1.5 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
 
 Short identifier: ACD-1.5
 
-
-PREAMBLE (informative; not part of the operative terms)
-
-  Software and the works that surround it are increasingly produced by
-  machines, read by machines, and improved by machines. The legal tools in
-  common use were drafted for a world in which a human author held rights and
-  chose which of them to keep. That assumption now fails in three places at
-  once. It is unclear whether rights subsist in machine-generated material at
-  all. Permissive licences are silent on whether a work may be used to train a
-  model; silence is not refusal, but neither is it permission that an automated
-  system can rely on, because the question is unsettled in most jurisdictions
-  and, where a reservation mechanism exists, it can be operated by parties
-  other than the licensor through signals attached to the work. And dedications
-  to the public domain either withhold patent rights expressly or say nothing
-  about them at all, and both leave the recipient of software exposed.
-
-  This Dedication is written for works that are meant to be learned from. It
-  gives away, once and without conditions, every right it reaches -- and
-  Section 11 names the ones it does not -- and it speaks in the three places
-  where that assumption fails: machine learning, patents, and machine
-  authorship.
-
-  It does so on three footings that stand side by side rather than in a queue.
-  Section 3 surrenders the Covered Rights. Section 4 grants a licence over the
-  same rights. Section 5 is a promise not to assert them. Each is given on its
-  own terms, none is a fallback for another, and a reader who needs only one
-  of them may rely on that one without deciding whether the others took
-  effect. A public-domain dedication that offered a licence only if the
-  dedication failed would put that decision on the reader; this one does not.
-
-  Sections 1 to 16 are the operative terms. This preamble is not, and nothing
-  in it qualifies them.
-
-
 1. DEFINITIONS
 
-  1.1  "Dedication" means this document, comprising Sections 1 to 16.
+  1.1  "Dedication" means Sections 1 to 10 of this document.
 
-  1.2  "Moral Rights" means the rights of an author to be identified as such,
-       to object to derogatory treatment or distortion of a work, to control
-       first publication, and any other right of a personal character conferred
-       on an author by law, now or in future, however described, including
-       rights that the law of a jurisdiction declares to be personal to the
-       author, inalienable, or incapable of transfer.
+  1.2  "Work" means the material to which the Dedicator has applied this
+       Dedication, in any medium and form, and every separable part of it,
+       including software, documentation, data, and media. It does not include
+       the text of this Dedication.
 
-  1.3  "Work" means the material to which the Dedicator has applied this
-       Dedication, in any medium and in any form, including source code,
-       object code, documentation, data, metadata, audiovisual material, and
-       any collection or compilation of these.
+  1.3  "Dedicator" means each person who applies this Dedication to the Work, so
+       far as that person holds or may hold rights in it. As to each Dedicator,
+       the Work is the material to which that Dedicator has applied this
+       Dedication. This Dedication operates severally as to each Dedicator, and
+       the failure of one Dedicator's act does not affect another's.
 
-  1.4  "Dedicator" means each person or entity applying this Dedication to the
-       Work, to the extent that person or entity holds or may hold Covered
-       Rights, Moral Rights, or patent claims in it. Where the Work has more
-       than one Dedicator, this Dedication operates severally as to each, and
-       the failure or ineffectiveness of any one Dedicator's act does not
-       affect another's.
+  1.4  "You" means any person or automated system exercising a permission given
+       here. A permission an automated system exercises is given equally to the
+       person on whose behalf it acts and to the person who operates it.
 
-  1.5  "Covered Rights" means every right that the Dedicator holds or may come
-       to hold in the Work anywhere in the world, now or in future, and however
-       arising, including copyright, rights in performances, broadcast and
-       recording rights, sui generis database rights, rights against unfair
-       extraction, and any right of similar effect, whether or not presently
-       known and whether or not presently subsisting. Covered Rights exclude
-       patent rights, which Section 8 addresses; trademark rights and rights in
-       a name, which Section 11 addresses; Moral Rights, which Section 12
-       addresses; and rights under the law of data protection or under a right
-       of privacy, publicity, or personality, which Section 11.4 addresses.
+  1.5  "Moral Rights" means the rights of an author or performer to be
+       identified, to object to derogatory treatment, to control first
+       publication, and any other right of a personal character that the law
+       confers on an author or performer, now or in future, including a right
+       the law declares inalienable.
 
-  1.6  "You" means any person or entity exercising permissions under this
-       Dedication, whether human, organisational, or automated. "Your" is
-       construed accordingly. Where an automated system exercises a permission
-       granted here, that permission is granted equally to the person or entity
-       on whose behalf it acts and to the person or entity that operates it, so
-       that no permission fails for want of a legal person to hold it.
+  1.6  "Covered Rights" means every right in the Work that the Dedicator holds
+       or may come to hold, anywhere in the world, now or in future, whether or
+       not presently known or subsisting. Covered Rights include copyright,
+       rights in performances, recordings, and broadcasts, sui generis database
+       rights, rights against unfair extraction, and any similar right. Covered
+       Rights exclude patent rights, Moral Rights, rights in trademarks and
+       names, and rights under the law of data protection, privacy, publicity,
+       or personality.
 
-  1.7  "Computational Use" means any automated processing of the Work, including
-       reproduction, extraction, normalisation, indexing, retrieval, analysis,
-       and text and data mining, and including use of the Work as input to
-       train, fine-tune, evaluate, align, distil, or otherwise develop a machine
-       learning model, and the making, distribution, and use of any model,
-       parameter set, weight, embedding, output, or other data that results
-       from that processing.
+  1.7  "Patent Claims" means claims of patents, including utility models, that
+       the Dedicator owns or controls, now or at any later time. The Dedicator
+       controls a claim if, and only if, at the time in question, the Dedicator
+       has the right to license it as Section 2.3 states without breaching an
+       obligation to, or incurring a payment to, another person. Patent Claims
+       exclude a claim that a person Section 7.2 names holds otherwise than from
+       the Dedicator.
 
-  1.8  "Machine-Generated Material" means any part of the Work produced in
-       whole or in substantial part by an automated system, whether or not a
-       person directed, prompted, reviewed, edited, or selected it.
+  1.8  "Result" means any model, parameter set, weight, embedding, output, or
+       other data, in each case resulting, directly or indirectly, from
+       automated processing of the Work. It does not include a copy of the Work
+       in any form.
 
-  1.9  "Contribution" means any work of authorship, including any modification,
-       addition, correction, translation, or accompanying material, that a
-       person intentionally submits to the Dedicator or to a repository or
-       forum, in either case offering the Work with a notice of this Dedication
-       to the public or to those invited to contribute, for inclusion in the
-       Work. A submission is intentional if it is made by or on behalf of the
-       person for that purpose; material sent for discussion only, and material
-       a person marks as not being a Contribution, are excluded.
+  1.9  "Computational Use" means any automated processing of the Work, including
+       reproduction, indexing, retrieval, analysis, text and data mining, and
+       use as input to train, fine-tune, evaluate, align, distil, or otherwise
+       develop a machine learning model, and the making, distribution, and use
+       of a Result.
 
-  1.10 "Reservation" means any act, notice, marking, metadata, protocol
-       element, header, machine-readable signal, contractual term, or other
-       measure by which a rightsholder purports to reserve, withhold, or opt
-       out of permission for text and data mining or for the use of a work in
-       developing a machine learning model, including a reservation of the kind
-       contemplated by Article 4(3) of Directive (EU) 2019/790 and by any
-       provision of national or international law of similar effect.
+  1.10 "Reservation" means any act, notice, metadata, protocol element, signal,
+       contractual term, or other measure by which a rightsholder purports to
+       withhold, or opt out of, permission for text and data mining or for the
+       development of a machine learning model. This includes a reservation
+       under Article 4(3) of Directive (EU) 2019/790 or any law of similar
+       effect.
 
-2. SCOPE AND EFFECT
+  1.11 "Contribution" means any material intentionally submitted, by or on
+       behalf of a person, for inclusion in the Work, to a Dedicator,
+       repository, or forum that offers the Work with a notice of this
+       Dedication to the public or to those invited to contribute. Material sent
+       for discussion only, or marked as not being a Contribution, is excluded.
 
-  2.1  This Dedication applies to the Work as a whole and to every separable
-       part of it.
+  1.12 The singular includes the plural and the reverse; "person" includes an
+       entity; "including" and "in particular" do not limit what precedes them;
+       and a law includes that law as amended or replaced.
 
-  2.2  This Dedication is made irrevocably. Nothing in this Dedication permits
-       the Dedicator to withdraw it or to impose any further term, condition, or
-       restriction on what may be done with any copy of the Work that has been
-       made available. Silence, delay, or non-enforcement by the Dedicator does
-       not revive, reserve, or narrow anything this Dedication gives away.
+2. DEDICATION, LICENCE, AND COVENANT
 
-  2.3  This Dedication takes effect without any act of acceptance by You. To
-       hold a permission granted here, You need not know of this Dedication,
-       sign, register, notify, request, or agree to anything, and nothing You do
-       or fail to do can cause You to lose one.
+  2.1  Dedication. The Dedicator irrevocably surrenders all Covered Rights, for
+       their full term and any extension, restoration, or revival of it, and
+       places the Work in the public domain in each jurisdiction that gives
+       effect to such an act. The Dedicator likewise waives any Covered Right
+       that the law permits to be waived but not surrendered. The surrender and
+       the waiver include any right under the Covered Rights to remuneration,
+       levy, or royalty.
 
-  2.4  Sections 3, 4, 5, and 6 are independent of one another, as is every other
-       grant, permission, consent, and covenant in this Dedication. Each
-       operates on its own footing, and none is conditioned on another being
-       effective or on another's failure. Where more than one operates, they
-       operate cumulatively, and Section 15.1 governs their construction.
+  2.2  Licence. The Dedicator grants You a licence to exercise all Covered
+       Rights for any purpose whatsoever, in source, object, or any other form,
+       and by any means now known or later devised. The licence includes any
+       Computational Use of the Work. It includes the right to use, study,
+       reverse engineer, reproduce, extract, re-utilise, adapt, modify,
+       translate, arrange, prepare derivative and collective works of, perform,
+       display, broadcast, communicate to the public, publish, distribute, lend,
+       rent, sell, and sublicense the Work and any adaptation of it.
 
-  2.5  The Dedicator makes this Dedication intending that others rely on it and
-       incur effort and expense in doing so; that reliance is the purpose of
-       this Dedication and not merely a foreseeable consequence of it. The
-       Dedicator covenants not to assert that, for want of consideration or
-       formality, this Dedication is revocable or ineffective, and is estopped
-       from doing so to the extent the law of any jurisdiction gives that
-       principle effect.
+  2.3  Patent licence. The Dedicator grants You a licence under the Patent
+       Claims to make any Computational Use of the Work, and to make, have made,
+       use, offer, sell, lend, lease, import, export, keep, possess, and
+       otherwise practise or transfer the Work, anything derived from it, and
+       any Result. The licence reaches a Patent Claim that such an act would
+       infringe, on any theory:
 
-  2.6  A Contribution is submitted under this Dedication, and the person making
-       it becomes a Dedicator as to that Contribution, unless they state
-       otherwise at the time of submission. Where a person states otherwise, or
-       material is excluded from being a Contribution by Section 1.9, a
-       Dedicator who includes that material with the Work, or causes it to be
-       included, will identify it in a form that accompanies the Work, as a
-       notice may identify material under Section 16.2, so that a person or an
-       automated system reading the Work can determine what this Dedication does
-       not cover. This undertaking binds that Dedicator, is subject to
-       Section 14, and imposes nothing upon You. Section 6.5 states why it
-       matters. This Dedication requires no separate instrument, assignment, or
-       agreement to place a Contribution under it. Whether the Dedicator asks a
-       contributor for anything else is a matter of project governance and is
-       not addressed here. Nothing in Section 2.6 obliges anyone to submit
-       anything, or obliges the Dedicator to accept anything.
+       (a)  as to the Work or anything derived from it, where the infringement
+            is caused by subject matter that was in the Work when the Dedicator
+            made the Work available, or in the Contribution that the Dedicator
+            submitted, alone or combined with the material it was submitted for
+            inclusion in; and
 
-  2.7  This Dedication reaches only rights the Dedicator holds, now or in
-       future. Where the Work incorporates material in which another person
-       holds rights, this Dedication neither affects nor purports to affect
-       those rights, and nothing in it is a representation that such material
-       is unencumbered.
+       (b)  as to Computational Use or a Result, where the infringing feature
+            results, in whole or in part, from the content of the Work, however
+            much or little of it was used. A feature that the Work teaches or
+            embodies is treated as resulting from that content. A feature added
+            to the Work, by whatever means, that the Work did not teach or
+            embody when the Dedicator made the Work available or submitted the
+            Contribution is governed by paragraph (a) alone.
 
-  2.8  This Dedication, in respect of the Work, binds the Dedicator's
-       successors, assigns, heirs, and personal representatives, and any person
-       to whom a Covered Right, or a patent claim that Section 8 reaches, is
-       transferred, to the fullest extent the law permits. A transferee takes
-       subject to it to that extent, Section 6 included.
-
-  2.9  Nothing in this Dedication is, under its terms, conditioned on, suspended
-       by, or revived by an insolvency, bankruptcy, administration,
-       receivership, liquidation, dissolution, or similar proceeding in respect
-       of the Dedicator, or by any act of a trustee, administrator, receiver,
-       liquidator, or equivalent officer. Such an officer is a person to whom
-       rights are transferred for the purposes of Section 2.8.
-
-3. DEDICATION OF COVERED RIGHTS
-
-  3.1  The Dedicator irrevocably surrenders, abandons, and relinquishes all
-       Covered Rights in the Work, to the fullest extent permitted by the law
-       of each jurisdiction, and places the Work in the public domain in each
-       jurisdiction that gives effect to such an act.
-
-  3.2  The surrender in Section 3.1, and any waiver under Section 3.3, are made
-       for the full term for which the Covered Rights would otherwise subsist,
-       including any extension, restoration, or revival of term, and include any
-       right to compensation, remuneration, levy, or royalty arising from any
-       use of the Work.
-
-  3.3  Where the law of a jurisdiction does not permit a Covered Right to be
-       surrendered but permits it to be waived, the Dedicator waives it.
-
-
-4. LICENCE OF COVERED RIGHTS
-
-  4.1  The Dedicator grants You a worldwide, royalty-free, non-exclusive,
-       irrevocable, perpetual, sublicensable, and transferable licence to
-       exercise all Covered Rights in the Work for any purpose whatsoever.
-
-  4.2  The licence in Section 4.1 includes, without limitation, the rights to
-       use, study, inspect, analyse, reverse engineer, reproduce, store, cache,
-       adapt, translate, modify, create derivative and collective works from,
-       publicly display, publicly perform, communicate to the public, publish,
-       distribute, lend, rent, sell, and sublicense the Work and any adaptation
-       of it, in source form, in object form, or in any other form, in any
-       medium, and by any means now known or later devised.
-
-  4.3  The licence in Section 4.1 is granted subject to no condition of any
-       kind. In particular it is not conditioned on attribution, on
-       reproduction of any notice, on reciprocal or compatible licensing, on
-       disclosure of source, on field of use, on the identity, character,
-       size, revenue, or purpose of the user, on the scale of use or the number
-       of users served, or on any restriction as to persons, groups,
-       technologies, endeavours, or jurisdictions.
-
-  4.4  The licence in Section 4.1 is granted independently of Section 3, and not
-       as a fallback for it: it is granted whether or not Section 3 is
-       effective. You are not required to determine whether Section 3 is
-       effective in any jurisdiction, and no permission granted here depends on
-       that question or on how it is answered.
-
-  4.5  Because this licence imposes no condition, You may distribute the Work,
-       and any adaptation or collection containing it, under any terms You
-       choose, including terms that impose conditions upon Your own recipients
-       and including terms that are incompatible with this Dedication. Nothing
-       here limits what those terms may be, requires them to reproduce this
-       text, or places any obligation on You in respect of Your recipients.
-       Section 4.5 does not permit a person to impose what Section 5 forbids on
-       material as to which that person is a Dedicator.
-
-  4.6  Section 4.5 does not cut Your recipients off from this Dedication: a
-       person who exercises a permission granted here is You in their own right
-       (Section 1.6), the covenants may be relied upon by anyone who receives
-       the Work from You, directly or indirectly, on the terms Section 5.3
-       states, and no act of acceptance is needed (Section 2.3). Terms You add
-       govern what You give; they do not narrow what the Dedicator has already
-       given in respect of the Work.
-
-
-5. COVENANT NOT TO ASSERT
-
-  5.1  The Dedicator covenants not to assert, and not to authorise or assist
-       any other person to assert, any Covered Right against You in respect
-       of any use of the Work. The Dedicator further covenants not to assert
-       against You any claim or cause of action, whether now known or
-       unknown, that treats as wrongful, or as without legal basis, a use of
-       the Work that this Dedication permits or purports to permit, other
-       than for patent infringement (Section 8), under trademark rights or
-       rights in a name (Section 11.1), for a false statement or
-       representation (Section 11.3), or for a payment You agreed to make for
-       providing a copy or for a service that is not permission to use the
-       Work.
-
-  5.2  The Dedicator further covenants that the Dedicator will not, in respect
-       of the Work:
-
-       (a)  assert rights in respect of any technological measure that
-            restricts access to or use of the Work, or invoke against You any
-            law concerning the circumvention of such measures;
-
-       (b)  other than under trademark rights or rights in a name (Section 11.1)
-            or for a payment You agreed to make for providing a copy or for a
-            service that is not permission to use the Work, impose by contract,
-            terms of service, acceptable-use policy, access condition,
-            click-through, registration requirement, or any other collateral
-            means an obligation in respect of the Work that this Dedication does
-            not itself impose, and this Dedication imposes none (Section 10.1);
-
-       (c)  assert that any permission granted here is narrower than Section
-            15.1 requires it to be read; or
-
-       (d)  other than for a false statement or representation (Section 11.3),
-            assert, or authorise or assist any other person to assert, against
-            You a right of privacy, publicity, or personality held by the
-            Dedicator, in respect of any use of the Work that this Dedication
-            permits or purports to permit. This is a covenant about the
-            Dedicator's own conduct and not a grant: Section 11.4 is unaffected,
-            and rights of this kind held by any other person are untouched.
-
-       To the fullest extent the law permits, the Dedicator authorises the
-       circumvention of any technological measure that is applied at any time by
-       or on behalf of the Dedicator to a copy of the Work and restricts access
-       to or use of that copy, where the circumvention is effected in a use of
-       the Work that this Dedication permits or purports to permit, and waives
-       any power under a law concerning such circumvention to forbid that
-       circumvention.
-
-       Section 5 does not reach the Dedicator's rights in material, other than
-       the Work, that the Dedicator itself makes or makes available, or the
-       terms or measures the Dedicator applies to that material or to the use
-       of a service through which the Dedicator runs the Work for others
-       without providing a copy of the Work, even where using that material is
-       a Computational Use of the Work. A copy of the Work, or of part of it,
-       contained in that material remains the Work, or that part of it, and
-       Section 5 reaches those terms to the extent they restrict what may be
-       done with that copy.
-
-  5.3  The covenants in Sections 2.5, 5.1, 5.2, and 8.6 bind the persons
-       Section 2.8 names, to the fullest extent the law permits, and may be
-       relied upon by You and by anyone who receives the Work from You, directly
-       or indirectly, as an intended beneficiary, to the extent a jurisdiction
-       gives effect to such reliance. Sections 3 and 4 operate in their favour
-       independently of Section 5.3.
-
-6. MACHINE LEARNING, TEXT AND DATA MINING, AND MODEL TRAINING
-
-  6.1  Computational Use of the Work is expressly permitted, for any purpose,
-       whether or not commercial, by any person or automated system, without
-       condition, so far as the Covered Rights of the Dedicator, and the patent
-       claims Section 8 reaches, are concerned (Section 2.7).
-
-  6.2  The Dedicator makes no Reservation in respect of the Work and expressly
-       declines to make one. So far as the Covered Rights and patent claims of
-       the Dedicator are concerned, no notice, marking, metadata, protocol
-       element, header, robots directive, or other signal associated with the
-       Work is to be read as a Reservation, whatever its form and whoever placed
-       it there. Section 6.2 is bounded by Section 2.7: it states the
-       Dedicator's own position and does not purport to defeat a Reservation
-       made by another rightsholder, which Section 6.3 addresses on its own
-       terms.
-
-  6.3  Where a Reservation has been made in respect of the Work, whether by the
-       Dedicator or by another person, and whether before or after this
-       Dedication was applied, the Dedicator withdraws it and disclaims reliance
-       on it, to the fullest extent the Dedicator is able. Where the Reservation
-       is another rightsholder's, made in exercise of rights of their own, the
-       Dedicator has no power to withdraw it and Section 6.3 does not purport to
-       give one; the disclaimer of reliance is given in every case
-       (Section 2.7).
-
-  6.4  To the fullest extent the law permits, no enforceable claim arises
-       against You, under this Dedication or under any Covered Right of the
-       Dedicator, in respect of a model, parameter set, weight, embedding,
-       output, or other data, in each case resulting from Computational Use of
-       the Work, and You owe nothing under this Dedication in respect of any of
-       them. Whether a right subsists in any such thing is not decided here and
-       does not need to be. Nothing in this Dedication requires You to
-       license, disclose, or attribute any such thing.
-
-  6.5  Section 6 operates on its own footing (Section 2.4) and also states
-       expressly what Sections 3 to 5 and 8 would in any event permit. It is
-       stated expressly because silence on this subject leaves it to be inferred
-       whether this is permitted, and because a permission that an automated
-       system cannot determine is, for the purposes of a work meant to be
-       learned from, no permission at all.
-
-
-7. SUI GENERIS DATABASE RIGHTS
-
-  7.1  To the extent that a sui generis database right, or a right against the
-       extraction or re-utilisation of the contents of a database, subsists in
-       the Work, it is a Covered Right and Sections 3 to 6 apply to it.
-
-  7.2  You may extract and re-utilise the whole or any substantial part of the
-       contents of the Work, repeatedly and systematically, without limit and
-       without condition, so far as the Covered Rights of the Dedicator are
-       concerned (Section 2.7).
-
-
-8. PATENT LICENCE AND COVENANT
-
-  8.1  The Dedicator grants You a worldwide, royalty-free, non-exclusive,
-       irrevocable, perpetual, sublicensable, and transferable licence to make,
-       have made, use, offer, sell, lend, lease, import, export, keep, possess,
-       and otherwise practise or transfer the Work or anything derived from it,
-       under every patent claim owned or controlled by the Dedicator, now or in
-       future, that those acts would infringe, where the infringement is caused
-       by subject matter contained in the Work as made available by the
+  2.4  Terms of the licences. The licences in Sections 2.2 and 2.3 are
+       worldwide, royalty-free, non-exclusive, irrevocable, perpetual,
+       sublicensable, and transferable. Everyone who receives the Work, anything
+       derived from it, or a Result, from anyone, holds them directly from the
        Dedicator.
 
-  8.2  The licences granted by Sections 8.1 and 8.4 are subject to no condition
-       and are not terminable by the Dedicator under this Dedication on any
-       ground, including the commencement of or participation in patent
-       litigation by You against the Dedicator or any other person. This
-       Dedication contains no patent retaliation provision. A retaliation
-       provision operates as a condition on permission already given, and
-       Section 10.1 admits no condition, so the absence follows from the
-       structure of this Dedication rather than from a policy preference
-       expressed here.
+  2.5  Covenant. The Dedicator covenants not to assert or exercise against You,
+       and not to authorise or assist any other person to assert or exercise
+       against You, any of the following that the Dedicator holds, or that
+       another person holds through the Dedicator:
 
-  8.3  Sections 8.1 and 8.4 reach a patent claim only as to the acts they
-       describe. Nothing in this Dedication, as to those acts, reserves,
-       preserves, or leaves unaffected any patent claim they reach.
+       (a)  any Covered Right, in respect of any use of the Work or of any
+            Result;
 
-  8.4  The Dedicator further grants You a licence on the terms of Section 8.1 to
-       put the Work to Computational Use and to make, have made, use, offer,
-       sell, lend, lease, import, export, keep, possess, and otherwise practise
-       or transfer any model, parameter set, weight, embedding, output, or other
-       data, in each case resulting from Computational Use of the Work, under
-       every patent claim owned or controlled by the Dedicator, now or in
-       future, that those acts would infringe. This is a grant in its own right
-       and not a clarification of Section 8.1. The proviso in Section 8.1 as to
-       subject matter contained in the Work is deliberately absent from Section
-       8.4. Section 8.1 alone governs a feature added to the Work, by whatever
-       means. Section 8.4 reaches a claim only where the feature that infringes
-       it results, in whole or in part, from the content of the Work; a feature
-       that the Work teaches or embodies is taken so to result. That is a
-       question of causation and not of quantity: no threshold of how much of
-       the Work was used is imposed.
+       (b)  any Patent Claim that Section 2.3 reaches, in respect of any act
+            that Section 2.3 describes;
 
-  8.5  Sections 8.1 to 8.4 are subject to Section 2.7: they reach only patent
-       claims the Dedicator owns or controls, now or in future, and are neither
-       a representation nor a warranty that practising the Work infringes no
-       claim held by another person. A patent claim is controlled by the
-       Dedicator if, and only if, at the time in question, the Dedicator has
-       the right to grant these licences under it without breaching an
-       obligation to, or incurring a payment to, another person.
+       (c)  any Moral Right in the Work; or
 
-  8.6  The Dedicator further covenants not to assert, and not to authorise or
-       assist any other person to assert, against You the patent claims that
-       Sections 8.1 and 8.4 reach, in respect of any act that those Sections
-       describe. This covenant is given on the same footing as the covenants in
-       Section 5 and does not wait for either licence to be held ineffective: it
-       is given for every jurisdiction. You are not required to determine
-       whether either licence is effective in any jurisdiction, and nothing
-       permitted by this Dedication depends on that question or on how it is
-       answered.
+       (d)  subject to Section 5.4, any other claim, known or unknown, that
+            treats a use of the Work that this Dedication permits or purports to
+            permit as wrongful, or as without legal basis, by reason of its
+            being a use of the Work. This includes a claim under a right of
+            privacy, publicity, or personality held by the Dedicator.
 
+  2.6  Moral Rights. The Dedicator also waives all Moral Rights in the Work, and
+       consents to every act, by You or by anyone who receives the Work or
+       anything derived from it, from anyone, that would otherwise infringe
+       them. The waiver, the consent, and the covenant in Section 2.5(c) extend
+       to no other work of the Dedicator.
 
-9. MACHINE-GENERATED MATERIAL AND AUTHORSHIP
+  2.7  Independence. Each grant, waiver, consent, and covenant in this
+       Dedication is given in its own right, cumulatively, for every
+       jurisdiction, and to the fullest extent the law permits, whether or not
+       another is effective. You need not determine which of them is effective
+       in any jurisdiction, and none depends on how that question is answered.
 
-  9.1  The Work may consist wholly or partly of Machine-Generated Material,
-       including code produced by an automated system.
+3. MACHINE LEARNING RESERVATIONS AND MACHINE-GENERATED MATERIAL
 
-  9.2  The Dedicator makes no representation that any right subsists in any
-       part of the Work, and asserts no right in Machine-Generated Material.
-       Where a right does not subsist, this Dedication adds nothing to Your
-       existing freedom as to that right and takes nothing away. Where a right
-       that this Dedication reaches subsists, or is later held to subsist,
-       this Dedication applies to it.
+  3.1  The Dedicator makes no Reservation in respect of the Work. No notice,
+       metadata, protocol element, or other signal associated with the Work,
+       whoever placed it there, is to be read as a Reservation of the
+       Dedicator's rights. The Dedicator withdraws any Reservation in respect of
+       the Work that the Dedicator has the power to withdraw, whenever made, and
+       disclaims reliance on any other.
 
-  9.3  You are not required to determine which parts of the Work are
-       Machine-Generated Material. No permission granted here depends on that
-       question, or on how any jurisdiction answers it, or on whether the
-       answer changes.
+  3.2  The Dedicator makes no representation that any right subsists in any part
+       of the Work generated by an automated system, whether or not a person
+       directed, reviewed, or edited it, and asserts none in it. You need not
+       determine which parts of the Work are so generated, and no permission
+       given here depends on the answer. Where a right this Dedication reaches
+       subsists, or is later held to subsist, this Dedication applies to it.
 
-  9.4  Section 9 is not a disclaimer of the fact of origin. Where a person
-       directed the making of the Work, that remains true as a matter of history
-       whatever the position in law. Section 10 governs whether You need say so,
-       and Section 11.3 governs a false claim of authorship.
+4. NO CONDITIONS
 
+  4.1  This Dedication imposes no condition, obligation, or restriction upon You
+       in respect of the Work or of any Result, other than in Your capacity as a
+       Dedicator or as a person Section 7.2 names. No permission given here
+       terminates or narrows, under this Dedication, for any reason, including
+       litigation by You against anyone.
 
-10. ABSENCE OF CONDITIONS
+  4.2  In particular, You need not know of or accept this Dedication, give
+       attribution, reproduce a notice, state changes, disclose source, license
+       anything on any terms, or inform anyone of anything. No permission is
+       limited by field of endeavour, jurisdiction, purpose, scale, or the
+       identity of any person, group, or technology.
 
-  10.1 This Dedication imposes no condition, obligation, restriction, or
-       requirement upon You in respect of the Work, other than in Your capacity
-       as a Dedicator.
+  4.3  You may distribute the Work, and any adaptation or collection containing
+       it, on any terms You choose, including terms incompatible with this
+       Dedication. Those terms govern what You give and do not narrow what the
+       Dedicator gives. Section 4.3 does not permit a person to impose what
+       Section 5 forbids that person to impose.
 
-  10.2 In particular, You need not give attribution, reproduce any notice, state
-       that the Work was modified, make source available, license anything under
-       this Dedication or any other terms, retain this file, or inform anyone of
-       anything.
+  4.4  Under this Dedication, a request, preference, or expectation that the
+       Dedicator expresses in respect of the Work, however phrased, including
+       for attribution or citation, is not a condition and creates no
+       obligation.
 
-  10.3 Under this Dedication, any request, preference, custom, or expectation
-       expressed by the Dedicator in respect of the Work, wherever expressed
-       and however phrased, including a request for attribution or citation, is
-       a request and not a condition: it creates no obligation, its
-       non-observance is not a breach, and it neither limits, qualifies, nor
-       terminates any permission granted here.
+5. FURTHER COVENANTS
 
-  10.4 No permission granted by this Dedication terminates under it, for any
-       reason. This Dedication, in respect of the Work, contains no termination
-       provision and no revival provision, because it attaches no condition to
-       any permission in respect of the Work.
+  5.1  The Dedicator covenants that it will not, by contract, terms of service,
+       acceptable-use policy, access condition, registration requirement, or any
+       other collateral means, impose, in respect of the Work, an obligation
+       that this Dedication does not itself impose.
 
-  10.5 Section 16 concerns the text of this Dedication as a document, and not
-       the Work. Nothing in Section 16 is a condition upon Your use of the
-       Work, and Section 10.1 is unaffected by it.
+  5.2  The Dedicator covenants not to assert against You, in respect of the
+       Work, any right or law concerning a technological measure that restricts
+       access to or use of the Work. The Dedicator authorises the circumvention
+       of any such measure applied by or on behalf of the Dedicator to a copy of
+       the Work that the Dedicator has made available, in any use that this
+       Dedication permits or purports to permit, and waives any power to forbid
+       it.
 
+  5.3  The Dedicator covenants not to assert that, for want of consideration or
+       formality, this Dedication is revocable or ineffective and, so far as the
+       law allows, is estopped from asserting it.
 
-11. TRADEMARKS, NAMES, MISREPRESENTATION, AND PRIVACY
+  5.4  Sections 2.5(d), 3.1, 5.1, and 5.2 do not reach:
 
-  11.1 This Dedication grants no right in any trademark, service mark, trade
-       name, logo, or personal name of the Dedicator or of any other person.
-       Nothing in Section 11 reduces what any other Section of this
-       Dedication gives. Where Section 16 speaks of the name and the identifier
-       of this Dedication, it speaks of the text of this Dedication as a
-       document and not of the Work, and it asks nothing of You in respect of
-       the Work (Section 10.5).
+       (a)  a claim for patent infringement outside what Section 2.3 reaches, or
+            anything done under rights in a trademark or a name;
 
-  11.2 Section 11.1 does not restrict nominative reference, including stating
-       truthfully what the Work is, where it came from, and who made it, and
-       naming the Dedicator for that purpose.
+       (b)  a claim for a false statement or representation, which the omission
+            of attribution alone is not;
 
-  11.3 This Dedication does not make a false statement true. Representing that
-       the Dedicator authored, endorsed, approved, sponsored, or is associated
-       with a work, when that is not the case, is outside what this Dedication
-       reaches. Retaining a notice that accompanied or was contained in the Work
-       is not such a representation. Section 11.3 states a limit of the
-       Dedication's reach; it is not a condition upon You, and Section 10.1 is
-       unaffected by it.
+       (c)  a charge, or a payment You agreed to make, for providing a copy or
+            for a service that is not permission to use the Work;
 
-  11.4 This Dedication, in respect of the Work, reaches Covered Rights, the
-       patent claims Section 8 reaches, and Moral Rights to the extent stated in
-       Section 12. It gives nothing by implication beyond what its words give.
-       It grants no permission under the law of data protection, under a right
-       of privacy, publicity, or personality, or under any right held by a
-       person other than the Dedicator. Where the Work contains the personal
-       data, likeness, voice, or performance of a person other than the
-       Dedicator, any permission those laws require is not the Dedicator's to
-       give and this Dedication does not purport to give it. Section 11.4 states
-       a limit of the Dedication's reach; it is not a condition upon You, and
-       Section 10.1 is unaffected by it.
+       (d)  a term about a Contribution, asked of the person submitting it; or
 
+       (e)  terms or measures that the Dedicator applies to material of the
+            Dedicator's own that is not the Work, including a Result, or to a
+            service through which the Dedicator runs the Work for others without
+            providing a copy of it. That is so even where use of that material
+            or service is a Computational Use. Such terms and measures do not
+            reach a copy of any part of the Work contained in such material,
+            which remains the Work.
 
-12. MORAL RIGHTS
+6. LIMITS
 
-  12.1 To the fullest extent permitted by the law of each jurisdiction, the
-       Dedicator waives and agrees not to assert Moral Rights in the Work.
+  6.1  This Dedication gives nothing by implication beyond what its words give.
+       This Dedication affects no right held by a person other than the
+       Dedicator and the persons Section 7.2 names, and is no representation
+       that the Work is free of such rights.
 
-  12.2 The Dedicator covenants not to exercise, and not to authorise or assist
-       any other person to exercise, Moral Rights in the Work against You or
-       against any person who receives the Work from You, directly or
-       indirectly. The Dedicator also consents to any act by You or by any such
-       person that would otherwise infringe those rights. The covenant and the
-       consent are given for every jurisdiction, whether or not Section 12.1 has
-       effect there. You are not required to determine whether Section 12.1 has
-       effect in a jurisdiction, and nothing permitted by this Dedication
-       depends on that question or on how it is answered.
+  6.2  This Dedication grants no right in a trademark, trade name, logo, or
+       personal name. You may state truthfully what the Work is, where it came
+       from, and who made it.
 
-  12.3 The covenant and the consent in Section 12.2 are limited to the Work.
-       They extend to no other work of the Dedicator, whether existing or
-       future, and they are given in respect of the Work, which the Dedicator
-       has chosen to place in the commons for the purpose stated in Section 6.
+  6.3  Representing falsely that the Dedicator authored, endorsed, sponsored, or
+       is associated with a work is outside what this Dedication reaches, and
+       neither Section 2.5(c) nor Section 2.6 extends to that conduct. Retaining
+       a notice that accompanied the Work is not such a representation.
 
-  12.4 The covenant and the consent in Section 12.2 bind the persons Section 2.8
-       names and any person entitled to exercise or enforce Moral Rights in the
-       Work after the Dedicator's death, to the fullest extent the law permits.
+  6.4  This Dedication grants no permission under the law of data protection or
+       under a right of privacy, publicity, or personality. Where the Work
+       contains another person's personal data, likeness, voice, or performance,
+       any permission that law requires is not the Dedicator's to give. Section
+       2.5(d) is a promise not to assert; it grants no such permission.
 
-  12.5 Neither the waiver in Section 12.1 nor the covenant and the consent in
-       Section 12.2 extend to conduct falling within Section 11.3, so the
-       interest that Moral Rights protect against false attribution survives all
-       three.
+  6.5  Section 6 states limits of this Dedication's reach. Except as Section 6.3
+       states, it reduces nothing that Sections 2 to 5 expressly give, and it
+       imposes no condition upon You.
 
-  12.6 If Section 12.2 is held invalid in whole or in part in a jurisdiction,
-       Section 15.2 applies, and the invalidity is to be treated as affecting no
-       other Section.
+7. DURATION AND PERSONS BOUND
 
+  7.1  This Dedication is made irrevocably. Nothing in it lets a later term or
+       restriction, silence, delay, or non-enforcement by the Dedicator narrow
+       what it gives as to any copy of the Work that has been made available.
+       The Dedicator makes it intending that others rely on it, and that
+       reliance is its purpose.
 
-13. NO WARRANTY
+  7.2  This Dedication binds, to the fullest extent the law permits:
 
-  13.1 THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OR CONDITION OF ANY KIND,
-       EXPRESS, IMPLIED, OR STATUTORY, INCLUDING WITHOUT LIMITATION ANY
-       WARRANTY OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY, FITNESS FOR A
-       PARTICULAR PURPOSE, ACCURACY, OR ABSENCE OF ERRORS OR DEFECTS.
+       (a)  the Dedicator's successors, assigns, heirs, and personal
+            representatives;
 
-  13.2 THE DEDICATOR DOES NOT WARRANT THAT ANY RIGHT SUBSISTS IN THE WORK, THAT
-       THE DEDICATOR HOLDS ANY RIGHT IN IT, THAT ANY SECTION OF THIS DEDICATION
-       IS EFFECTIVE IN ANY JURISDICTION, OR THAT USE OF THE WORK DOES NOT
-       INFRINGE THE RIGHTS OF ANY OTHER PERSON.
+       (b)  any person to whom a Covered Right, or a Patent Claim that Section
+            2.3 reaches, is transferred;
 
-  13.3 The Dedicator has no duty to maintain, update, correct, support, defend,
-       or continue to make the Work available.
+       (c)  any person entitled to exercise Moral Rights in the Work after the
+            Dedicator's death; and
 
+       (d)  any trustee, receiver, or similar officer of the Dedicator or its
+            property.
 
-14. LIMITATION OF LIABILITY
+  7.3  Under its terms, nothing this Dedication gives ends, narrows, or is
+       suspended because of an insolvency or similar proceeding.
 
-  14.1 EXCEPT FOR ANY LIABILITY FOR WILFUL MISCONDUCT, GROSS NEGLIGENCE, DEATH,
-       OR PERSONAL INJURY, IN EACH CASE WHERE APPLICABLE LAW DOES NOT PERMIT IT
-       TO BE EXCLUDED, WHICH NOTHING IN SECTION 14 LIMITS, AND TO THE FULLEST
-       EXTENT PERMITTED BY APPLICABLE LAW, THE DEDICATOR IS NOT LIABLE TO YOU OR
-       TO ANY OTHER PERSON, ON ANY LEGAL THEORY, FOR ANY DIRECT, INDIRECT,
-       INCIDENTAL, CONSEQUENTIAL, PUNITIVE, EXEMPLARY, OR SPECIAL LOSS OR DAMAGE
-       ARISING OUT OF THIS DEDICATION OR THE USE OF THE WORK, EVEN IF ADVISED OF
-       THE POSSIBILITY OF SUCH LOSS OR DAMAGE.
+  7.4  You, and anyone who receives the Work, anything derived from it, or a
+       Result, from anyone, may rely on the covenants in Sections 2.5, 5.1, 5.2,
+       and 5.3 as intended beneficiaries, so far as the law permits.
 
-  14.2 Subject to Section 14.1, where applicable law does not permit a liability
-       to be excluded, that liability is limited to the greatest extent that law
-       permits, and the remainder of Section 14 continues to apply. Section 14
-       does not limit the Dedicator's liability for asserting a claim, or
-       exercising a right, in breach of a covenant in Section 2.5, 5, 8.6, or
-       12.2.
+8. NO WARRANTY AND LIMITED LIABILITY
 
+  8.1  THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OR CONDITION OF ANY KIND,
+       EXPRESS, IMPLIED, OR STATUTORY, INCLUDING ANY WARRANTY OF TITLE,
+       NON-INFRINGEMENT, MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE.
+       THE DEDICATOR DOES NOT WARRANT THAT ANY RIGHT SUBSISTS IN THE WORK, THAT
+       THE DEDICATOR HOLDS ANY RIGHT IN IT, OR THAT ANY SECTION OF THIS
+       DEDICATION IS EFFECTIVE IN ANY JURISDICTION.
 
-15. CONSTRUCTION AND SEVERABILITY
+  8.2  TO THE FULLEST EXTENT THE LAW PERMITS, THE DEDICATOR IS NOT LIABLE, ON
+       ANY LEGAL THEORY, FOR ANY LOSS OR DAMAGE ARISING OUT OF THIS DEDICATION
+       OR THE USE OF THE WORK, EVEN IF ADVISED OF ITS POSSIBILITY. Section 8.2
+       does not limit liability for breach of Section 2.5, 5.1, 5.2, or 5.3, or
+       a liability, including for wilful misconduct, gross negligence, death, or
+       personal injury, that the law does not permit to be limited. The
+       Dedicator has no duty to maintain or support the Work.
 
-  15.1 This Dedication, in respect of the Work, is to be construed so as to
-       give the widest permission and the least obligation upon You that its
-       words allow, and so that, where a provision is capable of more than one
-       reading, the reading that grants more to You prevails.
+9. CONSTRUCTION
 
-  15.2 If a provision of this Dedication is held invalid or unenforceable in a
-       jurisdiction, it is to be reformed to the minimum extent necessary to
-       make it valid and enforceable there while preserving its purpose. If it
-       cannot be reformed, it is to be treated as severed as to that
-       jurisdiction only, and the remainder as continuing in full force
-       everywhere.
+  9.1  As to the Work, this Dedication is to be construed to give the widest
+       permission and impose the least obligation upon You that its words allow.
+       Where a provision can, as to the Work, be read in more than one way, the
+       reading that gives You more prevails. No rule applies that construes this
+       Dedication against its drafter, or a grant narrowly against the grantee.
 
-  15.3 This Dedication specifies no governing law and no forum.
+  9.2  A provision held invalid in a jurisdiction is to be reformed there to the
+       minimum extent necessary to make it valid while preserving its purpose.
+       If it cannot be reformed, it is to be treated as severed there only, and
+       the remainder as continuing in full force everywhere.
 
-  15.4 English is the authoritative language of this Dedication. A translation
-       is for convenience only; in the event of conflict, this English text
-       prevails.
+  9.3  This Dedication specifies no governing law and no forum. This English
+       text prevails over any translation.
 
-  15.5 In this Dedication, words in the singular include the plural and words
-       in the plural include the singular; "person" includes an entity;
-       "including" and "in particular" introduce examples and do not limit
-       what precedes them; and a reference to a law includes that law as
-       amended, replaced, or re-enacted.
+10. APPLYING THIS DEDICATION, AND THIS TEXT
 
-  15.6 No rule of construction that resolves ambiguity against the drafter
-       applies to this Dedication, and no rule that construes a grant narrowly
-       against the grantee applies to it.
-
-
-16. APPLYING THIS DEDICATION, AND THE STATUS OF THIS TEXT
-
-  16.1 To apply this Dedication, place a notice with the Work, in a form
-       Section 16.2 names or in substantially the following form:
+  10.1 To apply this Dedication, place with the material a notice that names it
+       by name and version, or that bears the identifier "ACD-1.5" or
+       "LicenseRef-ACD-1.5", for example:
 
            This work is released under the Autonomous Commons Dedication 1.5
-           (ACD-1.5). No rights in this work are reserved and no conditions are
-           imposed in respect of it; trademarks, other rights in names, and
-           rights of privacy, publicity, personality, and data protection are
-           not granted (Section 11). Machine learning and text and data mining
-           are expressly permitted, and a patent licence is granted.
+           (ACD-1.5). No rights in this work are reserved and no conditions
+           are imposed in respect of it; trademarks, other rights in names,
+           and rights of privacy, publicity, personality, and data protection
+           are not granted (Section 6; see Section 2.5(d)). Machine learning
+           and text and data mining are expressly permitted, and a patent
+           licence is granted. The work is provided as is, without warranty
+           (Section 8).
            Full text: <location of this file>
            SPDX-License-Identifier: ACD-1.5
            (LicenseRef-ACD-1.5 while not on the SPDX License List)
 
-  16.2 Where material to which a Dedicator has applied this Dedication is
-       accompanied by the identifier "ACD-1.5", by an "SPDX-License-Identifier:
-       ACD-1.5" or "LicenseRef-ACD-1.5" tag, or by a reference to this
-       Dedication by name and version, that is sufficient notice of this
-       Dedication, and its terms apply in full whether or not a copy of this
-       text accompanies that material. A notice a Dedicator places applies this
-       Dedication to the material it identifies, whether by its words, by its
-       place in a comment within a file, by a file name that refers to other
-       material, or by markers that delimit part of a file, or, where it
-       identifies none, to the material it accompanies. It does not apply this
-       Dedication to material that a narrower notice the Dedicator has placed
-       assigns to other terms; a notice that is only a Reservation assigns
-       nothing to other terms (Section 6.2). The identifiers named above match
-       without regard to case.
+  10.2 Such a notice, placed by a Dedicator, is sufficient notice of this
+       Dedication, whose terms apply in full whether or not a copy of this text
+       accompanies the material. Passing on, or recording, another person's
+       notice for the material it identifies applies this Dedication to nothing
+       else, and merely mentioning this Dedication applies it to nothing. A
+       notice applies this Dedication to the material it identifies, whether by
+       its words, by its place in a comment within a file, by a file name that
+       refers to other material, or by markers that delimit part of a file. If
+       it identifies none, it applies this Dedication to the material it
+       accompanies. It does not apply this Dedication to material that a
+       narrower notice, placed or kept by the Dedicator, puts under other terms.
+       A notice that is only a Reservation puts nothing under other terms. The
+       identifiers named in Section 10.1 match without regard to case.
 
-  16.3 This Dedication may be applied by anyone, to any material in which they
-       hold or may hold rights of their own, without permission from, notice to,
-       or any relationship with the authors of this Dedication. It is not
-       specific to any project, person, organisation, jurisdiction, or field of
-       endeavour.
+  10.3 Anyone may apply this Dedication to material in which they hold or may
+       hold rights of their own, without permission from or notice to the
+       authors of this Dedication.
 
-  16.4 The text of this Dedication may be copied and distributed verbatim by
-       anyone, in any medium, for any purpose, without charge or permission.
-       Making a modified text is not restricted; what is restricted is
-       distributing one. A modified text may not be distributed under any name
-       that contains "Autonomous Commons Dedication", regardless of case, or
-       under any identifier that contains "ACD-", regardless of case, followed
-       by a digit, except by the Steward (Section 16.5). That exception reaches
-       only a new version under a version number and identifier that no earlier
-       text the Steward or a former Steward has published, other than a draft
-       identified as such, has borne, so that each name and identifier in this
-       family continues to denote one fixed text. Section 16.4 applies to a new
-       version distributed under that exception as it applies to this text. A
-       modified text may be distributed under a different name. A translation is
-       not a modified text for this purpose and may be distributed under the
-       name and the identifier if it is identified as a translation and states
-       that the English text prevails (Section 15.4). A re-encoding of the text
-       into a machine-readable form is likewise not a modified text for this
-       purpose, provided the words are unchanged and the form is identified as a
-       re-encoding; differences of line breaking, indentation, or markup are not
-       modifications. Both provisos are conditions upon distributing the text,
-       not upon any use of the Work (Section 10.5).
+  10.4 A Contribution is made under this Dedication, and the person by whom, or
+       with whose authority, it is submitted applies this Dedication to it, and
+       becomes a Dedicator as to it, unless either states otherwise when
+       submitting it. A Dedicator who includes with the Work, or causes to be
+       included with it, material submitted on other terms or excluded by
+       Section 1.11 will identify it in a form that accompanies the Work, so
+       that a person or an automated system can determine what this Dedication
+       does not cover. That undertaking binds only that Dedicator. Nothing in
+       Section 10.4 obliges anyone to submit or to accept anything.
 
-  16.5 In Section 16.4, "the Steward" means the person or entity that first
-       published this text under the name and the identifier it bears or, after
-       an assignment, the person or entity to whom that role was last assigned
-       by the person or entity then holding that role.
+  10.5 Anyone may copy and distribute this text verbatim. A modified text may be
+       distributed only under a name that does not contain "Autonomous Commons
+       Dedication" and an identifier that does not contain "ACD-" followed by a
+       digit, in either case regardless of case. The following are not modified
+       texts, and anyone may distribute them:
 
-  16.6 Sections 16.4 and 16.5 govern the text of this Dedication as a document.
-       They are not terms of the Work, they bind no one in respect of the Work,
-       and Section 10.5 applies.
+       (a)  a translation that is identified as one and states that the English
+            text prevails;
 
+       (b)  a re-encoding with unchanged words; and
+
+       (c)  a new version that the Steward publishes under a version number that
+            no earlier text published by a Steward, other than a draft
+            identified as such, has borne.
+
+  10.6 "The Steward" means the person who first published this text or, after an
+       assignment, the person to whom that role was last assigned by its holder.
+
+  10.7 Sections 10.5 and 10.6 concern this text as a document. They are not
+       terms of the Work and impose nothing upon You in respect of the Work.
 
 END OF TERMS
