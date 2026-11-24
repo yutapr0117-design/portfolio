@@ -1,0 +1,58 @@
+Source: OSI license-discuss public archive, 2000-November.txt
+Retrieved: 2026-11-07 (local copy of the public archive; read 2026-11-24)
+Messages: 1 of 1 in "The OSD section 7 and the PHP/Zend licenses" (2000-11-02)
+Senders: Bruce Perens
+Position: Not addressed to us. Observed. The message is kept whole.
+
+----- begin verbatim -----
+From bruce at perens.com  Thu Nov  2 18:51:10 2000
+From: bruce at perens.com (Bruce Perens)
+Date: Thu,  2 Nov 2000 10:51:10 -0800 (PST)
+Subject: The OSD section 7 and the PHP/Zend licenses
+Message-ID: <20001102185110.5494D1FF066@perens.com>
+
+excuse me for coming into this discussion late.
+
+Russ mentioned on Slashdot that OSI might decide to change OSD section 7
+because it seems to disallow the PHP/Zend license combination. The rationale
+for section 7 on the OSI web site seems to support this. However, this was
+not my rationale for that section. If you read my rationale from my chapter
+in "Open Sources", it says:
+
+	
+	7. Distribution of License.
+
+	The rights attached to the program must apply to all to whom
+	the program is redistributed without the need for execution of
+	an additional license by those parties.
+
+	[Rationale]
+	The license must be automatic, no signature
+	required. Unfortunately, there has not been a good court test in
+	the U.S. of the power of a no-signature-required license when it
+	is passed from a second party to a third. However, this argument
+	considers the license in the body of contract law, while some
+	argue that it should be considered as copyright law, where there
+	is more precedent for no-signature licenses. A good court test
+	will no doubt happen in the next few years, given the popularity
+	of this sort of license and the booming nature of Open Source.
+
+So, I wrote this intending that it mean "you should not have to sign and mail
+in a license to use or distribute a piece of Open Source software. Instead,
+the license should apply to you automaticaly, without your having to take any
+special steps to execute it.
+
+Whatever OSI does, you should be careful to not invalidate the "no additional
+signature required" sense of #7. It would be a disaster to do so.
+
+In addition, I think the matter of the PHP/Zend license pair being compliant
+with the OSD is a simple matter of the license structure. The PHP license
+should be for PHP and not mention Zend. The Zend license should grant special
+rights for use with PHP and another set of rights that is fully OSD compliant.
+Then there is really no question of its OSD compliance. This is not a change of
+license terms, just a change of _where_ the terms are, from the PHP license to
+the Zend license.
+
+	Thanks
+
+	Bruce

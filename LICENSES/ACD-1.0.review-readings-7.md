@@ -47,3 +47,20 @@ cd が `submission-osd.md` の早見表の OSD 3 の行に「The second limb …
 **この節が establish しないこと。** OSD 3 の後半を「要する」で読む審査者がいないこと。
 
 **反映**: 入口（`submission-osd.md` の OSD 3 の行の支えとして Nelson 氏 2004 と Perens 氏 2022 を出典に足せるか・cd へ）。本文は変えない。
+
+## 1.478 「特許の許諾を明示に留保すれば、追加の特許のライセンスを結ぶ必要が生じる —— OSD 7 に反する」（Chestek 氏 2023）、OSD 7 の起草者の理由「ライセンスは自動で、署名は要らない」（Perens 氏 2000）—— submission-osd の OSD 7 の行と ACD-1.4 の §8 の支え（2026-11-24）
+
+`submission-osd.md` の OSD 7 の行は *"The criterion is about rights applying without an additional licence, not about notice"* と答え、ACD-1.4 の §1.6・§4.1・§2.3 を挙げる。この答えを、決める側が OSD 7 をどう読んできたかで当てた。全 508 か月の決める側の通（census の `DECIDERS`・PR 4016 の後）のうち、本人の文に "OSD 7"・"criterion 7" か OSD 7 の本文の *"without the need for execution of an additional license"* が在る通は 43 通。ドシエに無く、ACD の行に当たる 2 つを置く。
+
+| 発言 | 誰が | 当たり方 |
+| :-- | :-- | :-- |
+| *"Don't you think that the a disclaimer of a patent grant is a violation of several points of the OSD?"* … *"OSD 7 - Distribution of License: "The rights attached to the program must apply to all to whom the program is redistributed without the need for execution of an additional license by those parties." The withholding of a patent license means that an additional patent license must be executed."* | Pamela Chestek 氏 2023-08-15（`license-review`・Mulan Open Works Licenses の審査・`rounds/2023-08-license-review-mulan-owl-chestek-patent-withholding-osd-6-7-8-observed.txt`） | **有利な面（B10・ACD-1.4 の §8）。** 特許の許諾を明示に留保することは、OSD 7 にも OSD 6（特許のある分野への差別）にも OSD 8（特許の無い分野に限られる）にも反する、と書いた。ACD-1.4 の §8.1・§8.4 は受け手に直接に特許の許諾を与え（*"The Dedicator grants You … licence"*）、追加の特許のライセンスを結ぶ必要を生まない —— 前文が「献呈は特許を明示に留保するか沈黙する」と書いた欠けを、決める側の口で OSD の問題として述べた記録である |
+| *"7. Distribution of License. The rights attached to the program must apply to all to whom the program is redistributed without the need for execution of an additional license by those parties. [Rationale] The license must be automatic, no signature required."* | Bruce Perens 氏 2000-11-02（`license-discuss`・"The OSD section 7 and the PHP/Zend licenses"・OSD の起草者が自分の章の理由を引いた・`rounds/2000-11-license-discuss-osd7-perens-automatic-no-signature-observed.txt`） | **支え（OSD 7 の行の答え）。** OSD 7 の理由は「ライセンスが自動で、署名が要らない」こと。ACD-1.4 の §2.3 *"This Dedication takes effect without any act of acceptance by You"* と ACD-1.4 の §1.6（You は許しを行使する誰でも）は、この理由の形そのものである |
+
+**読み。** 決める側は OSD 7 を「追加のライセンスを結ばずに権利が全員に及ぶ」と読み（Perens 氏 2000 の理由は自動・署名不要）、2023 年には委員の 1 人がその読みで「特許の明示の留保」を OSD 7 の違反とした。ACD の OSD 7 の行の答え（権利の及び方の問いで、通知の問いではない）と、§8 が特許の許諾を持つ設計の両方を支える。
+
+**逆側。** (1) Chestek 氏が論じたのは**明示の留保**（CC0 の 4(a) と同じ型）で、特許に**沈黙**する許容型（MIT・BSD など、承認済み）を違反とはしていない —— 前文の「沈黙する」側への批判の根拠にはならない。(2) Mulan OWL の不承認（2023-09-15）の理由は主題（`register` B15）で、特許の留保ではない。この通は 1 人の委員の読みで、理事会の決定の理由ではない。(3) CC0 は明示の留保を持ったまま承認されず、2012 年の委員会は 4(a) を理由に挙げた（`board-decisions.md`）—— Chestek 氏 2023 の読みはその線上にあり、新しい基準ではない。
+
+**この節が establish しないこと。** 特許の許諾が無い献呈が OSD 7 に反すると OSI が決めたこと。
+
+**反映**: B10（Chestek 氏 2023 の「特許の明示の留保は OSD 6・7・8 に反する」を §8 の有利な側に、逆側に「沈黙は対象外・Mulan の理由は主題」を・cd へ）/ 入口（`submission-osd.md` の OSD 7 の行の支えに Perens 氏 2000 の理由を・cd へ）。本文は変えない。
