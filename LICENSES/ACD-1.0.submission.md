@@ -149,7 +149,7 @@ clauses behind it, criterion by criterion, are in §B.0 section 3, and
 
 ---
 
-### B.0 Facts for the owner's message (**1,677 words**, measured 2026-11-23 from the line after this heading to §B.1; **material, not a message to send**)
+### B.0 Facts for the owner's message (**1,715 words**, measured 2026-11-23 from the line after this heading to §B.1; **material, not a message to send**)
 
 > **This is not a message.** It is a list of facts and sources, drafted by an AI, for the owner to draw on when he writes his own message to `license-review` in his own words (B14, gate 0 of `REVISION-PROTOCOL.md`). It has no greeting, no first-person sentences and no signature, on purpose. Decision 3b of the five (2026-11-23, 5/0/0) replaced the letter that stood here; that letter, drafted for ACD-1.0, is kept as a record in the history of this file at commit `87c52107474d` and is not to be sent.
 
@@ -183,7 +183,7 @@ Also useful to state: the difference from the text posted to `license-discuss` �
 
 **3. Open Source Definition, the criteria most likely to be raised**
 
-- OSD 3: §4.2 grants adaptation, modification and derivative works expressly; §4.3 attaches no condition to them; §4.5 lets them be distributed *"under any terms You choose"*.
+- OSD 3: §4.2 grants adaptation, modification and derivative works expressly; §4.3 attaches no condition to them; §4.5 lets them be distributed *"under any terms You choose"*. Second limb (*"under the same terms as the license of the original software"*): §4.5 covers it, and §16.3 lets anyone apply this text to material in which they hold rights, so a derived work may carry ACD-1.4 itself.
 - OSD 5 and 6: §4.3 says the licence is not conditioned on who the user is or on the purpose of use.
 - OSD 9: §4.3 and §10.1 impose no requirement on anything distributed with the Work.
 - OSD 1: §4.1 grants a royalty-free licence; §4.2 includes distributing, selling and sublicensing; §4.3 attaches no condition.
