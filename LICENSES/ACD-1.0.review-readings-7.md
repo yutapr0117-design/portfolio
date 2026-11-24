@@ -169,3 +169,25 @@ cd が `submission-osd.md` の早見表の OSD 3 の行に「The second limb …
 **この節が establish しないこと。** 縮約した ACD が承認されやすいこと。
 
 **反映**: 1c 種（本文の役 0d へ・議題 15 の条件 2 つ）/ B3。議題の記録は合議の節（3f）が持つ。
+
+## 1.483 残りの委員（Piana 氏・Berkus 氏・Fontana 氏）の 2024〜2026 の起草の指摘 —— 前文は作用しなければ害にならない（Piana 氏・Berkus 氏 2024）、貢献の条はライセンスに要らない（Berkus 氏 2025）、意図でなく本文で読む（Piana 氏 2025）（2026-11-24）
+
+§1.481（Chestek 氏・Smith 氏）の続き。Carlo Piana 氏 43 通、Josh Berkus 氏 43 通、Richard Fontana 氏 24 通（2024-01〜2026-11 の本人の文のうち、本文の語 —— clause・wording・ambiguous・definition・redundant ほか —— を含み 60〜80 語以上のもの。道具は scratch の走査）を読み、§1.481 に無い型だけを置く。
+
+| 型 | 発言 | 当たり方 |
+| :-- | :-- | :-- |
+| 前文 | *"I don't see how a non-operative preamble, which by definition is not prescriptive and doesn't impose any burden nor removes anything from the freedom neither by adding anything to the conditions could be considered against OSD"*（Piana 氏 2024-09・ADVPL）。*"it doesn't matter, because the preamble is not legal text and specifically says that it's not"*（Berkus 氏 2024-09-11・同） | **§1.481 の逆側。** 作用しないと自ら言う前文は OSD の問題にならない。前文を外す根拠は OSD ではなく、言い直しと説明（Chestek 氏 2026-01-24）の側だけである |
+| 貢献の条 | *"any terms applying to contributors should be in individual projects' contributor documentation and governance, and have no place in an OSS license"*（Berkus 氏 2025-12-08）。*"But it also has zero effect. It's a no-op."*（同） | **不利な面。** ACD-1.4 の §2.6 と縮約の 10.4 は貢献の条を持つ。対する側は既に記録した Chestek 氏 2025-12（*"I am in favor of an express statement in the license"*）と Smith 氏 2025-12。縮約が統治の文を落としたのは両側に近づく |
+| 用語の組 | *"What does it mean for a license to be "non-transferable and sublicensable"?"*（Berkus 氏 2025-02・MG-BY-OS） | 当たらない（ACD は *sublicensable, and transferable*） |
+| 慣用の前置き | *"the phrase "for the avoidance of doubt" is awkward and not really necessary"*（Berkus 氏 2025-07・MG-BY） | 当たらない（本文に無い） |
+| 読み方 | *"we should be confronted with the actual text and not with the intentions of the drafter, even if they might transpare"*（Piana 氏 2025-02・MGB） | 起草の意図の文（§2.5 の *"intending that others rely on it"* は法の要素なので別）を説明として残す理由にならない —— 縮約の側を支える |
+| 精確な語 | *"it is imperative that freedom of expression recedes in front of strict conditions or covenants (?) that can be parsed and described in an algorithm"*（Piana 氏 2025-12・CingXaero） | 条件を 1 つも持たないことは、この要求の極端な形である |
+| 品質を見る権限 | *"use of appropriate and precise wording is a quality issue that can be taken into account"*（Piana 氏 2025-12） | B3・B13 の起草の質の側 |
+
+**読み。** 縮約の 4 つの型（§1.481）を崩す発言は無い。前文を外す判断は「OSD に反するから」ではなく「同じことを二度言うから」と述べるのが 4 人の発言に合う。貢献の条（10.4）は委員の中で割れており、短く持つ今の形を変える根拠は無い。
+
+**逆側。** Fontana 氏の 24 通は OpenMDW の報復終了と software freedom の論が大半で、本文の書き方の指摘は少なかった —— ACD は終了の条を持たない（ACD-1.4 の §10.4）ので当たらないが、読んだ量が指摘の量を意味しない。
+
+**この節が establish しないこと。** 委員の過半がどの書き方を好むか。
+
+**反映**: 1c 種（0d・前文を外す理由の述べ方）/ B13。
