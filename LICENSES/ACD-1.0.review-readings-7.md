@@ -144,3 +144,28 @@ cd が `submission-osd.md` の早見表の OSD 3 の行に「The second limb …
 **この節が establish しないこと。** どの指摘が理事会の却下の決定的な理由だったか。議事録は *"Poor drafting"* としか書かない。
 
 **反映**: 1c 種（本文の役 0d へ・議題 12 と縮約の試作 —— 4 つの型、§8.1 の 2 点、§15.5 の定義の位置）/ errata・against（59 へ —— §8.1 の *"as made available by"* の読み、前文と念押しを残した判断の出典の更新）/ 3f（議題 12・段 6b の前の凍結）。
+
+## 1.482 大幅に書き直した版を決める側はどう扱ったか —— 書き直しを求めた例（NOSA 2.0・C-FSL・UCL）と受け入れた例（SimPL・MPL 2.0・OSL 3.0）、書き直しの度に審査が戻った例（Project Tick・Linkumori・OSCL）（議題 15 の材料・2026-11-24）
+
+3f の問い（縮約 1.5 を次の提出対象にする議題 15 —— 長く作った本文を大幅に書き直して出すことは、好まれたか、審査を戻したか）に、決める側の通で *rewrite / redraft / from scratch / substantially revised / simplified / shorter* の型の語がライセンスと並ぶもの 54 を読んで答える（2026-11-24・scratch の走査）。
+
+| 例 | 発言 | 向き |
+| :-- | :-- | :-- |
+| NOSA 2.0（2013〜2018） | *"NOSA 2.0 is, in its current form, an overly complex and badly drafted license. I cannot gain enough confidence that it meets the letter and spirit of the Open Source Definition, without substantial revision, which the license steward seems disinclined to undertake."*（Richard Fontana 氏 2017-01-05・当時の委員長。*"This is just my view"* と断る）。*"I hope you and the group are open to the possibility of re-drafting. … I believe that an increase in clarity of the actual license document is possible."*（Bruce Perens 氏 2018-04-30・委員） | **書き直しを求めた。** 書き直さなかったことが決まらない理由の 1 つになった |
+| C-FSL（2018） | *"the OSI decided to withhold approval of the Convertible Free Software License, pending submission of a redrafted version"*（Fontana 氏 2018-12-07） | **書き直した版の再提出を待った。** 委員会の勧告は却下、理事会は留保 |
+| UCL（2016） | *"I don't see an inherent issue to a simplified version of this license. (I wouldn't support the license as-is because the language of it is baffling)"*（Josh Berkus 氏 2016-10-25） | **同じ中身でも、言葉を簡単にした版なら支持しうる**、と書いた（UCL は後に別の形で承認された） |
+| SimPL（2007） | *"Intended to be a simplified GPL. DiBona suggests that the GPL is well understood and this license is not useful. Recommend: approval, placement in Redundant category."*（Russ Nelson 氏 2007-06-05・委員長の報告） | **簡単にした本文が承認された**（代わりに Redundant の区分） |
+| MPL 2.0（2010） | *"Note that the license has gotten about 40% shorter, so it should be easier to read and understand than prior versions."*（Luis Villa 氏 2010-11-18・起草側。公開の改訂の途中で早い意見を求めた通） | **大幅な短縮が公開の改訂の中で行われ、承認に至った**（2012）。Villa 氏は起草側として書いた |
+| OSL / AFL 3.0（2005） | *"Each time I rewrite a license in response to public and private comment, I think the license improves."*（Lawrence Rosen 氏 2005-08-15・起草者で法律家）。提出では版の間の redline を示した | 書き直しと redline を組にした例 |
+| Azure License（2009） | *"even if your license really is more clear than other licenses (which I doubt, since all licenses are inherently hard to read) what you're really doing is forcing people to read and comprehend Yet Another License"*（Villa 氏 2009-07-08） | **逆側**: 明晰さだけでは新しい本文の理由にならない |
+| OSCL（2026） | *"Making changes addressing only my two original criticisms doesn't begin to solve all the problems, and in fact the changes have made it much worse."*（Pamela Chestek 氏 2026-02-23） | **逆側**: 部分だけの改訂が悪くした |
+| Project Tick（2026）・Linkumori（2026） | *"there are so many versions I'm not sure what's what"*（Chestek 氏 2026-01-24）、*"Please do not ask for review until you have finalized your work."*（同 2026-06-23） | **逆側**: 審査・議論の最中の書き直しは、読み手の時間を失わせる |
+| SSPL（2018） | *"My suggestion upthread that MongoDB withdraw and redraft in a community process was heavily +1'd"*（Bradley Kuhn 氏 2018-11-09） | 書き直すなら公開の手続きの中で、の側 |
+
+**読み。** 決める側は、**提出の前**に書き直した本文を不利に扱っていない（MPL 2.0・OSL 3.0・SimPL）。**審査や議論の途中**での書き直しは嫌われ（Project Tick・Linkumori）、**指摘された箇所だけ直した**改訂も嫌われた（OSCL）。ACD は `license-review` に出しておらず、`license-discuss` の 1.0 に返信は無いので、いまの縮約は「提出の前」に当たる。条件は 2 つ: (1) 段 6b の投稿の前に縮約を確定・凍結し、その後は動かさない。(2) 1.0・1.4 との差を redline で示せるようにする（`make_redline.py`。構造が変わるので条の対応表 —— 0d の `map` —— を人が読める形で付ける。*"a redline"* は Rosen 氏 2005・Sado 氏 2026・Smith 氏 2025 が求めたか、自ら示した形）。
+
+**逆側。** (1) 版を増やし続けたこと自体（1.0〜1.4 の 5 版 + 縮約）が *"so many versions"* に近い見え方をする —— 入口で版の系譜を 1 つの文で言い切る必要がある。(2) SimPL の承認は Redundant の区分で、簡単さは区分を守らなかった。(3) 明晰さは新しい本文の理由にならない（Villa 氏 2009）—— 理由は gap（B10）のままである。
+
+**この節が establish しないこと。** 縮約した ACD が承認されやすいこと。
+
+**反映**: 1c 種（本文の役 0d へ・議題 15 の条件 2 つ）/ B3。議題の記録は合議の節（3f）が持つ。
