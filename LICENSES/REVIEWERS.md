@@ -356,7 +356,7 @@ reading: a second pass found new ones. That a reading does not stand is our judg
   model's maker trains models, and §6.4 and §8.4 favour those who do; we name it so that you can
   read those clauses with that in mind (`ACD-1.0.against.md` #319). **The name ACD-1.0, the generalised instrument and the
   submission material took shape during that delegated work, and he came to know their concrete
-  state afterwards.** He read the full text of ACD-1.0 and understood it before posting it on 2026-08-26. Whether he has read ACD-1.4, the version that would be submitted, in full is his to state when he submits it; this page does not state it for him. He is the
+  state afterwards.** He read the full text of ACD-1.0 and understood it before posting it on 2026-08-26. Whether he has read ACD-1.4 in full — the version that would be submitted — is for him to state when he submits it; this page does not state it for him. He is the
   Dedicator and the steward and answers for it; **he did not write its clauses**
   (`submission.md` §E.1).
 - **Who answers your questions.** The owner, in his own words; the AI that drafted the text does
