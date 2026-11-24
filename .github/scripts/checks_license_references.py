@@ -227,6 +227,17 @@ def run(ctx):
         _att472p = "\n".join(_ls472p[_cut472p + 1:]) if _cut472p is not None else ""
         _n_lines472p, _n_words472p = _att472p.count("\n"), len(_att472p.split())
         _sha472p = _h472p.sha256(_att472p.encode("utf-8")).hexdigest()
+        # 欄のコマンドそのものも shell で実行して照らす (2026-11-24・d7 の条件「GNU と BSD の sed で同じ値」): 上の Python の切り出しは
+        #   sed の振る舞いを真似ているだけなので、欄の sed が GNU sed (CI は Linux) で同じ値を出すかは測っていなかった。mac の BSD sed
+        #   では d7 と 5e が ce76f3ab… を実測済み。shasum が無い環境 (一部の Linux) では sha256sum で同じ出力を作る
+        import shutil as _sh472p
+        _cmd_shell472p = (_cmd472p.group(0).strip("`").replace("\\|", "|")
+                          .replace("shasum -a 256", "shasum -a 256" if _sh472p.which("shasum") else "sha256sum"))
+        _run472p = subprocess.run(_cmd_shell472p, shell=True, cwd=ROOT, capture_output=True, text=True)
+        _shell_sha472p = (_run472p.stdout.split() or [""])[0]
+        if _shell_sha472p != _sha472p:
+            _bad472p.append(f"欄のコマンドを shell で実行した SHA-256 {_shell_sha472p[:12] or '(出力なし)'}… が、切り出しの {_sha472p[:12]}… と違う "
+                            f"(この環境の sed が欄の形を同じに読まない)")
         if not _n_lines472p or not _n_words472p:
             _bad472p.append(f"再現のコマンドの出力が空 ({_src472p.name} に区切り線が無いか、その下が空)")
         _want472p = (int(_vals472p.group(1).replace(",", "")), int(_vals472p.group(2).replace(",", "")), _vals472p.group(3))
