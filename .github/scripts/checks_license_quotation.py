@@ -54,6 +54,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (提出対象を 1.4 へ切り替えた後の against #110・B10 の §6.4) は見えなかった。cd は経緯の文の判定が粗いので ADVISORY を勧めたが、
        BLOCKING にした: ADVISORY は ::error:: を出さないので mutation の probe が捕捉を測れず (479d が名指しの mutation を求める)、
        直し方は安い (版を名乗る "in ACD-1.0" を 1 句足す)。誤検出が出たら、印の語を足すか ADVISORY へ戻す。
+       **射程 (緑の読み方・6d の依頼)**: 印の語は前後 250 / 150 字の正規表現で探すので、近くに別の文の印 (旧・was・1.0 の名など) が
+       あると現在形の誤りを見逃す。誤りは見逃しの側にしか出ない。**470c が緑でも「外向きの引用は全部 1.4 の文」とは読めない** ——
+       Dedicator / Dedication / the Work / Section N を含まない引用と、どの版にも無い引用 (470b の担当) も母数の外である。
        導入時の実測: 12 冊の引用 201 件のうち 0 件 (cd が against #110 を直した後・SUBMISSION-MATERIALS の経緯の文 1 件は印の語「外し」で外れる)。
 """
 
