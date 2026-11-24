@@ -55,12 +55,11 @@ MUTATIONS_ARCHIVE7 = [
     "replace": "（最大番号 1",
 },
     {
-    "name": "Check 468x: 主表が「足す」と述べた語句 (or for a payment You agreed to make) を草案から消す —— After は「へ」の引用しか読まず、「*\"…\"* を足す」の引用は照合していなかった",
-    "file": CURRENT_DRAFT,
-    # 2026-11-23: 1.4 の確定の後、主表は 1.5 のもの (T135 の 1 行・「へ」の形) になり、この語句を述べる行が無くなって 468x が
-    #   鳴らなくなっていた (find は草案に残るので 362 は黙る・named_check_fired で MISSED を実測)。1.5 の主表の After を打つ
-    "find": "It gives nothing by implication beyond what its words give.",
-    "replace": "It grants nothing by implication beyond what its words give.",
+    "name": "Check 468x: 1.5 の主表の T135 の行から「後の行で再改」の印を外す —— After の文は T146 の述べ直しで草案に無く、印が無ければ主表がいまの草案と違うことを言う",
+    "file": CURRENT_CHANGES.with_name(f"ACD-{CURRENT_DRAFT_VER}-CHANGELIST.md"),
+    # 2026-11-24: T146 で草案の文が変わったので、草案の側でなく主表の印を打つ (旧い形は After の文を草案から消していた)
+    "find": "（後の行で再改 —— T146",
+    "replace": "（T146",
 },
     {
     "name": "Check 498: 「1.0 から何が変わったか」の下書きの版ごとの閉鎖数の 1.3 を 5 にする —— 使い捨ての計数で版の語の最初の一致を数え、閉鎖の印 (19 / 13 / 4) と違う数を書いた",
@@ -316,17 +315,17 @@ MUTATIONS_ARCHIVE7 = [
     "check": CHECK,
 },
     {
-    "name": "Check 468r: §10.1 に「いまの状態」の語を足す (currently) —— 後で偽になる文を作用の条に書く T54 の型 (2026-11-12)",
+    "name": "Check 468r: §4.1 に「いまの状態」の語を足す (today) —— 後で偽になる文を作用の条に書く T54 の型 (2026-11-12・1.5 の書き直しで §10.1 → §4.1)",
     "file": CURRENT_DRAFT,
-    "find": "       requirement upon You in respect of the Work, other than in Your capacity",
-    "replace": "       requirement upon You in respect of the Work as currently drafted, other than in Your capacity",
+    "find": "terminates or narrows, under this Dedication, for any reason",
+    "replace": "terminates or narrows, under this Dedication today, for any reason",
     "check": CHECK,
 },
     {
-    "name": "Check 468r: §6.4 の除外の句を書き換える —— 句で持つ除外が条から消えたら、読み直しの合図として RED (2026-11-12・§6.5 の句が T79 で消えたので §6.4 へ移した 2026-11-16)",
+    "name": "Check 468r: §5.3 の除外の句を書き換える —— 句で持つ除外が条から消えたら、読み直しの合図として RED (2026-11-12・1.5 の書き直しで §6.4 → §5.3)",
     "file": CURRENT_DRAFT,
-    "find": "such thing is not decided here",
-    "replace": "such thing is not settled here",
+    "find": "formality, this Dedication is revocable or ineffective and, so far as the",
+    "replace": "formality, this Dedication is revocable or ineffective and, as far as the",
     "check": CHECK,
 },
     {
@@ -355,20 +354,18 @@ MUTATIONS_ARCHIVE7 = [
     "check": CHECK,
 },
     {
-    "name": "Check 468b: §4.6 の書き出し \"Section 4.5 does not cut\" を言い換える —— 冒頭の変更一覧はその句を引いたまま残り、"
-    # 2026-11-24 (fc・ライセンスの mutation 256 件の全数の当て直しで MISSED): 1.4 の確定と提出対象の切り替えで前提が外れたので付け替えた
-            "旧版は一覧の言い換えが古くなっても黙っていた (2026-11-12・portfolio-aa の提案)",
-    "file": CURRENT_DRAFT,
-    "find": "       Section 12. It gives nothing by implication beyond what its words give.",
-    "replace": "       Section 12. It gives nothing by implication beyond what its terms give.",
+    "name": "Check 468b: 変更の一覧の「A Result may result from the Work indirectly」を引用符の付いた本文に無い文へ —— 一覧が引く新しい文が本文に無くても、旧版は黙っていた (2026-11-12・portfolio-aa の提案)",
+    # 2026-11-24 (T146): 一覧は本文を引かなくなった (効果の差を述べる) ので、草案の側でなく一覧の側に、本文に無い引用を入れる
+    "file": CURRENT_CHANGES,
+    "find": "A Result may result from the Work indirectly",
+    "replace": "\"A Result may arise from the Work indirectly\"",
     "check": CHECK,
 },
     {
-    "name": "Check 468g: §10.2 の \"You need not give attribution\" を \"You will not give attribution\" にする —— You を主語にした will は"
-            "義務に読まれうるが、旧版の型 (shall / must / You agree …) には無かった (2026-11-12・語数は同じ)",
+    "name": "Check 468g: §4.2 の \"You need not\" を \"You will not\" にする —— You を主語にした will は義務に読まれうるが、旧版の型 (shall / must / You agree …) には無かった (1.5 の書き直しで §10.2 → §4.2)",
     "file": CURRENT_DRAFT,
-    "find": "  10.2 In particular, You need not give attribution, reproduce any notice,",
-    "replace": "  10.2 In particular, You will not give attribution, reproduce any notice,",
+    "find": "  4.2  In particular, You need not know of or accept this Dedication, give",
+    "replace": "  4.2  In particular, You will not know of or accept this Dedication, give",
     "check": CHECK,
 },
     {
@@ -453,19 +450,17 @@ MUTATIONS_ARCHIVE7 = [
     "check": CHECK,
 },
     {
-    "name": "Check 468ab: 草案の §8.4 の \"Section 8.4 reaches a claim only\" を \"This Section reaches a claim only\" へ戻す —— 小項の中の "
-            "\"this Section\" は §8 か §8.4 かで割れる (T84〜T88 で 5 → 0 にした型・2026-11-16)",
+    "name": "Check 468ab: 草案の §4.3 の \"Section 4.3 does not permit\" を \"This Section does not permit\" へ戻す —— 小項の中の \"this Section\" は §4 か §4.3 かで割れる (T84〜T88 で 5 → 0 にした型・2026-11-16・1.5 の書き直しで §8.4 → §4.3)",
     "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-DRAFT.txt",
-    "find": "Section 8.4 reaches a claim only",
-    "replace": "This Section reaches a claim only",
+    "find": "Section 4.3 does not permit a person to impose what",
+    "replace": "This Section does not permit a person to impose what",
     "check": CHECK,
 },
     {
-    "name": "Check 468ab: 草案の §14.2 の例外の列から 2.5 を外す —— §2.5 の約束 (撤回を主張しない) の違反まで §14.1 が免責する形に"
-            "戻る (T88 で閉じた問い 9 (a) の型・2026-11-16)",
+    "name": "Check 468ab: 草案の §8.2 の例外の列から 2.5 を外す —— §2.5 の約束 (権利を主張しない) の違反まで §8.2 が免責する形に戻る (T88 で閉じた問い 9 (a) の型・2026-11-16・1.5 の書き直しで §14.2 → §8.2)",
     "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-DRAFT.txt",
-    "find": "Section 2.5, 5, 8.6, or",
-    "replace": "Section 5, 8.6, or",
+    "find": "breach of Section 2.5, 5.1, 5.2, or 5.3, or",
+    "replace": "breach of Section 5.1, 5.2, or 5.3, or",
     "check": CHECK,
 },
 ]

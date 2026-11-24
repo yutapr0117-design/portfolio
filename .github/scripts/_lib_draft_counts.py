@@ -33,7 +33,33 @@ def with_changes(path: Path, text: str | None = None) -> str:
     return head[:at].rstrip("\n") + "\n\n" + lst + "\n" + head[at:] + RULE + body
 
 
-def bullet_components(hdr: str, prev: dict, cur: dict, changed: set, prev_body: str, cur_body: str, prev_ver: str):
+def clause_map(licenses_dir: Path, prev_ver: str, cur_ver: str) -> dict[str, list[str]]:
+    """LICENSES/CLAUSE-MAP-<前版>-<次版>.tsv から {前版の条 (N.M): [次版の条 (N.M)]}。無ければ {}。
+
+    左の欄は "5.2(a)"・"5.2 回避の授権" のように条の一部も指すので N.M に畳み、右は "2.5(a) 2.5(d)" を N.M に畳む。"—" は引き継がない条。
+    """
+    p = licenses_dir / f"CLAUSE-MAP-{prev_ver}-{cur_ver}.tsv"
+    out: dict[str, list[str]] = {}
+    if p.exists():
+        for line in p.read_text(encoding="utf-8").splitlines():
+            c = line.split("\t")
+            k = re.match(r"\d+\.\d+", c[0])
+            if k and len(c) >= 2:
+                out.setdefault(k.group(0), []).extend(re.findall(r"\d+\.\d+", c[1]))
+    return out
+
+
+def clause_map_bad(m: dict[str, list[str]], prev: dict, cur: dict) -> list[str]:
+    """対応表の被覆: 前版の条が全部左に在り、右の条が全部次版に在り、次版の条が全部どこかの右に在ること。"""
+    bad = [f"CLAUSE-MAP: 前版の §{k} の行が無い" for k in prev if k not in m]
+    bad += [f"CLAUSE-MAP: §{k} の行が前版に無い" for k in m if k not in prev]
+    bad += [f"CLAUSE-MAP: §{k} → §{v} が次版に無い" for k, vs in m.items() for v in vs if v not in cur]
+    have = {v for vs in m.values() for v in vs}
+    return bad + [f"CLAUSE-MAP: 次版の §{k} がどの行の右にも無い" for k in cur if k not in have]
+
+
+def bullet_components(hdr: str, prev: dict, cur: dict, changed: set, prev_body: str, cur_body: str, prev_ver: str,
+                      moved: frozenset = frozenset()):
     """468n (箇条ごと): 冒頭の変更一覧の語数申告を、箇条のまとまりごとに本文の差と照らす。
 
     上の合計の照合は 1 本の等式なので、§1.2 と §4.2 の申告を入れ替えても緑だった (2026-11-15 に実測)。
@@ -42,6 +68,8 @@ def bullet_components(hdr: str, prev: dict, cur: dict, changed: set, prev_body: 
     「申告の和 = その条たちの本文の差の和」を見る。条でない本文 (前文・見出し) は「条の外」にまとめる。
     「the words Sections 8.1 and 8.4 use」は語の出所を引くだけなので辺にしない (含めると 19 箇条が 1 つに
     つながり、照合がほぼ合計と同じになる)。読むのは「Changes in this draft」の後の箇条だけ。
+    moved は、次版に無い前版の条のうち CLAUSE-MAP が行き先 (または「引き継がない」) を述べるもの。番号を総替えした版では名指せない
+    ので、最も大きいまとまりに入れ、条の外 (前文・見出し) もそこへ畳む (箇条ごとの分離は番号が続く版だけの照合になる)。
     返り値: (まとまり [(申告の和, 条の集合, 箇条の数)], 誤りの文の list)
     """
     bad, comps = [], []
@@ -68,6 +96,9 @@ def bullet_components(hdr: str, prev: dict, cur: dict, changed: set, prev_body: 
             comps.remove(c)
             new = [new[0] + c[0], new[1] | c[1], new[2] + c[2]]
         comps.append(new)
+    if moved and comps:
+        big = max(comps, key=lambda c: len(c[1]))
+        big[1] |= set(moved) | {"<条の外>"}
     for dec, s, n in comps:
         act = sum(delta.get(k, 0) for k in s) + (outside if "<条の外>" in s else 0)
         if act != dec:
@@ -454,7 +485,7 @@ def materials_0d_mismatches(materials: str, clauses: dict) -> tuple[int, list[st
                 n += 1
                 if (m.group(1) in norm.get(k, "")) != want:
                     bad.append(f"468 (§0d): 材料 §0d の表が §{k} に *\"{m.group(1)}\"* が{'在る' if want else '無い'}と前提にしているが、"
-                               f"いまの草案では{'無い' if want else '在る'} (草案が変わったなら表の行を読み直す)")
+                               f"提出対象の本文では{'無い' if want else '在る'} (提出対象を替えたなら表の行を読み直す)")
     return n, bad
 
 
@@ -485,6 +516,11 @@ def stale_draft_quotes(root: Path) -> list[tuple[str, str, str]]:
         return {" ".join(w[i:i + 5]) for i in range(len(w) - 4)}
     drs = sorted(lic.glob("ACD-1.[1-9]-DRAFT.txt"), key=lambda p: "HAS BEEN FROZEN" in p.read_text(encoding="utf-8").split("\n", 1)[0])
     d = n(drs[0].read_text(encoding="utf-8").split(RULE, 1)[-1]) if drs else ""
+    # 問いは提出対象の条を引くので、提出対象の本文に逐語で在る文も古い文ではない (2026-11-24: 1.5 草案が全文を書き直した日に、
+    #   1.4 を引く問いが全部「いまの草案に無い」と出た)
+    from _lib_dossier import submission_target_version
+    tp = lic / f"ACD-{submission_target_version(lic)}.txt"
+    d += " " + (n(tp.read_text(encoding="utf-8")) if tp.exists() else "")
     G = g(" ".join(n(p.read_text(encoding="utf-8")) for p in sorted(lic.glob("ACD-1.*.txt"))))
     cref = [p.name for p in sorted(lic.glob("ACD-1.[1-9]-CLAUSE-REFERENCE-DRAFT.md"))
             if not (lic / p.name.replace("-CLAUSE-REFERENCE-DRAFT.md", ".txt")).exists()]

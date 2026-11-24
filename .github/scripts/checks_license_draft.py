@@ -91,7 +91,7 @@ import re
 
 from _lib_draft_markers import EFFECT_MARKERS_468U, TEXT_RULE_LEADS, clause_by_lead, state_hits  # 一覧は _lib_draft_markers.py (measure_clause_overlap.py --guard と共有)
 from _lib_dossier import errata_draft_quote_misses, dossier_draft_quote_misses  # 草案の逐語の照合 (468w / 468a)
-from _lib_draft_counts import with_changes, bullet_components, changelist_table_total, defined_term_uses, errata_list_mismatch, materials_0d_mismatches, draft_has_changes  # 468n / 468s / 定義語 / 468i / §0d
+from _lib_draft_counts import with_changes, bullet_components, changelist_table_total, clause_map, clause_map_bad, defined_term_uses, errata_list_mismatch, materials_0d_mismatches, draft_has_changes  # 468n / 468s / 定義語 / 468i / §0d
 
 def run(ctx):
     ROOT = ctx.ROOT
@@ -255,9 +255,9 @@ def run(ctx):
             _lost468 = gap_losses(_draft_lic)
             check(
                 not _lost468,
-                "Check 468d: gap を担う条項 (§6 / §9 / §8.4 の射程語) が successor でも生きている",
+                "Check 468d: gap を担う節 (§1〜§4 の機械学習・特許・機械生成の目印) が successor でも生きている",
                 (f"Check 468d: 次版で gap が失われている: {_lost468}。**守る条の一覧は"
-                 " §6 / §8.4 / §9 であり、短くする圧力がかかったとき最初に削られうるのが"
+                 " §1.8〜§1.10・§2.2〜§2.3・§3・§4.1 であり、短くする圧力がかかったとき最初に削られうるのが"
                  f"ここである。** 意図的に変えるなら `{_dr468.name.replace('-DRAFT.txt', '-CHANGELIST.md')}` に記録し、"
                  "**register B10 の主張も同時に書き換えること**"),
                 blocking=True,
@@ -627,7 +627,11 @@ def run(ctx):
                 # 「Sections 1.1 to 1.12」は端と間の条を全部名指す (2026-11-24: 全条を書き直す版では 1 箇条が範囲で名指す)
                 for _a468n, _f468n, _l468n in re.findall(r"\b(\d+)\.(\d+) (?:to|through) \1\.(\d+)\b", _bul468n):
                     _named468n |= {f"{_a468n}.{_i}" for _i in range(int(_f468n), int(_l468n) + 1)}
-                _unlisted468n = [k for k in _changed468n if k not in _named468n]
+                # 番号を総替えした版 (CLAUSE-MAP が在る版) では、次版に無い前版の条は対応表が行き先を述べる (2026-11-24・議題 15)
+                _map468n = clause_map(ROOT / "LICENSES", _pv468n, _dvs468n)
+                _bad468 += clause_map_bad(_map468n, _pc468n, _dc468n) if _map468n else []
+                _moved468n = {k for k in _pc468n if k not in _dc468n and k in _map468n}
+                _unlisted468n = [k for k in _changed468n if k not in _named468n and k not in _moved468n]
                 if _unlisted468n:
                     _bad468.append(f"468n: ACD-{_pv468n} から本文が変わったのに冒頭の変更一覧が名指さない条: "
                                    f"{['§' + k for k in _unlisted468n]} (一覧は差分のすべてだと宣言している)")
@@ -642,7 +646,7 @@ def run(ctx):
                     #   合計の 1 本の等式は、§1.2 と §4.2 の申告を入れ替えても緑だった。数え方と理由は
                     #   _lib_draft_counts.bullet_components (この module が予算 900 を越えたので本体を移した)
                     _comps468nb, _b468nb = bullet_components(_hdr468n, _pc468n, _dc468n, set(_changed468n),
-                                                             _pbody468n, _dbody468n, _pv468n)
+                                                             _pbody468n, _dbody468n, _pv468n, frozenset(_moved468n))
                     _bad468.extend(_b468nb)
                     # ── 468s: CHANGELIST の変更表の「費用（語）」列の合計も同じ差に一致する ─────────
                     #   portfolio-25 の提案 (2026-11-03)。468n は草案冒頭の申告しか見ず、変更表は
@@ -663,7 +667,12 @@ def run(ctx):
                     # ── 468 (§0d): 提出の材料 §0d の「狭めたと読まれうる箇所」の表が前提にする草案の状態 (2026-11-15・50 の提案) ──
                     #   本体は _lib_draft_counts.materials_0d_mismatches
                     _sm468d = ROOT / "LICENSES" / "SUBMISSION-MATERIALS.md"
-                    _n4680d, _b4680d = materials_0d_mismatches(_sm468d.read_text(encoding="utf-8") if _sm468d.exists() else "", _dc468n)
+                    #   §0d は提出対象の材料なので、提出対象 (凍結した版) の条に当てる (2026-11-24: 作業中の草案に当てると、草案の
+                    #   番号を総替えした日に、動いていない 1.4 の材料が鳴る)
+                    from _lib_dossier import submission_target_version
+                    _tgt468d = ROOT / "LICENSES" / f"ACD-{submission_target_version(ROOT / 'LICENSES')}.txt"
+                    _tc468d = {k: " ".join(v.split()) for k, v in re.findall(_rx468n, _tgt468d.read_text(encoding="utf-8"), re.M | re.S)}
+                    _n4680d, _b4680d = materials_0d_mismatches(_sm468d.read_text(encoding="utf-8") if _sm468d.exists() else "", _tc468d)
                     _bad468.extend(_b4680d)
 
         # ── 468m: §16.4 が「1 識別子 = 1 固定本文」を Steward 例外の中でも保つこと ─────────────
@@ -673,11 +682,15 @@ def run(ctx):
         #   "only as a new version under a version number and identifier that no earlier text has borne"
         #   を足して直した。凍結 (Check 453) と SPDX の stable text はこの保証に依拠するので、
         #   短くする圧力で**黙って落ちる**のを止める (468d と同じく文言は縛らず、marker の存在だけを見る)。
-        _m468m = re.search(r"^  16\.4\s.*?(?=^  \d+\.\d+\s|^\d+\.\s)", _t468, re.M | re.S)
-        _s468m = " ".join(_m468m.group(0).split()) if _m468m else ""
-        _lack468m = [_k for _k in ("no earlier text", "has borne", "one fixed text") if _k not in _s468m]
+        #   2026-11-24 (1.5 の書き直し・議題 15): 目的の句 "so that each name … one fixed text" は外れ、文が
+        #   "under a version number that no earlier text published by a Steward, other than a draft identified as such, has borne." で
+        #   終わる。終わりの "." まで固定し、後ろに例外を足せないようにする。
+        _n468m, _b468m = clause_by_lead(_t468, TEXT_RULE_LEADS)
+        _s468m = " ".join(_b468m.split())
+        _lack468m = [_k for _k in ("a new version that the Steward publishes under a version number that no earlier text", "has borne.")
+                     if _k not in _s468m]
         if _lack468m:
-            _bad468.append(f"468m: §16.4 から「1 識別子 = 1 固定本文」の保証が欠けている: {_lack468m} "
+            _bad468.append(f"468m: §{_n468m} から「1 識別子 = 1 固定本文」の保証が欠けている: {_lack468m} "
                            "(Steward 例外が同じ識別子で別本文を出せる形に戻っていないか)")
         #   **例外句の形も固定する (2026-11-02)。** 1.4 草案は 25 が自分の後継を作る手順に当てて
         #   草案の例外を足した (PR #2205・後継の公開草案が同じ識別子を名乗るため)。2026-11-06 に
@@ -686,22 +699,20 @@ def run(ctx):
         #   置けるのは、この 1 句か何も無いかのどちらかに限る (例外を消して厳しくするのは通す)。
         #   "has borne" の後ろも見る (5a の相互検証・2026-11-06): 間の区間だけでは、例外を後ろへ戻して広げても
         #   正しい句の後ろに足しても通った。文の形が読めないときも黙って通さない。
-        _mx468m = re.search(r"no earlier text(.*?)has borne(.*?)so that each name", _s468m)
+        _mx468m = re.search(r"no earlier text(.*?)has borne(.*?)\.", _s468m)
         if not _mx468m:
-            _bad468.append("468m: §16.4 の 'no earlier text … has borne … so that each name' の形が読めない")
+            _bad468.append(f"468m: §{_n468m} の 'no earlier text … has borne.' の形が読めない")
         #   2026-11-09 (T47): 数える「先の本文」を Steward が公表したものに限った。違反者が先に
         #   同じ識別子で配った改変版が Steward の番号を塞がないようにするためで、Steward 自身が同じ
         #   識別子で別本文を出せないことは変わらない (1 識別子 = 1 固定本文は Steward の本文の間で保つ)。
         #   2026-11-09 (T49): 譲渡のあと (§16.5・T45) の Steward が前の Steward の公表した番号を使えないよう、
         #   "the Steward or a former Steward has published" の形も許す。
-        elif (_mx468m.group(1).strip(" ,") not in ("", "other than a draft identified as such",
-                                                    "the Steward has published",
-                                                    "the Steward has published, other than a draft identified as such",
-                                                    "the Steward or a former Steward has published",
-                                                    "the Steward or a former Steward has published, other than a draft identified as such")
+        #   "published by a Steward" は冠詞が不定なので、前の Steward の本文も数える (2026-11-24・T49 と同じ射程)。
+        elif (_mx468m.group(1).strip(" ,") not in ("published by a Steward",
+                                                    "published by a Steward, other than a draft identified as such")
               or _mx468m.group(2).strip(" ,")):
-            _bad468.append(f"468m: §16.4 の例外句が変わった: {(_mx468m.group(1) + '|' + _mx468m.group(2)).strip(' ,|')!r} "
-                           "(許すのは 'other than a draft identified as such' か無し、その前に 'the Steward has published' を置く形。広げると 1 識別子 = 1 固定本文が崩れる)")
+            _bad468.append(f"468m: 例外句が変わった: {(_mx468m.group(1) + '|' + _mx468m.group(2)).strip(' ,|')!r} "
+                           "(許すのは 'published by a Steward' と、その後の 'other than a draft identified as such' だけ。広げると 1 識別子 = 1 固定本文が崩れる)")
 
         # ── 468l: 草案の全行が 80 桁以内であること ─────────────────────────────────────
         #   1.0 は全行 ≤80 で、本文は `-` × 80 の区切り線と同じ幅で組まれている。1.1 / 1.2 / 1.3 は

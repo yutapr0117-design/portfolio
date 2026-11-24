@@ -543,6 +543,7 @@ def run(ctx):
     _nref441 = 0
     for _t441 in _texts441:
         _src441 = _t441.read_text(encoding="utf-8")
+        _src441 = _src441.split("\n" + "-" * 80 + "\n", 1)[-1]  # 区切り線の前 (草案の身分表示) は本文でない (2026-11-24: 行頭の "  1.4 in their" を条と読んだ)
         _nums441 = re.findall(r"^  (\d+\.\d+)\s", _src441, re.M)
         _tops441 = set(re.findall(r"^(\d+)\.\s+[A-Z]", _src441, re.M))
         _dup441 = sorted({_n for _n in _nums441 if _nums441.count(_n) > 1})

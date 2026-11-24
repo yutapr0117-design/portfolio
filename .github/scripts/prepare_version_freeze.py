@@ -254,20 +254,54 @@ def pointer(v: str, nxt: str, prev: str, date: str) -> str:
 #   この注が落としていないかを照らす (2026-11-16・9b: 1.4 草案の §16.4 は「ACD- を含む・大文字小文字を問わない・前の Steward・
 #   折り返しは改変でない」へ動いたが、注は「ACD- で始まる」のまま残っていた —— 確定すると記述子が本文と違うことを言う)
 TEXT_REDISTRIBUTION_NOTE = (
-    "The text of this Dedication may be copied and distributed verbatim by anyone. Making a modified text is not restricted; "
-    "what is restricted is distributing one under any name that contains \"Autonomous Commons Dedication\", regardless of case, "
-    "or under any identifier that contains \"ACD-\", regardless of case, followed by a digit, except by the Steward (section 16.5). "
-    "That exception reaches only a new version under a version number and identifier that no earlier text the Steward or a "
-    "former Steward has published, other than a draft identified as such, has borne. A modified text may be distributed under "
-    "a different name. A translation identified as one that states that the English text prevails, and a re-encoding with the "
-    "words unchanged that is identified as one, are not modified texts for this purpose; differences of line breaking, "
-    "indentation, or markup are not modifications. This restriction concerns the text of this Dedication as a document; it is "
-    "not a condition upon any use of the Work (sections 10.5 and 16.6).")
+    "Anyone may copy and distribute the text of this Dedication verbatim. A modified text may be distributed only under a name "
+    "that does not contain \"Autonomous Commons Dedication\" and an identifier that does not contain \"ACD-\" followed by a digit, in "
+    "either case regardless of case. Not modified texts: a translation that is identified as one and states that the English "
+    "text prevails; a re-encoding with unchanged words; and a new version that the Steward publishes under a version number "
+    "that no earlier text published by a Steward, other than a draft identified as such, has borne. This restriction concerns "
+    "the text of this Dedication as a document; it is not a term of the Work (section 10.6).")
 # 草案の §16.4 に在れば注にも在るべき語 (Check 451g)
 #   語は「どの部分の語か」が分かる句にする: "contains" だけだと名前の側にも在り、識別子の側を「begins with」へ戻しても通った
 #   (mutation で実測・2026-11-16)
-TEXT_REDISTRIBUTION_TERMS = ("name that contains", "identifier that contains", "regardless of case", "former Steward",
-                             "different name", "translation", "re-encoding", "line breaking", "draft identified as such")
+TEXT_REDISTRIBUTION_TERMS = ("name that does not contain", "identifier that does not contain", "regardless of case",
+                             "published by a Steward", "translation", "re-encoding", "unchanged words", "draft identified as such")
+
+
+# 1.5 の書き直し (2026-11-24・議題 15) の条の番号。記述子の key ごとに 1.5 の条を置く (1 つの旧条が複数の新条へ分かれるので、
+#   条から条への写しでは決まらない)。1.4 以前から引き継いだ key がここに無ければ descriptor() が止まる
+CLAUSES_1_5 = {
+    "reusableByAnyone": "10.3",
+    **{k: "2.2" for k in ("use", "studyAndAnalysis", "reverseEngineering", "reproduction", "modification", "distribution",
+                          "commercialUse", "computationalUse", "machineLearningTraining", "textAndDataMining",
+                          "databaseExtraction")},
+    "sublicensing": "2.4", "relicensingUnderAnyTerms": "4.3", "modelAndOutputUnencumbered": "4.1",
+    "patentUse": "2.3", "patentUseForTraining": "2.3",
+    **{k: "4.2" for k in ("attribution", "noticeRetention", "stateChanges", "sourceDisclosure", "reciprocalLicensing",
+                          "actOfAcceptance", "fieldOfUseRestriction")},
+    "tdmReservation": "3.1", "patentRetaliation": "4.1", "termination": "4.1", "trademarkGrant": "6.2",
+    "governingLawSpecified": "9.3", "textRedistribution": "10.5",
+    "noAssertionOfCoveredRights": "2.5", "noCollateralObligationByDedicator": "5.1",
+    "noAssertionOfLicensedPatentClaims": "2.5",
+    "rightAssertedByDedicator": "3.2", "recipientMustDetermineWhichParts": "3.2",
+    "warranty": "8.1", "liability": "8.2",
+}
+OUT_OF_SCOPE_1_5 = ("6.2", "6.4", "6.1", "2.6")
+
+
+def recite_1_5(d: dict) -> None:
+    """記述子の clause を 1.5 の番号へ。key が一覧に無ければ止める (古い番号のまま残すと 451 が別の条を指す記述子を通しうる)。"""
+    for part in [d] + [x for x in d.values() if isinstance(x, dict)]:
+        for k, x in part.items():
+            if isinstance(x, dict) and "clause" in x:
+                if k not in CLAUSES_1_5:
+                    raise SystemExit(f"記述子の key {k} の 1.5 の条が CLAUSES_1_5 に無い")
+                x["clause"] = CLAUSES_1_5[k]
+                if k != "textRedistribution" and "Section 5.2" in x.get("note", ""):
+                    del x["note"]
+    if len(d["outOfScope"]) != len(OUT_OF_SCOPE_1_5):
+        raise SystemExit("記述子の outOfScope の件数が OUT_OF_SCOPE_1_5 と違う")
+    for x, c in zip(d["outOfScope"], OUT_OF_SCOPE_1_5):
+        x["clause"] = c
 
 
 def descriptor(v: str, prev: str, body: str, date: str) -> str:
@@ -311,6 +345,9 @@ def descriptor(v: str, prev: str, body: str, date: str) -> str:
                     "recipientMustDetermineWhichParts": {"value": False, "clause": "9.3"},
                 }
         d = out
+    if v == "1.5":
+        recite_1_5(d)
+        d["reservationsAndLimits"]["textRedistribution"]["note"] = TEXT_REDISTRIBUTION_NOTE
     return json.dumps(d, ensure_ascii=False, indent=2) + "\n"
 
 

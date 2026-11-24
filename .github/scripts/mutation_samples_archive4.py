@@ -56,8 +56,8 @@ MUTATIONS_ARCHIVE4 = [
     "file": CURRENT_DRAFT,
     # 語を足すと 468 の語数申告の face が先に拾い帰属が曖昧になる (初版で実測)。語を変えずに 2 行を
     # 1 行へ繋いで 80 桁を超えさせ、468l だけを狙う。
-    "find": "abandons, and relinquishes all\n       Covered Rights in the Work,",
-    "replace": "abandons, and relinquishes all Covered Rights in the Work,",
+    "find": "formality, this Dedication is revocable or ineffective and, so far as the\n       law",
+    "replace": "formality, this Dedication is revocable or ineffective and, so far as the law",
     "check": CHECK,
 },
     {
@@ -372,13 +372,12 @@ MUTATIONS_ARCHIVE4 = [
     "check": CHECK,
 },
     {
-    "name": "Check 468m: §16.4 の Steward 例外から「新しい版番号でのみ」の限定を外す —— Steward が同じ識別子で"
-            "別本文を出せる形に戻る (2026-11-01 外部レビュー #279)。語数を変えない置換にして 468 の語数 face と分ける",
+    "name": "Check 468m: §10.5 の Steward の新しい版から「先の本文が帯びていない版番号」の限定を外す —— Steward が同じ識別子で別本文を出せる形に戻る (2026-11-01 外部レビュー #279)。語数を変えない置換にして 468 の語数 face と分ける",
     "file": CURRENT_DRAFT,
     # 同じ語句が草案冒頭の変更一覧にも引用されている (初版の find は 2 箇所に当たり、先頭 = 変更一覧を
     # 打って §16.4 は無傷だった)。§16.4 の行だけにある直後の "," まで含めて一意にする。
-    "find": "that no earlier",
-    "replace": "that an earlier",
+    "find": "no earlier text published by a Steward",
+    "replace": "an earlier text published by a Steward",
     "check": CHECK,
 },
     {
@@ -789,10 +788,10 @@ MUTATIONS_ARCHIVE4 = [
     "check": CHECK,
 },
     {
-    "name": 'Check 468o: 草案 §6.4 の動詞 "license" を名詞形 "licence" に変える —— 1.1〜1.3 はこの形のまま凍結された。同じ語数の綴り違いは差分のレンズも語数照合も拾わない',
+    "name": "Check 468o: 草案 §2.2 の名詞 \"licence\" を動詞形 \"license\" に変える —— 1.1〜1.3 はこの形のまま凍結された。同じ語数の綴り違いは差分のレンズも語数照合も拾わない",
     "file": CURRENT_DRAFT,
-    "find": "license, disclose, or attribute",
-    "replace": "licence, disclose, or attribute",
+    "find": "The Dedicator grants You a licence to exercise all Covered",
+    "replace": "The Dedicator grants You a license to exercise all Covered",
     "check": CHECK,
 },
     {
