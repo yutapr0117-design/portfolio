@@ -9,7 +9,7 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 
 1.4 は 2026-11-23 に確定・凍結した。1.5 の草案に入れる変更の試作をここに書く。草案を上書きせず、試作ごとに Before / After、欠陥、逆側、測定（`measure_clause_overlap.py --compare`・`measure_clause_clarity.py`）、反例、採否を書く。**採否は `ACD-1.5-CHANGELIST.md` の「方針」の規則で決める** —— 各変更は閉じる errata / SELF-AUDIT の番号か、消す読みの分岐（`ACD-1.4-UNIQUE-READING.md` の行）を書く。例外は、読みを変えずに文を分けるか語を減らす変更だけ。
 
-試作の番号は 1.4 の T1〜T134 に続けて **T135 から**（版をまたいで番号を重ねない）。節番号はこの file の中で §1 から。1.4 の試作の記録（`ACD-1.4-CLARITY-TRIAL.md`・`ACD-1.4-SECOND-CLARITY-TRIAL.md`・`ACD-1.4-THIRD-CLARITY-TRIAL.md`）は移さない。THIRD §15.54（文の長さ・S1〜S3）は 1.5 の候補として THIRD に残し、採るときはここに節を立てる。
+試作の番号は 1.4 の T1〜T134 に続けて **T135 から**（版をまたいで番号を重ねない）。節番号はこの file の中で §1 から。1.4 の試作の記録（`ACD-1.4-CLARITY-TRIAL.md`・`ACD-1.4-SECOND-CLARITY-TRIAL.md`・`ACD-1.4-THIRD-CLARITY-TRIAL.md`）は移さない。THIRD §15.54（文の長さ・S1〜S3）は 1.5 の候補として THIRD に残し、採るときはここに節を立てる。S3 は §4（T137）、S1・S2 は §8（T140・T141）で決め、THIRD §15.54 の 1.5 の候補はどれも採らないで終わった（2026-11-24）。
 
 ## 1. T135 —— §11.4 第 2 文の網羅の言い切りを、黙示の排除に置き換える（−15 語・2026-11-23・案 5e・案 (c) は portfolio-cd）
 
@@ -140,3 +140,14 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 **反例（portfolio-cd・2026-11-23）**: (1) 文脈がもう限っている —— 第 1 段落の主題文は *"The legal tools in common use were drafted for a world …"* で、*"That assumption now fails in three places at once"* に続く 3 つの言明（機械生成物・許容型の沈黙・献呈の特許）は、どれもその道具についての言明と読むのが自然である。全称の読みは文を段落から切り出したときにだけ立つ。(2) 同じ型の 2 文目 —— *"Permissive licences are silent on whether a work may be used to train a model"* も切り出せば全称になる（承認済み 141 本については gap 測定 `ACD-1.0.gap-measurements.md` §1.97 が支える。審査に出た提出文では OpenMDW 1.1 は学習を名指さず、ModelGo 2.0 は定義でモデルからの学習（蒸留）を名指す部分的な反例で、承認されておらず普及もしていない —— d7 が提出文で確かめた。最初は確かめる前に「反例がある」と書き、2026-11-23 に訂正した）。T139 が 3 文目だけに *in common use* を足すと、足していない 2 文目は全称だという対比の読みが生まれる（語を 1 か所だけそろえると対比が立つ型）。(3) 直すなら限定を 1 度で 3 文に掛ける形（*"In the tools in common use, that assumption now fails in three places at once"*・+5 語前後）だが、前文は作用せず、*in common use* も実務についての言明として残るので、閉じる分岐が小さい。
 
 **採否**: **採らない**（2026-11-23・5e と cd）。errata E88 に 2 文目も入れ、「文脈（第 1 段落の主題文）が限っている。切り出した読みにだけ当たる」として直さないと決めた。**逆側**: 「直さない」は E6・E87 に続き 3 件目になる。1 文だけを引く審査者には、その文は偽に見える。
+
+## 8. T140・T141 —— THIRD §15.54 の残りの 2 つ（S1 §5.1 第 2 文・S2 §5.2 の回避の授権）を分ける（+7 / +5 語・2026-11-24・起草 5e・**どちらも採らない**）
+
+**方針の欄**: 規則 1 の例外（読みを変えずに文を分け、45 語超の文が減るもの）に当たるかを測った。どちらも errata の番号も `ACD-1.4-UNIQUE-READING.md` の分岐も持たない（§5.1 第 2 文の行は 2 つとも「一意」で、除外の列が *claim* に掛かることは 1.4 の SECOND の T39 が決めている）ので、例外に当たらなければ入れられない。
+
+**T140（S1）**: §5.1 第 2 文（91 語）を *"… a use of the Work that this Dedication permits or purports to permit. This further covenant does not extend to a claim for patent infringement (Section 8), under trademark rights or rights in a name (Section 11.1), for a false statement or representation (Section 11.3), or for a payment You agreed to make for providing a copy or for a service that is not permission to use the Work."* へ（42 語と 56 語・+7 語）。THIRD の案（*That covenant*）が持っていた「第 1 文の約束にも除外が掛かる」読みは、*This further covenant* が第 2 文の *"further covenants"* を名指すことで閉じる。**それでも 2 文目が 56 語で、45 語超の文は 1 つのまま減らない** —— 除外の 4 項は §5.2(b)・§5.2(d) の除外と語をそろえてあり（1.4 の SECOND §14.1・T112・T39。`ACD-1.4-CHANGELIST.md` の「§5.1 / §5.2(d)」の行）、ここだけ縮めると対の差が新しく生じる。
+
+**T141（S2）**: §5.2 の回避の授権（77 語）の *"…, and waives any power …"* を *"To the same extent, the Dedicator waives any power under a law concerning such circumvention to forbid that circumvention."* として分ける（63 語と 19 語・+5 語）。**前半が 63 語で、45 語超の文は減らない**（THIRD の見込み「前半は 59 語」は 4 語ずれていた）。
+
+**採否**: **どちらも採らない**（5e）。例外の条件は「45 語超の文が減る」ことで、どちらも減らさず語だけを足す。**逆側**: (i) T140 は、除外の列が *claim* に掛かることを構文で示すので、T39 が読みで決めた点を文の形でも決める利点がある —— だがそれは分岐を消す変更ではなく（分岐は「一意」）、規則 1 の本則にも当たらない。(ii) 45 語超の割合（14.7%）は 1.0 の 10.3% より高いまま残る。下げるには列挙の文（§8.1・§8.4 の行為の列、§1.2・§1.5・§1.7・§1.10 の定義、§4.2・§4.3）に手を入れるしかなく、それは語を足さずには分けられない（THIRD §15.54 の結び・B3 と引き換え）。**反例をお願いしたい点（cd）**: T140 の *This further covenant* が第 1 文の約束を含むと読む余地が残るか。
+
