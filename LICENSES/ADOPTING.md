@@ -52,9 +52,10 @@ choice. Section numbers below are the same in every version unless the page says
   obligation in respect of the work imposed by terms of service, without exception for a service.
 - **Check your site's terms of service before you apply it.** In every version, §5.2(b) is a promise not to
   impose, by contract or terms of service, any obligation in respect of the work that the Dedication does
-  not impose itself, except under your trademarks or name and for a payment. A clause such as "do not imply
-  that we endorse you" is within that exception only if it rests on your name or marks; a bare "do not
-  misrepresent the work" is not, and would break the promise as to the work (errata
+  not impose itself. ACD-1.4 excepts your trademarks or name and a payment; 1.0 to 1.3 except nothing. Under
+  ACD-1.4 a clause such as "do not imply that we endorse you" is within that exception only if it rests on
+  your name or marks, and under 1.0 to 1.3 even that would break the promise; a bare "do not
+  misrepresent the work" breaks it in every version (errata
   [E87](ACD-1.0.errata.md)). You do not need such a clause: the law against false statements and false
   endorsement still applies, and the Dedication leaves it alone (§5.1, §11.3). We decided not to change
   the text, because the line it draws is that the law stays and no new contractual obligation is added.
@@ -97,7 +98,7 @@ narrow band where those assumptions fail together.
 
 **If you only mention ACD, say so.** In your own work, the identifier (`ACD-1.4`), an SPDX tag, or
 the name with its version can be read as a notice that applies the text to the material it
-accompanies (Section 16 of the 1.4 draft, on notices). A README that names ACD only to compare it with other licences should name it without
+accompanies (Section 16 of ACD-1.4, on notices). A README that names ACD only to compare it with other licences should name it without
 a version, or say in the same sentence that the work is not under it. Section 16 speaks of a notice that
 a Dedicator places, so an article or a comparison table about other people's work does not apply
 ACD to that work; that is our reading, and no lawyer has checked it.
