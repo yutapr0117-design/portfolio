@@ -26,7 +26,7 @@ if sys.version_info < (3, 10):
     print("ERROR: mutation_samples.py requires Python 3.10+ (got %d.%d)" % sys.version_info[:2])
     sys.exit(1)
 
-from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_CHANGES, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID, APPLIED_DATE, SUBMISSION_TARGET, FROZEN_PREVIOUS, UNIQUE_READING  # noqa: F401 (entry 内で参照)
+from mutation_samples_common import ROOT, CHECK, CURRENT_DRAFT, CURRENT_CHANGES, CURRENT_DRAFT_VER, PREVIOUS_VER, NEXT_CHECK, APPLIED_ID, APPLIED_DATE, SUBMISSION_TARGET, FROZEN_PREVIOUS, NO_OTHER_SIDE, UNIQUE_READING  # noqa: F401 (entry 内で参照)
 from mutation_samples_archive import MUTATIONS_ARCHIVE
 from mutation_samples_archive7 import MUTATIONS_ARCHIVE7
 from mutation_samples_archive6 import MUTATIONS_ARCHIVE6
@@ -274,11 +274,11 @@ _MUTATIONS_TAIL.append({
     "replace": "Counted on `REDLINE-1.0-TO-1.4.txt`: of ACD-1.4's 1",
 })
 _MUTATIONS_TAIL.append({
-    "name": "Check 503: 日本語の B3 の行に「逆側」を足し、英語の行に \"Other side:\" の句が無いままにする —— 日本語の行に逆側を足しても"
+    "name": "Check 503: 日本語の行 (逆側の無い最初の B) に「逆側」を足し、英語の行に \"Other side:\" の句が無いままにする —— 日本語の行に逆側を足しても"
             "英語の行が片側のまま黙ってずれた (B1・2026-11-23 の議題 7)。英語の句の書き方に依らない目印",
     "file": ROOT / "LICENSES" / "ACD-OSI-BOTTLENECKS.md",
-    "find": "| **B3** | ",
-    "replace": "| **B3** | **逆側**: ",
+    "find": f"| **{NO_OTHER_SIDE}** | ",
+    "replace": f"| **{NO_OTHER_SIDE}** | **逆側**: ",
 })
 _MUTATIONS_TAIL.append({
     "name": "Check 503: B6 の \"Other side:\" の句を残して中身を「—」にする —— 句が在るまま無効にする退行 (安全網の規律 (4)・d7 の条件)",
