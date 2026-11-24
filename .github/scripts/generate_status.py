@@ -214,6 +214,13 @@ def build_status() -> str:
                                     key=lambda d: tuple(int(x) for x in re.findall(r"\d+", d.name)[:2]))
                   if "HAS BEEN FROZEN" not in d.read_text(encoding="utf-8").split("\n", 1)[0]]
         draft = drafts[-1] if drafts else None
+        # 提出対象（submission.md の SUBMISSION-TARGET・2026-11-23 に 1.0 から 1.4 へ・議題 3）。適用版と提出対象は別の印で、
+        # 片方だけを見ると「1.4 を出す」ことがオーナーの BLUF 面に映らない (6d)。提出できるかは別で、下の段 6b の行と submission_gate が持つ。
+        sub_txt = _read("LICENSES/ACD-1.0.submission.md") or ""
+        m_tgt = re.search(r"<!--\s*SUBMISSION-TARGET:\s*(ACD-\d+\.\d+)\s*-->", sub_txt)
+        lic_lines.append(f"- **提出対象**: **{m_tgt.group(1) if m_tgt else '(SUBMISSION-TARGET が無い)'}**"
+                         f"（`ACD-1.0.submission.md` の SUBMISSION-TARGET から導出）。**提出対象であることと、提出できることは別** —— "
+                         f"`python3 .github/scripts/submission_gate.py {m_tgt.group(1) if m_tgt else '<版>'}` が段 6b（下の行）と 6c を確かめるまで止まる。")
         lic_lines.append(f"- **適用している版**: **{m_app.group(1) if m_app else '(LICENSE に SPDX 行が無い)'}**"
                          f"（ルートの `LICENSE` から導出）／凍結済み: {' / '.join(frozen_vers) or '(なし)'}"
                          f"／次版の作業場: `{draft.relative_to(ROOT) if draft else '(なし)'}`")
