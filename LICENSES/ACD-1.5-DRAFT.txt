@@ -78,11 +78,11 @@ Short identifier: ACD-1.5
        names, and rights under the law of data protection, privacy, publicity,
        or personality.
 
-  1.7  "Patent Claims" means claims of patents, including utility models, that
-       the Dedicator owns or controls, now or at any later time. The Dedicator
-       controls a claim if, and only if, at the time in question, the Dedicator
-       has the right to license it as Sections 2.3 and 2.4 state without
-       breaching an obligation to, or incurring a payment to, another person.
+  1.7  "Patent Claims" means claims of patents that the Dedicator owns or
+       controls, now or at any later time. The Dedicator controls a claim if,
+       and only if, at the time in question, the Dedicator has the right to
+       license it as Sections 2.3 and 2.4 state without breaching an obligation
+       to, or incurring a payment to, another person.
 
   1.8  "Result" means any model, parameter set, weight, embedding, output, or
        other data, in each case resulting, directly or indirectly, from
@@ -113,8 +113,9 @@ Short identifier: ACD-1.5
        terms instead.
 
   1.12 The singular includes the plural and the reverse; "person" includes an
-       entity; "include", "including", and "in particular" do not limit what
-       precedes them; and a law includes that law as amended or replaced.
+       entity; "patent" includes a utility model; "include", "including", and
+       "in particular" do not limit what precedes them; and a law includes that
+       law as amended or replaced.
 
 2. DEDICATION, LICENCE, AND COVENANT
 
@@ -233,23 +234,23 @@ Short identifier: ACD-1.5
        Section 5 forbids that person to impose.
 
   4.4  Under this Dedication, a request, preference, or expectation that the
-       Dedicator expresses in respect of the Work, however phrased, including
-       for attribution or citation, is not a condition, creates no obligation,
-       and limits no permission.
+       Dedicator expresses in respect of the Work or of any Result, however
+       phrased, including for attribution or citation, is not a condition,
+       creates no obligation, and limits no permission.
 
 5. FURTHER COVENANTS
 
   5.1  The Dedicator covenants that it will not, by contract, terms of service,
        acceptable-use policy, access condition, registration requirement, or any
-       other collateral means, impose, in respect of the Work, an obligation
-       that this Dedication does not itself impose.
+       other collateral means, impose, in respect of the Work or of any Result,
+       an obligation that this Dedication does not itself impose.
 
   5.2  The Dedicator covenants not to assert rights in respect of any
        technological measure that restricts access to or use of a copy of the
        Work that has been made available, or to invoke against You any law
        concerning the circumvention of such a measure. The Dedicator authorises
        the circumvention of any such measure applied, at any time, by or on
-       behalf of the Dedicator to a copy of the Work that the Dedicator has made
+       behalf of the Dedicator to a copy of the Work that has been made
        available, for the purpose of any use that this Dedication permits or
        purports to permit, and waives any power under such a law to forbid it.
 
@@ -266,15 +267,10 @@ Short identifier: ACD-1.5
        (b)  a claim for a false statement or representation (Section 6.3);
 
        (c)  a payment You agreed to make for providing a copy or for a service
-            that is not permission to use the Work;
+            that is not permission to use the Work; or
 
        (d)  a term about a Contribution, other than one restricting use of the
-            Work, asked of the person submitting it; or
-
-       (e)  terms for the use of a site or service generally, other than a
-            registration or acceptance required in order to obtain a copy of the
-            Work, so far as they impose nothing in respect of a copy obtained
-            from it.
+            Work, asked of the person submitting it.
 
   5.5  Sections 2.5(d), 5.1, and 5.2 do not reach:
 
@@ -374,11 +370,12 @@ Short identifier: ACD-1.5
 
 9. CONSTRUCTION
 
-  9.1  As to the Work, this Dedication is to be construed to give the widest
-       permission and impose the least obligation upon You that its words allow.
-       Where a provision can, as to the Work, be read in more than one way, the
-       reading that gives You more prevails. No rule applies that construes this
-       Dedication against its drafter, or a grant narrowly against the grantee.
+  9.1  As to the Work or any Result, this Dedication is to be construed to give
+       the widest permission and impose the least obligation upon You that its
+       words allow. Where a provision can, as to the Work or any Result, be read
+       in more than one way, the reading that gives You more prevails. No rule
+       applies that construes this Dedication against its drafter, or a grant
+       narrowly against the grantee.
 
   9.2  A provision held invalid or unenforceable in a jurisdiction is to be
        reformed there to the minimum extent necessary to make it valid and
@@ -391,10 +388,9 @@ Short identifier: ACD-1.5
 
 10. APPLYING THIS DEDICATION, AND THIS TEXT
 
-  10.1 To apply this Dedication, place with the material a copy of this text as
-       its licence, or a notice that names this Dedication by name and version,
-       or that bears the identifier "ACD-1.5" or "LicenseRef-ACD-1.5", for
-       example:
+  10.1 To apply this Dedication, place with the material a notice that names
+       this Dedication by name and version, or that bears the identifier
+       "ACD-1.5" or "LicenseRef-ACD-1.5", for example:
 
            This work is released under the Autonomous Commons Dedication 1.5
            (ACD-1.5). No rights in this work are reserved and no conditions
@@ -408,20 +404,20 @@ Short identifier: ACD-1.5
            SPDX-License-Identifier: ACD-1.5
            (LicenseRef-ACD-1.5 while not on the SPDX License List)
 
-  10.2 Such a copy or notice, placed by a Dedicator, is sufficient notice of
-       this Dedication, whose terms apply in full whether or not a copy of this
-       text accompanies the material. Neither passing on or recording another
-       person's copy or notice with the material it applies to, nor mentioning
-       this Dedication otherwise than to apply it, applies it to anything. A
-       copy or notice that a Dedicator places applies this Dedication to the
-       material it identifies, whether by its words, by its place in a comment
-       within a file, by a file name that refers to other material, or by
-       markers that delimit part of a file. If it identifies none, it applies
-       this Dedication to the material it accompanies. It does not apply this
-       Dedication to material that a narrower notice placed by the Dedicator
-       puts under other terms. A notice that is only a Reservation puts nothing
-       under other terms. The identifiers named in Section 10.1 match without
-       regard to case.
+  10.2 Such a notice, placed by a Dedicator, is sufficient notice of this
+       Dedication, whose terms apply in full whether or not a copy of this text
+       accompanies the material. Neither passing on or recording another
+       person's notice with the material it applies to, nor mentioning this
+       Dedication otherwise than to apply it, applies it to anything. A notice
+       that a Dedicator places applies this Dedication to the material it
+       identifies, whether by its words, by its place in a comment within a
+       file, by a file name that refers to other material, or by markers that
+       delimit part of a file. If it identifies none, it applies this Dedication
+       to the material it accompanies. It does not apply this Dedication to
+       material that a narrower notice placed by the Dedicator puts under other
+       terms. A notice that is only a Reservation puts nothing under other
+       terms. The identifiers named in Section 10.1 match without regard to
+       case.
 
   10.3 Anyone may apply this Dedication to material in which they hold or may
        hold rights of their own, without permission from or notice to the
