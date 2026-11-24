@@ -159,6 +159,11 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        471 は誤りに face ラベルが無く、既存の face 名 mutation 6 件が probe の face 帰属で MISATTRIBUTED だった)。
        **479d** (2026-11-04・ratchet): 下位部ラベル `Check Nx` を名指す mutation が無いものを増やさない
        (96 個中 36 個しか名指されていなかった。既存 59 個を凍結し、付いたら ADVISORY で縮める)。
+       **479e** (2026-11-24・fc): mutation の `"file":` の行が、作業中の版の名 (`ACD-1.5-…` のような literal) を直書きしない。
+       作業中の版の file を打つ mutation は `CURRENT_DRAFT_VER` / `CURRENT_DRAFT` から導く。直書きすると、その版を確定した日に
+       Check は次版の file を読むのに mutation は前の版の file を打ち続け、find が残るので 362 は黙る (確定で前提が外れた
+       mutation の型・11-24 の全数の当て直しで 7 件、週次 probe が 3 週赤)。導く形なら確定の日に anchor が消え、362 と確定の道具の
+       退役の一覧に出る。導入時に 1 件 (468y の 1.5 の試作の mutation) を同じ commit で直した。
        (BLOCKING)
   480. **mutation データの dict literal に重複 key が無い** (BLOCKING)。Python は dict literal の
        重複 key を**黙って後勝ちで上書き**する。2026-11-01、3 セッションが同じ append-log へ並行に
@@ -692,6 +697,20 @@ def run(ctx):
         "Check 479d (ADVISORY): 凍結した未被覆の下位部に、もう mutation を持つものは残っていない",
         f"Check 479d (ADVISORY): {_stale479d} には mutation が付いた。`_BASE479D` から外して縮めよ",
         blocking=False,
+    )
+
+    # 479e — mutation の "file": が作業中の版の名を直書きしない (docstring の 479e)
+    from mutation_samples_common import CURRENT_DRAFT_VER as _cur479e
+    _lit479e = re.compile(r'^\s*"file":.*ACD-' + re.escape(_cur479e) + r'[-.]')
+    _hit479e = [f"{_f.name}:{_n}" for _f in sorted((ROOT / ".github" / "scripts").glob("mutation_samples*.py"))
+                for _n, _l in enumerate(_f.read_text(encoding="utf-8").splitlines(), 1) if _lit479e.search(_l)]
+    check(
+        _cur479e != "0.0" and not _hit479e,
+        f"Check 479e: mutation の \"file\": は作業中の版 ACD-{_cur479e} の名を直書きしない (導く形)",
+        (f"Check 479e: mutation の \"file\": が作業中の版の名 ACD-{_cur479e} を直書きしている: {_hit479e}。"
+         "f\"ACD-{CURRENT_DRAFT_VER}-…\" か CURRENT_DRAFT で導け (確定の日に find が残ったまま的を外す)"
+         if _cur479e != "0.0" else "Check 479e: 作業中の版を導けない (mutation_samples_common の CURRENT_DRAFT_VER が 0.0)"),
+        blocking=True,
     )
 
     # ── 480. mutation データの dict literal に重複 key が無い (BLOCKING) ──────────────────

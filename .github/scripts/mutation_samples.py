@@ -487,7 +487,8 @@ _MUTATIONS_TAIL.append({
 _MUTATIONS_TAIL.append({
     "name": "Check 468y: 1.5 の試作の T135 の見出しを「§11.4 は変えない」にする —— 逐条の §11.4 の行は T135 に触れていないので RED に"
             "なるはず。1.4 の確定の後、468y は名で決め打ちした SECOND / THIRD しか読まず、1.5 の試作を 1 つも読まなかった (2026-11-23)",
-    "file": ROOT / "LICENSES" / "ACD-1.5-CLARITY-TRIAL.md",
+    # 作業中の版から導く (2026-11-24・479e): 1.5 を確定した日に anchor が消え、362 と確定の道具の退役の一覧に出る
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-CLARITY-TRIAL.md",
     "find": "## 1. T135 —— §11.4 第 2 文の",
     "replace": "## 1. T135 —— §11.4 は変えない。第 2 文の",
 })
@@ -558,6 +559,14 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "LICENSES" / "ADOPTING.md",
     "find": "## What nobody can tell you yet\n",
     "replace": "## What nobody can tell you yet\n\nThe Work is the material to which *\"the Dedicator has applied this Dedication, in whole\"*.\n",
+})
+_MUTATIONS_TAIL.append({
+    "name": "Check 479e: archive7 の mutation の file を作業中の版の名の literal にする —— 確定の日に Check は次版を読むのに mutation は"
+            "前の版を打ち続け、find が残るので 362 は黙る (11-24 の全数の当て直しの 7 件と同じ型)",
+    "file": ROOT / ".github" / "scripts" / "mutation_samples_archive7.py",
+    "find": '    "file": CURRENT_DRAFT,\n    "find": "       requirement upon You in respect of the Work, other than in Your capacity",',
+    "replace": (f'    "file": ROOT / "LICENSES" / "ACD-{CURRENT_DRAFT_VER}-DRAFT.txt",\n'
+                '    "find": "       requirement upon You in respect of the Work, other than in Your capacity",'),
 })
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
