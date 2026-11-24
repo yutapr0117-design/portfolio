@@ -388,14 +388,23 @@ git clone --depth 1 https://github.com/yutapr0117-design/portfolio && cd portfol
 
 **If you only have the attachment from the mailing list, use this instead** — it needs no clone,
 and it is the check that matters, because it compares *the bytes you were sent* against the
-pinned value rather than against anything this repository asserts about itself:
+pinned file rather than against anything this repository asserts about itself. The attachment is
+the part of `ACD-1.4.txt` below the line of 80 hyphens: the lines above it describe the file, and
+the file itself says they are not part of the Dedication and that a copy may leave them out
+(decision 4 of the five, `ACD-1.0.submission.md` §A, Canonical text). So it has its own digest,
+derived from the pinned file:
 
 ```sh
-shasum -a 256 ACD-1.4.txt
+shasum -a 256 <the attachment>
+# expect ce76f3ab337c367741a6a1cea237657d371a3a193b43aa9fd2d34fdcfa8b962f
 curl -s https://yutapr0117-design.github.io/portfolio/LICENSES/FROZEN.md \
   | grep -E '^[0-9a-f]{64}  LICENSES/ACD-1\.4\.txt$'
-# the two digests must be identical; as of 2026-11-23 (first run 2026-09-07) both are
-# 6792e804486e59082b84fce663d2bc24c22d72720c6d1bab8af43a90c9e3b615
+# the pinned digest of the whole file: 6792e804486e59082b84fce663d2bc24c22d72720c6d1bab8af43a90c9e3b615
+curl -s https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.4.txt | shasum -a 256
+# must equal the pinned digest above
+curl -s https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.4.txt \
+  | sed '1,/^-\{80\}$/d' | shasum -a 256
+# must equal the digest of the attachment (as of 2026-11-24, both values computed from the pinned file)
 ```
 
 ```sh
@@ -445,7 +454,7 @@ them and would have sent a reviewer away from material they can read.
 | File | Language | What is in it |
 |---|---|---|
 | [`ACD-1.0.comparison.md`](ACD-1.0.comparison.md) | **English** | Why the nearest licences do not fit, by family (Unlicense, 0BSD/MIT-0, Apache-2.0, MPL — all OSI-approved — and CC0, which is not) |
-| [`ACD-1.0.clause-reference.md`](ACD-1.0.clause-reference.md) | Japanese | All 82 clauses of 1.0, one line each, with what each is for. Written against 1.0: for ACD-1.4, read [`CHANGES-ACD-1.4.txt`](CHANGES-ACD-1.4.txt) (English, what changed from 1.3, clause by clause) and "The new language, next to the nearest approved text" above |
+| [`ACD-1.0.clause-reference.md`](ACD-1.0.clause-reference.md) / [`ACD-1.4.clause-reference.md`](ACD-1.4.clause-reference.md) | Japanese | All 82 clauses of 1.0, and all 80 of ACD-1.4, one line each, with what each is for. In English, for ACD-1.4: [`CHANGES-ACD-1.4.txt`](CHANGES-ACD-1.4.txt) (what changed from 1.3, clause by clause) and "The new language, next to the nearest approved text" above |
 | [`ACD-1.0.jurisdictions.md`](ACD-1.0.jurisdictions.md) | Japanese | Where the questions differ by jurisdiction (JP, DE, FR, US, EU, UK). **Questions, not conclusions** — no legal opinion is offered |
 | [`ACD-1.0.faq.md`](ACD-1.0.faq.md) | Mixed; each answer has an English block | Practical questions from the adopter's side (SPDX notation, scanners, explaining it to a legal team, academic use, consumer-law limits) |
 | [`ACD-1.0.review-responses.md`](ACD-1.0.review-responses.md) | Mixed; **every answer is given in English**, with Japanese notes on why it is phrased that way | Anticipated objections: the four weaknesses stated first, then OSD clause by clause |
@@ -474,7 +483,7 @@ between this instrument and approval, which is the most self-critical thing here
 |---|---|---|
 | [`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) | Japanese | **The register of what we think blocks approval** — fifteen entries with severity, who can move each, and none marked resolved |
 | [`ACD-OSI-BOTTLENECKS-EXTERNAL.md`](ACD-OSI-BOTTLENECKS-EXTERNAL.md) | Japanese | The entries whose answer is not ours to give (legal review, adoption, the gap question, the moderator decision) |
-| [`ACD-1.0.review-precedents.md`](ACD-1.0.review-precedents.md) | Japanese, quoting English verbatim | What this list has actually done to submissions of our shape, read from the archives Two parts were split out by subject: [`ACD-1.0.review-doctrine.md`](ACD-1.0.review-doctrine.md) (doctrine argued on the lists, applied to particular ACD clauses) and [`ACD-1.0.review-outcomes.md`](ACD-1.0.review-outcomes.md) (what OSI did and said: votes, practice, handling after approval, holding back) — both Japanese, quoting the archive in English. |
+| [`ACD-1.0.review-precedents.md`](ACD-1.0.review-precedents.md) | Japanese, quoting English verbatim | What this list has actually done to submissions of our shape, read from the archives. Two parts were split out by subject: [`ACD-1.0.review-doctrine.md`](ACD-1.0.review-doctrine.md) (doctrine argued on the lists, applied to particular ACD clauses) and [`ACD-1.0.review-outcomes.md`](ACD-1.0.review-outcomes.md) (what OSI did and said: votes, practice, handling after approval, holding back) — both Japanese, quoting the archive in English. |
 | [`ACD-1.0.review-corpus.md`](ACD-1.0.review-corpus.md) | Japanese, quoting English verbatim | Measurements over the archives as a whole, as distinct from readings of single threads |
 | [`ACD-1.0.review-rules.md`](ACD-1.0.review-rules.md) | Japanese, quoting English verbatim | The OSI's own published pages, read at source and applied criterion by criterion |
 | [`ACD-1.0.board-decisions.md`](ACD-1.0.board-decisions.md) | Japanese, quoting English verbatim | The board's published minutes — where decisions are recorded, which the mailing list does not record |
