@@ -553,6 +553,12 @@ _MUTATIONS_TAIL.append({
     "find": "no rename Other side: all 58 licence names",
     "replace": "no rename Other side: — | all 58 licence names",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 470c: 採用者の入口に、1.3 にだけ在る §1.3 の文を版を名乗らずに現在形で引く —— 提出対象を 1.4 へ切り替えた後の against #110 の型 (cd・5e)",
+    "file": ROOT / "LICENSES" / "ADOPTING.md",
+    "find": "## What nobody can tell you yet\n",
+    "replace": "## What nobody can tell you yet\n\nThe Work is the material to which *\"the Dedicator has applied this Dedication, in whole\"*.\n",
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
