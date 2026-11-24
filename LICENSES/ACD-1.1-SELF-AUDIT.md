@@ -923,4 +923,4 @@ T48（2026-11-09）は、*"Paragraphs (a) and (b) do not reach a service through
 
 **見つけ方**: 縮約の本文だけを読む独立の読み手（portfolio-6c・第三者の意見ではない）。1.0 の語には無いので errata ではなくここに記録する。
 
-**閉じ方の候補（1.5 草案 §10.4・未採用）**: *"unless either of them, when submitting it, or the terms of the place it is submitted to, puts it under other terms"*。**逆側**: 宛先の規約が寄与を別の条件に置けるので、fork の側の規約で寄与が ACD の外に出る —— 出た素材を識別する約束（10.4）はその素材を Work と一緒に含める Dedicator にだけ掛かる。1.4 は凍結のまま未修正。
+**1.5 草案で閉じた（2026-11-24・T147・議題 17）**: 1.5 草案 1.11 の除外の列に *"is submitted to a repository or forum that puts such submissions under other terms instead"*。*instead* は上乗せの許諾（ホスティングの規約が自社に求める許諾、CLA の追加の許諾）を外に出す語で、最初の案 *"or the place it is submitted to states other terms for such submissions"* は GitHub の利用規約で普通の寄与まで外へ出した。除いた素材は 10.4 の *"excluded by Section 1.11"* で識別の約束に届く。退けた候補: *"unless either of them, when submitting it, or the terms of the place it is submitted to, puts it under other terms"*（10.4 の文が長くなった）。**逆側**: 宛先の規約が寄与を別の条件に置けるので、fork の側の規約で寄与が ACD の外に出る —— 出た素材を識別する約束（10.4）はその素材を Work と一緒に含める Dedicator にだけ掛かる。1.4 は凍結のまま未修正。
