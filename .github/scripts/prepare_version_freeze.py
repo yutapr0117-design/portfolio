@@ -750,7 +750,8 @@ def main() -> int:
 #   ACD-1.1-CHANGELIST.md の 🔴 (2026-11-01) に在ったが、1.4 の確定 (11-23) の日には回されず、週次の赤が 3 週続き Issue #2757 も
 #   開いたままだった。362 が捕まえるのは anchor の消滅だけで、確定で「anchor は残るが的を外す」mutation (11-24 の全数の当て直しで
 #   7 件) は probe を回すまで見えない。規則を記憶に頼らず、確定の道具の出力に置く (予行がこの行の存在を照らす)
-PROBE_LINE = ("確定の PR を merge したら、同じ日に `gh workflow run mutation-probe.yml --ref main` を回し、consistency の 4 shard と "
+PROBE_LINE = ("確定の PR を merge する前に `python3 .github/scripts/mutation_probe.py --license` (ライセンスの面だけ) を専用の worktree で回し、"
+              "merge したら、同じ日に `gh workflow run mutation-probe.yml --ref main` を回し、consistency の 4 shard と "
               "Version freeze rehearsal が success になることを確かめる (SURVIVED / MISATTRIBUTED は確定で前提が外れた mutation。"
               "付け替えるか退役させる)。")
 

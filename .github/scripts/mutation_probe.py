@@ -17,6 +17,9 @@
 - 安全性: 各 mutation は try/finally で必ず元へ復元し、全実行後に gate が GREEN へ戻ることも確認する。
   CI gate ではなく on-demand ツール (`npm run mutation-probe`)。
 
+`--license` は LICENSES/ を打つ mutation と checks_license* の Check を名指す mutation だけを回す (版を確定した日の当て直し用・
+`--shard i/n` と併用できる)。全件の代わりにはならない —— 出力の最後の行は「of N total」で範囲を名乗る。
+
 二つの安全網それぞれを検証する 2 モード:
 - (既定) consistency Check 安全網を検証 — 各 mutation で check_repository_consistency.py が RED 化するか。
 - (`--e2e` / `npm run mutation-probe-e2e`) behavior e2e (Playwright) 安全網を検証 — 各 mutation で対応する
@@ -95,6 +98,18 @@ def module_of_check(name: str) -> str | None:
             for n in re.findall(r"^\s*# ── (\d+)\.", f.read_text(encoding="utf-8"), re.M):
                 _MODULE_OF.setdefault(n, f.stem)
     return _MODULE_OF.get(m.group(1), "__monolith__")
+
+
+def license_surface(m: dict) -> bool:
+    """True iff the mutation hits LICENSES/ or names a Check that lives in a checks_license* module.
+
+    版を確定した日に全数を当て直す面 (2026-11-24)。確定は LICENSES/ の版の列と適用面を一度に動かすので、anchor は残るのに
+    的を外す mutation がここに集まる (1.4 の確定では 7 件)。週次の全件は 1 時間を越えるので、その面だけを `--license` で回す。
+    """
+    p: Path = m["file"]
+    if p.is_relative_to(ROOT / "LICENSES"):
+        return True
+    return (module_of_check(m["name"]) or "").startswith("checks_license")
 
 
 def caught_by_real_check(out: str) -> bool:
@@ -185,7 +200,13 @@ def main() -> int:
     #   安全網の自己検証はそのまま結論を出さずに終わる。** 週次なので誰も rerun しない。
     #   **壁に当たった層だけ直して兄弟を残すと、同じ壁にもう一度当たる。**
     _shard, _shards = _parse_shard()
-    _targets = [m for i, m in enumerate(MUTATIONS) if i % _shards == _shard - 1]
+    _license = "--license" in sys.argv
+    _pool = [m for m in MUTATIONS if license_surface(m)] if _license else MUTATIONS
+    _targets = [m for i, m in enumerate(_pool) if i % _shards == _shard - 1]
+    if not _targets:
+        # 0 件を「全件捕捉」と言わない (選び方が壊れると、何も当てずに healthy を出す)
+        print("ERROR: no mutation selected — the selection is broken, nothing was verified.")
+        return 1
     print(f"mutation-probe: applying {len(_targets)}/{len(MUTATIONS)} curated mutations "
           f"(shard {_shard}/{_shards})...\n")
     _t0c = time.monotonic()
@@ -260,9 +281,11 @@ def main() -> int:
 
     # shard 実行では **その shard が検証した件数**だけを主張する (e2e 側 [FIX] と同じ理由 ——
     # 一部しか回していない shard が全件主張を出すと、ログだけ読んで「健全」と誤結論できる)。
-    _scope = (f"All {len(_targets)} mutations" if _shards == 1
-              else f"All {len(_targets)} mutations in shard {_shard}/{_shards} "
-                   f"(of {len(MUTATIONS)} total)")
+    _kind = "license-surface mutations" if _license else "mutations"
+    _scope = (f"All {len(_targets)} {_kind}" if _shards == 1
+              else f"All {len(_targets)} {_kind} in shard {_shard}/{_shards}")
+    if _license or _shards > 1:
+        _scope += f" (of {len(MUTATIONS)} total)"
     print(f"{_scope} were caught by the safety net. Net is healthy. ✓")
     return 0
 
