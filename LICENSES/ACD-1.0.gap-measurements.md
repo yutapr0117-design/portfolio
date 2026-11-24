@@ -297,16 +297,18 @@ CC0 §2 が明文で挙げる 5 要素を ACD の全文へ当てると:
 
 ### 主張（1 文）
 
-**ACD は、Work の計算的利用（学習）と、そこから生じたモデル・出力を作り・使い・売り・輸入する行為について、Dedicator の特許請求項を（1.4 草案では、侵害する特徴が Work の内容から生じるものに限って）、
+**ACD は、Work の計算的利用（学習）と、そこから生じたモデル・出力を作り・使い・売り・輸入する行為について、Dedicator の特許請求項を（ACD-1.4 では、侵害する特徴が Work の内容から生じるものに限って）、
 条件なしに、どの理由でも終了しない形で許諾する。承認済み 141 本のどれも、この 3 つ（範囲・無条件・終了なし）を同時に与えない。**
 
 **⚠ 2026-11-04 後半に訂正した（25 の指摘と bb の再検査）**: この節の初版は主張を「その利用が実際に侵害する請求項」と書き、下の場面を 1.0 の文で組んでいた。1.1 以降の §8.4 には因果の限定があり、**請求項の範囲で CERN-OHL-P に差を付ける根拠にならない**。主張の強さの分類は下の「独立の再検証」にある。
 
-ACD 側（下の 2 つの引用は 1.0 の文。**1.1 以降の §8.4 は因果の限定の 2 文を足している** —— 1.4 草案 *"This Section reaches only claims whose infringement depends upon the use of the Work; it does not license a claim that would be infringed by a model, parameter set, weight, embedding, or output produced without any use of the Work."*）:
+ACD 側（下の 2 つの引用は 1.0 の文。**1.1 以降の §8.4 は因果の限定の 2 文を足している** —— 1.1〜1.3 と 1.4 の初期の草案 *"This Section reaches only claims whose infringement depends upon the use of the Work; it does not license a claim that would be infringed by a model, parameter set, weight, embedding, or output produced without any use of the Work."*）:
 - §8.4 *"under every patent claim owned or controlled by the Dedicator, now or in future, that would be infringed by Computational Use of the Work or by the making, having made, use, offering for sale, sale, importation, or other transfer of any model, parameter set, weight, embedding, or output resulting from that use"*、
   かつ *"The proviso in Section 8.1 as to subject matter contained in the Work is deliberately absent from this Section"*。
 - §8.2 *"are subject to no condition and are not terminable by the Dedicator on any ground, including the commencement of or participation in patent litigation by You against the Dedicator or any other person"*。
 - §10.1 *"This Dedication imposes no condition, obligation, restriction, or requirement upon You in respect of the Work."* / §10.4 *"No permission granted by this Dedication terminates for any reason."*
+
+**2026-11-24 追記 —— 提出対象の ACD-1.4 の文（cd・上の 4 つの引用は 1.0 の文のまま残す）**: §8.4 *"to put the Work to Computational Use and to make, have made, use, offer, sell, lend, lease, import, export, keep, possess, and otherwise practise or transfer any model, parameter set, weight, embedding, output, or other data, in each case resulting from Computational Use of the Work, under every patent claim owned or controlled by the Dedicator, now or in future, that those acts would infringe"*、限定は *"Section 8.4 reaches a claim only where the feature that infringes it results, in whole or in part, from the content of the Work; a feature that the Work teaches or embodies is taken so to result"*（T4）と *"That is a question of causation and not of quantity: no threshold of how much of the Work was used is imposed."*。§8.2 *"are subject to no condition and are not terminable by the Dedicator under this Dedication on any ground"*（*under this Dedication* が足された）。§10.1 *"This Dedication imposes no condition, obligation, restriction, or requirement upon You in respect of the Work, other than in Your capacity as a Dedicator."*。§10.4 *"No permission granted by this Dedication terminates under it, for any reason."*。上の括弧が引いていた *"depends upon the use of the Work"* は 1.4 の最終の文には無い。**逆側**: §10.1 の *"other than in Your capacity as a Dedicator"* は、You が自分の寄与の Dedicator になったときに負う約束（§2.6 の識別など）を外に置く。受け取った Work について You に条件が無いことは変わらないが、「無条件」を版の文で言うときは、この限りを併記する。主張（範囲・無条件・終了なし の 3 つを同時に与える承認済みは 0 本）は 1.4 の文でも変わらない（我々の読み）。
 
 ### 分割の証明 —— 141 本を 4 つに分け、各組が 3 つのどれを欠くかを原文で示す
 
