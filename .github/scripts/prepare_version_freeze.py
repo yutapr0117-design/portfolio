@@ -257,17 +257,19 @@ def pointer(v: str, nxt: str, prev: str, date: str) -> str:
 #   この注が落としていないかを照らす (2026-11-16・9b: 1.4 草案の §16.4 は「ACD- を含む・大文字小文字を問わない・前の Steward・
 #   折り返しは改変でない」へ動いたが、注は「ACD- で始まる」のまま残っていた —— 確定すると記述子が本文と違うことを言う)
 TEXT_REDISTRIBUTION_NOTE = (
-    "Anyone may copy and distribute the text of this Dedication verbatim. A modified text may be distributed only under a name "
-    "that does not contain \"Autonomous Commons Dedication\" and an identifier that does not contain \"ACD-\" followed by a digit, in "
-    "either case regardless of case. Not modified texts: a translation that is identified as one and states that the English "
-    "text prevails; a re-encoding with unchanged words; and a new version that the Steward publishes under a version number "
-    "that no earlier text published by a Steward, other than a draft identified as such, has borne. This restriction concerns "
-    "the text of this Dedication as a document; it is not a term of the Work (section 10.6).")
+    "Anyone may copy and distribute the text of this Dedication verbatim. A modified text may not be distributed under a name "
+    "that contains \"Autonomous Commons Dedication\" or an identifier that contains \"ACD-\" followed by a digit, in either case "
+    "regardless of case. Making a modified text is not restricted, and one may be distributed under any other name and "
+    "identifier. Not modified texts: a translation that is identified as one and states that the English text prevails; a "
+    "re-encoding that is identified as one and leaves the words unchanged; and a new version that the Steward publishes under "
+    "a version number and identifier that no earlier text published by a Steward, other than a draft identified as such, has "
+    "borne. This restriction concerns the text of this Dedication as a document; it is not a term of the Work (section 10.7).")
 # 草案の §16.4 に在れば注にも在るべき語 (Check 451g)
 #   語は「どの部分の語か」が分かる句にする: "contains" だけだと名前の側にも在り、識別子の側を「begins with」へ戻しても通った
 #   (mutation で実測・2026-11-16)
-TEXT_REDISTRIBUTION_TERMS = ("name that does not contain", "identifier that does not contain", "regardless of case",
-                             "published by a Steward", "translation", "re-encoding", "unchanged words", "draft identified as such")
+TEXT_REDISTRIBUTION_TERMS = ("name that contains", "identifier that contains", "regardless of case", "any other name and identifier",
+                             "version number and identifier", "published by a Steward", "translation", "re-encoding",
+                             "draft identified as such")
 
 
 # 1.5 の書き直し (2026-11-24・議題 15) の条の番号。記述子の key ごとに 1.5 の条を置く (1 つの旧条が複数の新条へ分かれるので、
