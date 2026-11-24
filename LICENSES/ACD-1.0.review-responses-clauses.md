@@ -541,8 +541,8 @@ OpenMDW-1.1 の審査で、著作権侵害の主張を終了の引き金にす�
 
 > **English (ACD-1.4 and the 1.5 draft):**
 >
-> It is there for the patent licence. Section 8.4 deliberately reaches only claims whose
-> infringement depends upon the use of the Work, and Section 15.1 tells a reader to prefer the
+> It is there for the patent licence. Section 8.4 deliberately reaches a claim only where the
+> feature that infringes it results from the content of the Work, and Section 15.1 tells a reader to prefer the
 > reading that grants more. Without a sentence that closes implication, a recipient could argue
 > that the copyright licence in Section 4 carries an implied licence under the Dedicator's other
 > patents, past the limit Section 8.4 draws. In ACD-1.4 this is the only sentence that does that:
@@ -557,6 +557,8 @@ OpenMDW-1.1 の審査で、著作権侵害の主張を終了の引き金にす�
 > (self-audit section 3zd, low severity). The 1.5 draft replaces it with the narrower sentence
 > quoted above, which closes implication and claims nothing about reach. Neither sentence can
 > exclude an implied licence or exhaustion that a law gives regardless of the text.
+
+> *(Corrected 2026-11-24: this answer first gave §8.4's limit in the words of 1.1 to 1.3, "only claims whose infringement depends upon the use of the Work"; ACD-1.4 states it by the infringing feature.)*
 
 **逆側**: Chestek 氏の問いは別のライセンスの、許諾の条が既に範囲を定めている文についてのもので、ACD の §15.1（広い読みが勝つ）のような解釈の規則と並んだ場面ではない。ACD がこの文を要するのは §15.1 を持つからで、§15.1 を持たないライセンスに同じ理由は立たない —— 問いは「§15.1 が無ければ要らない文ではないか」へ移りうる。
 
