@@ -284,5 +284,7 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 
 **議題 26 の後の HIGH 1**（59・n4 → n5）: 7.2 の頭に戻した *in respect of the Work* は、4.1・4.4・5.1・9.1 が *or of any Result* と言う対比で、特許の譲受人を Result について縛らないと読める（M2 と同じ型・gap の芯）。*"in respect of the Work and of any Result"* に替えた（+4 語）。「以後は HIGH のほかは本文を動かさない」（議題 24 (6)）の中の直しである。
 
+**議題 27**（3f が n5 を別の独立の 2 体に読ませた・HIGH が 1 件ずつ、別の所）: (A) 7.2 の頭の *in respect of the Work and of any Result* は、2.3 と 2.4 が挙げる派生物を落とし、手で書き直した port やハードウェアについて特許の買い手が縛られないと読める。M2・59 の HIGH と同じ型が 3 度目なので、句を足すのをやめて消し、m1 の形 *"This Dedication binds, to the fullest extent the law permits:"* へ戻した（縛る範囲は 7.2(b) の *that Section 2.3 reaches* が決める。特許 1 件の買い手が 5.1 まで縛られることは受け入れの列に在る）。(B) 1.11 の *places … under other terms instead* で寄与者が Dedicator にならないことは意図した変更（T147）で、受け入れた —— その寄与者は別の条件で出している。仕分けで直したもう 1 つ: 2.5(d) の枝が *likeness, voice, name, or performance* だけで、日記や医療のデータを出した人が私的な事実の開示の請求をできる余地を残していた（SELF-AUDIT §3zh の直しの副作用）ので *or other information about the Dedicator* を足した。**止め方**（議題 27 (5)）: n6 を別の 2 体に読ませるのを最後の 1 回とし、HIGH が出たら、直すか、1.5 に替えず 1.4 のまま進むかを 5 人で決める。
+
 **残る種**: T152（適用の前の契約）、T153（有体物の所有）、T154（営業秘密）、T155（読み手の 4 つ）、6.5 の *except as Section 6.3 states* を残すか、1.11 の *such submissions*。番号は T167 から 0d が払い出す。
 

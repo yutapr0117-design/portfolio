@@ -178,10 +178,11 @@ Short identifier: ACD-1.5
             of any Result, which this Dedication permits or purports to permit,
             as wrongful, or as without legal basis, either by reason of its
             being such a use or, as to the Dedicator's own likeness, voice,
-            name, or performance contained in the Work, under a right of
-            privacy, publicity, or personality. Paragraph (d) reaches only a
-            claim that the Dedicator holds or controls, or that another person
-            holds through the Dedicator.
+            name, performance, or other information about the Dedicator
+            contained in the Work, under a right of privacy, publicity, or
+            personality. Paragraph (d) reaches only a claim that the Dedicator
+            holds or controls, or that another person holds through the
+            Dedicator.
 
   2.6  Moral Rights. The Dedicator also waives all the Dedicator's Moral Rights
        in the Work, and consents to every act, by You or by anyone who receives
@@ -324,8 +325,7 @@ Short identifier: ACD-1.5
        The Dedicator makes it intending that others rely on it, and that
        reliance is its purpose.
 
-  7.2  This Dedication, in respect of the Work and of any Result, binds, to the
-       fullest extent the law permits:
+  7.2  This Dedication binds, to the fullest extent the law permits:
 
        (a)  the Dedicator's successors, assigns, heirs, and personal
             representatives;
