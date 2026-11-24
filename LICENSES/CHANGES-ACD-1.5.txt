@@ -10,8 +10,8 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
       are left out, and the clauses are renumbered
       (LICENSES/CLAUSE-MAP-1.4-1.5.tsv). It covers Sections 1.1 to 1.12, 2.1
       to 2.7, 3.1 to 3.2, 4.1 to 4.4, 5.1 to 5.6, 6.1 to 6.5, 7.1 to 7.4, 8.1
-      to 8.2, 9.1 to 9.3, and 10.1 to 10.7. (-2407 words.)
-    * ACD-1.4: 5879 words, 80 clauses. This draft: 3472 words, 52 clauses.
+      to 8.2, 9.1 to 9.3, and 10.1 to 10.7. (-2385 words.)
+    * ACD-1.4: 5879 words, 80 clauses. This draft: 3494 words, 52 clauses.
 
   What differs in effect, so that a reader need not compare the two texts:
 
@@ -73,8 +73,9 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        it applies to, nor mentioning the Dedication, applies it to anything
        unless done to apply it (Section 10.2; errata E90).
    17. Each person who made and submits a Contribution, or on whose authority it
-       is submitted, applies the Dedication to it, unless that person states
-       otherwise (Section 10.4).
+       is submitted, applies the Dedication to it, other than to material passed
+       on with another person's notice, unless that person or the person
+       submitting it states otherwise (Section 10.4).
    18. ACD-1.4's preamble, its Section 8.3, which says that no patent claim is
        reserved, the sentences of purpose in its Sections 6.5 and 12.3, the
        sentence of its Section 9.2 that the Dedication adds nothing where no
