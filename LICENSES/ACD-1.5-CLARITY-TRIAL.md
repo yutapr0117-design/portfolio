@@ -168,3 +168,17 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 **反例（portfolio-cd・2026-11-24）**: (a) *so results* の受け先に反例が 1 つ —— 直前の 2 文のうち *so* を持つのはみなし規定の *"taken so to result"* なので、足す文は「みなされた特徴（Work が教えるか具える特徴）は、Work が無くても生じたとしても結果である」と、みなしの範囲に限って読める。閉じたいのはみなしの外の特徴（教えも具えもしないが寄与した特徴）なので、その読みでは文が目的の場面に届かない。採るなら *so* を使わず *"A feature results from the content of the Work even if it would also have resulted without it."*（+18 語）と主語を言い直す。(b) 仮定を名指すこと自体の害は小さい（*even if* は反事実の答えを無関係にする形で、調べてよいとは言わない）。別の逆側が 2 つ: (i) 事実上の寄与（その M の特徴が実際に Work から一部でも生じたか）の立証は ML では不透明なままで、文は重複原因の法的な扱いを決めるだけで争点を「寄与の有無」へ移すにすぎない。(ii) *in part* と量の閾値の無さに重ねると、学習データに Work を少しでも含んだモデルの、他のデータだけでも生じた特徴まで特許許諾が届く —— 範囲が広がる向きの変更で、`against.md` #16 と B7 の費用が増える（gap の主張には有利、採用には不利）。(c) 分岐は法の側にしかなく、*in part* がそれを既に退けると読むのが自然なので、法律家の答えが「寄与で足りる」なら重複の文になる。(b)(ii) の広がりは条文の範囲の判断であって読みの整理ではないので、法律家の答えなしに動かすのは規則 1 に当たらない。
 
 **採否**: **いまは採らず、法律家への問い 2 (h2) の答えまで候補として置く**（合議の議題 9・5/0/0・2026-11-24）。**答えが来て採るときは、上の After（+14 語・*so results*）ではなく、主語を言い直した形を入れる**: *"A feature results from the content of the Work even if it would also have resulted without it."*（+18 語）。**採るときの費用**: 範囲が広がる向きの変更で、学習データに Work を少しでも含んだモデルの、他のデータだけでも生じた特徴まで特許許諾が届く —— `against.md` #16 と B7（特許を持つ組織が採りにくい）の費用が増える（gap の主張には有利、採用には不利）。**逆側**: 答えが来るまで、but-for の読みの余地は本文（§8.4 の *"a question of causation"*）に残る —— UNIQUE-READING の法の側の行と問い 2 (h2) がそれを開示している。**方針が働いた例**: 規則 1 の本則（分岐を消す）に見えた変更が、実際は範囲を広げる判断を含んでいたことを、反例が切り分けた。
+
+## 10. T143 —— §4.5 第 2 文の *Nothing here* を *Nothing in Section 4.5* へ（+2 語・2026-11-24・起草 5e・**反例待ち**）
+
+**方針の欄**: 規則 1 の本則 —— 消す読みの分岐は `ACD-1.4-UNIQUE-READING.md` の「§4.5 第 2 文 (here)」の行。種は §2.6 の CLA の行で本文の *here* の用法を数えたこと（*here* はほぼ Dedication 全体を指す）。
+
+**Before**: *"Nothing here limits what those terms may be, requires them to reproduce this text, or places any obligation on You in respect of Your recipients."*
+
+**After**: *"Nothing in Section 4.5 limits what those terms may be, requires them to reproduce this text, or places any obligation on You in respect of Your recipients."*
+
+**測定**（`--compare`・1.5 草案）: §4.5 は 89 → 91 語（+2）。先行詞の無い指示語 0 / 0、そろえ残し 0、全称 0、外した文に依拠する外向きの箇所 0。45 語超の文は増えない。
+
+**効果**: *here* を本文の用法どおり Dedication 全体と読むと、「Dedication のどこも You の条件を限らない」が §5.2(b) と同じ条の末文（Dedicator でもある配布者は §5 が禁じるものを課せない）に食い違う。*in Section 4.5* はその文の届く範囲を §4.5 の許しに限り、末文と並べて読める。Dedication 全体として You に条件を課さないことは §10.1・§10.2 が自分の文で言っているので、狭めて失うものは無い。
+
+**逆側**: (i) 効果は変わらない —— 末文と §10.1 の *"other than in Your capacity as a Dedicator"* が既に決めている（UNIQUE-READING の行は「一意」に近い）。文の上の食い違いを消すだけの +2 語は B3 に逆らう。(ii) *here* は本文に 11 か所あり、ここだけ名指しへ替えると、残りの *here* が Dedication 全体を指すことが対比で強まる —— それは用法どおりなので害は無いと見るが、§6.4 *"not decided here"*・§8.2 *"expressed here"* が §6.4・§8.2 だけを指すつもりで書かれていたなら、意味が広がって読まれる（どちらも Dedication 全体と読んでも偽にならないことは確かめた）。**反例をお願いしたい点（cd）**: 狭めることで、Dedicator でない You について何かが失われないか。
