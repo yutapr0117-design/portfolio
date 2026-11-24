@@ -32,6 +32,8 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LIC
 **適用の仕方**: §16.1 の書式の通知を作品に添える。全文の同梱は不要で、
 **識別子だけでも通知として足りる**（§16.2）。
 
+*（1.4 の注・2026-11-24: ACD-1.4 の §16.3 は適用の対象を *"to any material in which they hold or may hold rights of their own"* に限る（1.0 の "to any work" は errata E2 で狭めた）。権利を持たない部分には適用できないことが本文に書いてある。§16.2 で通知として足りるのは、識別子、`SPDX-License-Identifier: ACD-1.4` か `LicenseRef-ACD-1.4` の tag、または**名前と版**による言及で、1.0 のように名前だけでは足りない）*
+
 ### A2. 通知や帰属表示を残す必要はあるか
 
 > **English:** No. Section 10.2 says in terms that You need not give attribution, reproduce any
@@ -123,6 +125,8 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 > text supplied in the corresponding `ExtractedLicensingInfo` (or your tool's equivalent).
 > The tag inside the Work itself (`SPDX-License-Identifier: ACD-1.0`, per Section 16.1) is the
 > notice form the Dedication defines; it is not a claim that the identifier is registered.
+
+*（1.4 の注・2026-11-24: ACD-1.4 では下の問いは本文が自分で答える。§16.1 の書式は *"SPDX-License-Identifier: ACD-1.4 (LicenseRef-ACD-1.4 while not on the SPDX License List)"* と `LicenseRef-` の形を名指し、§16.2 はどちらの tag も通知として認める。1.4 の採用者は `LicenseRef-ACD-1.4` を使えばよい）*
 
 **§16.1 の通知が `SPDX-License-Identifier: ACD-1.0` を含むのは矛盾ではない** —— §16.2 が
 「識別子や名称への言及だけで通知として足りる」と定めており、これは**登録の主張ではなく
