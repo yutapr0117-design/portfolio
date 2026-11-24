@@ -10,8 +10,8 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
       are left out, and the clauses are renumbered
       (LICENSES/CLAUSE-MAP-1.4-1.5.tsv). It covers Sections 1.1 to 1.12, 2.1
       to 2.7, 3.1 to 3.2, 4.1 to 4.4, 5.1 to 5.6, 6.1 to 6.5, 7.1 to 7.4, 8.1
-      to 8.2, 9.1 to 9.3, and 10.1 to 10.7. (-2440 words.)
-    * ACD-1.4: 5879 words, 80 clauses. This draft: 3439 words, 52 clauses.
+      to 8.2, 9.1 to 9.3, and 10.1 to 10.7. (-2407 words.)
+    * ACD-1.4: 5879 words, 80 clauses. This draft: 3472 words, 52 clauses.
 
   What differs in effect, so that a reader need not compare the two texts:
 
@@ -70,8 +70,8 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
    15. The statement in ACD-1.4's Section 11.4 that the Dedication reaches
        nothing else is gone (ACD-1.1-SELF-AUDIT.md, section 3zd).
    16. Neither passing on or recording another person's notice with the material
-       it applies to, nor mentioning the Dedication otherwise than to
-       apply it, applies it to anything (Section 10.2; errata E90).
+       it applies to, nor mentioning the Dedication, applies it to anything
+       unless done to apply it (Section 10.2; errata E90).
    17. Each person who made and submits a Contribution, or on whose authority it
        is submitted, applies the Dedication to it, unless that person states
        otherwise (Section 10.4).

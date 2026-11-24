@@ -107,10 +107,10 @@ Short identifier: ACD-1.5
        behalf of a person, for inclusion in the Work, to a Dedicator,
        repository, or forum, in each case one that offers the Work with a notice
        of this Dedication to the public or to those invited to contribute.
-       Material is excluded if it is sent for discussion only, is marked, by its
-       author or a person submitting it, as not being a Contribution, or is
-       submitted to a repository or forum that puts such submissions under other
-       terms instead.
+       Material is excluded if it is sent for discussion only, is marked, when
+       it is submitted, by its author or a person submitting it, as not being a
+       Contribution, or is submitted to a repository or forum that puts such
+       submissions under other terms instead.
 
   1.12 The singular includes the plural and the reverse; "person" includes an
        entity; "patent" includes a utility model; "include", "including", and
@@ -242,8 +242,9 @@ Short identifier: ACD-1.5
 
   5.1  The Dedicator covenants that it will not, by contract, terms of service,
        acceptable-use policy, access condition, registration requirement, or any
-       other collateral means, impose, in respect of the Work or of any Result,
-       an obligation that this Dedication does not itself impose.
+       other collateral means, impose, in respect of the Work, or of any Result
+       by reason of its being a Result, an obligation that this Dedication does
+       not itself impose.
 
   5.2  The Dedicator covenants not to assert rights in respect of any
        technological measure that restricts access to or use of a copy of the
@@ -269,8 +270,9 @@ Short identifier: ACD-1.5
        (c)  a payment You agreed to make for providing a copy or for a service
             that is not permission to use the Work; or
 
-       (d)  a term about a Contribution, other than one restricting use of the
-            Work, asked of the person submitting it.
+       (d)  a term about a Contribution, other than one restricting, or imposing
+            an obligation in respect of, use of the Work or of any Result, asked
+            of the person submitting it.
 
   5.5  Sections 2.5(d), 5.1, and 5.2 do not reach:
 
@@ -322,7 +324,8 @@ Short identifier: ACD-1.5
        The Dedicator makes it intending that others rely on it, and that
        reliance is its purpose.
 
-  7.2  This Dedication binds, to the fullest extent the law permits:
+  7.2  This Dedication, in respect of the Work, binds, to the fullest extent the
+       law permits:
 
        (a)  the Dedicator's successors, assigns, heirs, and personal
             representatives;
@@ -334,7 +337,7 @@ Short identifier: ACD-1.5
             Rights in the Work after the Dedicator's death; and
 
        (d)  any trustee, receiver, or similar officer of the Dedicator or its
-            property.
+            property in a proceeding Section 7.3 describes.
 
   7.3  Under its terms, nothing this Dedication gives ends, narrows, or is
        suspended because of an insolvency, dissolution, or similar proceeding,
@@ -408,16 +411,15 @@ Short identifier: ACD-1.5
        Dedication, whose terms apply in full whether or not a copy of this text
        accompanies the material. Neither passing on or recording another
        person's notice with the material it applies to, nor mentioning this
-       Dedication otherwise than to apply it, applies it to anything. A notice
-       that a Dedicator places applies this Dedication to the material it
-       identifies, whether by its words, by its place in a comment within a
-       file, by a file name that refers to other material, or by markers that
-       delimit part of a file. If it identifies none, it applies this Dedication
-       to the material it accompanies. It does not apply this Dedication to
-       material that a narrower notice placed by the Dedicator puts under other
-       terms. A notice that is only a Reservation puts nothing under other
-       terms. The identifiers named in Section 10.1 match without regard to
-       case.
+       Dedication, applies it to anything unless done to apply it. A notice that
+       a Dedicator places applies this Dedication to the material it identifies,
+       whether by its words, by its place in a comment within a file, by a file
+       name that refers to other material, or by markers that delimit part of a
+       file. If it identifies none, it applies this Dedication to the material
+       it accompanies. It does not apply this Dedication to material that a
+       narrower notice placed by the Dedicator puts under other terms. A notice
+       that is only a Reservation puts nothing under other terms. The
+       identifiers named in Section 10.1 match without regard to case.
 
   10.3 Anyone may apply this Dedication to material in which they hold or may
        hold rights of their own, without permission from or notice to the
