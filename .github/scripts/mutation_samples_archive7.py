@@ -324,8 +324,8 @@ MUTATIONS_ARCHIVE7 = [
     {
     "name": "Check 468r: §5.3 の除外の句を書き換える —— 句で持つ除外が条から消えたら、読み直しの合図として RED (2026-11-12・1.5 の書き直しで §6.4 → §5.3)",
     "file": CURRENT_DRAFT,
-    "find": "formality, this Dedication is revocable or ineffective and, so far as the",
-    "replace": "formality, this Dedication is revocable or ineffective and, as far as the",
+    "find": "formality, this Dedication is revocable or ineffective. So far as the law",
+    "replace": "formality, this Dedication is revocable or ineffective. As far as the law",
     "check": CHECK,
 },
     {

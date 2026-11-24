@@ -31,14 +31,14 @@ EFFECT_MARKERS_468U = (
     ("1.12", '"person" includes an entity'),
     # 1.4 §8.4 (§6.4 の成果物の定義を含む): 因果で限り、量で限らない
     ("1.8", "in each case resulting, directly or indirectly, from automated processing of the Work"),
-    ("1.8", "A copy of the Work in any form, including one contained in a Result, is not itself a Result"),
+    ("1.8", "A copy of the Work in any form, including object code compiled from it and a copy contained in a Result, is not itself a Result"),
     ("2.3", "in whole or in part, from the content of the Work"),
     ("2.3", "however much or little of it was used"),
     ("2.3", "teaches or embodies is treated as resulting from that content"),
-    ("2.3", "that the Work itself did not teach or embody is governed by paragraph (a) alone"),
+    ("2.3", "that a modified version of the Work has, and that the Work itself did not teach or embody, is governed by paragraph (a) alone"),
     # 1.4 §8.1 (T16〜T20)・§8.3・§8.5
     ("2.3", "otherwise practise or transfer the Work, anything derived from it, and any Result"),
-    ("2.3", "caused by subject matter in the Work, including by its combination with the material the Work was submitted for inclusion in"),
+    ("2.3", "caused by subject matter in the Work, including, where the Work is a Contribution, by its combination with the material it was submitted for inclusion in"),
     ("1.7", "if, and only if"),
     # 1.4 §8.2・§10.4: 特許訴訟でも終わらない
     ("4.1", "for any reason, including litigation by You against anyone"),
@@ -49,11 +49,13 @@ EFFECT_MARKERS_468U = (
     ("2.5", "any Patent Claim that Section 2.3 reaches"),
     ("2.5", "as wrongful, or as without legal basis, whether by reason of its being a use of the Work"),
     ("2.5", "that another person holds through the Dedicator"),
-    ("2.5", "subject to Section 5.4"),
+    ("5.4", "Sections 2.5(d) and 5.1 do not reach"),
+    ("5.5", "Sections 2.5(d), 5.1, and 5.2 do not reach"),
     ("5.4", "claim for patent infringement outside what Section 2.3 reaches"),
     # 1.4 §5.2 末段 (E67)
-    ("5.4", "rights in material, other than the Work, that the Dedicator makes or makes available, including a Result"),
-    ("5.4", "without providing a copy of the Work"),
+    ("5.5", "rights in material, other than the Work, that the Dedicator makes or makes available, including a Result"),
+    ("5.5", "to a service through which the Dedicator runs the Work for others"),
+    ("5.6", "nothing in Section 5.5 lets the terms it names restrict what may be done with that copy"),
     ("6.2", "does not restrict nominative reference, including stating truthfully"),
     ("6.3", "accompanied or was contained in the Work"),
     ("9.2", "invalid or unenforceable"),
@@ -63,10 +65,10 @@ EFFECT_MARKERS_468U = (
     # 1.4 §12.2・§11.4: 下流の受け手まで / 約束と与えないものの境
     ("2.6", "anyone who receives the Work or anything derived from it"),
     ("6.4", "Section 2.5(d) is a promise not to assert; it grants no such permission"),
-    ("6.5", "reduces nothing that Sections 2 to 5 expressly give"),
+    ("6.5", "nothing in it reduces what any other Section gives"),
     # 1.4 §10.1 (T120)・§2.6 (T116)・§14.2
     ("4.1", "other than in Your capacity as a Dedicator"),
-    ("10.4", "That undertaking binds only that Dedicator"),
+    ("10.4", "That undertaking binds that Dedicator, is subject to Section 8.2, and imposes nothing upon You"),
     ("8.2", "TO THE FULLEST EXTENT THE LAW PERMITS"),
     ("8.2", "that the law does not permit to be limited"),
     # 1.4 §15.2 (T129)・§16.3 (E2)
@@ -78,9 +80,9 @@ EFFECT_MARKERS_468U = (
     ("10.2", "applies this Dedication to the material it identifies"),
     ("10.2", "in a comment within a file"),
     # errata E90: 他人の notice を渡す・記録する・名を挙げるだけでは適用でない
-    ("10.2", "mentioning this Dedication, other than as a notice for material, applies it to nothing"),
+    ("10.2", "nor mentioning this Dedication otherwise than to apply it, applies it to anything"),
     # 回帰で閉じた句 (5.4 の列)
-    ("5.4", "a term about a Contribution, asked of the person submitting it"),
+    ("5.4", "a term about a Contribution, other than one restricting use of the Work, asked of the person submitting it"),
 )
 
 # 468r の語と除外 (条, 句)。除外は語ではなく句で持つ: 同じ語を別の構文で使えば鳴り、句を書き換えたら読み直しの合図になる。
@@ -89,7 +91,7 @@ STATE_WORDS_468R = (r"unresolved|unsettled|uncertain|currently|presently|at pres
                     r"|not yet|so far|now fails|increasingly|in most jurisdictions|common use|remains? open|open question"
                     r"|undecided|not (?:been )?(?:settled|decided)|to date|at the time of writing|for now|recent(?:ly)?|nowadays|still")
 STATE_EXEMPT_468R = (
-    ("1.3", "so far as that person holds"), ("5.3", "so far as the law allows"), ("7.4", "so far as the law permits"),  # 範囲の語
+    ("5.4", "so far as they impose nothing"), ("4.1", "so far as Section 7.2 binds You"), ("5.3", "so far as the law allows"), ("7.4", "so far as the law permits"),  # 範囲の語
     ("1.6", "whether or not presently known or subsisting"),   # 範囲の語
 )
 

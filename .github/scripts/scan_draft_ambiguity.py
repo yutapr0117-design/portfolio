@@ -172,7 +172,7 @@ def limiter_gaps(flat: dict[str, str]) -> list[tuple[str, str, list[str]]]:
     promises = [k for k, v in flat.items()
                 if re.search(r"\bDedicator(?:'s)?(?: further| also| irrevocably)? (?:covenants?|will not|undertakes?|agrees? not)\b", v)
                 # 名詞の「undertaking」で Dedicator を縛る条も約束 (2026-11-19・2f: §2.6 "This undertaking binds that Dedicator" を見落とした)
-                or re.search(r"\b(?:undertaking|covenant|promise) binds (?:that|the) Dedicator\b", v)]
+                or re.search(r"\b(?:undertaking|covenant|promise) binds (?:only )?(?:that|the) Dedicator\b", v)]
     for lk in limiters:
         # 同じ節の他の条が置く例外も数える (T83 は §14.1 の免責の例外を §14.2 に置いた)。"Section 5, 8.6, or 12.2" も読む
         sib = " ".join(v for c, v in flat.items() if c.split(".")[0] == lk.split(".")[0])

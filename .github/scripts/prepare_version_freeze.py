@@ -262,13 +262,13 @@ TEXT_REDISTRIBUTION_NOTE = (
     "regardless of case. Making a modified text is not restricted, and one may be distributed under any other name and "
     "identifier. Not modified texts: a translation that is identified as one and states that the English text prevails; a "
     "re-encoding that is identified as one and leaves the words unchanged; and a new version that the Steward publishes under "
-    "a version number and identifier that no earlier text published by a Steward, other than a draft identified as such, has "
+    "a version number and identifier that no earlier text published by the Steward or a former Steward, other than a draft identified as such, has "
     "borne. This restriction concerns the text of this Dedication as a document; it is not a term of the Work (section 10.7).")
 # 草案の §16.4 に在れば注にも在るべき語 (Check 451g)
 #   語は「どの部分の語か」が分かる句にする: "contains" だけだと名前の側にも在り、識別子の側を「begins with」へ戻しても通った
 #   (mutation で実測・2026-11-16)
 TEXT_REDISTRIBUTION_TERMS = ("name that contains", "identifier that contains", "regardless of case", "any other name and identifier",
-                             "version number and identifier", "published by a Steward", "translation", "re-encoding",
+                             "version number and identifier", "a former Steward", "translation", "re-encoding",
                              "draft identified as such")
 
 
