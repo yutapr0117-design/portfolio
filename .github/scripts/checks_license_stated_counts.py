@@ -267,14 +267,15 @@ def run(ctx):
             vk = lambda x: tuple(map(int, x.split(".")))
             olds = sorted((v for v in closed_j if vk(v) < vk(tgt)), key=vk)
             # 凍結した tgt の英文は、その版の確定までの記録 (2026-11-24: 1.5 草案で閉じた E89〜E92 を数に入れて鳴った)。tgt より後の版で
-            #   閉じた errata が在るときは、総数 = tgt までに閉じた数 + 英文が名指す印の無い番号の数とし、節ごとの数は照らさない
+            #   閉じた errata が在るときは、総数も節ごとの数も、tgt までに閉じた番号と、英文が名指す印の無い番号だけで数える
             later_j = any(vk(v) > vk(tgt) for v in closed_j) and (L / f"ACD-{tgt}.txt").exists()
             if later_j:
                 named_j = [e for e in unmarked_j if re.search(rf"\b{e}\b", rest[:200])]
                 total_t, closed_t, unm_t = sum(len(closed_j[v]) for v in olds) + len(closed_j.get(tgt, [])) + len(named_j), \
                     {v: closed_j[v] for v in olds + [tgt] if v in closed_j}, named_j
+                sect_t = errata_closures({e for x in closed_t.values() for e in x} | set(named_j))[3]
             else:
-                total_t, closed_t, unm_t = total_j, closed_j, unmarked_j
+                total_t, closed_t, unm_t, sect_t = total_j, closed_j, unmarked_j, sections_j
             want = [total_t, sum(map(len, closed_t.values())), sum(len(closed_j[v]) for v in olds),
                     [len(closed_j[v]) for v in olds], len(closed_j.get(tgt, []))]
             got = [int(m.group(1)), int(m.group(2)), int(m.group(3)),
@@ -283,9 +284,9 @@ def run(ctx):
                 bad.append(f"(j) {p.name}: errata の数 {got} / errata の閉鎖の印から {want} (件数・閉じた・{tgt} より前・版ごと・{tgt})")
             if [e for e in unm_t if not re.search(rf"\b{e}\b", rest[:200])]:
                 bad.append(f"(j) {p.name}: 閉鎖の印の無い {unm_t} を英文が名指していない")
-            for sec, n in ([] if later_j else re.findall(r"§(\d+) \([^()]*?, (\d+)\)", rest)):
-                if sections_j.get(sec) != int(n):
-                    bad.append(f"(j) {p.name}: §{sec} の件数 {n} / errata の表から {sections_j.get(sec)}")
+            for sec, n in re.findall(r"§(\d+) \([^()]*?, (\d+)\)", rest):
+                if sect_t.get(sec) != int(n):
+                    bad.append(f"(j) {p.name}: §{sec} の件数 {n} / errata の表から {sect_t.get(sec)}")
             mw = re.search(r"([\d,]+) words from the title to \*?END OF TERMS\*? against 1\.0's ([\d,]+), in (\d+) clauses against (\d+)", rest)
             tp = L / f"ACD-{tgt}.txt" if (L / f"ACD-{tgt}.txt").exists() else L / f"ACD-{tgt}-DRAFT.txt"
             if not mw or not tp.exists():

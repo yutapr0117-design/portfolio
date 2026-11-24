@@ -124,12 +124,13 @@ def size(text: str) -> tuple[int, int]:
     return len(body.split()), len(set(re.findall(r"^  (\d+\.\d+) ", body, re.M)))
 
 
-def errata_closures() -> tuple[int, dict[str, list[str]], list[str], dict[str, int]]:
+def errata_closures(only: set[str] | None = None) -> tuple[int, dict[str, list[str]], list[str], dict[str, int]]:
     """errata の表から (件数, {版: [閉じた E-ID]}, [印の無い E-ID], {節: 件数}) を導く。
 
     数え方は portfolio-00 / aa と決めたもの (2026-11-11): 閉鎖の印は最後の欄の「N.M 草案で閉じた」で、
     1 件は最初の印の版に数える (E24 は 1.2 と 1.3 の両方の印を持ち、1.2 に数える)。節は 2 列目の最初の §。
     切り替えの日に REVIEWERS の "Which text" と草案の冒頭が述べる数は、ここから出す (手で数えない)。
+    only を渡すと、その E-ID の行だけを数える (凍結した版の英文を、その版の確定までの errata に当てる・498 (j))。
     """
     rows = [re.split(r"(?<!\\)\|", line) for line in (L / "ACD-1.0.errata.md").read_text(encoding="utf-8").split("\n")
             if re.match(r"^\|\s*\*{0,2}E\d+", line)]
@@ -137,6 +138,8 @@ def errata_closures() -> tuple[int, dict[str, list[str]], list[str], dict[str, i
     unmarked, sections = [], {}
     for c in rows:
         eid = c[1].strip().strip("*")
+        if only is not None and eid not in only:
+            continue
         m = re.search(r"(\d+\.\d+) 草案で閉じた", c[-2])
         if m:
             closed.setdefault(m.group(1), []).append(eid)
