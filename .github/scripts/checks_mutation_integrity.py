@@ -166,6 +166,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        退役の一覧に出る。導入時に 1 件 (468y の 1.5 の試作の mutation) を同じ commit で直した。
        **凍結した版 (1.0〜1.4 のように確定した版) の名は対象外** —— 凍結した file は確定で byte が動かないので、名で打っても
        確定の日に的を外さない (6d・2026-11-24)。対象は作業中の版 (CURRENT_DRAFT_VER) の名の直書きだけである。
+       **Check 362 の中の同じ照合 (2026-11-15・DRAFT.txt / CHANGELIST.md / 逐条の 4 形だけ) をここへ一本化した** —— 4 形の外の
+       ACD-1.5-CLARITY-TRIAL.md を直書きした mutation を 362 は通していた。
        (BLOCKING)
   480. **mutation データの dict literal に重複 key が無い** (BLOCKING)。Python は dict literal の
        重複 key を**黙って後勝ちで上書き**する。2026-11-01、3 セッションが同じ append-log へ並行に
@@ -252,22 +254,8 @@ def run(ctx):
             f"Check 362: 草案の本文を打つ mutation の anchor が改行を含む ({len(_span362)} 件): {_span362[:5]}。"
             "語を変えない詰め直しでも切れるので、1 行に収まる短い句へ向け直せ (2026-11-15 に §6.4 / §16.4 の整形で 4 件が切れた)",
         )
-        # 作業中の草案の版の名を "file" に直書きしない (2026-11-15・9b): 確定の試走で、ACD-1.4-DRAFT.txt / ACD-1.4-CHANGELIST.md
-        #   を直書きした 12 件が、確定の日に pointer や空の CHANGELIST を指して的を外した (mutation_samples_common の注意書きは
-        #   在ったが守られていなかった)。CURRENT_DRAFT / f"ACD-{CURRENT_DRAFT_VER}-…" から組み立てる
-        _ver362 = _dr362[0].name.split("-")[1] if len(_dr362) == 1 else None
-        _hard362 = []
-        if _ver362:
-            _rx362 = re.compile(r'^\s*"file":.*ACD-' + re.escape(_ver362) + r'(?:-(?:DRAFT\.txt|CHANGELIST\.md|CLAUSE-REFERENCE-DRAFT\.md)|\.clause-reference\.md)', re.M)
-            for _src362 in sorted((ROOT / ".github" / "scripts").glob("mutation_samples*.py")):
-                _hard362 += [f"{_src362.name}:{_src362.read_text(encoding='utf-8')[:_m.start()].count(chr(10)) + 1}"
-                             for _m in _rx362.finditer(_src362.read_text(encoding="utf-8"))]
-        check(
-            not _hard362,
-            f"Check 362: mutation の file に作業中の草案の版 ({_ver362}) の名を直書きしていない",
-            f"Check 362: mutation の file に作業中の草案の版の名を直書きしている ({len(_hard362)} 件): {_hard362[:5]}。"
-            "確定の日に pointer や空の CHANGELIST を指して的を外すので、CURRENT_DRAFT / f\"ACD-{CURRENT_DRAFT_VER}-…\" から組み立てる",
-        )
+        # 作業中の草案の版の名を "file" に直書きしない形は 479e に一本化した (2026-11-24・fc): ここは 2026-11-15 から DRAFT.txt・
+        #   CHANGELIST・逐条の 4 形だけを見ていて、ACD-1.5-CLARITY-TRIAL.md を直書きした 468y の mutation を通していた
     except ImportError as _e362:
         warnings.append(f"Check 362: mutation_samples import failed ({_e362}) — anchor resolution skipped")
 
