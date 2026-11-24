@@ -241,3 +241,25 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 **決める側の文を当てた結果**（6c・原文照合・節は `ACD-1.0.review-readings-7.md`）: Chestek 氏 2026-01-24（前文は説明の場所でない・番号の無い段落を置かない・定義は見つけやすく）、2025-10（Orivex・*as delivered by the Licensor* の型）、2025-03（MGB・*under any theory*）、Smith 氏 2026-01-03（curl・*sublicense* を落とさない）、2025-01-22（Berne と米国法の動詞）、2025-12（免責は目立つ形で）を条に入れた。*sublicensable* は Chestek 氏 2025-10 が外せ、Smith 氏 2026-01 が落とすなと割れたので残した。
 
 **逆側**: (i) 条番号がすべて変わる —— 外向きの逐条・索引・記述子の引用が新しい番号を要る（1.4 は凍結のまま、提出対象も変えない）。(ii) 1.4 で「その場で述べる」と決めたもの（E26・E7、`ACD-1.4-CLARITY-TRIAL.md` §4.1・§4.2）を 1 か所へ寄せる。1 条だけを読む読者には答えが 1 段遠くなる。(iii) 80 条の一意の読みの台帳（`ACD-1.4-UNIQUE-READING.md`）を新しい条に当て直す費用。(iv) 理由の文を外したので、審査者の問いに本文の言葉で答える場所が減る（四隅の原則）。(v) 版が増え（B13）、改訂が控えている版を出すのかという問い（Nelson 氏 2005）が、出す版を決めるまで残る。
+
+## 13. T147〜 の列 —— 述べ直しを載せた後の試作（2026-11-24・議題 16 の後）
+
+固定 37 を載せた後に出た案を、重さの順に並べる。1 つずつ反例 → 測定 → 採決で決める。語はこの節で決めない。
+
+| 試作 | 条 | 案 | 種 | 逆側 |
+| :-- | :-- | :-- | :-- | :-- |
+| T147 | 1.11 / 10.4 | 案 A: 1.11 の末に *"and states no other terms for such material"*。案 B: 10.4 の *"unless one of them states otherwise"* を *"unless one of them, or the place it is submitted to, states other terms for it"* へ | SELF-AUDIT §3zg（ACD の通知つきの素材を取り込んだ別ライセンスのリポジトリへの patch で、書いた人が知らずに Dedicator になる・6c と 59） | A は寄与の定義から外れるので 10.4 の表示の約束が取り込んだ人に掛かる。B は、CLA を別に求める ACD のプロジェクトで寄与者が Dedicator にならない読みを足す |
+| T148 | 5.4(a) | *"or anything done under rights in a trademark or a name"* を *"or rights in a trademark or a name, exercised as such"* へ | 6c（ロゴを埋めた Work の頒布に「商標の条件」で署名と支払いを求める形が 5.1 の外に出る）・59（T147 で比べる価値はある、立たないとも） | *as such* は裁判所が読む語 |
+| T149 | 7.2(b) | *"is transferred"* を *"is transferred or exclusively licensed after this Dedication is applied"* へ | 6c | 独占的許諾を受けた人は権利者でないので縛れない法域がある（2.7 と 7.2 の *to the fullest extent* が受ける） |
+| T150 | 1.4・2.4・2.6・7.4 | You に「Work、Work から派生した物、Result を受け取る人」を入れ、3 か所の列を外す | 59（短くなる） | 5.x の約束の相手が広がる。受け取っただけで使わない人も You になる |
+| T151 | 2.5(d)・5.4(e)・6.5・7.1 | 二重の語（*subject to Section 5.4*、*That is so even where …*、6.5 第 1 文、*irrevocably*）を外す | 59（「2 度言わない」） | 2.5(d) の案内が無いと例外が見えない |
+| T152 | 2.5(d) | 適用の前に結んだ契約の請求は 1.4 より弱く覆われる（df） | df | 前の契約の受け手を広げる向き |
+| T153 | 1.6 | 除外に有体物の所有権 | 6c の読み手（弱い） | 語を足す |
+| T154 | 1.6 | 営業秘密の例示 | 3f・6c（Chestek 氏 2024-10） | 1.4 に無い放棄で、採用者の怖さを足す |
+| T155 | 1.8・1.9・10.4・5.4(e) | 実行は *automated processing* か、社内の非公開の fork、コードを配る hosted service、却下された寄与 | 読み手（1.4 と同じ扱い） | 変えると範囲が動く |
+
+**T147 の検討（0d）**: 場面は、B の別ライセンスのリポジトリが A の ACD の通知つきのファイルを含み、C がそのファイルへ B 宛てに patch を送る形である。ファイルごとに条件を示すリポジトリ（REUSE の型）では、そのファイルへの patch は普通そのファイルの条件で出すと読まれ、GitHub の利用規約の inbound = outbound も同じ向きなので、C が ACD の下で出したと扱うこと自体は不意打ちではない。不意打ちになるのは、リポジトリが**寄与についての条件**を別に書いているときである。案 A（1.11 の末）は、ルートに別の LICENSE が在るだけで寄与の定義から外れうる。採るなら案 B を寄与の条件に絞る形: 10.4 *"… becomes a Dedicator as to it, unless one of them states otherwise when it is submitted, or the place it is submitted to states other terms for such submissions."*（+9 語）。**逆側**: CLA や別の寄与の条件を求める ACD のプロジェクトでは、寄与者が Dedicator にならず、寄与の特許は CLA が与えるものに限られる（10.4 の表示の約束が受ける）。
+
+**T148 の検討（0d）**: *anything done under* は広いが、商標の条件を別に求めることは承認済みのライセンスの下でも起きる（59）。著作権と特許の許しは 2.2 と 2.3 に在り、5.4(a) が外すのは 5.1 の「課さない」だけなので、縮まない。*exercised as such* は解釈の語を 1 つ足して分岐を 1 つ減らす形で、釣り合わない。**採らない案を推す。**
+
+**T149 の検討（0d）**: 独占的許諾を受けた人が自分の名で訴えられる法域（米国ほか）では、譲り受けていないその人を 7.2(b) が名指さない。2.5 の柱書（*that another person holds through the Dedicator*）は Dedicator がその人を助けることを止めるだけで、その人自身は縛らない。案: *"any person to whom a Covered Right, or a Patent Claim that Section 2.3 reaches, is later transferred or exclusively licensed"*（+4 語）。*later* は適用の前に譲り受けた人を縛ると書かない。**逆側**: 独占的許諾を受けた人は、許諾の契約の外の約束に縛られないと争える（*to the fullest extent the law permits* が受ける）。1.4 §2.8 は *transferred* だけなので、広げる向きである。
