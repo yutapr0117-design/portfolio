@@ -57,6 +57,12 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        **射程 (緑の読み方・6d の依頼)**: 印の語は前後 250 / 150 字の正規表現で探すので、近くに別の文の印 (旧・was・1.0 の名など) が
        あると現在形の誤りを見逃す。誤りは見逃しの側にしか出ない。**470c が緑でも「外向きの引用は全部 1.4 の文」とは読めない** ——
        Dedicator / Dedication / the Work / Section N を含まない引用と、どの版にも無い引用 (470b の担当) も母数の外である。
+       **作業中の草案 (いまは 1.5) の語は設計として対象外** (5e の問い): 草案の語は提出対象にも前の版にも無いので当たらないが、
+       それは偶然ではなく、草案の語は「1.5 草案」の印で名乗る (468a が草案に当てる) という分担である。草案を確定して提出対象を
+       切り替えた日に、その語は提出対象の本文に入るので、470c は何もしなくてよい。
+       **地の文は拾わない** (d7 の問い): 見るのは斜体の *"…"* だけで、引用符の無い地の文の古い語 (#4007 や想定問答の
+       "Section 8.4 deliberately reaches only claims …" の形) は母数の外。地の文は確定の日に `prepare_version_freeze.py --report`
+       の「同じ番号で書き直した条」の節で人が読む、という分担である。
        導入時の実測: 12 冊の引用 201 件のうち 0 件 (cd が against #110 を直した後・SUBMISSION-MATERIALS の経緯の文 1 件は印の語「外し」で外れる)。
 """
 
@@ -246,8 +252,9 @@ def _target_version_470c(ROOT, check):
                     bad.append(f"{f.name}:{ln_no} ({'/'.join(older)}) *\"{q[:70]}\"*")
     check(bool(faces) and bool(bodies.get(tv)) and not bad,
           f"Check 470c: 外向きの文書の ACD の引用 {n} 件が、提出対象 ACD-{tv} の本文に在るか、前の版を名乗るか経緯の印を持つ",
-          (f"Check 470c: 前の版にだけ在る文を、版を名乗らずに引いている {len(bad)} 件: {bad[:5]}。ACD-{tv} の文に直すか、"
-           "その版を名乗る (\"in ACD-1.0\" など)" if faces and bodies.get(tv) else
+          (f"Check 470c: 前の版にだけ在る文を、版を名乗らずに引いている {len(bad)} 件: {bad[:5]}。直し方は 2 つのどちらか: "
+           f"(1) 引用を ACD-{tv} の本文の文に直す、(2) その引用のすぐ近く (同じ行) に版の名を 1 句添える —— 例 "
+           "\"(in ACD-1.0)\"・\"ACD-1.3 said\"・「1.3 まで」。経緯の文なら「旧」「was」「no longer」などの印でもよい" if faces and bodies.get(tv) else
            f"Check 470c: 外向きの文書か ACD-{tv} の本文を読めない (黙って skip しない)"),
           blocking=True)
 
