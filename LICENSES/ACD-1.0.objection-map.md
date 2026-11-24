@@ -2,6 +2,7 @@
 file: LICENSES/ACD-1.0.objection-map.md
 audience: OSI license-review / license-discuss participants, licence reviewers, auditors
 last-updated: 2026-11-23
+clause-numbers: ACD-1.4
 canonical-ref: LICENSES/ACD-1.0.review-precedents.md (the original text and our reading of each objection) / LICENSES/ACD-1.0.against.md (the adverse record) / LICENSES/REVIEWERS.md (the entry page)
 ---
 

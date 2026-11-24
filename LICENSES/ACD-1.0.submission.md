@@ -2,6 +2,7 @@
 file: LICENSES/ACD-1.0.submission.md
 audience: OSI license-discuss / license-review participants, SPDX submitters, the human who sends the message
 last-updated: 2026-11-23
+clause-numbers: ACD-1.4
 canonical-ref: LICENSES/ACD-1.0.txt (the text being submitted) / LICENSES/REVIEWERS.md (English entry point) / LICENSES/ACD-1.0.against.md (the adverse case)
 ---
 
