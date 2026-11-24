@@ -46,7 +46,7 @@ EFFECT_MARKERS_468U = (
     # 1.4 §5.1・§5.2(d)・§8.6・§12.2: 第三者を通じた主張と、行使 (T115)
     ("2.5", "not to authorise or assist any other person to assert or exercise"),
     ("2.5", "any Patent Claim that Section 2.3 reaches"),
-    ("2.5", "as wrongful, or as without legal basis, either by reason of its being such a use"),
+    ("2.5", "as wrongful, or as without legal basis, by reason of its being such a use or of what the Work contains"),
     ("2.5", "that another person holds through the Dedicator"),
     ("5.4", "Sections 2.5(d) and 5.1 do not reach"),
     ("5.5", "Sections 2.5(d), 5.1, and 5.2 do not reach"),
