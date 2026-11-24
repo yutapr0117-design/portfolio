@@ -644,6 +644,7 @@ def main() -> int:
     ap.add_argument("--date", help="確定の日 (YYYY-MM-DD)")
     ap.add_argument("--not-for-submission", action="store_true",
                     help="提出しない版を確定する (提出のゲート 6c を見ない・1.1〜1.3 のように作業の区切りで凍結するとき)")
+    ap.add_argument("--rehearsal", action="store_true", help="予行 (rehearse_version_freeze.py が使う): 効果の差の読みの門を知らせるだけで止めない")
     ap.add_argument("--report", metavar="VERSION", help="提出対象を切り替える日に読む行を出す (確定はしない)")
     args = ap.parse_args()
     if args.report:
@@ -667,6 +668,13 @@ def main() -> int:
             return 2
     draft_path = working_draft()
     v = re.match(r"ACD-(\d+\.\d+)-DRAFT\.txt$", draft_path.name).group(1)
+    # 凍結は提出するかに依らず取り消せないので、--not-for-submission でも見る (2026-11-24・議題 18)
+    from moved_clauses import effect_diff_gate
+    undone = effect_diff_gate(v, frozen_versions()[-1], draft_path.read_text(encoding="utf-8"))
+    if undone:
+        print("凍結の門「効果の差の読み」が満たされていない:\n" + "\n".join(f"  - {x}" for x in undone))
+        if not args.rehearsal:
+            return 2
     major, minor = v.split(".")
     nxt = f"{major}.{int(minor) + 1}"
     versions = frozen_versions()
