@@ -57,15 +57,24 @@ REPO = pathlib.Path(__file__).resolve().parents[2]
 SPLIT = re.compile(r"^From \S+ at \S+  \w{3} \w{3} [ \d]\d \d\d:\d\d:\d\d \d{4}\s*$", re.M)
 # 名前は語の境で照らす (2026-11-23・d7 の報告・fc): 部分一致だったので "Randal" (Allison Randal 氏) が Randall Burns 氏
 #   (randall_burns at yahoo.com・2002 の RPL) を、"Rosen" が Jon Rosenberg 氏・Dave Rosenberg 氏を、"Villa" が Villan 氏を決める側に
-#   数えていた (全 508 か月で 3 人・計 31 通)。"Mallet" は Steve Mallett 氏 (理事) の綴りの誤りで、部分一致で当たっていた
+#   数えていた (全 508 か月で 3 人・計 31 通)。"Mallet" は Steve Mallett 氏の綴りの誤りで、部分一致で当たっていた (**2026-11-24 訂正**: 旧文は Mallett 氏を「理事」と書いたが根拠は無かった。
+#   d7 の調べでは webmaster at opensource.org の署名だけが在る —— 下の「根拠の状態」を見よ)
+# 根拠の状態 (2026-11-24・d7 が archive の本人の文と署名・rounds の議事録で当てた。OSI のページは取っていない):
+#   外した —— Sado (OSI の委員ではない・ドシエ L711・#4011)・Dolan (Linux Foundation・OpenMDW の提出側)・Wheeler (David A. Wheeler と
+#   別人の 2 人に当たり、どちらにも OSI の役の文が無い)・Oliver (66 通に OSI の役の自称が無い)。
+#   根拠あり —— Weerawarana ("Director; Open Source Initiative"・2006)・Asay ("I'm an OSI board member"・2006-11)・Colannino と
+#   Blondelle (理事会の議事録の "Board members:")・Mathur ("I used to be one"・2008-08。在任の年は不明)・Vidal (事務局・moderator。
+#   委員・理事ではない)。
+#   根拠を見つけられない (推測で外さず残す) —— Souza・Greant・Mallett (webmaster の署名)・Langel・Garbee。Gune・Freund・Nwakanma は
+#   From に当たる通が 0。ここに名前を足すときは、在任の根拠 (本人の文・署名・議事録) を 1 行で書く
 DECIDERS = re.compile(r"\b(?:" + "|".join(re.escape(x) for x in [
     "Tiemann", "Danese Cooper", "Coar", "Radcliffe", "Rishab", "Souza", "Nelson", "Nwakanma",
     "Alolita", "Tracy Hinds", "Maracke", "Piana", "Aniszczyk", "Choudhury", "Carrez", "Majerus",
     "Prabhakar", "Blondelle", "Berkus", "Greant", "Gune", "Garbee", "Suehle", "Michlmayr",
-    "Oliver", "Asay", "Weerawarana", "Deb Bryant", "Colannino", "Maffulli", "Freund", "Raymond",
+    "Asay", "Weerawarana", "Deb Bryant", "Colannino", "Maffulli", "Freund", "Raymond",
     "DiBona", "Mathur", "Chestek", "Fogel", "Mallett", "Chris Lamb", "Nicholson", "Phipps",
     "Hashman", "Liambotis", "Josh Simmons", "Vignoli", "Zacchiroli", "Villa", "Rosen", "Perens",
-    "Fontana", "McCoy", "Behlendorf", "Vidal", "Kuhn", "Wheeler", "Dolan", "Randal",
+    "Fontana", "McCoy", "Behlendorf", "Vidal", "Kuhn", "Randal",
     "Milinkovich", "Langel",
     # 2026-11-16 (2f の発見): OSI の公の宛名 (opensource.org) で書いていた 3 人が漏れていた —— Jim Jagielski 氏 (理事)、
     #   Patrick Masson 氏 (General Manager & Director)、VM (Vicky) Brasseur 氏 (理事)。足すと候補が 4 本増え、「未読 0」は
