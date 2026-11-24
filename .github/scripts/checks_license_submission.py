@@ -294,7 +294,7 @@ def run(ctx):
                 _neutral472 = ("REVIEWERS.md", "READY-TO-SUBMIT.md", "QUESTION-INDEX.md",
                                "ACD-1.0.objection-map.md")
                 _faces472 = sorted(
-                    {_q.name for _q in (ROOT / "LICENSES").glob(f"{_ver472}.*.md")} |
+                    {_q.name for _q in (ROOT / "LICENSES").glob("ACD-1.0.submission*.md")} | {_q.name for _q in (ROOT / "LICENSES").glob(f"{_ver472}.*.md")} |
                     {_n for _n in _neutral472 if (ROOT / "LICENSES" / _n).exists()})
                 _bad472 = []
                 for _rel472 in _faces472:
@@ -311,7 +311,11 @@ def run(ctx):
                                     if _m472v.group(1) in _universe472 and _m472v.group(1) not in _have472
                                     and not any(_v != _tv472 for _v in re.findall(
                                         r"(?:ACD-|\bin |\()(1\.\d)\b|\b(1\.\d)(?: ?の|'s)",
-                                        _tx472[max(0, _m472v.start() - 30):_m472v.start()]) for _v in _v if _v)})
+                                        _tx472[max(0, _m472v.start() - 30):_m472v.start()]) for _v in _v if _v)
+                                    # 番号の直後に版を名乗る形 ("§15.8 in ACD-1.0"・"§15.2 of 1.0") も外す (2026-11-24)
+                                    and not any(_v != _tv472 for _v in re.findall(
+                                        r"^\S*\s+(?:in|of)\s+(?:ACD-)?(1\.\d)\b",
+                                        _tx472[_m472v.end():_m472v.end() + 20]))})
                     # [FIX 2026-11-08] 後の版の条番号はどれも 1.0 の部分集合なので、提出対象が 1.0 の間は
                     #   上の条件が成り立たず、この Check は一度も RED になりえなかった。どの版にも無い番号
                     #   (§8.4 を §8.9 と書いた誤り) も見ていなかった (監査で実測)。条の形の番号 (1〜16 節・
