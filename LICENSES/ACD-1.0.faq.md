@@ -16,6 +16,8 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LIC
 
 ---
 
+> **版の注（2026-11-24）**: この FAQ は ACD-1.0 に向けて書いた。このリポジトリが適用し、`ADOPTING.md` が採用者に勧めるのは ACD-1.4（root の `LICENSE` が名指す）で、答えが版で変わる所は各問に注がある。採用者が先に知っておくべき差: (1) 識別子は適用する版の番号で書く（1.4 なら `LicenseRef-ACD-1.4`。A10・A11 の `LicenseRef-ACD-1.0` は 1.0 の例）。(2) 1.4 の §1.4（Dedicator）は *"Covered Rights, Moral Rights, or patent claims in it"* と、人格権と特許の請求項も持つ者を Dedicator に数える（A20 の引用は 1.0 の §1.3 の語）。(3) §5.2(b) の除外（商標・名前・支払い）は 1.4 にだけ在る（`ADOPTING.md`）。(4) §8.4 の範囲は版で違う（A32）。条番号の対応は `REVIEWERS.md` の "Which text you are looking at" にある。
+
 ## A. 使う側の疑問
 
 ### A1. 自分の作品に使ってよいか
@@ -157,7 +159,7 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 >   not later argue otherwise. If you are not certain, do not apply it yet.
 
 **§2.6 が助けになる場面**: 今後の貢献については、貢献者が別段の意思表示をしない限り
-本 Dedication の下で提出されたものとして扱われ、**CLA のような別文書を要求できない**。
+本 Dedication の下で提出されたものとして扱われ、**そのために CLA のような別文書は要らない**。*（2026-11-24 訂正: 旧文は「別文書を要求できない」と書いていた。どの版も「要らない」と言うだけで、要求を禁じてはいない。1.4 の §2.6 は *"Whether the Dedicator asks a contributor for anything else is a matter of project governance and is not addressed here."* と明示する）*
 ただしこれは**将来の貢献**についての規律であって、**過去の貢献を遡って変えるものではない**。
 
 **貢献を受ける側の実務**: §2.6 の *"unless they state otherwise"* は記録を残さない。Apache-2.0 §5 も同じ形（*"Unless You explicitly state otherwise"*）で、承認済みの先例があるので本文は変えない。違いは費用で、ACD の放棄は寄与者にとって取り消せない。**別段の意思が述べられた貢献は、merge しないのが最も簡単である。**
