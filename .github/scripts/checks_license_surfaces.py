@@ -69,6 +69,7 @@ import sys
 import json
 import xml.etree.ElementTree as ET
 
+from _lib_draft_counts import clause_map
 from _lib_draft_markers import NOTICE_LEAD, TEXT_RULE_LEADS, clause_by_lead
 
 
@@ -696,6 +697,10 @@ def run(ctx):
             _bad490.append(f"490b: ACD-{_vs490}.txt の題名の版が違う: {_title490.group(1) if _title490 else '無い'}")
         _secs490 = [int(_x) for _x in re.findall(r"^(\d+)\. [A-Z]", _body490, re.M)]
         _psecs490 = len(re.findall(r"^\d+\. [A-Z]", _pt490.partition(_sep490)[2] or _pt490, re.M))
+        # 節を組み替えた版 (CLAUSE-MAP が在る版) は、対応表の右の条の最大の節までが在ること (2026-11-24・議題 16: 16 節 → 10 節)
+        _map490 = clause_map(ROOT / "LICENSES", _ps490, _vs490)
+        if _map490:
+            _psecs490 = max(int(_x.split(".")[0]) for _xs in _map490.values() for _x in _xs)
         if _secs490 != list(range(1, _psecs490 + 1)) or not _body490.rstrip().endswith("END OF TERMS"):
             _bad490.append(f"490c: ACD-{_vs490}.txt の本文が欠けている (節 {_secs490[-1:] or '無し'} / 直前の版 {_psecs490} 節 / 末尾 END OF TERMS)")
         _h490 = " ".join(_head490.split())
