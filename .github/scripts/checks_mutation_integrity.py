@@ -164,6 +164,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        Check は次版の file を読むのに mutation は前の版の file を打ち続け、find が残るので 362 は黙る (確定で前提が外れた
        mutation の型・11-24 の全数の当て直しで 7 件、週次 probe が 3 週赤)。導く形なら確定の日に anchor が消え、362 と確定の道具の
        退役の一覧に出る。導入時に 1 件 (468y の 1.5 の試作の mutation) を同じ commit で直した。
+       **凍結した版 (1.0〜1.4 のように確定した版) の名は対象外** —— 凍結した file は確定で byte が動かないので、名で打っても
+       確定の日に的を外さない (6d・2026-11-24)。対象は作業中の版 (CURRENT_DRAFT_VER) の名の直書きだけである。
        (BLOCKING)
   480. **mutation データの dict literal に重複 key が無い** (BLOCKING)。Python は dict literal の
        重複 key を**黙って後勝ちで上書き**する。2026-11-01、3 セッションが同じ append-log へ並行に
