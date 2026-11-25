@@ -1,7 +1,7 @@
 ---
 file: LICENSES/SUBMISSION-MATERIALS.md
 audience: オーナー（license-review への提出メールを自分の言葉で書く人）/ 次のセッションの実装者
-last-updated: 2026-11-23
+last-updated: 2026-11-25
 canonical-ref: LICENSES/ACD-1.0.submission.md (1.0 向けの旧パケット・要件の原典照合の記録) / LICENSES/ACD-1.0.review-rules.md §1.70・§1.76 (OSI の要件の原典読み) / LICENSES/OSI-APPROVAL-PLAN.md §4 (段取り)
 ---
 
@@ -16,7 +16,7 @@ AI が大半を書いた投稿を拒否するため・B14）。ここに置く�
 積み重なり、出す版（1.4 以降）とも合わない。要件の原典照合の記録としては有効なので残し、
 **申請の日に使うのはこの 1 枚**にする。
 
-**提出対象と、提出できるかは別のこと（2026-11-23・議題 3 の条件）**: 提出対象の印は 2026-11-23 から確定した ACD-1.4（`ACD-1.0.submission.md` の SUBMISSION-TARGET・5 人の合議 5 / 0 / 0）。**それは提出の準備が済んだことを意味しない** —— `python3 .github/scripts/submission_gate.py ACD-1.4` は、オーナーが 1.4 の新しい語を 1.0 との差として `license-discuss` へ自分の言葉で出し、公開アーカイブに届いた日（`FROZEN.md` の POSTED-VERSION）から 30 日（段 6b）と、未読 0・反映の欠け 0（6c）を確かめるまで止まる。いま（2026-11-23）は投稿の記録が無いので「窓が始まっていない」で止まる。
+**提出対象と、提出できるかは別のこと（2026-11-23・議題 3 の条件）**: 提出対象の印は 2026-11-23 から確定した ACD-1.4（`ACD-1.0.submission.md` の SUBMISSION-TARGET・5 人の合議 5 / 0 / 0）。**それは提出の準備が済んだことを意味しない** —— `python3 .github/scripts/submission_gate.py ACD-1.4` は、オーナーが 1.4 の新しい語を 1.0 との差として `license-discuss` へ自分の言葉で出し、公開アーカイブに届いた日（`FROZEN.md` の POSTED-VERSION）から 30 日（段 6b）と、未読 0・反映の欠け 0（6c）を確かめるまで止まる。いま（2026-11-25）は投稿の記録が無いので「窓が始まっていない」で止まる。
 
 ## 0. 申請の日にやること（順に）
 
