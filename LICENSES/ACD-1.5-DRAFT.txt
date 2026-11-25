@@ -30,10 +30,14 @@ ACD-1.5 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
   1.4 in their descriptors, and it must be closed again for each new version
   because each version carries its own descriptor), E87 (Section 5.1 has
   no exception for an obligation not to make a false statement -- examined
-  and deliberately left as it is), and E91 (a claim the Dedicator owns is
+  and deliberately left as it is), E91 (a claim the Dedicator owns is
   licensed even where another already holds an exclusive licence under it --
-  examined and deliberately left as it is). E88 concerned the
-  preamble of ACD-1.0 to ACD-1.4, which this draft does not have.
+  examined and deliberately left as it is), and E94 (Section 2.2 names several
+  acts of making a changed work and one word for the object passed on --
+  examined and deliberately left as it is).
+
+  E88 is closed here. It concerned the preamble of ACD-1.0 to ACD-1.4, which
+  this draft does not have. It remains open in those texts.
 
 --------------------------------------------------------------------------------
 
