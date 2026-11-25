@@ -52,6 +52,11 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
     8. The covenants as to Moral Rights and as to other claims reach what the
        Dedicator holds (Section 2.5(c)), and a claim that the Dedicator holds or
        controls, or that another holds through the Dedicator (Section 2.5(d)).
+       The covenant as to other claims extends to authorising or assisting
+       another person; the second sentence of ACD-1.4's Section 5.1 speaks of
+       the Dedicator's own assertion. The covenants speak of exercising a right
+       as well as of asserting it (Section 2.5); ACD-1.4 does so only as to
+       Moral Rights. Wider: the Dedicator gives up more.
     9. The covenant as to other claims is about a claim that treats a use as
        wrongful by reason of its being a use of the Work or of a Result, or of
        what the Work contains (Section 2.5(d); ACD-1.1-SELF-AUDIT.md, sections
@@ -73,11 +78,16 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        rule of construction speak of a Result too; and a person bound as a
        transferee is named beside the Dedicator where the absence of conditions,
        and the freedom to choose terms, do not reach (Sections 4.1, 4.3, 4.4,
-       5.1, and 9.1; ACD-1.1-SELF-AUDIT.md, section 3ze).
+       5.1, and 9.1; ACD-1.1-SELF-AUDIT.md, section 3ze). Section 4.3 leaves in
+       place whatever Section 5 forbids a person to impose; ACD-1.4's Section
+       4.5 speaks of material as to which that person is a Dedicator. Narrower
+       for a person who passes the Work on and is bound as a transferee without
+       being a Dedicator.
    11. The covenant on technological measures speaks of, and authorises
        circumvention for, a copy that has been made available (Section 5.2).
        Narrower: ACD-1.4 speaks of the Work, and of a copy of it, without that
-       limit.
+       limit. Wider: the authorisation is for the purpose of a use; ACD-1.4
+       speaks of a circumvention effected in a use.
    12. The covenant not to assert a narrower reading of a permission (ACD-1.4's
        Section 5.2(c)) is left out; Section 9.1 governs the reading.
    13. The exceptions from the covenants are stated covenant by covenant
@@ -88,7 +98,11 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        in respect of, use of the Work or of any Result (Section 5.4(d)). ACD-1.4
        excepts a service only where no copy of the Work is provided; here the
        exception covers a service that provides a copy, other than as to that
-       copy (Section 5.5(b)).
+       copy (Section 5.5(b)). The exceptions for patent infringement outside the
+       patent licence and for a false statement apply to the covenant in Section
+       5.1 as well; those in ACD-1.4's Section 5.2(b) are for rights in
+       trademarks and names and for an agreed payment. Narrower for a recipient
+       on whom a term of that kind is imposed.
    14. The omission of attribution alone is not a false statement (Section 6.3).
    15. The statement in ACD-1.4's Section 11.4 that the Dedication reaches
        nothing else is gone (ACD-1.1-SELF-AUDIT.md, section 3zd). In its place
@@ -103,8 +117,9 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
    18. ACD-1.4's preamble, its Section 8.3, which says that no patent claim is
        reserved, the sentences of purpose in its Sections 6.5 and 12.3, the
        sentence of its Section 9.2 that the Dedication adds nothing where no
-       right subsists, and the sentence of its Section 16.3 that it is not
-       specific to any project, person, or field, are left out.
+       right subsists, the sentence of its Section 9.4 that Section 9 is not a
+       disclaimer of the fact of origin, and the sentence of its Section 16.3
+       that it is not specific to any project, person, or field, are left out.
    19. ACD-1.4's Section 6.4 says that no enforceable claim arises in respect of
        a model or an output. Here that is a covenant (Section 2.5(a)) and an
        absence of conditions (Section 4.1).
@@ -116,13 +131,20 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        terms, gives recipients nothing under this Dedication, patents included;
        ACD-1.4 reached that person.
    21. The warranties and the kinds of loss are named in shorter lists (Sections
-       8.1 and 8.2). Section 8.2 also names the use of any Result.
+       8.1 and 8.2). Section 8.2 also names the use of any Result. ACD-1.4's
+       Section 14.2 says that a liability that cannot be excluded is limited to
+       the greatest extent the law permits; here Section 8.2 does not limit a
+       liability that the law does not permit to be limited. The Dedicator loses
+       that sentence.
    22. The suggested notice says that the work is provided as is, and points to
        Section 2.5(d) (Section 10.1).
    23. A person to whom a Covered Right or a Patent Claim is later exclusively
        licensed is named beside a transferee, and a person entitled to exercise
        or enforce the Dedicator's Moral Rights is bound as to Sections 2.5(c)
-       and 2.6, however the entitlement arose (Section 7.2).
+       and 2.6, however the entitlement arose (Section 7.2). Section 7.2(b)
+       speaks of a later transfer, where ACD-1.4's Section 2.8 speaks of a
+       transfer, and its sentence that a transferee takes subject to the
+       Dedication is not repeated. Read as the same in effect.
    24. The covenant against collateral obligations reaches a Result only by
        reason of its being a Result; a term asked of a contributor may not
        impose an obligation in respect of use of the Work or of any Result;
@@ -152,3 +174,24 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
    27. The sentence on silence, delay, and non-enforcement speaks of any copy of
        the Work that has been made available (Section 7.1); ACD-1.4's Section
        2.2 puts no such limit on that sentence.
+   28. Those who may rely on the covenants as intended beneficiaries include
+       anyone who receives anything derived from the Work, or a Result, from
+       anyone, and the covenants include the one as to Moral Rights (Section
+       7.4); ACD-1.4's Section 5.3 speaks of anyone who receives the Work from
+       You, and does not name its Section 12.2. Wider for such a person.
+   29. The Dedicator makes no representation that a right subsists in a part of
+       the Work generated by an automated system (Section 3.2); ACD-1.4's
+       Section 9.2 says so of any part. Section 8.1 disclaims a warranty for the
+       rest. ACD-1.4's Section 1.8 defines machine-generated material as what is
+       produced in whole or in substantial part by such a system; that
+       definition is gone. Read as the same in effect; the Dedicator loses by it
+       if Section 8.1 is read more narrowly.
+   30. The permission to copy this text is shorter, and a new version that the
+       Steward publishes may be distributed by anyone; ACD-1.4's Section 16.4
+       excepts the Steward, and says that it applies to a new version too
+       (Section 10.5). Wider for a person who distributes a new version.
+   31. A notice is sufficient where a Dedicator places it; ACD-1.4's Section
+       16.2 speaks of a notice that accompanies material to which a Dedicator
+       has applied the Dedication, without saying who places it (Section 10.2).
+       Narrower for a recipient where someone other than a Dedicator placed the
+       notice.
