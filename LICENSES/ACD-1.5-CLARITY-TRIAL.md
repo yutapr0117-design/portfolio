@@ -206,7 +206,7 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 
 **種**: B3 と B13。1.4 は題名から 5,879 語で GPL-3.0 より長い。`ACD-OSI-BOTTLENECKS.md` の B3 の節は「削る」案だけを測り（306 語・機構部の圧縮で約 360 語）、3,888 語に届かないので「縮められるが答えきれない」と結んでいた。測っていなかったのは、同じ型を何度も述べる構造そのものを 1 度に畳む道である。5 人とも 1.5 草案を初めて読む日に、3f が初見読みの議題を、0d が再起草を、同じ時刻に出した。
 
-**なぜ「短い」でなく「2 度言わない」か**（採掘は portfolio-6c・節は `ACD-1.0.review-readings-7.md` の §1.479 以降）: Chestek 氏（委員・元委員長）2026-01-24 *"anytime you say things twice, unless they are exactly the same, you created the potential for two different interpretations"*。同じ人は 2026-02 に説明の文が問題を増やすとも書いた。逆側: McCoy Smith 氏（委員長）2019-05-11 は、複雑さそのものは却下の理由にならないと書いた（*"Complexity qua complexity is … not"*）。
+**なぜ「短い」でなく「2 度言わない」か**（採掘は portfolio-6c・節は `ACD-1.0.review-readings-7.md` の §1.479 以降）: Chestek 氏（委員・元委員長）2026-01-24 *"anytime you say things twice, unless they are exactly the same, you created the potential for two different interpretations"*。同じ人は 2026-02 に説明の文が問題を増やすとも書いた。逆側: McCoy Smith 氏（のちの委員長）2019-05-11 は、複雑さそのものは却下の理由にならないと書いた（*"Complexity qua complexity is … not"*）。
 
 **同じことを何度述べていたか（1.4）と、縮約でどこに 1 度書いたか**:
 

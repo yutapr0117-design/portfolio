@@ -487,3 +487,45 @@ def register_other_side_misses(licenses_dir: Path) -> tuple[list[str], list[str]
         if anchors and not any(re.search(r"\b" + re.escape(a) + r"\b", phrase) for a in anchors):
             bad.append(f"{b}: \"Other side:\" の句が、日本語の逆側の固有名か年 ({sorted(anchors)[:4]}) のどれも持たない")
     return targets, bad
+
+
+# License Committee の委員長の在任 (YYYY-MM・両端を含む)。根拠 (2026-11-25 に引き直した):
+#   Fontana     — 2019-01-10 の license-review に "the License Committee Chair (currently me)"。始まりは確かめていない。
+#   Chestek     — 自分の署名 "Chair, License (Review) Committee" が 2019-05-24〜2025-02-14 に 191 通 (license-review / -discuss の写し)。
+#                 議事録 2025-01-17 "appoint a new License committee chair as Pam's term on the board ends on April 1st"。
+#   Berkus      — 議事録 2026-02-20 "his leadership as Chair of the License Committee" (過去形で労う)。
+#   McCoy Smith — 議事録 2026-03-20 "McCoy reports for the Licensing Committee"、2026-02-20 も同氏が状況を報告。
+# 境目 (2019-02〜05・2025-03・2026-01〜02) は記録が月を決めないので、両方の人を許して止めない。委員長が替わった日に、根拠と一緒に直す
+CHAIR_TERMS = {"Fontana": ("0000-00", "2019-05"), "Chestek": ("2019-02", "2025-03"), "Berkus": ("2025-03", "2026-02"),
+               "McCoy Smith": ("2026-01", "9999-99")}
+
+
+def chair_term_misses(files: list[Path]) -> tuple[int, list[str]]:
+    """発言の月に委員長でなかった人を「委員長」「chair」と、委員長だった人を「のちの委員長」「元委員長」と書いた文。返り値: (拾った数, 誤り)。
+
+    2026-11-25 (#4148 と同じ型の再発)。役・名・発言日が隣り合う 3 つの形だけを見る。役の直後に別の人の名が続く形 (日付の括弧の中の
+    「委員長 Chestek 氏の…」)、役を否定する形 (委員長ではない)、「」で囲んだ言及は外す。日付が名から離れた文と、名の無い「委員長は」は
+    見えない。「元・のちの」は境目の月を除いた在任のまっただ中だけを誤りにする。
+    """
+    name = "|".join(CHAIR_TERMS)
+    role = r"(?:委員長(?!では|でな|職)|[Cc]hair\b)"
+    day = r"(?P<d>(?:19|20)\d\d-\d\d)(?:-\d\d)?"
+    forms = [
+        re.compile(rf"{role}(?:の|・|（|\(|は|、|, | |「|Pamela|Josh)*\**(?P<n>{name})[^|。]{{0,12}}?{day}"),
+        re.compile(rf"(?P<n>{name})(?: 氏)?[（(、・ ]*(?:のちの|後の|当時の|元)?{role}[^|。]{{0,12}}?{day}"),
+        re.compile(rf"(?P<n>{name})\**(?: 氏)?(?: の)?[ 、]*{day}[（(][^）)]{{0,12}}?{role}(?! ?(?:の )?(?:Pamela |Josh )?(?:{name}))"),
+    ]
+    border = {"2019-02", "2019-03", "2019-04", "2019-05", "2025-03", "2026-01", "2026-02"}
+    n, bad = 0, []
+    for f in files:
+        for i, ln in enumerate(f.read_text(encoding="utf-8").split("\n"), 1):
+            for m in (m for p in forms for m in p.finditer(ln)):
+                if ln[:m.start()].endswith("「") and "」" in ln[m.end():m.end() + 12]:
+                    continue
+                n += 1
+                lo, hi = CHAIR_TERMS[m["n"]]
+                inside = lo <= m["d"] <= hi
+                other = re.search(r"元 ?委員長|のちの|後の ?委員長|former", ln[max(0, m.start() - 8):m.end()])
+                if (other and inside and m["d"] not in border) or (not other and not inside):
+                    bad.append(f"{f.name}:{i} 「{m.group(0)[:50]}」")
+    return n, bad

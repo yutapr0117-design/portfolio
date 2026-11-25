@@ -9,7 +9,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約)
 
 ## What
 
-"[DISCUSS] PUWL v1.0" から Pamela Chestek 氏（委員長）の 2025-10-16 の 1 通を無改変で置いた。全権利の放棄と条項の保持が食い違うと指摘し、本文の ChatGPT の文の目的を問うた。
+"[DISCUSS] PUWL v1.0" から Pamela Chestek 氏（委員・元委員長）の 2025-10-16 の 1 通を無改変で置いた。全権利の放棄と条項の保持が食い違うと指摘し、本文の ChatGPT の文の目的を問うた。
 
 ## Why
 
