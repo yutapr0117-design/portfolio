@@ -335,7 +335,7 @@ OSI のブログ “ATO 2026: Open Source Licensing 101”（2026-11-24・Nick V
 
 ## 1.490 同じ提出への委員の最後の通 —— 「許諾が 4 つの節に分かれる理由が分からない」「これを直すのは素人が専門の助けなしにできる仕事ではない」（Chestek 氏 2025-10-26・Orivex）を ACD-1.4 に当てる（B1 と B3 の材料・2026-11-25）
 
-§1.489 の走査で、ドシエに 1 度も引かれていない 1 通を見つけた（455 語で、§1.481 が型に当てた Chestek 氏の 150 語以上の通の束に入っていたが、型の表に引かれなかった。2026-11-25 に束を開いて確かめた。同じ条件の今の数え方では 89 通で、§1.481 の 91 との差は確かめていない）。Pamela Chestek 氏 2025-10-26（`license-review`・"Submission of Orivex Syscall Note License (OSN-1.0)"）。同じ日の McCoy Smith 氏の通の一部は `reviewer-positions.md`（前文の定義語・法律家のレビュー）に在る。引用の前後数百字を開いた（全文を通しては読んでいない）。
+§1.489 の走査で、ドシエに 1 度も引かれていない 1 通を見つけた（455 語で、§1.481 が型に当てた Chestek 氏の 150 語以上の通の束に入っていた —— 同節は束を全文で読んだと書くので「読んだが引かなかった」に当たる。2026-11-25 に束を開いて確かめた。同じ条件の今の数え方では 89 通で、§1.481 の 91 との差は確かめていない）。Pamela Chestek 氏 2025-10-26（`license-review`・"Submission of Orivex Syscall Note License (OSN-1.0)"）。同じ日の McCoy Smith 氏の通の一部は `reviewer-positions.md`（前文の定義語・法律家のレビュー）に在る。この節の 1 通は全文を読んだ（portfolio-6c と portfolio-59 が別々に）。Smith 氏の通は portfolio-59 が全文を、portfolio-6c は引用の前後を読んだ。
 
 | 発言 | ACD-1.4 の同じ型の文 | 当たるか |
 | :-- | :-- | :-- |
@@ -345,10 +345,18 @@ OSI のブログ “ATO 2026: Open Source Licensing 101”（2026-11-24・Nick V
 | *"In my opinion, fixing all the problems with this license is not a task that a layperson can competently do without professional assistance."* … *"getting the assistance of a lawyer knowledgeable about drafting licenses and at least familiar with open source licenses."* | ACD の起草はモデル、法的レビューは無い（B1） | **不利。** 個々の提出への文で、規則ではない。だが、欠陥の多い本文の持ち主に法律家の助けを勧めた委員の言葉である |
 | *"The defined terms include at least one term … which is used nowhere in the rights and obligations of the license"*（McCoy Smith 氏 2025-10-26） | 1.4 の定義語を本文で数えた（Dedication・Moral Rights・Work・Dedicator・Covered Rights・Computational Use・Machine-Generated Material・Contribution・Reservation・You）。どれも定義の外で使われる | **当たらない。** 有利 |
 
+**同じ通の残りの 3 点（portfolio-59 が全文から足した・portfolio-6c が照合）。**
+
+- **特許の射程**: *"The Contributor isn't granting a license to Derivative Works? Why not?"* … *"The lack of necessary scope in the Contributor patent grant, in my opinion, makes this a non-free license."* ACD は寄与者も Dedicator で（§2.6）、§8.1 は *"the Work or anything derived from it"* に届くので、型はそろっている（有利）。**逆側**: §8.1 は *"subject matter contained in the Work"* に限り、寄与者の Work は寄与だけなので、寄与と元の組み合わせで初めて侵害する請求項は外と読まれうる（1.5 の 2.3(a) の combination の句がここに当たる・E89 の隣）。
+- **採用（B2）**: *"Is this license in use? If not, who is your intended user?"* 同じ通の 1 点目で、提出の案内の採用の項を根拠にする。ACD の使用は本リポジトリの 1 件。
+- **不要かどうか（B1・B10）**: *"I agree with McCoy that this license needs the input of a licensing professional before the OSI reviews it again."*・*"I suggest that the submitter withdraw it from review and reconsider, first, whether this license is necessary at all"*。表の「素人の仕事ではない」より強い —— 再審査の前に、そもそも必要かを問う。
+
+Smith 氏 2025-10-26 の 3 点目（定義語が素材の種類を限ると、別の物に使ったとき何も許さない）は、ACD の Work が種類を限らないので有利である（portfolio-59 の読み）。
+
 **読み。** 1 通の中に、1.4 に当たる型が 3 つ、当たらない型が 1 つ、B1 に不利な文が 1 つ在る。当たる 3 つのうち、Covered Rights の許諾の散りと「どれが有効かを判定しなくてよい」の繰り返しは 1.5 の草案が述べ直した型で、出す版の 1.4 には残る。
 
 **逆側。** (1) 4 つの節という批判は、許諾の条が「許諾そのもの」を割った提出への文で、ACD の §3・§4・§5 は放棄・許諾・約束という別の働きを分けたもので、数え方が違う。(2) Chestek 氏の文は「大きな問題に加えて小さな問題が多い」という結びで、本文の量だけを理由にしていない。(3) 法律家の助けを勧める文は、ACD の来歴を名指しておらず、§1.488 の講演と同じ向きに立つ別の記録である。(4) 1.5 の草案は型への答えになりうるが、出す版ではない。
 
 **この節が establish しないこと。** 許諾が散ることが却下の理由になること、法律家の助けが承認の要件であること。
 
-**反映**: B1（素人に直せないという委員の文・両側・59 へ）/ B3（許諾が散ることと繰り返し・1.4 の側）/ 1c 種（なし・Covered Rights の許諾と「判定しなくてよい」の 2 つは 1.5 で述べ直した）。
+**反映**: B1（専門家の助けと、必要かどうかの文・両側・59 へ）/ B2（採用の問い）/ B10（不要かどうか）/ B3（許諾の散りは「同じ型と読まれうる」・§6.1 と §7.2 の許しが §4 と重なる所に限る・59）/ 1c 種（なし・Covered Rights の許諾と「判定しなくてよい」の 2 つは 1.5 で述べ直した）。
