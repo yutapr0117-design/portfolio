@@ -49,9 +49,9 @@ Report: first line = number of HIGH, and how many of those are NOT LISTED. Then 
 
 ## 固定の印
 
-`moved_clauses.py --pin` が書く。**pending の間は日数を数えていない**（n8 と一覧の直し、議題 32 の採決が main に入った日に打つ）。
+`moved_clauses.py --pin` が書く。2026-11-25（UTC）に打った: 本文は n8、一覧・#332・門の文・議題 34 の採決が main に入った後である。読みは早くて 2026-12-02 以降。動かせば数え直し（`--pin`）。
 
-<!-- GATE-PIN: pending -->
+<!-- GATE-PIN: version=1.5 since=2026-11-25 days=7 body-sha256=dc7fd29a5e3bfe4f33806dc04a00cb22f8246240160028a6cbe0eab47ea41b39 changes-sha256=d7ba5b6c4bcadb20e7f4951ee09cce927610da64687a1c810e4318c7e4ba6a4a text-sha256=30857e18272a6c942b5259bf57801c7218893c6012efe539464d15be22a10821 prompt-sha256=ef5adf7867e53c9bafc8aa7b3406f9e978f338255e5e143b9526cecfea30af10 -->
 
 ## 読みの結果（1 回だけ）
 
@@ -60,5 +60,7 @@ Report: first line = number of HIGH, and how many of those are NOT LISTED. Then 
 始まらなかった回（1 文字も届かなかった回）は、日付と理由を 1 行ずつここに残す: （まだ無い）
 
 形: `date=YYYY-MM-DD unlisted-high=N partly-high=N listed-high=N listed-high-agreed=N models=<A>,<B> reports=<repo の path>`
+
+欄の数は 2 席の和集合（同じ条の同じ差は 1 と数える）で、記録の数である。合否は席ごとで、どちらかの席が「無い」または PARTLY LISTED と言った HIGH が 1 つでも在れば不合格（和集合で丸めて消さない）。席ごとの数は下に並べる。
 
 <!-- GATE-RESULT: none -->
