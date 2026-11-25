@@ -703,7 +703,9 @@ def main() -> int:
     changelist.write_text(appendix(head, header), encoding="utf-8")
     draft_path.write_text(pointer(v, nxt, prev, args.date), encoding="utf-8")
     # 草案の「Still open」は errata の状態と照合される (Check 468) ので、文を引き継ぎ、版の列だけ足す。
-    still_open = " ".join(header[header.index("Still open in this draft"):].split())
+    # 段の終わり (空行) までだけを写す (2026-11-26・#4171): 草案の冒頭が「Still open」の後に別の段 (「E88 is closed here …」) を
+    #   持つと、次版の草案へ写した後もその段が残り、E88 を「この草案で閉じた」と述べ、468 が開いた番号と読んで止めた
+    still_open = " ".join(header[header.index("Still open in this draft"):].split("\n\n", 1)[0].split())
     if len(versions) >= 3:
         listed = ", ".join(versions[1:-1]) + " and " + versions[-1]
         still_open = still_open.replace(listed, ", ".join(versions[1:]) + " and " + v)
