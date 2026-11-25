@@ -9,7 +9,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約)
 
 ## What
 
-"Approval: OIN License" から Pamela Chestek 氏（のちの委員長）の 2020-12-26 の 1 通を無改変で置いた。効果を持たせない語なら置くな、単純な許容型でも既存より改善の点まで届かない、と書いた。
+"Approval: OIN License" から Pamela Chestek 氏（委員長として署名）の 2020-12-26 の 1 通を無改変で置いた。効果を持たせない語なら置くな、単純な許容型でも既存より改善の点まで届かない、と書いた。
 
 ## Why
 

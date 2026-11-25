@@ -64,6 +64,14 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        "Section 8.4 deliberately reaches only claims …" の形) は母数の外。地の文は確定の日に `prepare_version_freeze.py --report`
        の「同じ番号で書き直した条」の節で人が読む、という分担である。
        導入時の実測: 12 冊の引用 201 件のうち 0 件 (cd が against #110 を直した後・SUBMISSION-MATERIALS の経緯の文 1 件は印の語「外し」で外れる)。
+
+  505. **委員長でなかった時期の発言者を「委員長」「chair」と書かないこと** (BLOCKING・2026-11-25・議題 33):
+       決める側の誰が、どの資格で言ったかは重みを変える (against #186)。2026-10 に約 115 か所を直した型が、提出の材料 2 か所で再発した
+       (#4148)。逆向き (委員長だった月の発言者を「元」「のちの」と書く) も見る。役・名・発言日が隣り合う 3 つの形だけを見る。
+       作った日の母数: LICENSES/*.md と docs/files/LICENSES/**/*.md (rounds/ の受領文の mirror を含む) で、拾った文は全部読んで真 5・
+       誤検出 0 (拾った数は OK 行に出す)。否定 (委員長ではない)・「」の言及・別人の括弧の中の委員長では鳴らないことを対照で確かめた。
+       **逆側**: 日付の離れた文と名の無い「委員長は」は見えない (2 件はそれで手で見つけた)。在任の表は記録に
+       依るので、委員長が替わった日に `_lib_dossier.CHAIR_TERMS` を直さないと偽 RED になる。境目の月は止めない。対象が減る形は件数の下限。
 """
 
 import re
@@ -302,3 +310,15 @@ def _selfquote_470b(ROOT, check):
            "「いまの文」として引いている形。凍結した版の逐語に直すか、途中の草案の歴史なら試作の番号 (T\\d+) を添える"
            if files else "Check 470b: 外向きの文書が 1 冊も見つからない (対象の glob を直す・黙って skip しない)"),
           blocking=True)
+
+    # ── 505. 委員長でなかった時期の発言者を「委員長」と書かないこと (BLOCKING) ─────────
+    from _lib_dossier import chair_term_misses
+    _f505 = [f for f in sorted((ROOT / "LICENSES").glob("*.md"))] + sorted((ROOT / "docs" / "files" / "LICENSES").rglob("*.md"))
+    _n505, _bad505 = chair_term_misses(_f505)
+    check(
+        not _bad505 and _n505 >= 25,
+        f"Check 505: 委員長と書いた発言者 {_n505} 件が、在任の記録 (Fontana・Chestek・Berkus・McCoy Smith) と合う",
+        (f"Check 505: 発言の月の役と合わない「委員長」「元委員長」「のちの委員長」 {len(_bad505)} 件: {_bad505}。在任の表 (_lib_dossier.CHAIR_TERMS) の根拠に当てて直す"
+         if _bad505 else f"Check 505: 拾えた文が {_n505} 件しか無い (25 件以上のはず。形か対象の glob が外れた)"),
+        blocking=True,
+    )

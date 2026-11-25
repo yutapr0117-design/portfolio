@@ -342,6 +342,13 @@ _MUTATIONS_TAIL += [{
     "replace": 'if high > int(r["listed"]):',
     "check": CHECK,
 }]
+_MUTATIONS_TAIL.append({
+    "name": "Check 505: 2025-10 の Chestek 氏を「委員長」と書く —— 元委員長の発言が、決める側の長の発言として重く読まれる (2026-11-25・議題 33)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.review-readings-6.md",
+    "find": "Pamela Chestek 氏 2025-10-16（委員・元委員長・PUWL",
+    "replace": "Pamela Chestek 氏 2025-10-16（委員長・PUWL",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
