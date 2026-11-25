@@ -349,6 +349,13 @@ _MUTATIONS_TAIL.append({
     "replace": "Pamela Chestek 氏 2025-10-16（委員長・PUWL",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 504: 固定の後に変更の一覧 (CHANGES) の 1 句を動かして、日数を数え直さない —— 読み手が読む一覧が固定と違う (2026-11-25・議題 31)",
+    "file": ROOT / "LICENSES" / f"CHANGES-ACD-{CURRENT_DRAFT_VER}.txt",
+    "find": "Moral Rights include those of a performer",
+    "replace": "Moral Rights may include those of a performer",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
