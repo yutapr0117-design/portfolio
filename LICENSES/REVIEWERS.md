@@ -295,8 +295,8 @@ reading: a second pass found new ones. That a reading does not stand is our judg
 | The licence itself | [`ACD-1.4.txt`](ACD-1.4.txt) | 701 lines, 16 sections. Plain ASCII, no placeholders in the clauses (one in §16.1's notice template). The text posted to the list is [`ACD-1.0.txt`](ACD-1.0.txt) (597 lines); [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt) shows the changes |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
-| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 444 worked entries, indexed by the question rather than the filename |
-| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — about twenty times the length of the licence.** All 332 adverse facts, written by us. Two have no answer |
+| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 445 worked entries, indexed by the question rather than the filename |
+| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — about twenty times the length of the licence.** All 333 adverse facts, written by us. Two have no answer |
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
 | **What we would ask a lawyer** | [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) | ACD has had no legal review. Ten questions on which a lawyer's reading would most change the text, ranked by consequence, each answerable on its own |
 | **What we would ask someone who builds ML systems** | [`QUESTIONS-FOR-PRACTITIONERS.md`](QUESTIONS-FOR-PRACTITIONERS.md) | The review record asks for this reader by name. Five questions on whether the machine-learning clauses (§1.7, §6.2, §6.3, §6.4, §8.4, §2.6) match a real pipeline, each answerable on its own |
@@ -305,7 +305,10 @@ reading: a second pass found new ones. That a reading does not stand is our judg
 
 ## Disclosures you should not have to dig for
 
-- **No lawyer was involved.** The licence has had no legal review.
+- **No lawyer was involved.** The licence has had no legal review. McCoy Smith, chair of OSI's
+  License Committee, said in a talk OSI's blog published on 2026-11-24 that using an AI is at the
+  moment no substitute for using a lawyer to write a licence (our paraphrase of an automatic
+  transcript, not checked byte for byte; `ACD-1.0.against.md` #333).
 - **The goal was the owner's; the concrete legal design and the text are an AI's.** He decided
   to have a licence of his own and said it should aim at external approval; he gave the goal and
   the top-level direction, and **did not write a legal specification or supply a list of legal
