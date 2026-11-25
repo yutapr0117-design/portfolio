@@ -557,8 +557,8 @@ break-in is the use. Germany does not let liability for intent be excluded in ad
 deliberate act, or does a court read the whole limb down? The same point touches §5.2(d): if the Work is an
 image generator, a false image of the Dedicator made with it is a *"use of the Work"*, and §5.2(d) is not
 tied to a likeness the Work contains, as CC0's waiver is (*"depicted in a Work"*). Both are recorded as
-defects of 1.2 to 1.4 (`ACD-1.1-SELF-AUDIT.md` §3zf and §3zh, in Japanese); the 1.5 draft limits the first to
-a claim made because the use is a use, and the second to what is *"contained in the Work"*. It is not fixed.
+defects of 1.2 to 1.4 (`ACD-1.1-SELF-AUDIT.md` §3zf and §3zh, in Japanese); the 1.5 draft limits both to
+a claim made by reason of the use being a use, or of what the Work contains (Section 2.5(d) of the draft). It is not fixed.
 
 **An answer would change** whether §5.1's *"treats as wrongful, or as without legal basis"* is the right wording,
 and whether data protection needs its own exception. An answer to the seventh would change whether adopters who

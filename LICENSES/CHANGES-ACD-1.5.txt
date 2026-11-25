@@ -26,8 +26,9 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        utility models are named (Section 1.12).
     4. A Result may result from the Work indirectly. A copy of the Work in any
        form, object code compiled from it included, is not itself a Result; a
-       patent claim on what such a copy does is reached, if at all, under
-       Section 2.3(a) (Section 1.8).
+       patent claim on such a copy is reached, if at all, under Section 2.3(a),
+       or, as to the automated processing that makes it, under Section 2.3(b)
+       (Section 1.8).
     5. The patent licence reaches subject matter in the Work, which is the
        material to which the Dedicator applied the Dedication, including, where
        the Work is a Contribution, by its combination with the material it was
@@ -44,8 +45,8 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        what another text teaches. That the Work was processed, or was the
        starting point, does not by itself show that a feature was learned or
        extracted from it. The same test governs Computational Use. Use of the
-       Work only to evaluate, select, or steer may be read as outside it for
-       that reason.
+       Work only to evaluate, align, select, or steer, so that a feature results
+       from it only in part, may be read as outside it for that reason.
     7. Everyone who receives the Work, anything derived from it, or a Result
        holds the licences directly from the Dedicator (Section 2.4).
     8. The covenants as to Moral Rights and as to other claims reach what the
@@ -54,12 +55,19 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
     9. The covenant as to other claims is about a claim that treats a use as
        wrongful by reason of its being a use of the Work or of a Result, or of
        what the Work contains (Section 2.5(d); ACD-1.1-SELF-AUDIT.md, sections
-       3zf and 3zh). A claim for an attack made with the Work, or for an image
-       made with it from something else, is outside it. A claim that rests on
-       the manner or effect of a use, such as one for unfair competition or for
-       the load placed on a server, may be read as outside it; the general words
-       of ACD-1.4's Section 5.1 stopped such a claim, and its Section 5.2(d)
-       carried no such limit. Section 9.1 is against that reading.
+       3zf and 3zh). That is narrower than both the general words of ACD-1.4's
+       Section 5.1 and its Section 5.2(d), which carried no such limit. Outside
+       it are a claim for an attack made with the Work, and a claim by the
+       Dedicator under a right of privacy, publicity, or personality that rests
+       on neither of those reasons, such as one for an image, or an imitation of
+       the voice, of the Dedicator that a person makes with the Work from
+       something other than the Work. Read as written, ACD-1.4 stopped each of
+       those claims. A claim that rests on the manner or effect of a use, such
+       as one for unfair competition or for the load placed on a server, may be
+       read as outside it, and so may a claim by the Dedicator in respect of the
+       Dedicator's own likeness or voice contained in the Work, if it rests on
+       the manner or effect of the use; ACD-1.4's Section 5.1 stopped the first
+       and its Section 5.2(d) the second. Section 9.1 is against that reading.
    10. Nothing is imposed in respect of a Result, as well as of the Work, and
        the covenant on collateral obligations, the sentence on requests, and the
        rule of construction speak of a Result too; and a person bound as a
@@ -103,7 +111,10 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
    20. A Contribution is any material, not only a work of authorship, and not
        material submitted to a repository or forum that puts such submissions
        under other terms instead (Section 1.11; ACD-1.1-SELF-AUDIT.md, section
-       3zg).
+       3zg). A person who, without stating otherwise, submits to a project that
+       offers the Work under this Dedication but puts submissions under other
+       terms, gives recipients nothing under this Dedication, patents included;
+       ACD-1.4 reached that person.
    21. The warranties and the kinds of loss are named in shorter lists (Sections
        8.1 and 8.2). Section 8.2 also names the use of any Result.
    22. The suggested notice says that the work is provided as is, and points to
