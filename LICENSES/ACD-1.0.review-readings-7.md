@@ -335,20 +335,20 @@ OSI のブログ “ATO 2026: Open Source Licensing 101”（2026-11-24・Nick V
 
 ## 1.490 同じ提出への委員の最後の通 —— 「許諾が 4 つの節に分かれる理由が分からない」「これを直すのは素人が専門の助けなしにできる仕事ではない」（Chestek 氏 2025-10-26・Orivex）を ACD-1.4 に当てる（B1 と B3 の材料・2026-11-25）
 
-§1.489 の走査で、ドシエに 1 度も出ていない 1 通を見つけた。Pamela Chestek 氏 2025-10-26（`license-review`・"Submission of Orivex Syscall Note License (OSN-1.0)"）。同じ日の McCoy Smith 氏の通の一部は `reviewer-positions.md`（前文の定義語・法律家のレビュー）に在る。引用の前後数百字を開いた（全文を通しては読んでいない）。
+§1.489 の走査で、ドシエに 1 度も引かれていない 1 通を見つけた（455 語で、§1.481 が型に当てた Chestek 氏の 150 語以上の通の束に入っていたが、型の表に引かれなかった。2026-11-25 に束を開いて確かめた。同じ条件の今の数え方では 89 通で、§1.481 の 91 との差は確かめていない）。Pamela Chestek 氏 2025-10-26（`license-review`・"Submission of Orivex Syscall Note License (OSN-1.0)"）。同じ日の McCoy Smith 氏の通の一部は `reviewer-positions.md`（前文の定義語・法律家のレビュー）に在る。引用の前後数百字を開いた（全文を通しては読んでいない）。
 
 | 発言 | ACD-1.4 の同じ型の文 | 当たるか |
 | :-- | :-- | :-- |
-| *"I don't understand why the copyright grant is broken up into four sections - just because it was done that way in a license written a decade ago (if that was your model) doesn't mean that it's a good drafting practice today."* | 同じ権利への作用が §3（放棄）・§4（許諾）・§5（約束）に分かれ、§6.1 が Computational Use を、§7.2 がデータベースを別に許す | **当たる。** 前文は 3 つの足場を並べる理由を述べるが、許しの文が §4・§6.1・§7.2 に散ることへの答えではない（against の #44 は §7 と §1.5 の重なりだけを数える）。1.5 の草案は許諾を 2.2 に、学習の許しを 2.2・2.3 に入れた |
+| *"I don't understand why the copyright grant is broken up into four sections - just because it was done that way in a license written a decade ago (if that was your model) doesn't mean that it's a good drafting practice today."* | 同じ権利への作用が §3（放棄）・§4（許諾）・§5（約束）に分かれ、§6.1 が Computational Use を、§7.2 がデータベースを別に許す | **当たる。** 前文は 3 つの足場を並べる理由を述べるが、許しの文が §4・§6.1・§7.2 に散ることへの答えではない（against の #44 は §7 と §1.5 の重なりだけを数える）。1.5 の草案は、Covered Rights の許諾の文（1.4 の §4.1・§4.2・§6.1・§7.2）を 2.2 の 1 条に、特許の許諾を 2.3 に入れた。放棄（2.1）・約束（2.5）・人格権の同意（2.6）・頒布の自由（4.3）・回避の授権（5.2）は別の条に在るままである（0d の当て） |
 | *"You have many sections that are unnecessary, circular, or redundant. For example, 4.4 is redundant and/or recursive to 4.1."* | §4.4・§8.6・§12.2 が「どれが有効かを判定しなくてよい」を繰り返す（§9.3 は生成の部分の判定・§1.481 の型 1） | **当たる。** 既に §1.481 に在る型。1.5 は 2.7 の 1 文にした |
 | *"Generally one need not comment on separate agreements"* | §2.6 *"This Dedication requires no separate instrument, assignment, or agreement"*・*"a matter of project governance and is not addressed here"* | **当たる（Low）。** 別の合意について述べない方が良い、という型。T84（1.4 の試作）を経て残した文で、要るのは「書面が要らない」の働き（T84・法の断定を避ける語） |
 | *"In my opinion, fixing all the problems with this license is not a task that a layperson can competently do without professional assistance."* … *"getting the assistance of a lawyer knowledgeable about drafting licenses and at least familiar with open source licenses."* | ACD の起草はモデル、法的レビューは無い（B1） | **不利。** 個々の提出への文で、規則ではない。だが、欠陥の多い本文の持ち主に法律家の助けを勧めた委員の言葉である |
 | *"The defined terms include at least one term … which is used nowhere in the rights and obligations of the license"*（McCoy Smith 氏 2025-10-26） | 1.4 の定義語を本文で数えた（Dedication・Moral Rights・Work・Dedicator・Covered Rights・Computational Use・Machine-Generated Material・Contribution・Reservation・You）。どれも定義の外で使われる | **当たらない。** 有利 |
 
-**読み。** 1 通の中に、1.4 に当たる型が 3 つ、当たらない型が 1 つ、B1 に不利な文が 1 つ在る。当たる 3 つのうち 2 つ（許諾の散り・繰り返し）は、1.5 の草案が述べ直した型で、出す版の 1.4 には残る。
+**読み。** 1 通の中に、1.4 に当たる型が 3 つ、当たらない型が 1 つ、B1 に不利な文が 1 つ在る。当たる 3 つのうち、Covered Rights の許諾の散りと「どれが有効かを判定しなくてよい」の繰り返しは 1.5 の草案が述べ直した型で、出す版の 1.4 には残る。
 
 **逆側。** (1) 4 つの節という批判は、許諾の条が「許諾そのもの」を割った提出への文で、ACD の §3・§4・§5 は放棄・許諾・約束という別の働きを分けたもので、数え方が違う。(2) Chestek 氏の文は「大きな問題に加えて小さな問題が多い」という結びで、本文の量だけを理由にしていない。(3) 法律家の助けを勧める文は、ACD の来歴を名指しておらず、§1.488 の講演と同じ向きに立つ別の記録である。(4) 1.5 の草案は型への答えになりうるが、出す版ではない。
 
 **この節が establish しないこと。** 許諾が散ることが却下の理由になること、法律家の助けが承認の要件であること。
 
-**反映**: B1（素人に直せないという委員の文・両側・59 へ）/ B3（許諾が散ることと繰り返し・1.4 の側）/ 1c 種（なし・1.5 は済み）。
+**反映**: B1（素人に直せないという委員の文・両側・59 へ）/ B3（許諾が散ることと繰り返し・1.4 の側）/ 1c 種（なし・Covered Rights の許諾と「判定しなくてよい」の 2 つは 1.5 で述べ直した）。
