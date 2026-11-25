@@ -283,3 +283,31 @@ cd が `submission-osd.md` の早見表の OSD 3 の行に「The second limb …
 **この節が establish しないこと。** 5.1 の Result の句が審査で受け入れられること。
 
 **反映**: B10（出力・モデルに条件を課さないことの支えを両側で・59 へ）/ 入口（なし）。
+
+## 1.488 委員長の講演（2026-10・掲載 2026-11-24）—— 「却下の 2 つの理由は、定義を満たさないことと、不明瞭な起草」「AI の利用は、いまのところ弁護士の代わりにならない」（McCoy Smith 氏・B1 と B2 の材料・2026-11-25）
+
+OSI のブログ “ATO 2026: Open Source Licensing 101”（2026-11-24・Nick Vidal 氏の掲載・`opensource.org/blog/ato-2026-open-source-licensing-101`）は、All Things Open 2026 の McCoy Smith 氏の講演の書き起こしを持つ。前書きは同氏を “Chair of OSI’s License Committee” と呼び、本人は “I’m also a member of the OSI board” と言う。
+
+**取り方と限界。** web-fetch の agent が 1 回読み、引用を 1 段落 125 字までの抜粋で返した。書き起こしは自動字幕で、この節の引用は**バイトで照合していない**（`rounds/` の受領文にもしていない）。長い文は要約で、逐語は下の短い句だけである。
+
+| 主題 | 抜粋（未照合） | ACD への向き |
+| :-- | :-- | :-- |
+| 提出と承認の数 | “We do get about 25 to 30 submissions of new licenses every year.”／“Anyway, we had 26 licenses submitted over the past year.”／“Four were approved.”／“I think all four of them were legacy licenses” | 不利。承認の 4 件はいずれも既に使われていた |
+| 却下の理由 | “Most of them get rejected primarily because of two faults.”／“One is they don’t meet the definition.”／“The other is you get a lot of unclear drafting.” | 有利: 理由の 2 つに「法律家が居ない」は無い。不利: 不明瞭な起草は B3 そのもの |
+| 委員 | “there’s a bunch of lawyers on this approval list, including me”（以下は曖昧でないか・後で覆らないかを見る、という趣旨の要約） | 不利: 起草の曖昧さを見る側に法律家がいる |
+| AI | “they can get an AI to write it for them rather than a lawyer”／“That oftentimes doesn’t work either.”／“So don’t think that the use of AI at the moment is a substitute for using a lawyer to write a license.” | 不利（B1・来歴）。有利: “oftentimes” は、いつもとは言っていない |
+| 共同体 | “In practice, it tends to be kind of binary.”／“Either there’s no community at all, and it’s just somebody who wants to come up with a new license”／“they tend to be able to demonstrate some sort of community around it.”／“Now, it may be just a single project.”／“It isn’t a scientific analysis.”／“It tends to be more of a consensus view of whether there’s something more behind it” than just the drafter | B2 に重い |
+
+**共同体の句の問いを取り違えない。** 問いは、採用者の方針が OSI 承認のうち “strong, established communities” を持つライセンスを推奨に入れていて、それをどう決めるのか、というもので、承認の要件を問うていない。だから「承認には共同体が要る」と書いてはならない。一方で、ACD のように背後にいる人が起草者だけのライセンスは、この見方では二分の片側に置かれる。“it may be just a single project” は、実在の採用 1 件の幅が在ることを言う（ACD の採用は本リポジトリ 1 件で、起草者と同じ人である）。
+
+**数の照合（portfolio-3f・2026-11-25・承認済みの API）。** 2025-11〜2026-11 に承認日を持つのは NIST Software License（2026-02-20）、curl（2026-04-17）、Python-2.0.1 と CNRI-Python-GPL-Compatible（2026-06-29）の 4 本で、講演の “Four were approved” と合う。legacy かどうかは API に無く、`board-decisions.md` の表は curl を legacy と記録している（ほかは確かめていない）。26 件の母数は確かめていない。
+
+**読み。** 不利の側は 3 つある。(1) 委員長が公の場で、AI に書かせることを弁護士の代わりにしないよう述べた —— ACD の来歴（モデルが起草し、法律家のレビューが無い・B1）に、名指しではないが直接当たる。(2) 過去 1 年の承認は、新規の形のものが無い。(3) 起草者だけのライセンスは「共同体が無い」側に数えられうる。支える側は、却下の理由が 2 つで、どちらも法律家の有無ではなく成果物を見ていること、法律家の有無が承認の条件だとは言っていないこと、“oftentimes” という限定である。
+
+**逆側（この読みへ）。** (1) 「2 つの理由」は概数の講演の言い方で、個別の却下の記録（`board-decisions.md`）を替えない。(2) 有利な側の「法律家の有無は理由に挙がっていない」は、挙がっていない理由（“primarily”）が無いことの証明ではない。法律家の助言を勧める文は別に在る（§1.462・B1）。(3) 講演は議事でも決定でもなく、書き起こしの誤りもありうる。(4) 同じ月に AI で書かれた投稿への moderators の宣言（B14・2026-09-09）が在り、講演はそれと同じ向きに立つ。
+
+**肩書きの数え。** “Chair of OSI’s License Committee” は、いまの委員長が Smith 氏であることの、2026-11-24 の公の記載である。Chestek 氏を「委員長」と書く文のうち、元・在任時期・年の付かない現在形は、ドシエの行を表記で絞って見た 25 行には無かった（絞りに外れる表記は見ていない）。
+
+**この節が establish しないこと。** AI が起草したことだけで却下されること、共同体が承認の要件であること、新規のライセンスの承認が今後も無いこと。
+
+**反映**: B1・B2・B3（委員長の講演を両側で・59 へ）/ against（59 の判断）。
