@@ -359,3 +359,5 @@ appropriate, I send them as written."*
 **では何のために測ったのか。** **我々自身が「異常なことをしている」と誤って自己評価しないため**である
 （#131 の「誤りは我々が悪く見える向きに偏る」の予防）。**register の内部向けの数であって、
 外へ出す材料ではない。**
+
+**2026-11-25 に足した —— 出力に条件を課さないことの支えと、出力へ広げた特許の費用（`review-readings-7.md` §1.485・§1.487・6c）。** 出力に条件を付けることについて、決める側の文は支える側に揃っている: Pamela Chestek 氏 2025-05-17 *"you are imposing a obligation that runs with the output, which has never been acceptable in an open source license."*（ModelGo）、Carlo Piana 氏 2025-05-14 *"I think that imposing anything on the output of the model is against the OSD as it is a restriction on the use of the licensed subject matter."*。ACD-1.4 は *Computational Use* の中に作成と使用を入れ、条件を課さない（§10.1・§6.4）。特許を出力へ広げたことは、広さの側では不利な語（B7 の Perens 氏 2025・Smith 氏 2018）に当たり、G1 の gap はその広さを買っている。**逆側**: Chestek 氏 2025-12-03 は出力の制限が自動的に OSD 6 に当たるとは言わない、どの文も条件を課す側への異議で、課さない文を求めたものではない、*embodied* に限る承認済みの型（AFL・OSL）は出力を想定していない —— 出力に届く許諾が求められた記録も、退けられた記録も無い。
