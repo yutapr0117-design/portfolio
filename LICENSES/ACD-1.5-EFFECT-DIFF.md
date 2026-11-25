@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.5-EFFECT-DIFF.md
 audience: 次のセッションの実装者 / 監査人 / 法律家 / 提出者
-last-updated: 2026-11-24
+last-updated: 2026-11-25
 canonical-ref: LICENSES/ACD-1.5-DRAFT.txt（候補の本文・権威）/ LICENSES/ACD-1.4.txt（直前の凍結版）/ LICENSES/ACD-1.5-CHANGELIST.md（意味が動く所・合議の記録 17〜20）
 reachable-via: LICENSES/README.md
 ---
