@@ -149,6 +149,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_license_register_structure.py",  # split: register の構造 (469/474/475)
     ROOT / ".github" / "scripts" / "checks_license_quotation.py",  # split: 引用の忠実性 (470)
     ROOT / ".github" / "scripts" / "checks_license_references.py",  # split: 参照の解決 (471)
+    ROOT / ".github" / "scripts" / "checks_license_entry.py",  # split: 入口の面 (472l〜472p)
     ROOT / ".github" / "scripts" / "checks_seo_meta.py",  # split: AIO/SEO meta + canonical URL + resource-resolution (149-166 minus 152/165)
     ROOT / ".github" / "scripts" / "checks_api_catalog.py",  # split: .well-known/api-catalog RFC 9727/9264/6573 conformance (165, 449)
     ROOT / ".github" / "scripts" / "checks_source_coherence.py",  # split: cross-file source coherence + CSP-hash (7/11/14/350・ctx-enrich)
@@ -376,6 +377,7 @@ import checks_license_self_reporting as _checks_license_self_reporting
 import checks_license_register_structure as _checks_license_register_structure
 import checks_license_quotation as _checks_license_quotation
 import checks_license_references as _checks_license_references
+import checks_license_entry as _checks_license_entry
 import checks_license_stated_counts as _checks_license_stated_counts
 _checks_license_dossier.run(_ctx)
 _checks_license_corpus.run(_ctx)
@@ -387,6 +389,7 @@ _checks_license_self_reporting.run(_ctx)
 _checks_license_register_structure.run(_ctx)
 _checks_license_quotation.run(_ctx)
 _checks_license_references.run(_ctx)
+_checks_license_entry.run(_ctx)
 _checks_license_stated_counts.run(_ctx)
 
 # ── 31-41 (minus 37). repository hygiene / doc-dating / artifact / lock-sync → checks_repo_hygiene.py ──
