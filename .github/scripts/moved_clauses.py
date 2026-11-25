@@ -92,8 +92,8 @@ def effect_diff_gate(v: str, prev: str, draft: str) -> list[str]:
     errata と UNIQUE-READING の回帰は「過去に問題になった語」しか見ない。書き直した 1.5 では、4 人の回帰で「開いた 0」の後に、
     ドシエを持たない読み手が 2 本の本文だけを読んで記録の無い落ちを 11 件出した。差の数は数えない (1 回の読みの量に依る)。
     見るのは「記録が在り、いまの候補の本文についてのもので、仕分けの無い差が 0」まで。仕分けの正しさは人が読む。
-    high は「残っている HIGH」= 一覧に無い・PARTLY LISTED・全員一致で残すと決めていないもの (残すと決めた HIGH は除く。2026-11-25・
-    議題 31)。決めたかどうかは、出す版を替える前の門 (_lib_gate_pin・GATE-RESULT の listed-high / listed-high-agreed) が別に見る。
+    high は読みが残した HIGH の実数。GATE.md (出す版を替える前の門・議題 31) に合格の結果が在る版では、結果の listed-high と同じ数で
+    通り、無い版では 0 だけが通る (_lib_gate_pin.high_problem)。0 と書く誘因を作らないため、残すと決めた HIGH も数に入れる。
     """
     p = ROOT / "LICENSES" / f"ACD-{v}-EFFECT-DIFF.md"
     if not p.exists():
@@ -107,8 +107,9 @@ def effect_diff_gate(v: str, prev: str, draft: str) -> list[str]:
         out.append(f"{p.name} の基準が ACD-{m['base']} (直前の凍結版は ACD-{prev})")
     if int(m["readers"]) < 2:
         out.append(f"{p.name} の読み手が {m['readers']} 体 (独立の 2 体が要る・議題 24)")
-    if int(m["high"]):
-        out.append(f"{p.name} に HIGH の差が {m['high']} 件残っている")
+    from _lib_gate_pin import gate_result, high_problem
+    if hp := high_problem(int(m["high"]), gate_result(v)):
+        out.append(f"{p.name}: {hp}")
     if int(m["unsorted"]):
         out.append(f"{p.name} に仕分けの無い差が {m['unsorted']} 件ある")
     # 読み手が読んだ固定と候補が違うなら、動いた条を当て直した印が要る。読んだ固定は repo に無いことがあるので、条の列が正しいかは見えない
