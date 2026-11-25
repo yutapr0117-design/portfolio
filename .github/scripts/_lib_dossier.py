@@ -493,7 +493,8 @@ def register_other_side_misses(licenses_dir: Path) -> tuple[list[str], list[str]
 #   Fontana     — 2019-01-10 の license-review に "the License Committee Chair (currently me)"。始まりは確かめていない。
 #   Chestek     — 自分の署名 "Chair, License (Review) Committee" が 2019-05-24〜2025-02-14 に 191 通 (license-review / -discuss の写し)。
 #                 議事録 2025-01-17 "appoint a new License committee chair as Pam's term on the board ends on April 1st"。
-#   Berkus      — 議事録 2026-02-20 "his leadership as Chair of the License Committee" (過去形で労う)。
+#   Berkus      — 議事録 2026-02-20 "his leadership as Chair of the License Committee" (過去形で労う)。**始まり (2025-03/04) は直接の
+#                 記録が無い推定** (理事会ページの月次の写しと、Chestek 氏の任期の終わりから)。
 #   McCoy Smith — 議事録 2026-03-20 "McCoy reports for the Licensing Committee"、2026-02-20 も同氏が状況を報告。
 # 境目 (2019-02〜05・2025-03・2026-01〜02) は記録が月を決めないので、両方の人を許して止めない。委員長が替わった日に、根拠と一緒に直す
 CHAIR_TERMS = {"Fontana": ("0000-00", "2019-05"), "Chestek": ("2019-02", "2025-03"), "Berkus": ("2025-03", "2026-02"),
