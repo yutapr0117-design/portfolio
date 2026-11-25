@@ -94,7 +94,9 @@ narrow band where those assumptions fail together.
    [`LICENSE`](../LICENSE), which is the latest fixed version we apply ourselves. The header above
    the dividing line describes this repository's file and is not part of the Dedication (§1.1), so
    your copy may leave it out.
-3. **Add the notice** from §16.1 of that text, with the location of your copy.
+3. **Add the notice** from §16.1 of that text, with the location of your copy. If you only place the licence
+   text in a `LICENSE` file, put the notice, or at least the line `SPDX-License-Identifier: LicenseRef-ACD-1.4`,
+   at its head: the text speaks of applying the Dedication by a notice (§16.1).
 4. **Mark anything the Dedication does not cover.** If your work includes material under other
    terms, §2.6 has you identify it in a form that travels with the work, so that a person or a
    program can tell what is excluded. The text names no standard; forms that say *which* material
