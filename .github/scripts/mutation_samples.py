@@ -329,6 +329,19 @@ _MUTATIONS_TAIL.append({
     "replace": "次の門は別に決める。",
     "check": CHECK,
 })
+_MUTATIONS_TAIL += [{
+    "name": "Check 504b: 門の無い版で EFFECT-DIFF の high=1 を通す —— 議題 24 の門 (HIGH 0) が黙って外れる (2026-11-25・議題 31)",
+    "file": ROOT / ".github" / "scripts" / "_lib_gate_pin.py",
+    "find": 'return f"HIGH の差が {high} 件残っている" if high else None',
+    "replace": "return None",
+    "check": CHECK,
+}, {
+    "name": "Check 504b: 結果の listed-high と違う high を通す —— 残した HIGH を 0 と書いて確定できる (2026-11-25・議題 31)",
+    "file": ROOT / ".github" / "scripts" / "_lib_gate_pin.py",
+    "find": 'if high != int(r["listed"]):',
+    "replace": 'if high > int(r["listed"]):',
+    "check": CHECK,
+}]
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

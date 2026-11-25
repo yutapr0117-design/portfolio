@@ -19,7 +19,7 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (合議の記録・議題 16) / .g
 
 `<!-- EFFECT-DIFF: base=ACD-1.4 commit=<候補の commit> body-sha256=<候補> readers=2 read-sha256=<読んだ固定> reapplied=none|2.3,5.6 high=0 unsorted=0 -->`
 
-独立の読み手が 2 体以上・HIGH 0・仕分けの無い差 0・候補の本文の sha が草案と一致。読んだ固定が候補と違うなら、動いた条を当て直した列（reapplied）が要り、10 条を超えれば読み直し（議題 24）。
+独立の読み手が 2 体以上・HIGH 0（`ACD-N.M-GATE.md` に合格の結果が在る版では、結果の listed-high と同じ実数）・仕分けの無い差 0・候補の本文の sha が草案と一致。読んだ固定が候補と違うなら、動いた条を当て直した列（reapplied）が要り、10 条を超えれば読み直し（議題 24）。
 
 ## How (usage)
 

@@ -28,6 +28,23 @@ def failed(r: re.Match) -> bool:
     return bool(int(r["high"]) or int(r["partly"]) or int(r["listed"]) != int(r["agreed"]))
 
 
+def high_problem(high: int, r: re.Match | None) -> str | None:
+    """EFFECT-DIFF の印の high (読みが残した HIGH の実数) が通ってよい数か。r = GATE-RESULT (GATE.md の無い版は None)。
+
+    GATE.md の無い版は 0 だけ (議題 24)。合格の結果が在る版は、結果の listed-high と同じ実数だけ (0 と書かせない・議題 31)。
+    """
+    if r is None or not r["date"] or failed(r):
+        return f"HIGH の差が {high} 件残っている" if high else None
+    if high != int(r["listed"]):
+        return f"印の HIGH {high} 件が、門の結果の一覧に在る HIGH {r['listed']} 件と違う (残した実数を書く)"
+    return None
+
+
+def gate_result(v: str) -> re.Match | None:
+    f = gate_file(v)
+    return RESULT.search(f.read_text(encoding="utf-8")) if f.exists() else None
+
+
 def _block(text: str, tag: str) -> str | None:
     m = re.findall(rf"<!-- {tag} -->\n(.*?)\n<!-- /{tag} -->", text, re.S)
     return m[0] if len(m) == 1 else None
