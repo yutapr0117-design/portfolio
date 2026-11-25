@@ -909,7 +909,7 @@ T48（2026-11-09）は、*"Paragraphs (a) and (b) do not reach a service through
 
 **見つけ方**: 試作 T90（THIRD §15.23 の後）は「何の請求を入れるか」（不当利得・不正競争を入れる）を決め、「何の請求を外すか」を攻撃・事故に当てていなかった。1.2 → 1.4 の 3 度の言い直しはどれも入れる側の漏れを塞ぐ変更だった。
 
-**1.5 草案で閉じた（2026-11-24）**: *"treats a use of the Work … as wrongful, or as without legal basis, by reason of its being a use of the Work"* —— 攻撃の請求は攻撃を理由とし、Work の使用であることを理由としない。1.2〜1.4 は凍結のまま未修正。退けた形: *"for want of the Dedicator's permission"*・*"does not depend on the use lacking the Dedicator's permission"* —— 許諾の不在に依らない不正競争・不当利得の請求が約束の外に戻る（T90 で *"depends on … being unauthorised"* を退けたのと同じ理由）。
+**1.5 草案で閉じた（2026-11-24）**: *"treats a use of the Work … as wrongful, or as without legal basis, by reason of its being a use of the Work"* —— 攻撃の請求は攻撃を理由とし、Work の使用であることを理由としない。1.2〜1.4 は凍結のまま未修正。退けた形: *"for want of the Dedicator's permission"*・*"does not depend on the use lacking the Dedicator's permission"* —— 許諾の不在に依らない不正競争・不当利得の請求が約束の外に戻る（T90 で *"depends on … being unauthorised"* を退けたのと同じ理由）。 **2026-11-25 の追記**: n8 の語は *"by reason of its being such a use or of what the Work contains"*（議題 28・32）。攻撃の請求が外れることは変わらない。失う側は、使用の仕方や結果を理由とする不正競争・サーバの負荷の請求が外と読まれうること（`CHANGES-ACD-1.5.txt` の 9）。
 
 **逆側**: 「Work の使用であることを理由とする」の境は裁判所が決める。プライバシー・パブリシティの請求は理由が人の像であって Work の使用でないと争えるので、次の文で明示に入れてある。
 
@@ -933,4 +933,4 @@ T48（2026-11-09）は、*"Paragraphs (a) and (b) do not reach a service through
 
 **見つけ方**: 縮約の本文だけを渡した読み手（審査者の役・AI の agent・第三者の意見ではない）。E31 と試作 T159 は「誰の権利か」と「どの使用か」を当て、像がどこに在るかを当てていなかった。
 
-**1.5 草案で閉じた（2026-11-24）**: 2.5(d) *"as to the Dedicator's own likeness, voice, name, or performance contained in the Work, under a right of privacy, publicity, or personality"*。**逆側**: 像・声・名・実演の外の私事（Work に書かれた本人の病歴など）についてのプライバシーの請求は、Work の使用であることを理由とするもの（同じ文の前半）に限って約束に入る。1.2〜1.4 は凍結のまま未修正。
+**1.5 草案で閉じた（2026-11-24・語は 2026-11-25 の n8）**: 2.5(d) *"by reason of its being such a use or of what the Work contains, including a claim under a right of privacy, publicity, or personality"*。Work に写った本人の像・声・私事を理由とする請求は約束に入り、ほかの写真や録音から道具で作った偽の像・声の請求は、使用であることも Work の中身も理由でないので外れる。11-24 に入れた *the Dedicator's own … contained in the Work* の列は、日記や健康データ、模型が推論した事柄、譲り受けた publicity の権利の扱いが列の端で割れたので替えた（議題 28）。**逆側**: 1.4 §5.2(d) の *in respect of any use* より狭い。*what the Work contains* の境を 9.1 と 5.5(a) に預け、データ保護の請求にも約束が及ぶと読めるので「放棄できない権利を放棄させる」という批判を受けうる（答えは 2.7 と 6.4）。1.2〜1.4 は凍結のまま未修正。
