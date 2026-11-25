@@ -270,7 +270,9 @@ def run(ctx):
             #   閉じた errata が在るときは、総数も節ごとの数も、tgt までに閉じた番号と、英文が名指す印の無い番号だけで数える
             later_j = any(vk(v) > vk(tgt) for v in closed_j) and (L / f"ACD-{tgt}.txt").exists()
             if later_j:
-                named_j = [e for e in unmarked_j if re.search(rf"\b{e}\b", rest[:200])]
+                # tgt より後の版で閉じた番号も、tgt の時点では開いていた (2026-11-25・59: E88 を 1.5 草案で閉じたと印すと 87 が 86 になった)
+                named_j = [e for e in unmarked_j + [x for v in closed_j if vk(v) > vk(tgt) for x in closed_j[v]]
+                           if re.search(rf"\b{e}\b", rest[:200])]
                 total_t, closed_t, unm_t = sum(len(closed_j[v]) for v in olds) + len(closed_j.get(tgt, [])) + len(named_j), \
                     {v: closed_j[v] for v in olds + [tgt] if v in closed_j}, named_j
                 sect_t = errata_closures({e for x in closed_t.values() for e in x} | set(named_j))[3]
