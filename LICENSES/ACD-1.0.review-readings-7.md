@@ -311,3 +311,24 @@ OSI のブログ “ATO 2026: Open Source Licensing 101”（2026-11-24・Nick V
 **この節が establish しないこと。** AI が起草したことだけで却下されること、共同体が承認の要件であること、新規のライセンスの承認が今後も無いこと。
 
 **反映**: B1・B2・B3（委員長の講演を両側で・59 へ）/ against（59 の判断）。
+
+## 1.489 2025-10〜2026-09 に「不明瞭」と言われた文の型を、ACD-1.4 の同じ型の文に当てる —— 改変物の語が 2 通り（Chestek 氏 2026-04）は当たり、「義務の言い方」（同 2026-08）は当たらない（B3 の材料・2026-11-25）
+
+委員長の講演（§1.488）は却下の理由の 1 つを「不明瞭な起草」と言った。決める側の 2025-10〜2026-09 の通から、*ambiguous・unclear・confusing・undefined・inconsistent・can be read* などの語を持つ 96 か所の前後の抜き書きを読み、起草の指摘の型のうち、これまでの節（§1.481〜§1.484・§1.215）に無いものを ACD-1.4 の文に当てた。下の 4 通は、引用の前後数百字を開いた（全文を通しては読んでいない）。
+
+| 型 | 発言 | ACD-1.4 の同じ型の文 | 当たるか |
+| :-- | :-- | :-- | :-- |
+| 改変物の語が 2 つに分かれる | *"This "or" statement suggests that modifications are different from derivative works, but there is no description or definition of a "modification." This matters because in the grant clause in some places you have granted the right to make derivative works but not modifications."*（Pamela Chestek 氏 2026-04-18・CompanioNation） | §4.2 は *"adapt, translate, modify, create derivative and collective works from"* と作る行為を 5 語で並べ、頒布・再許諾の目的語は *"the Work and any adaptation of it"* の 1 語である。§4.5 は *"any adaptation or collection containing it"*、§8.1 は *"the Work or anything derived from it"* | **当たる（Low）。** 派生物を作る語と、頒布する物の語が同じでない。*collective work* と *derivative work* が *adaptation* に入るかは定義されていない |
+| 再許諾が 2 か所に在る | *"To Shuji-san's comment that there are two sublicense provisions, 2.2 and 4.6, I would add that there is another confusing spot, 2.4"*（Chestek 氏 2025-10-23・Orivex） | §4.1 *"sublicensable"* と §4.2 *"sublicense"*、§8.1 *"sublicensable"* | **一部当たる。** 同じ氏の直接の被許諾者を勧める文は §1.481 の表に在り、1.4 は §4.6 で全員を直接の You とする。2 か所に在ることそのものは、その表に無かった |
+| 義務と読める言い方 | *"uses language of obligation, it can be read as an obligation."*（Chestek 氏 2026-08-23・OpenMDW の *"you are solely responsible for"*） | 受け手を主語にする *shall・must・responsible for* の文は 1.4 に無い（区切り線より下の行の grep で、*"You agreed to make"* の 2 か所は支払いの除外）。受け手を主語にする文は *"need not"*・*"are not required"*・*"owe nothing"* の否定形である | **当たらない。** 有利 |
+| 定義の無い語 | *""Publicly accessible" is undefined."*（McCoy Smith 氏 2026-05-07・Milenium） | *accessible* は 1.4 に無い。*content of the Work*（§8.4）・*associated with the Work*（§6.2）は定義の無い句 | **同じ型は在りうる。** 前者は試作 T142・T167 が扱い、後者の読みは台帳（1.4）を見る |
+
+**読み。** 当たったのは 1 つ目で、欠陥の重さは Low である。**答えになるもの**: §4.1 が *"all Covered Rights in the Work for any purpose whatsoever"* を許し、§4.2 は *"without limitation"* の例示で、§15.1 が多く与える読みを取る。だから「改変物の頒布の権利が無い」とまでは読めない。**答えにならないもの**: 目的語の *adaptation* が derivative と collective を含むかを本文が言わないことは、そのまま残る。errata の E41（§8.1 の *derivative*）は、§4.2 が同じ考えを別の著作権の語で言うことを先に書いていたが、頒布の目的語が作る行為と揃わないことは数えていない。
+
+**逆側。** (1) Chestek 氏の文は、許諾が頒布の動詞を持つ別の提出への指摘で、改変・派生の語が割れて許諾から落ちる場面だった。1.4 は general な許諾を先に置くので、落ちる場面ではない。(2) *adaptation* は著作権の用語で、多くの国の法では派生物を含む —— 国によって割れる語を使うことの費用は E41 と同じ。(3) 1.5 の草案（2.2）も同じ語を持つ（*"prepare derivative and collective works of, … the Work and any adaptation of it"*）ので、述べ直しは閉じていない。(4) §1.215 は Piana 氏 2025-10-21 の「頒布する語はどこか」への答えとして §4.2 の *adaptation* を有利とだけ書いた —— 上の観察は、その読みに足す逆側である。
+
+**errata の候補（59 へ）。** 1.0〜1.4 の §4.2 と §4.5 に同じ語が在ることを、5 版の本文で確かめた。Low、凍結した版は直さない。直す語を選ぶなら、次版で `the Work, and any work made from it or containing it`（案であって引用ではない） のように、作る行為と頒布の目的語を 1 つの語にそろえる（試作していない）。
+
+**この節が establish しないこと。** 審査でこの語が問題にされること。
+
+**反映**: B3（不明瞭さの型を ACD-1.4 に当てた結果・両側・59 へ）/ errata（Low・新しい番号・59 の判断）/ 1c 種（次版の 2.2・0d）。
