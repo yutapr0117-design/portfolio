@@ -92,6 +92,8 @@ def effect_diff_gate(v: str, prev: str, draft: str) -> list[str]:
     errata と UNIQUE-READING の回帰は「過去に問題になった語」しか見ない。書き直した 1.5 では、4 人の回帰で「開いた 0」の後に、
     ドシエを持たない読み手が 2 本の本文だけを読んで記録の無い落ちを 11 件出した。差の数は数えない (1 回の読みの量に依る)。
     見るのは「記録が在り、いまの候補の本文についてのもので、仕分けの無い差が 0」まで。仕分けの正しさは人が読む。
+    high は「残っている HIGH」= 一覧に無い・PARTLY LISTED・全員一致で残すと決めていないもの (残すと決めた HIGH は除く。2026-11-25・
+    議題 31)。決めたかどうかは、出す版を替える前の門 (_lib_gate_pin・GATE-RESULT の listed-high / listed-high-agreed) が別に見る。
     """
     p = ROOT / "LICENSES" / f"ACD-{v}-EFFECT-DIFF.md"
     if not p.exists():

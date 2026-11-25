@@ -18,7 +18,7 @@ from moved_clauses import ROOT, body_sha, working_draft
 PIN = re.compile(r"<!-- GATE-PIN: version=(?P<v>\d+\.\d+) since=(?P<since>\d{4}-\d{2}-\d{2}) days=(?P<days>\d+) body-sha256=(?P<body>[0-9a-f]{64}) "
                  r"changes-sha256=(?P<changes>[0-9a-f]{64}) text-sha256=(?P<text>[0-9a-f]{64}) prompt-sha256=(?P<prompt>[0-9a-f]{64}) -->")
 RESULT = re.compile(r"<!-- GATE-RESULT: (?:none|date=(?P<date>\d{4}-\d{2}-\d{2}) unlisted-high=(?P<high>\d+) partly-high=(?P<partly>\d+) "
-                    r"listed-high=(?P<listed>\d+) listed-high-agreed=(?P<agreed>\d+) reports=(?P<reports>\S+)) -->")
+                    r"listed-high=(?P<listed>\d+) listed-high-agreed=(?P<agreed>\d+) models=(?P<models>[^\s,]+,[^\s,]+) reports=(?P<reports>\S+)) -->")
 # 門の文が持つこと (議題 29 の丁・議題 31 の条件 1)。文を薄めた門を「同じ門」と呼ばせない
 MUST_SAY = ("結果を見た後に選んだ門", "落ちたら", "1.4 のまま", "3 つ目の門は作らない", "1 回だけ", "PARTLY LISTED", "全員一致", "別の agent")
 
@@ -84,7 +84,11 @@ def pin_problems(v: str) -> list[str] | None:
 
 
 def _moved_after(v: str, since: str) -> list[str]:
-    """印の since (UTC の日) より後に書かれた commit (author の日。rebase merge は committer の日を替える) で、本文か一覧の中身が動いていればその file。"""
+    """印の since (UTC の日) より後に書かれた commit で、本文か一覧の中身が動いていればその file。
+
+    author の日で見る (rebase merge は committer の日を替える)。**限界**: author の日は書き換えられるので、印と commit の日の両方を
+    昔にした形は見えない。その形でも sha が変わるので、印の差分は必ず残る。
+    """
     out = []
     for rel, sha in ((f"LICENSES/ACD-{v}-DRAFT.txt", body_sha), (f"LICENSES/CHANGES-ACD-{v}.txt", _sha)):
         log = subprocess.run(["git", "log", "--format=%H %aI", "--", rel], cwd=ROOT, text=True, capture_output=True).stdout.split("\n")
