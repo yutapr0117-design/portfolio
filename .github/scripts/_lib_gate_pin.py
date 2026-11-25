@@ -19,6 +19,7 @@ PIN = re.compile(r"<!-- GATE-PIN: version=(?P<v>\d+\.\d+) since=(?P<since>\d{4}-
                  r"changes-sha256=(?P<changes>[0-9a-f]{64}) text-sha256=(?P<text>[0-9a-f]{64}) prompt-sha256=(?P<prompt>[0-9a-f]{64}) -->")
 RESULT = re.compile(r"<!-- GATE-RESULT: (?:none|date=(?P<date>\d{4}-\d{2}-\d{2}) unlisted-high=(?P<high>\d+) partly-high=(?P<partly>\d+) "
                     r"listed-high=(?P<listed>\d+) listed-high-agreed=(?P<agreed>\d+) models=(?P<models>[^\s,]+,[^\s,]+) reports=(?P<reports>\S+)) -->")
+MIN_DAYS = 7  # 議題 29 の丁。門の文の日数で、印の days がこれより短ければ止める
 # 門の文が持つこと (議題 29 の丁・議題 31 の条件 1)。文を薄めた門を「同じ門」と呼ばせない
 MUST_SAY = ("結果を見た後に選んだ門", "落ちたら", "1.4 のまま", "3 つ目の門は作らない", "1 回だけ", "PARTLY LISTED", "全員一致", "別の agent")
 
@@ -84,6 +85,11 @@ def pin_problems(v: str) -> list[str] | None:
     p, r = pins[0], results[0]
     if p["v"] != v:
         out.append(f"印の版 {p['v']} が {v} でない")
+    if int(p["days"]) < MIN_DAYS:
+        out.append(f"印の日数 {p['days']} が {MIN_DAYS} より短い (門の文の日数を印で縮めている)")
+    today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+    if p["since"] > today or (r["date"] or "") > today:
+        out.append("固定の日か結果の日が未来 (UTC)。まだ起きていないことを書いている")
     if r["date"]:
         # 門は終わった: 合否は確定の道具が見る。読んだものが固定したものと違う (結果の後に数え直した) なら止める
         if r["date"] < p["since"]:
@@ -122,6 +128,21 @@ def _moved_after(v: str, since: str) -> list[str]:
     return out
 
 
+def _results_in_history(v: str) -> set[tuple[str, ...]]:
+    """GATE.md の履歴に現れた、日付つきの結果の (日・数・模型) の集合。reports の path の直しは別の結果に数えない。"""
+    rel = f"LICENSES/{gate_file(v).name}"
+    out = set()
+    for h in subprocess.run(["git", "log", "--format=%H", "--", rel], cwd=ROOT, text=True, capture_output=True).stdout.split():
+        for m in RESULT.finditer(subprocess.run(["git", "show", f"{h}:{rel}"], cwd=ROOT, text=True, capture_output=True).stdout):
+            if m["date"]:
+                out.add(result_key(m))
+    return out
+
+
+def result_key(m: re.Match) -> tuple[str, ...]:
+    return tuple(m[k] for k in ("date", "high", "partly", "listed", "agreed", "models"))
+
+
 def gate_problems(v: str, today: datetime.date | None = None) -> list[str]:
     """確定の道具の門: 印・日数・結果・履歴。"""
     today = today or datetime.datetime.now(datetime.timezone.utc).date()
@@ -136,6 +157,10 @@ def gate_problems(v: str, today: datetime.date | None = None) -> list[str]:
     if left > 0:
         bad.append(f"固定 ({p['since']}) から {p['days']} 日のうち、あと {left} 日残っている")
     bad += _moved_after(v, p["since"])
+    # 「1 回だけ」(議題 31 の条件): 一度書いた結果を消して読み直した・書き換えた形は、いまの file だけ見ても分からない
+    past = _results_in_history(v) | ({result_key(r)} if r["date"] else set())
+    if len(past) > 1 or (past and not r["date"]):
+        bad.append(f"読みの結果が履歴で {len(past)} 通り在る・または一度書いた結果が消えている (読みは 1 回だけ): {sorted(past)}")
     if not r["date"]:
         bad.append("読みの結果 (GATE-RESULT) が無い")
     elif failed(r):

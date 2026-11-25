@@ -25,7 +25,8 @@ python3 .github/scripts/check_repository_consistency.py # Check 504
 ## Constraints
 
 - 門の文は 8 つの句（結果を見た後に選んだ門・落ちたら・1.4 のまま・3 つ目の門は作らない・1 回だけ・PARTLY LISTED・全員一致・別の agent）を持つ。
-- 印（GATE-PIN）と結果（GATE-RESULT）は 1 個ずつ。結果が在れば数え直せない。
+- 印（GATE-PIN）と結果（GATE-RESULT）は 1 個ずつ。結果が在れば数え直せない。印の days は 7 以上、印と結果の日は未来でない（Check 504）。
+- 確定の道具は git の履歴で、日付つきの結果が 1 通りで、消えていないことを見る（1 回だけ）。**限界**: merge しなかった branch での読みは履歴に無いので見えない。
 
 ## Change impact
 

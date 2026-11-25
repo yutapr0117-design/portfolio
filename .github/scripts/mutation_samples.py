@@ -356,6 +356,13 @@ _MUTATIONS_TAIL.append({
     "replace": "Moral Rights may include those of a performer",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 504: 固定の印の日数を 7 から 1 に縮める —— 門の文の 7 日が印の 1 字で消える (2026-11-26)",
+    "file": ROOT / "LICENSES" / f"ACD-{CURRENT_DRAFT_VER}-GATE.md",
+    "find": " days=7 body-sha256=",
+    "replace": " days=1 body-sha256=",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
