@@ -116,8 +116,13 @@ does not say that keeping or recording another person's notice leaves your own m
 (errata [E90](ACD-1.0.errata.md)); we read it that way ([FAQ A33](FAQ.md)). **If your project is
 under another licence and includes an ACD file, state your terms for patches.** In 1.4 a patch to that file,
 sent to a repository that offers it with its notice, is read as a contribution under ACD unless its author
-says otherwise (`ACD-1.1-SELF-AUDIT.md` §3zg). Both are repaired in the 1.5 draft, which is not fixed and
-not applied.
+says otherwise (`ACD-1.1-SELF-AUDIT.md` §3zg). **If you accept contributions and count on contributors'
+patent licences, know where they stop.** In 1.0 to 1.4 a contributor is a Dedicator as to the contribution, and
+§8.1 reaches infringement caused by subject matter contained in the Work; a claim that the project infringes only
+once the contribution is merged into it can be read to fall outside the contributor's licence (errata
+[E95](ACD-1.0.errata.md)). Apache-2.0 names that case and ACD-1.4 does not; ACD-1.4's Section 15.1 takes the wider reading, and no
+lawyer has checked which reading a court would take. These three are repaired in the 1.5 draft, which is not
+fixed and not applied.
 
 There is nothing to register, and you do not need to tell us.
 
