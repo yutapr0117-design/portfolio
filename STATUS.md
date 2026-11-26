@@ -25,7 +25,7 @@
 - **オーナーにしかできないこと（提出の前提）**: **段 6b が未了** —— 確定した ACD-1.4 の新しい語を、1.0 との差として自分の言葉で `license-discuss` へ出す（30 日の時計はここから動く・材料は `LICENSES/SUBMISSION-MATERIALS.md` §0b / §0d）。実在のプロジェクトへの使用の表明の依頼（窓口 `.github/ISSUE_TEMPLATE/acd-use.yml`・B2）も同じ。
 - **投稿先**: `license-discuss`（単一ソース = FROZEN.md の VENUE-DATA・Check 458 が全 status 面に強制）。**承認の窓口である `license-review` にも SPDX にも未提出。**
 - **発信の状態**: 通常（`FROZEN.md` の POSTING-STATUS が `active`）。**`active` は「我々の側で止めていない」であって「リストに届く」ではない** —— moderation の拒否は `LICENSES/ACD-OSI-BOTTLENECKS-POSTING.md`（B14）に記録する。
-- **自分で書いた不利な事実**: 333 件（`LICENSES/ACD-1.0.against.md`・不利なものを先に並べる）／**既知の欠陥**: 93 件（`ACD-1.0.errata.md`）—— **1.0 では全件未修正**（凍結中のため）、**うち 88 件は次版の草案で閉じた**（残る 5 件は errata の状態欄が理由を述べる）。
+- **自分で書いた不利な事実**: 334 件（`LICENSES/ACD-1.0.against.md`・不利なものを先に並べる）／**既知の欠陥**: 94 件（`ACD-1.0.errata.md`）—— **1.0 では全件未修正**（凍結中のため）、**うち 89 件は次版の草案で閉じた**（残る 5 件は errata の状態欄が理由を述べる）。
 - **審査者向けの入口**: https://yutapr0117-design.github.io/portfolio/LICENSES/REVIEWERS.md
 - **外部レビューの観測・手続き・期限**: `LICENSES/PEER-REVIEW-WATCH.md`（外部の日付はここが権威。STATUS には導出できない値を書かない）。
 
