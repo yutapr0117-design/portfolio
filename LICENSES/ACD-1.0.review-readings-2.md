@@ -380,7 +380,7 @@ portfolio-1c の T69（1.4 草案の §2.6 に、除外する素材を示す形�
 | 発言 | 誰が | ACD への当たり方 |
 | :-- | :-- | :-- |
 | *"Not only were they approved, they were originally written at the behest of the same OSI board of directors that approved those early licenses."* / *"As you can tell, we went through several iterations."* | Lawrence Rosen 氏 2013-11-26 | **有利な面（版の数・`against.md` #320）。** 1 人の起草者のライセンスが、版を重ねながら複数の版で承認された。ACD が 1.0 から 1.4 まで版を重ねていることは、それだけで承認の妨げになった前例を持たない |
-| *"As I understand it, however, FOSS licensing is forever, so deprecation wasn't supposed to mean any licensing changes to FOSS software that had already been distributed voluntarily under those licenses."* | Lawrence Rosen 氏 2013-11-27（旧版を勧めないとしたのは作者の意向で、OSI のサイトから消すことではなかった、と同じ通で） | **有利な面。** 版を改めても既に配った物の許諾は変わらない、という考えで、ACD の §2.2（1.0 でも §2.2・取り消せない）と、このリポジトリの `LICENSE` が書く *"Everything ACD-1.0 gave away stays given away"* と同じ線である |
+| *"As I understand it, however, FOSS licensing is forever, so deprecation wasn't supposed to mean any licensing changes to FOSS software that had already been distributed voluntarily under those licenses."* | Lawrence Rosen 氏 2013-11-27（旧版を勧めないとしたのは作者の意向で、OSI のサイトから消すことではなかった、と同じ通で） | **有利な面。** 版を改めても既に配った物の許諾は変わらない、という考えで、ACD の §2.2（1.0 でも §2.2・取り消せない）と、このリポジトリの `LICENSE` が書く *"Everything those versions gave away stays given away"*（2026-11-23 までは "Everything ACD-1.0 gave away …"・1.4 の適用で直った語）と同じ線である |
 
 **読み。** 版を重ねることそのものは、承認の記録の上では異例でない。OSL と AFL は、理事会の求めに応じて 1 人の起草者が書き直しを重ね、複数の版が承認された。旧版を勧めなくなっても、既に配った物の許諾は残る。
 
