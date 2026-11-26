@@ -384,11 +384,11 @@ Smith 氏 2025-10-26 の 3 点目（定義語が素材の種類を限ると、�
 **法律家についての 4 つの文（ドシエに無かったもの）。**
 
 - *"This license is a good example of why it is highly unlikely that a license not written by a lawyer can be approved."*（Pamela Chestek 氏 2026-01-24・`license-discuss`・Project Tick。§1.481 が同じ通の「2 度言わない」の文を引いたが、冒頭のこの文を引いていなかった）
-- *"Once the submitter stated that he did not intend to use an attorney for drafting, preferring community review, I turned out."*（Bruce Perens 氏 2026-01-25・同じスレッド。census の決める側の一覧に入るが、2026 年は委員でも理事でもなく、ドシエは個人の意見として扱う）
+- *"Once the submitter stated that he did not intend to use an attorney for drafting, preferring community review, I turned out."*（Bruce Perens 氏 2026-01-25・同じスレッド。census の決める側の一覧に入るが、2025〜2026 年の理事会の議事録に名は無く、いまの役は確かめていない。ドシエは個人の意見として扱う）
 - *"The language of the license is vague and imprecise and hardly has been reviewed by a sufficiently accomplished FOSS licensing lawyer, or a lawyer at all."*（Carlo Piana 氏 2026-05-04・Milenium）
 - *"writing legal documents is not very different from writing code: there are drafting conventions, rules for interpretation, and specific words that are used when construing what the intended meaning is."*（Chestek 氏 2026-06-08・Mutualist）。翌日の通は、Blue Oak を *"a plain language license written by … all highly skilled open source lawyers"* と呼び、書き方の型でなく正確さが問題だと述べた（rounds に在る）
 
-**読み。** 4 本への指摘のうち、許諾の欠け・名の書き込み・受け手の範囲・許諾の節の崩れは 1.4 に当たらない。当たるのは Low の 4 型（§1.489 の改変物の語・*made available*・見出しと番号・列挙の重なり）で、うち 3 つは 1.5 の草案が述べ直した型である。**当たらないと示せないのは、法律家が書いていないことだけ**で、2026 年に 3 人が 4 つの文で（委員の Chestek 氏が 2 つ・Piana 氏が 1 つ、Perens 氏が 1 つ —— Perens 氏は 2026 年の役を持たない）、それぞれ別の提出に、それを承認の見込み・読む気・本文の質の理由として述べている。
+**読み。** 4 本への指摘のうち、許諾の欠け・名の書き込み・受け手の範囲・許諾の節の崩れは 1.4 に当たらない。当たるのは Low の 4 型（§1.489 の改変物の語・*made available*・見出しと番号・列挙の重なり）で、うち 3 つは 1.5 の草案が述べ直した型である。**当たらないと示せないのは、法律家が書いていないことだけ**で、2026 年に 3 人が 4 つの文で（決める側は Chestek 氏（委員・元委員長）の 2 つと Piana 氏（理事）の 1 つ。Perens 氏の 1 つは、いまの役を確かめていない人の文）、それぞれ別の提出に、それを承認の見込み・読む気・本文の質の理由として述べている。
 
 **逆側。** (1) 4 本はどれも「応答なし」か「直さずに反論」で却下された（議事録の 2 つ目の理由）。1.4 は自分で見つけた欠陥を errata に記録し、指摘に直した版で応える用意がある —— ただし、これは自己申告で、法律家の目の代わりにはならない。(2) 4 つの文は、許諾が欠ける・番号の無い本文のような明らかな欠陥を持つ提出への文で、1.4 のように型の大半を満たす本文に同じ重さで当たるかは示されていない。(3) Chestek 氏の 1 つ目の文は「考えにくい」で、不可能とは言っていない。委員長だった 2024-12-18 には法律家を *"not a blocker"* と書いた（`REVIEWERS.md`・B1）。(4) Perens 氏の文は個人の読む時間の配分で、規則ではない。
 
