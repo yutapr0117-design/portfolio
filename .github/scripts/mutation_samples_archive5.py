@@ -85,7 +85,7 @@ MUTATIONS_ARCHIVE5 = [
 },
     {
     "name": "Check 460 (d): FAQ の mirror が「使う側」の問数を 1 つ少なく申告する (face 単位の帰属・2026-11-03)",
-    "file": ROOT / "docs" / "files" / "LICENSES" / "ACD-1.0.faq.md.md",
+    "file": ROOT / "docs" / "files" / "LICENSES" / "FAQ.md.md",
     "find": "**A. 使う側**（",
     "replace": "**A. 使う側** （",
     "check": CHECK,
@@ -99,7 +99,7 @@ MUTATIONS_ARCHIVE5 = [
 },
     {
     "name": "Check 460 (h): mirror がドシエの規模を数字で述べる (mirror の数は維持できないので禁止) (face 単位の帰属・2026-11-03)",
-    "file": ROOT / "docs" / "files" / "LICENSES" / "ACD-1.0.faq.md.md",
+    "file": ROOT / "docs" / "files" / "LICENSES" / "FAQ.md.md",
     "find": "**A. 使う側**（",
     "replace": "All 99 adverse facts. **A. 使う側**（",
     "check": CHECK,

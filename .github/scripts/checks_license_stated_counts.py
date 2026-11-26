@@ -96,8 +96,8 @@ def run(ctx):
                 bad.append(f"(b) comparison.md §1.35 の{what}: 申告 {mm.group(1)} / 実測 {want}")
 
     # (c) FAQ mirror: 460 (d) は「A. 使う側」だけを見て、次の行の「B. プロセス」は読んでいなかった
-    fb = len(re.findall(r"^### B\d+\.", text(L / "ACD-1.0.faq.md"), re.M))
-    m = re.search(r"\*\*B\. プロセス\*\*（(\d+) 問）", text(ROOT / "docs" / "files" / "LICENSES" / "ACD-1.0.faq.md.md"))
+    fb = len(re.findall(r"^### B\d+\.", text(L / "FAQ.md"), re.M))
+    m = re.search(r"\*\*B\. プロセス\*\*（(\d+) 問）", text(ROOT / "docs" / "files" / "LICENSES" / "FAQ.md.md"))
     if not m:
         bad.append("(c) faq mirror: 「B. プロセス（N 問）」が読めない")
     elif int(m.group(1)) != fb:

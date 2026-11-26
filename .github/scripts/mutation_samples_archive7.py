@@ -403,7 +403,7 @@ MUTATIONS_ARCHIVE7 = [
     {
     "name": "Check 468a: FAQ が「1.4 草案」として引く逐語を草案に無い語へ変える (agreed to make → agreed to remit) —— 旧版は errata の"
             "「N.M draft」しか見ず、ドシエの他の面の注記が後の試作で古くなっても黙っていた (2026-11-12・portfolio-00 の提案)",
-    "file": ROOT / "LICENSES" / "ACD-1.0.faq.md",
+    "file": ROOT / "LICENSES" / "FAQ.md",
     "find": "*\"a payment You agreed to make\"*",
     "replace": "*\"a payment You agreed to remit\"*",
     "check": CHECK,
