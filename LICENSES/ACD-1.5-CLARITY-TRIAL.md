@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.5-CLARITY-TRIAL.md
 audience: 次のセッションの実装者（一次読者）/ 監査人
-last-updated: 2026-11-24
+last-updated: 2026-11-26
 canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、採った変更の記録先) / LICENSES/ACD-1.5-DRAFT.txt (試作の対象・この file は草案を上書きしない) / LICENSES/ACD-1.4-THIRD-CLARITY-TRIAL.md (1.4 の試作の 3 冊目・§15.54 が 1.5 の候補の始まり)
 ---
 
