@@ -70,6 +70,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (#4148)。逆向き (委員長だった月の発言者を「元」「のちの」と書く) も見る。役・名・発言日が隣り合う 3 つの形だけを見る。
        作った日の母数: LICENSES/*.md と docs/files/LICENSES/**/*.md (rounds/ の受領文の mirror を含む) で、拾った文は全部読んで真 5・
        誤検出 0 (拾った数は OK 行に出す)。否定 (委員長ではない)・「」の言及・別人の括弧の中の委員長では鳴らないことを対照で確かめた。
+       2026-11-26: 英語の形 (`, chair, on` / `as chair, license-review DATE` / `(Licensing Committee chair, DATE)` /
+       `the committee chair`) を足した。拾う文は 39 → 45 で、増えた 6 文は全部在任中で正しかった (誤検出 0)。
        **逆側**: 日付の離れた文と名の無い「委員長は」は見えない (2 件はそれで手で見つけた)。在任の表は記録に
        依るので、委員長が替わった日に `_lib_dossier.CHAIR_TERMS` を直さないと偽 RED になる。境目の月は止めない。対象が減る形は件数の下限。
 """

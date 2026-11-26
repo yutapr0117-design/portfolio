@@ -363,6 +363,13 @@ _MUTATIONS_TAIL.append({
     "replace": " days=1 body-sha256=",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 505: 英語の入口の記録で、委員長の任期の後の日付に \"as chair\" を付ける —— 英語の形は日本語の形より先に審査者が読む (2026-11-26)",
+    "file": ROOT / "LICENSES" / "REVIEWERS-RECORD.md",
+    "find": "Pamela Chestek as chair, 2024-12-18:",
+    "replace": "Pamela Chestek as chair, 2025-12-18:",
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
