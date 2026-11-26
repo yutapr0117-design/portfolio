@@ -397,3 +397,22 @@ Smith 氏 2025-10-26 の 3 点目（定義語が素材の種類を限ると、�
 **この節が establish しないこと。** 法律家のレビューが承認の要件であること、4 本の却下が法律家の不在を理由にしたこと（議事録の理由は起草の質と応答の形）。
 
 **反映**: B1（4 つの文を両側で・*"not a blocker"* と同じ段に・59 へ）/ B3（型の表・当たる 4 つ）/ against（59 の判断）/ 台帳（*made available* の「誰に向けた提供か」の行・1.4・59 へ）。
+
+## 1.492 承認の後に見つかった誤字や相互参照の誤りを、決める側はどう扱ってきたか —— 「実質でない変更なら Web の版を更新してよい」（Villa 氏 2013）と、正本の掲載の際の編集上の直し（Fontana 氏 2015）。ACD の凍結（誤字も errata に回す）より緩い運用（2026-11-26）
+
+ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check 453）、見つけた欠陥は誤字に当たるものでも errata に記録して次版で直す。承認の後に欠陥が見つかったとき決める側がどうしてきたかを、決める側の全 7,657 通から *typo・errata・editorial・non-substantive・supersede* などの語で拾った 33 か所を読んだ（下の 2 通は前後数百字を開いた）。
+
+| 発言 | 誰が | 向き |
+| :-- | :-- | :-- |
+| *"I don't think we've ever had formal policies on any of these questions"* … *"Fixing typos and incorrect cross references has always been done in various ways, so I don't think that's objectionable, and in fact, I wouldn't object to updating the version on the website (assuming the changes are truly not substantive). The other changes... I'm really not sure."* | Luis Villa 氏 2013-03-06（`license-discuss`・承認済みの Frameworx の誤りを直したいという問いへ） | 実質でない直しは、承認済みの版のまま Web の正本を直してきた。実質の変更は分からない、とした |
+| *"I have gone ahead and published what I believe ought to be the canonical version of the license."* … *"I made a small number of modifications and exercises of editorial judgment with respect to the last submitted version"* … *"There was one misspelling, various typographical inconsistencies and (as earlier noted) the exhibits incorrectly referred to version 2.0."* | Richard Fontana 氏 2015-12-06（`license-review`・OSET Public License 2.1 の承認の後、正本の掲載で） | 委員会の側が、承認した版の綴りと版の参照を、掲載の際に自分で直した |
+| *"(One of the few licenses I've seen that has an actual typo! :-) Cursory Internet searching indicates the typo is not just in the OSI copy, too.)"* | Karl Fogel 氏 2012-02（`license-review`・CC0 の議論の中で Frameworx の本文について） | 承認済みの本文に誤字が残っている例 |
+| *"Note that MPL 2.0 would supersede the old MPL 1.1, so we would mark MPL 1.1 as deprecated"* | Fogel 氏 2011-08（MPL 2.0 の承認の推薦） | 実質の改訂は新しい版で行い、古い版を退ける |
+
+**読み。** 記録の範囲では、承認の後の扱いは 2 つに分かれる。実質でない誤り（誤字・相互参照・版の参照）は、同じ版のまま正本を直してきた（2013 年の時点で方針は無いとされ、2015 年には委員会の側が自分で直した）。実質の改訂は新しい版で行い、古い版を退ける（MPL 2.0）。ACD の凍結は前者より厳しく、誤字や相互参照の誤りも本文に触れず errata に回す。
+
+**ACD への意味（両側）。** 支える側: 審査中・提出の前に本文を動かさないことは、審査の規則（提出した本文は変えられず、変えるなら取り下げて出し直す・`review-outcomes.md` §1.116）と合い、正本が 1 つであることを示しやすい（#267 の ModelGo の canonical の件）。逆側: (1) 承認の後については、決める側は誤字の直しを同じ版のまま受け入れてきたので、ACD が誤字まで次版に回すのは、版の数を増やす方向に厳しすぎる —— 承認された後なら、実質でない errata を OSI の正本の直しとして頼む道がある。(2) その線引き（実質でない）は 2013 年に「方針は無い」とされ、今の規則に書かれていない。直した版と元の版が同じ名で並ぶことを、決める側は審査の中では問題にしてきた（審査中の変更・同じ名で別の本文）。だから「承認の後の誤字の直しも同じ名で受け入れられる」とまでは言えない。(3) 2 通とも 10 年以上前で、2024〜2026 の決める側の発言は見つからなかった。
+
+**この節が establish しないこと。** 承認の後の直しに今の方針が在ること・無いこと。ACD の errata のうちどれが「実質でない」に当たるか（その線引きは我々の側でしていない）。
+
+**反映**: なし（register の B に当たる項目が無い。承認の後の選択肢として `FROZEN.md` と errata の運用に 1 行足すかは 59 と 3f の判断）。
