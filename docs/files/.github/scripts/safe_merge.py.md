@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/safe_merge.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-11-15
+last-updated: 2026-11-26
 canonical-ref: CLAUDE.md §5 (AI2AI handoff-first commit/PR discipline・rebase merge) / .github/scripts/check_repository_consistency.py (重ねた形で回す検査)
 ---
 
@@ -14,6 +14,7 @@ PR を「いまの main に重ねた形」で consistency check に通してか�
 1. PR の head と origin/main を取得する。
 2. 一時的な worktree（detached）を origin/main に作り、PR の head を merge する。衝突したら止まる。
 3. その worktree で `check_repository_consistency.py` を回す。赤なら ERROR の行を出して止まる。
+   PR が確定の道具・草案の Check・LICENSES/ の文書（rounds/ を除く）を触るなら、同じ worktree で確定の予行（`rehearse_version_freeze.py`・約 36 秒）も回し、一覧の外で止まれば止まる（2026-11-24 に道具の面、2026-11-26 にドシエの文を足した・議題 36: 468a は「N.M の草案」と引いた逐語を確定の後に本文へ当てるので、文書だけの PR が次の確定を止めうる）。
 4. PR の CI が緑で、確かめている間に main が動いていなければ merge する。main が動いていたら新しい main に重ね直して回し直す（最大 3 回）。
 
 `--dry-run` は 4 の merge をしない。worktree は止まった場合も必ず消す。
