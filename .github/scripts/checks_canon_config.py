@@ -395,8 +395,13 @@ def run(ctx):
         "docs/architecture/total-check-runbook.md",
         "docs/architecture/check-repository-consistency-map.md",
     ]
+    # 無い file と空の型は止める (2026-11-26・df): 旧形は `if not exists: continue` で、改名・削除した living doc を黙って走査から
+    #   外した (470b の FAQ の改名と同じ型)
+    _gone109 = [r for r in _living109 if not (ROOT / r).exists()]
     for _glob109 in (".claude/agents/*.md", ".claude/skills/*/SKILL.md", ".claude/commands/*.md"):
-        _living109 += [str(p.relative_to(ROOT)) for p in sorted(ROOT.glob(_glob109))]
+        _hit109 = [str(p.relative_to(ROOT)) for p in sorted(ROOT.glob(_glob109))]
+        _gone109 += [] if _hit109 else [_glob109]
+        _living109 += _hit109
     _forbidden109 = [
         (re.compile(r"総数\s*[=＝]\s*\d+"), "総数 = N"),
         (re.compile(r"総数\s*[はが]\s*\d+\s*(?:まで|に|へ)"), "総数は N まで"),
@@ -417,6 +422,7 @@ def run(ctx):
             for _m109 in _rx109.finditer(_txt109):
                 _ln109 = _txt109[: _m109.start()].count("\n") + 1
                 _hits109.append(f"{_rel109}:{_ln109} [{_name109}] {_m109.group(0)!r}")
+    _hits109 += [f"{_g109}: 走査の対象が無い (改名・移動したなら _living109 を直す)" for _g109 in _gone109]
     check(
         not _hits109,
         f"Check 109: no stale Check-count hardcode in {len(_living109)} living docs (§9 is the single authority)",
