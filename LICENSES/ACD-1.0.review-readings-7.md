@@ -457,3 +457,23 @@ ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check
 **この節が establish しないこと。** 法律家のレビューが承認の要件であること。走査は 8 語の連なりで、ドシエが言い換えで持つ文を「無い」と数えている可能性がある（上の 8 文は語で探して見つからなかった）。
 
 **反映**: B1（2024〜2026 の決める側の 8 文・今の委員長の 2 文を先に・両側・59 へ）/ 入口（なし —— 開示の文は既に在る）。
+
+## 1.495 「特許の放棄を外した CC0 には余地がある。ただし自分でやろうとは勧めない。CC がやるべきことだ」（Smith 氏 2025-10-02・のちの委員長）—— ACD の gap を決める側が名指した文と、誰が作るべきかの文（B10・B1・B2 の材料・2026-11-26）
+
+§1.494 と同じやり方で、2024〜2026 年の決める側の通から *public domain・dedication・CC0・waiver・Unlicense・0BSD* を含む文を取り出し、8 語の連なりでドシエに当てた。逐語で無かった 21 文のうち、ACD の型に当たる 3 通をここに置く（3 通とも `license-discuss` 2025-10 の PUWL v1.0 のスレッドで、前後を開いた）。
+
+| 発言 | 誰が（その時の役） | 向き |
+| :-- | :-- | :-- |
+| *"I've always thought there was room for a CC-0 less the disclaimer of patent rights. I wouldn't counsel you try to do this yourself. It's something I think that CC should do (CC0-2.0?)"* | McCoy Smith 氏 2025-10-02（のちの委員長・在任は 2026-01 から） | **両面。** 有利（B10）: 献呈型に特許の放棄を持たない形の「余地」を、のちの委員長が自分から名指した —— ACD の gap の主張と同じ形である。不利（B1・B2）: 同じ文で、個人の起草者に自分でやらないよう勧め、作り手として Creative Commons を挙げた |
+| *"As McCoy noted, the reception of CC0 (over 10 years ago to be sure) was hostile because of its patent language."* | Richard Fontana 氏 2025-10-01（委員） | CC0 が止まった理由を特許の語と述べる（ACD が §8 で答える点・B10） |
+| *"So where attribution cannot be waived, the author is nevertheless waiving it? I was really just after some simplification of the moral rights paragraph - why not just say that the author waives all claims and leave it at that?"*／*"It's interesting that they still allow the waiver where it's limited in type and scope, which I expect would be where the author can reasonably foresee the full extent of the consequences of having granted the waiver."* | Pamela Chestek 氏 2025-10-06（委員・元委員長） | 人格権の段の簡素化を求め、放棄できない法域で放棄すると言う自己矛盾を指した。法は「種類と範囲を限った放棄」なら認めることが在る、とも述べた |
+
+**ACD-1.4 への当て。** (1) gap: 1.4 は献呈（§3）と許諾（§4）に特許の許諾（§8）を足し、CC0 の §4(a) の特許の留保を持たない。Smith 氏の「余地」はそのまま ACD の位置である。(2) 人格権: 1.4 の §12.1 は *"To the fullest extent permitted by the law of each jurisdiction, the Dedicator waives and agrees not to assert Moral Rights in the Work"*、§12.2 は放棄が効かない所でも働く約束と同意を置く。PUWL の「放棄できない所でも放棄する」という自己矛盾の形は持たない（放棄は法の許す限り、約束と同意は別の足場）。ただし Chestek 氏が求めた「簡素に」には、3 つの足場（放棄・約束・同意）は逆向きで、同氏が同じ通で surplusage と呼んだ *"to the fullest extent permitted"* を §12.1 は持つ（§1.481 の型）。種類と範囲を限った放棄だけを認める法域では、§12.1 の一般の放棄は効かず、§12.2 の同意も一般なので同じ問いに当たりうる（`ACD-1.0.jurisdictions.md` の人格権の段）。
+
+**読み。** のちの委員長は、ACD と同じ型の空きを 2025 年に認め、同じ文で、それを個人でなく Creative Commons のような作り手が埋めるべきだと述べた。ACD は gap の側では支えを得て、作り手の側（個人・法律家なし・モデルの起草）では、その文に正面から当たる。
+
+**逆側。** (1) Smith 氏の文は PUWL の起草者への返事で、規則でも審査の結論でもない。*"(CC0-2.0?)"* は疑問の形である。(2) CC0-2.0 は出ていない（2026-11 時点でドシエの確かめた範囲では）—— 空きは埋まっていない。(3) Fontana 氏の「hostile」は 10 年以上前の受け止めの要約で、今の基準ではない。(4) 人格権の段についての Chestek 氏の文は PUWL の文の自己矛盾への指摘で、ACD の 3 つの足場がそれに当たるとは述べていない。
+
+**この節が establish しないこと。** 決める側が ACD の型を歓迎すること、個人の作る献呈型が退けられること。
+
+**反映**: B10（のちの委員長が名指した余地・両側・59 へ）/ B1・B2（「自分でやろうとは勧めない」・作り手の問い・59 へ）/ errata なし（§12 の自己矛盾の形は無い）。
