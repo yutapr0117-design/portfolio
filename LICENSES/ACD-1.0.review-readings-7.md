@@ -434,3 +434,26 @@ ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check
 **この節が establish しないこと。** 同じ効果の書き直しが却下されること。走査は語に依り、別の言い回しの文を落としうる。
 
 **反映**: B3（短さを承認の理由にしない・Blue Oak は法律家と機能を足した例・両側・59 へ）/ 1c 種（なし —— 本文は固定中）。
+
+## 1.494 2024〜2026 年に決める側が、提出の「法的レビュー」の項目を実際の審査でどう使ったか —— 「今後の提出は、法的レビューが済んだことと、誰がしたかを示す必要がある」（Smith 氏 2025-12・のちの委員長）ほか、ドシエに逐語で無かった文（B1 の材料・2026-11-26）
+
+§1.491 で法律家についての決める側の文が 4 つドシエから落ちていたので、同じ型の落ちを全数で探した。2024〜2026 年の決める側の通から *lawyer・attorney・legal review・counsel* などを含む文を全部取り出し、8 語の連なりがドシエ（`LICENSES/` の文書と `rounds/`）に在るかを機械で当てた。逐語で無かった文は 45 で、うち提出の評価に関わるものを下に置く（前後を開いた）。手順ページの項目 *"Describe any legal review the license has been through, including whether it was drafted by a lawyer."* と、それへの ACD の答え（法的レビューは無く、法律家の起草でもない）は、既に `review-rules.md`・`submission-reference.md`・`REVIEWERS.md` に在る。
+
+| 発言 | 誰が（その時の役） | 求めた形 |
+| :-- | :-- | :-- |
+| *"As noted, the ellipsis is ambiguous and not correct or good legal drafting. I think any future submission would need to indicate a legal review has been done, and by whom, in view of this."* | McCoy Smith 氏 2025-12-22（`license-review`・Misty Foundation License。2026-02 頃から委員長） | **示すことが要る** —— ただし「起草の誤りを見たので（in view of this）」この提出者に |
+| *"Describe any legal review the license has been through, including whether it was drafted by a lawyer. You have listed a "legal analysis" but have not indicated if any lawyer was involved in that analysis or the drafting of the license."* | Smith 氏 2026-03-17（Modified 0BSD License・委員長） | 手順ページの項目を引き、法律家の関与を書けと求めた |
+| *"I recommend that licenses be examined more thoroughly -- including by a competent lawyer, as the submission instructions recommend -- before we invest our collective professional time -- and associated costs -- into dissecting new licenses."* | Carlo Piana 氏 2026-03-18（同じ提出・理事） | **勧める** —— 審査者の時間を使う前に |
+| *"In my opinion, these licenses would not be approved in their present form and would also require a great deal of work by a skilled open source lawyer before approaching anything that might be acceptable."* | Pamela Chestek 氏 2024-10-05（`license-discuss`・委員長） | 承認の見込みと法律家の仕事を結びつけた |
+| *"So I agree with Carlo this one really needs a legal review"* | Smith 氏 2024-12（`license-review`・別の新しいライセンス） | 要る（その提出に） |
+| *"Perhaps resubmitting after a legal review would be a good idea."* | Piana 氏 2025-10（Orivex） | 勧める |
+| *"You should also not assume that OSI or this mailing list is your legal review."* | Bruce Perens 氏 2024-10-01（`license-discuss`。2026 年の役は確かめていない） | 審査を法的レビューの代わりにするな |
+| *"Note that I am not an attorney, and my feedback is as a developer member of License Review, and constitutes neither approval nor a requirement that you follow it."* | Josh Berkus 氏 2024-10（Berkeley Artistic。2025〜2026 年の通の署名は理事。2024-10 の役は確かめていない） | 審査者の側にも法律家でない人がいる |
+
+**読み。** 2024〜2026 年の記録で、法律家の関与は (1) 手順ページの項目として毎回書くことを求められ、(2) 起草に問題の見えた提出に「示せ」「勧める」「要る」として個別に向けられた。今の委員長（Smith 氏）はその両方を書いている。規則として「法律家のレビューが無ければ審査しない」と書いた文は見つからなかった。Chestek 氏が 2024-12-18 に委員長として書いた *"not a blocker"*（B1）と並ぶ。
+
+**ACD への意味（両側）。** 不利: ACD の答えは「無い」で、2025-12 の Smith 氏の文を当てれば、起草に誤りが見えたときに「誰がレビューしたか」を求められる側に立つ。errata が 90 件を超えて公開されていることは、起草に誤りが在ることを自分で示している。有利: 求めたのは「述べよ」で、ACD はそれを隠さずに述べている（入口の最初の開示）。Smith 氏 2025-12 の文は、提出の誤りを見た後の個別の文で、Piana 氏 2026-03 の文は「審査者の時間を使う前に」という順序の勧めである。
+
+**この節が establish しないこと。** 法律家のレビューが承認の要件であること。走査は 8 語の連なりで、ドシエが言い換えで持つ文を「無い」と数えている可能性がある（上の 8 文は語で探して見つからなかった）。
+
+**反映**: B1（2024〜2026 の決める側の 8 文・今の委員長の 2 文を先に・両側・59 へ）/ 入口（なし —— 開示の文は既に在る）。
