@@ -1,62 +1,62 @@
 ---
 file: LICENSES/FAQ.md
 audience: 採用検討者, 法務, ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-25
-canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (逐条リファレンス) / LICENSES/ACD-1.0.comparison.md (族ごとの比較) / LICENSES/ACD-1.0.jurisdictions.md (法域別の問い)
+last-updated: 2026-11-26
+canonical-ref: LICENSES/ACD-1.4.txt (このリポジトリが適用する確定版・答えはこの本文に当てる) / LICENSES/ADOPTING.md (採用の手順) / LICENSES/ACD-1.0.comparison.md (族ごとの比較) / LICENSES/ACD-1.0.jurisdictions.md (法域別の問い)
 ---
 
-# ACD-1.0 — 実務 FAQ（使う人・法務・観察者向け）
+# ACD — 実務 FAQ（使う人・法務・観察者向け・ACD-1.4 に当てて）
 
 ```
 本書の役割 : レビュアではなく **実際に使うかもしれない人**の疑問に答える
 本書の性質 : 非規範。齟齬があれば本文が勝つ。法的助言ではない
+当てる版   : ACD-1.4（root の LICENSE が名指し、ADOPTING.md が勧める確定版）
 関連       : 逐条は clause-reference / 族比較は comparison / 法域は jurisdictions /
             レビューの想定問答は review-responses{,-clauses,-meta}
 ```
 
 ---
 
-> **版の注（2026-11-24）**: この FAQ は ACD-1.0 に向けて書いた。このリポジトリが適用し、`ADOPTING.md` が採用者に勧めるのは ACD-1.4（root の `LICENSE` が名指す）で、答えが版で変わる所は各問に注がある。採用者が先に知っておくべき差: (1) 識別子は適用する版の番号で書く（1.4 なら `LicenseRef-ACD-1.4`。A10・A11 の `LicenseRef-ACD-1.0` は 1.0 の例）。(2) 1.4 の §1.4（Dedicator）は *"Covered Rights, Moral Rights, or patent claims in it"* と、人格権と特許の請求項も持つ者を Dedicator に数える（A20 の引用は 1.0 の §1.3 の語）。(3) §5.2(b) の除外（商標・名前・支払い）は 1.4 にだけ在る（`ADOPTING.md`）。(4) §8.4 の範囲は版で違う（A32）。 (5) A9・A24 が引く 1.0 の §2.9（*"fully performed"*・未履行の義務が無い）は 1.1 で外れ、ACD-1.4 の §2.9 は倒産の手続きを条件にしないことだけを述べる（A27・errata E5・E30）。(6) A14 の *"it reaches nothing else"* は ACD-1.4 の §11.4 では但し書きを持つ（*"It reaches nothing else, save that the covenants in Section 5 are promises about the Dedicator's own conduct and are not limited by this sentence."*）。(7) A18・A19 の §16.4 は ACD-1.4 で広く、名は *"any name that contains "Autonomous Commons Dedication""*、識別子は *"ACD-"* に数字が続くものすべてで、Steward だけが新しい版を出せる。(8) A21 の *owns or controls* は ACD-1.4 の §8.5 が定義する: 支配するのは、義務に反さず支払いも生まずに許諾できる請求項だけ。**ただし所有する請求項にはこの条件が掛からない**ので、既に独占実施権を出した請求項も許諾する（errata E91・FRAND の約束との関係は法律家の確認が無いまま）。(9) A24 の §14.2 は、ACD-1.4 では §14.1 が *"EXCEPT FOR ANY LIABILITY FOR WILFUL MISCONDUCT, GROSS NEGLIGENCE, DEATH, OR PERSONAL INJURY"* を先に除き、§14.2 が、約束（§2.5・§5・§8.6・§12.2）に反して請求を主張し権利を行使した責任を限らない。(10) A25 の識別子は 1.0 の例（1.4 なら `ACD-1.4`）。条番号の対応は `REVIEWERS.md` の "Which text you are looking at" にある。
-
-## A. 使う側の疑問
+> **版について（2026-11-26・議題 13）**: この FAQ は 2026-11-26 まで `ACD-1.0.faq.md` の名で ACD-1.0 に向けて書かれ、1.4 との差を各問の注で足していた。勧める版と説明する版が違うことは採用者を迷わせる（B2）ので、名を版に依らない `FAQ.md` に替え、答えを ACD-1.4 の本文に当てて書き直した。条番号は特に断らない限り ACD-1.4 のもの（1.0 と 1.4 は 16 節の骨組みが同じで、多くの番号が一致する）。**1.0〜1.3 で答えが違う所は、各問の末の「前の版」に書く。** OSI の `license-discuss` へ投稿した本文は ACD-1.0 で、条番号の対応は `REVIEWERS.md` の "Which text you are looking at" にある。
 
 ### A1. 自分の作品に使ってよいか
 
-> **English:** Yes, without asking. Section 16.3 states that this Dedication may be applied by
-> anyone, to any work, without permission from, notice to, or any relationship with its
-> authors, and that it is not specific to any project, person, organisation, jurisdiction or
-> field. Section 16.1 gives a notice form.
+> **English:** Yes, without asking, if you hold rights in it. Section 16.3 says that the
+> Dedication may be applied by anyone, *"to any material in which they hold or may hold rights
+> of their own"*, without permission from, notice to, or any relationship with its authors.
+> Section 16.1 gives a notice form, and Section 16.2 says that the identifier, an SPDX tag, or a
+> reference by name and version is sufficient notice.
 
 **先に確認すること**: **あなたがその作品の権利を持っているか**。職務著作や譲渡で雇用主が権利を持つ場合、あなたは適用できる立場にない（**A20** 参照）。共同で作ったものなら **A13** も見ること。
 
-**適用の仕方**: §16.1 の書式の通知を作品に添える。全文の同梱は不要で、
-**識別子だけでも通知として足りる**（§16.2）。
+**適用の仕方**: §16.1 の書式の通知を作品に添える。全文の同梱は不要で、§16.2 のとおり、識別子 `ACD-1.4`、`SPDX-License-Identifier: ACD-1.4` か `LicenseRef-ACD-1.4` の tag、または**名前と版**による言及で通知として足りる。**名前だけでは足りない**。
 
-*（1.4 の注・2026-11-24: ACD-1.4 の §16.3 は適用の対象を *"to any material in which they hold or may hold rights of their own"* に限る（1.0 の "to any work" を 1.1 から "to any work in which they hold rights" に狭めた・errata E2）。権利を持たない部分には適用できないことが本文に書いてある。§16.2 で通知として足りるのは、識別子、`SPDX-License-Identifier: ACD-1.4` か `LicenseRef-ACD-1.4` の tag、または**名前と版**による言及で、名前だけでは足りない。名前だけで足りたのは 1.0〜1.2 で、1.3 から版を要する（errata E38: 版が 2 つ以上ある今、版の無い名前はどの版にも自分の条件だと主張され、選ぶ規則が無かった）。1.3 の適用者にも同じ差がある）*
+*前の版*: 1.0 の §16.3 は *"to any work"* で、権利を持つかを言わなかった（1.1 から限った・errata E2）。名前だけで通知として足りたのは 1.0〜1.2 で、1.3 から版を要する（errata E38）。
 
 ### A2. 通知や帰属表示を残す必要はあるか
 
 > **English:** No. Section 10.2 says in terms that You need not give attribution, reproduce any
-> notice, state that the Work was modified, make source available, license anything under
-> these or any other terms, **retain this file**, or inform anyone of anything.
+> notice, state that the Work was modified, make source available, license anything under this
+> Dedication or any other terms, **retain this file**, or inform anyone of anything.
 
-**README に「引用してください」と書いてあった場合も同じ**である。§10.3 が「依頼は依頼であって
-条件ではない。従わなくても違反ではなく、いかなる許諾も終了しない」と明示している。
+**README に「引用してください」と書いてあった場合も同じ**である。§10.3 が、Dedicator の依頼・希望は、どこでどう述べられても依頼であって条件ではなく、義務を作らず、従わなくても違反でなく、どの許諾も限らず終わらせない、と述べている。
 
 ### A3. 改変して再配布するとき、何をすればよいか
 
-> **English:** Nothing is required. You may distribute the Work and any adaptation under **any
-> terms You choose**, including terms that impose conditions on Your recipients and terms
-> incompatible with these (Section 4.5). You need not mark changes (Section 10.2).
+> **English:** Nothing is required. You may distribute the Work and any adaptation or
+> collection containing it under **any terms You choose**, including terms that impose
+> conditions on Your own recipients and terms incompatible with this Dedication (Section 4.5).
+> You need not mark changes (Section 10.2).
 
-ただし §4.6 が、**あなたが付けた条件は「あなたが与えるもの」を規律するだけ**で、受領者と本
-Dedication の関係を切らないと定めている。受領者は自分の権利として §1.6 の "You" になる。
+ただし §4.6 が、**あなたが付けた条件は「あなたが与えるもの」を規律するだけ**で、受領者と本 Dedication の関係を切らないと定めている。受領者は自分の権利として §1.6 の "You" になる。**あなた自身がその素材の Dedicator でもある**とき（自分の寄与を含めて配るときなど）は、§4.5 の末文のとおり、§5 が禁じることをその素材に課すことはできない。
 
 ### A4. 商用利用・軍事利用・その他の用途制限はあるか
 
-> **English:** None. Section 4.3 excludes conditions on field of use and on "the identity,
-> character, or purpose of the user" in terms, and Section 6.1 permits computational use for
-> any purpose. There is no acceptable-use policy and no scale threshold.
+> **English:** None. Section 4.3 excludes conditions on field of use, on *"the identity,
+> character, size, revenue, or purpose of the user"*, on the scale of use, and on any
+> restriction as to persons, groups, technologies, endeavours, or jurisdictions. Section 6.1
+> permits Computational Use for any purpose. There is no acceptable-use policy and no scale
+> threshold.
 
 ### A5. GPL / Apache のプロジェクトに取り込めるか
 
@@ -65,78 +65,76 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 > licence's terms (Section 4.5). Nothing flows back from this instrument to constrain the
 > combined work.
 
-**逆向き**（ACD-1.0 の作品に GPL のコードを混ぜる）は**別の話**である。混ぜた相手の条件は
-その相手のライセンスが決めるので、**GPL コードを取り込めば結果物は GPL の条件に従う**。
-本 Dedication は §2.7 のとおり **Dedicator が持つ権利にしか及ばない**。
+**逆向き**（ACD の作品に GPL のコードを混ぜる）は**別の話**である。混ぜた相手の条件はその相手のライセンスが決めるので、**GPL コードを取り込めば結果物は GPL の条件に従う**。本 Dedication は §2.7 のとおり **Dedicator が持つ権利にしか及ばない**。
 
 ### A6. 特許を持っている。適用してよいか
 
-> **English:** Only if You are willing to license them. Section 8.1 grants a licence under
-> every patent claim You own or control that would be infringed by the Work, Section 8.4
-> extends it to computational use and its outputs, and Section 8.3 rejects any reading that
-> preserves patents. If You are not willing to do that, this is the wrong instrument.
+> **English:** Only if You are willing to license them. Section 8.1 grants a licence under every
+> patent claim You own or control that acts in respect of the Work or anything derived from it
+> would infringe, where the infringement is caused by subject matter contained in the Work as
+> You made it available. Section 8.4 grants a licence for Computational Use and for models and
+> outputs, reaching a claim only where the infringing feature results, in whole or in part, from
+> the content of the Work. Section 8.3 says nothing reserves a claim those Sections reach. If You
+> are not willing to do that, this is the wrong instrument.
 
-**これは適用者側の判断であって、利用者側の心配ではない。** 利用者から見れば §8.5 のとおり
-「Dedicator が持つクレームにしか及ばない」ので、第三者特許の risk は別に残る（§13.2 が
-非侵害を保証しないと明言）。
+**これは適用者側の判断であって、利用者側の心配ではない。** 利用者から見れば §8.5 のとおり「Dedicator が所有または支配する請求項にしか及ばない」ので、第三者特許の risk は別に残る（§13.2 が非侵害を保証しないと明言）。**支配**は §8.5 が定義する（義務に反さず支払いも生まずに許諾できる請求項だけ）。**所有する請求項にはこの条件が掛からない**ので、既に独占実施権を出した請求項も許諾する（errata E91・**A32**）。寄与者の請求項のうち、寄与と元のプロジェクトの組み合わせで初めて侵害するものに届くかは読みが割れる（errata E95）。
+
+*前の版*: 1.0 の §8.4 は因果の限定を持たず、モデル・出力に関わる請求項に広く届いた（1.1〜1.3 は 2 通りに読める・`against.md` #282）。「支配」の定義は 1.4 から（errata E39）。
 
 ### A7. データセットやモデルに使えるか
 
-> **English:** Yes. Section 1.3 defines the Work to include data, metadata and audiovisual
-> material as well as source and object code. Section 7 addresses the sui generis database
-> right explicitly, and Section 7.2 permits repeated and systematic extraction and
-> re-utilisation of substantial parts.
+> **English:** Yes. Section 1.3 defines the Work as the material to which the Dedicator has
+> applied the Dedication, in any medium and in any form, including data and metadata as well as
+> source and object code. Section 7 addresses the sui generis database right, and Section 7.2
+> permits repeated and systematic extraction and re-utilisation of the whole or any substantial
+> part of the contents, so far as the Dedicator's Covered Rights are concerned.
 
 ### A8. 学習に使ってよいか。学習して作ったモデルや出力は自由か
 
-> **English:** Yes to both. Section 6.1 permits computational use for any purpose; Section 6.2
-> states that no reservation is made; Section 6.4 says that, to the fullest extent the law
-> permits, no enforceable claim arises against You, under this Dedication or under any Covered
-> Right of the Dedicator, in respect of a model, parameter set, weight, embedding, output or
-> other data resulting from Computational Use of the Work, and that You owe nothing under this
-> Dedication in respect of any of them; Section 8.4 grants the corresponding patent licence, because
-> Covered Rights exclude patents (Section 1.5) and a copyright-only permission would leave a
-> patent-shaped hole.
+> **English:** Yes to both, as far as the Dedicator's rights go. Section 6.1 permits Computational
+> Use for any purpose; Section 6.2 says the Dedicator makes no Reservation; Section 6.4 says that,
+> to the fullest extent the law permits, no enforceable claim arises against You, under this
+> Dedication or under any Covered Right of the Dedicator, in respect of a model, parameter set,
+> weight, embedding, output or other data resulting from Computational Use of the Work, and that
+> You owe nothing under this Dedication in respect of any of them. Section 8.4 grants the
+> corresponding patent licence, reaching a claim where the infringing feature results, in whole
+> or in part, from the content of the Work.
+
+**届かないもの**: 他の権利者の権利（§2.7）、個人データ・肖像の法（§11.4・**A28**）、他の権利者が自分の権利について置いた opt-out（§6.2 の末・**A29**）。
+
+*前の版*: 1.0 の §8.4 は因果の限定を持たなかった（**A6** の「前の版」）。
 
 ### A9. 作者が気を変えたら / 亡くなったら / 会社が破産したら
 
-> **English:** Section 2.2 makes the Dedication irrevocable. Section 2.5 states that reliance
-> is its purpose and that the Dedicator will not argue it is revocable for want of
-> consideration or formality. Section 2.8 binds successors, assigns, heirs and transferees to
-> the fullest extent the law permits, and Section 2.9 addresses insolvency specifically —
-> the Dedication is fully performed when applied and so is not executory.
+> **English:** Section 2.2 makes the Dedication irrevocable. Section 2.5 states that reliance is
+> its purpose and that the Dedicator will not argue that it is revocable or ineffective for want of
+> consideration or formality. Section 2.8 binds successors, assigns, heirs, personal
+> representatives and transferees, to the fullest extent the law permits. Section 2.9 says that
+> nothing in the Dedication is, under its terms, conditioned on, suspended by, or revived by an
+> insolvency or similar proceeding, and treats an officer in one as a transferee.
 
-**どこまで拘束できるかは法域による**（`ACD-1.0.jurisdictions.md` 参照）。条文は
-「法が許す限り」と書いており、**拘束できると断言はしていない**。
+**どこまで拘束できるかは法域による**（`ACD-1.0.jurisdictions.md` 参照）。条文は「法が許す限り」と書いており、**拘束できると断言はしていない**。米国では 17 U.S.C. §203 が 35 年後に許諾の撤回を許しうる（**A27**）。
 
-**⚠ 2026-11-01**: 上の英文は §2.5 と §2.8 を並べているが、1.0 の §2.8 が承継人を拘束すると名指すのは
-§3・§4・§6・§8 だけで、**§2.5（約因・方式の欠如で無効と主張しない禁反言）は列挙の外にある** —— errata
-**E49**。禁反言は多くの法域で承継人（privity にある者）にも及ぶので実害は字面より小さいが、本文が
-そう述べていたわけではない。1.4 草案は列挙をやめ *"This Dedication, in respect of the Work, binds …"* とした。
+*前の版*: 1.0 の §2.8 は拘束する条を §3・§4・§6・§8 と列挙し、§2.5 の禁反言が列の外にあった（errata E49）。1.0 の §2.9 は *"fully performed"* として「未履行でない」と言い切っていた（1.1 で外れた・errata E5・E30）。
 
 ### A10. SPDX 識別子が無い。ツールにどう書けばよいか
 
-**これは現時点の実務上の最大の不便である。** ACD-1.0 は SPDX License List に**未登録**
-（実使用が薄いため意図的に見送っている）なので、SPDX ドキュメントでは
-**`LicenseRef-` を付けた形**で参照するのが標準的な扱いになる。
+**これは現時点の実務上の最大の不便である。** ACD は SPDX License List に**未登録**（実使用が薄いため意図的に見送っている・B11）なので、SPDX ドキュメントでは **`LicenseRef-` を付けた形**で参照する。本文がそれを自分で言う。
 
-> **English:** ACD-1.0 is not on the SPDX License List, so in an SPDX document it should be
-> referenced as a user-defined licence — conventionally `LicenseRef-ACD-1.0` — with the full
-> text supplied in the corresponding `ExtractedLicensingInfo` (or your tool's equivalent).
-> The tag inside the Work itself (`SPDX-License-Identifier: ACD-1.0`, per Section 16.1) is the
-> notice form the Dedication defines; it is not a claim that the identifier is registered.
+> **English:** ACD is not on the SPDX License List. Section 16.1's notice form says
+> *"SPDX-License-Identifier: ACD-1.4 (LicenseRef-ACD-1.4 while not on the SPDX License List)"*,
+> and Section 16.2 accepts either tag as sufficient notice. In an SPDX document, use
+> `LicenseRef-ACD-1.4` and supply the full text in `ExtractedLicensingInfo` (or your tool's
+> equivalent). The tag is a notice form the Dedication defines; it is not a claim that the
+> identifier is registered.
 
-*（1.4 の注・2026-11-24: ACD-1.4 では下の問いは本文が自分で答える。§16.1 の書式は *"SPDX-License-Identifier: ACD-1.4 (LicenseRef-ACD-1.4 while not on the SPDX License List)"* と `LicenseRef-` の形を名指し、§16.2 はどちらの tag も通知として認める。1.4 の採用者は `LicenseRef-ACD-1.4` を使えばよい）*
-
-**§16.1 の通知が `SPDX-License-Identifier: ACD-1.0` を含むのは矛盾ではない** —— §16.2 が
-「識別子や名称への言及だけで通知として足りる」と定めており、これは**登録の主張ではなく
-通知の様式**である。
+*前の版*: 1.0〜1.3 の §16.1 は `SPDX-License-Identifier: ACD-1.0`（各版の番号）だけを示し、`LicenseRef-` の形は本文に無かった。識別子は適用する版の番号で書く。
 
 ### A11. 依存関係スキャナが「未知のライセンス」と言う
 
 想定内である。未登録の識別子はスキャナのデータベースに無い。実務的には次のいずれかになる。
 
-1. `LicenseRef-ACD-1.0` として手動登録し、全文を添える（A10）
+1. `LicenseRef-ACD-1.4` として手動登録し、全文を添える（A10）
 2. 組織のポリシー上「無条件・特許許諾あり」に相当する分類（例: public domain / permissive
    with patent grant）へ手動でマップする
 3. **判断できないなら使わない** —— それは正当な選択であり、こちらから止める理由は無い
@@ -145,12 +143,12 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 > the correct answer is to wait. Declining is better than adopting something your process
 > cannot account for.
 
-### A13. 既存プロジェクトを ACD-1.0 へ移行できるか
+### A13. 既存プロジェクトを ACD へ移行できるか
 
 **「自分が全ての権利を持っているか」で答えが変わる。**
 
-> **English:** If you hold all the rights, yes — Section 16.3 lets anyone apply this to any
-> work without permission. If other people have contributed, you cannot relicense their
+> **English:** If you hold all the rights, yes — Section 16.3 lets anyone apply this, without
+> permission, to material in which they hold rights of their own. If other people have contributed, you cannot relicense their
 > contributions unilaterally. You need either their agreement, or a prior licence that
 > already permits what you are about to do (a permissive licence generally lets you
 > sublicense; a copyleft one generally does not let you drop its conditions).
@@ -172,40 +170,35 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 
 > **English:** This instrument grants intellectual-property permissions and nothing else.
 > Export control, sanctions, and similar public-law obligations are not the Dedicator's to
-> grant or to waive, and Section 11.4 states the general shape of that limit: this Dedication
-> reaches Covered Rights, the patent claims described in Section 8, and Moral Rights to the
-> extent stated in Section 12 — **it reaches nothing else**.
+> grant or to waive. Section 11.4 states the shape of that limit: the Dedication, in respect of
+> the Work, reaches Covered Rights, the patent claims Section 8 reaches, and Moral Rights to the
+> extent stated in Section 12; *"It reaches nothing else, save that the covenants in Section 5
+> are promises about the Dedicator's own conduct and are not limited by this sentence."*
 >
 > Because the licence imposes no condition (Section 10.1), it adds no export-related term of
 > its own. It also removes none of your obligations under the law that applies to you.
 
-**⚠ 2026-11-01**: 上の *"it reaches nothing else"* は 1.0 の §11.4 の言い回しをそのまま使っているが、
-その文は無限定で、§16 は本文テキストそのもの（Work ではないもの）に及ぶ —— errata **E44**。
-輸出規制についての結論は変わらない（§16 は公法上の義務に触れない）。1.4 草案は §11.4 に
-*in respect of the Work* を前置した。
+**「無条件」は「法的義務が消える」という意味ではない。** §2.7・§11.4・§13.2 が一貫して**「Dedicator が持っているものしか渡せない」**と述べており、公法上の義務はその外側にある。
 
-**「無条件」は「法的義務が消える」という意味ではない。** §2.7・§11.4・§13.2 が一貫して
-**「Dedicator が持っているものしか渡せない」**と述べており、公法上の義務はその外側にある。
+*前の版*: 1.0 の §11.4 は *"It reaches nothing else."* を無限定で述べ、§16（本文という文書）にも掛かって読めた（errata E44・1.4 で *in respect of the Work* を前置）。§5 の約束の但し書きは 1.4 から（SELF-AUDIT §3zd が残る食い違いを記録）。
 
 ### A15. 公共調達・組織のポリシーで「OSI 承認済み」が要件になっている
 
-**その場合は使えない。** ACD-1.0 は **OSI 承認を受けていない**（`license-discuss` へ投稿した
-段階で、承認申請の窓口である `license-review` へも未投稿）。
+**その場合は使えない。** ACD は**どの版も OSI 承認を受けていない**（1.0 を `license-discuss` へ投稿した段階で、承認申請の窓口である `license-review` へは未提出）。
 
-> **English:** If your policy requires an OSI-approved licence, ACD-1.0 does not qualify today,
-> and nobody should argue otherwise on its behalf. The current status is recorded in
+> **English:** If your policy requires an OSI-approved licence, ACD does not qualify today, and
+> nobody should argue otherwise on its behalf. The current status is recorded in
 > `LICENSES/FROZEN.md`. Waiting, or using an approved licence, is better than spending your own
 > credibility on an unapproved one.
 
-**これは採用者を減らす記述であり、意図的である。** 承認されていないものを「実質的に同等だ」と
-言わせるのは、こちらの都合で相手の信用を使わせることになる。
+**これは採用者を減らす記述であり、意図的である。** 承認されていないものを「実質的に同等だ」と言わせるのは、こちらの都合で相手の信用を使わせることになる。
 
 ### A16. SBOM にはどう記載すればよいか
 
 **A10（SPDX 識別子が無い問題）の実務面である。** SBOM（SPDX / CycloneDX いずれの形式でも）は
 ライセンスを識別子で持つので、**未登録の識別子はそのまま書けない**。
 
-> **English:** Record it as a user-defined licence entry — `LicenseRef-ACD-1.0` in SPDX terms —
+> **English:** Record it as a user-defined licence entry — `LicenseRef-ACD-1.4` in SPDX terms —
 > and attach the full text, which is short enough to embed. Do **not** map it to a
 > superficially similar listed identifier (CC0, 0BSD, Unlicense) just to make the tool quiet:
 > those differ on patents, which is the one place where the difference has teeth (Section 8.3).
@@ -226,30 +219,31 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 
 ### A18. 名称や識別子は商標登録されているのか
 
-**されていない。** §11.1 は「商標・サービスマーク・商号・ロゴ・氏名の権利を与えない」と
-述べるが、これは**存在する商標を留保する**条項であって、**商標を主張する**条項ではない。
+**されていない。** §11.1 は「商標・サービスマーク・商号・ロゴ・氏名の権利を与えない」と述べるが、これは**存在する商標を留保する**条項であって、**商標を主張する**条項ではない。
 
-> **English:** No trademark is claimed or registered. What keeps "ACD-1.0" pointing at one
+> **English:** No trademark is claimed or registered. What keeps "ACD-1.4" pointing at one
 > fixed text is **not** trademark law but Section 16.4: the text may be copied verbatim by
-> anyone, and a modified text may not be distributed under the name or the identifier. A
-> modified text may circulate freely — under a different name.
+> anyone, and a modified text may not be distributed under any name containing "Autonomous
+> Commons Dedication" or any identifier containing "ACD-" followed by a digit, except by the
+> Steward (Section 16.5) for a new version under a number no earlier text has borne. A modified
+> text may circulate freely — under a different name. Section 16.6 says these rules govern the
+> text as a document and bind no one in respect of the Work.
 
-**なぜ商標ではなく条文で守るのか**: 商標は登録・維持・行使のコストを steward に課し、
-**§13.3 が保守義務を負わないと述べているのと整合しない**。§16.4 なら、守る主体が消えても
-条文としての意味は残る。
+**なぜ商標ではなく条文で守るのか**: 商標は登録・維持・行使のコストを steward に課し、**§13.3 が保守義務を負わないと述べているのと整合しない**。§16.4 なら、守る主体が消えても条文としての意味は残る。
 
-### A19. ACD-1.0 を「廃止」できるのか
+*前の版*: 1.0〜1.3 の §16.4 は、その版の名と識別子だけを守り、Steward の定義（§16.5）が無かった。
 
-**適用済みの作品については、できない。** §2.2 が撤回不能と定め、§2.5 が「後から
-無効だと主張しない」と述べている。**すでに配られたものは戻らない。**
+### A19. ACD の版を「廃止」できるのか
+
+**適用済みの作品については、できない。** §2.2 が撤回不能と定め、§2.5 が「後から無効だと主張しない」と述べている。**すでに配られたものは戻らない。**
 
 > **English:** Deprecation, if it ever happens, can only mean "stop recommending it for new
 > works". It cannot mean withdrawal: Section 2.2 is irrevocable and Section 2.5 forecloses the
-> argument that it was not. The text itself is immutable under Section 16.4, so a successor is
-> a new identifier, not a replacement of this one.
+> argument that it was not. Under Section 16.4 each name and identifier continues to denote one
+> fixed text, so a successor is a new version under a new identifier, not a replacement of this
+> one; a notice that names ACD-1.4 keeps naming ACD-1.4.
 
-**これは cost として認めている**（想定問答 clauses 分冊 §32）。後から静かに直せない代わりに、
-**識別子が指すものが動かない**という性質を得ている。
+**これは cost として認めている**（想定問答 clauses 分冊 §32）。後から静かに直せない代わりに、**識別子が指すものが動かない**という性質を得ている。
 
 ### A20. 会社員が業務で書いたコードに適用してよいか（職務著作）
 
@@ -257,7 +251,9 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 **実務で最も多い取り違え**でもある。
 
 > **English:** Section 1.4 defines the Dedicator as each person or entity applying this
-> Dedication **"to the extent that person or entity holds or may hold Covered Rights in it"**.
+> Dedication **"to the extent that person or entity holds or may hold Covered Rights, Moral
+> Rights, or patent claims in it"**, and Section 16.3 lets anyone apply it to material in which
+> they hold or may hold rights of their own.
 > If your employer holds the rights — through a work-for-hire rule, an employment agreement,
 > or an assignment — then you are not the person who can apply this, and applying it does not
 > transfer anything you do not have (Section 2.7).
@@ -268,21 +264,25 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 **§2.2 が撤回不能である以上、間違って適用しても取り消せない**（少なくとも、こちらから
 取り消す手段は用意していない）。**A13（移行）と同じ確認が要る。**
 
+*前の版*: 1.0〜1.2 の Dedicator の定義は *"Covered Rights in it"* だけで、人格権と特許の請求項だけを持つ人を数えなかった（1.3 から・errata E35）。
+
 ### A21. FRAND 宣言している特許を持っている場合、§8 と衝突しないか
 
 > **English:** Section 8.1 grants a licence under patent claims the Dedicator **owns or
-> controls**, and Section 8.5 states that Sections 8.1 to 8.4 are subject to Section 2.7 —
-> they reach only what the Dedicator can license. A commitment already made to a standards
-> body is an obligation the Dedicator has to that body; this instrument neither overrides it
-> nor purports to. If your ability to grant is constrained by an existing commitment, then
-> what Section 8 grants is correspondingly constrained.
+> controls**, and Section 8.5 says that Sections 8.1 to 8.4 reach only such claims. Section 8.5
+> defines control: a claim is controlled *"if, and only if, at the time in question, the
+> Dedicator has the right to grant these licences under it without breaching an obligation to,
+> or incurring a payment to, another person"*. A claim the Dedicator **owns** is granted without
+> that test, so a claim already licensed exclusively, or committed to a standards body, is
+> still granted as far as the Dedicator can grant it (errata E91, examined and left as it is).
 >
 > This states the structure rather than the conclusion, because how a prior commitment interacts
 > with a later unconditional grant is exactly the kind of question no lawyer has looked at
 > (`ACD-1.0.jurisdictions.md` §10).
 
-**構造だけ述べて結論を述べていない**のは、`jurisdictions.md` と同じ姿勢による。
-**助言を得ていない領域で断定しない。**
+**構造だけ述べて結論を述べていない**のは、`jurisdictions.md` と同じ姿勢による。**助言を得ていない領域で断定しない。** FRAND の約束を持つ請求項を持つなら、適用する前に約束の相手と自分の法務に確かめること（**A32**）。
+
+*前の版*: 1.0〜1.3 は「支配」を定義しなかった（errata E39）。
 
 ### A12. 法務に説明するとき、何を見せればよいか
 
@@ -293,7 +293,7 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 | 何を保証しているか | 本文 §13.1 / §13.2（**4 つとも否定**している） |
 | 我々の法域で効くか | `ACD-1.0.jurisdictions.md`（**結論は書いていない**と明記） |
 | 既存ライセンスとの違い | `ACD-1.0.comparison.md` / `acd-license-rationale.md` §2 |
-| 条項ごとの意図 | `ACD-1.0.clause-reference.md`（全 82 条） |
+| 条項ごとの意図 | `ACD-1.4.clause-reference.md`（1.4 の 80 条・1.0 の版は `ACD-1.0.clause-reference.md`） |
 | 弱点 | `READY-TO-SUBMIT.md`「残る弱点」/ 想定問答 §4 |
 
 **弱点の場所を先に示すこと。** 法務が自分で見つけると、その後の説明が全部疑われる。
@@ -302,7 +302,7 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 
 ### A22. コード以外（画像・音声・埋め込みメタデータ）も対象か。第三者の資産はどうなるか
 
-**このリポジトリが同梱している資産は、すべて ACD-1.0 の対象である。** §1.2 の "Work" は
+**このリポジトリが同梱している資産は、すべて ACD-1.4 の対象である。** §1.3 の "Work" は
 source / object / documentation に加えて **data / metadata / audiovisual** を明示的に含む定義
 なので、コードと非コードで扱いが分かれることはない。実測（2026-08-27）で追跡対象の資産は
 4 件だけである。
@@ -321,7 +321,7 @@ source / object / documentation に加えて **data / metadata / audiovisual** �
 
 **一方、同梱していない第三者の資産には及ばない。これは制限ではなく、及ぼしようがないという
 事実である。** 具体的には Web フォント（`fonts.googleapis.com` / `fonts.gstatic.com` から
-実行時に読み込む）で、**リポジトリには 1 バイトも入っていない**。したがって ACD-1.0 が
+実行時に読み込む）で、**リポジトリには 1 バイトも入っていない**。したがって ACD が
 それらの権利を許諾することはあり得ず、利用者は提供元の条件に従う。逆に言えば、この
 リポジトリを丸ごと複製しても第三者資産の権利問題は発生しない —— 複製しているのは
 「そこへの参照」だけだからである。
@@ -332,20 +332,22 @@ source / object / documentation に加えて **data / metadata / audiovisual** �
 
 ### A23. 派生物に別のライセンスを付けてよいか。逆に、他人の貢献はどう扱われるか
 
-**付けてよい。制限は無い。** ACD-1.0 は権利を留保しないので、派生物へ GPL でも Apache-2.0 でも
+**付けてよい。制限は無い。** ACD は権利を留保しないので、派生物へ GPL でも Apache-2.0 でも
 プロプライエタリでも、好きな条件を付けられる。copyleft のような「同じ条件で配れ」という
 要求は存在しない（§10 / §11 が「条件ではない」と繰り返すのはこのため）。
 
 ただし正確に言うと、**あなたが付けたライセンスが及ぶのはあなたの寄与部分だけ**である。
-元の部分は ACD-1.0 のまま誰でも自由に使える —— あなたが派生物に条件を付けても、
-**上流のテキストから直接受け取る人の自由は減らない**。これは ACD-1.0 に限らず、
+元の部分は ACD のまま誰でも自由に使える —— あなたが派生物に条件を付けても、
+**上流のテキストから直接受け取る人の自由は減らない**（§4.6）。これは ACD に限らず、
 留保しない型の instrument に共通する帰結である。
 
 **逆方向（他人がこのリポジトリへ貢献する場合）。** CLA も DCO も要求していない。**ただし
 「何も定まっていない」わけではない** —— §2.6 は、Contribution は**この Dedication の下で提出
 されたものとし、提出者はその Contribution について Dedicator になる。ただし提出時に別段の
 表示をした場合を除く**、と定める。つまり**既定は献呈で、外れたい人は提出時にそう言う**。
-別途の証書や合意は要らない。受入の条件として要求してもならないのは 1.0 と 1.1 だけで、1.2 からは統治の問題として扱わない（A13）。
+別途の証書や合意は要らない。CLA を求めるかはプロジェクトの統治の問題である（A13）。**Contribution に当たらないもの**も §1.9 が決める: 議論のためだけに送ったもの、提出者が Contribution でないと印したものは外れ、Contribution は Dedicator か、この Dedication の通知とともに Work を提供するリポジトリ・forum への提出に限る。
+
+*前の版*: 受入の条件として別文書を要求してはならなかったのは 1.0 と 1.1 だけで、1.2 からはその句が無い。§1.9 の「通知とともに Work を提供する場」の限定と、印による除外は 1.4 から。
 
 この既定の限界も書いておく。**ライセンスが自分の文言で第三者の行為の法的効果を決めることは
 できない** —— 貢献者が拘束されるかは、その人が知らされていたか・提出をどう評価するかに
@@ -355,7 +357,7 @@ source / object / documentation に加えて **data / metadata / audiovisual** �
 周知すべき既定」であって、自動的に成立する権利移転ではない。
 
 そして
-**ACD-1.0 が適用されるのは適用者が権利を持つ部分だけ**なので、第三者の寄与を取り込んだ場合、
+**ACD が適用されるのは適用者が権利を持つ部分だけ**なので、第三者の寄与を取り込んだ場合、
 その部分についてまで「権利を留保しない」と宣言できるわけではない（§2.7 が他の権利者の
 留保に触れないと述べるとおり）。
 
@@ -367,9 +369,7 @@ source / object / documentation に加えて **data / metadata / audiovisual** �
 
 ### A24. 「無保証・免責」は、消費者保護法のある国でも本当に効くのか
 
-**全部そのまま効くとは限らない。そう書いてある。** §14.2 は「適用法が排除・制限を認めない
-責任については、その法が認める最大限まで制限され、残りの条項は効き続ける」と述べており、
-§14.1 は "TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW" と条件を付けている（§13.1 の無保証はこの句をどの版でも持たない —— 2026-11-24 に本文に当てて訂正。旧文は §13.1 も持つと書いていた）。
+**全部そのまま効くとは限らない。そう書いてある。** §14.1 は故意・重過失・死亡・人身傷害の責任を、適用法が排除を認めない場合に限って先に除き、残りを "TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW" と条件を付けて免責する。§14.2 は「適用法が排除を認めない責任は、その法が認める最大限まで制限され、§14 の残りは効き続ける」と述べ、さらに、§2.5・§5・§8.6・§12.2 の約束に反して請求を主張し権利を行使した Dedicator の責任を限らない（§13.1 の無保証はこの句をどの版でも持たない —— 2026-11-24 に本文に当てて訂正。旧文は §13.1 も持つと書いていた）。
 **効かない可能性を否認していない**のがこの条項群の設計である。
 
 具体的に何が制限されうるか。
@@ -381,14 +381,14 @@ source / object / documentation に加えて **data / metadata / audiovisual** �
 | ドイツ | BGB §309 が約款による責任排除を強く制限し、故意・重過失は免責できない |
 | 米国 | UCC §2-316 の下でも "AS IS" は広く有効だが、州によっては consequential damages の排除が unconscionable とされうる |
 
-**ただし ACD-1.0 の場面では、そもそも「消費者契約」に当たらないことが多い。** これは
+**ただし ACD の場面では、そもそも「消費者契約」に当たらないことが多い。** これは
 献呈（dedication）であって、対価も申込・承諾もない。受領者は何も支払わず、何の約束もして
-いない（§2.9 が「完全に履行済みで未履行債務が無い」と述べるとおり）。消費者保護法の多くは
+いない（§2.3 は受け入れの行為を要らないとし、§10.1 は受領者に条件も義務も課さない）。消費者保護法の多くは
 **事業者と消費者の間の契約**を対象にするので、対価なしの一方的な献呈がその枠に入るかは
 法域ごとに別途の判断になる。**「入らないから安心」とは書かない** —— 判断できないことを
 断定しないのが、この文書群の方針である。
 
-**同じ理由が、逆の向きにも働く（2026-11-12 に足した）。** 献呈が契約でないことは、消費者保護法が当たらない理由になりうる一方で、免責そのものが受領者を縛らない理由にもなりうる。受け入れの行為を求めない形（ACD-1.0 の §2.3）について、OSI の委員長は 2002 年に *"From what various legal scholars tell me, a non-contractual license (such as the GPL) cannot cause you to give up your warranty rights. Only a contract can do that."* と書き、同じ年に Rod Dixon 氏（署名に J.D., LL.M.）は同意の表示が無いことを理由に条項を争いやすいと述べ、2015 年に Lawrence Rosen 氏は *"Indeed, some courts will NOT enforce a license that has NOT been seen and approved by the licensee."* と書いた（`review-readings.md` §1.180・§1.190、`against.md` #321）。**免責は受け入れを要らない形で書かれていて、効き方は法域による** —— これがこの問いへの正確な答えである。**逆側**: GPL をはじめ同意を求めない承認済みライセンスも保証を否認しており、ACD だけの問題ではない。受け入れの手順を求めることは OSD 10 が退けている。
+**同じ理由が、逆の向きにも働く（2026-11-12 に足した）。** 献呈が契約でないことは、消費者保護法が当たらない理由になりうる一方で、免責そのものが受領者を縛らない理由にもなりうる。受け入れの行為を求めない形（§2.3・1.0 から同じ）について、OSI の委員長は 2002 年に *"From what various legal scholars tell me, a non-contractual license (such as the GPL) cannot cause you to give up your warranty rights. Only a contract can do that."* と書き、同じ年に Rod Dixon 氏（署名に J.D., LL.M.）は同意の表示が無いことを理由に条項を争いやすいと述べ、2015 年に Lawrence Rosen 氏は *"Indeed, some courts will NOT enforce a license that has NOT been seen and approved by the licensee."* と書いた（`review-readings.md` §1.180・§1.190、`against.md` #321）。**免責は受け入れを要らない形で書かれていて、効き方は法域による** —— これがこの問いへの正確な答えである。**逆側**: GPL をはじめ同意を求めない承認済みライセンスも保証を否認しており、ACD だけの問題ではない。受け入れの手順を求めることは OSD 10 が退けている。
 
 **利用者にとっての実務的な帰結は 1 つだけ。** 無保証条項がどこまで効くかに関わらず、
 **この作品は無保証で提供されている**。重要な用途に使うなら、自分で検証する。それは
@@ -408,17 +408,16 @@ source / object / documentation に加えて **data / metadata / audiovisual** �
 | 学習用データセットに含める | **明示的に許諾**（§6） | TDM の留保をしておらず、機械学習を積極的に許している |
 | 授業教材として配る・改変する | 許諾不要 | 教育目的かどうかで扱いが変わることはない（用途制限が無いため） |
 | 成果物（モデル・論文・派生コード）に条件が及ぶか | **及ばない**（§6.4） | 出力が本作品の許諾に縛られない |
-| 出典を書く | **義務ではない**（§10.2） | 歓迎はする。書くなら canonical URL と `SPDX-License-Identifier: ACD-1.0` |
+| 出典を書く | **義務ではない**（§10.2） | 歓迎はする。書くなら canonical URL と `SPDX-License-Identifier: ACD-1.4`（適用された版の番号） |
 
 **「帰属不要」は「引用しなくてよい」を意味しない。** 引用の要否を決めるのは著作権法や
 ライセンスではなく、**所属機関と学術分野の規範**である。出典を示さずに他人の成果を自分の
 ものとして提示すれば、ライセンスに違反していなくても剽窃（plagiarism）になりうる。
-ACD-1.0 は前者を放棄しているだけで、後者には触れていないし、触れられない。
+ACD は前者を放棄しているだけで、後者には触れていないし、触れられない。
 
 **逆に、ライセンスが放棄していない唯一のこと**も述べておく。§11.3 は「私が書いた」「私が
 推奨している」という**虚偽の表示**を禁じるが、これはライセンスが課した条件ではなく、
-虚偽表示がそれ自体として成立するという確認である。ACD-1.0 が何を許諾しようと独立に
-成り立つので、1.1 で全条項を削っても消えない。
+虚偽表示がそれ自体として成立するという確認である（§11.3 *"This Dedication does not make a false statement true."*）。ACD が何を許諾しようと独立に成り立つ。
 
 **再現性のために**: この作品を研究対象にするなら、参照すべきは特定のコミットである。
 リポジトリは全履歴が公開されており、`LICENSES/FROZEN.md` の存在と Check 453 が
@@ -433,12 +432,12 @@ ACD-1.0 は前者を放棄しているだけで、後者には触れていない
 負担を負っていないという表明でもない」。§13.2 が対応する無保証を述べる。
 
 **適用する側の実務。** §1.4 の Dedicator は「この Dedication を適用する各人または各主体」
-なので、**複数人がそれぞれ適用できる**。多人数の作品で全体を自由にしたいなら、
+なので、**複数人がそれぞれ適用できる**。§1.4 は、Dedicator が複数いるとき各人について別々に働き、1 人の適用が効かなくても他の人の適用に影響しないと述べる。多人数の作品で全体を自由にしたいなら、
 **権利者全員が適用する**必要がある。一部だけが適用した状態は「その人の持ち分については
 自由」という中途半端な状態で、受領者から見ると使えるかどうかが判断できない。
 
 **受け取る側が確かめること。** リポジトリが「全貢献者が適用している」と述べているか、
-述べていないなら誰が適用したのかを見る。ACD-1.0 はそれを保証しない —— **保証しないことを
+述べていないなら誰が適用したのかを見る。ACD はそれを保証しない —— **保証しないことを
 §2.7 と §13.2 で正面から書いている**のであって、書き忘れているのではない。
 
 **法域による差がある（結論は書かない）。** 日本の著作権法 65 条は共同著作物の権利行使に
@@ -453,33 +452,11 @@ ACD-1.0 は前者を放棄しているだけで、後者には触れていない
 
 ### A27. 適用した人が亡くなったら／会社が売却・破産したら、受け取った許諾はどうなるか
 
-**変わらない。そう書いてある。** §2.8 は、権利を与える側の中核 4 節（§3 献呈・§4 許諾・
-§6 機械学習・§8 特許）が **Dedicator の承継人・譲受人・相続人・遺言執行者**、および
-Covered Right や特許クレームの移転先を、法の許す最大限まで拘束すると述べる。譲受人は
-**それらに服した状態で受け取り、Reservation を行えない**。
+**変わらない。そう書いてある。** §2.8 は *"This Dedication, in respect of the Work, binds"* と、Dedication 全体で **Dedicator の承継人・譲受人・相続人・遺言執行者**、および Covered Right や §8 が届く特許請求項の移転先を、法の許す最大限まで拘束すると述べる。移転先は *"takes subject to it to that extent, Section 6 included"* —— Reservation（学習の opt-out）を置いて取り戻すこともできない。§15.5 は *"person"* が法人を含むと定めるので、会社が売却されて権利を受け取る法人も移転先である。
 
-条文がわざわざそう言っている理由も本文に書いてある —— §5.3 と §12.4 は自らが含む covenant に
-ついて同じことを述べており、**ここで沈黙すると「許諾そのものは Dedicator で止まる」という
-主張を招く**。それは最も長く残るリスク、つまり**権利者が変わる場面**を開けたままにする。
+*前の版*: 1.0〜1.3 の §2.8 は拘束する条を §3・§4・§6・§8 と列挙し、§7.2（データベースの抽出の許可）と §2.5（禁反言）を名指していなかった（errata E46・E49）。*person* が法人を含む規定も無かった（errata E58）。1.4 は列挙をやめ、§15.5 を足した。
 
-**⚠ 2026-11-01 —— 「そう書いてある」の範囲**: 1.0 の列挙は 4 節で、**§7.2（データベースの抽出・再利用の
-独立した許可）と §2.5（約因・方式の欠如で無効と主張しない禁反言）を名指していない** —— errata **E46** /
-**E49**。§7.1 によりデータベース権は §3・§4 で拘束されるので E46 の実害は小さく、E49 も禁反言が承継人に
-及ぶ法域では小さい。だが「そう書いてある」と言えるのは列挙された 4 節についてだけである。1.4 草案は
-列挙をやめ、Dedication 全体を Work について拘束する形にした（両方を閉じる）。
-
-**⚠ 2026-11-03 —— 「移転先」が会社のとき**: §2.8 は移転先を *"any **person** to whom a Covered Right or a patent
-claim in the Work is transferred"* と書き、定義（Dedicator・You）は *"person or entity"* と書き分けている。
-本文には *person* が法人を含むという解釈規定が無いので、**会社が売却されて権利を受け取る法人は §2.8 に
-名指されていない、と読む筋が立つ** —— errata **E58**（§5.1・§8.6・§12.2・§12.4 も同じ）。その読みは
-§15.1（許諾を広く読む）と §2.8 の目的に反するので採られにくいが、「そう書いてある」と言えるのは自然人の
-移転先についてまでである。ACD-1.4 は §15.5 に *"person"* が entity を含むことを足した。
-
-**破産・管財人。** 1.0 の §2.9 は「適用された時点で完全に履行済み」で、Dedicator にも You にも
-継続的な義務を残さないと述べ、続けて *"and so is not executory"* と分類まで言い切った。
-**その分類と結果の言い切りは欠陥として外した**（errata E5・E30）—— 未履行双務契約に当たるかは
-法廷地の倒産法が決め、本文が決められない。ACD-1.4 の §2.9 は、倒産手続や管財人の行為を
-条件にしないことと、管財人が §2.8 の移転先であることだけを述べる。どちらの側にも継続的な
+**破産・管財人。** §2.9 は、この Dedication のどれも、その条項の上で倒産手続や管財人の行為を条件にせず、それによって止まりも戻りもしないと述べ、管財人を §2.8 の移転先とする。未履行双務契約に当たるかは法廷地の倒産法が決め、本文は決めない（1.0 の §2.9 は *"fully performed"*・*"and so is not executory"* と分類まで言い切っていたが、欠陥として外した・errata E5・E30）。どちらの側にも継続的な
 義務を残さない構造は、管財人が「履行を拒絶してライセンスを終わらせる」筋道に乗りにくくする
 ことを狙っている。米国では 2019 年の最高裁判決（*Mission Product Holdings v. Tempnology*）が、倒産での
 拒絶は解除ではなく違反として働き、すでに与えた権利を消さないと判示したので、問いは狭まった
@@ -503,8 +480,9 @@ claim in the Work is transferred"* と書き、定義（Dedicator・You）は *"
 **このライセンスは、その問いに答えられない。答えられないことを条文が明示している。**
 §11.4 は、Work が個人データや人の肖像・音声・実演を含む場合、「それらの法が要求する許諾は
 Dedicator が与えうるものではなく、本 Dedication はそれを与えようともしない」と述べる。
-（**2026-11-01 注**: この文は写っているのが Dedicator 本人の場合にも「与えられない」と言っており、言い過ぎだった —— errata **E43**。
-1.4 草案は「Dedicator 以外の人」に限った。データ保護法上の同意は撤回できるので、本人のデータでもこのライセンスが根拠にならないことは変わらない。）
+§11.4 は他人（Dedicator 以外の人）について言う。Dedicator 本人のデータでも、データ保護法上の同意は撤回できるので、このライセンスが処理の根拠にならないことは変わらない。Dedicator 本人の privacy・publicity・personality の権利は、Dedicator が §5.2(d) で許された利用に対して主張しない（虚偽の表示を除く）。
+
+*前の版*: 1.0 の §11.4 は本人が写っている場合も「与えられない」と言い、言い過ぎだった（errata E43・1.4 で他人に限った）。本人の人格的な権利を主張しない約束（§5.2(d)）は 1.2 から（errata E31）。
 
 **したがって、確かめるべきことは 2 段に分かれる。**
 
@@ -519,7 +497,7 @@ Dedicator が与えうるものではなく、本 Dedication はそれを与え�
 その処理を適法にすることはない。** これを曖昧にする instrument は、利用者に**実際には
 存在しない安心**を与えることになる。
 
-**適用する側への実務的な帰結。** 個人データを含む作品に ACD-1.0 を適用するのは自由だが、
+**適用する側への実務的な帰結。** 個人データを含む作品に ACD を適用するのは自由だが、
 **それによって受領者の処理が適法になるわけではない**。適用者にできる有用なことは、
 ライセンスの文言を強めることではなく、**素材の性質を記述すること** —— どのような
 データが含まれるか、どこから来たか、どのような同意や法的根拠のもとで集めたか。
@@ -548,14 +526,11 @@ Dedicator が与えうるものではなく、本 Dedication はそれを与え�
 §6.2 の末文が *"does not purport to defeat a Reservation made by another rightsholder"* と述べ、
 §2.7 が instrument 全体を「Dedicator が持つ権利」に縛っている。**届かない撤回は、届かない。**
 
-**⚠ 1.0 の本文では、この答えが 3 条（§2.7 → §6.2 → §6.3）に分かれている。**
-**読み順を我々は決められないので、1 条だけ読んだ人には「他人の signal まで剥がす」と読める。**
-**次版の草案では §6.3 自身が**
-*"the Dedicator has **no power to withdraw it** and this Section does not purport to give one"*
-**と明記して、この読み替えを条文内で閉じている**（`ACD-1.1-CHANGELIST.md` §1・2026-09-14）。
-**1.0 は凍結中なので直さず、ここに記録する。**
+§6.3 自身も、他の権利者が自分の権利の行使として置いた Reservation については *"the Dedicator has no power to withdraw it and Section 6.3 does not purport to give one"* と述べる。
 
-**利用者にとっての実務的な帰結**: **ACD-1.0 の作品を学習に使う前に、第三者の Reservation が
+*前の版*: 1.0 ではこの答えが 3 条（§2.7 → §6.2 → §6.3）に分かれ、1 条だけ読んだ人には「他人の signal まで剥がす」と読めた。§6.3 の「撤回する力が無い」の文は 1.1 から（`ACD-1.1-CHANGELIST.md` §1・2026-09-14）。
+
+**利用者にとっての実務的な帰結**: **ACD の作品を学習に使う前に、第三者の Reservation が
 付いていないかは自分で確かめる必要がある。** このライセンスはそれを肩代わりしない ——
 §13.2（無保証）と §2.7（保有する権利にのみ及ぶ）が、その限界を条文で述べている。
 
@@ -575,10 +550,11 @@ Dedicator が既に公開した写しについて「さらなる条件・制限�
 
 **つまり二重頒布（dual distribution）は普通にできるが、商用ライセンスを買わせて ACD 部分の
 利用を制限することはできない。** 有償で売れるのは、ACD を適用していない付加部分・保守・
-保証・サポートである。1.2 と 1.3 の §5.1 第 2 肢はこの代金の請求まで不行使と読める語で、
-1.4 草案は *"a payment You agreed to make"* を例外に足し、T118 でそれを *"for providing a copy or for a service that is not permission to use the Work"* の支払いに限って §5.2(b) にも同じ除外を置いた —— 写しや保守・サポートの代金は取れるが、許しそのものを「サービス」と名づけた代金は取れない。
+保証・サポートである。§5.1 と §5.2(b) は *"a payment You agreed to make for providing a copy or for a service that is not permission to use the Work"* を除く —— 写しや保守・サポートの代金は取れるが、許しそのものを「サービス」と名づけた代金は取れない。
 
-**⚠ この答えは §4.5 の中には書かれていない**（§2.2・§5.2(b)・§1.3（1.0 の §1.2）に分かれている）。
+*前の版*: 1.2 と 1.3 の §5.1 第 2 肢は、この代金の請求まで主張しないと読める語だった（1.4 で除外を足した・T118）。
+
+**⚠ この答えの大半は §4.5 の中には書かれていない**（§4.5 の末文が「§5 が禁じることを Dedicator である素材に課せない」と述べるほかは、§2.2・§5.2(b)・§1.3 に分かれている）。
 2026-11-01 に外部の敵対的レビューがこの読みを問い（`ACD-1.0.against.md` #279）、
 次版の草案に相互参照を足すことも検討したが、**答えは本文全体で既に出ており、足す語は
 長さ（register B3）に対する費用になる**ので、本文は変えずにこの FAQ で答えることにした
@@ -649,16 +625,11 @@ Dedicator が既に公開した写しについて「さらなる条件・制限�
 
 ### B1. いまどの段階か
 
-`LICENSES/FROZEN.md` の `VENUE-DATA` marker が**単一ソース**である（Check 458 が
-5 ファイルとの整合を BLOCKING で強制）。現時点では **OSI `license-discuss`（一般的な議論
-リスト）へ投稿済み・反応待ち**で、承認申請の窓口である `license-review` へは未投稿、
-SPDX も未提出である。**承認の手続きはまだ何も始まっていない。**
+`LICENSES/FROZEN.md` の `VENUE-DATA` marker が**単一ソース**である（Check 458 が 5 ファイルとの整合を BLOCKING で強制）。**ACD-1.0 を OSI `license-discuss`（一般的な議論リスト）へ投稿した**ところまでで、承認申請の窓口である `license-review` へも、SPDX へも出していない。**承認の手続きはまだ何も始まっていない。**
 
-> **⚠ 2026-09-27 追記 —— 「反応待ち」は「届いている」を意味しない。** 我々の投稿のうち**少なくとも 3 通**
-> （`license-review` 2 通 + 2026-09-17 の 1.1 の Discussion Request 1 通）が **moderation で拒否され、
-> リストに届いていない**（`ACD-1.0.against.md` #215・発信状態の単一ソースは `FROZEN.md` の `POSTING-STATUS`）。
-> 出す版は **1.2**（1.1 は 2026-09-17 に確定・凍結済み）。
-> **（2026-11-01 注: この 1 行は 09-27 時点の記述。その後 1.2 は 2026-10-17、1.3 は 2026-10-25 に確定・凍結し、どちらも申請していない。いまの「出す版」は申請の日に確定する最新版で、作業場は `ACD-1.4-DRAFT.txt`。単一ソースは `SUBMISSION-MATERIALS.md`。）**
+- **出す版**: 2026-11-23 の合議（議題 3）で、提出対象を確定した **ACD-1.4** に切り替えた（`ACD-1.0.submission.md` の `SUBMISSION-TARGET`）。ただし 1.4 の新しい語をオーナーが `license-discuss` へ自分の言葉で出し、少なくとも 30 日置くまで、提出の門は開かない。
+- **このリポジトリが適用しているのも ACD-1.4**（root の `LICENSE`）。1.1〜1.4 はどれも確定・凍結した版で、どれも承認されていない。
+- **「反応待ち」は「届いている」を意味しない。** 我々の投稿のうち**少なくとも 3 通**が moderation で拒否され、リストに届いていない（`ACD-1.0.against.md` #215・発信状態の単一ソースは `FROZEN.md` の `POSTING-STATUS`）。
 
 ### B2. OSI が却下したら / 反応が無かったら
 
@@ -677,39 +648,15 @@ SPDX も未提出である。**承認の手続きはまだ何も始まってい�
 **実使用が増えてから。** SPDX は「相当程度の実使用」を求めるが、現在の使用実績は本リポジトリ
 1 件である。**満たしていないものを出さない**という判断であって、順序の都合ではない。
 
-### B4. ACD-1.1 はいつ作るのか
+### B4. 次の版はいつ作るのか
 
-> **⚠ 2026-09-24 追記 —— 下の 2026-09-10 の記述はその日の状態である。** 1.1 は **2026-09-17 に確定・凍結**され、
-> 1 行目は **FROZEN TEXT. NOT SUBMITTED FOR APPROVAL. NOT APPLIED TO THIS REPOSITORY.** になった。
-> 閉じた欠陥の数も 7 件から増えている（数は 1.1 自身の冒頭が述べる）。次版の作業場は `ACD-1.2-DRAFT.txt`（**2026-10-17 追記**: 1.2 も `ACD-1.2.txt` として確定し、いまの作業場は `ACD-1.3-DRAFT.txt`。**2026-10-29 追記**: 1.3 も 2026-10-25 に確定したので、いまの作業場は `ACD-1.4-DRAFT.txt`。**2026-11-23 追記**: 1.4 も 2026-11-23 に確定したので、いまの作業場は `ACD-1.5-DRAFT.txt`。版が動くたびにここが古くなるので、以後は `LICENSES/README.md` の「次版の草案」行と Check 468k が権威）。
->
-> **⚠ 2026-09-10 追記 —— 草案は既に在る。** `LICENSES/ACD-1.1-DRAFT.txt`（**2026-09-28 訂正**: 当時の file 名。確定時の一括置換が `ACD-1.1.txt` へ書き換えていたが、凍結後の `ACD-1.1.txt` の 1 行目は FROZEN TEXT であって下の文言ではない）
-> （**NOT IN FORCE / NOT SUBMITTED / NOT APPLIED** と 1 行目で述べる）。
-> **「いつ作るのか」への答えは、いまや「作ってあるが、版としては確定していない」である。**
-> **7 件の記録済み欠陥を閉じてある**（E3 / E5 / E12 / E13 / E14 / E15 / E16）。
-> **1.0 は 1 文字も動いていない** ——Check 453 が sha256 で pin し続けている。
->
-> **いま 1.0 を適用してよいか**: **よい。** §16.2 により、識別子か名前で参照していれば
-> **本文の写しが付いていなくても terms は完全に適用される**ので、
-> 1.1 が確定しても**あなたの notice は壊れない**。**1.1 は 1.0 を無効にしない** ——
-> **1.0 のテキストは動かない**（§16.4 の目的条項 + `FROZEN.md` + Check 453 の pin）。別版は別識別子を持つ。
-> **移りたければ notice の識別子を変えるだけでよく、移らない自由もある。**
+**直すべき欠陥が記録されたとき、次版の草案で直す。確定した版は直さない。** 版を確定するたびに本文を凍結し（`FROZEN.md`・Check 453 が sha256 で pin する）、見つけた欠陥は `ACD-1.0.errata.md`（1.0 にも在る文）か `ACD-1.1-SELF-AUDIT.md`（後の版が持ち込んだ文）に記録して、次版の草案で直す。いまの作業場は `LICENSES/README.md` の「次版の草案」行が名指す（版が動くたびにここが古くならないように、ここには書かない）。審査中に審査側が見ているテキストを差し替えないためである。
 
-**指摘を受けて、直すべきだと判断したとき。** ただし審査中はテキストを動かさない
-（Check 453 が sha256 で凍結を機械強制する）。妥当な指摘への正しい返答は
-「**次版でこうする**」であって（**2026-09-28 訂正**: 1.1 は 2026-09-17 に確定・凍結済みなので、いま直す先は次版である。旧文は「1.1」を名指ししたまま残っていた。**2026-10-17 追記**: 1.2 も確定したので、いまの作業場は `ACD-1.3-DRAFT.txt`。**2026-10-29 追記**: 1.3 も 2026-10-25 に確定したので、いまの作業場は `ACD-1.4-DRAFT.txt`。**2026-11-23 追記**: 1.4 も 2026-11-23 に確定したので、いまの作業場は `ACD-1.5-DRAFT.txt`。版が動くたびにここが古くなるので、以後は `LICENSES/README.md` の「次版の草案」行と Check 468k が権威）、審査側が見ているテキストの差し替えではない。
+**いま ACD-1.4 を適用してよいか**: **よい。** §16.2 により、識別子か名前と版で参照していれば本文の写しが付いていなくても terms は完全に適用される。次の版が確定しても**あなたの notice は壊れない** —— §16.4 は各名と識別子が 1 つの固定テキストを指し続けるようにし、新しい版は新しい識別子を持つ。**移りたければ notice の識別子を変えるだけでよく、移らない自由もある**（ただし既に出した素材は §2.2 により戻らない）。
 
-**1.0 のテキストは動かない。** ただし**それを担保しているものは 1 つではない** ——
-**識別子が 1 つの固定テキストを指し続ける**のは §16.4 の目的条項（`ACD-1.0` について）、
-**我々が 1.0 を改訂しない**のは `FROZEN.md` の方針と Check 453 の sha256 pin（**条文の効果ではない**）、
-そして**後継識別子は 1.0 の本文では守られていない** ——1.0 の §16.4 は `ACD-1.0` しか名指ししないので、
-第三者が改変版を `ACD-1.1` として頒布しても 1.0 の文言には当たらない（**E14**・登録で縮む・B11）。
-（**2026-11-01 注**: E14 は 1.1 で閉じている —— 1.1〜1.3 の §16.4 は `ACD-N` / `ACD-N.N` の系列全体を
-守り（1.4 草案は `ACD-1.4.1` のような形も含め「`ACD-` に数字が続く識別子」全体へ広げた）、1.4 草案はさらに Steward 例外を「どの本文も使っていない版番号と識別子の新版」に限った
-（`ACD-1.0.against.md` #279）。**守られていないのは 1.0 の本文の中での話**であって、後継の本文は
-自分の識別子を守っている。）
-**§16.4 は改変そのものを禁じてもいない**（第 3 文が「別の名前でなら頒布してよい」と述べる）。
-**後から静かにパッチを当てられない**のは意図的な cost である（想定問答 clauses 分冊 §32）。
+**後から静かにパッチを当てられない**のは意図的な cost である（想定問答 clauses 分冊 §32）。**§16.4 は改変そのものを禁じてもいない** —— 別の名前でなら頒布してよい。
+
+*前の版*: 1.0 の §16.4 は `ACD-1.0` しか名指さず、第三者が改変版を `ACD-1.1` の名で頒布することを 1.0 の文言は止めなかった（errata E14・1.1 で閉じた）。1.4 は「`ACD-` に数字が続く識別子」全体と Steward（§16.5）へ広げた。
 
 ### B5. 誰に連絡すればよいか
 
@@ -718,7 +665,7 @@ SPDX も未提出である。**承認の手続きはまだ何も始まってい�
 | 連絡したいこと | 相手 |
 |---|---|
 | **ある作品**（その作品の権利・来歴・含まれる第三者素材） | **その作品の Dedicator（適用した人）**。このリポジトリの作品なら横井雄太、他の人が ACD を適用した作品ならその人である |
-| **ライセンス本文そのもの**（誤り・次版・識別子） | **ライセンスの steward** —— `ACD-1.0.submission.md` §A の *Licence steward* 行（横井雄太）。1.1 以降の本文では §16.5 が *"the Steward"* を「その名前と識別子でこの本文を最初に公開した者」と定義している |
+| **ライセンス本文そのもの**（誤り・次版・識別子） | **ライセンスの steward** —— `ACD-1.0.submission.md` §A の *Licence steward* 行（横井雄太）。ACD-1.4 の §16.5 は *"the Steward"* を、その名前と識別子でこの本文を最初に公開した者、または役を譲られた者と定義している |
 
 **⚠ 2026-11-01 訂正**: この節は「steward は Dedicator（適用者）本人」「§A に連絡先の欄がある」と
 述べていたが、**2 つとも不正確だった**。steward と Dedicator は、このリポジトリでは同じ人だが
@@ -734,8 +681,8 @@ SPDX も未提出である。**承認の手続きはまだ何も始まってい�
 
 | 知りたいこと | 見る場所 |
 |---|---|
-| **条文そのもの**（唯一の権威） | `LICENSES/ACD-1.0.txt` |
-| 条項ごとの意図（全 82 条） | `LICENSES/ACD-1.0.clause-reference.md` |
+| **条文そのもの**（唯一の権威・このリポジトリが適用する版） | `LICENSES/ACD-1.4.txt`（`license-discuss` へ投稿した版は `LICENSES/ACD-1.0.txt`） |
+| 条項ごとの意図 | `LICENSES/ACD-1.4.clause-reference.md`（80 条）/ `LICENSES/ACD-1.0.clause-reference.md`（1.0 の 82 条） |
 | 「X で足りるのでは」への答え | `LICENSES/ACD-1.0.comparison.md` / `docs/architecture/acd-license-rationale.md` §2 |
 | 法域ごとの問い | `LICENSES/ACD-1.0.jurisdictions.md` |
 | レビューで来るであろう指摘 | `LICENSES/ACD-1.0.review-responses.md`（+ `-clauses` / `-meta`） |
@@ -750,7 +697,7 @@ SPDX も未提出である。**承認の手続きはまだ何も始まってい�
 | 確定・凍結済みの後継版 1.3（2026-10-25・未提出・2026-11-23 まで適用） | `LICENSES/ACD-1.3.txt` / `LICENSES/ACD-1.3-CHANGELIST.md` |
 | 確定・凍結済みの後継版 1.4（2026-11-23・未提出・このリポジトリに適用中） | `LICENSES/ACD-1.4.txt` / `LICENSES/ACD-1.4-CHANGELIST.md` |
 | 次版の草案（作業場・版が動いたら `LICENSES/README.md` の「次版の草案」行が権威） | `LICENSES/ACD-1.5-DRAFT.txt` / `LICENSES/ACD-1.5-CHANGELIST.md` |
-| 機械可読な記述子 | `LICENSES/ACD-1.0.machine.json` / `LICENSES/ACD-1.0.spdx.xml` |
+| 機械可読な記述子 | `LICENSES/ACD-1.4.machine.json` / `LICENSES/ACD-1.4.spdx.xml`（1.0 の版は `ACD-1.0.machine.json` / `ACD-1.0.spdx.xml`） |
 
 **ここに無い疑問が出たら、それはこの一覧の欠落である。** 追記すること。
 

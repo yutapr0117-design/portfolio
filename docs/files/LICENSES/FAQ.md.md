@@ -1,18 +1,18 @@
 ---
 file: LICENSES/FAQ.md
 audience: 採用検討者, 法務, ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-10
-canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (逐条) / LICENSES/ACD-1.0.comparison.md (族比較) / LICENSES/ACD-1.0.jurisdictions.md (法域) / LICENSES/FROZEN.md (投稿先の単一ソース)
+last-updated: 2026-11-26
+canonical-ref: LICENSES/ACD-1.4.txt (このリポジトリが適用する確定版・答えはこの本文に当てる) / LICENSES/ACD-1.4.clause-reference.md (逐条) / LICENSES/ACD-1.0.comparison.md (族比較) / LICENSES/ACD-1.0.jurisdictions.md (法域) / LICENSES/FROZEN.md (投稿先の単一ソース)
 ---
 
 # LICENSES/FAQ.md
 
 ## What
 
-**レビュアではなく「実際に使うかもしれない人」の疑問**に答える FAQ。3 部構成。
+**レビュアではなく「実際に使うかもしれない人」の疑問**に答える FAQ。3 部構成。**2026-11-26 に `ACD-1.0.faq.md` から改名し、答えを適用中の ACD-1.4 に当てて書き直した**（議題 13。1.0〜1.3 で答えが違う所は各問の末の「前の版」）。
 
 - **A. 使う側**（34 問）: 適用の仕方 / 帰属表示 / 改変再配布 / 用途制限 / GPL・Apache との組み合わせ（**逆向きは別の話**）/ 特許を持っている場合 / データ・モデル / 学習と出力 / 作者の死亡・破産 / **SPDX 未登録時の表記** / **依存スキャナが未知と言う場合** / 法務への説明材料
-- **B. プロセス**（5 問）: 現在の段階 / 却下や無反応 / SPDX の時期 / 1.1 の作り方 / 連絡先
+- **B. プロセス**（5 問）: 現在の段階 / 却下や無反応 / SPDX の時期 / 次の版の作り方 / 連絡先
 - **C. リポジトリのどこを見れば何が分かるか**（逆引き 11 行）
 
 ## Why
