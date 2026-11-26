@@ -377,6 +377,13 @@ _MUTATIONS_TAIL.append({
     "replace": '"ACD-1.*.clause-reference.md", "ACD-1.0.faq*.md",',
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 109: living doc の一覧に無い file の名を置く —— 改名した doc が走査から黙って外れる (2026-11-26)",
+    "file": ROOT / ".github" / "scripts" / "checks_canon_config.py",
+    "find": '        "Claude2Claude.md",\n',
+    "replace": '        "Claude2Claude-renamed.md",\n',
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
