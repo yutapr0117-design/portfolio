@@ -282,13 +282,13 @@ The rows from #223 onward are in [`ACD-1.0.against-2.md`](ACD-1.0.against-2.md),
 new rows are added at the end of that file. The status notation and how a row is closed are those stated
 above, and the totals below count both files.
 
-The adverse list has grown from 14 entries to **333** across ten rounds of examination. When this
+The adverse list has grown from 14 entries to **334** across ten rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **333 adverse facts, 93
+   prompted by third parties, four self-initiated — have produced **334 adverse facts, 94
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
