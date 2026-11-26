@@ -42,6 +42,13 @@ file と、最新の file より後の終わった月は、実行の冒頭に警
 **2017 / 2018 / 2021 / 2022 は「ドシエが引いているのに一度も取得していなかった」**
 ——取得後に確認数が 238 → 249 へ動いた。**「未確認」が減らないときは、まず月の欠落を疑う。**
 
+**引用の後ろに置く 2 つの印 (2026-11-26・59 と 6c の依頼)**:
+    *"…"*（`LICENSES/ACD-1.2-DRAFT.txt@9ab85850`）  —— 出所の版を名指す。この引用だけは外部の corpus でなく、その commit の
+        その file に当てる（当時の草案・当時の提出文のように、いまの tree に無い文を引くため）。在れば「出所の版で確認」、無ければ
+        「出所の版に無い」と別に出す（未確認に混ぜない）。印は引用の閉じの後 80 字以内。
+    *"…"*<!-- not-verbatim: 理由 -->  —— 逐語として当てない。原文に無いことが主張そのものの引用（我々が誤って引いた句を述べる
+        against #144 の形）に付ける。描画では見えない。理由は必須で、数は実行の結果に出す（増えたら読む）。
+
 **⚠ 検出器を信じる前に、検出器を疑うこと。** 2026-09-14 の初版は
 「引用らしき文字列」を 4,976 件と数え、そのほとんどが **markdown の太字記法**だった。
 規約 (`*"..."*`) に絞って 495、人名の近傍に絞って 251 まで落ちた。
@@ -206,6 +213,27 @@ def load_self(root="."):
     return " || ".join(out)
 
 
+_PROV = re.compile(r"`(?P<file>[\w./-]+\.\w+)@(?P<sha>[0-9a-f]{7,40})`")
+_NOT_VERBATIM = re.compile(r"^\s*<!-- not-verbatim: [^>]*\S[^>]* -->")
+PROVENANCE: dict = {}      # 引用 → (file, sha)。collect_quotes が埋める
+NOT_VERBATIM: dict = {}    # 引用 → 場所。逐語として当てない
+
+
+def _after(line, raw):
+    """引用 raw の閉じ (*"…"* の後ろ) から 80 字。"""
+    i = line.find(raw)
+    if i < 0:
+        return ""
+    j = line.find('"*', i + len(raw))
+    return line[j + 2:j + 82] if j >= 0 else ""
+
+
+def at_provenance(quote, file, sha, root="."):
+    """出所の版の file に引用が在るか。読めなければ None。"""
+    r = subprocess.run(["git", "show", f"{sha}:{file}"], cwd=root, capture_output=True, text=True)
+    return present(quote, norm(r.stdout)) if r.returncode == 0 else None
+
+
 def collect_quotes(root=".", named=True):
     """`*"..."*` 形式の英語の逐語引用を集める。named は人名の近傍のものに絞る。"""
     quotes = {}
@@ -224,6 +252,13 @@ def collect_quotes(root=".", named=True):
                     continue
                 if sum(ord(c) < 128 for c in q) / len(q) <= 0.9:
                     continue
+                tail = _after(line, _raw)
+                if _NOT_VERBATIM.match(tail):
+                    NOT_VERBATIM.setdefault(q, f"{os.path.basename(path)}:{n + 1}")
+                    continue
+                pm = _PROV.search(tail)
+                if pm:
+                    PROVENANCE[q] = (pm["file"], pm["sha"])
                 quotes.setdefault(q, set()).add(f"{os.path.basename(path)}:{n + 1}")
     return quotes
 
@@ -636,7 +671,19 @@ def main():
         print(f"⚠ cache に欠けがある: {stale_months()}。その月の発言が未確認に落ちるので足す")
     quotes = collect_quotes(args.root, named=not args.all_italics)
     blob = load_sources(args.root)
+    # 出所の版を名指した引用は、その版だけに当てる (外部の corpus で偶然一致しても確認にしない)
+    prov = {q: (PROVENANCE[q], at_provenance(q, *PROVENANCE[q], root=args.root)) for q in quotes if q in PROVENANCE}
+    for q in prov:
+        quotes.pop(q)
     miss = {q: sorted(v) for q, v in quotes.items() if not present(q, blob)}
+    if prov or NOT_VERBATIM:
+        print(f"出所の版を名指した引用: {len(prov)}（その版で確認 {sum(1 for _, ok in prov.values() if ok)}）"
+              f"・逐語として当てない印: {len(NOT_VERBATIM)}")
+        for q, ((f, sha), ok) in prov.items():
+            if not ok:
+                print(f"  出所の版に{'無い' if ok is False else '当たれない (file か commit が無い)'}: {f}@{sha} {q[:90]}")
+        for q, loc in NOT_VERBATIM.items():
+            print(f"  逐語として当てない: [{loc}] {q[:90]}")
     print(f"帰属つき英語の逐語引用: {len(quotes)}")
     print(f"  確認できた: {len(quotes) - len(miss)}   確認できない: {len(miss)}")
 
