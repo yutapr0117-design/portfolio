@@ -456,7 +456,17 @@ test('Snapshot restore normalizes a foreign-schema/partial snapshot without cras
   // 復元ボタン (snap があれば enabled) を押す
   const restoreBtn = page.getByRole('button', { name: '復元' });
   await expect(restoreBtn).toBeEnabled();
+  // [FIX 2026-11-26] クリックの前から在る見出しに印を付け、**印の無い新しい見出し** (= 復元の後の描き直し) を待つ。
+  //   旧形は「Settings の見出しが見える」を待っていたが、それはクリックの前から真で、待ちが何も待っていなかった。
+  //   正規化を外す mutation では render が非同期に TypeError で落ち (__fatalError は立つが見出しは残る)、fatal を読むのが
+  //   crash より先になって週次 probe で SURVIVED した (45833319771 の shard 2・3)。手元でも mutated が 3/3 で通った。
+  //   描き直しが起きなければこの待ちが時間切れで落ちるので、crash は「描き直しが来ない」としても捕まる。
+  await page.evaluate(() => {
+    for (const h of document.querySelectorAll('#content h1, #content h2')) { h.setAttribute('data-before-restore', '1'); }
+  });
   await restoreBtn.click();
+  await expect(page.locator('#content').getByRole('heading', { name: 'Settings' })
+    .and(page.locator(':not([data-before-restore])'))).toBeVisible();
 
   // [FIX 2026-08-10] **順序が逆だった**。復元は State.set → notify → `await yieldToMain()` を挟む
   //   非同期 render なので、click 直後に `__fatalError` を単発で読むと「まだ crash していない」を
