@@ -89,7 +89,11 @@ def overlay_check(pr: str, head: str, base: str) -> tuple[bool, str]:
 
 # 確定の予行を重ねて回す PR の file (確定の道具・草案の Check・CHANGELIST の雛形を読む面・mutation の版の組み立て)
 REHEARSE_TRIGGER = re.compile(r"^\.github/scripts/(?:prepare_version_freeze|rehearse_version_freeze|checks_license_draft|_lib_draft_\w+"
-                              r"|checks_license_stated_counts|mutation_samples_common|make_redline)\.py$")
+                              r"|checks_license_stated_counts|mutation_samples_common|make_redline)\.py$"
+                              # ドシエの文も (2026-11-26・df・議題 36): 468a は「N.M の草案」と書いて引いた逐語を、確定の後はその版の本文に当てる。
+                              #   #4208 が変更の一覧の句を「1.5 の草案」として引き、PR の CI では緑のまま入って、週次の予行で初めて止まった。
+                              #   受領文 (rounds/) は引用の当てに掛からないので外す
+                              r"|^LICENSES/(?!rounds/)[^/]+\.(?:md|txt|json)$")
 
 
 # diff3 の形 (`||||||| base` の節) も読む。base は両側が書き換えた元の行で、reland は merge.conflictStyle=diff3 で cherry-pick する
