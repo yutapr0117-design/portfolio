@@ -370,6 +370,13 @@ _MUTATIONS_TAIL.append({
     "replace": "Pamela Chestek as chair, 2025-12-18:",
     "check": CHECK,
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 470b: 外向きの文書の型を何にも当たらない名へ変える —— FAQ の改名で古い型が空になり、FAQ が対象から黙って外れた (2026-11-26)",
+    "file": ROOT / ".github" / "scripts" / "checks_license_quotation.py",
+    "find": '"ACD-1.*.clause-reference.md", "FAQ*.md",',
+    "replace": '"ACD-1.*.clause-reference.md", "ACD-1.0.faq*.md",',
+    "check": CHECK,
+})
 MUTATIONS = MUTATIONS_ARCHIVE7 + MUTATIONS_ARCHIVE6 + MUTATIONS_ARCHIVE5 + MUTATIONS_ARCHIVE4 + MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

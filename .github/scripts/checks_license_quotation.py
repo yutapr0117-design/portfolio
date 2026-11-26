@@ -290,6 +290,9 @@ def _selfquote_470b(ROOT, check):
     flat = " ".join(words)
     grams = {tuple(words[i:i + 3]) for i in range(len(words) - 2)}
     files = sorted({p for g in _OUTWARD470B for p in L.glob(g)})
+    # 型ごとに 1 冊は当たること (2026-11-26・df): FAQ を改名したとき、古い型 "ACD-1.0.faq*.md" は何にも当たらず、FAQ が対象から黙って
+    #   外れたまま 470b は緑だった (17 冊 → 16 冊)。改名・移動で型が空になったら止める
+    empty = [g for g in _OUTWARD470B if not any(L.glob(g))]
     n, bad = 0, []
     for f in files:
         for ln_no, line in enumerate(f.read_text(encoding="utf-8").split("\n"), 1):
@@ -306,6 +309,7 @@ def _selfquote_470b(ROOT, check):
                     g = [tuple(w[i:i + 3]) for i in range(len(w) - 2)]
                     if sum(1 for x in g if x in grams) / len(g) >= 0.85:
                         bad.append(f"{f.name}:{ln_no} *\"{part[:90]}\"*")
+    bad += [f"型 {g!r} に当たる文書が無い (改名・移動したなら _OUTWARD470B の型を直す)" for g in empty]
     check(bool(files) and not bad,
           f"Check 470b: 外向きの文書 {len(files)} 冊の本文の引用 {n} 片に、本文とほぼ同じで語のずれた引用は無い",
           (f"Check 470b: 本文とほぼ同じなのに、どの版の本文にも逐語で無い引用 {len(bad)} 件: {bad[:5]}。古い草案の文を"
