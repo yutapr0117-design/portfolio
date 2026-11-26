@@ -416,3 +416,21 @@ ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check
 **この節が establish しないこと。** 承認の後の直しに今の方針が在ること・無いこと。ACD の errata のうちどれが「実質でない」に当たるか（その線引きは我々の側でしていない）。
 
 **反映**: なし（register の B に当たる項目が無い。承認の後の選択肢として `FROZEN.md` と errata の運用に 1 行足すかは 59 と 3f の判断）。
+
+## 1.493 「同じ効果のまま短くした書き直し」を、決める側は受け入れてきたか —— 2019 年以降の走査で受け入れた文は 0、出たのは「MIT の出来の悪い書き直し」（Chestek 氏 2026-03）と、法律家が書き機能を足した Blue Oak（1.5 の述べ直しの材料・2026-11-26）
+
+1.5 の草案は 1.4 を「同じ効果で短く述べ直したもの」と名乗る。§1.482 は大幅な書き直しを受け入れた例（SimPL・MPL 2.0・OSL 3.0）を持つが、どれも効果も変えた改訂である。効果を変えずに短くしただけの書き直しに決める側が何と言ったかを、2019 年以降の決める側の通から *shorter version・more concise・plain-language version・restatement・rewrite of MIT / BSD / Apache・same effect・functionally equivalent* などの語で拾った（10 か所・抜き書き。下の 2 通は前後を開いた）。
+
+| 発言 | 誰が | 向き |
+| :-- | :-- | :-- |
+| *"So really the only legally operative language you have is a poor attempt at rewriting the MIT license."* | Pamela Chestek 氏 2026-03-29（`license-discuss`・AIAL v2。同じ通の「1 つの文書に 3 つの目的」の部分は against #105 に在る） | **不利。** 既存の許諾を書き直しただけの部分を、目的の外の文として扱った |
+| *"It's not the writing style that is the problem, it is the inexactness with which it is done that is the problem."*、Blue Oak を *"a plain language license written by … all highly skilled open source lawyers"* と呼ぶ | Chestek 氏 2026-06-09（Mutualist・§1.491） | 平易な語の書き直しそのものは問わない。問うのは正確さと、書く人の技量 |
+| *"No existing license boasted all of those features, particularly including plain language drafting and a strong patent grant, so we wrote this one."* | Luis Villa 氏 2023-11（Blue Oak の `license-review` の提出の通。Blue Oak は 2024 年に承認） | **受け入れられた平易な書き直しは、機能（特許の許諾）を足していた** |
+
+**読み。** 走査の範囲では、効果を変えずに短くしただけの書き直しを受け入れた決める側の文は見つからなかった。受け入れられた平易な書き直し（Blue Oak）は、法律家が書き、機能を足していた。2026 年に決める側が見た書き直しは「出来の悪い書き直し」と呼ばれた。Perens 氏 2017-10-23 の、同じ効果で短いだけのライセンスの承認は *"an active disservice"* という文は B3 に在る。
+
+**1.5 への意味（両側）。** 不利: 1.5 を出す版に替えるとき、「短くした」を理由にすると、この型の文に当たる。CHANGES の冒頭が「同じことを 2 度言わない」などの起草の理由を先に書いていること（§1.481）は、短さを理由にしない形である。**有利**: (1) 1.5 は他人のライセンスの書き直しでなく、同じ steward の次の版で、OSI は版の更新を受け入れてきた（MPL 2.0・EPL 2.0）。(2) 1.5 は 1.4 から効果も動かしている（`CHANGES-ACD-1.5.txt` の 31 項）ので、「効果を変えずに短くしただけ」ではない —— ただしその分、効果の差の記録（`ACD-1.5-EFFECT-DIFF.md`）を問われる。**逆側の逆側**: 法律家の目が無いことは、Blue Oak の受け入れの条件（法律家が書いた）と正反対で、平易さの利得を主張する根拠を弱める（B1）。
+
+**この節が establish しないこと。** 同じ効果の書き直しが却下されること。走査は語に依り、別の言い回しの文を落としうる。
+
+**反映**: B3（短さを承認の理由にしない・Blue Oak は法律家と機能を足した例・両側・59 へ）/ 1c 種（なし —— 本文は固定中）。
