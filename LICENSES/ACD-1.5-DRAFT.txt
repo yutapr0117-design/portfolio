@@ -36,8 +36,11 @@ ACD-1.5 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
   acts of making a changed work and one word for the object passed on --
   examined and deliberately left as it is).
 
-  E88 is closed here. It concerned the preamble of ACD-1.0 to ACD-1.4, which
-  this draft does not have. It remains open in those texts.
+  Closed here without being named in the list of changes: E88 (the preamble of
+  ACD-1.0 to ACD-1.4, which this draft does not have) and E95 (a contributor's
+  patent claim infringed only by the combination with the material it was
+  submitted for inclusion in; item 5 of the list closes it under errata E89's
+  name). Both remain open in those texts.
 
 --------------------------------------------------------------------------------
 
