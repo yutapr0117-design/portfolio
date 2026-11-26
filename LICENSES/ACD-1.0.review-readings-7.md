@@ -419,7 +419,7 @@ ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check
 
 ## 1.493 「同じ効果のまま短くした書き直し」を、決める側は受け入れてきたか —— 2019 年以降の走査で受け入れた文は 0、出たのは「MIT の出来の悪い書き直し」（Chestek 氏 2026-03）と、法律家が書き機能を足した Blue Oak（1.5 の述べ直しの材料・2026-11-26）
 
-1.5 の草案は 1.4 の全文の述べ直し（*"Restatement of the whole text"*）で、公開の変更の一覧は効果の差を 31 項挙げる。内向きの文書は「同じ効果の述べ直し」と呼んできた（3f の指摘・2026-11-26 に直した）。§1.482 は大幅な書き直しを受け入れた例（SimPL・MPL 2.0・OSL 3.0）を持つが、どれも効果も変えた改訂である。効果を変えずに短くしただけの書き直しに決める側が何と言ったかを、2019 年以降の決める側の通から *shorter version・more concise・plain-language version・restatement・rewrite of MIT / BSD / Apache・same effect・functionally equivalent* などの語で拾った（10 か所・抜き書き。下の 2 通は前後を開いた）。
+1.5 の草案は 1.4 の全文の述べ直しで、公開の変更の一覧（`CHANGES-ACD-1.5.txt`・第 1 項 *"Restatement of the whole text"*）は効果の差を 31 項挙げる。内向きの文書は「同じ効果の述べ直し」と呼んできた（3f の指摘・2026-11-26 に直した）。§1.482 は大幅な書き直しを受け入れた例（SimPL・MPL 2.0・OSL 3.0）を持つが、どれも効果も変えた改訂である。効果を変えずに短くしただけの書き直しに決める側が何と言ったかを、2019 年以降の決める側の通から *shorter version・more concise・plain-language version・restatement・rewrite of MIT / BSD / Apache・same effect・functionally equivalent* などの語で拾った（10 か所・抜き書き。下の 2 通は前後を開いた）。
 
 | 発言 | 誰が | 向き |
 | :-- | :-- | :-- |
