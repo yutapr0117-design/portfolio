@@ -363,7 +363,7 @@ Smith 氏 2025-10-26 の 3 点目（定義語が素材の種類を限ると、�
 
 ## 1.491 2026-09-24 に「Poor drafting」で却下された 4 本の審査を通して読み、指摘を文の型に分けて ACD-1.4 に当てる —— 型の大半は 1.4 に当たらず、当たらないことを示せないのは「法律家が書いていない」の 1 つ（B1 と B3 の材料・2026-11-26）
 
-理事会は 2026-09-24 に 4 本を *"Poor drafting"* を第 1 の理由として却下した（`board-decisions.md` §4a。同節は「4 本の本文や審査を我々は読んでいない」と書く）。Project Tick General Public License（v1〜v3）、CompanioNation Public Licence 1.0、Milenium License 1.0、Mutualist License v1.2 の、決める側の通 20 通（Project Tick 12・CompanioNation 3・Milenium 3・Mutualist 2）を全文で読んだ（census の決める側の一覧で、件名で絞った）。Project Tick の `license-discuss` の分は §1.205 に、Mutualist は `rounds/2026-06-license-review-mutual-drafting-and-canons-observed.txt` に、CompanioNation の一部は `review-corpus.md` に在る。
+理事会は 2026-09-24 に 4 本を *"Poor drafting"* を第 1 の理由として却下した（`board-decisions.md` §4a。同節は「4 本の本文や審査を我々は読んでいない」と書く）。Project Tick General Public License（v1〜v3）、CompanioNation Public Licence 1.0、Milenium License 1.0、Mutualist License v1.2 の、census の決める側の一覧に入る人の通 20 通（Project Tick 12・CompanioNation 3・Milenium 3・Mutualist 2）を全文で読んだ（census の決める側の一覧で、件名で絞った）。Project Tick の `license-discuss` の分は §1.205 に、Mutualist は `rounds/2026-06-license-review-mutual-drafting-and-canons-observed.txt` に、CompanioNation の一部は `review-corpus.md` に在る。
 
 **指摘の型と ACD-1.4。**
 
@@ -384,11 +384,11 @@ Smith 氏 2025-10-26 の 3 点目（定義語が素材の種類を限ると、�
 **法律家についての 4 つの文（ドシエに無かったもの）。**
 
 - *"This license is a good example of why it is highly unlikely that a license not written by a lawyer can be approved."*（Pamela Chestek 氏 2026-01-24・`license-discuss`・Project Tick。§1.481 が同じ通の「2 度言わない」の文を引いたが、冒頭のこの文を引いていなかった）
-- *"Once the submitter stated that he did not intend to use an attorney for drafting, preferring community review, I turned out."*（Bruce Perens 氏 2026-01-25・同じスレッド）
+- *"Once the submitter stated that he did not intend to use an attorney for drafting, preferring community review, I turned out."*（Bruce Perens 氏 2026-01-25・同じスレッド。census の決める側の一覧に入るが、2026 年は委員でも理事でもなく、ドシエは個人の意見として扱う）
 - *"The language of the license is vague and imprecise and hardly has been reviewed by a sufficiently accomplished FOSS licensing lawyer, or a lawyer at all."*（Carlo Piana 氏 2026-05-04・Milenium）
 - *"writing legal documents is not very different from writing code: there are drafting conventions, rules for interpretation, and specific words that are used when construing what the intended meaning is."*（Chestek 氏 2026-06-08・Mutualist）。翌日の通は、Blue Oak を *"a plain language license written by … all highly skilled open source lawyers"* と呼び、書き方の型でなく正確さが問題だと述べた（rounds に在る）
 
-**読み。** 4 本への指摘のうち、許諾の欠け・名の書き込み・受け手の範囲・許諾の節の崩れは 1.4 に当たらない。当たるのは Low の 4 型（§1.489 の改変物の語・*made available*・見出しと番号・列挙の重なり）で、うち 3 つは 1.5 の草案が述べ直した型である。**当たらないと示せないのは、法律家が書いていないことだけ**で、2026 年の決める側の 4 人が、それぞれ別の提出に、それを承認の見込み・読む気・本文の質の理由として述べている。
+**読み。** 4 本への指摘のうち、許諾の欠け・名の書き込み・受け手の範囲・許諾の節の崩れは 1.4 に当たらない。当たるのは Low の 4 型（§1.489 の改変物の語・*made available*・見出しと番号・列挙の重なり）で、うち 3 つは 1.5 の草案が述べ直した型である。**当たらないと示せないのは、法律家が書いていないことだけ**で、2026 年に 3 人が 4 つの文で（委員の Chestek 氏が 2 つ・Piana 氏が 1 つ、Perens 氏が 1 つ —— Perens 氏は 2026 年の役を持たない）、それぞれ別の提出に、それを承認の見込み・読む気・本文の質の理由として述べている。
 
 **逆側。** (1) 4 本はどれも「応答なし」か「直さずに反論」で却下された（議事録の 2 つ目の理由）。1.4 は自分で見つけた欠陥を errata に記録し、指摘に直した版で応える用意がある —— ただし、これは自己申告で、法律家の目の代わりにはならない。(2) 4 つの文は、許諾が欠ける・番号の無い本文のような明らかな欠陥を持つ提出への文で、1.4 のように型の大半を満たす本文に同じ重さで当たるかは示されていない。(3) Chestek 氏の 1 つ目の文は「考えにくい」で、不可能とは言っていない。委員長だった 2024-12-18 には法律家を *"not a blocker"* と書いた（`REVIEWERS.md`・B1）。(4) Perens 氏の文は個人の読む時間の配分で、規則ではない。
 
