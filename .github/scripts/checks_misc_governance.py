@@ -167,7 +167,8 @@ def run(ctx):
         "llms-full.txt", "llms.txt", "llms_well-known.txt",
         "robots.txt",
     ]
-    stale_72_hits = []
+    # 一覧の file が無ければ止める (2026-11-26・df): 12 と 13 は無い file を黙って飛ばし、改名した面を走査の外へ出していた (109 と同じ型)
+    stale_72_hits = [f"{f}: 走査の対象が無い (改名したなら CURRENT_DESC_FILES を直す)" for f in CURRENT_DESC_FILES if not (ROOT / f).exists()]
     for fname in CURRENT_DESC_FILES:
         fpath = ROOT / fname
         if not fpath.exists():
