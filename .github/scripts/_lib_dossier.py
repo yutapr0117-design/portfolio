@@ -509,11 +509,11 @@ def chair_term_misses(files: list[Path]) -> tuple[int, list[str]]:
     見えない。「元・のちの」は境目の月を除いた在任のまっただ中だけを誤りにする。
     """
     name = "|".join(CHAIR_TERMS)
-    role = r"(?:委員長(?!では|でな|職)|[Cc]hair\b)"
+    role = r"(?:委員長(?!では|でな|職)|(?:as |the )?(?:(?:Licens(?:e|ing)(?: Review)? |the )?[Cc]ommittee )?[Cc]hair(?:ing|man|person)?\b)"
     day = r"(?P<d>(?:19|20)\d\d-\d\d)(?:-\d\d)?"
     forms = [
         re.compile(rf"{role}(?:の|・|（|\(|は|、|, | |「|Pamela|Josh)*\**(?P<n>{name})[^|。]{{0,12}}?{day}"),
-        re.compile(rf"(?P<n>{name})(?: 氏)?[（(、・ ]*(?:のちの|後の|当時の|元)?{role}[^|。]{{0,12}}?{day}"),
+        re.compile(rf"(?P<n>{name})(?: 氏)?[（(、・, ]*(?:のちの|後の|当時の|元|former )?{role}[^|。.]{{0,24}}?{day}"),
         re.compile(rf"(?P<n>{name})\**(?: 氏)?(?: の)?[ 、]*{day}[（(][^）)]{{0,12}}?{role}(?! ?(?:の )?(?:Pamela |Josh )?(?:{name}))"),
     ]
     border = {"2019-02", "2019-03", "2019-04", "2019-05", "2025-03", "2026-01", "2026-02"}
