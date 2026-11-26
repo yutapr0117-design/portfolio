@@ -77,9 +77,22 @@ def overlay_check(pr: str, head: str, base: str) -> tuple[bool, str]:
         if any(REHEARSE_TRIGGER.search(f) for f in changed):
             r = run([sys.executable, ".github/scripts/rehearse_version_freeze.py"], cwd=wt, check=False)
             if r.returncode:
-                tail = [ln for ln in (r.stdout + r.stderr).splitlines() if ln.startswith(("ERROR", "確定の直後"))]
-                return False, (f"STOP: #{pr} をいまの main ({base[:8]}) に重ねると、確定の予行が一覧の外で止まる (次の確定を止める):\n"
-                               + "\n".join(tail[-4:]))
+                errs = {ln for ln in (r.stdout + r.stderr).splitlines() if ln.startswith("ERROR")}
+                # main だけでも同じ赤か (2026-11-26・59 の条件・議題 36): 既に main に在る赤で、無関係な PR を止め続けない。
+                #   PR が新しい赤を足していなければ止めず、帰属を main と書く
+                bwt = tmp / "base"
+                run(["git", "worktree", "add", "-q", "--detach", str(bwt), base])
+                try:
+                    rb = run([sys.executable, ".github/scripts/rehearse_version_freeze.py"], cwd=bwt, check=False)
+                finally:
+                    run(["git", "worktree", "remove", "--force", str(bwt)], check=False)
+                base_errs = {ln for ln in (rb.stdout + rb.stderr).splitlines() if ln.startswith("ERROR")} if rb.returncode else set()
+                if errs <= base_errs:
+                    return True, (f"OK: #{pr} ({head[:8]}) をいまの main ({base[:8]}) に重ねて consistency は緑。確定の予行は赤だが、"
+                                  f"同じ赤が main だけでも出る (帰属は main・この PR は足していない):\n" + "\n".join(sorted(errs)[:4]))
+                new = sorted(errs - base_errs)
+                return False, (f"STOP: #{pr} をいまの main ({base[:8]}) に重ねると、確定の予行が一覧の外で止まる (次の確定を止める・"
+                               f"main だけでは出ない赤 {len(new)} 件):\n" + "\n".join(new[:4]))
             return True, f"OK: #{pr} ({head[:8]}) をいまの main ({base[:8]}) に重ねて consistency は緑・確定の予行も通る"
         return True, f"OK: #{pr} ({head[:8]}) をいまの main ({base[:8]}) に重ねて consistency は緑"
     finally:
@@ -93,7 +106,7 @@ REHEARSE_TRIGGER = re.compile(r"^\.github/scripts/(?:prepare_version_freeze|rehe
                               # ドシエの文も (2026-11-26・df・議題 36): 468a は「N.M の草案」と書いて引いた逐語を、確定の後はその版の本文に当てる。
                               #   #4208 が変更の一覧の句を「1.5 の草案」として引き、PR の CI では緑のまま入って、週次の予行で初めて止まった。
                               #   受領文 (rounds/) は引用の当てに掛からないので外す
-                              r"|^LICENSES/(?!rounds/)[^/]+\.(?:md|txt|json)$")
+                              r"|^LICENSES/(?!rounds/)[^/]+\.(?:md|txt|json|tsv)$")  # tsv は CLAUSE-MAP (468 と確定の道具が読む・0d の条件)
 
 
 # diff3 の形 (`||||||| base` の節) も読む。base は両側が書き換えた元の行で、reland は merge.conflictStyle=diff3 で cherry-pick する
