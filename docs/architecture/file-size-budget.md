@@ -182,7 +182,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/apps-settings-io.spec.js` | 705 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-settings.spec.js` | 796 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/projects-visibility.spec.js` | 168 | 900 | `advisory` | behavior e2e spec (プロジェクト非表示 = 唯一の非公開手段の read 面 mesh)。2026-08-20 に apps-settings.spec.js が 968 行で BLOCKING(1,000) まで残り 32 行となり、**当たる前に**切り出した |
-| `e2e/apps-task.spec.js` | 849 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/apps-task.spec.js` | 859 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-input-contract.spec.js` | 263 | 900 | `advisory` | behavior e2e spec (task/todo の入力欄の契約: 空入力ガード / 未送信入力の保護 / Enter 連打の二重登録防止)。2026-08-20 に apps-task.spec.js が 957 行で BLOCKING(1,000) まで残り 43 行となり、**当たる前に**切り出した |
 | `e2e/apps-todo.spec.js` | 397 | 900 | `advisory` | behavior e2e spec (TODO アプリ面)。2026-08-09 に apps-task.spec.js の advisory 超過を受けて先回り分割 |
 | `e2e/toast.spec.js` | 240 | 900 | `advisory` | behavior e2e spec (通知 = Toast の振る舞い)。apps-task.spec.js が 1,000 行上限に達したためテーマ単位で切り出した |
