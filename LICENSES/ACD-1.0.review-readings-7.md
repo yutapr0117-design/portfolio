@@ -141,6 +141,8 @@ cd が `submission-osd.md` の早見表の OSD 3 の行に「The second limb …
 
 **逆側。** (1) 念押しは、実際に付け忘れが欠陥になった歴史（errata E26・SELF-AUDIT §3r）への対処で、外すときは一般の 1 文が同じ誤読を閉じることを反例で確かめる。(2) Chestek 氏の指摘は copyleft・帰属型の長い案への文が多く、条件の無い道具に同じ重さで当たるとは限らない。(3) Nelson 氏 2020（*"It might go into a preamble"*）と Turner 氏 2020 は前文を許す側。
 
+**訂正（2026-11-26）**: 上の表は Chestek 氏 2026-01-24 の通から起草の型の文を 5 つ引いたが、同じ通の冒頭の *"This license is a good example of why it is highly unlikely that a license not written by a lawyer can be approved."* を引かなかった。この節は起草の型を集める節で、法律家の有無の文を外す方針を書いていなかったので、理由の無い落としである。その文と、同じ年の決める側 3 人の同じ向きの文は §1.491 に在る。
+
 **この節が establish しないこと。** どの指摘が理事会の却下の決定的な理由だったか。議事録は *"Poor drafting"* としか書かない。
 
 **反映**: 1c 種（本文の役 0d へ・議題 12 と縮約の試作 —— 4 つの型、§8.1 の 2 点、§15.5 の定義の位置）/ errata・against（59 へ —— §8.1 の *"as made available by"* の読み、前文と念押しを残した判断の出典の更新）/ 3f（議題 12・段 6b の前の凍結）。
@@ -376,7 +378,7 @@ Smith 氏 2025-10-26 の 3 点目（定義語が素材の種類を限ると、�
 | 受け手の範囲が「写しを得た人」と文書の組で決まる、*person* に法人が入るか（Piana 氏 2026-05-04・Milenium） | §1.6 *You* は許しを行使する人、§15.5 *"person" includes an entity* | 当たらない |
 | 定義の無い語（*publicly accessible*・*disclosed to the public*・*proprietary*） | *made available*（§2.2・§5.2・§8.1）は定義されていない。台帳（1.4 の §2.2 の 3 行）が掛かり方と時点を扱うが、誰に向けた提供かは扱っていない | 一部当たる（Low）。*made available* は著作権の語として通る |
 | 見出しが中身と合わない、節に番号が無い（Chestek 氏 2026-06-08・Mutualist、Piana 氏 2026-05-04 の "termination" の節） | §2「SCOPE AND EFFECT」に寄与の条（§2.6）が在る。§5.2 に番号の無い段落が 2 つ（§1.481 の型 4） | 一部当たる（Low）。1.5 の草案は寄与を 10.4 に、段落に番号を付けた |
-| 定義が重なる・同じ句を繰り返す（Chestek 氏 2026-04-14・Project Tick v3 の Source Code と Corresponding Source） | モデル・出力の列挙が §1.7・§6.4・§8.4 の 3 か所に在り、語が少しずつ違う（E47 が §6.4 の *derived from* を数えた） | 当たる（Low・既存の errata の型） |
+| 定義が重なる・同じ句を繰り返す（Chestek 氏 2026-04-14・Project Tick v3 の Source Code と Corresponding Source） | モデル・出力の列挙が §1.7・§6.4・§8.4 の 3 か所に在る。語は E47 が *resulting from* に揃えたので、違うものかが分からないという型ではなく、繰り返しだけが残る | 弱く当たる（Low・E47 の隣。1.5 は Result の定義 1 か所。2026-11-26 に訂正: 初めは「語が少しずつ違う」と書いた） |
 | 前文が条を言い直す（Chestek 氏 2026-01-24・Project Tick v1） | 前文は自ら *informative* と言うが、3 つの足場の関係を述べ直す（`ACD-1.4-THIRD-CLARITY-TRIAL.md` の前文の行） | 一部当たる（記録済み） |
 | 既存のライセンスについての主張が不正確（Chestek 氏 2026-04-18・CompanioNation の MIT と Apache の欠点の述べ方） | 入口と提出の材料が MIT・0BSD・CC0 などについて述べる文 | **この節では当てていない** —— 比べる文の正しさは census と B10 の側で、ここで確かめたことにはしない |
 | 法律家が書いていない | ACD はモデルが起草し、法的レビューは無い（B1） | **当たる。示せない** |
@@ -388,7 +390,7 @@ Smith 氏 2025-10-26 の 3 点目（定義語が素材の種類を限ると、�
 - *"The language of the license is vague and imprecise and hardly has been reviewed by a sufficiently accomplished FOSS licensing lawyer, or a lawyer at all."*（Carlo Piana 氏 2026-05-04・Milenium）
 - *"writing legal documents is not very different from writing code: there are drafting conventions, rules for interpretation, and specific words that are used when construing what the intended meaning is."*（Chestek 氏 2026-06-08・Mutualist）。翌日の通は、Blue Oak を *"a plain language license written by … all highly skilled open source lawyers"* と呼び、書き方の型でなく正確さが問題だと述べた（rounds に在る）
 
-**読み。** 4 本への指摘のうち、許諾の欠け・名の書き込み・受け手の範囲・許諾の節の崩れは 1.4 に当たらない。当たるのは Low の 4 型（§1.489 の改変物の語・*made available*・見出しと番号・列挙の重なり）で、うち 3 つは 1.5 の草案が述べ直した型である。**当たらないと示せないのは、法律家が書いていないことだけ**で、2026 年の決める側の 4 人が、それぞれ別の提出に、それを承認の見込み・読む気・本文の質の理由として述べている。
+**読み。** 4 本への指摘のうち、許諾の欠け・名の書き込み・受け手の範囲・許諾の節の崩れは 1.4 に当たらない。当たるのは Low の 4 型（§1.489 の改変物の語・*made available*・見出しと番号・列挙の繰り返し）で、うち 3 つは 1.5 の草案が述べ直した型である。**当たらないと示せないのは、法律家が書いていないことだけ**で、2026 年の決める側の 4 人が、それぞれ別の提出に、それを承認の見込み・読む気・本文の質の理由として述べている。
 
 **逆側。** (1) 4 本はどれも「応答なし」か「直さずに反論」で却下された（議事録の 2 つ目の理由）。1.4 は自分で見つけた欠陥を errata に記録し、指摘に直した版で応える用意がある —— ただし、これは自己申告で、法律家の目の代わりにはならない。(2) 4 つの文は、許諾が欠ける・番号の無い本文のような明らかな欠陥を持つ提出への文で、1.4 のように型の大半を満たす本文に同じ重さで当たるかは示されていない。(3) Chestek 氏の 1 つ目の文は「考えにくい」で、不可能とは言っていない。委員長だった 2024-12-18 には法律家を *"not a blocker"* と書いた（`REVIEWERS.md`・B1）。(4) Perens 氏の文は個人の読む時間の配分で、規則ではない。
 
