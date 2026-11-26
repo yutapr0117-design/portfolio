@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.5-UNIQUE-READING.md
 audience: 次のセッションの実装者（一次読者）/ 監査人 / 法律家
-last-updated: 2026-11-24
+last-updated: 2026-11-26
 canonical-ref: LICENSES/ACD-1.5-DRAFT.txt / .github/scripts/measure_legal_uncertainty.py（section19 が行を数える）/ LICENSES/ACD-1.4-UNIQUE-READING.md（1.4 の条の行。条の対応は CLAUSE-MAP-1.4-1.5.tsv）
 ---
 
