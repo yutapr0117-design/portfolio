@@ -182,7 +182,7 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 
 **読み。** 準拠法について、2003 年の法律家は指定する側に立った。ACD の §15.3 は指定しない側に立つ。
 
-**逆側。** 理事会は後に、準拠法の条は *"not necessary or advisable in open source licenses"* と付言した（`REVIEWERS.md`・against-2）。いまの決める側の線は ACD の側にある。Rosen 氏の通は、指定しないことの費用（語の意味が国ごとに割れる）を名指していて、その費用は残る。
+**逆側。** 理事会は後に、準拠法の条について *"The Board did so with the comment that it does not believe that choice of law provisions are necessary or advisable in open source licenses."* と付言した（Pamela Chestek 氏が `license-review` 2023-03 に伝えた Open Logistics License 1.3 の承認・`rounds/2022-04-license-review-open-logistics-license-observed-15of15.txt`。`REVIEWERS.md`・against-2。2026-11-26 に直した: 初めは原文に無い並び *"not necessary or advisable"* を引用符の中に書いていた）。いまの決める側の線は ACD の側にある。Rosen 氏の通は、指定しないことの費用（語の意味が国ごとに割れる）を名指していて、その費用は残る。
 
 **この節が establish しないこと。** 管轄を指定しないことが、どの国の裁判所でどう扱われるかは扱わない（`QUESTIONS-FOR-COUNSEL.md` 問 7）。
 
