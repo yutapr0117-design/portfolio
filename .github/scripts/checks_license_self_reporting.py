@@ -216,7 +216,7 @@ def run(ctx):
     _rr460 = _read460("ACD-1.0.review-responses.md")
     _rc460 = _read460("ACD-1.0.review-responses-clauses.md")
     _rm460 = _read460("ACD-1.0.review-responses-meta.md")
-    _fq460 = _read460("ACD-1.0.faq.md")
+    _fq460 = _read460("FAQ.md")
     _sb460 = _read460("ACD-1.0.submission.md")
     _cr460 = _read460("ACD-1.0.clause-reference.md")
     _tx460 = _read460("ACD-1.0.txt")
@@ -318,7 +318,7 @@ def run(ctx):
 
         # (d) mirror doc の申告。**stale だった 4 件のうち 2 件は mirror 側**だった ——
         #   本体だけ縛ると、doc-about-doc が古い数字を主張し続ける。
-        _mir460 = ROOT / "docs" / "files" / "LICENSES" / "ACD-1.0.faq.md.md"
+        _mir460 = ROOT / "docs" / "files" / "LICENSES" / "FAQ.md.md"
         if _mir460.exists():
             _m4 = re.search(r"\*\*A\. 使う側\*\*（(\d+) 問）", _mir460.read_text(encoding="utf-8"))
             if not _m4:

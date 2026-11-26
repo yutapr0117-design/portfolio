@@ -439,7 +439,7 @@ MUTATIONS_ARCHIVE6 = [
 },
     {
     "name": 'Check 498 (c): FAQ mirror のプロセスの問数を 99 にする —— 460 (d) は「A. 使う側」しか読んでいなかった',
-    "file": ROOT / 'docs' / 'files' / 'LICENSES' / 'ACD-1.0.faq.md.md',
+    "file": ROOT / 'docs' / 'files' / 'LICENSES' / 'FAQ.md.md',
     "find": '**B. プロセス**（',
     "replace": '**B. プロセス**（99 問）（',
 },

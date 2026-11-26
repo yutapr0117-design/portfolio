@@ -30,8 +30,8 @@ MUTATIONS_ARCHIVE4 = [
     "name": "Check 460: 読み先の FAQ を改名後の名前へずらす —— 改名を mirror と参照まで正しく直すと他の Check は"
             "全部緑になり、2026-11-01 まで本 Check だけが 19 面まるごと warning で skip していた",
     "file": ROOT / ".github" / "scripts" / "checks_license_self_reporting.py",
-    "find": '_fq460 = _read460("ACD-1.0.faq.md")',
-    "replace": '_fq460 = _read460("ACD-1.0.faq-renamed.md")',
+    "find": '_fq460 = _read460("FAQ.md")',
+    "replace": '_fq460 = _read460("FAQ-renamed.md")',
     "check": CHECK,
 },
     {
@@ -433,7 +433,7 @@ MUTATIONS_ARCHIVE4 = [
 },
     {
     "name": 'Check 460 (t): FAQ の B1 を A 番号へ変える —— 項番の頭文字が置かれた節と食い違い、索引の数え方で読み手が別の節を探す (portfolio-bb の発見)',
-    "file": ROOT / "LICENSES" / "ACD-1.0.faq.md",
+    "file": ROOT / "LICENSES" / "FAQ.md",
     "find": '\n### B1. ',
     "replace": '\n### A99. ',
     "check": CHECK,

@@ -564,7 +564,7 @@ def run(ctx):
                 "**対象を外すのは実質的な凍結解除**であり、解除は FROZEN.md の削除で表す"
             )
         # 版の成果物の拡張子だけ (2026-11-12・監査 #182): 旧版は `ACD-<版>.<英字>` の形を全部通し、ドシエの
-        #   `ACD-1.0.faq.md` / `errata.md` / `against.md` も凍結対象に足せた。足すと正しい手順で直せない file が増える
+        #   `FAQ.md` / `errata.md` / `against.md` も凍結対象に足せた。足すと正しい手順で直せない file が増える
         _shape453 = re.compile(r"^LICENSES/ACD-\d+\.\d+\.(?:txt|spdx\.xml|machine\.json)$")
         _odd453 = sorted(_p for _p in _paths453 - _EXPECT453 if not _shape453.match(_p))
         if _odd453:
