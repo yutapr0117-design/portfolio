@@ -2,7 +2,7 @@
 file: LICENSES/ADOPTING.md
 audience: anyone thinking of applying ACD to their own work
 last-updated: 2026-11-24
-canonical-ref: LICENSE (names the version this repository applies) / LICENSES/ACD-1.0.faq.md (the adopter's questions in full) / LICENSES/ACD-1.0.comparison.md (the alternatives) / LICENSES/ACD-1.0.against.md (the adverse record)
+canonical-ref: LICENSE (names the version this repository applies) / LICENSES/FAQ.md (the adopter's questions in full) / LICENSES/ACD-1.0.comparison.md (the alternatives) / LICENSES/ACD-1.0.against.md (the adverse record)
 ---
 
 # Before you apply ACD to your own work
@@ -26,7 +26,7 @@ choice. Section numbers below are the same in every version from ACD-1.0 to ACD-
 - **You give up more patent rights than most licences ask.** The patent licence has no condition
   and you cannot terminate it (§8.2), and it reaches models and outputs that result from using the
   work (§8.4). If you hold a patent on a method your work explains, read
-  [FAQ A32](ACD-1.0.faq.md) before you apply it. A claim you own is granted even if you have already
+  [FAQ A32](FAQ.md) before you apply it. A claim you own is granted even if you have already
   licensed it exclusively to someone else, so check that first (errata [E91](ACD-1.0.errata.md)).
 - **You give up some claims that are not about copyright.** In 1.2 to 1.4, §5.1 also promises not to
   assert claims that treat a permitted use as wrongful, with listed exceptions. Read literally that reaches
@@ -70,7 +70,7 @@ choice. Section numbers below are the same in every version from ACD-1.0 to ACD-
 
 - **No lawyer has read this text**, and no court has tested it. If it matters to you, take advice.
 - **It is not OSI-approved** and not on the SPDX License List, so scanners may call it unknown
-  ([FAQ A11](ACD-1.0.faq.md)).
+  ([FAQ A11](FAQ.md)).
 - **No independent project is known to use it.** You would not have anyone else's experience to
   rely on.
 
@@ -88,8 +88,8 @@ narrow band where those assumptions fail together.
 
 ## How to apply it
 
-1. **Check that you hold the rights.** Your employer may hold them ([FAQ A20](ACD-1.0.faq.md)).
-   If other people contributed, read [FAQ A13](ACD-1.0.faq.md).
+1. **Check that you hold the rights.** Your employer may hold them ([FAQ A20](FAQ.md)).
+   If other people contributed, read [FAQ A13](FAQ.md).
 2. **Copy the text unchanged.** Use the version named in this repository's root
    [`LICENSE`](../LICENSE), which is the latest fixed version we apply ourselves. The header above
    the dividing line describes this repository's file and is not part of the Dedication (§1.1), so
@@ -113,7 +113,7 @@ ACD to that work; that is our reading, and no lawyer has checked it.
 
 **If you pass on a file that carries someone else's ACD notice, say whose it is.** The text of 1.0 to 1.4
 does not say that keeping or recording another person's notice leaves your own material outside it
-(errata [E90](ACD-1.0.errata.md)); we read it that way ([FAQ A33](ACD-1.0.faq.md)). **If your project is
+(errata [E90](ACD-1.0.errata.md)); we read it that way ([FAQ A33](FAQ.md)). **If your project is
 under another licence and includes an ACD file, state your terms for patches.** In 1.4 a patch to that file,
 sent to a repository that offers it with its notice, is read as a contribution under ACD unless its author
 says otherwise (`ACD-1.1-SELF-AUDIT.md` §3zg). Both are repaired in the 1.5 draft, which is not fixed and

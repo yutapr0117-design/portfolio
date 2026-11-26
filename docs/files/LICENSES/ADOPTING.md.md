@@ -2,7 +2,7 @@
 file: LICENSES/ADOPTING.md
 audience: ai, human (新卒), 監査人, 第三者全般
 last-updated: 2026-11-06
-canonical-ref: LICENSES/ACD-1.0.faq.md / LICENSES/ACD-1.0.comparison.md / LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (B2)
+canonical-ref: LICENSES/FAQ.md / LICENSES/ACD-1.0.comparison.md / LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (B2)
 ---
 
 # LICENSES/ADOPTING.md
@@ -31,4 +31,4 @@ canonical-ref: LICENSES/ACD-1.0.faq.md / LICENSES/ACD-1.0.comparison.md / LICENS
 
 ## Audience-specific notes
 
-- AI: 条文の読みを足すときは `ACD-1.0.faq.md` に書き、ここには指し先だけを置く
+- AI: 条文の読みを足すときは `FAQ.md` に書き、ここには指し先だけを置く

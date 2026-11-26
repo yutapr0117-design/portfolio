@@ -43,7 +43,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | 「**理事会は実際に何を決めたのか**」 | [`ACD-1.0.board-decisions.md`](ACD-1.0.board-decisions.md) —— **公開議事録という別の一次資料**から読める決定（承認 8・否決 9・取り下げ 2／公開 12 回の範囲）。**最も重いのは、公表されていない第 3 の帰結** ——*reject* ではなく *"not approved … if it is **duplicative and not used by a project**"*。**リストは議論を、理事会は決定を残す** §9 からは [`ACD-1.0.board-decisions-2.md`](ACD-1.0.board-decisions-2.md) に続く（2026-11-15・advisory を越えたため）。 |
 | 「うちの国では効かないのでは」 | [`ACD-1.0.jurisdictions.md`](ACD-1.0.jurisdictions.md) |
 | その法域の読みが頼る、外から届いた法源と原典の読み | [`ACD-1.0.jurisdictions-sources.md`](ACD-1.0.jurisdictions-sources.md) |
-| **使ってよいか / どう使うか / 法務に何を見せるか** | [`ACD-1.0.faq.md`](ACD-1.0.faq.md) |
+| **使ってよいか / どう使うか / 法務に何を見せるか** | [`FAQ.md`](FAQ.md) |
 | レビューで来るであろう指摘への回答（総論・OSD・認める弱点） | [`ACD-1.0.review-responses.md`](ACD-1.0.review-responses.md) |
 | 同・条項別 | [`ACD-1.0.review-responses-clauses.md`](ACD-1.0.review-responses-clauses.md) |
 | 同・定型条項と解釈条項への攻撃（Q22〜Q33）| [`ACD-1.0.review-responses-boilerplate.md`](ACD-1.0.review-responses-boilerplate.md) |
@@ -136,7 +136,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 
 ### 使うかどうか決めたい人
 
-1. [`ACD-1.0.faq.md`](ACD-1.0.faq.md) の A 節（**「使わないほうがよい」場合もそう書いてある**）
+1. [`FAQ.md`](FAQ.md) の A 節（**「使わないほうがよい」場合もそう書いてある**）
 2. [`ACD-1.0.comparison.md`](ACD-1.0.comparison.md) §6 の 3 つの判断基準
 3. 気になった条項だけ [`ACD-1.0.clause-reference.md`](ACD-1.0.clause-reference.md) で引く
 

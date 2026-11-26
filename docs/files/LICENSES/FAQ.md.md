@@ -1,11 +1,11 @@
 ---
-file: LICENSES/ACD-1.0.faq.md
+file: LICENSES/FAQ.md
 audience: 採用検討者, 法務, ai, human (提出者), 監査人, 第三者全般
 last-updated: 2026-11-10
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (逐条) / LICENSES/ACD-1.0.comparison.md (族比較) / LICENSES/ACD-1.0.jurisdictions.md (法域) / LICENSES/FROZEN.md (投稿先の単一ソース)
 ---
 
-# LICENSES/ACD-1.0.faq.md
+# LICENSES/FAQ.md
 
 ## What
 

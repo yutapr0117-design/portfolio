@@ -662,7 +662,7 @@ h1 を採ると、答えは「本文の中」から「ドシエの中だけ」�
 **CE17 の依拠先（T2）**:
 - `ACD-1.0.review-responses-clauses.md` の §8.4 の想定問答 —— *"The reasoning is in Section 8.4's own text: Section 1.5 excludes patents from 'Covered Rights', so Section 6.4 by itself leaves … a patent-shaped hole in the same place."* **答えが T2 の文そのものを根拠にしている。**
 - `SUBMISSION-MATERIALS.md` —— 「§1.5 が特許を Covered Rights から除くので §6.4 だけでは届かない、と §8.4 自身が述べ…」
-- `ACD-1.0.clause-reference.md` の §8.4 の行、`ACD-1.0.comparison.md` §5.5（*"patent-shaped hole"*）、`ACD-1.0.faq.md` A8 の English（*"a copyright-only permission would leave a patent-shaped hole"*）。
+- `ACD-1.0.clause-reference.md` の §8.4 の行、`ACD-1.0.comparison.md` §5.5（*"patent-shaped hole"*）、`FAQ.md` A8 の English（*"a copyright-only permission would leave a patent-shaped hole"*）。
 - 加えて errata E56 がこの文を引用し、`ACD-1.3-CHANGELIST.md` は E36（§6.5 第 1 文へ *"and 8"* を足した変更）の理由を「§8.4 が『§6.4 だけでは特許について露出する』と自分で述べている」に置いている。どちらも記録なので、外した場合は注記で足りる（§6.5 第 1 文の *"and 8"* は §8 が特許を許諾することだけで立つ）。
 
 **本文の中での T2 の役割**（5a の検査は「誰も依拠していない」で正しい —— それは本文内の参照に限った結果である）:
