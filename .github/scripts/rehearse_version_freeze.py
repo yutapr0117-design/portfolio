@@ -90,7 +90,10 @@ def rehearse(tree: Path) -> list[str]:
         return [f"consistency が traceback で止まった: {out[-300:]}"]
     red = {m.group(1) for m in re.finditer(r"^ERROR: Check (\S+?):", out, re.M)}
     print(f"確定の直後の RED: {sorted(red)}")
-    problems = [f"一覧の外の RED: Check {n}" for n in sorted(red - EXPECTED)]
+    # どの face で止まったかを 1 行で添える (2026-11-26・3f の条件・議題 36): 「一覧の外の RED: Check 468」だけでは帰属に二分探索が要った
+    first = {n: next((ln[len(f"ERROR: Check {n}: "):][:260] for ln in out.splitlines() if ln.startswith(f"ERROR: Check {n}:")), "")
+             for n in red}
+    problems = [f"一覧の外の RED: Check {n} —— {first[n]}" for n in sorted(red - EXPECTED)]
     m362 = re.search(r"^ERROR: Check 362: orphaned mutation find-anchor\(s\) \((\d+) 件\): (.*)$", out, re.M)
     if "362" in red and not m362:
         problems.append("Check 362 の RED の形が読めない (名指された mutation を照合できない)")
