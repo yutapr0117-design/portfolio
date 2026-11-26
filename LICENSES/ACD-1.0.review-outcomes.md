@@ -203,7 +203,7 @@ for existence depends on legal interpretation**, and I have nothing to contribut
 My one request is: ... somewhere this license needs **a FAQ that explains in developer
 (non-lawyer) terms when I would want to use it**, in preference to the standard APL, and why."*
 
-**ACD-1.0 も存在理由の大半が法的解釈である。** FAQ は既にある（`ACD-1.0.faq.md`）が、
+**ACD-1.0 も存在理由の大半が法的解釈である。** FAQ は既にある（`FAQ.md`）が、
 **「いつ、なぜ、既存のどれの代わりに使うのか」を開発者の言葉で答える面としては読まれていない。**
 
 ### 改訂の手続きが、委員長の運用として記録されている

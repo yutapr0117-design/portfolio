@@ -81,7 +81,7 @@ canonical-ref: LICENSES/REFLECTION-BACKFILL.md / LICENSES/ACD-1.4-THIRD-CLARITY-
 | `ACD-1.0.submission.md` | 5 |
 | `ACD-1.0.review-responses*.md` | 6 |
 | `ACD-1.0.comparison.md` | 3 |
-| `QUESTIONS-FOR-COUNSEL.md`・`ACD-1.0.faq.md` | 4 |
+| `QUESTIONS-FOR-COUNSEL.md`・`FAQ.md` | 4 |
 | その他の文書（1 節ずつ・14 の文書） | 14 |
 | **文書を名指さない「入口」** | **10** |
 

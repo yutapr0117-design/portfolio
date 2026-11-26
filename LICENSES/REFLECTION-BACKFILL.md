@@ -62,7 +62,7 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 | 1.177 | B10（`ACD-OSI-BOTTLENECKS-B10.md`・2005 年の「全部か良いものだけか」） | PR 3263 で反映先に番号を書いたことを grep で確かめた（2026-11-16・portfolio-30） |
 | 1.178 | THIRD（`ACD-1.4-THIRD-CLARITY-TRIAL.md`）/ 入口（`SUBMISSION-MATERIALS.md` の OSI の FAQ の段） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-2f） |
 | 1.179 | against #312（審査の 4 つの問い） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
-| 1.180 | against #321（契約でないライセンスの保証の否認）/ 入口（`SUBMISSION-MATERIALS.md` §2 の先に名指す反論・`ACD-1.0.faq.md` A24） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
+| 1.180 | against #321（契約でないライセンスの保証の否認）/ 入口（`SUBMISSION-MATERIALS.md` §2 の先に名指す反論・`FAQ.md` A24） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
 | 1.181 | B2（`ACD-OSI-BOTTLENECKS.md` の B2 の行・`ACD-OSI-BOTTLENECKS-EXTERNAL.md` の B2 の節）/ against #322 / 入口（`SUBMISSION-MATERIALS.md` §2） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
 | 1.182 | against #323（理事会が却下するもの・2007 年の分類）/ 入口（`SUBMISSION-MATERIALS.md` §2） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
 | 1.183 | against #262・#320（個人の起草者に示された順序と、法律家を最後に置くこと） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
@@ -72,7 +72,7 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 | 1.187 | against #257（list の沈黙は読んだ印ではない）/ 入口（`REVISION-PROTOCOL.md` 分岐 B・`OSI-APPROVAL-PLAN.md` 3.8） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
 | 1.188 | 入口（`SUBMISSION-MATERIALS.md` §2 の先に名指す反論・利用者の数は承認の理由にならない）。against には行を立てていない（使用の論点は B2 と #322 が持つ） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
 | 1.189 | 入口（`SUBMISSION-MATERIALS.md` の OSD 10 条の表・ACD は利用に条件を課さない）。不利な事実ではないので against には行を立てていない | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
-| 1.190 | against #321（本文を添えずに配ることへの懸念）/ 入口（`SUBMISSION-MATERIALS.md` §0 と §2・OSD 10 条の表、`ACD-1.0.faq.md` A24） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
+| 1.190 | against #321（本文を添えずに配ることへの懸念）/ 入口（`SUBMISSION-MATERIALS.md` §0 と §2・OSD 10 条の表、`FAQ.md` A24） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
 | 1.191 | errata E79（§2.8 の第 2 文・譲受人への効力）/ against #41・#152・#324 / 入口（`SUBMISSION-MATERIALS.md` §2・`ACD-1.0.review-responses-clauses.md` §2・`ACD-1.0.jurisdictions.md` 5d） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-30） |
 | 1.192 | 入口（`SUBMISSION-MATERIALS.md` §1c の新規ライセンスの基準 4 の行・法律家を入れるよう勧めた提出と、何でもしてよい式の差し戻し）。B1 と B3 の不利な面として読んだが、register には行を立てていない（法律家の不在は B1 が、短さの論点は B3 が既に持つ） | この PR で反映先にこの節の番号を書き、grep で確かめた（2026-11-15・portfolio-50） |
 | 1.193 | against #239・#248 / 入口（`SUBMISSION-MATERIALS.md` §2 の「出力に触れるのは曖昧さを生む」の行と §3） | 反映先の文書がこの節の番号を引いていることを grep で確かめた（2026-11-15・portfolio-50） |

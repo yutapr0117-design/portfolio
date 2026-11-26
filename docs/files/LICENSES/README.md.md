@@ -2,7 +2,7 @@
 file: LICENSES/README.md
 audience: 誰でも（ライセンス関連の入口）, ai, 監査人, 採用検討者
 last-updated: 2026-11-03
-canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN.md (凍結と投稿先の単一ソース) / LICENSES/ACD-1.0.faq.md (§C に同種の逆引き表)
+canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN.md (凍結と投稿先の単一ソース) / LICENSES/FAQ.md (§C に同種の逆引き表)
 ---
 
 # LICENSES/README.md
@@ -70,7 +70,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 
 - **文書を足したら、この表にも行を足す**（足さないと Check 459 が RED）。
 - 逆に「載っているのに答えが無い疑問」が出たら、それは**文書側の欠落**である。該当文書へ追記する。
-- `ACD-1.0.faq.md` §C にも同種の逆引き表がある。**片方だけ更新すると drift する**ので、両方を見ること（現状は Check で縛っていない ―― 縛るなら「両表の行集合の一致」になるが、粒度と観点が違うため機械化すると誤検出しやすいと判断した）。
+- `FAQ.md` §C にも同種の逆引き表がある。**片方だけ更新すると drift する**ので、両方を見ること（現状は Check で縛っていない ―― 縛るなら「両表の行集合の一致」になるが、粒度と観点が違うため機械化すると誤検出しやすいと判断した）。
 
 ## Audience-specific notes
 
