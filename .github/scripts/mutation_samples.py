@@ -364,6 +364,13 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
+    "name": "Check 470b: 入口が 1.4 §1.7 として引く 2 行にまたがる逐語を、確定前の草案の語へ戻す —— 1 行ずつ探す旧版は行またぎを見ず、#4273 の欠陥を緑で通した (2026-11-27)",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "or other\ndata that results from that processing\"*",
+    "replace": "or other\ndata, in each case resulting from that processing\"*",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
     "name": "Check 505: 英語の入口の記録で、委員長の任期の後の日付に \"as chair\" を付ける —— 英語の形は日本語の形より先に審査者が読む (2026-11-26)",
     "file": ROOT / "LICENSES" / "REVIEWERS-RECORD.md",
     "find": "Pamela Chestek as chair, 2024-12-18:",

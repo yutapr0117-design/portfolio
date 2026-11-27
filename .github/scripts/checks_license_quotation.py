@@ -47,6 +47,11 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (cd が #3899 で submission-reference §4.4 と逐条 §12.5 の 2 件を手で見つけた)。T 番号を添えた引用は試作の歴史として
        外す (逐条は「T115 の前は *"…"*」の形で途中の草案を引く)。errata・against・試作の冊は途中の草案を歴史として引くので
        対象外。導入時の実測: 1,829 片のうち 1 件 (逐条 §8.4 の行・T99 より前の §8.3 第 2 文) で、同じ commit で直した。
+       2026-11-27 (72 の報告・d7): 1 行ずつ探していたので、行をまたぐ *"…"* を 1 片も見ていなかった。段落の中 (空行をまたがない)
+       で拾う形にし、見える片は 794 → 934。増えた片で REVIEWERS の "ACD-1.4 §1.7" (確定前の草案の語・#4273 で直した) と
+       QUESTIONS-FOR-COUNSEL §12.3 (1.3 の文に 1.4 草案の複数形の動詞を継いだ・72 が #4277 で直した) の 2 件が出た。**作らなかったもの**: 「ACD-1.N と
+       名乗る引用がその版に在るか」(72・7e の依頼)。名乗りを前 90 字の ACD-1.N で取ると 65 片中 19 件で本物は REVIEWERS の 1 件
+       (残りは file 名・他のライセンス・第三者の引用)、名乗りを隣接の形に絞ると 26 片中 0 件で REVIEWERS 自体を落とす。
        **470c (2026-11-24・cd の #4029 と 5e の提案・fc・BLOCKING)**: 外向きの文書 (`_OUTWARD470B` に register と ADOPTING を足す)
        の *"…"* で、Dedicator / Dedication / the Work / Section N のどれかを含み、提出対象の版 (SUBMISSION-TARGET) の本文に無く、
        それより前の版 (1.0〜) のどれかの本文に在るものを数える。前後に版の名 (1.0〜1.3) か経緯の印 (外し・旧・was・formerly 等)
@@ -298,20 +303,25 @@ def _selfquote_470b(ROOT, check):
     empty = [g for g in _OUTWARD470B if not any(L.glob(g))]
     n, bad = 0, []
     for f in files:
-        for ln_no, line in enumerate(f.read_text(encoding="utf-8").split("\n"), 1):
-            for m in re.finditer(r'\*"([^"*]{12,600})"\*', line):
-                if re.search(r"\bT\d+\b", line[max(0, m.start() - 40):m.end() + 40]):
-                    continue  # 試作の番号を添えた引用は途中の草案の歴史
-                for part in (x.strip(" ,;") for x in re.split(r"\s*(?:…|\.\.\.)\s*", norm(m.group(1)).rstrip(".,;:"))):
-                    w = re.findall(r"[a-z0-9']+", part.lower())
-                    if len(w) < 4:
-                        continue
-                    n += 1
-                    if part.lower() in low or " ".join(w) in flat:
-                        continue
-                    g = [tuple(w[i:i + 3]) for i in range(len(w) - 2)]
-                    if sum(1 for x in g if x in grams) / len(g) >= 0.85:
-                        bad.append(f"{f.name}:{ln_no} *\"{part[:90]}\"*")
+        # 段落の中で行をまたぐ引用も拾う (2026-11-27・72 の報告・d7): 1 行ずつ見ていた版は、2 行にまたがる *"…"* を 1 片も見ず、
+        #   REVIEWERS が "ACD-1.4 §1.7" として引いた確定前の草案の語 (#4273) と、QUESTIONS-FOR-COUNSEL の 1.3 と 1.4 草案を混ぜた引用を
+        #   黙って通した (見える片 794 → 934)。空行はまたがない (別の段落の *" と "* を組にしない)
+        text = f.read_text(encoding="utf-8")
+        for m in re.finditer(r'\*"((?:(?!\n[ \t]*\n)[^"*]){12,600})"\*', text):
+            line = text[max(0, m.start() - 40):m.end() + 40]
+            ln_no = text.count("\n", 0, m.start()) + 1
+            if re.search(r"\bT\d+\b", line):
+                continue  # 試作の番号を添えた引用は途中の草案の歴史
+            for part in (x.strip(" ,;") for x in re.split(r"\s*(?:…|\.\.\.)\s*", norm(m.group(1)).rstrip(".,;:"))):
+                w = re.findall(r"[a-z0-9']+", part.lower())
+                if len(w) < 4:
+                    continue
+                n += 1
+                if part.lower() in low or " ".join(w) in flat:
+                    continue
+                g = [tuple(w[i:i + 3]) for i in range(len(w) - 2)]
+                if sum(1 for x in g if x in grams) / len(g) >= 0.85:
+                    bad.append(f"{f.name}:{ln_no} *\"{part[:90]}\"*")
     bad += [f"型 {g!r} に当たる文書が無い (改名・移動したなら _OUTWARD470B の型を直す)" for g in empty]
     check(bool(files) and not bad,
           f"Check 470b: 外向きの文書 {len(files)} 冊の本文の引用 {n} 片に、本文とほぼ同じで語のずれた引用は無い",
