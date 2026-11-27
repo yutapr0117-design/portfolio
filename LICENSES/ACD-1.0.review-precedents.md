@@ -576,7 +576,7 @@ Mehl 氏は B で通り、我々は A で通すしかない ——**そして A 
 
 - 提出は **legacy approval** 目的。ライセンスは**日本語版と英語版**を持つ。
 - **理事たちは前向きだった** —— Josh Berkus 氏 *"I am +1 to approve as a legacy license"*、
-  提出者側の要約でも *"the English-language version ... worthy of OSI legacy approval"*。
+  委員長の Richard Fontana 氏の License Committee Report（2015-10-13）も *"I continue to regard the English-language version as worthy of OSI legacy approval."*（2026-11-27 に帰属を訂正 —— 初稿は提出者側の要約と書いていた。d7 の照合で見つけた）。**同じ報告は翻訳の証明について厳しい側に立つと書いている**（次の項の *"on the side of strictness"* の文と同じ報告）。
 - **止めたのは翻訳の証明である。** Richard Fontana 氏:
   *"We'd prefer to have an affidavit from a **professional translation service**. I realize that
   might be a little odd in this case, but the nature of this case also calls for **some extra care
