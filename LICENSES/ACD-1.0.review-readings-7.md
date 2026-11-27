@@ -277,10 +277,17 @@ cd が `submission-osd.md` の早見表の OSD 3 の行に「The second limb …
 | *"I do not believe that putting conditions on output of a model is workable and, where the output is not a derivative work under copyright law, it violates OSD9, "License Must Not Restrict Other Software.""* | Chestek 氏 2025-12-05（ModelGo の 2 度目の再提出。`ACD-1.0.review-corpus.md` に在る） | **支える側** |
 | *"This is the purview of legislation, an area that we have been careful to avoid overlapping with."* | Chestek 氏 2025-03-02（出力が AI 生成であるとの notice の義務） | **支える側。** 利益を受けるのが公衆である条件への異議 |
 | *"So can you elaborate how this restriction on output discriminates against a field of endeavor or a person or group?"* | Chestek 氏 2025-12-03（`license-discuss`・Total Reciprocity。Perens 氏が出力の制限を *"pretty clearly a use restriction"* とした返信） | **逆側。** 出力の制限が自動的に OSD 6 に当たるとは言わない |
+| *"It is an established principle that the conditions must be strictly on the subject matter and not restrict the output."*／*"As Richard pointed out, the analysis of OSI must go beyond what is strictly and verbatim imposed by the OSD."* | Carlo Piana 氏 2025-05-20（理事・ModelGo の改訂版） | 第 1 文は有利（理事が「確立した原則」と述べた）。第 2 文は審査の仕方の文で、OSD の逐条の照合だけでは足りないという向きにも読める |
+| *"I agree that the limitation on Output is inconsistent with open source principles."*／*"How would one know if the original Output is still there several generations later?"* | Chestek 氏 2025-05-14 | 有利（ACD は出力の追跡を求めない・§10.2） |
+| *"We look at it holistically too, particularly where it's a license for new subject matter, an AI model."*／*"For the few conditions that exist, there was indeed a value judgment made that the benefit gained was worth the impairment."* | Chestek 氏 2025-05-24 | 第 2 文は有利（ACD は条件を持たない）。第 1 文は B10 の弱い逆側（下の追記） |
+| *"It's not clear that model output has any copyrightability, so even if you wrote a provision which contained attribution and was inheritable, it's not clear that it could be legally enforced. Lawyers?"* | Josh Berkus 氏 2025-03-04（委員長・在任の表では 2025-03 から・始まりは推定） | 出力に権利が生じるかは不確か（問いの形） |
+| *"At least some countries are saying AI outputs are copyrightable; the UK for example"*／*"So you could impose license obligations on the output of an AI tool, at least in some places."* | McCoy Smith 氏 2025-03-04（のちの委員長） | 法域で割れる（ACD-1.4 の §9.2・§9.3 は権利が生じるかを表明せず、判断も求めない —— 割れに中立に立つ形） |
 
 **読み。** ACD が Result にも条件を課さないことは、決める側の文の向きと同じ側に在る。1.4 は *Computational Use of the Work* の中に作成と使用を入れていたので、Result を名指さなくても届いていた。1.5 が名指すのは、Result の語を別に立てたことで「Work だけ」と読める対比ができたからで、名指す理由は記録の側でなく本文の側にある。
 
 **逆側。** (1) どの文も、課す側の条件を論じたもので、課さない文が審査で求められたことを示さない。(2) Dedicator 自身の契約で出力の義務を付けることを止める約束（5.1）は、ライセンス文の外へ踏み込む —— 議題の外の契約を縛るとして広すぎると読まれる向きを、この表は扱っていない。(3) Chestek 氏 2025-05 は、同じ文で新しい領域への余地を残した。
+
+**追記（2026-11-27・6c）。** 2025 年の決める側の通を、AI の出力の語で全数で取り直し、ドシエに逐語の無い 5 通を表に足した（方法は §1.494）。Chestek 氏 2025-05-24 の *"holistically too"* は、全体として見る審査を対象を問わず行うという文で、新しい対象に固有なのは *particularly* の重みだけである。同氏の言う新しい対象は AI のモデルのライセンスで、ACD の作品は機械生成物を含みうるもの —— 当たるかは割れる。B10 は gap を作品の外へ伸ばす項目なので、伸びが大きいほど全体としての審査の目は強まる、という弱い逆側として置く（3f・2026-11-27）。
 
 **この節が establish しないこと。** 5.1 の Result の句が審査で受け入れられること。
 
