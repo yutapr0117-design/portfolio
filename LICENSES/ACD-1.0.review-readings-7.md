@@ -635,3 +635,22 @@ ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check
 **この節が establish しないこと。** ACD-1.4 の長さが審査で欠陥と数えられないこと。可読性の点数で ACD がどこに来るか（測っていない）。
 
 **反映**: B3（Fontana 氏 2017-01-05 の場の費用・Chestek 氏 2023-11-06 と Villa 氏 2019-05-10 の両側 —— ドシエ役へ）/ B13（Fontana 氏の文 —— list は長い本文を皆で直す場として働かなかった）/ errata なし。
+
+## 1.503 増殖と新しさを、決める側は 2019〜2020 年にどう述べたか —— 「ライセンスは自由・開放の基準への忠実さと、それを満たす起草の質だけで評価されるべきだ。実験は必ずしも悪くない」「増殖の問題は、最初の委員会から 15 年余りで、私には気にならなくなった」（Smith 氏 2019-05-11・のちの委員長）、「過去の承認が、いまの基準で残るかを見直すべきだ」（Smith 氏 2020-02-07）、「他のどのライセンスもしないことを、これは何をするのか」（Chestek 氏 2020-12-09・委員長）（B10・B2 の材料・2026-11-27）
+
+**方法**: §1.501・§1.502 と同じ。決める側の `license-review` の 2015〜2023 年の通から *proliferation / gap / new license / existing license / already approved / unique / novel* と規範の語を含み、ドシエに 8 語の連なりで逐語の無い 102 文を出して、論評の通の前後を開いた（§1.498 は 2025〜2026 年の同じ主題）。4 通とも `rounds/` に受領文は在る（CAL の 14of61・51of61、Unlicense の veto、ViraTrace の 1〜3of6）が、これらの文はドシエに引かれていない。同じ 2019-05-11 の通の「複雑さそのものは理由にならない」は §1.480 が持つ。
+
+| 発言 | 誰が（その時の役） | 向き |
+| :-- | :-- | :-- |
+| *"1. Licenses should be evaluated solely on their fidelity to the standards of freedom/openness, and the quality of their drafting in meeting those standards a. Experimentation is not necessarily a bad thing b. Even failed experimentation"* / *"including under the old issue of license proliferation (an issue which I've become less concerned about in the 15+ years since I was on the first license proliferation committee)"* | McCoy Smith 氏 2019-05-11（のちの委員長・当時は Intel・CAL の審査・CopyleftConf で示した自分の基準として） | 有利（B10・B2）。評価の軸を「自由・開放への忠実さ」と「起草の質」の 2 つに絞り、増殖を軸に入れない。新しい試みを悪と見ない |
+| *"Given that there have been existing licenses on the list that have been argued as precedent for recent submissions which were rejected or opposed, at a minimum there ought to be a serious look at some of the historical approvals to test whether those approvals would survive under current standards."* | Smith 氏 2020-02-07（CAL の審査・廃止の委員会の案に賛成して） | 不利（against #87）。過去の承認を先例として引く提出への警戒を述べた —— ACD が頼る Unlicense（2020・legacy）と 0BSD（2015）は、先例としての重みを「いまの基準で残るか」で量られうる |
+| *"I'd say that *no* new license (other than updates of licenses on that list, like EPLv1.0->EPLv2.0) should be proposed to be slotted into that category upon submission"* / *"that category was intended to really reflect the gold standard licenses that really have gotten widespread adoption across many many projects over a long time"* | Smith 氏 2020-05-17（Unlicense の veto の議論・popular / widely used の区分について） | 中立〜有利。ACD は popular の区分を求めない（`SUBMISSION-MATERIALS.md` の増殖の区分の行）—— この基準に合う |
+| *"Under "Rationale," can you explain what about this license is suited for your business model when other existing licenses aren't? What does it accomplish that no other license does?"* / *"Why is the license category "non-reusable"? That's not a category we are inclined to use for a new license. One of the value of the licenses is that they are reusable"* | Pamela Chestek 氏 2020-12-09（委員長・ViraTrace Public Source License の審査・署名 *"Chair, License Committee"*） | 両側。B10 の問い（他のどれもしないことは何か）を委員長が提出の Rationale に求めた（不利 —— ACD は B10 の gap が立つかに掛かる）。再利用できることを価値とした（有利 —— ACD は誰でも本文を変えずに使える） |
+
+**ACD-1.4 への当て。** いまの委員長の 2019 年の基準（忠実さと起草の質だけ・実験は悪くない・増殖は気にならなくなった）は、§1.498 の Piana 氏・Berkus 氏の非増殖の文（2025〜2026）と向きが違う —— 決める側の中で増殖の重さは割れている。ACD に効くのは、Smith 氏の基準では B10 の gap より起草の質（B1・B3・B13）が問われること、Chestek 氏の問いでは B10 の gap そのものが問われること、である。Smith 氏 2020-02-07 は、Unlicense を先例として引く ACD に、先例を「いまの基準で残るか」で量る読み手がいることを示す（against #87 の「6 年で繰り返されていない先例」と同じ向き）。
+
+**逆側。** (1) Smith 氏の 2019 年の基準は、本人が *"how I personally think the decision process should go"* と前置きした個人の考えで、当時は決める側でなかった（Intel の社員として CAL の議論に加わった）。いまの委員長としての規則ではない。(2) 2026 年の Smith 氏の講演（#333・AI は弁護士の代わりにならない）と 2025-12 の「誰が法的レビューをしたかを示す必要」（§1.494）は、同じ人の「起草の質」の軸が、法律家の目の有無で量られうることを示す —— 増殖で落とされにくいことは、B1 で落とされにくいことを意味しない。(3) Smith 氏 2020-02-07 が見直しを求めた *"at least one license currently on the list"* が何かは、この通からは分からない（Unlicense を指したとは書いていない）。(4) Chestek 氏の non-reusable の文は ViraTrace（自社用）への文で、ACD は再利用を前提にしているので当たらない側に居るが、それは承認の十分条件ではない。
+
+**この節が establish しないこと。** 増殖が ACD の審査で問われないこと。いまの委員長が 2019 年の基準で ACD を量ること。Unlicense の承認が見直しの対象になったこと。
+
+**反映**: B10（Smith 氏 2019-05-11 の両側・Chestek 氏 2020-12-09 の問い —— ドシエ役へ）/ against #87（Smith 氏 2020-02-07 —— 先例をいまの基準で量る読み手）/ errata なし。
