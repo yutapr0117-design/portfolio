@@ -654,3 +654,22 @@ ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check
 **この節が establish しないこと。** 増殖が ACD の審査で問われないこと。いまの委員長が 2019 年の基準で ACD を量ること。Unlicense の承認が見直しの対象になったこと。
 
 **反映**: B10（Smith 氏 2019-05-11 の両側・Chestek 氏 2020-12-09 の問い —— ドシエ役へ）/ against #87（Smith 氏 2020-02-07 —— 先例をいまの基準で量る読み手）/ errata なし。
+
+## 1.504 人格権を扱わないことを、決める側はどう述べたか —— 「人格権の配慮を持つのは、私の知る限り EUPL だけだ。同じ批判は他の全てのライセンスにも当たるのではないか」（Chestek 氏 2024-03-13・委員長・Sado 氏の問いへの返事）、「人格権を扱っていないことは、私にはあまり気にならない。ライセンスの本文とはほぼ直交し、できることは少ない」（Piana 氏 2023-11-09）（B8 の材料・2026-11-27）
+
+**方法**: §1.501〜§1.503 と同じ。決める側の通の 2010〜2023 年から人格権・steward・承継の語と規範の語を含み、ドシエに 8 語の連なりで逐語の無い 90 文を出し、人格権の 3 文の通の前後を開いた。2024-03 の 2 通は §1.497 の準拠法・人格権の全数（2024〜2026）の中で見つけ、節にしていなかったもの。Blue Oak の承認の会話（2023-11〜2024-01）は `rounds/2023-11-to-2024-01-license-review-blue-oak-approval-observed.txt` に在り、register B8 は同じ会話の Piana 氏 *"not licensable"*（#104）と、Sado 氏 2024-03 の「著作権だけを述べるライセンスは日本では open source でない」の論（register B8 の有利な側の行）を持つ —— 下の 2024-03-13 の 2 通は、その Sado 氏の問いへの決める側の返事で、register はまだ持っていない。
+
+| 発言 | 誰が（その時の役） | 向き |
+| :-- | :-- | :-- |
+| *"I'm curious why this particular license caught your attention. As far as I know, only the EUPL has an accommodation for moral rights. Wouldn't the same criticism hold true for all the other licenses too?"* | Pamela Chestek 氏 2024-03-13（委員長・`license-discuss`「Question about Blue Oak License」・Sado 氏への返事） | 両側。人格権を扱わないことは承認済みのほぼ全てに共通で、それだけで Blue Oak を退ける理由にはならない、と読める —— §12 が要件だとする B8 の有利な側（Sado 氏の論）を弱める。同時に、承認済みで人格権に配慮するのは EUPL だけ、という文で、ACD-1.4 の §12 は珍しい形である（gap とも、先例が少ないとも読める） |
+| *"But it looks like they strove so much for simplicity that they have not considered moral rights administrations."* | Bruce Perens 氏 2024-03-13（同じ会話・2024 年の役はドシエで確かめていない） | 有利な向き（B8 の gap の側）。単純さを求めて人格権の扱いを考えなかった、と欠けとして書いた |
+| *"In a nutshell, coming from a moral right jurisdiction, the fact that moral rights are not dealt with does not concern me much, as it is largely orthogonal to the text of the license and little you could do."* | Carlo Piana 氏 2023-11-09（Blue Oak の承認の議論・`license-review`・2023 年の役はドシエで確かめていない） | 不利な向き（B8 の mission creep の側）。人格権の法域の人として、扱わなくても気にならない、本文でできることは少ない、と書いた —— #104 の *"not licensable"* と同じ通の続き |
+| *"We have traditionally held that a license is a license is a license, but it's clear that OSI Approved Open Source contributions from people who live in countries that claim Moral Rights is inferior to people who live in countries which don't."* | Russ Nelson 氏 2012-08-16（`license-discuss`「Can copyrights be abandoned to the public domain」・2012 年の役はドシエで確かめていない） | 有利な向き（B8 の gap の側）。人格権の法域の寄与は劣る、と OSI の伝統の読みの限界を書いた |
+
+**ACD-1.4 への当て。** ACD-1.4 は §12 で人格権を放棄し、行使しない約束と同意を置く。Chestek 氏（その時の委員長）の文は、人格権を扱わないことが承認済みのほぼ全てに共通で、それを理由に 1 本だけを退けることはない、という読みに立つ —— §12 が承認の要件ではないことを、委員長の文で支える（§1.499 の同氏 2020-05-14 *"many, many licenses don't address moral rights"* と同じ線で、4 年をまたいで一貫している）。同時に、承認済みで人格権に配慮するのは EUPL だけという文は、§12 が「承認済みの一覧に足す効果」の候補であることを示す（B10 の gap の側）が、決める側がそれを価値と呼んだ文ではない。Piana 氏の文は、§12 の費用（長さ・mission creep）の側に立つ。Perens 氏と Nelson 氏の文は、扱わないことを欠けと見る側に立つ。
+
+**逆側。** (1) Chestek 氏の文は Sado 氏の問い（Blue Oak は日本で open source か）への返事で、人格権を扱う条を置くことの是非には何も述べていない —— 「扱わなくてよい」は「扱ってはいけない」ではない。2026-06-23 の同氏の *"mission creep"*（register B8）は、置くことへの不利な文として残る。(2) Piana 氏の *"little you could do"* は、ACD の §12.2（約束と同意）が「できることは少ない」の範囲で何をしているかを問わせる —— register B8 の 2026-11-16〜17 の追記（4 法域の条文で §12.2 の足場を狭めた）と同じ線。(3) Perens 氏・Nelson 氏・Piana 氏の役は、発言の月について確かめていない（「決める側」と数えない）。(4) EUPL の配慮が何であるか（ACD の §12 と同じ形か）は、この節では当てていない。
+
+**この節が establish しないこと。** §12 が審査で欠陥と数えられないこと、または価値と数えられること。EUPL 以外に人格権を扱う承認済みのライセンスが無いこと（Chestek 氏の *"As far as I know"* の限り）。
+
+**反映**: B8（Chestek 氏 2024-03-13 の両側・Piana 氏 2023-11-09 の続き・Perens 氏と Nelson 氏 —— ドシエ役へ）/ errata なし。
