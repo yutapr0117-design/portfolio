@@ -1,7 +1,7 @@
 ---
 file: LICENSES/README.md
 audience: 誰でも（ここが入口）
-last-updated: 2026-11-06
+last-updated: 2026-11-26
 canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシエの分析対象) / LICENSES/ACD-1.4.txt (このリポジトリが 2026-11-23 から適用している本文) / LICENSES/FROZEN.md (凍結と投稿先の単一ソース)
 ---
 
