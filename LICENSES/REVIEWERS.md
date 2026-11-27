@@ -23,9 +23,9 @@ that it must be**. *(Re-measure: `git ls-files -z LICENSES ':!LICENSES/rounds' |
 | :-- | --: | :-- |
 | [`ACD-1.4.txt`](ACD-1.4.txt) | **5,879** | the licence: the version this repository applies and the one that would be submitted. Nothing outside it fixes it. [`ACD-1.0.txt`](ACD-1.0.txt) (4,896 words) is the text posted to `license-discuss` on 2026-08-26 and the base of [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt), which shows every changed word |
 | the two facts **#1 and #4** in [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~220 | **no lawyer has read this text**, and **the only project using it is the author's**. These are the strongest points against it. Neither is one of the eight published criteria, and the Licensing Committee's chair has called legal review *"not a blocker"*, but a reviewer may weigh both |
-| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **5,733** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
+| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **5,820** | every objection we found on these lists in 24 months, and whether it lands. The first table is the part that counts |
 
-**≈ 11,830 words** *(`wc -w`, 2026-11-27.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
+**≈ 11,917 words** *(`wc -w`, 2026-11-27.)* **What you give up by stopping there**: the clause-by-clause reasoning, the
 jurisdiction analysis, and the archive measurements — **all of which are evidence for claims,
 not claims themselves.** The four commands below check the licence text without trusting any
 of it.
@@ -296,8 +296,8 @@ reading: a second pass found new ones. That a reading does not stand is our judg
 | The licence itself | [`ACD-1.4.txt`](ACD-1.4.txt) | 701 lines, 16 sections. Plain ASCII, no placeholders in the clauses (one in §16.1's notice template). The text posted to the list is [`ACD-1.0.txt`](ACD-1.0.txt) (597 lines); [`REDLINE-1.0-TO-1.4.txt`](REDLINE-1.0-TO-1.4.txt) shows the changes |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
-| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 448 worked entries, indexed by the question rather than the filename |
-| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — about twenty times the length of the licence.** All 336 adverse facts, written by us. Two have no answer |
+| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 449 worked entries, indexed by the question rather than the filename |
+| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — about twenty times the length of the licence.** All 337 adverse facts, written by us. Two have no answer |
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
 | **What we would ask a lawyer** | [`QUESTIONS-FOR-COUNSEL.md`](QUESTIONS-FOR-COUNSEL.md) | ACD has had no legal review. Ten questions on which a lawyer's reading would most change the text, ranked by consequence, each answerable on its own |
 | **What we would ask someone who builds ML systems** | [`QUESTIONS-FOR-PRACTITIONERS.md`](QUESTIONS-FOR-PRACTITIONERS.md) | The review record asks for this reader by name. Five questions on whether the machine-learning clauses (§1.7, §6.2, §6.3, §6.4, §8.4, §2.6) match a real pipeline, each answerable on its own |
