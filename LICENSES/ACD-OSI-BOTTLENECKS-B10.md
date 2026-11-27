@@ -145,7 +145,7 @@ running the Program"* は**著作権の話であって特許ではない**）。
 
 ### 2026-11-15 —— 承認できる提出を、増殖を理由に保留した実例（OVPL・2005・`review-readings-4.md` §1.350・portfolio-50）
 
-Russell Nelson 氏 2005-08-19（2005-02-09 に第三者から OSI の新しい会長と呼ばれた・`license-discuss` 2005-02。2005-08 に会長だったかは確かめていない） *"It's approvable as far as I can see. However we also have license proliferation issues to worry about."* —— OSD に合うと認めたうえで、増殖を理由に別の道（CDDL への改善の取り込み）を求めた。B10 の「差は承認の可否ではなく優先度として始まった」（上の 2001 年の段）は、2005 年には可否の手前で働いていた。**逆側**: 同じ通で同氏は *"This is just my opinion, and I can be talked out of it."* と書き、処方は「CDDL の改善は CDDL へ入れよ」だった。ACD は既存のライセンスの派生ではないので、処方はそのまま当たらない。当たるのは「増殖は OSD への適合と別に問われる」という点である。
+当時の license approval committee の委員長 Russell Nelson 氏 2005-08-19（2005-02-09 に第三者から OSI の新しい会長と呼ばれた・`license-discuss` 2005-02。2005-08 に会長だったかは確かめていない） *"It's approvable as far as I can see. However we also have license proliferation issues to worry about."* —— OSD に合うと認めたうえで、増殖を理由に別の道（CDDL への改善の取り込み）を求めた。B10 の「差は承認の可否ではなく優先度として始まった」（上の 2001 年の段）は、2005 年には可否の手前で働いていた。**逆側**: 同じ通で同氏は *"This is just my opinion, and I can be talked out of it."* と書き、処方は「CDDL の改善は CDDL へ入れよ」だった。ACD は既存のライセンスの派生ではないので、処方はそのまま当たらない。当たるのは「増殖は OSD への適合と別に問われる」という点である。
 
 ### 2026-11-15 —— OSD の起草者と当時の理事が述べた目標を、ACD は文字どおりに満たす（`review-readings-6.md` §1.451・portfolio-9b）
 

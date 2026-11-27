@@ -22,10 +22,10 @@ canonical-ref: LICENSES/ACD-1.0.submission-reference.md (切り出し元・§1�
 ### 3. Open Source Definition conformance
 
 **Stated first, because the archive says it should be.** Conformance with the Definition is the
-floor of this process and not the whole of it. Russ Nelson, then chair of the OSI's License
-Committee (in the same thread he offered to file the license committee's report; `license-review`,
-2009-01-31), put the reason on the list in 2009: *"There are reasons beyond OSD conformance why we might not want to approve the
-license. Why? Because we have a trademark to preserve. If you can figure out some way to comply
+floor of this process and not the whole of it. Russ Nelson, then chair of the OSI's license
+approval committee (his own words in the reports he posted to the list, 2004 to 2010), put the
+reason on the list in 2009: *"There are reasons beyond OSD conformance why we might not want to
+approve the license. Why? Because we have a trademark to preserve. If you can figure out some way to comply
 with the OSD in a way that does not achieve the desired open source effect ... then we MUST deny
 your license OSI approval."* I am not offering the clause-by-clause analysis below as a
 sufficient condition, and the question I take to be live is the one behind it: whether this
