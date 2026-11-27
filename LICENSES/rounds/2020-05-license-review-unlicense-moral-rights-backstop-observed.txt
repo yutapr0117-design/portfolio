@@ -1,0 +1,122 @@
+Source: OSI license-review public archive, 2020-May.txt
+Retrieved: 2026-10-24 (local copy of the public archive; read 2026-11-27)
+Messages: 2 of 33 in "veto against Unlicence (was Re: Certifying MIT-0)" (2020-05-10)
+Senders: Pamela Chestek, McCoy Smith
+Position: Not addressed to us. Observed. The messages are kept whole.
+
+----- begin verbatim -----
+From pamela at chesteklegal.com  Thu May 14 12:55:20 2020
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Thu, 14 May 2020 08:55:20 -0400
+Subject: [License-review] veto against Unlicence
+In-Reply-To: <ccc31cca-8aa3-3e53-668a-2a29ff6f7af8@crynwr.com>
+References: <Pine.BSM.4.64L.2004241436270.10072@herc.mirbsd.org>
+ <CAKgxSaA6=dOnjcSxiTRbt-wNJfPXrYKDSnHUFzn__w4NrEMyLw@mail.gmail.com>
+ <CAJU2dcoBD+q2cnMjk2WgK0Z2BUKsppyuo25aT9i5DhBpZZ2_kg@mail.gmail.com>
+ <f43adba537ec4b90c34b676fe8abcccb@lexpan.law>
+ <Pine.BSM.4.64L.2004241458290.10072@herc.mirbsd.org>
+ <Pine.BSM.4.64L.2004242239010.8901@herc.mirbsd.org>
+ <222c9f30-4d66-d1e7-85a7-d7a77f620cef@chesteklegal.com>
+ <f29eeca5-f210-a289-6630-61a2e42b5beb@crynwr.com>
+ <Pine.BSM.4.64L.2005110825140.26256@herc.mirbsd.org>
+ <a2816128-c63e-ef17-01aa-f87478ebb4ad@berkus.org>
+ <143cd02c-3782-c9ad-262b-01865f46a807@chesteklegal.com>
+ <ccc31cca-8aa3-3e53-668a-2a29ff6f7af8@crynwr.com>
+Message-ID: <f3c8c4e5-0172-f9af-a19c-e9fbd99bd1c1@chesteklegal.com>
+
+
+On 5/13/2020 2:53 PM, Russell Nelson wrote:
+> I'm confused. Did you mean to say "a user would not have to defend a
+> claim of infringement based on the ...." ?
+>
+> I think Thorsten's objection is based on France's moral rights.
+> Perhaps we could suggest that the Unlicense contain a statement saying
+> "In France, the concept of moral rights prohibits me from giving up my
+> copyright in this work. Therefore, in France, this license gives you
+> co-ownership of the copyright."
+You're right, I was only thinking about economic rights (my US bias is
+showing), but the question is still the same, which is why the clear
+statement of the author's intentions would not defeat any claim of
+wrongdoing no matter what the legal theory is.
+
+But many, many licenses don't address moral rights, so I'm not sure why
+this one is more problematic - other than Thorton's premise that the
+license language is somehow entirely ineffective, making this situation
+different.
+
+The Unlicense exists and is fairly widely used, so it's not appropriate
+to ask for amendment to it.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+PO Box 2492
+Raleigh, NC 27602
+919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+From mccoy at lexpan.law  Fri May 15 14:18:50 2020
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Fri, 15 May 2020 07:18:50 -0700
+Subject: [License-review] veto against Unlicence
+In-Reply-To: <5a4606c2-7672-029f-dec9-59ab6c2960f1@chesteklegal.com>
+References: <Pine.BSM.4.64L.2004241436270.10072@herc.mirbsd.org>
+ <CAKgxSaA6=dOnjcSxiTRbt-wNJfPXrYKDSnHUFzn__w4NrEMyLw@mail.gmail.com>
+ <CAJU2dcoBD+q2cnMjk2WgK0Z2BUKsppyuo25aT9i5DhBpZZ2_kg@mail.gmail.com>
+ <f43adba537ec4b90c34b676fe8abcccb@lexpan.law>
+ <Pine.BSM.4.64L.2004241458290.10072@herc.mirbsd.org>
+ <Pine.BSM.4.64L.2004242239010.8901@herc.mirbsd.org>
+ <222c9f30-4d66-d1e7-85a7-d7a77f620cef@chesteklegal.com>
+ <f29eeca5-f210-a289-6630-61a2e42b5beb@crynwr.com>
+ <Pine.BSM.4.64L.2005110825140.26256@herc.mirbsd.org>
+ <a2816128-c63e-ef17-01aa-f87478ebb4ad@berkus.org>
+ <143cd02c-3782-c9ad-262b-01865f46a807@chesteklegal.com>
+ <ccc31cca-8aa3-3e53-668a-2a29ff6f7af8@crynwr.com>
+ <f3c8c4e5-0172-f9af-a19c-e9fbd99bd1c1@chesteklegal.com>
+ <CY4PR03MB276002CFB50FB966F1887294F6BC0@CY4PR03MB2760.namprd03.prod.outlook.com>
+ <CAA4ffp_-6+XJyvQJpeQc_Y7gQatbFhPRRY+n__-_VFMD_CuSGg@mail.gmail.com>
+ <5a4606c2-7672-029f-dec9-59ab6c2960f1@chesteklegal.com>
+Message-ID: <047601d62ac3$c206c060$46144120$@lexpan.law>
+
+The way I understand the argument being presented here, it is that the following statement in Unlicense:
+
+?Anyone is free to copy, modify, publish, use, compile, sell, or distribute this software, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, and by any
+
+means.?
+
+ 
+
+Cannot be construed as a backstop license, which is how CC0 deals with the concerns that in certain jurisdictions, dedications to the public domain are not recognized at all, or for at least of some of the author?s rights.  
+
+ 
+
+I have yet to hear what it is about the above passage that precludes it from being a license, even though it is worded fairly similarly (and arguably more comprehensively) to the OSI-approved, and ubiquitously-used, BSD license:
+
+?Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:?
+
+ 
+
+I would suggest that someone ought to present some foundation (legal decision, statutory limitation) for the assertion that Unlicense doesn?t include a backstop license grant if this debate about invalidity of bare public domain dedications is to continue (I think everyone acknowledges that a pure public domain dedication without a backstop is problematic).
+
+ 
+
+From: License-review <license-review-bounces at lists.opensource.org> On Behalf Of Pamela Chestek
+Sent: Friday, May 15, 2020 6:33 AM
+To: license-review at lists.opensource.org
+Subject: Re: [License-review] veto against Unlicence
+
+ 
+
+The difference with the Unlicense is that it also clearly states what rights are granted. Does that not resolve any concern with the Unlicense?
+
+Pam
+
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20200515/413c126e/attachment-0001.html>

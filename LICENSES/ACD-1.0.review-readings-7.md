@@ -553,3 +553,21 @@ ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check
 **この節が establish しないこと。** 採用が無いことが不承認の理由になること。個人の起草が審査で退けられると決まったこと。
 
 **反映**: B2（Chestek 氏 2025-01-25・両側 —— ドシエ役へ）/ B1（Piana 氏 2026-03-18 の後の文 —— §1.494 の行の続きとして）/ B10（非増殖の 2 文・gap が立つかに掛かる）/ errata なし。
+
+## 1.499 Unlicense の承認の議論（2020-05）で、委員長が「既に在り、かなり広く使われているので、直しを求めるのは適当でない」と「人格権を扱わないライセンスは多い」を述べていた —— ACD が先例として頼る承認の、理由の側の文（against #87・B2・§12 の材料・2026-11-27）
+
+**方法**: 2019〜2023 年へ窓を広げた献呈・特許の語の全数（§1.495 の 2020 の段と同じ道具・ドシエに 8 語の連なりで逐語の無い 69 文）から、Unlicense の legacy 承認のスレッドの 2 通の前後を開いた。2 通は `rounds/2020-05-license-review-unlicense-moral-rights-backstop-observed.txt` に無改変で置いた。同じスレッドの 2020-05-13 / 05-16 / 05-17 / 06-02 の通は §1.214 と `review-doctrine.md` §1.128 が既に読んでいる —— この節は、その前の 2 日の 2 通だけを足す。
+
+| 発言 | 誰が（その時の役） | 向き |
+| :-- | :-- | :-- |
+| *"But many, many licenses don't address moral rights, so I'm not sure why this one is more problematic"* | Pamela Chestek 氏 2020-05-14（委員長・`license-review`「veto against Unlicence」） | §12 に中立。人格権を扱わないことは、この承認の議論で欠陥として数えられなかった。ACD-1.4 は §12（MORAL RIGHTS）で人格権を扱うので、この文の当たる側（扱わない側）には居ない —— §12 を持つことが要件だったとも、余計だったとも、この文からは言えない |
+| *"The Unlicense exists and is fairly widely used, so it's not appropriate to ask for amendment to it."* | Chestek 氏 2020-05-14（同じ通の次の文） | 不利（against #87・B2）。§1.214 の Berkus 氏 2020-05-16 *"already in wide use"* と同じ事情を、委員長が 2 日前に、文に手を入れさせない理由として述べていた |
+| *"I have yet to hear what it is about the above passage that precludes it from being a license, even though it is worded fairly similarly (and arguably more comprehensively) to the OSI-approved, and ubiquitously-used, BSD license"* | McCoy Smith 氏 2020-05-15（のちの委員長） | 有利（献呈の後の許諾の文を、決める側が「許諾として読める」と擁護した） |
+
+**ACD-1.4 への当て。** ACD は Unlicense を「献呈に許諾を足した形が承認された先例」として引く（against #87 は、それが legacy の承認だったと既に書いている）。Chestek 氏の第 2 文は、その承認の議論の中で、委員長が「既に在り、かなり広く使われている」ことを、文に手を入れさせない理由に挙げた文である。**先例の重みの一部は、文の形でなく使われていることに在った** —— 使うのがこのリポジトリだけの ACD（B2）は、その部分を持ち込めない。逆に言えば、使われていない ACD には「直しを求めるのは適当でない」の保護が無く、審査者は文に直しを求めうる —— これは不承認ではなく、改訂の往復が許される形である（REVISION-PROTOCOL の版を重ねる運用と合う）。Smith 氏の文は、献呈の後の許諾の文が backstop として働くことを擁護しており、ACD の §3（献呈）と §4（許諾）の 2 部構成の形の側を支える。
+
+**逆側。** (1) Chestek 氏の第 2 文は「直しを求めるのは適当でない」で、使われていることを承認の要件にした文ではない —— register B2 の「使用は承認の基準ではない」（決める側の 3 つの独立の文）は変わらない。(2) legacy の承認と新しい提出は手続きが違い、新しい提出に同じ理由が求められるとは述べていない。(3) 第 1 文の *"so I'm not sure why this one is more problematic"* は、反対者の前提（文が全く効かない）を除いた限りの文で、人格権を扱わなくてよいと一般に述べた文ではない。(4) Smith 氏は、本人が理事の選挙の後で決める側の立場でないと書いた 2020-03 と同じ時期の文である（§1.495 の 2020 の段）。
+
+**この節が establish しないこと。** Unlicense の先例が ACD に使えないこと。使われていないことが不承認の理由になること。人格権の扱いが審査で問われないこと。
+
+**反映**: against #87（Chestek 氏の第 2 文 —— 先例の重みの一部は使用に在った・ドシエ役へ）/ B2（両側）/ errata なし。
