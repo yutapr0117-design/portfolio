@@ -72,7 +72,14 @@ ACD-1.5 -- CHANGES FROM ACD-1.4 (DRAFT). Not part of the Dedication.
        read as outside it, and so may a claim by the Dedicator in respect of the
        Dedicator's own likeness or voice contained in the Work, if it rests on
        the manner or effect of the use; ACD-1.4's Section 5.1 stopped the first
-       and its Section 5.2(d) the second. Section 9.1 is against that reading.
+       and its Section 5.2(d) the second. So may a claim under an agreement that
+       the Dedicator made before applying the Dedication, such as one for breach
+       of confidentiality or of a limit on the field of use, where it rests on
+       the agreement; ACD-1.4's Section 5.1 stopped it, and Section 5.1 here
+       speaks only of what the Dedicator will impose. Where such an agreement
+       protects what the Work contains, the claim may instead be read as
+       resting on that, and so as inside it. Section 9.1 is against each
+       reading that puts one of these claims outside it.
    10. Nothing is imposed in respect of a Result, as well as of the Work, and
        the covenant on collateral obligations, the sentence on requests, and the
        rule of construction speak of a Result too; and a person bound as a
