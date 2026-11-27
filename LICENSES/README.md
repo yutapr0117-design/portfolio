@@ -85,6 +85,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (リストで議論された本文・ドシ�
 | **3 つの gap を承認済み 141 本の全数に当てた表（逆側つき）** | [`ACD-1.0.gap-census.md`](ACD-1.0.gap-census.md) |
 | **gap の主張を既存ライセンスの本文に当てた測定（§1.96 / §1.97 / §1.104）** | [`ACD-1.0.gap-measurements.md`](ACD-1.0.gap-measurements.md) |
 | **草案を我々自身が掃引して出たもの** | [`ACD-1.1-SELF-AUDIT.md`](ACD-1.1-SELF-AUDIT.md) |
+| **草案を我々自身が掃引して出たもの（2026-09 の 10 節・§3e〜§3m と §3k-2）** | [`ACD-1.1-SELF-AUDIT-2.md`](ACD-1.1-SELF-AUDIT-2.md) —— 2026-11-27 に行数の予算（Check 52）で切り出した。本文は無改変で、節番号も同じ。新しい節は 1 冊目へ足す |
 | **改訂サイクルの手順（長期戦の骨格）** | [`REVISION-PROTOCOL.md`](REVISION-PROTOCOL.md) |
 | **盲点の探し方（どの次元をまだ測っていないか）** | [`BLIND-SPOTS.md`](BLIND-SPOTS.md) |
 | **その適用の日次ログ（いつ何を使い、何が出たか）** | [`BLIND-SPOTS-LOG.md`](BLIND-SPOTS-LOG.md) |

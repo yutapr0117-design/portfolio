@@ -218,8 +218,15 @@ def candidate_items() -> list[tuple[str, str, str, str]]:
     起草の外 (別の状態で出す)。反例: 段の後、次の「**先に登録」か見出しまでに「**反例の結果**」が在れば答えた。
     """
     out = []
-    sa = L / "ACD-1.1-SELF-AUDIT.md"
-    st = sa.read_text(encoding="utf-8") if sa.exists() else ""
+    # 2026-11-27 に §3e〜§3m を ACD-1.1-SELF-AUDIT-2.md へ切り出した (Check 52)。1 file だけ読むと、移した節の 🔴 が
+    # 一覧から黙って消える (件数が減って「閉じた」に見える)。分割した file を全部、file ごとに読む
+    for sa in sorted(L.glob("ACD-1.1-SELF-AUDIT*.md")):
+        out.extend(_self_audit_items(sa.read_text(encoding="utf-8")))
+    return out + _trial_items()
+
+
+def _self_audit_items(st: str) -> list[tuple[str, str, str, str]]:
+    out = []
     heads = list(re.finditer(r"^### 🔴 (.*)$", st, re.M))
     for i, h in enumerate(heads):
         end = re.search(r"^#{2,3} (?!⚠)", st[h.end():], re.M)
@@ -228,6 +235,11 @@ def candidate_items() -> list[tuple[str, str, str, str]]:
             continue
         state = "起草の外" if "**起草では閉じない**" in body else "未閉"
         out.append(("SELF-AUDIT 🔴", state, h.group(1)[:110], "1c"))
+    return out
+
+
+def _trial_items() -> list[tuple[str, str, str, str]]:
+    out = []
     for p in sorted(L.glob("ACD-1.4-*TRIAL.md")):
         lines = p.read_text(encoding="utf-8").splitlines()
         for i, ln in enumerate(lines):
