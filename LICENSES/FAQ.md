@@ -565,12 +565,24 @@ Dedicator が既に公開した写しについて「さらなる条件・制限�
 
 ### A31. モデルの重みを営業秘密として守ってきた。ACD を付けて公開すると、営業秘密はどうなるのか
 
-**ACD は営業秘密を許諾していない。だが公開した時点で、秘密は事実として失われる。** 2 つは別の話である。
+**ACD は営業秘密を名指して許諾していない。ただし受け手に営業秘密を主張しない約束は届く。そして公開した時点で、秘密は事実として失われる。**
 
 - **許諾の面**: §1.5 の Covered Rights は著作権・実演・放送・データベース権・不正な抽出に対する権利と
   「同様の効果を持つ権利」を挙げ、**営業秘密を名指していない**。それが「同様の効果を持つ権利」に
   含まれるかは本文が決めておらず、法域による（`ACD-1.0.against.md` #31・OpenMDW は明示的に含める）。
-  §11.4 は、ACD が及ぶのは Covered Rights・§8 の特許・§12 の人格権だけだと述べる。
+  §11.4 は、ACD が及ぶのは Covered Rights・§8 の特許・§12 の人格権だと述べ、同じ文で *"save that the covenants in
+  Section 5 are promises about the Dedicator's own conduct and are not limited by this sentence"* と §5 の約束を外す
+  （2026-11-27 訂正: この行は後半を落とし「だけ」と書いていた）。**§1.5 の第 1 文は開いた類である**:
+  *"every right that the Dedicator holds or may come to hold in the Work … however arising, including …"* で、
+  列は例示なので、営業秘密が第 1 文の内と読む側も立つ（`ACD-1.5-UNIQUE-READING.md` の §1.6 第 1 文の行・
+  1.5 草案でも同じ）。
+- **約束の面（有利）**: §5.1 第 2 文 *"any claim or cause of action, whether now known or unknown, that treats as
+  wrongful, or as without legal basis, a use of the Work that this Dedication permits or purports to permit"* は、
+  受け手の使用を営業秘密の不正使用とする Dedicator の請求にも届く（列挙された例外 —— 特許・商標と名・虚偽の言明・
+  合意した支払い —— のどれでもない）。この一般の約束は 1.2 から在り、1.0・1.1 には無い。**逆側**: 約束は許諾でない
+  （Chestek 氏 2024-10-05 は別の草案に「営業秘密の権利を与えない」ことを OSD の問題と書いた・`against.md` #31）。
+  Dedicator が第三者（秘密を盗んだ人・元の雇用者）に持つ権利は残る。営業秘密が第 1 文の内と読まれると、
+  §3 の放棄が第三者への権利まで手放したと読まれる危険もある。
 - **事実の面**: 営業秘密の保護は秘密であることに依存するので、重みを誰でも取得できる形で公開すれば、
   **許諾の有無にかかわらず**秘密としての保護は残らない。ACD を付けても付けなくても同じである。
 
