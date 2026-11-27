@@ -479,3 +479,26 @@ ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check
 **この節が establish しないこと。** 決める側が ACD の型を歓迎すること、個人の作る献呈型が退けられること。
 
 **反映**: B10（のちの委員長が名指した余地・両側・59 へ）/ B1・B2（「自分でやろうとは勧めない」・作り手の問い・59 へ）/ errata なし（§12 の自己矛盾の形は無い）。
+
+## 1.496 権利の行使を引き金に許諾を終わらせる条を、決める側は 2026 年にどう論じたか —— 「licensor の気まぐれで終わりうるので、受け入れられる open source ライセンスだとは利用者に言わない」（Chestek 氏 2026-08-16）、「著作権の侵害の主張を引き金にする終了ゆえに 1.1 に反対する」（同 2026-08-23）、「著作権を終わらせる特許の防御的終了は異例ではない」（Smith 氏 2026-08-19）（ACD-1.4 の §10.4 と against #46 の材料）
+
+**方法**: §1.494・§1.495 と同じ。2024〜2026 年の決める側の通から *irrevocable・revoke・revocation・terminate・termination* を含む文を取り、ドシエに 8 語の連なりで逐語の無い文を全数で出した。78 文のうち大半は OpenMDW-1.1 の審査（`license-review` 2026-08）。主題はドシエが既に持っている（against #46・#266、`review-venue.md` の 2026-09-03・09-04 の行、`objection-map.md`、`review-responses-meta.md` の Landley 氏の問い）。**ただし決め手の文は 1 つも逐語で無かった**ので、ここに置く（材料の一覧: `acd-compact/6c-mining/revoke_unquoted.txt`）。
+
+| 発言 | 誰が（その時の役） | 向き |
+| :-- | :-- | :-- |
+| *"I would not tell a user that this is an acceptable open source license because of the potential for termination at the licensor's whim."* | Pamela Chestek 氏 2026-08-16（委員・元委員長） | 有利（ACD は §10.4 で終了を持たない） |
+| *"I am opposed to version 1.1 because of the trigger of termination for a copyright infringement claim."*／*"I think the concept is objectionable for an open source software license too, it's only that the copying of the entire open source corpus by LLMs has shown that the self-serving use of a copyright termination provision is not an unlikely or uncommon possibility."* | Chestek 氏 2026-08-23 | 有利（同上） |
+| *"So, at a minimum, I think we can conclude that a patent defensive termination clause that allows for termination of copyright rights isn't anomalous."* | McCoy Smith 氏 2026-08-19（委員長・在任の表では 2026-01 から） | 不利の向き（防御的終了は受け入れられた機能 —— ACD がそれを持たない費用・against #46） |
+| *"I realize that if you ignore the copyright issue, the termination clause in OpenMDW-1.1 \*looks\* like the kind of patent termination provisions that had come to be seen as boringly benign."*／*"An obvious case for approval would be a version of OpenMDW without any defensive termination provision, or, perhaps, with patent-triggered defensive termination that is decoupled somehow from the concept of Model Materials."* | Richard Fontana 氏 2026-08-29（委員） | 両面（防御的終了の無い版は「承認の明白な場合」—— ACD の形。特許の防御的終了は「退屈なほど無害」とも） |
+| *"I think in general this scope of termination is now disfavored (although at least one OSI license -- CPL -- has the concept)."* | Smith 氏 2025-02-10 | 広い終了の範囲は好まれない（ACD は終了を持たない） |
+| *"It seems to me that a license revoking Freedom 0 upon a copyright claim cannot assure software freedom."* | Simon Phipps 氏 2026-08-19（元 OSI President・署名に *"in a private capacity"*。決める側として数えない） | 有利（同上） |
+
+**ACD-1.4 への当て。** §10.4: *No permission granted by this Dedication terminates under it, for any reason* —— 終了の条を持たない。§2.2 は献呈を irrevocably とする。8 月の審査の反対の中心（著作権の主張を引き金にする終了・終了の範囲が無関係な物に及ぶこと）は、ACD には当たる条が無い。
+
+**読み。** 2026 年 8 月、決める側の 2 人（Chestek 氏・Fontana 氏）は、権利の行使で許諾が終わる条を承認の妨げに挙げ、Fontana 氏は「防御的終了の無い版」を承認の明白な場合と書いた。ACD の §10.4 はその形に在る。
+
+**逆側。** (1) Smith 氏は同じ審査で、著作権まで終わらせる*特許の*防御的終了は異例ではないと述べ、Fontana 氏も特許の防御的終了を「退屈なほど無害」と書いた。ACD が防御的終了を持たないことは、受け入れられた機能を欠く費用として残る（against #46・`review-responses-clauses.md` の Q）。**ただしこの費用は採用者（Dedicator）にとってのもので、承認の障害としての文ではない** —— 承認の向きでは、Fontana 氏と Chestek 氏の文が §10.4 に有利に働く（59・2026-11-27。#46 の今の根拠は Villa 氏 2026-08-14（起草側）と Rosen 氏 2003 で、決める側の文は無い）。(2) 文は OpenMDW の審査の中の発言で、ACD についての発言ではない。(3) OpenMDW-1.1 は記録の上ではまだ決まっていない（`AS-OF.md` の OpenMDW-1.1 の行: スレッドの最後の通は 2026-09-14、2026-11-26 の取得で確かめ直し）。反対の文は審査の帰結ではない。(4) Phipps 氏は私人として書いた（*"in a private capacity"*）。同氏は 2018 年に OSI President として署名した人で（against-2 #274）、2026 年の役はドシエに無い —— 決める側の文としては数えず、表の行は「元 President・私人として」と書く。
+
+**この節が establish しないこと。** 終了を持たないことが承認を保証すること。決める側が ACD の §10.4 を読んだこと。
+
+**反映**: against #46（両側・ドシエ役へ —— Smith 氏 08-19 = 採用者の費用、Fontana 氏 08-29・Chestek 氏 08-16・08-23 = 承認の向きで有利。[TRADE] の分類は変えない）/ errata なし。
