@@ -369,3 +369,15 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 - **(i) 2.5(d) に入らない読み（7f）**: 在る。営業秘密の不正使用は「不正な手段で取得した秘密の使用」で、違法の理由は取得の方法なので、*by reason of its being such a use or of what the Work contains* のどちらでもない読みが立つ。適用の前に盗んだ人が適用の後に使う場面で、1.4 §5.1 第 2 文なら止まり、n8 では外れうる。**一覧に無い 1.4 からの狭まり**で、議題 38 の後に見つかった。条件 (7) で一覧は直さず、`ACD-1.5-UNIQUE-READING.md` の §2.5(d)（前の取得）の行に書いた（統合の判断）。門の読みでこれが HIGH と付けられれば、一覧に無い HIGH に数える —— 隠さない。
 - **(ii) 「営業秘密を与えない」を承認の問題と書いた文（7f・原文照合）**: Chestek 氏 2024-10-05 のほかに、同じ提出者の草案への pre-review で McCoy Smith 氏 2024-09-30 *"Just looking at the first listed license, it would not be approvable because Secs. 3.2 and 3.3 disclaim any grants express or implied of patent and trade secret rights."* —— Chestek 氏の *likely* より強いが、明示の否認（*disclaim*）への文である。発言の月の役はドシエで確かめていない。against #31 へはドシエが足す。
 - **(iii) T153 の反例（7f・§15 の推しを改める）**: n8 1.6 第 1 文 *every right in the Work that the Dedicator holds* は開いた類で、*include* の列は例示（1.12）、*any similar right* の同類の限定は列の最後の項にしか掛からない。ゆえに営業秘密と契約上の権利は第 1 文の内と読む側がむしろ強く、§15 の T154 の逆側「例示に足すと 2.1 の放棄の対象になる」は、**足さなくても既にそう読まれうる**。有体物は外と読む側が強いが、1.2 の *and media* を媒体と読めば内に入る（弱い）。**推しの改め**: T153 と T154 は「第 1 文が何を含むか」という 1 つの問いで、別々に試作を起こさず、UNIQUE-READING の §1.6 第 1 文の行に「法の側」として 1 行で書いた（法域の権利の分類が決めるので本文の語で閉じない）。§15 の「against #31 に有利な事実を足す」は変わらない —— 営業秘密が第 1 文の内なら、2.1・2.2 も届く側に読める（有利）が、第三者への権利まで放棄したと読まれる危険（不利）も同じ所に在る。
+
+### 18.3 T170b（7.2 の句を外す案）の逆側の当て（2026-11-27・採掘 cb・記録 72）
+
+cb が全年の決める側の通に、拘束・承継人・禁反言・受益者の語を当てた。**「法の効果を言い切る文」を欠陥として挙げた決める側の文は 0**（承継人を縛る文を名指した論評も 0）。近いものはドシエに在る 3 つだけで、向きは割れる:
+
+- Rosen 氏 2014-09-16（`ACD-1.0.review-readings-2.md`）: 知らない第三者受益者が契約法で成り立つのかを疑う文 —— 効果の成否を疑うので、7.4 の限る句を**残す**側。
+- Perens 氏 2018-06-21（`review-readings-7.md` §1.500）: 受益者の語で直そうとした別の提出を「弱い」と評した —— 同じく**残す**側。
+- Chestek 氏 2022-07-04・Smith 氏 2022-09-19（`ACD-1.0.review-readings-6.md`・別の提出の *by implication, estoppel or otherwise* の除外の文に *"What is this sentence designed to do?"*）—— 効果を言い切ったことでなく、許諾の条が既に決めていることを重ねて言った文への問いで、「句を外すと短くなる」側にも「重ねた文は問われる」側にも読める。
+
+**取り違えの注意**（cb）: 2015-09 の *exceedingly dodgy mechanism of equitable estoppel* は Rosen 氏の通に在るが、Cowan 氏の文の引用で本人の文ではないので、Rosen 氏の文として引かない。
+
+**72 のまとめ**: T170b を支える決める側の文は無く、残す側の文が 2 つある。§18.1 の推し（7.2 は弱い候補）を、門の読みの後の議題でも「弱い・残す側に傾く」として出す。
