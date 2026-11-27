@@ -185,11 +185,11 @@ Bradley M. Kuhn 氏 2022-12-23 ——
 
 > *"If a license submitter cannot make a clear and compelling case as to why their license serves a
 > ***widespread* need for many different FOSS communities**, *and* explain how that need is
-> **wholly unserved by all existing FOSS licenses** — then the license is almost surely just a
+> **wholly unserved by all existing FOSS licenses** — then the license almost surely just a
 > vanity license. ... They come to OSI for its endorsement and **to build their own licensing
 > credibility upon a foundation of OSI's credibility**. OSI-approval should always include the
 > question ... **whether the license is in service to a broader FOSS community beyond the
-> organization submitting it**."*
+> organization submitting it**."* [sic: 原文は "the license almost surely" で is を欠く]
 
 **これは B6（vanity）と B10（gap）を 1 つの連言にしたものである。**
 **我々の答えは提出パケット §4b（本文に固有名詞ゼロ・採用に本文編集が不要）と gap census だが、
@@ -199,9 +199,9 @@ Kuhn 氏の基準は「提出者専用でないこと」より強い** ——**"
 ### 開発者からの feedback が集まらない、という観察
 
 Josh Berkus 氏 2022-12-23 —— *"developer feedback on this license is limited; **its entire reason
-for existence depends on legal interpretation**, and I have nothing to contribute to that.
+for existance depends on legal interpretation**, and I have nothing to contribute to that.
 My one request is: ... somewhere this license needs **a FAQ that explains in developer
-(non-lawyer) terms when I would want to use it**, in preference to the standard APL, and why."*
+(non-lawyer) terms when I would want to use it**, in preference to the standard APL, and why."* [sic: "existance"]
 
 **ACD-1.0 も存在理由の大半が法的解釈である。** FAQ は既にある（`FAQ.md`）が、
 **「いつ、なぜ、既存のどれの代わりに使うのか」を開発者の言葉で答える面としては読まれていない。**
@@ -229,7 +229,7 @@ submitted** ... and (b) **30 days after submission of a revised version**"*。
 > *"As some know, NOSA 2.0 [1] has been **languishing in a limbo review state for an extremely long
 > time**. In my opinion, NOSA 2.0 is, in its current form, **an overly complex and badly drafted
 > license**. ... I also believed for a long time that **it was contrary to de facto OSI policy to
-> reject a license outright**, as opposed to gently directing [submitters elsewhere]."*
+> reject a license outright**, as opposed to gently directing the license submitter to go back to the drawing board."*
 
 **#139 が理事会の議事録から見つけた「第 3 の帰結」（承認でも否決でもない）は、
 ここでは 3 年半の実時間として現れている。**
@@ -402,7 +402,7 @@ Bruce Perens 氏 2019-05-28、Master-Console の提出者に向けて ——
 > goes to parse them — which is the only purpose of a license. Thus, **it is an active disservice
 > to the programmers of the world** to present them with a license which is unlikely to work as
 > they expect in court, and is likely to cause them damages. **So, please get a lawyer to write a
-> license for you.**"*
+> license for you.**"*<!-- not-verbatim: アーカイブの写しが斜体の印を語の中に残す（J*acobsen v. Katzer, *）。その句のほかは逐語 -->
 
 **B1 の最も強い表現である** ——**害は「承認されないこと」ではなく、
 それを採用した第三者が被る損害として述べられている。**

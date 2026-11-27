@@ -46,7 +46,7 @@ canonical-ref: LICENSES/ACD-1.0.review-precedents.md (個別スレッドの読�
 **同じ 2026-04-18 の CNPL への指摘には、規則の形をとっていないがもう 1 つ重要な点がある**:
 *"The license does not grant all the rights under copyright, at least under US law. US law also
 includes the right to **publicly perform and publicly display** … it is also **better practice not
-to define the grant by enumerating specific rights**, since those may be country-specific."*
+to define the the grant by enumerating specific rights**, since those may be country-specific."* [sic: "the the"]
 **ACD-1.0 はこの指摘の両方に対して逆側に立っている** —— §4.1 は列挙ではなく
 *"all Covered Rights in the Work for any purpose whatsoever"* という**範囲による許諾**で、
 §4.2 は *"includes, **without limitation**"* と明示したうえで
@@ -481,9 +481,9 @@ the CC0 legal code to **explicitly grant patent and trademark rights**"*。
 
 ### 🟢 Bruce Perens 氏が挙げた「正しい文言」は、ACD §8.1 と同じ種類の限定である（同じ語ではない）
 
-> *"I think **the proper language** would be to grant rights to patents that are **'necessarily
-> practiced in the work as issued by the grantor'**. Because of course **anyone can modify the work
-> to exercise any patent claim you happen to own**."* —— Bruce Perens 氏・2024-04-06
+> *"I think **the proper language** would be to grant rights to parents that are **"necessarily
+> practiced in the work as issued by the grantor"**. Because of course **anyone can modify the work
+> to exercise any patent claim you happen to own**."* [sic: "parents" は patents の誤記] —— Bruce Perens 氏・2024-04-06
 
 **ACD §8.1 の末尾**: *"where the infringement is **caused by subject matter contained in the Work
 as made available by the Dedicator**."* ——**同じ種類の限定で、同じ語ではない。** Perens 氏の
