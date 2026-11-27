@@ -65,6 +65,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        **作業中の草案 (いまは 1.5) の語は設計として対象外** (5e の問い): 草案の語は提出対象にも前の版にも無いので当たらないが、
        それは偶然ではなく、草案の語は「1.5 草案」の印で名乗る (468a が草案に当てる) という分担である。草案を確定して提出対象を
        切り替えた日に、その語は提出対象の本文に入るので、470c は何もしなくてよい。
+       2026-11-27 (d7・470b と同じ穴): 1 行ずつ探していたので行をまたぐ *"…"* を見ていなかった。段落の中で拾い (219 → 250 件)、
+       片の先頭 1 字の大小を区別しない (文頭の "So far as" を文の途中で小文字で引く慣行で偽の 1 件が出た)。印を探す窓は同じ段落の
+       中の前 250 字・後 150 字 (旧版の「同じ行」は折り返しの偶然に依る)。増えた 31 件に前の版を名乗らない引用は無かった。
        **地の文は拾わない** (d7 の問い): 見るのは斜体の *"…"* だけで、引用符の無い地の文の古い語 (#4007 や想定問答の
        "Section 8.4 deliberately reaches only claims …" の形) は母数の外。地の文は確定の日に `prepare_version_freeze.py --report`
        の「同じ番号で書き直した条」の節で人が読む、という分担である。
@@ -260,19 +263,32 @@ def _target_version_470c(ROOT, check):
                       r"|no longer|corrected|replaced|旧|訂正|外し|外れ|だった|の前の形")
     faces = sorted({p for g in (*_OUTWARD470B, "ACD-OSI-BOTTLENECKS.md", "ADOPTING.md") for p in L.glob(g)})
     n, bad = 0, []
+    # 段落の中で行をまたぐ引用も拾う (2026-11-27・d7・470b と同じ穴): 1 行ずつ見た版は 219 件、またいで拾うと 250 件。
+    #   片の先頭 1 字の大小は区別しない —— 文頭の "So far as …" を文の途中で "so far as …" と引くのは引用の慣行で、
+    #   区別すると QUESTIONS-FOR-COUNSEL の §6.2 が「1.1〜1.3 にだけ在る」と誤って出た (1.1〜1.3 は別の文の途中に小文字で在る)
+    def _in(x, body):
+        return x in body or (x[:1].swapcase() + x[1:]) in body
     for f in faces:
-        for ln_no, line in enumerate(f.read_text(encoding="utf-8").split("\n"), 1):
-            for m in re.finditer(r'\*"(.{12,}?)"\*', line):
-                q = norm(m.group(1))
-                parts = [x.strip(" .,;:") for x in re.split(r"\.\.\.|…", q) if len(x.strip(" .,;:")) > 8]
-                if not key.search(q) or not parts:
-                    continue
-                n += 1
-                if all(x in bodies.get(tv, "") for x in parts):
-                    continue
-                older = [v for v in bodies if v != tv and all(x in bodies[v] for x in parts)]
-                if older and not mark.search(line[max(0, m.start() - 250):m.end() + 150]):
-                    bad.append(f"{f.name}:{ln_no} ({'/'.join(older)}) *\"{q[:70]}\"*")
+        text = f.read_text(encoding="utf-8")
+        for m in re.finditer(r'\*"((?:(?!\n[ \t]*\n)[^"*]){12,}?)"\*', text):
+            ln_no = text.count("\n", 0, m.start()) + 1
+            q = norm(m.group(1))
+            parts = [x.strip(" .,;:") for x in re.split(r"\.\.\.|…", q) if len(x.strip(" .,;:")) > 8]
+            if not key.search(q) or not parts:
+                continue
+            n += 1
+            if all(_in(x, bodies.get(tv, "")) for x in parts):
+                continue
+            older = [v for v in bodies if v != tv and all(_in(x, bodies[v]) for x in parts)]
+            # 印を探す窓は、同じ段落の中の前 250 字・後 150 字 (旧版は「同じ行」で、折り返しの位置という偶然に依っていた。
+            #   行で切ると QUESTIONS-FOR-COUNSEL §8 の *"whose infringement depends upon the use of the Work"* が、2 行前の
+            #   "(in ACD-1.3)" を見ずに偽の RED になった)。段落 (空行) はまたがない
+            win = text[max(0, m.start() - 250):m.end() + 150]
+            a0 = m.start() - max(0, m.start() - 250)
+            pa = max(win.rfind("\n\n", 0, a0), -1) + 1
+            pb = win.find("\n\n", a0 + len(m.group(0)))
+            if older and not mark.search(win[pa:pb if pb >= 0 else len(win)]):
+                bad.append(f"{f.name}:{ln_no} ({'/'.join(older)}) *\"{q[:70]}\"*")
     check(bool(faces) and bool(bodies.get(tv)) and not bad,
           f"Check 470c: 外向きの文書の ACD の引用 {n} 件が、提出対象 ACD-{tv} の本文に在るか、前の版を名乗るか経緯の印を持つ",
           (f"Check 470c: 前の版にだけ在る文を、版を名乗らずに引いている {len(bad)} 件: {bad[:5]}。直し方は 2 つのどちらか: "

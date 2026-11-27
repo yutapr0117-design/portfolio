@@ -350,6 +350,13 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
+    "name": "Check 470c: 法律家への問いが 1.3 の文を 2 行にまたいで引く段落から、版の名乗り \"(in ACD-1.3)\" を消す —— 1 行ずつ探す旧版はこの引用を見ていなかった (2026-11-27)",
+    "file": ROOT / "LICENSES" / "QUESTIONS-FOR-COUNSEL.md",
+    "find": "claims (in ACD-1.3) infringed by Computational Use",
+    "replace": "claims infringed by Computational Use",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
     "name": "Check 504: 固定の後に変更の一覧 (CHANGES) の 1 句を動かして、日数を数え直さない —— 読み手が読む一覧が固定と違う (2026-11-25・議題 31)",
     "file": ROOT / "LICENSES" / f"CHANGES-ACD-{CURRENT_DRAFT_VER}.txt",
     "find": "Moral Rights include those of a performer",
