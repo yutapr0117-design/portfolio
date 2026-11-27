@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/list_open_items.py
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-11-16
+last-updated: 2026-11-27
 canonical-ref: LICENSES/ACD-1.0.against.md / LICENSES/ACD-1.0.against-2.md / LICENSES/ACD-1.0.errata.md / LICENSES/ACD-OSI-BOTTLENECKS.md / .github/scripts/prepare_version_freeze.py
 ---
 
@@ -26,7 +26,7 @@ ACD の OSI 承認に向けて「開いている項目」をドシエ全体か�
 ## Constraints
 
 - **載るのはドシエが自分で「開いている」と書いた項目と道具が数えられる欠けだけ**で、誰も書いていない欠陥は載らない。洗い出しの残りは、
-  読み・反例・模擬委員会が見つける。担当の候補は目安。
+  読み・反例・模擬委員会が見つける。担当の候補は目安。担当の候補は役の名（本文・ドシエ・統合・採掘・機械層）で出す。内部の記録はセッションの名で書かれているので、表に出す所で担当の欄だけを読み替える（セッションの名はセッションが替わるたびに古くなる・2026-11-27）。
 
 ## Change impact
 
