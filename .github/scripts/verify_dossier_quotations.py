@@ -119,6 +119,36 @@ def italic_quotes(line, minlen=12, maxlen=100000):
     return out
 
 
+def paragraph_text(text):
+    """段落の中の 1 つだけの改行を空白にした本文 (長さは同じ・位置は元の本文の位置のまま)。
+
+    2026-11-27 (d7): 引用を 1 行ずつ探す実装は、行をまたぐ *"…"* を照合しなかった (LICENSES/*.md の人名の近傍の英語の引用で
+    225 件・原文の誤字を断りなく直した 9 件が出た)。空行 (段落の境) と、表の行 (`|` で始まる行・セルをまたいで組を作る) はつながない。
+    """
+    lines = text.split("\n")
+    out = []
+    for i, ln in enumerate(lines):
+        out.append(ln)
+        if i + 1 < len(lines):
+            nxt = lines[i + 1]
+            join = ln.strip() and nxt.strip() and not ln.lstrip().startswith("|") and not nxt.lstrip().startswith("|")
+            out.append(" " if join else "\n")
+    return "".join(out)
+
+
+def paragraph_quotes(text, minlen=12, maxlen=100000):
+    """本文の斜体の引用を [(引用, 行番号 (1 始まり・引用の始まりの行))] で返す。行をまたぐ引用も拾う。"""
+    flat = paragraph_text(text)
+    out, seen = [], set()
+    for rx in (_ITALIC_PLAIN, _ITALIC_INNER):
+        for m in rx.finditer(flat):
+            q = m.group(1)
+            if minlen <= len(q) <= maxlen and (q, m.start()) not in seen:
+                seen.add((q, m.start()))
+                out.append((q, text.count("\n", 0, m.start()) + 1))
+    return out
+
+
 def load_sources(root=".", cache=True):
     """照合先: rounds/ の一次資料 + 本文 + 取得済みアーカイブ。cache=False は CI が持つ分だけを読む。"""
     out = []
@@ -240,9 +270,16 @@ def collect_quotes(root=".", named=True):
     """`*"..."*` 形式の英語の逐語引用を集める。named は人名の近傍のものに絞る。"""
     quotes = {}
     for path in sorted(glob.glob(f"{root}/LICENSES/*.md")):
-        lines = open(path, encoding="utf-8").read().split("\n")
-        for n, line in enumerate(lines):
-            context = " ".join(lines[max(0, n - 3):n + 3])
+        _text = open(path, encoding="utf-8").read()
+        lines = _text.split("\n")
+        _flat = paragraph_text(_text).split("\n")  # 行をまたぐ引用も拾う (paragraph_text): 段落は 1 つの「行」になる
+        _starts = [0]
+        for _fl in _flat[:-1]:
+            _starts.append(_starts[-1] + len(_fl) + 1)
+        for _fl, _st in zip(_flat, _starts):
+            n = _text.count("\n", 0, _st)
+            line = _fl
+            context = " ".join(lines[max(0, n - 3):n + 3 + _text.count("\n", _st, _st + len(_fl))])  # 段落の頭の 3 行前から末尾の 3 行後まで
             if named and not NAME.search(context):
                 continue
             for _raw in italic_quotes(line, 25, 400):
@@ -250,6 +287,7 @@ def collect_quotes(root=".", named=True):
                 # **省略記号が消え、present() の分割照合が永久に発火しなくなる**
                 # （2026-09-14 に実際にそうなり、確認数が 193 → 155 へ落ちた）。
                 q = re.sub(r"[*`]", "", " ".join(_raw.split()))
+                n = _text.count("\n", 0, _st + max(line.find(_raw), 0))  # 引用の始まりの行 (0 始まり)
                 if len(q.split()) < 5:
                     continue
                 if sum(ord(c) < 128 for c in q) / len(q) <= 0.9:
@@ -413,11 +451,11 @@ def entry_quotes(root="."):
     faces = [f for f in FACES if FIRST_READ.search(f)] + ["ACD-OSI-BOTTLENECKS.md", "QUESTIONS-FOR-PRACTITIONERS.md"]
     for face in faces:
         with open(f"{root}/LICENSES/{face}", encoding="utf-8") as fh:
-            for n, line in enumerate(fh, 1):
-                for raw in italic_quotes(line, 12):
-                    q = re.sub(r"[*`]", "", raw)
-                    if len(q.split()) >= 3 and not re.search(r"[ぁ-んァ-ヶ一-龠]", q):
-                        found.setdefault(q, f"{face}:{n}")
+            # 行をまたぐ引用も拾う (2026-11-27・d7): 1 行ずつ見た版は、入口の折り返した段落の引用を 472n に渡していなかった
+            for raw, n in paragraph_quotes(fh.read(), 12):
+                q = re.sub(r"[*`]", "", " ".join(raw.split()))
+                if len(q.split()) >= 3 and not re.search(r"[ぁ-んァ-ヶ一-龠]", q):
+                    found.setdefault(q, f"{face}:{n}")
     return found
 
 

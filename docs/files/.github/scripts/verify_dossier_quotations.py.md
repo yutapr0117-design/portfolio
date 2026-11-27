@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/verify_dossier_quotations.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-11-11
+last-updated: 2026-11-27
 canonical-ref: LICENSES/AUDIT-LEDGER.md (結果の台帳) / LICENSES/rounds/README.md (一次資料の保存規約)
 ---
 
@@ -48,6 +48,7 @@ python3 .github/scripts/verify_dossier_quotations.py --fetch   # 不足月を導
   **これは手で回す道具であって Check ではない。**
 - **「未確認」は「誤り」ではない。** 我々自身の文を強調で括ったものと、未取得の月が混じる。
   **分類してから結論すること。**
+- **引用は段落の中で行をまたいで拾う（2026-11-27）。** 1 行ずつ見ていた版は、折り返した段落の引用を照合しなかった（人名の近傍の英語の引用で 225 件・原文の誤字を断りなく直した形が 12 件出た）。表の行（`|` で始まる行）はつながない。入口の面（entry_quotes・Check 472n）も同じ形で拾うので、manifest は `--record-entry` を `DOSSIER_EXTRA_SOURCES=~/osi-fetch/fetch` と一緒に回して作り直す。
 - **母数が大きすぎるときは、母数の作り方が間違っている。** 初版は 4,976 件を数え、
   大半が markdown の太字記法だった（履歴は script の docstring に残してある）。
 
