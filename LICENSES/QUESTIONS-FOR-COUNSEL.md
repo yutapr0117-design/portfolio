@@ -335,9 +335,10 @@ the licence, and the part that stays with the author is the core against distort
 (b) Whether §12.4 can bind persons who,
 after the author's death, act in their own right (Japan, Articles 60 and 116). (c) Whether a court
 would treat a covenant this broad as contrary to public order even though §12.3 confines it. A second
-point under (c): in ACD-1.3, and in ACD-1.4 before trial T103, §12.3 ended by saying that the covenant and the consent
-*"are given in respect of a work that the Dedicator has chosen to place in the commons for the purpose
-stated in Section 6"*. That clause
+point under (c): in ACD-1.3 §12.3 ended by saying that the covenant *"is given in respect of a work that the
+Dedicator has chosen to place in the commons for the purpose stated in Section 6"*, and from trial
+T67 to trial T103 the ACD-1.4 draft said that the covenant and the consent *"are given"* so
+(quotation corrected 2026-11-27: it had put the draft's plural form into ACD-1.3). That clause
 was kept to support the covenant's validity; since ACD-1.4 added a consent (T67), it also reaches
 the consent. A blanket consent given in advance may be read narrowly by the purpose it states (that is our
 reading, not one we have confirmed for any jurisdiction). Does the clause confine the consent to acts that
