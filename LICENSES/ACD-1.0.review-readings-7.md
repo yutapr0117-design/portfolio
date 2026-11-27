@@ -673,3 +673,21 @@ ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check
 **この節が establish しないこと。** §12 が審査で欠陥と数えられないこと、または価値と数えられること。EUPL 以外に人格権を扱う承認済みのライセンスが無いこと（Chestek 氏の *"As far as I know"* の限り）。
 
 **反映**: B8（Chestek 氏 2024-03-13 の両側・Piana 氏 2023-11-09 の続き・Perens 氏と Nelson 氏 —— ドシエ役へ）/ errata なし。
+
+## 1.505 誰が提出するか、承認は版ごとか —— 「通常の承認の請求の提出者は、ライセンスの steward であるべきだ」「幸いにも、OSI の承認の提出は法律家の独占ではない」（Fontana 氏 2020-04-22）、「OSI はライセンスを 1 本ずつ承認し、家族としては承認しない。だから GPL の新しい版も自動では承認されない」（Chestek 氏 2021-11-11・委員長）（B14・B1・B12・提出対象の版の材料・2026-11-27）
+
+**方法**: §1.504 と同じ全数（決める側の通の 2010〜2023 年・人格権・steward・承継の語・ドシエに逐語の無い 90 文）のうち、steward と版の語の文の通の前後を開いた。下の 3 通はどれもドシエに逐語で無い（`appropriate standing` の会話は `READ-THREADS-2010.txt` に読了の行があり `rounds/` に在るが、文は引かれていない）。
+
+| 発言 | 誰が（その時の役） | 向き |
+| :-- | :-- | :-- |
+| *"Lawyers fortunately do not have a monopoly on the ability to make OSI license approval submissions."* / *"https://opensource.org/approval implies that the submitter of a normal (non-legacy) license approval request should be the license steward, while submissions for legacy approval can be by an "interested licensee"."* | Richard Fontana 氏 2020-04-22（`license-discuss`「Certifying MIT-0」・2020 年の役はドシエで確かめていない） | 第 1 文は有利（B1 —— 提出そのものは法律家でなくてよい）。第 2 文は B14 に当たる —— 新しいライセンスの提出者は steward で、ACD では `ACD-1.4.txt` の §16.5 の Steward（このリポジトリのオーナー）になる |
+| *"In the normal "For Approval" case, it's the license steward who has appropriate standing."* | Fontana 氏 2020-05-15（`license-discuss`「What does "appropriate standing" in the review process mean?」） | B14 に当たる。手続きの「適切な資格」は steward に在る、という読み |
+| *"The OSI approves licenses one by one, not as a family. So any new version of the GPL is not automatically approved, it goes through the approval process."* | Pamela Chestek 氏 2021-11-11（委員長・`license-discuss`「OSI as guarantor for "or later" *GPL clauses」） | 提出対象の版に当たる。承認は版ごとで、新しい版は承認を引き継がない |
+
+**ACD への当て。** (1) **提出者**: Fontana 氏の読みでは、新しいライセンスの提出者は steward である。ACD の Steward はこのリポジトリのオーナーで、REVISION-PROTOCOL のゲート 0（提出はオーナーが自分の言葉で書いて送る・B14）は、手続きの資格の側からも同じ人に行き着く —— AI が代わりに出す経路は、moderator の通知（B14）とは別に、資格の読みでも開いていない。(2) **法律家**: 同じ人が、提出そのものは法律家の独占ではないと書いた。B1 の有利な側（提出の要件ではない）の、決める側に近い人の文である。(3) **版**: 承認が版ごとなら、ACD-1.4 が承認されても 1.5 は承認を引き継がない。`ACD-1.0.submission.md` の SUBMISSION-TARGET が提出対象を「適用している確定版」に置くこと（いまは 1.4）と、FROZEN.md の版ごとの凍結は、この読みに合う。1.5 を後で出すなら、もう 1 度の審査になる。
+
+**逆側。** (1) Fontana 氏の 2 通は手続きの頁の読みを述べた個人の文で、「法律家の独占ではない」は提出の資格の話であって、法律家の目の無い本文が承認されうるという文ではない（§1.501 の Smith 氏 2021-02、§1.494 の 2025-12 の文は残る）。(2) Fontana 氏自身が、steward 以外の提出の例（GPLv3 系）を *"special cases"* として挙げており、規則は絶対ではない。(3) Chestek 氏の文は GPL の *"or later"* の条についてで、ACD は upgrade の条を持たない（§16 は新しい版を出す者を決めるが、受領者を新しい版へ移さない）—— 版ごとの承認は ACD にとって不利な制約ではなく、版を重ねるたびに審査が要るという費用である。(4) 2020 年の Fontana 氏の役は確かめていない（「決める側」と数えない）。
+
+**この節が establish しないこと。** 提出が steward 以外から出されたら受け付けられないこと。1.4 の承認が 1.5 の審査を軽くしないこと（審査で前の版をどう扱うかは、この文からは分からない）。
+
+**反映**: B14（Fontana 氏 2020-04-22・05-15 —— 提出者は steward・ゲート 0 と同じ人へ）/ B1（Fontana 氏「法律家の独占ではない」・限りつき）/ B12（Chestek 氏 2021-11-11 —— 承認は版ごと）/ errata なし。
