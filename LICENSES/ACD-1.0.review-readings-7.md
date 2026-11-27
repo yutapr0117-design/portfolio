@@ -502,3 +502,24 @@ ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check
 **この節が establish しないこと。** 終了を持たないことが承認を保証すること。決める側が ACD の §10.4 を読んだこと。
 
 **反映**: against #46（両側・ドシエ役へ —— Smith 氏 08-19 = 採用者の費用、Fontana 氏 08-29・Chestek 氏 08-16・08-23 = 承認の向きで有利。[TRADE] の分類は変えない）/ errata なし。
+
+## 1.497 準拠法と法域の条を、決める側は 2024〜2026 年にどう述べたか —— 「法域を定めると、解決するより多くの問題を生むと経験が示している」（Chestek 氏 2025-02-14）、「準拠法の条は無用だ。GPL などは理由があって置かなかった」（Piana 氏 2024-10-15）、「特定の法域で同じに働くという言い分は、ライセンスの良い防御ではない」（Piana 氏 2025-02-20）（ACD-1.4 が準拠法を置かないことと、ドシエの法域ごとの答えの材料・2026-11-27）
+
+**方法**: §1.494〜§1.496 と同じ。2024〜2026 年の決める側の通から *choice of law・governing law・jurisdiction・venue・moral rights・severability* を含む文を取り、ドシエに 8 語の連なりで逐語の無い 20 文を出し、ACD-1.4 に当たる通の前後を開いた（一覧: `acd-compact/6c-mining/law_unquoted.txt`）。
+
+| 発言 | 誰が（その時の役） | 向き |
+| :-- | :-- | :-- |
+| *"Although the OSI has approved licenses with jurisdictional clauses in the past, they are disfavored. Stating a specific jurisdiction is not a good idea (as you recognize), since neither of the parties may be in that jurisdiction, making it inconvenient for both parties."*／*"Experience has shown that defining jurisdiction only causes more problems that it solves."* | Pamela Chestek 氏 2025-02-14（委員長・在任の表では 2025-03 まで・ModelGo Zero への返事） | 有利（ACD-1.4 は準拠法・裁判地の条を持たない） |
+| *"Finally, I believe that the applicable law clause is useless. On the one hand it is repetitive of the provision in the Berne Convention. On the other side, it can be vague and prone to challenges. The GPL and other licenses avoided having an applicable law provision for a reason."*／*"Creative Commons dropped this clause with version 4."* | Carlo Piana 氏 2024-10-15（理事・署名は *"in his personal capacity"*・FFOL への返事） | 有利（同上）。同じ通の *"I would rather choose one jurisdiction spelling it out, than choosing one by reference"* は、置くならの次善で、置かないことへの反対ではない |
+| *"On a more general note, please be always mindful that these licenses must be designed to work under any relevant jurisdiction …"*／*"Nitpicking that under a particular jurisdiction the language would be equivalent or work the same way is not necessarily a good defense of the license."* | Piana 氏 2025-02-20（MGB 1.0 への返事） | 両面（下） |
+| *"I know we don't like choice-of-venue clauses, but in the past we've ruled that they are not OSD-violating, particularly for legacy licenses."* | Josh Berkus 氏 2025-05-15 | 裁判地の条は好まれない（ACD は持たない） |
+
+**ACD-1.4 への当て。** 1.4 の本文に準拠法・裁判地の条は無く（*governing law*・*choice of law* の語は 0）、法域の語は「各法域で」の形だけで出る —— §3.3（放棄が効かない所の許諾）、§4.4（どちらが効くかを判断しなくてよい）、§12.2（人格権の約束と同意はどの法域でも）。2023 年の理事会の付言（準拠法の条は必要とも望ましいとも考えない・readings-3）と、上の 2 人の文は同じ向きである。
+
+**Piana 氏 2025-02-20 の両面。** 有利: 1.4 は「どの法域でも働き、どの法域で効くかを利用者が判断しなくてよい」形で書かれている（§4.4・§12.2）—— 文の言う「どの法域でも働くように作る」に当たる。不利: ドシエは日本・ドイツ・フランスの法で ACD がどう働くかを個別に答えている（`ACD-1.0.jurisdictions.md`）。審査でそれを「この法域でも同じに働く」という防御として出せば、この文の言う弱い防御に当たる。同じ通の後の *"each license stand in their own capacity. Past approvals and rejections can be of some help …"* は、先例に頼る答え（Unlicense・CC0 との比較）にも同じ限りを置く。
+
+**逆側。** (1) 4 通とも他の提出への返事で、ACD についての文ではない。(2) Chestek 氏の文は、licensor の所在地に法域を結び付ける条への返事で、「準拠法を置かないこと」を承認の条件にした文ではない。(3) Piana 氏 2024-10 は私人として書いた。(4) 法域の条を置かないことは、語の意味が国ごとに割れる費用を残す（readings-3 の Rosen 氏の通・§1.481 の型）。
+
+**この節が establish しないこと。** 準拠法を置かないことが承認に効くこと。ドシエの法域ごとの答えが審査で弱いと決まったこと。
+
+**反映**: B13（この提出を理解する費用 —— Piana 氏 2025-02-20 の両面は、ドシエの法域ごとの答えの出し方、つまり入口の書き方の問題。ドシエ役へ）/ errata なし。
