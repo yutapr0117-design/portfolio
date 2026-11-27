@@ -18,7 +18,7 @@ If your question is not here, that is our omission and worth saying on the list.
 
 | Question | Where |
 |---|---|
-| If nobody has to keep the notice, is your warranty disclaimer worth anything? | **Weaker, yes — and the loss is ours.** `review-responses-clauses.md` §15/§16; `submission-reference.md` §1b. Permissions are unaffected; the disclaimer is |
+| If nobody has to keep the notice, is your warranty disclaimer worth anything? | **Weaker, yes — and the loss is ours.** `review-responses-boilerplate.md` §15/§16; `submission-reference.md` §1b. Permissions are unaffected; the disclaimer is |
 | Isn't this "not a licence" at all? | `submission-reference.md` §1b — the argument made against the Unlicense in 2020. §4.1 says "grants You a licence" in terms, which is more than the Unlicense had to work with |
 | Is this even a software licence? | **Measured, and the answer is unhelpful to us**: "program" and "executable" appear 0 times, "software" twice and never in an operative clause. `submission-reference.md` §1d; the risk is `against.md` #37, #50 |
 | Isn't a public domain dedication outside what OSI reviews? | `submission-reference.md` §1b — with the Unlicense precedent and the two ways it cuts against us |
@@ -41,7 +41,7 @@ If your question is not here, that is our omission and worth saying on the list.
 |---|---|
 | Does it meet each OSD criterion? | `submission-reference.md` §3 — all ten, individually |
 | Where is each criterion arguable? | `submission-reference.md` §3b — the counter-argument for all ten, written by us. **OSD 7 is the one we expect to be litigated** |
-| You grant over several kinds of right — do you react to litigation over all of them? | **There is nothing to react with.** §10.4 terminates nothing; §8.2 says the absence is deliberate. `review-responses-clauses.md` §15/§16; the cost is `against.md` #16, #46 |
+| You grant over several kinds of right — do you react to litigation over all of them? | **There is nothing to react with.** §10.4 terminates nothing; §8.2 says the absence is deliberate. `review-responses-boilerplate.md` §15/§16; the cost is `against.md` #16, #46 |
 | With no notice obligation, how does a downstream recipient show the patent licence covers them ("chain of custody")? | **§8.1 does not run down a chain — it is granted to every You (§1.4) — but proving provenance is harder, and that cost is admitted.** `review-responses-clauses.md` 帰属ゼロ + 明示特許; `against.md` #276 |
 | Why not just add a separate patent grant to 0BSD? | **That route exists; a per-project grant is an unreviewed text each time, and it answers one gap of three.** `review-responses-clauses.md` 帰属ゼロ + 明示特許; `against.md` #276 |
 | Doesn't zero attribution feed provenance loss in AI supply chains? | **It does not solve it, and says so; provenance is carried outside the licence (SPDX / CycloneDX).** Authors who want attribution should pick a licence that requires it. `review-responses-clauses.md`; `against.md` #277 |
@@ -60,14 +60,14 @@ If your question is not here, that is our omission and worth saying on the list.
 | What does each of the 82 clauses do? | `clause-reference.md` — one row per clause, checked against the text (82/82) |
 | Didn't you say the text was finished? | **We said "zero findings" and were wrong to put it that way.** `READY-TO-SUBMIT.md` now records what the word meant and what the standard for submitting actually was. `against.md` #52 |
 | Are there known defects? | **Yes — the count is the one `errata.md` states** (Check 460 compares it). `errata.md` — with severity, what the successor does (1.1 frozen 2026-09-17; later fixes in the 1.2 draft), and why none is fixed in 1.0 |
-| §16.1 tells adopters to write an unregistered SPDX identifier | **Correct, and it is the highest-severity item.** `errata.md` E1; `review-responses-clauses.md` §15/§16 |
+| §16.1 tells adopters to write an unregistered SPDX identifier | **Correct, and it is the highest-severity item.** `errata.md` E1; `review-responses-boilerplate.md` §15/§16 |
 | §8.2 says "not terminable by the Dedicator" but §10.4 says "terminates for any reason" — which? | **Both; one is about the document, one about the actor.** No licence can promise survival of every external event, and §13.2 disclaims that. `review-responses-clauses.md` §8 |
 | §2.9 declares its own insolvency classification | `against.md` #21 — facts before the conclusion is right; asserting the conclusion is not |
 | §6.4 says outputs are "not encumbered" in absolute form | `against.md` #22 — §6.5 makes §6 declaratory, so the effect is right and the phrasing is loose |
 | §8.4 drops §8.1's proviso — does it reach claims unrelated to the Work? | **It reaches wider, and the clause says so itself.** Two limits remain (ownership, causation); the subject-matter link is what was deliberately removed. `review-responses-clauses.md` §8; open question at `errata.md` E6 |
 | §8.4's patent grant looks very broad | It is, and that is a cost to adopters with patents. `against.md` #16 |
 | §16.3 invites applying the notice to anyone's work | `against.md` #20; errata E2 — §2.7 bounds the effect, but the wording is wider than needed |
-| Isn't it premature to licence AI-generated material when its legal status is unsettled? | `review-responses-clauses.md` §15/§16 — the strongest objection to §9, and largely right **against instruments that assume a right exists**. §9 is built the other way round |
+| Isn't it premature to licence AI-generated material when its legal status is unsettled? | `review-responses-boilerplate.md` §15/§16 — the strongest objection to §9, and largely right **against instruments that assume a right exists**. §9 is built the other way round |
 | Do you meet the practical submission requirements (existing users, SPDX id, endorsements)? | **Three of them, no.** `review-responses-meta.md` Q32b — stated as not met rather than argued around |
 | Is the name misleading? | `review-responses-meta.md` Q14 and Q32c — no existing licence's name or identifier is used, and §16.4 applies the same rule to this one |
 | Why is it 16 sections and 82 clauses? | `review-responses-meta.md` Q17 — an accepted cost, argued against the opposite failure |
