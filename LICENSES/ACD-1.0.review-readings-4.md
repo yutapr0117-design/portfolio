@@ -33,13 +33,13 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 
 ## 1.351 「死んだ」ライセンスの整理と、再利用できるライセンスという分類（2004-12）（2026-11-15）
 
-"pruning "dead" licenses"（`license-discuss` 2004-12・33 通）。のちの会長（2005-02 に就いた）Nelson 氏が、使われなくなったライセンスの認証を外すことを提案した。
+"pruning "dead" licenses"（`license-discuss` 2004-12・33 通）。当時の license approval committee の委員長（2005-02 に第三者から OSI の新しい会長と呼ばれた）Nelson 氏が、使われなくなったライセンスの認証を外すことを提案した。
 
 | 発言 | 誰が | ACD への当たり方 |
 | :-- | :-- | :-- |
 | *"A "dead" license is one which is no longer used for any projects."* | Nelson 氏 2004-12-13 | **不利な面（B2）。** 使用が無いことを、承認を外す理由として論じた記録 |
 | *"What purpose does a license serve if nobody uses it?"* | Nelson 氏 2004-12-14 | **不利な面（B2）。** 採用者が 1 件の ACD に、審査者が同じ問いを向けうる |
-| *"There's a whole bunch of requirements to gain certification which are outside the OSD."* | Nelson 氏 2004-12-14 | 不利な面。承認の要件は OSD の外にもあるという、のちの会長の発言（`submission-osd.md` 冒頭の Nelson 氏 2009 と同じ線） |
+| *"There's a whole bunch of requirements to gain certification which are outside the OSD."* | Nelson 氏 2004-12-14 | 不利な面。承認の要件は OSD の外にもあるという、license approval committee の委員長の発言（`submission-osd.md` 冒頭の Nelson 氏 2009 と同じ線） |
 | *"From this perspective, I would vote for categorizing licenses into "Active" vs "Legacy". I would also support an additional annotation of "Reusable" to indicate licenses which people should consider for (b)."* | Ernest Prabhakar 氏 2004-12-14 | **有利な面。** 「自分のコードを出す人が選ぶ」再利用できるライセンスという分類。ACD は誰でも本文を変えずに適用できるように書いてある（§16.3）ので、この分類に入る |
 
 **読み。** 2004 年の整理の議論は、使用を承認の維持の条件として論じたが、決定には至らなかった。後の 2005 年の増殖委員会につながる。

@@ -775,11 +775,11 @@ but rather are proprietary by default**"*（Berne 以降、著作権は創作と
 
 **§1.131 に続き、ドシエ未言及の提出から我々の類型に近い順に読んだ**（Anonymous Hero / Chicken Dance / Iggy Wanna / beer-ware / Forget Me Not / Public Software License。2008〜2014・ローカルの取得済みアーカイブ）。**clean も記録する。**
 
-**(1) 「承認済みは今の基準を教えない」に、当時の License Committee の委員長の言葉が付いた。** Russ Nelson 氏 2008-05-27（Iggy Wanna）——
+**(1) 「承認済みは今の基準を教えない」に、当時の license approval committee の委員長の言葉が付いた。** Russ Nelson 氏 2008-05-27（Iggy Wanna）——
 *"You are trying to understand the Open Source Definition **by looking at the licenses we have approved. This doesn't work.** ... **Just because we approved a license once doesn't mean that we would approve the same, much less a modified, license again.**"*
 `AS-OF.md` は同じ趣旨を Dillard 氏 2006-07-14 で記録しており、**これは決める側からの 2 つ目の出典**である。**我々の先例の使い方（Unlicense / IPA Font / Unicode）に対する正面の警告**で、ドシエが先例を「通った根拠」ではなく「論点がどう扱われたかの記録」として書いているのはこのためである。
 
-**(2) 「献呈 + 法的な強制力を持たない依頼」の形を、2008 年に当時の License Committee の委員長が自分で書いていた。** Nelson 氏 2008-01-11（beer-ware）——
+**(2) 「献呈 + 法的な強制力を持たない依頼」の形を、2008 年に当時の license approval committee の委員長が自分で書いていた。** Nelson 氏 2008-01-11（beer-ware）——
 *"What is the purpose in having a license? **Why not simply put your code into the public domain?** Clearly, people license code because they want to put conditions on the distribution of the code. ... If they simply wanted to put forth moral conditions on the code, **they would do so in the public domain dedication**"* と述べ、例として *"The Moral Rights Public Dedication"*（*"I am not going to rely on the use of the legal system to enforce the below restrictions ... therefore I am putting this code into the public domain"*）を書いて見せている。
 **ACD の §3（献呈）+ §10.3（依頼は条件ではない）は、この形と同じ構造である。** **⚠ 逆側**: Nelson 氏はこれを冗談めかした反論の中で書いており、**承認できる形として提案したのではない** —— 問いの前半（*"Why not simply put your code into the public domain?"*）は、むしろ「なぜ献呈だけで足りないのか」を我々に問う形で、その答えは §4 の独立の許諾（献呈だけでは OSI が承認しない・`against.md` #3）である。
 
