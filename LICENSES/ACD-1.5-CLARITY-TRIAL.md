@@ -294,3 +294,27 @@ canonical-ref: LICENSES/ACD-1.5-CHANGELIST.md (採否の規則「方針」と、
 
 **残る種**: T152（適用の前の契約）、T153（有体物の所有）、T154（営業秘密）、T155（読み手の 4 つ）、6.5 の *except as Section 6.3 states* を残すか、1.11 の *such submissions*、T169（2.2 の列で、作る行為は集合物まで名指すのに、頒布などの目的語は *the Work and any adaptation of it* だけ —— 6c・Low・PR 4162。Chestek 氏が別の提出者に指摘した型で、そこでは許諾が落ちた。1.0 §4.2 から同じ語なので、記録先は SELF-AUDIT でなく errata（E94・議題 34 で直さないと決めた）。効果は同じと読む: 2.2 第 1 文が Covered Rights の全部を許し、列はその例で、4.3 は *any adaptation or collection containing it* の頒布を名指す。逆側: 列だけを読む人には目的語の抜けに見え、E41 と同じ型である）。種は次版のためのもので、印の後は HIGH 以外で本文を動かさない。T170（法の許す限りの句が、2.7 のほかに 7.2・8.2 の *to the fullest extent the law permits* と、5.3・7.4 の *so far as the law allows / permits* に残る —— 6c の PR 4228・Chestek 氏 2025-10-06 が PUWL に「放棄すると言うだけに」と求め、限定の句を surplusage と呼んだ。§1.481 と同じ型。1.4 は 11 回、n8 は 2.7 を入れて 5 回。2.6 は既に限定なしで放棄し、2.7 が 1 度だけ掛ける。**逆側**: 8.2 の免責の句は、法域ごとの強行法規で外れることを名指す慣用で、消すと全部を免責しようとしたと読まれうる。門の後に、7.2・5.3・7.4 を 2.7 に寄せる試作をする）。番号は T171 から 0d が払い出す。
 
+
+## 14. T170 —— 法の許す限りの句を 2.7 に寄せるか（試作の準備・2026-11-27・起草 72（本文の役）・**門の読み（2026-12-02 以降）まで草案に当てない**）
+
+**種**: §13 の「残る種」の T170（6c の PR 4228・Chestek 氏 2025-10-06 が PUWL の法の許す限りの句を surplusage と呼んだ（原文は`review-readings-7.md` の「限定句の繰り返し」の行））。n8 の出現は 5 か所: 2.7（まとめの句）、7.2 の頭、8.2 の頭（大文字）、5.3 第 2 文の `So far as the law allows`、7.4 末の `so far as the law permits`。1.4 は 11 か所（`grep -n "fullest extent\|so far as the law\|law permits\|law allows"` で数えた・2026-11-27）。
+
+**仕分けの軸**: 2.7 が受けるのは「Dedicator が与える行為」（*surrender, grant, permission, waiver, consent, authorisation, withdrawal, disclaimer, and covenant*）である。残る 4 か所のうち 3 か所は、与える行為ではなく**法が決める効果**についての文に掛かっている。
+
+| 所 | 句が掛かるもの | 2.7 が受けるか | 句を外したときの読み | 72 の推し |
+| :-- | :-- | :-- | :-- | :-- |
+| 7.2 頭 | 承継人・譲受人・独占的被許諾者・管財人を「縛る」 | 受けない（拘束は行為でなく、契約の当事者でない人への効果） | 非当事者を縛ると無条件に言い切る文になる。T163（4.2 の「制限されない」という法の効果の断定をやめた）と逆の向き | **残す** |
+| 5.3 第 2 文 | 禁反言（estoppel）が成り立つこと | 受けない（禁反言は裁判所が当てる法理で、Dedicator の行為ではない） | 「Dedicator は禁反言に服する」と法の効果を言い切る。1.4 §2.5 も *"to the extent the law of any jurisdiction gives that principle effect"* で限っていた | **残す** |
+| 7.4 末 | 受益者として約束に依拠できること | 受けない（第三者のための契約の効力は法域で割れる） | 受益者の地位を無条件に与えると言い切る。1.4 §5.3 も *"to the extent a jurisdiction gives effect to such reliance"* で限っていた | **残す** |
+| 8.2 頭 | 免責（与える行為でなく、責任の制限の約定） | 受けうる（*disclaimer* が列に在る） | 8.2(b) *"any other liability that the law does not permit to be limited"* が同じ限界を名指すので、効果は動かない | **試作に起こす（T170a）** |
+
+**T170a（8.2・−7 語）**
+
+- Before: `TO THE FULLEST EXTENT THE LAW PERMITS, THE DEDICATOR IS NOT LIABLE, ON ANY LEGAL THEORY, …`
+- After: `THE DEDICATOR IS NOT LIABLE, ON ANY LEGAL THEORY, …`
+- 閉じるもの: 同じ限界を 8.2 の頭と 8.2(b) で 2 度言う重なり（Chestek 氏 2026-01-24 *"anytime you say things twice, unless they are /exactly/ the same, you created the potential for two different interpretations"* —— 頭は「法の許す最大限まで免責」、(b) は「法が制限を許さない責任は制限しない」で、語が同じでない）。読みの分岐の行は `ACD-1.4-UNIQUE-READING.md` に無いので、採るなら「語を減らす変更」の例外で入れる。
+- **逆側（重い順）**: (1) 免責の頭の句は、法域ごとの強行法規で外れることを名指す**慣用**で、承認済みのライセンス（Apache-2.0 §8 *"In no event and under no legal theory … unless required by applicable law"*、MPL-2.0 §7 *"to the extent applicable law prohibits"*）も頭か末に持つ。外すと「全部を免責しようとした」と読まれうる（§13 の T170 の行の逆側と同じ）。8.2(b) が大文字でないので、大文字の部分だけを読む人には無限定の免責に見える。(2) 8.2(a) と (b) も重なる（(a) は (b) の一部）。(a) を残すのは、死亡・身体の傷害の除外を名指す慣用のため（EU 指令・英国の不公正契約条項法の型）で、頭の句も同じ理由で残せる —— 重なりを 1 つ消して 1 つ残す理由が立ちにくい。(3) 2.7 の *disclaimer* が 8.2 を受けるなら、頭の句も (b) も 2.7 と重なる。消すなら (b) を消す方が整合するが、(b) は「制限しないもの」の列の一員で、列を短くすると 8.2(c) の位置が動く。
+- **72 の推し**: 逆側 (1) が重いので、**採らない側に傾く**。T170 の 4 か所のうち 3 か所は「与える行為」でなく「法の効果」に掛かる句で、2.7 に寄せると効果の断定になる。surplusage の批判は「放棄すると言うだけに」（行為の側）への批判で、n8 は 2.6 で既にそうしている（`review-readings-7.md` §1.481 の「1.5 の草案で既に済んでいること」）。残る句は、法の効果の主張を法に預ける句として読める。
+- **反例の担当に当ててほしい点**（7f・cb）: (i) 7.2・5.3・7.4 の句を外しても法の効果の断定にならない読みは在るか（例: *binds* を「Dedicator が縛る意図を述べる」と読む）。(ii) 8.2 の頭の句を外した版で、大文字の部分だけを読んで無限定の免責と取る読み手が実際に居たか（決める側の文で、免責の頭の句の有無を論じたもの）。(iii) 句を残すことに対し、審査者が 1.5 の 5 か所を数えて surplusage と言う確からしさ（1.4 の 11 か所から減っている事実と合わせて）。
+
+**どの版の文か**: 上の Before と句の位置は n8（`ACD-1.5-DRAFT.txt`・印の対象）。印の後は HIGH 以外で本文を動かさない（議題 24 (6)・29）ので、T170a を採るとしても門の読みの後の議題である。
