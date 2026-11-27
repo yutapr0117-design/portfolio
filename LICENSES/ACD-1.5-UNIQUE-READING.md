@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.5-UNIQUE-READING.md
 audience: 次のセッションの実装者（一次読者）/ 監査人 / 法律家
-last-updated: 2026-11-26
+last-updated: 2026-11-27
 canonical-ref: LICENSES/ACD-1.5-DRAFT.txt / .github/scripts/measure_legal_uncertainty.py（section19 が行を数える）/ LICENSES/ACD-1.4-UNIQUE-READING.md（1.4 の条の行。条の対応は CLAUSE-MAP-1.4-1.5.tsv）
 ---
 
@@ -27,7 +27,7 @@ canonical-ref: LICENSES/ACD-1.5-DRAFT.txt / .github/scripts/measure_legal_uncert
 - §1.4 第 1 文 | 別の読み: *"exercising a permission"* なので、受け取っただけの人や、行使の前に訴えられた人は You でなく、2.5 の約束の相手にならない | 一意 | 根拠: 2.4 *"Everyone who receives the Work, anything derived from it, or a Result, from anyone, holds them directly"* が受け取った人を名指し、7.4 が 2.4 の挙げる人にも約束の援用を認める。行使が争われる使用そのものは行使に当たる
 - §1.4 第 2 文 | 別の読み: 委託者と運用者は許しを「与えられる」だけで You ではなく、2.5 の約束は及ばない | 一意 | 根拠: 自分の許しを自動化システムで行使する人は、その行使について *"exercising a permission"* に当たる。7.4 も受領者として覆う
 - §1.5 | 別の読み: *"to control first publication"* が、米国で著作権の一部とされる最初の公表の支配まで Moral Right に入れ、1.6 の除外で 2.1・2.2 から落とす | 一意 | 根拠: *"any other right of a personal character"* の *other* が、列挙の 3 つも人格的な権利として読ませる（1.4 の §1.2 の行と同じ）。落ちても 2.6 の放棄と同意が受ける
-- §1.6 第 1 文 | 別の読み: *"every right in the Work"* に有体物の所有権が入り、2.1 で放棄される | 試作 T153 | 根拠: 0d の列（除外に有体物の所有権・弱い）。列挙が無体の権利だけで、*"in the Work"* の Work は媒体でなく素材なので一意と読む側が強いが、列が閉じるまで残す
+- §1.6 第 1 文 | 別の読み: *"every right in the Work"* に有体物の所有権が入り、2.1 で放棄される。同じ文に営業秘密・契約上の権利が入る | 法の側（T153・T154 は起こさない・`ACD-1.5-CLARITY-TRIAL.md` §15・§18） | 根拠: 行き先は jurisdictions（どの権利が Work に在るかは法域の分類）。0d の列（除外に有体物の所有権・弱い）。第 1 文は開いた類で、*"include"* の列は例示（1.12）、*"any similar right"* の同類の限定は列の最後の項にしか掛からない（7f・2026-11-27）—— 営業秘密と契約上の権利は第 1 文の内と読む側がむしろ強い。有体物は、Work が素材（1.2）で写しの媒体でないので外と読む側が強いが、1.2 の *"and media"* を媒体と読めば内に入る読みが立つ（弱い）。どの権利が「Work に在る」かは法域の権利の分類が決めるので、本文の語では閉じない。1.4 §1.5 *"every right … in the Work … however arising, including …"* も同じ
 - §1.6 第 2 文 | 別の読み: *"any similar right"* が列挙のどれに似るかが決まらず、意匠権・トポグラフィの権利が入るかが割れる | 一意 | 根拠: 第 1 文 *"every right in the Work"* が列挙に依らず全部を取り、第 3 文の除外だけが外す。登録意匠は特許でも商標でもないので Covered Rights の側
 - §1.7 第 1 文 | 別の読み: *"claims of patents"* が、米国の意匠特許の請求項を含まない。実用新案は 1.12 *""patent" includes a utility model"* が含む | 一意 | 根拠: 意匠特許も patent の claim を持つ。入らないと読んでも、1.6 *"every right in the Work"* が受け、どちらにも入らない部分は無い
 - §1.7 第 2 文 | 別の読み: *"at the time in question"* が許諾の時・行為の時・訴えの時のどれかで割れる | 一意 | 根拠: *"now or at any later time"* と並べ、各時点で読む（E60・1.4 の §8.5 の行と同じ）。約束の側（2.5(b)）は訴えの時に働く
@@ -60,6 +60,7 @@ canonical-ref: LICENSES/ACD-1.5-DRAFT.txt / .github/scripts/measure_legal_uncert
 - §2.4 | 別の読み: *"transferable"* により、譲った人が許しを失う | 一意 | 根拠: 同じ条の第 2 文 *"Everyone who receives … holds them directly from the Dedicator"* | 本文 031190f10
 - §2.5 柱書 | 別の読み: *"not to authorise or assist any other person to assert or exercise"* が、他人の固有の請求（Dedicator の著作権と無関係の請求）への協力まで禁じる | 一意 | 根拠: §2.5 の (a)〜(c) は Covered Right・Patent Claim・*"the Dedicator's Moral Rights"* で Dedicator の権利に限られ、(d) は同じ段の *"Paragraph (d) reaches only a claim that the Dedicator holds or controls, or that another person holds through the Dedicator"* が限る | 本文 031190f10
 - §2.5(d) | 別の読み: 約束が、Work の使用や中身と関わらない請求（公開した道具で攻撃された請求・他所の写真から道具で作られた本人の偽の像・別件のプライバシー侵害）まで含む | 一意 | 根拠: 同じ文の *"treats a use of the Work or of any Result"* と *"by reason of its being such a use or of what the Work contains"* が理由で限り、*"including a claim under a right of privacy, publicity, or personality"* はその中の例（§1.12）。攻撃の請求の理由は侵入で、偽の像は Work に無い（SELF-AUDIT §3zf・§3zh は閉・試作 T159 と議題 28）。中身を理由とするもの（像・日記・推した情報・割り当てられた権利・データ保護・NDA）は入り、法の許す限り（§2.7）。残る割れ: Work を含む大きな物の中身まで言えるかは §5.5(a) が受ける | 本文 031190f10
+- §2.5(d)（前の取得） | 別の読み: 適用の前に不正な手段で秘密を取得した人が適用の後に Work を使うと、Dedicator の請求（UTSA 型の不正使用）は違法の理由が取得の方法なので、*"by reason of its being such a use or of what the Work contains"* のどちらでもなく、約束の外に出る | 法の側 | 根拠: 問い 5（§5.1・§5.2(d) の約束の射程）。7f の T154 の反例（2026-11-27・議題 38 の後）。1.4 §5.1 第 2 文は理由を限らずに *"treats as wrongful … a use of the Work that this Dedication permits"* の請求を止めたので（1.2 から）、一覧（`CHANGES-ACD-1.5.txt`）に無い 1.4 からの狭まりである。**議題 38 の条件 (7)（打ち直しは 1 度きり）により一覧には足さない**（統合の判断・2026-11-27）。秘密が Work の中身として守られている限り、請求は *"what the Work contains"* を理由とすると読める（9.1 が受け手の側を取る）。§5.1（時点）の行の前の契約と同じ型（理由の限定が適用の前の事情を落とす）
 - §2.6 第 1 文 | 別の読み: §1.5 の Moral Rights は持ち主を Dedicator に限らないので、放棄と同意が共著者・実演家ほか他人の人格権まで及ぶ（3f の二度目の読み） | 試作 T165 で入った | 根拠: *"waives all the Dedicator's Moral Rights in the Work"* が持ち主を語で限り、*"infringe them"* の them はその権利を受ける | 本文 031190f10
 - §2.6 | 別の読み: *"every act … that would otherwise infringe them"* が、虚偽の表示の行為まで同意する | 一意 | 根拠: §6.3 *"Sections 2.5(c), 2.5(d), and 2.6 do not extend to a false representation"* | 本文 031190f10
 - §2.7 | 別の読み: 列に無いもの（§3.2 の *"asserts none in it"*・§3.1 の *"makes no Reservation"*）は独立でなく、法の許す最大限でもない | 一意 | 根拠: 列は *"Each surrender, grant, permission, waiver, consent, authorisation, withdrawal, disclaimer, and covenant"* で、§3.1 の撤回と否認は入った。残る 2 つの言明は他の条の効力に依らず、依る相手が無い | 本文 031190f10
