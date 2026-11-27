@@ -74,6 +74,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `the committee chair`) を足した。拾う文は 39 → 45 で、増えた 6 文は全部在任中で正しかった (誤検出 0)。
        **逆側**: 日付の離れた文と名の無い「委員長は」は見えない (2 件はそれで手で見つけた)。在任の表は記録に
        依るので、委員長が替わった日に `_lib_dossier.CHAIR_TERMS` を直さないと偽 RED になる。境目の月は止めない。対象が減る形は件数の下限。
+       2026-11-27: Nelson 氏 (2003-05〜2010-12) を表に足した (d7・census_board_self_identification.py の本人の報告の語)。拾う文は
+       62 → 87 で、足した日に RED になったのは 2002 年の Nelson 氏を「委員長」と書いた 2 行だけ (委員会は 2003-04 に作られた・
+       同じ commit で「承認の窓口」へ直した)。日付の離れた外向きの英語 3 か所 ("committee chair said in 2002" ほか) は手で直した。
 """
 
 import re
@@ -323,7 +326,7 @@ def _selfquote_470b(ROOT, check):
     _n505, _bad505 = chair_term_misses(_f505)
     check(
         not _bad505 and _n505 >= 25,
-        f"Check 505: 委員長と書いた発言者 {_n505} 件が、在任の記録 (Fontana・Chestek・Berkus・McCoy Smith) と合う",
+        f"Check 505: 委員長と書いた発言者 {_n505} 件が、在任の記録 (Nelson・Fontana・Chestek・Berkus・McCoy Smith) と合う",
         (f"Check 505: 発言の月の役と合わない「委員長」「元委員長」「のちの委員長」 {len(_bad505)} 件: {_bad505}。在任の表 (_lib_dossier.CHAIR_TERMS) の根拠に当てて直す"
          if _bad505 else f"Check 505: 拾えた文が {_n505} 件しか無い (25 件以上のはず。形か対象の glob が外れた)"),
         blocking=True,

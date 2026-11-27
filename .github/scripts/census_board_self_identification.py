@@ -34,7 +34,11 @@ ROLE = re.compile(
     r"(OSI|Open Source Initiative)[^\n]{0,40}\b(Board|Director|Treasurer|Secretary|President|Vice[ -]President|General Manager|Executive Director)\b"
     r"|\b(Board (of Directors|member|Member|Director)|Director|Treasurer|Secretary|President|Chair(man)?)\b[^\n]{0,25}(OSI|Open Source Initiative)"
     r"|\b(I am|I'm|I was|as an?|speaking as)[^\n.]{0,20}(OSI )?(board member|director|member of the (OSI )?[Bb]oard)"
-    r"|\bon the (OSI )?[Bb]oard\b")
+    r"|\bon the (OSI )?[Bb]oard\b"
+    # 委員会の長の名乗りは OSI の語を伴わない。Nelson 氏の報告の冒頭 "I'm the chair of the license approval committee"
+    # (2004〜2010) を初版は 1 通も拾わず、ドシエの「会長」の誤りの訂正 (#4264) で 7e が止めるまで見えなかった (2026-11-27)
+    r"|\b(chair|chairman|chairperson)\b[^\n]{0,20}\b(licen[cs]e|licensing)\b[^\n]{0,25}\b[Cc]ommittee\b"
+    r"|\b(licen[cs]e|licensing)\b[^\n]{0,25}\b[Cc]ommittee\b[^\n]{0,6}\b[Cc]hair")
 MSG = re.compile(r"\n(?=From \S+ at \S+ +\w{3} \w{3} +\d+ )")
 
 

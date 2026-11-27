@@ -378,6 +378,13 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 _MUTATIONS_TAIL.append({
+    "name": "Check 505: 委員会ができる前 (2002) の Nelson 氏を「委員長」と書く —— 2002 年の承認の窓口の発言が、委員長の報告として重く読まれる (2026-11-27)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.review-readings.md",
+    "find": "Russell Nelson 氏（承認の窓口）2002-08-02",
+    "replace": "Russell Nelson 氏（委員長）2002-08-02",
+    "check": CHECK,
+})
+_MUTATIONS_TAIL.append({
     "name": "Check 109: living doc の一覧に無い file の名を置く —— 改名した doc が走査から黙って外れる (2026-11-26)",
     "file": ROOT / ".github" / "scripts" / "checks_canon_config.py",
     "find": '        "Claude2Claude.md",\n',
