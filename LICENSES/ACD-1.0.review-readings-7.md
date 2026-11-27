@@ -691,3 +691,20 @@ ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check
 **この節が establish しないこと。** 提出が steward 以外から出されたら受け付けられないこと。1.4 の承認が 1.5 の審査を軽くしないこと（審査で前の版をどう扱うかは、この文からは分からない）。
 
 **反映**: B14（Fontana 氏 2020-04-22・05-15 —— 提出者は steward・ゲート 0 と同じ人へ）/ B1（Fontana 氏「法律家の独占ではない」・限りつき）/ B12（Chestek 氏 2021-11-11 —— 承認は版ごと）/ errata なし。
+
+## 1.506 「献呈の部分ではなく許諾の部分だけを評価する」と言っても、受け取られ方は「公有は open source」になる —— CC0 を招く前の会話（Fogel 氏 2012-01-03）と、「OSI は個々のライセンスを評価し、外の条件を評価しない」（Villa 氏 2012-01-02）（B4 の材料・2026-11-27）
+
+**方法**: §1.504 と同じ全数（決める側の通の 2010〜2018 年・献呈・放棄・fallback の語・ドシエに 8 語の連なりで逐語の無い 134 文）のうち、献呈と許諾の組の文の通の前後を開いた。会話は `rounds/2012-01-license-review-invite-cc0-observed.txt` と `rounds/2012-01-license-review-four-corners-moen-cc0-fallback-observed.txt` に在り、`review-readings.md` と `review-readings-6.md` が Fogel 氏の招きの問いと Moen 氏の「後半ゆえにライセンス」を読んでいるが、下の 2 文は引かれていない。register B4 は Rosen 氏 2011 の *"OSI could analyze CC0 for its license fallback terms, but not as a public domain dedication"* を持つ。
+
+| 発言 | 誰が（その時の役） | 向き |
+| :-- | :-- | :-- |
+| *"We can talk all we want about how our position is actually more nuanced, how we're not evaluating the dedication portion only the license portion, etc. But ultimately, the takeaway will be "CC0 is open source", and to some degree "OSI is saying public domain is open source"."* | Karl Fogel 氏 2012-01-03（`license-review`「[PROPOSAL] Invite Creative Commons to submit CC0 Dedication」・2012 年の役はドシエで確かめていない） | 両側。審査が許諾の部分だけを見るという B4 の読み（Rosen 氏 2011）を、同じ時期に別の人も前提にしていた（有利 —— §3 の放棄が効くかを審査が決めなくてよい）。同時に、受け取る側は献呈ごと承認されたと読む、と書いた（不利 —— ACD の §3 の放棄も、承認されれば「承認された」と読まれ、その効き方の不確かさ（B5・against #8）を OSI の名で背負わせる、と審査者が考えうる） |
+| *"My tl;dr position, laid out in more detail below, is that OSI should be in the business of evaluating specific licenses, and not (to the greatest extent possible) external conditions around those licenses."* | Luis Villa 氏 2012-01-02（同じ月の「OSI, legal conditions outside the "four corners" of the license」・2012 年の役はドシエで確かめていない） | 有利（B4・against #8）。公有が法域で効かないこと、公有と呼ばれた物が本当に公有でないことは「外の条件」で、本文を評価する OSI の仕事ではない、という読み |
+
+**ACD-1.4 への当て。** ACD は §3 で放棄し、§4 で独立に許諾する（§4.4）。Villa 氏の読みでは、§3 が法域で効くかは本文の外の条件で、審査は §4 を含む本文を評価すればよい —— Rosen 氏 2011 と同じ向きで、B4 の「審査するのは許諾の部分」を支える 2 人目の文になる。Fogel 氏の文は、その読みに立ったうえで、受け取られ方の費用を名指した。ACD の場合、その費用は §3 の放棄が効くかの不確かさに当たり、前文と §4.4 が「§3 が効かなくても §4 が許諾する」と書いていることが、その不確かさを本文の側で引き受ける答えになる。
+
+**逆側。** (1) CC0 は 2012-02 に提出され、意向調査は 13 対 8 で反対、反対は全員が特許を理由に含めた（`review-precedents.md` §1.138）—— 2 部構成そのものは反対の理由にならなかったが、Fogel 氏の「受け取られ方」の懸念が帰結に効いたかは分からない。(2) 2 人の 2012 年の役は確かめていない（「決める側」と数えない）。(3) Villa 氏の「外の条件を評価しない」は理想として述べた文で、のちの審査（2026 年の OpenMDW など）は法域の効き方を論じている（against #37）。
+
+**この節が establish しないこと。** OSI がいま献呈の部分を審査しないこと。受け取られ方の懸念が ACD の審査で持ち出されること。
+
+**反映**: B4（Villa 氏 2012-01-02 —— Rosen 氏 2011 と同じ向きの 2 人目・Fogel 氏 2012-01-03 —— 受け取られ方の費用の両側 —— ドシエ役へ）/ errata なし。
