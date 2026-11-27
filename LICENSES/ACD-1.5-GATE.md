@@ -49,9 +49,11 @@ Report: first line = number of HIGH, and how many of those are NOT LISTED. Then 
 
 ## 固定の印
 
-`moved_clauses.py --pin` が書く。2026-11-25（UTC）に打った: 本文は n8、一覧・#332・門の文・議題 34 の採決が main に入った後である。読みは早くて 2026-12-02 以降。動かせば数え直し（`--pin`）。
+`moved_clauses.py --pin` が書く。2026-11-25（UTC）に打った: 本文は n8、一覧・#332・門の文・議題 34 の採決が main に入った後である。**2026-11-27（UTC）に打ち直した**（議題 38・下の「印の後の直し」）。読みは早くて 2026-12-04 以降。動かせば数え直し（`--pin`）。
 
-<!-- GATE-PIN: version=1.5 since=2026-11-25 days=7 body-sha256=dc7fd29a5e3bfe4f33806dc04a00cb22f8246240160028a6cbe0eab47ea41b39 changes-sha256=d7ba5b6c4bcadb20e7f4951ee09cce927610da64687a1c810e4318c7e4ba6a4a text-sha256=30857e18272a6c942b5259bf57801c7218893c6012efe539464d15be22a10821 prompt-sha256=ef5adf7867e53c9bafc8aa7b3406f9e978f338255e5e143b9526cecfea30af10 -->
+**印の後の直し（議題 38・2026-11-27 UTC・読みの前・1 度だけ）**: `CHANGES-ACD-1.5.txt` の 9 の末に、適用の前に結んだ契約（秘密保持・用途の制限）の請求を足した —— 1.4 §5.1 第 2 文は理由を限らずに止め、n8 の 2.5(d) は *by reason of its being such a use or of what the Work contains* に限り、5.1 は Dedicator が後に課すものだけを言うので、一覧に無い狭まりだった（`ACD-1.5-UNIQUE-READING.md` の §5.1（時点）の行・T152）。足した文は「1.4 が止めた／n8 は後の行為だけ／契約が中身を守るなら中身の理由で内と読める／9.1 はどの外の読みにも反する」の 4 つ。本文（区切り線より下）は 1 語も動かしていない。直しの前に 5 人が既知の行（UNIQUE-READING・errata・EFFECT-DIFF・CLAUSE-MAP）と本文を人の目で 1 回だけ掃き（agent に 2 本を読ませる予行はしない）、新しい欠けはこの 1 件だった。**逆側**: 門の対象を読みの前に動かすのは調整の 3 度目である（`ACD-1.0.against.md` #332）。結果を見る前の直しだが、読み手の目に合わせて一覧を磨いたと読まれうる。打ち直しはこの 1 度きりで、以後に見つかった欠けは読みの結果に任せる（議題 38 の条件）。
+
+<!-- GATE-PIN: version=1.5 since=2026-11-27 days=7 body-sha256=dc7fd29a5e3bfe4f33806dc04a00cb22f8246240160028a6cbe0eab47ea41b39 changes-sha256=9298ac9227e9cb677910810aaf894d4425511dd0a9bdf0a1ebb06a0da92958c2 text-sha256=30857e18272a6c942b5259bf57801c7218893c6012efe539464d15be22a10821 prompt-sha256=ef5adf7867e53c9bafc8aa7b3406f9e978f338255e5e143b9526cecfea30af10 -->
 
 ## 読みの結果（1 回だけ）
 
