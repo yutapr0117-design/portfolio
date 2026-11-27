@@ -496,9 +496,14 @@ def register_other_side_misses(licenses_dir: Path) -> tuple[list[str], list[str]
 #   Berkus      — 議事録 2026-02-20 "his leadership as Chair of the License Committee" (過去形で労う)。**始まり (2025-03/04) は直接の
 #                 記録が無い推定** (理事会ページの月次の写しと、Chestek 氏の任期の終わりから)。
 #   McCoy Smith — 議事録 2026-03-20 "McCoy reports for the Licensing Committee"、2026-02-20 も同氏が状況を報告。
-# 境目 (2019-02〜05・2025-03・2026-01〜02) は記録が月を決めないので、両方の人を許して止めない。委員長が替わった日に、根拠と一緒に直す
+#   Nelson      — 2003-04 の license-discuss "License Approval Committee" で委員会を作り "I'd like it if somebody would step forward to
+#                 serve as the Committee chair" (このとき委員長ではない)。本人が報告の冒頭に "I'm the chair of the license approval
+#                 committee. This is my report" と書いた通が 2004-02〜2010-12 に在る (census_board_self_identification.py・2026-11-27)。
+#                 2007-09 の受領文 (rounds/2007-09-…-ms-pl-decision-makers-…) も "the License Committee chair (Russ Nelson)"。
+#                 始まり (2003-05〜2004-01) と終わり (2011 以降) は確かめていない。
+# 境目 (2003-05〜2004-01・2019-02〜05・2025-03・2026-01〜02) は記録が月を決めないので、両方の人を許して止めない。委員長が替わった日に、根拠と一緒に直す
 CHAIR_TERMS = {"Fontana": ("0000-00", "2019-05"), "Chestek": ("2019-02", "2025-03"), "Berkus": ("2025-03", "2026-02"),
-               "McCoy Smith": ("2026-01", "9999-99")}
+               "McCoy Smith": ("2026-01", "9999-99"), "Nelson": ("2003-05", "2010-12")}
 
 
 def chair_term_misses(files: list[Path]) -> tuple[int, list[str]]:
@@ -516,7 +521,8 @@ def chair_term_misses(files: list[Path]) -> tuple[int, list[str]]:
         re.compile(rf"(?P<n>{name})(?: 氏)?[（(、・, ]*(?:のちの|後の|当時の|元|former )?{role}[^|。.]{{0,24}}?{day}"),
         re.compile(rf"(?P<n>{name})\**(?: 氏)?(?: の)?[ 、]*{day}[（(][^）)]{{0,12}}?{role}(?! ?(?:の )?(?:Pamela |Josh )?(?:{name}))"),
     ]
-    border = {"2019-02", "2019-03", "2019-04", "2019-05", "2025-03", "2026-01", "2026-02"}
+    border = {"2003-05", "2003-06", "2003-07", "2003-08", "2003-09", "2003-10", "2003-11", "2003-12", "2004-01",
+              "2019-02", "2019-03", "2019-04", "2019-05", "2025-03", "2026-01", "2026-02"}
     n, bad = 0, []
     for f in files:
         for i, ln in enumerate(f.read_text(encoding="utf-8").split("\n"), 1):
