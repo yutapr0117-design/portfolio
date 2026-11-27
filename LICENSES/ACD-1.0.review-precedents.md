@@ -357,8 +357,8 @@ AI-MIT は 2026-03 に撤回されたあと、**AIAL v2 として `license-discu
 §13.2 は「いかなる権利が存在することも保証しない」と大文字で述べる。**過大評価の反対側に立つ
 設計であることは、この警告に照らして初めて説明しやすくなる。**
 
-**Stefano Maffulli 氏（2026-03-30）**: *"multiple things you're trying to achieve and **not all of
-them (if any) can be solved with a copyright license**"* —— AI 学習への選好の signalling は
+**Stefano Maffulli 氏（2026-03-30）**: *"multiple thing you're trying to achieve and **not all of
+them (if any) can be solved with a copyright license**"* [sic: "thing"] —— AI 学習への選好の signalling は
 ライセンスでは解けない、という指摘。**ACD-1.0 は §6.2 で TDM の留保を*しない*と述べており、
 signalling をライセンスでやろうとしていない**（`research-application-policy.md` §3C が
 IETF AIPREF を採らない理由と同じ向き）。
@@ -699,12 +699,12 @@ challenge to the license's status**."*
 Rick Moen 氏 2004-09-22 ——
 
 > *"When a codebase uses a one-off licence, **even an extremely permissive one like yours**,
-> cautious people will not be able to assess its fitness for their needs and compatibility matrix
+> cautious people will not be not be able to assess its fitness for their needs and compatiblity matrix
 > without studying it carefully. Whereas, if for example you use the standard MIT/X licence, those
 > characteristics are already known, and **newcomers need see only the licence's name to know them
 > implicitly**. **Inventing one-off licences without a really, really compelling reason is pretty
 > much always a bad idea, and hurts your project over the long term by needlessly putting it in a
-> ghetto of your devising.**"*
+> ghetto of your devising.**"* [sic: "not be not be"・"compatiblity"]
 
 **これは #84（Landley 氏の fungibility）と同じ問いだが、向けられた相手が違う** ——
 **あちらは「PD 等価はすでに 0BSD がある」、こちらは「どれほど寛容でも、新しい名前は読む費用を作る」。**

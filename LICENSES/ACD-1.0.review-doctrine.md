@@ -359,7 +359,7 @@ refuses to do so for patents is not an open source license in my and many others
 **しかし氏は保留を求めていない** —— 2017-08-16 *"I have acknowledged that the issue is of minimal
 importance in the context of this particular license ... and **I have not asked to withhold
 approval**. However, I still keep the point ... that the issue **whether an open source license can
-openly exclude patent rights from the grants and still be called 'open source' must be resolved**."*
+openly exclude patent rights [0] from the grants and still be called "open source" must be resolved**."*
 
 Nigel Tzeng 氏 —— *"**there is no red line for patents in the OSD.** Either get the necessary
 consensus to change the OSD or **stop debating this in every single Open Source license submission
