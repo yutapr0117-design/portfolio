@@ -404,7 +404,9 @@ def run(ctx):
                     _raw472 = _p472.read_text(encoding="utf-8")
                     # 平の "…" で引いた本文も読む (2026-11-11・監査 #45: 斜体の *"…"* しか読まず、同じ引用を
                     #   アスタリスク無しで書くと見えなかった)。どの版の本文にも無い引用 (発言など) は下で対象外になる
-                    for _mq in re.finditer(r'\*"([^"\n]{12,400})"\*|(?<![*\w])"([^"\n]{12,400})"(?![*\w])', _raw472):
+                    # 斜体の側は段落の中で行をまたいで拾う (2026-11-27・d7・470b / 470c と同じ穴)。1 行の版は 66 件、またぐと 67 件。
+                    #   平の "…" は行をまたがない (地の文の引用符が組を作りやすい)
+                    for _mq in re.finditer(r'\*"((?:(?!\n[ \t]*\n)[^"]){12,400}?)"\*|(?<![*\w])"([^"\n]{12,400})"(?![*\w])', _raw472):
                         _qt472 = _mq.group(1) or _mq.group(2)
                         _parts = [_x.strip() for _x in re.split(r"…|\.\.\.", _qt472)
                                   if len(_x.strip()) >= 12]
@@ -425,7 +427,7 @@ def run(ctx):
                             _marked472 += 1
                             continue
                         _ln = _raw472.count("\n", 0, _mq.start()) + 1
-                        _qbad472.append(f"{_rel472}:{_ln} *\"{_qt472[:60]}\"* ({'/'.join(_from)} にだけ在る)")
+                        _qbad472.append(f"{_rel472}:{_ln} *\"{' '.join(_qt472.split())[:60]}\"* ({'/'.join(_from)} にだけ在る)")
                 check(
                     not _qbad472,
                     (f"Check 472b: 提出側 {len(_faces472b)} 面の本文逐語引用 {_nq472} 件のうち "
