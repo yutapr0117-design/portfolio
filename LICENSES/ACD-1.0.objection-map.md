@@ -61,6 +61,7 @@ of the dossier, in Japanese unless it says otherwise.
 | *"This license is a good example of why it is highly unlikely that a license not written by a lawyer can be approved."* | Pamela Chestek, `license-discuss` 2026-01-24, on Project Tick; two others said the same of other submissions that year | **No legal review.** Remarks on other licences, not a rule; the rejections they preceded were for drafting and for no response | #335 |
 | *"The lack of necessary scope in the Contributor patent grant, in my opinion, makes this a non-free license."* | Pamela Chestek, `license-review` 2025-10-26, on Orivex | **A contributor's patent licence in ACD-1.4.** Its grant reaches derivatives, but a claim infringed only once the contribution is merged can be read to fall outside it (errata E95) | #334 |
 | *"I've always thought there was room for a CC-0 less the disclaimer of patent rights. I wouldn't counsel you try to do this yourself. It's something I think that CC should do (CC0-2.0?)"* | McCoy Smith, `license-discuss` 2025-10-02, before he became chair | **Both ways at once.** The first sentence names the gap ACD fills; the next two say an individual should not draft it and name a large maker | #336 |
+| *"The phrase "to the fullest extent permitted by applicable law" is surplusage too; it goes without saying that's the extent to which it can be enforced."* | Pamela Chestek, `license-discuss` 2025-10-06, on PUWL (a waiver licence), former chair | **Lands on the version to be submitted.** ACD-1.4 has *to the fullest extent* nine times, including at the head of its moral-rights waiver (§12.1), the clause she was reading. The 1.5 draft waives without the qualifier and applies it once (2.7); five limits remain | #337 |
 
 ### Statements from outside that window that decide this submission
 
@@ -139,4 +140,4 @@ out because we cannot have it, not because leaving it out is better** (register 
    date, OSI has not used the number of projects adopting a license as a factor"* (Jam rationale, 2021-09-12).
 3. **It is not exhaustive.** The windows we read are listed in `PEER-REVIEW-WATCH.md` §3.9.
 4. **Nothing updates this page automatically.** An entry added to `ACD-1.0.against.md` does not reach
-   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #336 (2026-11-27). #332 (the 1.5 draft rewritten in a day) is our own finding with no outside objection to map.
+   it. It went stale twice (#196, and again until 2026-11-06), and it last caught up at #337 (2026-11-27). #332 (the 1.5 draft rewritten in a day) is our own finding with no outside objection to map.
