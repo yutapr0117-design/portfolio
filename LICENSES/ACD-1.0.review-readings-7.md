@@ -546,6 +546,8 @@ ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check
 
 **逆側。** (1) 4 通とも他の提出への返事で、ACD についての文ではない。(2) Chestek 氏の文は *"I wonder"* の疑問の形で、採用を承認の要件にした文ではない —— register B2 の「使用は承認の基準ではない」（決める側の 3 つの独立の文）は変わらない。(3) Piana 氏は私人として書いた。(4) 非増殖の 2 文は「似た既存のライセンス」がある提出への文で、ACD は B10 で、既存のどれにも無い効果（特許の許諾を持つ献呈）を主張している —— 当たるかは B10 の gap が立つかに掛かる。(5) Perens 氏 2025-10-02 の *"A different license, rather than one widely perceived as better, would not really be a contribution because it would increase license proliferation"* も同じ向きだが、2025 年の Perens 氏の役はドシエで確かめていないので、決める側の文として数えない。
 
+(6) Chestek 氏の理由そのものを当てると、向きは割れる。理由は *"no one who would choose a limitation that is less comprehensive than one that is more comprehensive"* —— Luther-LAW は MIT より狭い**責任の制限**を持ち、選ぶのは自分を守りたい licensor である。この理由を ACD に当てると 2 通りに読める。(a) 有利（3f の読み）: ACD は CC0・Unlicense より受領者に広く与える側（特許の許諾を足す）に在り、「狭い方は選ばれない」の逆に立つ。(b) 不利: 選ぶ側が licensor なら、特許の許諾は licensor が手放す物が増える方で、自分を守る側を選ぶという同じ理由は、特許を留保する CC0 の方へ向く（against #107 の Smith 氏 2026-05-14「特許の条を広く書くと採用が落ちる懸念」と同じ線）。責任の制限そのもの（ACD-1.4 の §13・§14）は MIT より狭くない形を取るので、Luther-LAW の欠点の型には当たらない。どちらに読んでも *"unless they understand everything you explained"* が残り、ACD の長さ（B3）と理解の費用（B13）が「説明を全部わかる」の側の重さになる（3f・6c・2026-11-27）。
+
 **この節が establish しないこと。** 採用が無いことが不承認の理由になること。個人の起草が審査で退けられると決まったこと。
 
 **反映**: B2（Chestek 氏 2025-01-25・両側 —— ドシエ役へ）/ B1（Piana 氏 2026-03-18 の後の文 —— §1.494 の行の続きとして）/ B10（非増殖の 2 文・gap が立つかに掛かる）/ errata なし。
