@@ -449,7 +449,7 @@ Transitive Grace Period Public Licence（2008-12 提出）は**承認されて�
 
 ### #248 の原理に、理由が付いた
 
-Russ Nelson 氏（当時 OSI 会長）2009-02-17、提出者が「60 日のレビューで OSD 非適合という
+Russ Nelson 氏（当時 OSI の License Committee の委員長）2009-02-17、提出者が「60 日のレビューで OSD 非適合という
 指摘は誰からも出ていない」と述べたのに対し ——
 
 > *"The license review process is **more what you'd call 'guidelines' than actual rules**.
@@ -539,7 +539,7 @@ useful to everyone everywhere under every circumstance."* /
 *"it sounds like **you don't have specific objections to the actual text of this license**, but do
 have discussion you want to take to license-discuss."*
 
-**#263（会長 Nelson 氏の「OSD 適合は十分条件ではない・商標のため MUST deny」）と、
+**#263（委員長 Nelson 氏の「OSD 適合は十分条件ではない・商標のため MUST deny」）と、
 この差し戻しは矛盾しない。2 つで審査の形になっている** ——
 **通常の運用では、反対は条文と OSD に接続しなければ効かない。
 接続できない反対を理由に拒否する権限は在るが、それは予備の力として語られている。**

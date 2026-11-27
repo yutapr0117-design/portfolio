@@ -14,7 +14,7 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 
 ## 1.400 見知らぬ者どうしの間に約束は成り立つか、契約なしに保証を否認できるか —— Nelson 氏（2007〜2008）（2026-11-15）
 
-"(OT) - NOT A Major Blow to Copyleft Theory"（`license-discuss` 2008-02・`rounds/2008-02-license-discuss-nelson-covenant-strangers-observed.txt`）と "EULA and Modifed BSD"（`license-discuss` 2007-12・`rounds/2007-12-license-discuss-nelson-warranty-contract-observed.txt`）。どちらも当時の OSI の会長だった Russ Nelson 氏の通。
+"(OT) - NOT A Major Blow to Copyleft Theory"（`license-discuss` 2008-02・`rounds/2008-02-license-discuss-nelson-covenant-strangers-observed.txt`）と "EULA and Modifed BSD"（`license-discuss` 2007-12・`rounds/2007-12-license-discuss-nelson-warranty-contract-observed.txt`）。どちらも当時の OSI の License Committee の委員長だった Russ Nelson 氏の通。
 
 | 発言 | 誰が | ACD への当たり方 |
 | :-- | :-- | :-- |
@@ -48,7 +48,7 @@ canonical-ref: LICENSES/ACD-1.0.review-readings.md / LICENSES/ACD-1.0.review-rea
 
 | 発言 | 誰が | ACD への当たり方 |
 | :-- | :-- | :-- |
-| *"Every license we approve imposes a cost on all software distributors,"*（2007-11-15・同じ通は Simplified BSD と FreeBSD の両方を承認する意味は無いと続ける）| Nelson 氏（当時の会長）| **不利（B2・B10）**。新しいライセンスはそれだけで費用であり、既存と同じ効果なら承認の理由が無い。ACD は既存に無い効果（B10 の G1）を示す必要がある |
+| *"Every license we approve imposes a cost on all software distributors,"*（2007-11-15・同じ通は Simplified BSD と FreeBSD の両方を承認する意味は無いと続ける）| Nelson 氏（当時の License Committee の委員長）| **不利（B2・B10）**。新しいライセンスはそれだけで費用であり、既存と同じ効果なら承認の理由が無い。ACD は既存に無い効果（B10 の G1）を示す必要がある |
 | *"One of the guiding principles in recent years for OSI's approval of open source licenses has been the demonstration of uniqueness."*（2007-04-04）| Rosen 氏 | 同じ向きの基準で、**ACD が答えるべき問い**。答えは B10（既存の承認済み 141 本に無い効果）にある |
 | *"I would agree that "GPLv2 or later" is outside our scope, because we cannot predict whether future versions of the GPL will be OSD-compliant or not."*（2007-12-15）| Tiemann 氏 | **有利**。ACD は「or later」の条を持たない（新しい版は §16.4・§16.5 の Steward が新しい名と識別子で出し、前の版の適用は §2.2 で変わらない）。審査は提出された 1 つの本文に対して閉じる |
 
