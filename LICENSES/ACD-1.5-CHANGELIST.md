@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.5-CHANGELIST.md
 audience: OSI license-discuss / license-review participants, licence reviewers, a future drafter
-last-updated: 2026-11-25
+last-updated: 2026-11-27
 canonical-ref: LICENSES/ACD-1.5-DRAFT.txt (草案) / LICENSES/ACD-1.4.txt (直前の確定テキスト)
 ---
 
