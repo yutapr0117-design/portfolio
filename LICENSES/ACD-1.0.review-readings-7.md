@@ -725,3 +725,24 @@ ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check
 **この節が establish しないこと。** §1.3 の列が範囲外とされること。§7・§12 が範囲の内側と判断されること。
 
 **反映**: B15（Chestek 氏 2019-07-02 の「範囲外は正当な理由」と線の引き方 —— ドシエ役へ）/ B9（§7 は利用者データの義務の型ではない、の当て・限りつき）/ errata なし。
+
+## 1.508 ACD と同じ提出の形 —— AI の支援で起草したと開示し、法律家のレビューは無く、使用は自分の 1 リポジトリ —— を持った AI-MIT（2026-03）の Legal Review と Existing Users の欄に、決める側は何と答えたか。「新しい法の領域に踏み込むライセンスなので、法律家の意見を待った方がよいかもしれない」（Berkus 氏 2026-03-13）、「提出前の議論か、承認の提出か。後者なら必要な情報を全部出すこと」（Smith 氏 2026-03-17・委員長）（B1・B2・B14 の材料・2026-11-27）
+
+**方法**: 2024〜2026 年の両リストの全員の通から、AI の語と法律家・起草の語を同じ文に持ち、ドシエに 8 語の連なりで逐語の無い文を出した（8 文）。AI-MIT の提出文の欄 4 と欄 5 がそのうちの 1 つで、その会話（`license-review` と `license-discuss` の 2026-03）の決める側と法律家の文を、欄 4・5 に当たる語で取り直した。`review-precedents.md` §1.45 は同じ会話の**条文への**反論（Sado 氏・Gay 氏・Berkus 氏）を読み、register B14 は Chestek 氏と Fontana 氏の「ライセンスの文が AI 生成かは効き方に関係しない」を持つ。この節は、**提出の形（欄 4・5）**への応答だけを足す。
+
+**AI-MIT の欄（提出者の文・2026-03-12〜13）**: 欄 4 *"The license was drafted with AI assistance (Claude, Anthropic) under human direction — a fact we disclose openly as it is consistent with the license's own Transparency condition."* / *"The license has not yet been formally reviewed by a licensed attorney."* 欄 5 は *"the reference repository is the primary user"* —— 使っているのは提出者の 1 リポジトリ。ACD も同じ 3 点を開示する —— 法律家の目が無いことと使用が提出者自身のものだけであることは `ACD-1.0.submission.md` の §A が `stated without softening` と前置きした 2 行、AI が書いたことは against #5 と入口。
+
+| 発言 | 誰が（その時の役） | 向き |
+| :-- | :-- | :-- |
+| *"You might want to wait for a lawyer opinion on this though, since this license does intend to address new legal ground."* | Josh Berkus 氏 2026-03-13（元委員長 —— 在任の表では 2026-02 まで・`license-review`） | 不利（B1）。法律家の意見を求める理由を「新しい法の領域」に置いた —— ACD も機械学習・機械生成物・特許の許諾つきの献呈という新しい領域を扱う（B10 の gap を主張するほど、この理由は重くなる） |
+| *"So this is interesting, but will need some iterations I think (completely aside from any requirements the attorneys have)."* | Berkus 氏 2026-03-13（同じ日・`josh.berkus@opensource.org` から） | 中立。法律家の要件とは別に、版を重ねる必要を述べた |
+| *"Please clarify if you want to have a discussion on this license prior to submission, or if you are submitting it for approval. If the former, then it the will be withdrawn from the approval process. If the latter, then you'll need to provide all the information required for license approval for this license."* | McCoy Smith 氏 2026-03-17（委員長・`license-discuss`） | 有利な向き（手続き）。提出前の議論と承認の提出を分け、議論なら承認の手続きから外す、と委員長が書いた —— ACD は 1.0 を `license-discuss` へ出し、`license-review` へはまだ出していない。手続きの上ではこの区別の「前者」の側に居る |
+| *"I therefore think that we should be extremely wary of setting licensing norms around AI-generated code, when the underlying ip rights themselves lack clarity."* | Andrew Katz 氏 2026-03-18（CERN OHL の起草に加わったと本人が書く・決める側ではない・`license-discuss`） | 有利な向き（§9）。ACD-1.4 の §9 は機械生成物について規範を置かず、権利の有無について何も表明しない（§9.2）—— この警戒の当たらない側に居る |
+
+**ACD-1.4 への当て。** AI-MIT は提出から 7 日で撤回された（§1.45）。撤回の理由は条文への反論で、欄 4・5 の開示を理由にした決める側の文は無い —— Chestek 氏と Fontana 氏は、ライセンスの文が AI 生成かは効き方に関係しないと書いた（B14）。一方、欄 4 の「法律家のレビューは無い」には、元委員長が「新しい法の領域だから法律家の意見を待て」と答え、佐渡氏も「承認を議論する前に法的レビューを」と書いた（§1.45）。**同じ形の提出が受けた応答は、AI の起草には向かず、法律家の目の無さに向いた** —— B1 が B14 より重い、という register の順と同じ向きである。
+
+**逆側。** (1) AI-MIT は提出の翌週に撤回されたので、欄 4・5 が審査でどう量られたかは最後まで出ていない。(2) Berkus 氏の文は *"might want to"* の勧めで、要件ではない。2026-03 は委員長でない（在任の表）。(3) Smith 氏の文は、AI-MIT が両リストへ同時に送ったことへの手続きの整理で、ACD の `license-discuss` の投稿が審査の代わりになるとは言っていない —— 承認の手続きはまだ始まっていない（CLAUDE.md の凍結の段・against #13）。(4) Katz 氏は決める側ではない。(5) 提出の形が同じでも、本文は違う（§1.45 の 3 つの反論は ACD の本文では発火しない）—— 形の比較は、審査の帰結の予測にはならない。
+
+**この節が establish しないこと。** AI の起草の開示が審査で問われないこと。法律家の目が無いことが撤回や不承認の理由になること。
+
+**反映**: B1（Berkus 氏 2026-03-13「新しい法の領域だから法律家の意見を待て」—— 同じ形の提出への応答・ドシエ役へ）/ B14（同じ形の提出で、決める側の応答は AI の起草には向かなかった・限りつき）/ against #13（Smith 氏 2026-03-17 —— 議論と提出の区別）/ errata なし。
