@@ -635,16 +635,29 @@ def attribution(root="."):
     side = load_sources(root)   # rounds/・本文・DOSSIER_EXTRA_SOURCES・アーカイブ (引用の中も含む)
     seen, tally, out = set(), collections.Counter(), []
     for f in sorted(glob.glob(f"{root}/LICENSES/*.md")):
-        for n, line in enumerate(open(f, encoding="utf-8"), 1):
+        _text = open(f, encoding="utf-8").read()
+        _st = 0
+        # 段落を 1 つの「行」として読む (paragraph_text・2026-11-27・d7): 1 行ずつ読む版は、行をまたぐ引用と、
+        #   前の行に書いた人名と年 (「Perens 氏 2019-05-28、提出者に向けて ——」の次の行の引用) を見なかった
+        for line in paragraph_text(_text).split("\n"):
+            _base, _st = _st, _st + len(line) + 1
             for raw in italic_quotes(line, 12):
-                q = re.sub(r"[*`]", "", raw)
+                n = _text.count("\n", 0, _base + max(line.find(raw), 0)) + 1
+                q = re.sub(r"[*`]", "", " ".join(raw.split()))
                 if len(q.split()) < 4 or re.search(r"[ぁ-んァ-ヶ一-龠]", q):
                     continue
                 i = line.find(raw[:30])
                 pre = re.split(r"。|\||——|；", line[:max(i, 0)])[-1]
                 names = re.findall(r"([A-Z][a-zA-Z'\-]+) 氏", pre)
+                # 引用の直後の括弧に人名を書く形「*"…"*（Nelson 氏）」は、その名を帰属とする (2026-11-27・d7): 段落単位で読むと
+                #   前の行の別の人名 (「…（Cowan 氏）、*"…"*（Nelson 氏）」の Cowan) を拾い、正しい帰属を「直前の名」と出していた
+                _post = re.match(r"\s*(?:[（(]\s*(?:当時の[^）)]{0,12}?)?|と(?:呼んだ|書いた|述べた|答えた|返した)\s*)(?:[A-Z][a-zA-Z'\-]+ )?([A-Z][a-zA-Z'\-]+) 氏",
+                                 line[i + len(raw) + 2:i + len(raw) + 60])
+                if _post:
+                    names = [_post.group(1)]
+                    pre = ""
                 # 年は人名の後ろから引用までの間に在るもの、無ければ引用の直後 30 字 (同じ文の読んだ日などを拾わない)
-                _after = pre[[m.end() for m in re.finditer(r"[A-Z][a-zA-Z'\-]+ 氏", pre)][-1]:] if names else ""
+                _after = (pre[[m.end() for m in re.finditer(r"[A-Z][a-zA-Z'\-]+ 氏", pre)][-1]:] if names and pre else "")
                 years = (re.findall(r"(?<!\d)((?:199|20[0-2])\d)(?!\d)", _after)
                          or re.findall(r"(?<!\d)((?:199|20[0-2])\d)(?!\d)", line[i + len(raw):i + len(raw) + 30]))
                 if not names or (names[-1], norm(q)) in seen:
