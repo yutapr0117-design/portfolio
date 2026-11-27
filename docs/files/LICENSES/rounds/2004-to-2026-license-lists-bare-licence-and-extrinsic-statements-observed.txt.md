@@ -25,7 +25,7 @@ ACD の §2.5（依拠と禁反言）と、ドシエの読みを本文の外に�
 
 ## Change impact
 
-`ACD-1.0.review-responses-clauses.md` の §2 と §15 / §16 の問いがこの file に依拠する。
+`ACD-1.0.review-responses-clauses.md` の §2 と `ACD-1.0.review-responses-boilerplate.md` の §15 / §16 の問いがこの file に依拠する。
 
 ## Audience-specific notes
 
