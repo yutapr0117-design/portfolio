@@ -530,3 +530,22 @@ ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check
 **この節が establish しないこと。** 準拠法を置かないことが承認に効くこと。ドシエの法域ごとの答えが審査で弱いと決まったこと。
 
 **反映**: B13（この提出を理解する費用 —— Piana 氏 2025-02-20 の両面は、ドシエの法域ごとの答えの出し方、つまり入口の書き方の問題。ドシエ役へ）/ errata なし。
+
+## 1.498 「より良くても、誰が選ぶのか」—— 採用と増殖を、決める側は 2025〜2026 年にどう述べたか。「法律家でない人は MIT と比べれば必ず MIT を選ぶ。だから、より良い選択であっても誰が選ぶのかと思う」（Chestek 氏 2025-01-25）、「経験の深くない個人が、25 年にわたり何百ものライセンスを書いてきた専門家たちの集合の知見を上回るとは考えにくい」（Piana 氏 2026-03-18）（B2・B1 の材料・2026-11-27）
+
+**方法**: §1.494〜§1.497 と同じ。2024〜2026 年の決める側の通から *steward・maintain・adopt・in use・proliferation・individual* などを含む文を取り、ドシエに 8 語の連なりで逐語の無い 55 文を出し、ACD に当たる通の前後を開いた（一覧: `acd-compact/6c-mining/steward_unquoted.txt`）。2025-12-22 の Misty の非増殖の文は、道具が Smith 氏の通にも数えたが、Smith 氏の通が Piana 氏の通を引いていたもので、書いたのは Piana 氏である（前後で確かめた）。
+
+| 発言 | 誰が（その時の役） | 向き |
+| :-- | :-- | :-- |
+| *"My thought is that a non-lawyer, when confronted with the choice of the original MIT license and this license, will always choose the MIT license because no one who would choose a limitation that is less comprehensive than one that is more comprehensive, unless they understand everything you explained below. So I wonder who would actually choose this license, even if it is the better choice"* | Pamela Chestek 氏 2025-01-25（委員長・Luther-LAW への返事） | 不利（B2）。直前に *"Will they be adopting the license for their own works?"* —— 提出者の側の採用を先に問うた |
+| *"It seems unlikely that an individual without extensive experience could surpass the collective expertise of the many professionals who have crafted hundreds of licenses over the past 25 years, many of which are used by hundreds of thousands of packages."* | Carlo Piana 氏 2026-03-18（理事・*"in his personal capacity"*・Modified 0BSD への返事） | 不利（B1）。§1.494 の同じ通の前の文（法律家の目を通してから）に続く |
+| *"I would advise to withdraw the submission and reconsider the entire process, and most of all please consider the option to adopt one of the many similar already approved licenses, on non-proliferation grounds."* | Piana 氏 2025-12-22（Misty への返事） | 不利（B10・増殖） |
+| *"I feel like there must be something that Bauti can adopt that's already approved."* | Josh Berkus 氏 2026-02-13（FARCL への返事） | 不利（B10・増殖） |
+
+**ACD-1.4 への当て。** ACD は個人が法律家なしに起草し、使うのはこのリポジトリだけである（B1・B2）。Chestek 氏の文は、提出者が「より良い」と示しても、利用者が既存の短いライセンスを選ぶなら採用は来ない、と述べる —— ACD の答え（CC0 と Unlicense に無い特許の許諾と機械生成物の扱い）が「より良い」を示しても、それだけでは B2 に答えない。Piana 氏の 2 文は、個人の起草を名指した文で、ACD の起草の形に正面から当たる。
+
+**逆側。** (1) 4 通とも他の提出への返事で、ACD についての文ではない。(2) Chestek 氏の文は *"I wonder"* の疑問の形で、採用を承認の要件にした文ではない —— register B2 の「使用は承認の基準ではない」（決める側の 3 つの独立の文）は変わらない。(3) Piana 氏は私人として書いた。(4) 非増殖の 2 文は「似た既存のライセンス」がある提出への文で、ACD は B10 で、既存のどれにも無い効果（特許の許諾を持つ献呈）を主張している —— 当たるかは B10 の gap が立つかに掛かる。(5) Perens 氏 2025-10-02 の *"A different license, rather than one widely perceived as better, would not really be a contribution because it would increase license proliferation"* も同じ向きだが、2025 年の Perens 氏の役はドシエで確かめていないので、決める側の文として数えない。
+
+**この節が establish しないこと。** 採用が無いことが不承認の理由になること。個人の起草が審査で退けられると決まったこと。
+
+**反映**: B2（Chestek 氏 2025-01-25・両側 —— ドシエ役へ）/ B1（Piana 氏 2026-03-18 の後の文 —— §1.494 の行の続きとして）/ B10（非増殖の 2 文・gap が立つかに掛かる）/ errata なし。
