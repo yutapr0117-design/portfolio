@@ -73,8 +73,8 @@ license-review**"* と書いて始めている。
 **ACD-1.0 の "shall" は 0 件、"must" も 0 件である**（実測 2026-09-09）。
 条件を課さない instrument なので**義務語がそもそも要らない** —— §10.1 の帰結であり、
 Check 441d が列挙した構文の不在を BLOCKING で守っている。
-**なお McCoy 氏はこの点で Perens 氏に完全には同意していない**（*"it is one of those things that
-is so ingrained in legal drafting that we'll likely never be rid of it"*）—— **リストは一枚岩ではない。**
+**なお McCoy 氏はこの点で Perens 氏に完全には同意していない**（*"its one of those things that
+is so ingrained in legal drafting that we'll likely never be rid of it"* [sic: "its"]）—— **リストは一枚岩ではない。**
 
 ---
 

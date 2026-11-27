@@ -188,7 +188,7 @@ by a single organization"* と述べている** ——**名前についての異
 > when assessing whether the proposed license meets the OSD"* …
 > *"in practice licenses submitted by businesses tend not be used by other licensors (apart from
 > forks). **That was one of the reasons why the vanity corporate licenses of the earlier era
-> were problematic.**"*
+> of open source were problematic.**"*
 
 **submitter が何のためにそれを出しているかは、審査に持ち込んでよい材料だと、理事が述べている。**
 **我々の場合それは「AI に自走させる実験のポートフォリオ」であり**、

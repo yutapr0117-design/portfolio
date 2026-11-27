@@ -475,7 +475,7 @@ licensee's obligations to clear rights are addressed"*）、**Fontana 氏の OSD
 **"I edited the CC0 license to solve patent issue, need some advice"**（2024-04-05・4 通）。
 提出者の動機は我々と同じである ——*"I just want to release my code to public domain and CC0 are
 an excellent tool for that … but **the patent problem of CC0** grant me headache … so I just edit
-the CC0 legal code to **explicitly grant patent and trademark rights**"*。
+the CC0 legal code to **explictly grant patent and trademark rights**"* [sic: "explictly"]。
 **（名称は "True Zero License" ——`CC` が Creative Commons の商標だからだと本人が書いている。
 §1.77 (b) の「名称は照合される」および B6 と同じ族の実例である。）**
 
