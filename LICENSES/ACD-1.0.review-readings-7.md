@@ -614,3 +614,24 @@ ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check
 **この節が establish しないこと。** 法的レビューがいま要件であること。ACD が法律家の目の無さだけで退けられること。Smith 氏の 2021 年の提案が理事会で議題になったか（議事録に当てていない）。
 
 **反映**: B1（Smith 氏 2021-02-15 の両側 —— 要件ではないと本人が書いた事実と、要件にする方向の 5 年来の立場・Piana 氏 2023-01-16 の欄の趣旨 —— ドシエ役へ）/ errata なし。
+
+## 1.502 長さと複雑さを、決める側は 2015〜2023 年にどう述べたか —— 「この場は、典型的な短く単純なライセンスの扱いは悪くない」（Fontana 氏 2017-01-05・委員長）、「短く単純なことは必ずしも良いことではない」（Chestek 氏 2023-11-06・委員長）、客観的な可読性テストで既存のライセンスの分布に置く測り方（Villa 氏 2019-05-10）（B3・B13 の材料・2026-11-27）
+
+**方法**: §1.501 と同じ。決める側の通（`acd-compact/6c-mining/dec.json`）の 2015〜2023 年から、長さ・複雑さ・読みやすさの語（*too long / lengthy / verbose / complexity / complicated / readab / simpler / shorter / brevity* など）と *licen* を含む文を取り、ドシエに 8 語の連なりで逐語の無い 50 文を出して、論評の通の前後を開いた。下の 4 通はどれもドシエに逐語で無かった（NOSA 2.0・CAL・Zeppelin の審査はドシエに出るが、これらの文は引かれていない）。
+
+| 発言 | 誰が（その時の役） | 向き |
+| :-- | :-- | :-- |
+| *"I thought that we could somehow use this forum to collectively revise the license, but that did not work, in part because of the high complexity of the license. (This forum is by contrast not too bad at dealing with the more typical shorter, simpler license texts.)"* | Richard Fontana 氏 2017-01-05（委員長・NOSA 2.0 の「可否の投票」の通） | 不利（B3・B13）。list の審査は短く単純な本文を扱うのに向き、複雑な本文を皆で直す場としては働かなかった、と委員長が書いた。同じ通で NOSA 2.0 を *"an overly complex and badly drafted license"* と呼んだ |
+| *"Objectively, CAL and (A)GPLv3 are fairly similar in reading complexity when scored using objective reading tests, and all three are more complex than the median open source license."* / *"None of this complexity inherently makes (A)GPL (v2 or v3) a *bad* license."* | Luis Villa 氏 2019-05-10（CAL の審査・Fontana 氏は 2017-01-05 に同氏を *"a former OSI board member"* と書く。2019 年の役はドシエで確かめていない） | 有利（B3）。複雑さそのものは欠陥でない、と述べ、その根拠を Kincaid と Flesch の点数で既存のライセンスの分布に置く測り方で示した（同じ通: *"many approved licenses are more complex than CAL"*） |
+| *"You mention that it's shorter and simpler than the Apache license, but shorter and simpler isn't necessarily better."* | Pamela Chestek 氏 2023-11-06（委員長・Zeppelin Public License の審査） | 有利（B3）。続く理由は、Apache が定義する *Contributions* を Zeppelin が定義せずに使い、*source* を 2 つの意味で使ったこと —— 短さが定義の欠けを生んだ例として挙げた |
+| *"I am not recommending approval until the actual complexity of the license as faced by a non-developer user is much better bounded than it is by the current terms."* | Bruce Perens 氏 2019-04-22（CAL の審査・2019 年の役はドシエで確かめていない） | 有利な向き。問うたのは本文の長さでなく、利用者が負う義務の複雑さ —— ACD-1.4 は利用者に条件を課さない（§10.1） |
+
+**ACD-1.4 への当て。** register B3 は ACD-1.4 の長さ（5,879 語）を High に置き、B13 は理解の費用を High に置く。Fontana 氏の文は、その費用が審査の場の働き方に出ることを、委員長の経験として書いた —— list は短い本文を扱うのに向き、長い本文を皆で直す形は NOSA 2.0 で働かなかった。ACD の長さの理由（3 つの足場・機械生成物・特許）は本文の側の事情で、場の側の費用は減らさない。一方、Chestek 氏と Villa 氏の文は（いまの委員長 Smith 氏 2019-05-11 の「複雑さそのものは理由にならない・曖昧さを生む複雑さと単純さは理由になる」は §1.480 が持つ）、短さが良さの基準ではなく、複雑さそのものは欠陥ではないことを、決める側（または元理事）が別々の審査で述べた。Chestek 氏が短い本文に見た欠陥（定義の欠け・語の二重の意味）は、ACD が定義の条（§1）を置いて避けようとしている型である。Perens 氏の物差し（利用者が負う義務の複雑さ）では、ACD は条件を持たないので最も軽い側に在る。
+
+**測っていないこと。** Villa 氏の測り方（Kincaid・Flesch の点数で承認済みのライセンスの分布に置く）で、ACD-1.4 を測ってはいない。比較群（承認済みの本文）の一括取得が、この採掘のセッションでは許可されなかった。測るなら、ACD と比較群に同じ道具と同じ前処理を当て（`measure_clause_clarity.py` の --fetch と同じ扱い）、道具と日付を数と同じ場所に書く。ACD の文の長さの代理指標（`ACD-1.0.review-rules.md` §1.70a・against-2 #273）は、この点数とは別の物差しである。
+
+**逆側。** (1) Fontana 氏の文は NOSA 2.0 という、本人が *"badly drafted"* と呼んだ本文についてで、長さだけを理由にしてはいない。(2) Villa 氏の擁護は CAL（copyleft で、多くの義務を持つ）についてで、比較の相手が GPL 系である —— ACD は許容型・献呈型の比較群（CC0・Unlicense・0BSD・MIT）に置かれやすく、その群の中では長い側に在る（B3）。(3) Chestek 氏の文は「短さは良さの基準ではない」で、「長さは問題でない」とは述べていない。(4) Perens 氏の物差しで軽いことは、審査者が読む費用（B13）を減らさない。
+
+**この節が establish しないこと。** ACD-1.4 の長さが審査で欠陥と数えられないこと。可読性の点数で ACD がどこに来るか（測っていない）。
+
+**反映**: B3（Fontana 氏 2017-01-05 の場の費用・Chestek 氏 2023-11-06 と Villa 氏 2019-05-10 の両側 —— ドシエ役へ）/ B13（Fontana 氏の文 —— list は長い本文を皆で直す場として働かなかった）/ errata なし。
