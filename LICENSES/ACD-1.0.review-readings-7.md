@@ -571,3 +571,26 @@ ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check
 **この節が establish しないこと。** Unlicense の先例が ACD に使えないこと。使われていないことが不承認の理由になること。人格権の扱いが審査で問われないこと。
 
 **反映**: against #87（Chestek 氏の第 2 文 —— 先例の重みの一部は使用に在った・ドシエ役へ）/ B2（両側）/ errata なし。
+
+## 1.500 免責の頭の「法の許す限り」の句と、法の効果（禁反言・受益者・非当事者の拘束）を法域で限る句を、決める側はどう述べたか —— 「適法な境界を書くことの利点は何か」（Chestek 氏 2025-01-07）、「法で責任を制限も除外もできないなら」で囲む案（Phipps 氏 2025-03-13）、「この許諾は、その権利が君の法域に在り、法の下で与えうる限りで与える」の案文（Perens 氏 2018-06-21）（1.5 の試作 T170 の材料・本文の役の依頼 (ii)・2026-11-27）
+
+**方法**: 本文の役（72）が `ACD-1.5-CLARITY-TRIAL.md` の T170 で頼んだ (ii) —— 免責の条の頭の句の有無と、法の効果を法域で限る句を、決める側が論じた文が在るか —— に当てた。決める側の通（`acd-compact/6c-mining/dec.json`・引用を除いた本人の文）の全年から、*extent permitted by law / fullest extent / estoppel / third-party beneficiar / successors and assigns / jurisdictions where* を含み、論評の語（I・phrase・clause・should など）を持つ文を取り、2015 年以降は *disclaim / liability* と *jurisdiction / applicable law / German* の組でも取った（2 回で約 140 文。ライセンスの本文を写した文は大文字の比で落とした）。ドシエに既に在る文（Chestek 氏 2023-02-18 の「ある国では全く無視される」は `review-readings-2.md` §1.258、Chestek 氏 2025-10-06 の surplusage は §1.481、Perens 氏 2012-02-20 の「明示の文の方が多くの法域で効く」は `review-readings-6.md` の estoppel explained の行、Rosen 氏 2014-09-16 と Perens 氏 2018-03-02 の受益者は `review-readings-2.md`）は表に入れず、下の当てでだけ使う。
+
+| 発言 | 誰が（その時の役） | 向き |
+| :-- | :-- | :-- |
+| *"I'm just trying to understand what the advantage is to stating the lawful boundaries of a limitation of liability versus what will happen with an unenforceable limitation - that is, if the MIT license, with an unenforceable limitation, nevertheless ends up in about the same place."* / *"But most likely a could would just ignore the attempt and allow the limitation to the extent it is lawful."* | Pamela Chestek 氏 2025-01-07（委員長・*"in my personal capacity"*・Luther-LAW への返事・`license-review`） | T170a に有利（米国では、頭の句が無くても裁判所は適法な限りで制限を認める —— 句は効果を足さない）。同時に、ACD-1.5 の 8.2(a)(b) のような「適法な境界を書く」こと自体にも利点を問うている |
+| *"I wonder if the whole section should be boxed with the idea in the middle that "IF LIABILITY CANNOT BE LIMITED OR EXCLUDED BY LAW." and the MIT or BSD disclaimer included otherwise?"* | Simon Phipps 氏 2025-03-13（*"in a personal capacity"*・自ら *"as a non-lawyer"* と書く・同じ Luther-LAW の審査） | T170a に不利（法の限界を、免責の条の見える所に大文字で置く形を勧めた）。8.2(b) が小文字であること（T170 の逆側 (1)）と同じ線 |
+| *"Please note that the disclaimer of liability might be considered null or inapplicable under some jurisdictions (I can name two principles under which it could be invalid under Italian Law)."* | Carlo Piana 氏 2026-05-04（理事・Milenium License 1.0 への返事） | 中立。免責が法域で無効になりうることを、審査者が欠陥の 1 つとして挙げた。頭の句があれば足りるとも、無ければ欠陥とも言っていない |
+| *"So, let's add some language to handle this: This license grants intellectual property rights only to the extent that these rights exist in your jurisdiction and can be granted under the law."* / *"NASA attempts to use third-party beneficiary language to fix that, but it's weak."* | Bruce Perens 氏 2018-06-21（NOSA 2.0 と政府のライセンスの議論・`license-review`・2018 年の役はドシエで確かめていない） | 7.2・5.3・7.4 に有利（法域で限る句を、審査の側の人が自分から案文として出した）。受益者の構成は「弱い」と評した —— 7.4 が受益者の地位を法に預けて限ることと同じ向き |
+
+**T170 への当て。**
+
+- **(ii) の問い「大文字の部分だけを読んで無限定の免責と取った読み手が居たか」**: 決める側の文には見つからなかった。在ったのは逆の向き —— Phipps 氏は、法の限界を大文字の免責の中に置くよう勧めた。T170a（8.2 の頭の句を外す）の後、大文字の部分は *"THE DEDICATOR IS NOT LIABLE, ON ANY LEGAL THEORY"* で始まり、限界は小文字の 8.2(a)(b) だけが持つ。Phipps 氏の形に照らせば、頭の句は「見える所の限界」の役を持っている。
+- **8.2 の頭の句を残すか**: 決める側の 2 人の文が割れる。Chestek 氏（2025-01-07）の読みでは、米国では句が無くても裁判所が適法な限りで制限を認めるので、句は効果を足さない（同氏の 2025-10-06 の surplusage と同じ線）。だが同氏の 2023-02-18 の文（§1.258）は、ある国では限りの句を持つ条が丸ごと無視されうると書き、`jurisdictions.md` は縮減を認めない法域で 8.2 の全体が落ちる読みを記録している —— その読みで効くのは頭の句ではなく、限界を名指す 8.2(a)(b) の方である。どちらの文も、頭の句が要件だとも欠陥だとも述べていない。T170 の 72 の推し（採らない側に傾く）を動かす文は無く、逆側 (1)（慣用・大文字の部分の見え方）に Phipps 氏の文が足りる。
+- **7.2・5.3・7.4 の句（法の効果を法に預ける句）**: 決める側の文は、限る側に揃っていた。Perens 氏は 2012-02-20 に禁反言が全ての法域で効くわけではないと書き（Rosen 氏の指摘に同意して）、2018-06-21 には「権利がその法域に在り、法の下で与えうる限りで与える」の案文を自分から出し、受益者の構成を「弱い」と評した。Rosen 氏 2014-09-16 は「知らない受益者」が契約法で成り立つかを疑った。**3 つの句を外して効果を言い切る形を支える文は見つからなかった** —— 72 の推し（残す）と同じ向きである。
+
+**逆側。** (1) Chestek 氏 2025-01-07 と Phipps 氏 2025-03-13 は、ドイツ法に合わせて MIT の責任の条を書き換えた提出（Luther-LAW）への文で、頭の句の有無を直接論じたのではない —— Chestek 氏が問うたのは「適法な境界を書く」こと全体で、それは ACD-1.5 の 8.2(a)(b) にも当たる。T170a で頭の句を外し (a)(b) を残すと、同氏の問いは残った (a)(b) に向く。(2) Phipps 氏は非法律家と自ら書き、*"I am happy to defer if the lawyers here believe these two concerns are over-cutious"* と結んでいる。(3) Perens 氏の案文は政府の著作物（権利が無いことがある）についての文で、権利の在る作品の献呈についてではない。Perens 氏の 2018 年の役は確かめていない（決める側の数には入れない）。(4) Piana 氏の文は無効の可能性を挙げただけで、どう書けば避けられるかは述べていない。(5) 方法の限り: dec.json は census の決める側の名簿で絞った通で、名簿の外の法律家（提出者・常連）の文は読んでいない。英語の語で取ったので、別の語（*save as required by law* など）の論評は落ちうる。
+
+**この節が establish しないこと。** 頭の句が要る、または要らないこと。7.2・5.3・7.4 の句が法域でどう効くか（法律家の問い・B1）。T170 の採否（門の読みの後の議題）。
+
+**反映**: 1c 種（`ACD-1.5-CLARITY-TRIAL.md` §14 の T170・PR 4253 の節・本文の役へ —— (ii) の答え「決める側の文に無限定の読みの例は無く、Phipps 氏は限界を大文字の中に置く形を勧めた」、7.2・5.3・7.4 を残す推しを支える Perens 氏 2018-06-21）/ `ACD-1.0.jurisdictions.md` の責任の制限の段（1.4 の §14・Piana 氏 2026-05-04 の免責が法域で無効になりうる文と、Chestek 氏 2025-01-07 の米国の読み —— ドシエ役へ。責任の制限は register の B の項目に無い）/ errata なし。
