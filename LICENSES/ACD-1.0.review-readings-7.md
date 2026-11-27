@@ -708,3 +708,20 @@ ACD は確定した版の本文をバイトで動かさず（`FROZEN.md`・Check
 **この節が establish しないこと。** OSI がいま献呈の部分を審査しないこと。受け取られ方の懸念が ACD の審査で持ち出されること。
 
 **反映**: B4（Villa 氏 2012-01-02 —— Rosen 氏 2011 と同じ向きの 2 人目・Fogel 氏 2012-01-03 —— 受け取られ方の費用の両側 —— ドシエ役へ）/ errata なし。
+
+## 1.507 「範囲外」は正当な不承認の理由で、特許が扱ってよい主題なのは特許の行使が著作権の許諾を損なうから —— 何が open source のライセンスの主題に入るかの線（Chestek 氏 2019-07-02・委員長）（B15・B9・B10 の材料・2026-11-27）
+
+**方法**: §1.501〜§1.506 と同じ。決める側の通の 2015〜2023 年から、範囲・使命・ソフトウェア以外の対象（データベース・フォント・文書・ハードウェア）の語と規範の語を含み、ドシエに 8 語の連なりで逐語の無い 114 文を出して、範囲の論評の通の前後を開いた。下の 2 通はどちらもドシエに逐語で無い。
+
+| 発言 | 誰が（その時の役） | 向き |
+| :-- | :-- | :-- |
+| *"As to "where in the OSD," I disagree with your framing that every license must be approved unless we can point to a specific rule broken. "Out of scope" is a valid reason; that is one reason why the human rights licenses are rejected. Some things are just not appropriate subject matter for trying to fix in an open source license."* / *"Patents are appropriate subject matter because the exercise of patent rights impairs the copyright grant, so it is appropriate for a license to ensure that doesn't happen. But I don't see an analogy for database/data rights; I don't see how data portability affects the use of the software. You're using copyright as a mechanism to achieve a purpose different from ensuring the right to use/modify/distribute software. That's where a line can be drawn."* | Pamela Chestek 氏 2019-07-02（委員長・`license-discuss`「Data portability as an obligation under an open source license」・CAL の利用者データの条について） | 両側。不承認の理由は OSD の条に当たることに限らず、「範囲外」も理由になる、と委員長が述べた（不利 —— B15）。同時に、主題に入る線を「使う・改変する・頒布する権利を確かにすることに役立つか」に引き、特許はその線の内側だと述べた（有利 —— ACD の §8） |
+| *"I share Bruce's concern that Section 2.3 is outside the scope of open source licenses."* | Chestek 氏 2019-05-01（委員長・CAL の審査・`license-review`） | 不利の型（B15）。範囲外の懸念は、審査の中で条ごとに持ち出された |
+
+**ACD-1.4 への当て。** Chestek 氏の線は「ライセンスが著作権（や他の権利）を、使う・改変する・頒布する権利を確かにする以外の目的の手段にしているか」である。ACD-1.4 は受領者に義務を課さない（§10）ので、CAL の利用者データの条のように許諾を別の目的の手段にする形を持たない。§8 の特許は委員長自身が線の内側に置いた主題で、§7 のデータベースの権利と §12 の人格権も、Work を使う・改変する・頒布する権利を、別の権利が損なわないようにする向きの条である —— 線の内側に読める（同氏の *"I don't see an analogy for database/data rights"* は、利用者のデータを渡す**義務**についての文で、Work に在るデータベースの権利を**許す**条についての文ではない）。一方、B15 の §1.3 の列（ソフトウェア以外の物）は、「範囲外」の問いが向く場所で、委員長は範囲外を OSD の条とは別の、正当な不承認の理由と述べた。register B15 の 2021 年の基準（ソフトウェアに使えるように書かれていれば審査に適する・CERN-OHL）と合わせて読む。
+
+**逆側。** (1) 2019 年の文は CAL の利用者データの**義務**についてで、ACD のように義務を持たない献呈に当てた文ではない —— 「線の内側」は我々の当てはめで、委員長の判断ではない。(2) 「範囲外は正当な理由」は人権ライセンス（使い方を制限する条）の例で述べられ、§1.3 のようにソフトウェア以外の物へ**許す**範囲を広げる形に同じ重さで当たるかは、この文からは分からない。(3) §7 と §12 を「線の内側」と読むのは、同氏の 2026-06-23 の *"mission creep"*（register B8）と食い違いうる —— 同じ人が、別の時期に、人格権の条を範囲の外へ伸びる物と呼んでいる。
+
+**この節が establish しないこと。** §1.3 の列が範囲外とされること。§7・§12 が範囲の内側と判断されること。
+
+**反映**: B15（Chestek 氏 2019-07-02 の「範囲外は正当な理由」と線の引き方 —— ドシエ役へ）/ B9（§7 は利用者データの義務の型ではない、の当て・限りつき）/ errata なし。
