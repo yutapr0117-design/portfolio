@@ -1,7 +1,7 @@
 ---
 file: LICENSES/AS-OF.md
 audience: OSI license-discuss / license-review participants, licence reviewers
-last-updated: 2026-11-25
+last-updated: 2026-11-28
 canonical-ref: LICENSES/FROZEN.md (freeze + venue, single source) / LICENSES/ACD-1.0.against.md / LICENSES/PEER-REVIEW-WATCH.md
 ---
 
@@ -257,3 +257,10 @@ ways; that is as far as the evidence goes.
 |---|---|---|---|
 | **米国 VARA の人格権は放棄できるか、譲渡できるか** | **2026-11-01 · 原典で確認**（Cornell LII） | **放棄はできる（著作者が署名した書面で、作品と用途を特定して）。譲渡はできない** —— 17 U.S.C. §106A(e)(1) *"The rights conferred by subsection (a) **may not be transferred**, but those rights may be waived if the author expressly agrees to such waiver in a written instrument signed by the author"*。**§12.2 を発動させるのは *incapable of waiver* ではなく *inalienable* の方**（`jurisdictions.md` §5b は旧版が冒頭の句を落として引いていたので補った） | `https://www.law.cornell.edu/uscode/text/17/106A` の (e)(1) |
 | **英国 CDPA の人格権は譲渡できるか** | **2026-11-01 · 原典で確認**（legislation.gov.uk） | **できない** —— s.94 *"The rights conferred by Chapter IV (moral rights) are **not assignable**."* 放棄は s.87(2) で署名した書面を要し、同意は s.87(1) で形式を要しない。§12.2 の発動は s.94（*inalienable*）による（`jurisdictions.md` §7d） | `https://www.legislation.gov.uk/ukpga/1988/48/section/94` / `…/section/87` |
+
+## 2026-11-28 に足した行（オーストラリアの法域の節を足す途中で、原典と判決を確認した）
+
+| Fact | As of | Value | How to re-check |
+|---|---|---|---|
+| **オーストラリアに TDM 例外はない** | **2026-11-28 · 原典と政府発表で確認** | **ない** —— 生産性委員会の中間報告書（2025-08-05）は導入を提案したが、司法長官 Michelle Rowland は 2025-10-26 に政府として導入しないと発表し、最終報告書（2025-12-19）は直ちに導入せず 3 年間の監視を勧めた。著作権と AI に関する参照グループ（CAIRG）は 2026 年も有償の集合的ライセンスについて協議中（`jurisdictions.md` §9d） | 生産性委員会の最終報告書（2025-12-19）と司法長官の 2025-10-26 の発表 |
+| **オーストラリアで包括的な人格権の放棄は効かない** | **2026-11-28 · 判決の要旨で確認（判決本文は未読）** | **効かない見込み** —— *McCallum v Projector Films Pty Ltd* [2026] FCA 173（連邦裁判所、Shariff J）は、包括的な人格権の放棄を直接に判断した初めてのオーストラリアの判決で、包括的な放棄は無効とした。同意は特定の行為に向けられ、情報を得たうえでのものでなければならない（*Copyright Act 1968* (Cth) s 195AWA(3)）。判決本文は未読で、要旨は法律事務所の解説と *Journal of Intellectual Property Law & Practice* (2026) 21(8) 522 で確認（`jurisdictions.md` §9c） | 判決本文（AustLII / Federal Court）の取得と照合、控訴の有無の確認 |

@@ -1,0 +1,76 @@
+Source: https://www.legislation.gov.au/C1968A00063/2026-04-02/2026-04-02/text/original/pdf
+Law: Copyright Act 1968 (Cth), Compilation No. 65
+Articles: 33, 40, 195AM, 195AN, 195AWA, 195AX, 196, 197 (8 sections below; 48 lines of verbatim passages, 1 note lines)
+Retrieved: 2026-11-28 00:41 UTC by Muse, with the browser, reading the page text, one section at a time.
+Form: NOT A BYTE COPY. The fetch tool returns the text through a model. Only passages it returned as verbatim
+        quotes are kept; anything it summarised is left out. Re-fetch and compare before relying on the exact wording.
+Body-SHA256: 4b28851935839743ba1d0445c823ab07cf55eaaf61004ec407acc556f9b59523 (of this file's text below the rule, not of the official source)
+Applied to: ACD-1.5 draft Sections 2.1, 2.2, 2.5, 2.6, 3.1
+
+WHAT THIS FILE IS NOT. It is not legal advice and not a statement about ACD.
+
+----- begin fetched passages -----
+===== section 33 (duration of copyright in original works) =====
+（注）取得はブラウザのページ本文の読み取りによる。WebFetch ではないが、同じくモデルを通して返された逐語の片だけを置いた。Greenleaf & Li (2017) と McCallum [2026] FCA 173 はこの写しに含まない。前者は jurisdictions.md §9 が論文から引き、後者は法律事務所の解説と雑誌の要旨からのみ確認し、判決本文は未読である。
+1. "70 years after the calendar year in which the author of the work died."
+
+===== section 40(1) and (2) (fair dealing for purpose of research or study) =====
+2. "A fair dealing with a literary, dramatic, musical or artistic work, or with an adaptation of a literary,"
+3. "dramatic or musical work, for the purpose of research or study does not constitute an infringement"
+4. "of the copyright in the work."
+5. "the purpose and character of the dealing;"
+6. "the nature of the work or adaptation;"
+7. "the possibility of obtaining the work or adaptation within a reasonable time at an ordinary commercial price;"
+8. "the effect of the dealing upon the potential market for, or value of, the work or adaptation; and"
+9. "in a case where part only of the work or adaptation is reproduced—the amount and substantiality of the part copied"
+10. "taken in relation to the whole work or adaptation."
+
+===== section 195AM(2) (duration of author's moral rights) =====
+11. "An author’s right of integrity of authorship in respect of a work other than a cinematograph film"
+12. "continues in force until copyright ceases to subsist in the work."
+
+===== section 195AN(1) and (3) (exercise of author's moral rights) =====
+13. "If the author of a work dies, the author’s moral rights (other than the right of integrity of authorship"
+14. "in respect of a cinematograph film) in respect of the work may be exercised and enforced by his or her"
+15. "legal personal representative."
+16. "Subject to this section, a moral right in respect of a work is not transmissible by assignment, by will,"
+17. "or by devolution by operation of law."
+
+===== section 195AWA(2) to (5) (author's consent to act or omission) =====
+18. "It is not an infringement of a moral right of an author in respect of a work to do, or omit to do,"
+19. "something if the act or omission is within the scope of a written consent genuinely given by the author"
+20. "or a person representing the author."
+21. "Subject to subsection (4), a consent does not have any effect unless it is given:"
+22. "(a) in relation to specified acts or omissions, or specified classes or types of acts or omissions,"
+23. "whether occurring before or after the consent is given; and"
+24. "(b) in relation to either of the following:"
+25. "(i) a specified work or specified works existing when the consent is given; or"
+26. "(ii) a specified work, or works of a particular description, the making of which has not begun"
+27. "or that is or are in the course of being made."
+28. "A consent may be given by an employee for the benefit of his or her employer in relation to all or any"
+29. "acts or omissions (whether occurring before or after the consent is given) and in relation to all works"
+30. "made or to be made by the employee in the course of his or her employment."
+31. "A consent given for the benefit of the owner or prospective owner of copyright in the work or works"
+32. "to which it relates is presumed, unless the contrary intention appears in the consent instrument,"
+33. "to extend to his or her licensees and successors in title, and to any persons who are authorised by"
+34. "the owner or prospective owner, or by such a licensee or successor in title, to do acts comprised in"
+35. "the copyright."
+
+===== section 195AX (acts or omissions outside Australia) =====
+36. "It is not an infringement of an author’s moral right in respect of a work"
+37. "to do, or omit to do, something outside Australia."
+
+===== section 196(1), (3) and (4) (assignments and licences in respect of copyright) =====
+38. "Copyright is personal property and, subject to this section, is transmissible by assignment,"
+39. "by will and by devolution by operation of law."
+40. "An assignment of copyright (whether total or partial) does not have effect unless it is in writing"
+41. "signed by or on behalf of the assignor."
+42. "A licence granted in respect of a copyright by the owner of the copyright binds every successor"
+43. "in title to the interest in the copyright of the grantor of the licence to the same extent as the"
+44. "licence was binding on the grantor."
+
+===== section 197(1) (prospective ownership of copyright) =====
+45. "Where, by an agreement made in relation to a future copyright and signed by or on behalf of the"
+46. "person who would, apart from this section, be the owner of the copyright on its coming into existence,"
+47. "the copyright, on its coming into existence, vests in the assignee or his or her successor in title"
+48. "by force of this subsection."

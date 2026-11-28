@@ -91,6 +91,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約と、分冊の一�
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 276 条 3 項・307 条 1 項・309 条 7 号・521 条・524 条 1 項・WebFetch の逐語の片）** | `2026-11-16-bgb-276-307-309-521-524-gesetze-im-internet-snapshot.txt` |
 | 2026-11-16 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 151 条・受諾の表示を要しない場合・WebFetch の逐語の片）** | `2026-11-16-bgb-151-gesetze-im-internet-snapshot.txt` |
 | 2026-11-20 | 英 legislation.gov.uk | **観測（CDPA 1988 9 条・78 条・79 条・81 条・84 条・94 条・人格権の章のうちプログラムとコンピュータ生成物の例外と偽の帰属・WebFetch の逐語の片）** | `2026-11-20-cdpa-1988-s9-s78-s79-s81-s84-s94-legislation-gov-uk-snapshot.txt` |
+| 2026-11-28 | 豪 legislation.gov.au（著作権法） | **観測（Copyright Act 1968 (Cth) 33 条・40 条・195AM 条・195AN 条・195AWA 条・195AX 条・196 条・197 条・ブラウザの逐語の片で、バイト単位の写しではない・jurisdictions.md §9 の法源）** | `2026-11-28-au-copyright-act-1968-s33-s40-s195am-s195an-s195awa-s195ax-s196-s197-snapshot.txt` |
 | 2026-11-18 | 独連邦司法省（gesetze-im-internet.de） | **観測（BGB 306 条・約款の無効の効果 —— 法律の規定が代わる・WebFetch の逐語の片）** | `2026-11-18-bgb-306-gesetze-im-internet-snapshot.txt` |
 | 2026-11-18 | 仏 Légifrance | **観測（トゥーボン法 2 条・5 条の第 1 段・フランス語の使用・WebFetch の逐語の片）** | `2026-11-18-loi-toubon-94-665-art-2-5-legifrance-snapshot.txt` |
 | 2026-11-19 | 米 LII（17 U.S.C.・35 U.S.C.）・英 legislation.gov.uk（EU 指令） | **観測（17 U.S.C. の 101 条の定義・107 条・201 条 (d)・203 条・204 条 (a)、35 U.S.C. の 261 条・271 条 (a)、DSM 指令 2 条・3 条 1 項・7 条、DB 指令 9 条・WebFetch の逐語の片・2026-11-19 のオーナーの提案の 2f の分担）** | `2026-11-19-us-title-17-35-and-dsm-2-3-7-snapshot.txt` |

@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.jurisdictions.md
 audience: ai, human (提出者), 監査人, 採用検討者, 学術研究者, 第三者全般
-last-updated: 2026-11-16
+last-updated: 2026-11-28
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (逐条リファレンス) / LICENSES/ACD-1.0.review-responses-clauses.md (§31 に日本法の論点)
 ---
 
@@ -605,6 +605,36 @@ Material"* と述べているのは、この状況に対してである** ——
 
 
 ---
+
+## 9. オーストラリア
+
+<!-- この節番号は、2026-11-16 に §9／§9a の出典が `ACD-1.0.jurisdictions-sources.md` へ移されたときに空いた番号を再利用している。§10 以下は繰り上げていない（他の文書が `jurisdictions.md` §10 を指しているため）。 -->
+
+**問い** — オーストラリアでは、著作権の放棄（献呈）に法的な手続がなく、位置付けはコモンロー上も不確かである。さらに人格権は放棄できないうえ、2026 年の連邦裁判所の判断で包括的な事前の放棄（waiver）は無効とされた。ACD の献呈と人格権の放棄・同意の条項は、オーストラリアではどこまで効くか。
+
+**本文の手当て** — 1.4 §3.1 は著作権を放棄し、§3.3 は献呈が認められない場合に §4.1 の包括的ライセンスへ落ちる。§12.1 は人格権を放棄し、§12.2 は同意と不侵害の誓約を置く。§15.2 は、ある条項が無効とされた場合にその条項を最小限に修正し、修正できなければその法域についてのみ切り離して残りを存続させる。オーストラリアでは、献呈の有効性そのものが不確かであるため、§4.1 のフォールバックと §15.2 の分離可能性が、献呈の成否に左右されない実効の柱になる。人格権については、§12.1 の放棄が効かない見込みが強く、§12.2 の同意も特定の行為に向けたものでなければならず、包括的な事前同意は効かないため、§12.2 の誓約（不侵害の約束）の方が実効の柱になる。
+
+### 9a. 原典
+
+- *Copyright Act 1968* (Cth), Compilation No. 65（2026 年 4 月 2 日施行）、Authorised Version C2026C00138。以下の引用は `rounds/2026-11-28-au-copyright-act-1968-s33-s40-s195am-s195an-s195awa-s195ax-s196-s197-snapshot.txt` に写しを置いた（同ファイルの冒頭の注意書きを参照）。
+- Greenleaf & Li, "China's Copyright Public Domain: A Comparison with Australia" (2017) 27(3) *Australian Intellectual Property Journal* 147（2.6 節「Public domain dedications」）。
+- *McCallum v Projector Films Pty Ltd* [2026] FCA 173（連邦裁判所、Shariff J、責任判断）——**判決本文は未読**。以下の要旨は、Johnson Winter Slattery、Piper Alderman、Clayton Utz の各法律事務所の解説と、*Journal of Intellectual Property Law & Practice* (2026) 21(8) 522 の要旨で確認した。判決本文の取得と照合は残課題である。
+
+### 9b. 献呈
+
+オーストラリアには、著作権の放棄（relinquishment）のための法令上の手続がない。Greenleaf & Li は「There is no statutory procedure for the relinquishing of copyright in Australia, where the position is uncertain at common law, and further complicated by moral rights provisions.」と述べている（同論文 2.6 節）。著作権は s 196(1) で譲渡可能な財産権とされ、譲渡は s 196(3) で署名のある書面を要する。将来の著作権の譲渡も s 197(1) で署名のある合意を要する。譲渡が書面を要するのに対し、放棄の方式や効力について法は沈黙しており、コモンロー上も確立していない。**確立していないこと** — オーストラリア法のもとで §3.1 の献呈が著作権の消滅として効くかは確立していない（§3、§4、§16）。献呈が効かない場合に §4.1 の包括的ライセンスが発動することは条文上の設計だが、そのライセンスが献呈者の後継者（successor in title）を拘束するかは、s 196(4) が「著作権の所有者が付与したライセンス」を前提としており、献呈が効かない場合のフォールバック・ライセンスがその前提を満たすかが未検証であるため、確立していない（§3、§4、§16）。Creative Commons Australia は、CC0 がオーストラリアで有効である可能性が高いと考えているが、確定的な司法判断はないと Greenleaf & Li は記している（同論文 2.6 節）。ACD の場合も同じく、献呈の有効性を断定できない。出典は `rounds/2026-11-28-au-copyright-act-1968-s33-s40-s195am-s195an-s195awa-s195ax-s196-s197-snapshot.txt`。
+
+### 9c. 人格権
+
+オーストラリアの人格権（Part IX）は、帰属権、虚偽帰属に対する権利、同一性保持権の三つである（Greenleaf & Li、同論文 2.6 節、脚注 84）。人格権は譲渡できない——s 195AN(3) は人格権が「譲渡、遺言、又は法律の作用による承継によって移転しない」と定める。放棄の規定はなく、侵害に対する同意だけが認められる（同論文の脚注 84 は当時の番号で s 195AW を引く。現行の Compilation No. 65 では s 195AWA に当たる）。同意は s 195AWA(2) で書面を要し、s 195AWA(3) は「特定の行為又は不作為」又は「特定の種類の行為又は不作為」と「特定の著作物」を特定しなければ効力を生じないと定める。包括的な事前同意は効かない。*McCallum* [2026] FCA 173 は、包括的な人格権の放棄を直接に判断した初めてのオーストラリアの判決である。Shariff J は、契約条項 6.2（「The Director waives all moral or other similar rights in respect of the Documentary or the Development Materials that the Director may be entitled to under the laws of any jurisdiction throughout the world in perpetuity.」）は有効な同意に当たらないとした。Part IX の文言・文脈・目的は、包括的な放棄を支持しない。同意は、特定の行為に向けられ、情報を得たうえでのものでなければならない。この問いは `QUESTIONS-FOR-COUNSEL.md` 質問 3(e)「Consent as well as a covenant」でも立てられている。**確立していないこと** — オーストラリアで §12.1 の放棄が効くかは、*McCallum* により否定的な見込みが強いが、控訴審の判断はまだなく、確立していない（§12）。§12.2 の同意が s 195AWA(3) の「特定の行為」の要件を満たすかも確立していない（§12）。ライセンス本文の同意は、特定の行為を指定していないため、s 195AWA(3) の要件を満たさない見込みである。したがってオーストラリアでは、§12.2 の誓約（献呈者が人格権の侵害を主張しないという約束）が、放棄や同意よりも実効の柱になる。ただし誓約自体が人格権の侵害の主張をどこまで封じるかは、*McCallum* の射程外であり確立していない（§12）。出典は `rounds/2026-11-28-au-copyright-act-1968-s33-s40-s195am-s195an-s195awa-s195ax-s196-s197-snapshot.txt`。
+
+### 9d. テキスト・データ・マイニング
+
+オーストラリアには、テキスト・データ・マイニング（TDM）のための一般的な例外がない。フェア・ディーリングは列挙された目的に限られる（研究・学習のための s 40、批評・評論のための s 41、パロディ・風刺のための s 41A、報道のための s 42 等）。米国のような一般的なフェアユースもない。生産性委員会（Productivity Commission）は 2025 年 8 月 5 日の中間報告書で TDM 例外の導入を提案したが、2025 年 10 月 26 日に司法長官（Michelle Rowland）は政府として導入しないと発表した。生産性委員会の最終報告書（2025 年 12 月 19 日）は、直ちに導入せず 3 年間の監視を勧めた。著作権と AI に関する参照グループ（Copyright and AI Reference Group）は、2026 年も有償の集合的ライセンスについて協議を続けている。**確立していないこと** — オーストラリアで、学習用データの複製が s 40 の研究・学習のフェア・ディーリングに当たるかは確立していない（§6）。s 40 は目的と性格、著作物の性質、合理的な期間内に通常の商業価格で入手できるか、潜在的な市場への影響、複製部分の量と実質性を考慮する（s 40(2)）。学習のための大量複製がこの枠に収まるかは、未検証である（§6）。出典は `rounds/2026-11-28-au-copyright-act-1968-s33-s40-s195am-s195an-s195awa-s195ax-s196-s197-snapshot.txt`。
+
+### 9e. データベース権
+
+オーストラリアには、EU のような独自の（sui generis）データベース権がない。オーストラリア著作権協議会（Australian Copyright Council）のファクトシート G066v14（2023 年 4 月）は、「No specific law exists in Australia protecting databases. Databases may only be protected if they fall under general copyright law.」と述べる。*IceTV v Nine Network* [2009] HCA 14 は、オーストラリア法にはデータベース指令に相当するものがないとした。したがって、データベース権を定める ACD の条項は、オーストラリアでは権利そのものが存在しないため、著作権の側面でのみ意味を持つ。
 
 ## 10. この文書の限界（先に自分から述べる）
 
