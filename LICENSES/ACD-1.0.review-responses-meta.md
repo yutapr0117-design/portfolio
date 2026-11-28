@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses-meta.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-11
+last-updated: 2026-11-28
 canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
 ---
 
@@ -251,6 +251,11 @@ OSI のリストは法的な場だが、AI 学習に対する価値判断は 202
 > dislikes dedications: read Section 4.
 
 **なぜこう答えるか**: 抽象論（「多層だから大丈夫」）ではなく**具体的な法域で条文を順に辿って見せる**と、設計が実際に機能することが伝わる。ドイツを選ぶのは、公有化否定の代表例として議論で必ず引かれるからである。
+
+**2026-11-28 追記（ドイツの答えの裏づけを深める）**: 上の答えで述べた UrhG 42 条 の撤回について、2026-11-28 の調査で次の 2 点が分かった。
+
+- **UrhG 42 条 の撤回は、公の無償許諾では実務上ほとんど実現できない。** Kreutzer・Lahmann『Rechtsfragen bei Open Science』（第 2 版・ZBW の公開ガイド）は CC ライセンスについて明言する——契約で「撤回不能」と書いても UrhG 42 条 の撤回は残るが、公のライセンスでは実務上ほとんど実現できない（*"In vielen Fällen wird diese Maßnahme allerdings rein praktisch kaum realisierbar sein."*）。理由は UrhG 42 条 3 項 の仕組みにある。撤回は、権利者の支出を補償するか担保を提供して初めて効く（*"Der Rückruf wird erst wirksam, wenn der Urheber die Aufwendungen ersetzt oder Sicherheit dafür geleistet hat."*）。公の無償許諾では、権利者は不特定多数で誰かも分からず、誰に何を補償すればよいかも、誰に撤回を宣言すればよいかも決まらない。補償の相手が特定できない以上、撤回は効力発生の要件を満たせない。1.5 草案 §7.1（*"This Dedication is made irrevocably."*）は法定の撤回を排除する言明ではないが、実務上はこの仕組みが "irrevocably" の裏づけになる。限界も正直に書く——Kreutzer・Lahmann の記述はガイドブックの FAQ で、判決でも学説の論文でもない。「ほとんど実現できない」は「できない」ではなく、特定の利用者（例えば Dedicator が知っている大規模な利用者）に対しては、UrhG 42 条 の撤回が宣言と補償で効きうる余地が残る。その場合の受け皿は §12.2 の誓約（1.5 草案では §2.5(c)）と §2.7 の独立性である。2003 年の debian-legal のスレッドでも同じ問いが出ている（*"How can anyone ever compensate six billion licensees appropriately?"*）が、非公式の議論である。
+- **特定の利用形態に限った帰属の放棄は、有効になりうる。** BGH, Urteil vom 15.06.2023 – I ZR 179/22 は、特定の流通モデル（Microstock ポータル経由の販売）の中で、利用者が著作者の名を付けないことを契約の条項で定めることを、原則として有効と認めた。包括的・無制限の人格権の放棄は通説で無効とされるが、無効とされるのは包括的・無制限のもので、特定の利用形態に限った同意は別である。ACD §12.2 は the Work に限る（§12.3）が、Work のあらゆる利用・あらゆる利用者への包括的な同意なので、BGH の線にそのまま乗るわけではない。ただし §12.2 の同意のうち特定の利用形態への同意としての側面（例えば、ソフトウェアの改変・再配布という利用形態への同意）は、BGH の線に近い読みがありうる。§14（歪曲の禁止）の核への包括的な同意の限界は、依然として未解決である。限界——判決本文の逐語は未取得で、二次資料（mandati.de）の要約による。事案は帰属（§13）で、歪曲（§14）の核には当たらない。有償の Microstock の契約の事案で、無償の公の付与にそのまま当たるかは未検討である。
 
 ### Q17. 16 節 82 項・定義語 10 件は、この目的には多すぎないか
 
