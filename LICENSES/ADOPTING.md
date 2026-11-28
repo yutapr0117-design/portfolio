@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ADOPTING.md
 audience: anyone thinking of applying ACD to their own work
-last-updated: 2026-11-24
+last-updated: 2026-11-28
 canonical-ref: LICENSE (names the version this repository applies) / LICENSES/FAQ.md (the adopter's questions in full) / LICENSES/ACD-1.0.comparison.md (the alternatives) / LICENSES/ACD-1.0.against.md (the adverse record)
 ---
 
@@ -73,6 +73,13 @@ choice. Section numbers below are the same in every version from ACD-1.0 to ACD-
   ([FAQ A11](FAQ.md)).
 - **No independent project is known to use it.** You would not have anyone else's experience to
   rely on.
+- **In the United Kingdom there is no procedure for abandoning copyright.** The Copyright,
+  Designs and Patents Act 1988 lists the ways copyright passes — assignment, testamentary
+  disposition, operation of law (s.90(1)) — and abandonment is not among them, and there is no
+  register for recording one as there is in the United States. Whether §3.1 puts the Work in the
+  public domain in the UK is not established; what protects a recipient there is the §4.1 licence
+  and the covenant in Section 12.2 of ACD-1.4, not the surrender alone
+  ([`ACD-1.0.jurisdictions.md`](ACD-1.0.jurisdictions.md) §7).
 
 ## When something else is better
 
@@ -103,6 +110,35 @@ narrow band where those assumptions fail together.
    is excluded include a per-file `SPDX-License-Identifier`, REUSE's `.license` files or
    `REUSE.toml`, and the `license` field of a dataset or model card naming the files it covers. A
    single licence expression for a whole package says which licences are mixed in, not where.
+
+**You may sign the notice, and in the United States you may record it (optional).** The Dedication
+asks for no signature: an unsigned notice applies it (Section 16.2 of ACD-1.4; 1.5 draft Section 10.2). But a signed, dated
+writing that identifies the Work can help where the law asks for one signature:
+
+- **United States.** A non-exclusive licence prevails over a later transfer of copyright ownership
+  only if it is evidenced by a signed writing (17 U.S.C. §205(e)), so a signed application is the
+  route by which the §4.1 licence can prevail over a later transferee under that statute. A waiver
+  of the rights in 17 U.S.C. §106A (the Visual Artists Rights Act) must be in a signed writing that
+  specifically identifies the work and the uses to which the waiver applies (§106A(e)(1)); a general
+  waiver names no uses, so signing cures the form, not the specificity. In California, the rights
+  under the California Art Preservation Act survive the author for 50 years (Civil Code §987(g)(1))
+  and cannot be waived except by a signed writing expressly so providing (§987(g)(3)).
+- **United Kingdom.** The same signature can help if §3.1's surrender is read as an assignment,
+  which is not effective unless in writing signed by or on behalf of the assignor (CDPA 1988
+  s.90(3)), and a waiver of moral rights must be by instrument in writing signed by the person
+  giving up the right (s.87(2)). Moral rights themselves cannot be assigned (s.94).
+- **Recording.** In the United States you may record a signed statement of abandonment with the
+  Copyright Office (Compendium of U.S. Copyright Office Practices, 3rd ed., §2311). The Office
+  records it and makes a public record, but gives no opinion on its legal effect; it is evidence
+  of intent and of an overt act, not a guarantee that the surrender is effective. It may not bind
+  heirs, successors or joint owners, and under §205(c) a record is constructive notice only for a
+  registered work.
+
+What signing does **not** do: it does not defeat the termination right in 17 U.S.C. §203, which
+applies "notwithstanding any agreement to the contrary" (§203(a)(5)); it does not make a general
+waiver specific for §106A(e)(1); and whether a signed git commit counts as a signed writing has
+not been checked. One form that fits the notice in §16.1 is to add, under it,
+`Signed: <name>, <date>`. No lawyer has checked any of this.
 
 **If you only mention ACD, say so.** In your own work, the identifier (`ACD-1.4`), an SPDX tag, or
 the name with its version can be read as a notice that applies the text to the material it
