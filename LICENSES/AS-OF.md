@@ -264,3 +264,14 @@ ways; that is as far as the evidence goes.
 |---|---|---|---|
 | **オーストラリアに TDM 例外はない** | **2026-11-28 · 原典と政府発表で確認** | **ない** —— 生産性委員会の中間報告書（2025-08-05）は導入を提案したが、司法長官 Michelle Rowland は 2025-10-26 に政府として導入しないと発表し、最終報告書（2025-12-19）は直ちに導入せず 3 年間の監視を勧めた。著作権と AI に関する参照グループ（CAIRG）は 2026 年も有償の集合的ライセンスについて協議中（`jurisdictions.md` §9d） | 生産性委員会の最終報告書（2025-12-19）と司法長官の 2025-10-26 の発表 |
 | **オーストラリアで包括的な人格権の放棄は効かない** | **2026-11-28 · 判決の要旨で確認（判決本文は未読）** | **効かない見込み** —— *McCallum v Projector Films Pty Ltd* [2026] FCA 173（連邦裁判所、Shariff J）は、包括的な人格権の放棄を直接に判断した初めてのオーストラリアの判決で、包括的な放棄は無効とした。同意は特定の行為に向けられ、情報を得たうえでのものでなければならない（*Copyright Act 1968* (Cth) s 195AWA(3)）。判決本文は未読で、要旨は法律事務所の解説と *Journal of Intellectual Property Law & Practice* (2026) 21(8) 522 で確認（`jurisdictions.md` §9c） | 判決本文（AustLII / Federal Court）の取得と照合、控訴の有無の確認 |
+
+## 2026-11-28 に足した行（カナダの法域の節を足す途中で、原典を確認した）
+
+| Fact | As of | Value | How to re-check |
+|---|---|---|---|
+| **カナダに著作権の放棄の手続はない** | **2026-11-28 · 官報テキストで確認** | **手続はない** —— *Copyright Act*, R.S.C. 1985, c. C-42 に、著作権の放棄の手続を定める条文はない。公の献呈が著作権を消滅させるかを正面から扱ったカナダの判例も、今回の検索では見つからなかった（`jurisdictions.md` §8a「献呈」） | `https://laws-lois.justice.gc.ca/eng/acts/C-42/` の全文と、判例検索の再実行 |
+| **カナダの復帰権は非独占の許諾に及ばない** | **2026-11-28 · 官報テキストと実務家の解説で確認** | **及ばない** —— s. 14(1) は著作者の死後 25 年で譲渡・権利の付与を切るが、Cassels の整理は *"Reversion applies only to an assignment or exclusive licence. A non-exclusive licence or a bare permission to use is not subject to reversion."* と述べ、ACD §4.1 の非独占の許諾は射程外である。§3.1 を譲渡と読めば、死後 25 年で著作権は遺産に戻る（`jurisdictions.md` §8a「復帰権」） | `https://laws-lois.justice.gc.ca/eng/acts/C-42/section-14.html` と Cassels の記事の再確認 |
+| **カナダの人格権の放棄に方式はない** | **2026-11-28 · 官報テキストで確認** | **ない** —— s. 14.1(2) *\"Moral rights may not be assigned but may be waived in whole or in part.\"* は放棄の方式を定めない。実務家の整理は *"No form is prescribed for a waiver, but an unwritten one is hard to prove."* と述べる（`jurisdictions.md` §8a「人格権」） | `https://laws-lois.justice.gc.ca/eng/acts/C-42/section-14.1.html` |
+| **カナダに追及権はない** | **2026-11-28 · 予算発表で確認（立法は未実現）** | **ない** —— 2025 年予算（2025-11-04 発表）で政府は著作権法を改正して追及権を創設する意向を表明したが、立法は実現しなかった。2026 年予算（2026-11-05 発表）でも同じ意向が繰り返され、2027 年春の経済報告で協議の手続を発表するとされた（`jurisdictions.md` §8a「私的複製・追及権・王室著作権・存続期間」） | 2027 年春の経済報告での協議の発表の確認 |
+| **カナダの著作権の存続期間は著作者の死後 70 年** | **2026-11-28 · 官報テキストで確認** | **死後 70 年** —— 2022-12-30 から、著作権は原則として著作者の死後 70 年まで存続する（s. 6）。延長は遡及しない（`jurisdictions.md` §8a「私的複製・追及権・王室著作権・存続期間」） | `https://laws-lois.justice.gc.ca/eng/acts/C-42/section-6.html` |
+| **カナダの職務著作は使用者が第一所有者** | **2026-11-28 · 官報テキストで確認** | **使用者が第一所有者** —— s. 13(3) は、雇用契約・徒弟契約の下で職務上作られた著作物の著作権の第一所有者は使用者になると定める。著作者は社員のままで、人格権は社員に残る（`jurisdictions.md` §8a「職務著作」） | `https://laws-lois.justice.gc.ca/eng/acts/C-42/section-13.html` |
