@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-23
+last-updated: 2026-11-28
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文) / LICENSES/ACD-1.0.submission.md (提出パケット) / LICENSES/READY-TO-SUBMIT.md (提出判断) / LICENSES/FROZEN.md (凍結宣言) / docs/architecture/acd-license-rationale.md (設計根拠)
 ---
 
@@ -148,6 +148,14 @@ Status        : OSI `license-discuss` (一般的な議論リスト) へ投稿済
 > would accept it.
 
 **なぜこう答えるか**: 「dedication は各国法で効かないことがある」は**正しい指摘**であり、否定してはならない。答えは「**§3 の成否に関わらず**、独立に作動するライセンス条項が同じページにある」であり、これは実際にそう起草されている（§2.4 / §4.4）。最後の譲歩（§4 だけ見てくれてよい）は、審査の焦点を**確実に評価可能な部分**へ寄せる実利がある。
+
+**2026-11-28 に足した**: 献呈に法定の手続がない法域が、2026-11-28 の調査でさらに 3 つ増えた。英国・中国・韓国である。いずれでも、上の答えは変わらない——§3 の成否に関わらず §4・§5 が作動する。
+
+- **英国**: CDPA 1988 s.90(1) は著作権の移転を *"by assignment, by testamentary disposition or by operation of law, as personal or moveable property"* と列挙するだけで、「放棄」は無い。英国法は著作権の放棄の手続を定めておらず、米国の Compendium §2311 のような記録の仕組みも無い。§3.1 の surrender が assignment と読まれれば s.90(3)（*"An assignment of copyright is not effective unless it is in writing signed by or on behalf of the assignor."*）が署名のある書面を求めるが、譲受人のいない譲渡が assignment かは未検証である。いずれにせよ §3 の有効性は英国では確立していない。受け手を守るのは §4.1 の許諾と §5 の誓約である。s.92(1) が書面＋署名を求めるのは独占的許諾（*"exclusive licence"*）だけで、非独占の許諾には方式を要しない。s.90(4) は許諾を承継人に拘束する（善意有償の買主を除く）。署名のある適用通知（`ADOPTING.md` が案内する任意の手順）は、§3.1 が譲渡と読まれた場合の s.90(3) と、人格権の放棄の s.87(2) にも届きうる。
+- **中国**: 著作権の放棄を認める法定の手続はない（Greenleaf & Li, *China's Copyright Public Domain: A Comparison with Australia* (2017) 27(3) AIPJ 147, §2.6——ただし事実上生じうるとされる）。§3 が効かなくても §4・§5 が残る構造は同じである。
+- **韓国**: 財産権の消滅は 49 条の 2 場面（相続人がいない著作者の死後に民法等の規定により国庫に帰属した場合と、法人等の解散後に国庫に帰属した場合）に限られ、一方的な表示による放棄の経路は条文にない。135 条の「寄贈」（財産権等の権利者はその権利を文化体育観光部長官に寄贈できる）は別経路で、相手が長官で指定団体の管理が入るため、公衆への献呈の代替にはならない。§3 が効かなくても §4・§5 が残る。
+
+限界も正直に書く——韓国の根拠は 2017 年版の英訳テキスト（WIPO Lex）で、2024 年・2026 年の改正で条番号が変わっている可能性がある。中国の根拠は 2017 年の論文で、根拠法は 2010 年改正の著作権法である。韓国で一方的な公衆への放棄の表示を裁判所がどう扱うか、判例は未確認である。1.5 草案では §3→§2.1、§4→§2.2、§5→§2.5 に当たる。
 
 ---
 
