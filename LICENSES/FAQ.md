@@ -1,7 +1,7 @@
 ---
 file: LICENSES/FAQ.md
 audience: 採用検討者, 法務, ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-26
+last-updated: 2026-11-28
 canonical-ref: LICENSES/ACD-1.4.txt (このリポジトリが適用する確定版・答えはこの本文に当てる) / LICENSES/ADOPTING.md (採用の手順) / LICENSES/ACD-1.0.comparison.md (族ごとの比較) / LICENSES/ACD-1.0.jurisdictions.md (法域別の問い)
 ---
 
@@ -262,6 +262,21 @@ canonical-ref: LICENSES/ACD-1.4.txt (このリポジトリが適用する確定�
 >
 > The instrument does not warn you about this and cannot: Section 13.2 disclaims any warranty
 > that the Dedicator holds any right in the Work. **Check before you apply it, not after.**
+
+**国によって、権利が誰に帰属するかの向きが違う。** 日本では、法人の発意で社員が職務上作った
+プログラムの著作者は法人等になる（著作権法 15 条 2 項）。ドイツでは、使用者が持つのは財産的権能の
+行使だけで、著作者は社員のままで人格権も社員に残る（UrhG 69b 条 1 項）。英国は第 3 の形で、使用者
+が著作権の第一所有者になる（CDPA 1988 s.11(2)）が、著作者は社員のままで、人格権は譲渡できず
+（s.94）、放棄は放棄する本人が署名した書面によるものに限られる（s.87(2)）。米国は日本と同じ向き
+で、職務著作では使用者が著作者とみなされ著作権のすべてを持つ（17 U.S.C. §101・§201(b)）。
+したがって英国とドイツでは、会社が著作権の側で ACD を適用しても、社員の人格権は放棄されない。
+1.5 草案の §10.4 は、作って出した人と、その権限で出された人のそれぞれを Dedicator にするので、
+社員が提出に関与すれば社員も Dedicator になるが、会社が社員の関与なしに提出した場合は社員の
+人格権は残る。委託（フリーランス）の場合は別で、英国では作成者が著作権を保持し、書面の合意が
+なければ会社は第一所有者にならない。譲渡の書面なしに会社が委託先のコードに ACD を適用しても、
+献呈は空になる。どれが Dedicator かは雇用契約と事実次第で、"in the course of employment" かは
+事実の問いである。詳しくは
+[`ACD-1.0.jurisdictions.md`](ACD-1.0.jurisdictions.md) §2・§3・§5・§7。法律家の助言は得ていない。
 
 **§2.2 が撤回不能である以上、間違って適用しても取り消せない**（少なくとも、こちらから
 取り消す手段は用意していない）。**A13（移行）と同じ確認が要る。**
