@@ -73,3 +73,382 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 同じ署名のある書面は、VARA の放棄の形式要件（17 U.S.C. §106A(e)(1)：著者が署名した書面で、著作物とその使用を具体的に特定）にも、カリフォルニア州法 CAPA の放棄の形式要件（Civil Code §987(g)(3)：著者が署名し、明示的にその旨を定めた書面）にも近づく。1 つの署名が 3 つの形式要件にまとめて働く方向がある。本文は今のところ署名のある適用を勧めていない（`ACD-1.5-DRAFT.txt` §10 にその旨の項は無い）。
 
 **正直な限界**: 記録が放棄を有効にするとは限らない（Dixon 氏 2000 年の見通しはこの記録では覆らない。`jurisdictions.md` §5d）。§203 の終了権は署名では防げない。署名のある git コミットが §205(e) の「署名」に当たるか（E-SIGN 法 15 U.S.C. §7001 の射程）は確かめていない。
+
+### §6 MACHINE LEARNING, TDM
+
+**Q. §6.2「no Reservation」は、他人が付けた留保まで無効化する主張ではないのか（OSD 上も越権では）。**
+
+> **English:**
+>
+> No. Section 6.2 is the Dedicator's own non-reservation, not an instruction
+> about what anyone else may do. ACD-1.0 takes the same position for the data
+> subject and copyright owner: the right to opt out belongs to the holder, and
+> the Dedicator, as holder of the copyright, agrees not to use it. The fact that
+> this text looks like a model for others to copy is not what makes it legally
+> effective.
+
+**なぜこう答えるか**: もし審査員が「ライセンスの条文で留保をなくすのは越権だ」と読めば、条文の射程を誤読している。ACD の §6.2 は「この作品に対して、権利者である私が留保しない」という宣言であり、他人の留保に干渉しない。CC-BY 4.0 の §2(a)(1) など、ライセンスの条文に「許諾の範囲」を書く慣行と同じである（`against.md` #22）。
+
+**Q. §6.1 で ML 訓練利用を明示に許可する理由は何か。**
+
+> **English:**
+>
+> Section 6.1 states what Section 4 already permits by implication, because
+> machine learning is the use that produces the most doubt in practice.
+> "Machine learning, and its predecessors, are uses of a work, and the licence
+> permits them" — that is the whole of it. The point is to remove the doubt, not
+> to add a new permission. ACD-1.0 is a licence, not a policy statement.
+
+**Q. §6.2「no Reservation」とは何か。**
+
+> **English:**
+>
+> Section 6.2 is a promise by the Dedicator not to exercise a reservation right
+> that some jurisdictions grant. It is not a statement about the law of other
+> jurisdictions. The Dedicator cannot promise on behalf of anyone else.
+
+**Q. §6.3 は、TDM の例外を放棄するのか。**
+
+> **English:**
+>
+> No. Section 6.3 is about the Dedicator's own position. It says the Dedicator
+> will not invoke a reservation against text and data mining of the Work. It does
+> not purport to waive any exception that the law grants to others.
+
+**Q. §6.4 は、学習済みモデルにライセンスを及ぼすのか。**
+
+> **English:**
+>
+> No. Section 6.4 is a clarification, not an extension. A trained model is not
+> the Work, and the licence does not reach it. What Section 6.4 does is state
+> that the Dedicator will not assert that training on the Work creates a
+> derivative that the licence then controls.
+
+### §3 SURRENDER AND ABANDONMENT
+
+**Q. §3.1 は著作権の放棄をうたうが、放棄が認められない法域ではどうなるのか。**
+
+> **English:**
+>
+> Section 3.1 is the Dedicator's surrender and abandonment, and Section 4 is
+> the licence that takes effect where the surrender does not. The two are
+> designed to work together: where the surrender is effective, the licence is
+> unnecessary; where it is not, the licence is what the user relies on. Section
+> 4.4 makes the licence independent of Section 3, so the failure of one does not
+> take the other down.
+
+**なぜこう答えるか**: 放棄が認められない法域（ドイツなど）では §3 が効かない。そのとき §4 の許諾が受け皿になる。§4.4 の独立性がなければ、§3 の失敗が §4 まで引きずる。CC0 も同じ二段構えである（`ACD-1.0.comparison.md`）。
+
+**Q. §3.2 の「no reversion」とは何か。**
+
+> **English:**
+>
+> Section 3.2 states that the surrender does not revert to the Dedicator. Once
+> given, it stays given. This is the same point as Section 2.2, stated for the
+> surrender rather than the licence.
+
+**Q. §3.3 は、Dedicator が権利を持っていない部分について何を言うのか。**
+
+> **English:**
+>
+> Nothing. Section 3.3 is a limit, not a grant. The Dedicator surrenders only
+> what the Dedicator holds. Rights held by others are untouched, and Section
+> 2.7 says the same for the licence.
+
+### §4 LICENCE
+
+**Q. §4.1「irrevocable」と §2.2 の「irrevocable」は同じ意味か。**
+
+> **English:**
+>
+> Yes, in substance. Section 2.2 states the position for the Dedication as a
+> whole; Section 4.1 states it for the licence. The difference is one of scope,
+> not of meaning.
+
+**Q. §4.2 の許諾範囲は、OSD の「派生作品」要件を満たすか。**
+
+> **English:**
+>
+> Yes. Section 4.2 permits use, reproduction, modification, distribution, and
+> sublicensing, without field-of-use restriction. That is the OSD's core: the
+> licence must allow modified versions and derived works, and must allow them to
+> be distributed under the same terms.
+
+**Q. §4.3 は、再許諾をどう扱うのか。**
+
+> **English:**
+>
+> Section 4.3 permits sublicensing. A recipient may pass on what they received,
+> under the same terms. This is what makes the licence propagate without a
+> central registry.
+
+**Q. §4.4 の独立性は、§3 の失敗から §4 を守るか。**
+
+> **English:**
+>
+> That is its purpose. Section 4.4 states that the licence is independent of
+> the surrender in Section 3. If a court holds the surrender ineffective, the
+> licence stands on its own.
+
+**Q. §4.5 は、許諾の範囲をどう限定するのか。**
+
+> **English:**
+>
+> Section 4.5 limits the licence to the rights the Dedicator holds. It does not
+> purport to license rights held by others. See Section 2.7.
+
+### §5 COVENANT NOT TO ASSERT
+
+**Q. §5.1 の不主張の約束は、契約として強制できるか。**
+
+> **English:**
+>
+> In most systems, yes, on ordinary contract or estoppel grounds. The covenant
+> is the layer that survives where the surrender in Section 3 does not, because
+> it is a promise about the Dedicator's own future conduct, not a transfer of a
+> right. Whether it survives an argument of want of consideration is open; see
+> the question on Section 2.5 above.
+
+**Q. §5.2 の反 DRM 条項は、利用者への制限ではないのか。**
+
+> **English:**
+>
+> No. Section 5.2 is a promise by the Dedicator not to use technological
+> measures to restrict the Work. It is a promise about the Dedicator's own
+> conduct, not a restriction on users. The GPL has a similar provision, and the
+> same reading applies.
+
+### §7 DATABASE RIGHTS
+
+**Q. §7.1 は、データベース権をどう扱うのか。**
+
+> **English:**
+>
+> Section 7.1 surrenders the sui generis database right where it exists, and
+> licenses it where the surrender does not take effect. The same two-layer
+> structure as Sections 3 and 4.
+
+**Q. §7.2 は、データベース権の独立した許可か。**
+
+> **English:**
+>
+> Yes. Section 7.2 is an independent permission for the database right, so that
+> a failure in Section 3 does not take it down. This is the point of errata E46:
+> the old enumeration in Section 2.8 omitted it.
+
+### §8 PATENT
+
+**Q. §8.1 は、特許の許諾をどう扱うのか。**
+
+> **English:**
+>
+> Section 8.1 licenses the Dedicator's patents that are necessarily infringed
+> by the Work, on the same irrevocable terms as the copyright licence. It does
+> not license patents that are not necessarily infringed.
+
+**Q. §8.2 の特許の終了条項は、報復条項か。**
+
+> **English:**
+>
+> No. Section 8.2 terminates the patent licence only for a party who asserts a
+> patent against the Work. It is a defensive termination, not a retaliatory one.
+> The distinction matters for OSD 7, which forbids discrimination against persons
+> or groups, not defensive termination against patent assertion.
+
+**Q. §8.6 の不主張の約束は、§5.1 とどう違うのか。**
+
+> **English:**
+>
+> Section 8.6 is the patent-specific covenant not to assert. It mirrors Section
+> 5.1 for patents. The two are separate because the rights are separate.
+
+### §9 TRADEMARK
+
+**Q. §9.1 は、商標を許諾するのか。**
+
+> **English:**
+>
+> No. Section 9.1 expressly withholds trademark rights. The licence does not
+> grant any right to use the Dedicator's trademarks. This is standard: the
+> Apache Licence 2.0 does the same.
+
+**Q. §9.2 は、商標の放棄か。**
+
+> **English:**
+>
+> No. Section 9.2 states that nothing in the Dedication abandons any trademark.
+> A trademark is a different kind of right, and the Dedication does not touch it.
+
+### §10 APPLICATION
+
+**Q. §10.1 の適用の手順は、なぜあのような形か。**
+
+> **English:**
+>
+> Section 10.1 gives a short procedure: copy the notice, attach it to the Work,
+> and state the date. The point is to make the act of dedication visible and
+> verifiable, so that a later reader can tell that the Work was dedicated and
+> when. The procedure is deliberately short; a longer one would not be followed.
+
+**Q. §10.2 は、適用の通知をどう扱うのか。**
+
+> **English:**
+>
+> Section 10.2 requires the notice to accompany the Work, so that a recipient
+> knows the terms on which they received it. This is the notice function that
+> Section 2.8 relies on: a successor who takes with notice is in a worse
+> position to claim ignorance.
+
+### §11 NO WARRANTY
+
+**Q. §11.1 は、保証をどう扱うのか。**
+
+> **English:**
+>
+> Section 11.1 disclaims all warranties, to the extent the law permits. This is
+> standard in open source licences. The disclaimer is asserted against people
+> who may never have seen it, which is a known weakness; see `against.md` #41.
+
+### §12 MORAL RIGHTS
+
+**Q. §12.1 は、人格権を放棄するのか。**
+
+> **English:**
+>
+> Where the law permits it, yes. Section 12.1 waives moral rights to the extent
+> permitted. Where the law does not permit waiver, Section 12.2 is the fallback:
+> a covenant not to exercise, limited to the Work.
+
+**Q. §12.2 の不行使の合意は、放棄とどう違うのか。**
+
+> **English:**
+>
+> A waiver extinguishes the right; a covenant not to exercise leaves the right
+> in place but promises not to use it against this Work. The covenant is the
+> weaker of the two, but it is available in jurisdictions where waiver is not.
+
+**Q. §12.3 は、氏名表示をどう扱うのか。**
+
+> **English:**
+>
+> Section 12.3 preserves attribution where the law requires it. The Dedication
+> does not ask a user to remove attribution that the law requires them to give.
+
+**Q. §12.4 は、承継人をどう扱うのか。**
+
+> **English:**
+>
+> Section 12.4 binds successors to the fullest extent the law permits, using the
+> same formula as Section 2.8. The same limits apply.
+
+### §13 DISCLAIMER OF WARRANTY
+
+**Q. §13.1 は、免責をどう扱うのか。**
+
+> **English:**
+>
+> Section 13.1 disclaims warranties to the extent the law permits. The same
+> point as Section 11.1, stated for the avoidance of doubt.
+
+### §14 LIMITATION OF LIABILITY
+
+**Q. §14.1 は、責任をどう限定するのか。**
+
+> **English:**
+>
+> Section 14.1 limits liability to the extent the law permits. This is standard.
+> The honest limit is that some jurisdictions do not permit the limitation, and
+> the Dedication says so.
+
+### §15 INTERPRETATION AND SEVERANCE
+
+**Q. §15.1 は、解釈をどう扱うのか。**
+
+> **English:**
+>
+> Section 15.1 states the Dedicator's intent, which matters for construction.
+> The Dedication is to be read as the Dedicator intended it, not as a hostile
+> reader might read it.
+
+**Q. §15.2 は、準拠法をどう扱うのか。**
+
+> **English:**
+>
+> Section 15.2 states that the Dedication is governed by the law of the
+> jurisdiction in which the Work is used, not by a single chosen law. This is
+> deliberate: a dedication that picks one law would be read as a contract
+> choosing that law, and the Dedication is not a contract.
+
+**Q. §15.3 は、条項の分離をどう扱うのか。**
+
+> **English:**
+>
+> Section 15.3 severs a provision held unenforceable in a jurisdiction, as to
+> that jurisdiction only. The rest of the Dedication stands.
+
+**Q. §15.4 は、条項の修正をどう扱うのか。**
+
+> **English:**
+>
+> Section 15.4 reforms a provision held unenforceable to the minimum extent
+> necessary in that jurisdiction. The provision is rewritten, not struck out.
+
+### §16 NOTICES
+
+**Q. §16.1 は、通知をどう扱うのか。**
+
+> **English:**
+>
+> Section 16.1 requires the notice to be attached to the Work. The notice is
+> what makes the dedication visible.
+
+**Q. §16.2 は、識別子をどう扱うのか。**
+
+> **English:**
+>
+> Section 16.2 requires an identifier, so that a later reader can tell which
+> Work was dedicated and when. The identifier is what makes the dedication
+> verifiable.
+
+---
+
+## 逆側
+
+**Q. 審査員が「放棄はできない」と言ったら、どう答えるか。**
+
+> **English:**
+>
+> We do not claim that abandonment works everywhere. Section 3 is the
+> surrender; Section 4 is the licence that takes effect where the surrender does
+> not. If abandonment does not work in your jurisdiction, the licence is what
+> you rely on. That is the design.
+
+**Q. 審査員が「対価がないから撤回できる」と言ったら、どう答えるか。**
+
+> **English:**
+>
+> That is open. Section 2.5 relies on estoppel, and estoppel requires reliance.
+> If a court refuses estoppel, the remaining protection is the layering in
+> Sections 3, 4, and 5. Whether that layering holds is open. We do not claim
+> otherwise.
+
+**Q. 審査員が「長すぎる」と言ったら、どう答えるか。**
+
+> **English:**
+>
+> The length is a cost of the design. The Dedication states its position on
+> every question a reviewer is likely to ask, so that the answers are in the
+> document rather than in a separate explanation. Shortening it would move the
+> answers out of the document, not remove the questions.
+
+---
+
+## 変更履歴
+
+- 2026-11-28: §2.8 の問いに米国の署名のある適用通知と著作権局への記録を追記（17 U.S.C. §205(e)・§205(c)、Compendium 3rd ed. §2311、§106A(e)(1)、Cal. Civil Code §987(g)(3)）。
+- 2026-11-27: §2.5 の問いの答えを更新（Rosen 氏の異論への対応）。
+- 2026-11-25: 「この文書の "I" は誰か」の注を追加。
+
+---
+
+*番号は動かしていない。*
