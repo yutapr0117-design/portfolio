@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-doctrine.md
 audience: OSI license-discuss / license-review participants, licence reviewers, 監査人
-last-updated: 2026-11-16
+last-updated: 2026-11-28
 canonical-ref: LICENSES/ACD-1.0.review-precedents.md (他の提出に何が起きたかの記録) / LICENSES/ACD-1.0.against.md
 ---
 
@@ -195,6 +195,31 @@ Dedicator を *"to the extent that person or entity holds or may hold Covered Ri
   *"maybe you don't agree with those arguments (I move back and forth myself a lot of the time!)"*
   と書いている ——**未決であることの証拠であって、答えの証拠ではない。**
 - **個人の資格での発言である。** 委員長の発言も含め、委員会の裁定でも理事会の決定でもない。
+
+### 2026-11-28 追記（タイには TDM の例外が無い —— §6.1 の許諾が例外の代わりになる）
+
+**リストが名指ししたのは EU の TDM 例外だった。裏側がある。** 2026-11-28 の法域調査で、
+タイには EU 型のテキスト・データ・マイニングの例外が無いことが分かった。2022 年の第 5 次改正
+（Copyright Act (No. 5) B.E. 2565、2022-08-23 施行）は WCT への加入に伴う技術的保護手段の保護と、
+サービス・プロバイダの責任制限・通知削除手続が主眼で、TDM の例外は入っていない
+（実務家の整理、eksiamlegal、2026-11-08 更新）。
+
+**ACD-1.0 に効く点。** タイでは学習のための複製は例外に頼れないので、1.4 §6.1 の
+*\"Computational Use of the Work is expressly permitted, for any purpose\"*（1.5 草案 §2.2 の
+*\"The licence includes any Computational Use of the Work\"*）が、例外の代わりに学習を可能にする
+側に立つ。上の (1) が言う「沈黙が未解決に残すもの」とは逆に、ここでは本文の明示が例外の不在を
+埋める。同じく 1.4 §6.2・§6.3（1.5 草案 §3.1）の Reservation を置かない・撤回する旨は、
+タイには EU 指令 2019/790 第 4 条 (3) のような留保の制度が無いので、タイでは咬む相手が無い。
+
+**開いていること。** タイの CC 移植版（CC BY-NC-SA 3.0 Thailand、2010 年の移植報告）は、
+タイの法域ではライセンスは契約であるとして、未移植版の「ライセンスとみなされる場合には契約である」
+旨の文言を削っている。ACD のような不特定多数への一方的な表示＋許諾がタイで契約として成立するか
+（申込み・承諾・約因を要するか）は未検証で、ドシエの §2.3 の段（日本の民法 527 条の問い）と
+同型の問いがタイでも立つ。タイ著作権法 18 条の人格権は「書面による別段の合意」で修正・放棄しうる
+向きだが（ICLG 2026 年版）、ACD の一方的な通知がその「合意」に当たるかも未検証である。
+タイ法に法定の報酬請求権・追及権があるかは、今回の範囲では未確認（見つからなかっただけで、
+無いことの証明にはならない）。タイ法の WIPO Lex の PDF の URL は署名付きで期限切れになるので、
+恒久の書誌は WIPO Lex TH001 を見ること。
 
 ## 1.109 2006 年の 2 スレッドが、特許についての 3 段目と、Unlicense 先例への依拠を同時に出した（2026-09-25）
 
