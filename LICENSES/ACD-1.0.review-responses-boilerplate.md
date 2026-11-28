@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses-boilerplate.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-27
+last-updated: 2026-11-28
 canonical-ref: LICENSES/ACD-1.0.review-responses-clauses.md (第 1 層・条項別) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
 ---
 
@@ -254,29 +254,41 @@ canonical-ref: LICENSES/ACD-1.0.review-responses-clauses.md (第 1 層・条項�
 
 > **English:**
 >
-> Yes, and I would rather say so than leave it as an unexplained term of art. In
-> a US bankruptcy, a trustee may reject an executory contract, and licensees have
-> historically needed a specific statutory shelter (11 U.S.C. § 365(n)) to keep
-> what they were given. A grant that is fully performed at the moment it is
-> applied, leaving no continuing obligation on either side, is not executory and
-> so is not a candidate for rejection at all.
+> In a US bankruptcy, a trustee may reject an executory contract, and licensees
+> have historically needed a specific statutory shelter (11 U.S.C. § 365(n)) to
+> keep what they were given.
 >
-> Section 2.9 states that position and then closes the adjacent route: an
-> insolvency officer is a person to whom rights are transferred for the purposes
-> of Section 2.8, so they take subject to Sections 3, 4, 6 and 8. Section 2.9's
-> own text says why insolvency is called out separately — it is the most common
-> way in which rights change hands against the wishes of the person who gave them
-> away.
+> ACD-1.0 §2.9 once answered that with a classification: a grant fully performed
+> at the moment it is applied "is not executory". Errata E5 removed the
+> classification ("and so is not executory") because whether a contract is
+> executory is for the forum's insolvency law to decide, not the document; E30
+> rewrote the first sentence the same way, from a result the forum decides to a
+> promise under the instrument's own terms. What ACD-1.4 §2.9 states instead:
+> nothing in the Dedication is, under its terms, conditioned on, suspended by,
+> or revived by an insolvency proceeding or an officer's act, and such an officer
+> is a transferee for the purposes of Section 2.8. Insolvency is called out
+> separately because it is the most common way in which rights change hands
+> against the wishes of the person who gave them away.
+>
+> The protection is the machinery, not the classification. Section 3 is a
+> completed surrender with nothing left to reject, and Section 2.9's second
+> sentence puts the officer inside Section 2.8 rather than outside it. In the
+> United States the question has also narrowed since 1.0: *Mission Product
+> Holdings v. Tempnology* (2019) held that rejection of a contract *"operates not
+> as a rescission but as a breach"* and *"cannot rescind rights that the contract
+> previously granted"*, so even if the Dedication were treated as executory,
+> rejection would not erase the rights already given (`jurisdictions.md` §5).
+> The honest limit is that whether a court treats the Dedication as executory,
+> and whether § 365(n) reaches it, is open. The licences are inside the
+> definition of "intellectual property" that § 365(n) protects — the copyright
+> licence under 11 U.S.C. § 101(35A)(E), the patent licence under (B) and (C) —
+> but that is the fallback if rejection applies, not the design's first line.
 
-**⚠ 2026-11-01 注**: 上の *"Sections 3, 4, 6 and 8"* は 1.0 の §2.8 の列挙どおりで、1.0 の記述としては
+**⚠ 2026-11-01 注（2026-11-28 に更新）**: 旧版の答えは *"Sections 3, 4, 6 and 8"* と列挙していたが、それは 1.0 の §2.8 の列挙どおりで、1.0 の記述としては
 正確である。ただしその列挙は §7.2（データベース権の独立した許可）と §2 自身（§2.5 の禁反言）を
 落としていた —— errata **E46** / **E49**。1.4 草案は列挙をやめ *"This Dedication, in respect of the
-Work, binds …"* とした。倒産管財人が §2.8 の譲受人に当たるという本答えの論点は変わらない。
+Work, binds …"* としたので、上の答えも列挙をやめた。倒産管財人が §2.8 の譲受人に当たるという本答えの論点は変わらない。
 
->
-> Whether a given court agrees that the instrument is non-executory is not
-> something I can guarantee, and I do not claim it. What I can do is not leave
-> the question unaddressed.
 >
 > A reviewer raised *In re Qimonda* against this clause, and reading the
 > judgment strengthens the design rather than the objection. In *Jaffé v.
@@ -291,12 +303,11 @@ Work, binds …"* とした。倒産管財人が §2.8 の譲受人に当たる�
 > that applying § 365(n) *"was necessary to ensure the licensees under
 > Qimonda's U.S. patents were sufficiently protected"*. The licensees kept what
 > they had been given — **but only as the outcome of a discretionary balance.**
-> That is the reason this instrument does not rest on § 365(n): Section 3 is a
-> completed surrender with nothing left to reject, and Section 2.9's second
-> sentence puts the officer inside Section 2.8 rather than outside it. **The
+> That is the reason this instrument does not rest on § 365(n) alone. **The
 > honest limit is the same one stated above, now with a case attached**: a
 > forum decides these questions on its own facts, and the first sentence of
-> Section 2.9 states a result rather than producing it. That is recorded against
+> Section 2.9, as 1.0 wrote it, stated a result rather than producing it
+> (errata E30; rewritten in 1.2). That is recorded against
 > us at `against.md` #178.
 
 ### Q26. §5.2(a) の反 DRM 条項は、利用者への制限ではないのか
