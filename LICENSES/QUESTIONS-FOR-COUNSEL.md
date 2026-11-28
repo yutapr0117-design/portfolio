@@ -1,7 +1,7 @@
 ---
 file: LICENSES/QUESTIONS-FOR-COUNSEL.md
 audience: a lawyer asked to read ACD, or reading it on license-review / license-discuss; the steward, when asking one
-last-updated: 2026-11-25
+last-updated: 2026-11-28
 canonical-ref: LICENSES/ACD-1.4.txt (the latest fixed text, applied to this repository) / LICENSES/ACD-1.5-DRAFT.txt (the successor draft) / LICENSES/ACD-1.0.jurisdictions.md (where we think each question sits, by jurisdiction) / LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (B1)
 ---
 
@@ -374,6 +374,8 @@ advance to unspecified acts (and Article 113(11), on acts prejudicial to honour 
 not a right that consent obviously reaches), does adding consent words do harm, for instance by
 inviting the reading that the covenant alone was not meant to suffice? ACD-1.4 adds such a consent
 (`ACD-1.4-THIRD-CLARITY-TRIAL.md` §15.1, T67); the reading above is ours, not a list participant's.
+
+**2026-11-28 — a decided answer for Australia.** *McCallum v Projector Films Pty Ltd* [2026] FCA 173 (Federal Court, Shariff J, liability hearing) is the first Australian decision to rule directly on a blanket moral-rights waiver, and it answers the question above in the negative for Australia: a blanket advance waiver is unenforceable. Part IX of the *Copyright Act 1968* (Cth) does not support a blanket waiver; consent must be specific, informed and directed to identifiable conduct. Clause 6.2 of the contract in that case — *"The Director waives all moral or other similar rights in respect of the Documentary or the Development Materials that the Director may be entitled to under the laws of any jurisdiction throughout the world in perpetuity"* — did not amount to valid consent. The Act itself requires consent to be in writing and genuinely given (s 195AWA(2)) and to relate to specified acts or omissions and a specified work or works (s 195AWA(3)); a consent in the licence text that specifies no act therefore does not satisfy s 195AWA(3) in Australia. So in Australia §12.1's waiver likely does not operate as a waiver, and §12.2's consent does not operate as a consent; the covenant in §12.2 (and, in the 1.5 draft, §2.5(c), with the consent in §2.6) remains the operative footing there. Two cautions: the judgment text itself has not been read — the above rests on firm summaries (Johnson Winter Slattery, Piper Alderman, Clayton Utz) and the *Journal of Intellectual Property Law & Practice* abstract (2026) 21(8) 522 — and the decision is first-instance Federal Court, so it may be appealed or distinguished.
 
 **An answer would change** §12.2 and §12.4, the clauses on which the dossier most wants correction
 (`jurisdictions.md` §10), and whether §12.3 keeps its last clause (the second point under (c)).
