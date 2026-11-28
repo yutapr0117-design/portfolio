@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses-clauses.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-11-27
+last-updated: 2026-11-28
 canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
 ---
 
@@ -63,6 +63,16 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 > trustee is bound in every system. Section 2.8's stated concern with insolvency
 > is there because that is the most common route by which rights reach someone
 > who never made the promise.
+
+**2026-11-28 追記 — 米国の譲受人に対する優先は、署名のある書面が要る（`QUESTIONS-FOR-COUNSEL.md` 問 1 (j) の材料）**: 17 U.S.C. §205(e) は、非独占の許諾が後の著作権の譲渡に優先するのは、その許諾が *“a written instrument signed by the owner of the rights licensed”* で示され、かつ譲渡の前に取られたか、譲渡の記録の前に善意で通知なく取られた場合に限ると定める。ACD-1.4 §16.1・§16.2 の通知だけの適用（署名なし）はこの形式を満たさない。したがって §2.8 の *“to the fullest extent the law permits”* は、この点では法定の優先を与えず、譲受人に対する拘束は §2.8 の意思表示と通知による禁反言の余地に留まる。
+
+米国著作権局は、放棄をうたう宣誓供述書・宣言・陳述・その他文書を記録する（Compendium of U.S. Copyright Office Practices, 3rd ed., §2311 *“Abandonment”*。2026-11-28 に原文で確認）。要件は、放棄の対象の特定（著者・題名・登録番号が望ましい）、署名者の氏名、現在の権利者である旨の陳述、放棄した旨の陳述、現在の権利者（ら）の実際の署名、手数料である。記録された文書は公開記録になり、記録の証明書が返される。ただし著作権局は *“without offering any opinion as to the legal effect of the document”* と述べ、記録が放棄を有効にするとは言わない。
+
+記録が擬制通知になるのは、文書が著作物を具体的に特定し、かつその著作物が登録されている場合に限る（17 U.S.C. §205(c)）。ACD の対象の多くは未登録なので、記録しても擬制通知は得られず、実際の通知（Work とともに公開された §16.2 の識別子）に頼るほかない。
+
+同じ署名のある書面は、VARA の放棄の形式要件（17 U.S.C. §106A(e)(1)：著者が署名した書面で、著作物とその使用を具体的に特定）にも、カリフォルニア州法 CAPA の放棄の形式要件（Civil Code §987(g)(3)：著者が署名し、明示的にその旨を定めた書面）にも近づく。1 つの署名が 3 つの形式要件にまとめて働く方向がある。本文は今のところ署名のある適用を勧めていない（`ACD-1.5-DRAFT.txt` §10 にその旨の項は無い）。
+
+**正直な限界**: 記録が放棄を有効にするとは限らない（Dixon 氏 2000 年の見通しはこの記録では覆らない。`jurisdictions.md` §5d）。§203 の終了権は署名では防げない。署名のある git コミットが §205(e) の「署名」に当たるか（E-SIGN 法 15 U.S.C. §7001 の射程）は確かめていない。
 
 ### §6 MACHINE LEARNING, TDM
 
